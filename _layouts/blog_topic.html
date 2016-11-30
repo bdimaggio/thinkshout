@@ -7,28 +7,13 @@ layout: default
   {% for post in site.categories.blog %}
     {% if post.featured and post.topic == page.topic %}
       {% if post.header-image %}
-        <div class="featured-post" style="background-image: url('{{ site.baseurl }}{{ post.header-image }}');">
+        <div class="featured-blog-post" style="background-image: url('{{ site.baseurl }}{{ post.header-image }}');">
       {% else %}
-        <div class="featured-post" style="background-image: url('{{ site.baseurl }}/assets/images/ts_redesign/blog/up-and-theming1.jpg');">
+        <div class="featured-blog-post" style="background-image: url('{{ site.baseurl }}/assets/images/ts_redesign/blog/up-and-theming1.jpg');">
       {% endif %}
-        <div class="wrapper">
-          <p class="featured">Featured Blog Post</p>
-          <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+        <div class="gradient">&nbsp;</div>
+        {% include blog_featured.html %}
 
-          {% if post.short %}
-          <p class="short">{{ post.short }}</p>
-          {% endif %}
-
-          <p class="byline">
-            {% for person in site.team %}
-            {% if post.author == person.name %}
-            <img class="team-photo" src="{{ site.baseurl }}/assets/images/{{ person.team-image.small }}">
-            <a class="team-name" href="{{ site.baseurl }}{{ person.url }}">{{ person.first_name }} {{ person.last_name }}</a><br>
-            {{ person.position }}
-            {% endif %}
-            {% endfor %}
-          </p>
-        </div>
       </div>
       {% break %}
     {% endif %}
@@ -37,26 +22,11 @@ layout: default
   {% for post in site.categories.blog %}
     {% if post.homepage %}
       {% if post.header-image %}
-        <div class="featured-post" style="background-image: url('{{ site.baseurl }}{{ post.header-image }}');">
+        <div class="featured-blog-post" style="background-image: url('{{ site.baseurl }}{{ post.header-image }}');">
       {% endif %}
-        <div class="wrapper">
-          <p class="featured">Featured Blog Post</p>
-          <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+        <div class="gradient">&nbsp;</div>
+        {% include blog_featured.html %}
 
-          {% if post.short %}
-          <p class="short">{{ post.short }}</p>
-          {% endif %}
-
-          <p class="byline">
-            {% for person in site.team %}
-            {% if post.author == person.name %}
-            <img class="team-photo" src="{{ site.baseurl }}/assets/images/{{ person.team-image.small }}">
-              <a class="team-name" href="{{ site.baseurl }}{{ person.url }}">{{ person.first_name }} {{ person.last_name }}</a><br>
-              {{ person.position }}
-            {% endif %}
-            {% endfor %}
-          </p>
-        </div>
       </div>
       {% break %}
     {% endif %}
