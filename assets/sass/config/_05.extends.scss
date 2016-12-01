@@ -36,7 +36,8 @@
 }
 
 // Upper header text with the down facing arrow
-.header-down-caret {
+.header-down-caret,
+%header-down-caret {
   h4 {
     font-size: rem(13);
     margin-bottom: 0;

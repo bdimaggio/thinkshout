@@ -11,38 +11,35 @@
     padding: 0;
     width: 100%;
 
+    .gradient {
+      background-image: linear-gradient( to right, rgba(40,40,40,0.8), rgba(40,40,40,0.5) );
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00FFFFFF', endColorstr='#dd000000',GradientType=1 );
+      max-width: 100%;
+    }
+
     .wrapper {
-      background-image: linear-gradient( to left, rgba(255,255,255,0.6), rgba(255,255,255,0.6) );
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaFFFFFF', endColorstr='#00ffffff',GradientType=1 );
       max-width: 100%;
       margin: 0 auto;
       padding: 2rem 1rem 1rem;
       @include mq(lt) {
         padding: 4rem 1rem 2rem 2rem;
-        background-image: linear-gradient( to right, rgba(255,255,255,0.6), rgba(255,255,255,0.0) 85% );
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaFFFFFF', endColorstr='#00ffffff',GradientType=1 );
       }
       @include mq(md) {
         padding: 8rem 1rem 3rem 2rem;
-        background-image: linear-gradient( to right, rgba(255,255,255,0.6), rgba(255,255,255,0.0) 75% );
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaFFFFFF', endColorstr='#00ffffff',GradientType=1 );
       }
       @include mq(l)  {
         padding: 10rem 0 2rem 0;
-        background-image: none;
         max-width: rem(1100);
       }
     }
 
     h2,p {
-      color: $darkgray;
       max-width: 95%;
       margin: 0 0 1rem;
       @include mq(lt) { max-width: 40%; }
       @include mq(md) { max-width: 40%; }
       @include mq(l)  { max-width: 35%; }
       a {
-        color: $darkgray;
         font-weight: 800;
       }
       a:hover {
@@ -50,16 +47,26 @@
       }
     }
     h2 {
+      color: $yellow;
       font-size: rem(22);
       @include mq(lt) { font-size: rem(28); }
       @include mq(md) { font-size: rem(32); }
       @include mq(l)  { font-size: rem(40); }
+
+      a {
+        color: $yellow;
+      }
+    }
+    p {
+      color: $white;
     }
     .featured {
+      color: $white;
       font-size: rem(13);
       font-weight: 700;
       margin-bottom: 0.5rem;
       text-transform: uppercase;
+      @extend %header-down-caret;
     }
     .short {
       font-size: rem(16);
@@ -72,6 +79,9 @@
       @include mq(lt) { margin-top: 1rem;  }
       @include mq(md) { margin-top: 1.5rem;  }
       @include mq(l)  { margin-top: 2rem;  }
+    }
+    .byline .team-name {
+      color: $yellow;
     }
   }
 
@@ -95,7 +105,7 @@
     padding: 0;
     li {
       border-bottom: 1px solid $ltgray;
-      display: inline-block; 
+      display: inline-block;
       padding: 1rem 1rem;
       width: 100%;
       @include mq(lt) { padding: 2rem 2rem; }
