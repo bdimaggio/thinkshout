@@ -58,3 +58,5 @@ collections:
   topic:
     output: true
     permalink: /blog/topic/:slug/
+
+theme: jekyll-theme-minimal
