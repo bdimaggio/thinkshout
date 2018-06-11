@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>The Technology Behind the New ThinkShout.com | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="How we used Jekyll, Foundation, GitHub, and Amazon S3 to build and deploy the new ThinkShout.com.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal Planet, Jekyll">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">03.05.2014</span>
+  
+  </p>
+
+  <h1 class="post-title">The Technology Behind the New ThinkShout.com</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/lev.jpg">
+    
+      <a class="team-name" href="/team/lev/">Lev Tsypin</a>
+    <br>
+      Founder, CEO
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <p>Now that we’ve covered the <a href="http://thinkshout.com/blog/2014/02/the-new-thinkshout-website/">goals, strategy and process for our new site</a>, I wanted to dive into the technology choices we made. First, the obvious: unlike most of the sites we’ve launched over the last four years, this one is <em>not</em> built with <a href="http://drupal.org">Drupal</a>. Instead we used <a href="http://jekyllrb.com">Jekyll</a>, one of a fast growing list of <a href="http://staticsitegenerators.net/">static site generators</a> (SSG), along with <a href="http://foundation.zurb.com/">Foundation 5</a>, <a href="http://github.com">GitHub</a>, and <a href="http://aws.amazon.com/s3/">Amazon S3</a> for hosting.</p>
+
+<p><img src="http://jekyllrb.com/img/logo-2x.png" alt="Jekyll logo" /></p>
+
+<h2 id="so-why-not-drupal">So, why not Drupal?</h2>
+
+<p>We love Drupal. We’re committed to it. We actively <a href="https://drupal.org/marketplace/thinkshout">contribute to</a> and <a href="http://myntc.nten.org/eventdetails/precon/drupal">participate in</a> the community. But the reality is that Drupal is not the right fit for <em>every</em> project. Structurally, our website is fairly simple brochureware along with a blog. That does not fit the criteria that we generally tout as Drupal’s strengths, namely complex data structures, custom applications, third party integrations, and numerous features encapsulated into a single website. In addition, we wanted our website to focus on our clients and the ThinkShout team, and we were excited about the flexibility a Jekyll site afforded us in crafting unique user experiences for each section and page without having to do battle with Drupal’s theme layer and developer workflow to achieve them.</p>
+
+<p>Our own website afforded us an opportunity to leverage a new technology and development process at a much lower risk point than doing so for a client. Keeping in mind all the Drupal caveats I’ve already stated, we have always avoided calling ourselves a “Drupal shop”, whatever that actually means. What we don’t waver on is providing value to our forward-thinking clients by crafting elegant user experiences and leveraging open source technology; this often, but not always, means using Drupal. Our new site allowed us to explore the process of building, launching, and maintaining a Jekyll site so we can better evaluate the kind of client engagements it would be a good fit for.</p>
+
+<p>Finally, we wanted to use Jekyll just because <em>we could</em>. We are geeks and technologists at heart, and love trying new things. That can be hard to do sometimes when demand for Drupal is so high and we’re keeping busy with our client engagements. Using a new platform for our own website gave us an opportunity to experiment and learn with a concrete goal (and schedule!) more or less on the clock. Sounds like a win to me.</p>
+
+<h2 id="some-jekyll-benefits">Some Jekyll benefits</h2>
+
+<p>The following list is far from comprehensive, but includes some of the things we were most excited about using Jekyll this first go around.</p>
+
+<h3 id="project-velocity">Project velocity</h3>
+<p>Since we already use Jekyll and Foundation for wireframes and prototyping, we went from early concepts and prototypes to final site build in no time at all. Iterations also went much faster as we weren’t encumbered with Drupal’s configure/export/enable Features based development workflow.</p>
+
+<h3 id="flexibility">Flexibility</h3>
+<p>While we are well aware that Drupal doesn’t inherently limit the design and user experience of a site, it certainly can take considerable effort to bend Drupal’s complex data structures and theme layer to your will. Without those limitations, we were free to push creative boundaries and explore unique user experiences. And iterate on those experiences. And experiment with new layouts for each section and even page. In short, we felt comfortable experimenting with the user experience because the cost of mistakes was fairly low.</p>
+
+<h3 id="performance-and-maintenance">Performance and maintenance</h3>
+<p>The final site as served to end users consists only of static assets: HTML, CSS, Javascript, and images. The speed is limited only by front end optimizations and the latency on your file server. Combine it with a CDN and the site is, as we like to say, stupid fast. Our very unscientific performance benchmark using apache benchmark for 1000 requests with a concurrency level of 100 comparing the Jekyll site staged on GitHub pages to our old site running in production on Pantheon (one of the absolute best Drupal environments out there), showed the following (Pantheon v GH Pages):</p>
+
+<ul>
+  <li>Requests per second: 63 vs 289</li>
+  <li>Time per request: 1566 vs 344</li>
+  <li>Failed requests: 221 vs 0</li>
+  <li>Transfer rate: 1629 vs 177</li>
+  <li>Time to complete 100% of requests: 15667 vs 1480</li>
+</ul>
+
+<p>Oh yeah, and NO SECURITY OR MAINTENANCE UPDATES. EVER.</p>
+
+<h2 id="the-process">The process</h2>
+
+<h3 id="data-migration">Data migration</h3>
+<p>Migration was not a major issue given the nature of our site combined with the fact that we were taking the new site as an opportunity to rework much of the copy, including our portfolio. We, did, however, need to migrate our blog. Jekyll ships with a <a href="https://github.com/jekyll/jekyll-import/blob/v0.1.0.beta4/lib/jekyll-import/importers/drupal7.rb">migration class that supports Drupal</a>, which didn’t quite meet our needs, mostly due to a lack of support for taxonomy terms. We used it as a starting point, though, and with a few minor changes, had our own migration script which converted our Drupal blog history into a set of Markdown files in the new site structure. We decided to use Disqus as the commenting engine on the new site and, while there are some great <a href="http://fuseinteractive.ca/blog/migrating-comments-drupal-7-disqus">examples out there of migrating Drupal comments to Disqus</a>, and we appreciate the value of some of our comment threads, in the end we decided it wasn’t worth migrating them over and are starting with a clean slate for comments.</p>
+
+<h3 id="jekyll-plugins">Jekyll plugins</h3>
+<p>Jekyll plugins are written in Ruby and are processed when the site is built. There are three categories of plugins.</p>
+
+<ul>
+  <li>Generators create content.</li>
+  <li>Converters change text, E.g., from Markdown to HTML.</li>
+  <li>Tags define liquid tags to use in your templates.</li>
+</ul>
+
+<p>There are number of builtin plugins which cover basic blog features and a rich <a href="http://jekyllrb.com/docs/plugins/">ecosystem of contributed plugins</a>, covering things like generating a <a href="https://github.com/kinnetica/jekyll-plugins">sitemap.xml</a> and <a href="https://github.com/agelber/jekyll-rss">RSS feeds</a>. We did find that we needed to create a few of our own as well, which, once we got the hang of it, was very straightforward. For example, we are storing all of our team members in a <a href="http://jekyllrb.com/docs/datafiles/">data file</a> and are generating a team member landing page for each person using a generator plugin. We also wanted to mimic Drupal’s tag landing pages, so we wrote a generator plugin for that plus a filter to output the tag list on blog detail pages.</p>
+
+<h3 id="content-management">Content management</h3>
+<p>While the idea of cloning a repository and editing markdown files in one’s favorite text editor is appealing to some folks, it’s jut not a realistic expectation for many users, especially when you throw git into the mix. Enter <a href="http://prose.io">Prose.io</a>, a content authoring environment from our friends at <a href="http://developmentseed.org/">Development Seed</a> made for managing sites hosted on GitHub. It has special affordances for Jekyll, but can work with any static content. In addition to a nice content editor, you can define metadata for your posts presented as form elements.</p>
+
+<p>This configuration:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">prose</span><span class="pi">:</span>
+  <span class="na">rooturl</span><span class="pi">:</span> <span class="s2">"</span><span class="s">blog/_posts"</span>
+  <span class="na">siteurl</span><span class="pi">:</span> <span class="s2">"</span><span class="s">http://thinkshout.com"</span>
+  <span class="na">media</span><span class="pi">:</span> <span class="s2">"</span><span class="s">assets/images/blog"</span>
+  <span class="na">metadata</span><span class="pi">:</span>
+    <span class="s">blog/_posts</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">layout"</span>
+        <span class="na">field</span><span class="pi">:</span>
+          <span class="na">element</span><span class="pi">:</span> <span class="s2">"</span><span class="s">hidden"</span>
+          <span class="na">value</span><span class="pi">:</span> <span class="s2">"</span><span class="s">post"</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">short"</span>
+        <span class="na">field</span><span class="pi">:</span>
+          <span class="na">element</span><span class="pi">:</span> <span class="s2">"</span><span class="s">textarea"</span>
+          <span class="na">label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Short</span><span class="nv"> </span><span class="s">teaser"</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">author"</span>
+        <span class="na">field</span><span class="pi">:</span>
+          <span class="na">element</span><span class="pi">:</span> <span class="s2">"</span><span class="s">text"</span>
+          <span class="na">label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Author</span><span class="nv"> </span><span class="s">short</span><span class="nv"> </span><span class="s">name"</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">tags"</span>
+        <span class="na">field</span><span class="pi">:</span>
+          <span class="na">element</span><span class="pi">:</span> <span class="s2">"</span><span class="s">multiselect"</span>
+          <span class="na">label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Tags"</span>
+          <span class="na">help</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Enter</span><span class="nv"> </span><span class="s">one</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">more</span><span class="nv"> </span><span class="s">tags</span><span class="nv"> </span><span class="s">..."</span>
+          <span class="na">alterable</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div></div>
+
+<p>Yields this form:</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/prose-metadata.png" alt="prose metadata" /></p>
+
+<p>Aside from Prose.io, content can, of course, be managed the old fashioned way by cloning, adding, and pushing files via git. In addition, content be managed directly on GitHub which recently added file creation and has a nice editor and preview feature for markdown and html files.</p>
+
+<h3 id="hosting">Hosting</h3>
+<p>We initially planned to host the site on GitHub pages because it handles the compilation of Jekyll source code, presents a unified project for development, issue tracking, and hosting, and is free and reliable. However, we found two critical limitations: Jekyll can only run in safe mode which means no third party or custom plugins and no support for redirect rules. After researching a few options, we settled on an Amazon S3 bucket configured for static web hosting.</p>
+
+<ul>
+  <li>It’s super simple to add CDN support via Amazon’s Cloudfront.</li>
+  <li>Rich ecosystem of tools and libraries. <a href="https://github.com/laurilehmijoki/s3_website">s3_website</a> is a fabulous tool that has made it simple to publish the site with a single line command, <code class="highlighter-rouge">s3_website push</code>.</li>
+  <li>We already use S3 for backup/archiving at ThinkShout.</li>
+  <li>Support for complex redirect rules, gzip compression, and any other http headers.</li>
+  <li>Cheap, reliable, and, as mentioned above, <strong>fast</strong>.</li>
+</ul>
+
+<h3 id="deployment-workflow">Deployment workflow</h3>
+<p>Among the many reasons we love working with infrastructure partners like Pantheon and Acquia is the elegant and simple deployment workflow they provide, with automated git based deployment to a dev site and push-button migration to staging and production environments. Without the help of those platforms, we’re on our own for previewing new features, staging content, and deploying code. We’ve settled on the following.</p>
+
+<ul>
+  <li>We created a separate S3 bucket for our staging site.</li>
+  <li>The git repository has 3 main branches, dev, master, and live. Feature branches off of Dev are used for feature development, any content or data is pushed to master which is deployed to the staging site, and content and new features are merged into live before being deployed to produciton.</li>
+  <li>Prose.io, where most content is managed, is mapped to the master branch.</li>
+  <li>We have rake tasks in the project root for deploying to staging and production, as well as building and previewing the site.</li>
+</ul>
+
+<p>The process is far from perfect.</p>
+
+<ul>
+  <li>It relies on process and training, there are no enforced rules and workflow.</li>
+  <li>Deployments themselves are manual.</li>
+  <li>Content editors can only preview content within the site context after it gets pushed to staging if they don’t have a local Jekyll environment.</li>
+</ul>
+
+<p>This is perhaps the biggest gotcha we’ve encountered so far using Jekyll, especially as we consider which client engagements it will be a good fit for. There are promising solutions, including Development Seed’s <a href="http://developmentseed.org/blog/2013/05/01/introducing-jekyll-hook/">Jekyll hook</a> project to automate deployment. We’re excited to learn from our own experiences and those of others to find the best way for clients to manage their Jekyll sites.</p>
+
+<h2 id="miscellaneous-jekyll-gotchas">Miscellaneous Jekyll gotchas</h2>
+<p>A lot of the challenges around using an SSG really depend on where it’s hosted and others are inherent to the approach. The items below encapsulate some of our experiences and are just one data point in deciding when Jekyll or another SSG is a good fit.</p>
+
+<ul>
+  <li>GitHub pages and other pure “file system” based approaches don’t support true 301 redirects. There are javascript based hacks which are less than ideal. Obviously a bigger issue if upgrading an existing site. ThinkShout.com is hosted on S3, which does support .htaccess style redirect rules.</li>
+  <li>Pretty URLs are generally in the form /about/ rather than just /about.</li>
+  <li>Contact and other web forms must rely on a third party system to accept and process submissions. We tried integrating a Google form and then settled on an embedded <a href="https://www.zoho.com/crm/">ZoHo CRM</a> lead capture form after we settled on ZoHo as our CRM.</li>
+  <li>Comments must be handled by a third party provider like <a href="http://disqus.com/">Disqus</a>. Since we were excited to switch to Disqus anyways, this was a nonissue.</li>
+  <li>Site search must rely on a third party indexer or use a Javascript based approach that doesn’t scale or handle non-text assets.</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>It was fun to use a different platform for our new website. We learned a lot. We love the “light weight” nature of Jekyll and the flexibility it afforded us. We view the project as a major win and would do it all over again. It gave us experience and valuable lessons that we can apply to client engagements.</p>
+
+<p>But Jekyll is far from a panacea for all use cases. It presents many challenges that we don’t even have to consider when using Drupal. For projects that require complex data structures, custom application development, site building capabilities for end users, and numerous integrated features, Drupal is an obvious choice. Even more importantly, for projects that need to leverage a rich ecosystem of contributed functionality that relies on a dedicated community, Drupal is an even stronger choice. And we’re honored to be a part of that community and continue to engage and contribute to it.</p>
+
+<p>But we had fun with Jekyll, are happy with the results, and look forward to finding exciting use cases for our clients where it will be a great fit.</p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged Jekyll.' href='/blog/category/jekyll/'>Jekyll</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2014/03/technology-behind-thinkshout/';
+    this.page.identifier = '/blog/2014/03/technology-behind-thinkshout';
+    this.page.title = 'The Technology Behind the New ThinkShout.com'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2014/03/announcing-iats-php-wrapper/"><span class="fa fa-caret-left"></span> <span>Announcing the Release of the PHP Wrapper for iATS Payments</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2014/03/engaging-variable-audiences-with-prefiltered-search/"><span>Engaging variable audiences with pre-filtered search</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Refactoring The iATS Drupal Commerce Module | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="Refactoring the Commerce iATS module.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal Give, Drupal Planet, E-commerce, modules">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">04.15.2014</span>
+  
+  </p>
+
+  <h1 class="post-title">Refactoring The iATS Drupal Commerce Module</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/dan.jpg">
+    
+      <a class="team-name" href="/team/dan/">Dan Ruscoe</a>
+    <br>
+      Senior Software Engineer
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <p>Last month, we wrapped up a project for nonprofit-oriented payment processor, <a href="http://home.iatspayments.com/">iATS Payments</a>. iATS Payments wanted to invest in gaining wider adoption of their services and enlisted ThinkShout’s help in building a <a href="http://thinkshout.com/blog/2014/03/announcing-iats-php-wrapper/">PHP wrapper</a> for their existing <a href="http://home.iatspayments.com/sites/default/files/iats_webservices_overview_version_4.0_0.pdf">SOAP API</a>.</p>
+
+<p>Being a bunch of software engineers who have implemented our fair share of APIs (both good and bad), we knew we had to achieve certain goals if we were going to ease the adoption of iATS Payments within PHP applications:</p>
+
+<ul>
+  <li><strong>Comprehensive:</strong> The wrapper handles all communication with the iATS Payments SOAP API, validation of API calls, and error handling.</li>
+  <li><strong>Well documented:</strong> We made use of phpDocumentor to generate <a href="http://iatspayments.github.io/PHP/namespaces/iATS.html">easily browsable documentation</a> from our code comments.</li>
+  <li><strong>Reliable:</strong> Via a comprehensive test suite covering every API call written in <a href="http://phpunit.de/">PHPUnit</a>.</li>
+</ul>
+
+<p>With the new PHP wrapper finished and unit tests passing, our attention shifted to the project we felt would most benefit from the work we’d done: the <a href="https://drupal.org/project/commerce_iats">Commerce iATS Drupal module</a>. This module leverages <a href="http://drupal.org/project/commerce">Drupal Commerce</a> to facilitate payment processing via iATS Payments on any Drupal website.</p>
+
+<p>We had already integrated Commerce iATS into some of our clients’ websites, so we knew it was a great module, but it was written before there was a standard iATS Payments PHP wrapper and contained some unwieldy code that could be eliminated by using the new PHP wrapper. With support from the community and sponsorship from iATS, we rewrote the module, drastically reducing complexity, which any engineer can appreciate, and improved stability, which site owners love even more. We’re excited to replicate the success of our partnership with MailChimp, which created a win for the community, the vendor, and, yes, ThinkShout.</p>
+
+<h2 id="refactoring-commerce-iats">Refactoring Commerce iATS</h2>
+
+<p>In refactoring Commerce iATS, we didn’t just plug in the PHP wrapper and call it a day. While Commerce iATS was originally written with support for only credit card payments, our PHP wrapper supports all payment methods provided by iATS Payments and we wanted to make sure Commerce iATS had room to grow and take advantage of those payment methods.</p>
+
+<h3 id="some-of-the-problems">Some of the problems</h3>
+
+<p>Looking through the code of the existing Commerce iATS module, we realized the current design would not scale well as we added additional payment methods.</p>
+
+<p>As an example, take a look at the <a href="http://drupalcode.org/project/commerce_iats.git/blob/dea433a:/commerce_iats.module#l305">2.x-dev release of Commerce iATS</a>.</p>
+
+<p>Here the function <code class="highlighter-rouge">commerce_iats_soap_process_submit_form_submit()</code> is being used to handle a lot more logic than a form submit handler ideally would. Breaking it down:</p>
+
+<ul>
+  <li>There’s some <a href="http://drupalcode.org/project/commerce_iats.git/blob/dea433a:/commerce_iats.module#l317">tight integration with the Commerce Card on File module</a>. This could be broken out into a different payment method type, avoiding the call to <code class="highlighter-rouge">module_exists()</code>.</li>
+  <li>A lot of conditions are used to <a href="http://drupalcode.org/project/commerce_iats.git/blob/dea433a:/commerce_iats.module#l332">build the API request</a>, depending on which payment method triggered the form submit handler. This won’t scale well when more payment methods are added.</li>
+  <li>A <a href="http://drupalcode.org/project/commerce_iats.git/blob/dea433a:/commerce_iats.module#l367">new transaction is created</a> based on the response from the iATS Payments API.</li>
+  <li>More tight integration with <a href="http://drupalcode.org/project/commerce_iats.git/blob/dea433a:/commerce_iats.module#l415">Commerce Card on File</a>.</li>
+</ul>
+
+<p>A lot of code in <code class="highlighter-rouge">commerce_iats_soap_process_submit_form_submit()</code> is <a href="http://drupalcode.org/project/commerce_iats.git/blob/dea433a:/commerce_iats.module#l521">later duplicated</a> when <code class="highlighter-rouge">commerce_iats_customer_code_charge_submit_form_submit()</code> is called.</p>
+
+<h3 id="the-refactor">The refactor</h3>
+
+<p>We set out to redesign the module’s architecture and rebuild it with modularity and expansion in mind. Here’s what we did.</p>
+
+<h4 id="created-a-new-standard-payment-processing-function">Created a new <a href="http://drupalcode.org/project/commerce_iats.git/blob/HEAD:/commerce_iats.module#l210">standard payment processing function</a></h4>
+
+<ul>
+  <li>This function handles the API call, response handling, transaction creation and logging.</li>
+  <li>To handle multiple payment methods, the function accepts a callback function as a parameter. This callback function is the function that makes the API call via the PHP Wrapper and returns the response.</li>
+</ul>
+
+<p>The first lines of <code class="highlighter-rouge">commerce_iats_process_payment()</code> demonstrate how the callback function is used:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">commerce_iats_process_payment</span><span class="p">(</span><span class="nv">$payment_method</span><span class="p">,</span> <span class="nv">$payment_data</span><span class="p">,</span> <span class="nv">$order</span><span class="p">,</span> <span class="nv">$charge</span><span class="p">,</span> <span class="nv">$payment_callback</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Process the payment using the defined callback method.</span>
+  <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$payment_callback</span><span class="p">(</span><span class="nv">$payment_method</span><span class="p">,</span> <span class="nv">$payment_data</span><span class="p">,</span> <span class="nv">$order</span><span class="p">,</span> <span class="nv">$charge</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="broke-payment-methods-out-into-their-own-include-files">Broke payment methods out into their own include files</h4>
+
+<p>As an example, here’s the <a href="http://drupalcode.org/project/commerce_iats.git/blob/HEAD:/includes/commerce_iats.credit_card.inc">credit card payment method</a>. Each payment method file contains these standard Commerce functions (where <code class="highlighter-rouge">credit_card</code> is the payment method:)</p>
+
+<ul>
+  <li><code class="highlighter-rouge">commerce_iats_credit_card_settings_form()</code></li>
+  <li><code class="highlighter-rouge">commerce_iats_credit_card_submit_form()</code></li>
+  <li><code class="highlighter-rouge">commerce_iats_credit_card_submit_form_validate()</code></li>
+  <li><code class="highlighter-rouge">commerce_iats_credit_card_submit_form_submit()</code></li>
+</ul>
+
+<p>Then we added our own callback function, <code class="highlighter-rouge">commerce_iats_process_credit_card_payment()</code>.</p>
+
+<p>The callback function handles building the API request and getting a response from the API. To show how this works, here’s a line from <code class="highlighter-rouge">commerce_iats_credit_card_submit_form_submit()</code>:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">return</span> <span class="nx">commerce_iats_process_payment</span><span class="p">(</span><span class="nv">$payment_method</span><span class="p">,</span> <span class="nv">$payment_data</span><span class="p">,</span> <span class="nv">$order</span><span class="p">,</span> <span class="nv">$charge</span><span class="p">,</span> <span class="s1">'commerce_iats_process_credit_card_payment'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>As you can see, all the payment information from the form submit handler is being passed into <code class="highlighter-rouge">commerce_iats_process_payment()</code>. That function then calls the callback function <code class="highlighter-rouge">commerce_iats_process_credit_card_payment()</code> to <a href="http://drupalcode.org/project/commerce_iats.git/blob/HEAD:/includes/commerce_iats.credit_card.inc#l84">make the API call and get the response</a>.</p>
+
+<p>This design is very easy to extend and allows us to add as many additional payment methods as we need in a very clean way. We were able to use this design to implement <a href="http://drupalcode.org/project/commerce_iats.git/tree/HEAD:/modules/commerce_iats_cardonfile">Commerce Card on File as a submodule of Commerce iATS</a>, eliminating that dependency from the base module.</p>
+
+<h2 id="roadmap-and-next-steps">Roadmap and next steps</h2>
+
+<p>All our work on Commerce iATS is currently available in the <a href="https://drupal.org/node/2227713">2.0-beta1 release</a>. Please take a look and let us know if you have any feedback.</p>
+
+<p>We’re already hard at work along with our partners at iATS Payments to integrate more of their payment processing facilities into the Commerce iATS module. While the module currently only supports credit card payments, ACH/EFT and Direct Debit payments will arrive before DrupalCon Austin. Speaking of, both ThinkShout and iATS Payments will be attending and spending some time at the iATS booth, number 508. Come find us to say hello and talk some e-commerce.</p>
+
+<p>Keep an eye on the <a href="https://drupal.org/project/commerce_iats">Commerce iATS project page</a> and this blog for more updates.</p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal Give.' href='/blog/category/drupal-give/'>Drupal Give</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged E-commerce.' href='/blog/category/e-commerce/'>E-commerce</a> <a class='tag' rel='tag category' title='View all posts tagged modules.' href='/blog/category/modules/'>modules</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2014/04/refactoring-the-iats-drupal-module/';
+    this.page.identifier = '/blog/2014/04/refactoring-the-iats-drupal-module';
+    this.page.title = 'Refactoring The iATS Drupal Commerce Module'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2014/04/one-size-fits-all-at-Drupal-Day/"><span class="fa fa-caret-left"></span> <span>Reflections on Drupal Day: Creating a One-Size-Fits-All Day for Nonprofit Professionals and Technologists</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2014/04/desire-paths/"><span>Desire Paths, Part 1: Retracing Your Audience's Steps</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/content-strategy/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Four Things You Can Learn About Content Strategy...from Mad Max</title>
+  <description>
+    <![CDATA[<p>George Miller has a vision of the future. Judging by the non-stop mayhem and desolation that is <em><a href="http://www.madmaxmovie.com/">Mad Max: Fury Road</a></em>, if I had the same vision, I wouldn’t sleep very much. As a piece of action cinema, however, <em>Fury Road</em> succeeds on every level. I couldn’t look away – but the second time I saw it, I was surprised by the number of carefully rendered details I missed the first time. I want to see it again.</p>
+
+<p>After you emerge into the sunlight and finally manage to blink after two hours of wide-eyed apocalyptic rapture and think about <em>Fury Road</em> as a piece of content produced by a distributed team that had an audience in mind, there are plenty of lessons we can take away from it.</p>
+
+<p><strong>It takes time to make great content</strong></p>
+
+<p>Miller first tried to make <em>Fury Road</em> in 2001, took it up again in as a live action film in 2011, and wrapped photography in 2013. The movie itself didn’t come out until mid-2015. Typically, Hollywood calls that sort of timeline “<a href="https://en.wikipedia.org/wiki/Development_hell">development hell</a>”, and it presages an <a href="https://en.wikipedia.org/wiki/Ishtar_(film)">Ishtar-scale flop</a>.</p>
+
+<p>When you consider recent successes like <em><a href="http://www.thelegomovie.com/">The Lego Movie</a></em> (4 years in production) and the fantastic <em><a href="http://www.imdb.com/title/tt1065073/">Boyhood</a></em> (12 years in production), it’s clear that, with the right people involved, movies benefit from allowing directors to realize their vision. Expand that to books and music, and the quickly-created masterpiece is the clear outlier.</p>
+
+<p>To think that your organization can churn out content that best serves its mission without careful thought and robust process, then, would be a mistake.</p>
+
+<p>There’s <a href="http://uxmyths.com/post/647473628/myth-people-read-on-the-web">a long-standing notion</a> that people don’t read on the Internet, <a href="http://www.nngroup.com/articles/how-little-do-users-read/">backed up by careful research</a>. I believe people don’t read on the Internet because, by and large, the available content is crap.</p>
+
+<p>When you think about your own habits, though, haven’t there been at least a few pieces you’ve read almost word for word? I certainly absorbed <a href="http://www.newyorker.com/magazine/2015/07/20/the-really-big-one">the New Yorker’s recent terrifying article</a> about how the Cascadia Subduction Zone is going to reduce Portland to the set of the next <em>Mad Max</em>. And ESPN’s <a href="http://espn.go.com/espn/otl/">Outside the Lines</a> regularly produces content I read carefully – because they’re well-written pieces about topics that interest me.</p>
+
+<p><a href="http://www.slate.com/articles/technology/the_browser/2008/06/lazy_eyes.html">Research shows</a> that people who read for pleasure read more carefully. <a href="http://www.slate.com/articles/technology/the_browser/2008/06/lazy_eyes.html">As Slate’s Michael Agger points out</a>, even Jakob Nielsen, one of the founders of “People don’t read on the Internet”, believes people will read content that interests them:</p>
+
+<p><em>Nielsen’s idea is that people will read (and maybe even pay) for expertise that they can’t find anywhere else. If you want to beat the Internet, you’re not going to do it by blogging (since even OK thinkers occasionally write a great blog post) but by offering a comprehensive take on a subject (thus saving the reader time from searching many sites) and supplying original thinking (offering trusted insight that cannot be easily duplicated by the nonexpert).</em></p>
+
+<p>That sounds to me like the very definition of great content – and great content takes time to produce. I’m not talking about three-levels-of-bureaucratic review time, but about putting effort and craft into your explanations of what your organization believes is important to the world, be it through written word, a video, a podcast, or even just an image.</p>
+
+<p>That can seem overwhelming, particularly when most nonprofits don’t have a cadre of trained writers on staff. There are plenty of tools out there to help you. <a href="http://www.lightboxcollaborative.com/2015-editorial-calendar">Editorial calendars</a>. <a href="http://marketeer.kapost.com/from-page-tables-to-content-templates/">Page tables and content templates</a>. (Yes, content strategy, when it comes to implementation, involves a lot of spreadsheets.)</p>
+
+<p>But it comes down to this: Don’t try to do too many things well. Try to do a few things better than everybody else.</p>
+
+<p>You’re never going to bring everybody on board with your cause, so writing for the masses may not be the most effective strategy. Take time to create at least some content for those who care enough to read it.</p>
+
+<p><strong>Technical infrastructure should be so good, it renders itself invisible</strong></p>
+
+<p>If you take the time to produce great content, you want to make sure it’s displayed in the best possible light – and by that, I mean your users shouldn’t notice the technology at all.</p>
+
+<p><em>Fury Road</em> benefits from a huge number of <a href="http://www.scpr.org/programs/the-frame/2015/05/19/42913/mad-max-fury-road-how-15-years-of-design-made-the/">practical effects</a>: things look like they’re blowing up because they are, not because some computer rendered its idea of what an explosion <em>should</em> look like. But almost every shot was still digitally enhanced. This allowed Miller to create the impression of large crowds:</p>
+
+<p><img src="/assets/images/blog/mad-max-0.png" alt="Mad Max aerial shot" /></p>
+
+<p><em>Fury Road</em> also makes extensive use of compositing to expand its visual palette:</p>
+
+<p><img src="/assets/images/blog/mad-max-1.png" alt="Mad Max compositing" /></p>
+
+<p>When you’re actually watching the film, however, the “How did they do that?” gives way to breathless enjoyment of the chase. The movie <em>feels</em> real because the effects are integrated so well, they become part of the story instead of superseding it.</p>
+
+<p>The same has to be true of your technology platforms.</p>
+
+<p>Nobody cares what email platform you’re using if the contents are interesting and easy to absorb – but they will notice broken HTML. And your constituents aren’t coming to your website to ogle its features, they’re coming for the content. If they notice the underlying functionality, then your technology is not serving your mission.</p>
+
+<p><strong>Stay true to your vision</strong></p>
+
+<p>When you think about it empirically, <em>Fury Road</em> should not have succeeded with a mainstream audience. It’s a two-hour chase scene. Its nominal hero’s face is obscured by a mask for almost half the film’s run-time. Its night scenes were filmed in bright daylight. It prominently features a tanker truck full of breast milk. And yet it has grossed nearly $400 million worldwide.</p>
+
+<p><em>Fury Road</em> succeeds because it stays true to its director’s vision. George Miller knew what he wanted – the entire film was storyboarded and <a href="http://io9.com/the-making-of-mad-max-fury-road-we-shot-one-scene-fo-1704025550">the cast largely worked without a script</a> – and put exactly that, and only that, on film.</p>
+
+<p>By Google’s count, <em>Fury Road</em> has <a href="http://www.springfieldspringfield.co.uk/movie_script.php?movie=mad-max-fury-road">roughly 3600 spoken words</a>. Even a relatively action-oriented movie like <em>Jupiter Ascending</em> <a href="http://www.springfieldspringfield.co.uk/movie_script.php?movie=jupiter-ascending">has nearly 9000</a> – largely because it’s burdened by the presumed need to explain what’s going on to the audience through background exposition:</p>
+
+<p><em>Your planet is just now entering its genetic age. You understand very little about something which is a vital part of our reality. In our world, genes have an almost spiritual significance. They are the seeds of our immortality. When the exact same genes reappear in the exact same order, it is for us what you would call reincarnation.</em></p>
+
+<p>Meh.</p>
+
+<p><em>Fury Road</em> doesn’t care about telling you what’s going on or why it’s happening, just that it is. Why doesn’t Furiosa have an arm? How did Immortan Joe come to control all the water? It doesn’t matter in the visceral thrill of the chase. We trust Miller because we know he’s thought through all of the backstory and decided it didn’t matter here. He’s right. And cutting the movie to its barest bones serves his vision perfectly.</p>
+
+<p>All that to say: If you produce content for a nonprofit, you have a built-in advantage because you have your Mission, Vision, and Values as touchstones. You know the backstory about why your organization does the work it does, and that can – and should – inform every piece of content you produce.</p>
+
+<p>Think about the story you’re telling in terms of <a href="http://www.uxmatters.com/mt/archives/2014/03/storymapping-a-macgyver-approach-to-content-strategy-part-2.php">narrative arcs</a>. Most of the content you produce, while illuminating some aspect of your Mission, Vision, and Values, can’t tell the entire story of your work. Instead, capture the interest of your audience, delight them with carefully crafted, finely honed content, and link back to the bigger picture. Hyperlinks were created before content strategy was even a phrase, but they allow us to lay out our story in pieces, tied back to a central narrative.</p>
+
+<p><strong>Prepare for the haters</strong></p>
+
+<p>The Internet is pretty great at disseminating information. Now that it’s easy for anybody and everybody to post their opinions in a public forum, our access to information is limited more by our imaginations than the media gatekeepers of old who decided what story should land on the front page.</p>
+
+<p>The Internet has both improved public discourse – and degraded it. Because here’s the thing: if you have an opinion, it’s almost guaranteed that somebody out there has an opposing point of view. While these used to be confined to local conversations, when you post that opinion online, they can find you. They will find you.</p>
+
+<p>Social media has been great for nonprofits in terms of community building and direct interactions with constituents. But it has also allowed the haters to find each other. What might have been a marginal response to your organization’s work in the past becomes amplified by technology.</p>
+
+<p>In the case of <em>Fury Road</em>, that response was a call for boycott from a group of “meninists”. (I know! I had no idea that was a thing, either.)</p>
+
+<p>After the movie came out, noted misogynist <a href="http://www.returnofkings.com/63036/why-you-should-not-go-see-mad-max-feminist-road">Aaron Clarey wrote some pretty hateful things</a> on his blog: “Let us be clear. This is the vehicle by which they are guaranteed to force a lecture on feminism down your throat… This is the Trojan Horse feminists and Hollywood leftists will use to (vainly) insist on the trope women are equal to men in all things, including physique, strength, and logic.”</p>
+
+<p>You can <a href="http://www.returnofkings.com/63036/why-you-should-not-go-see-mad-max-feminist-road">read the entire article</a> if you need a little anger in your day, but Clarey ends with a Call to Spitefulness: “So do yourself and all men across the world a favor. Not only REFUSE to see the movie, but spread the word to as many men as possible.”</p>
+
+<p>Never mind that everything that happens in <em>Fury Road</em> serves the story, not a philosophy. The plot, such as it is, hinges on the escape of five women from captivity. <a href="http://www.hollywoodreporter.com/news/cannes-2015-mad-maxs-tom-795589">As director George Miller puts it</a>, “Initially, there wasn’t a feminist agenda… I needed a warrior. But it couldn’t be a man taking five wives from another man. That’s an entirely different story. So everything grew out of that.”</p>
+
+<p>He’s <a href="http://www.csmonitor.com/USA/Society/2015/0514/Mad-Max-Fury-Road-Why-are-anti-feminists-so-angry-about-action-film-video">supported by Chris Hansen</a>, the director of the film and digital media division at Baylor University: “We’re used to women being in the background, not men. But Miller isn’t doing it as a statement, he’s doing it because that’s what the story calls for.”</p>
+
+<p>Because the story your organization is telling supports and builds upon your Mission, Vision, and Values, somebody, somewhere is going to assume you are trying to diminish them in some way. And they will spew their hatred like a firehose.</p>
+
+<p>As part of your content strategy, you need to be prepared for reactions to the information you put out into the world. <a href="https://twitter.com/cariegrls">Carie Lewis</a>, Director of Communications Marketing for the <a href="http://www.humanesociety.org/">Humane Society of the United States</a>, knows too well that “When sensitive topics come up, trolls come out in droves, and misinformation spreads… In today’s world, the only thing you can do is have a crisis plan in place for what to do if/when you get attacked. Because you just never know what the internet is going to glom onto.”</p>
+
+<p>The producers of <em>Fury Road</em> ended up benefitting from the “men’s rights” backlash because it stirred up a controversy that made people want to see the movie even more. We probably can’t hope for that.</p>
+
+<p>Carie notes that, “Internal education is key. Help your staff navigate the waters with social media policies and trainings to protect them as well as the organization.”</p>
+
+<p>The HSUS has standards and procedures for responding to negative publicity, and those have been documented. Carie says, “It’s important for us to be honest while at the same time not drawing unnecessary attention to the issue… We develop talking points that address the issue but don’t get into internal details. They get routed through PR, membership, social media, and the executive offices.”</p>
+
+<p>Building on that, The HSUS tries “to respond to everyone who comes to us on one of our social media channels with a legitimate question or concern, and within 24 hours. That means all questions unless it’s someone we know is just trying to stir up trouble. There are some people who live to cause trouble and that you will never win over. You have to know when to stop, and when to not even start. That comes with time and experience.”</p>
+
+<p>As a final word of advice, Carie offers that “One thing I see a lot is organizations trying to talk over the issue. We learned the hard way that approach just doesn’t work; people will see right through you and it will only make matters worse.”</p>
+
+<p>Your mission should be at the heart of the content you produce. When that’s the case, it will be easier to defend the work you do – and it will energize the people already passionate about your work.</p>
+
+<p>Everybody wants to be loved, but the prospect of online backlash shouldn’t stop you from crafting great content that articulates the reasons you do the work that you do.</p>
+
+<p>Now go see the movie already!</p>
+
+<p><em>Thanks to <a href="https://twitter.com/rootwork">Ivan Boothe</a> and April Lambert for their edits and additions.</em></p>
+
+<p><em>All images copyright 2015 Warner Bros. Pictures.</em></p>
+]]>
+  </description>
+  <pubDate>Fri, 24 Jul 2015 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/07/content-strategy-lessons-mad-max/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/07/content-strategy-lessons-mad-max/</guid>
+</item>
+
+    
+      <item>
+  <title>The Clutter and the Deceptively Simple</title>
+  <description>
+    <![CDATA[<p>2015 is poised to be a great year for nonprofit technology and the adoption of digital tools to advance the causes we love. While I can’t say that I see too many groundbreaking innovations on the immediate horizon, I do believe that this will be a <em>year of implementation and refinement</em>. Building upon trends that we saw arise last year in the consumer industry and private sector, 2015 will be the year that many nonprofits leap into digital engagement strategies and begin to leverage new tools that will create fundamental change in the way that they interact with their constituencies.</p>
+
+<p>Of course, as always happens when a growing sector first embraces new tools, the nonprofit technology world will see more than its fair share of awkward clunkiness this year, mainly as “software as a service” product companies rebrand their offerings for nonprofits and flash shiny objects at the earnest and hungry organizations we all support.</p>
+
+<p>But as a more general and <em>appealing</em> trend, I believe that we’ll see a slimming down and a focus on polish this coming year. Visual storytelling and “long form” journalism are <em>hopefully</em> on the rise in the nonprofit digital world. We should see more, and better, integrations between web applications, data management systems, and social networks. These integrations will power more seamless and personalized user experiences. Rather than tossing up an incongruent collection of web interfaces and forms delivered by different paid service platforms, nonprofits will be able to present calls-to-action through more beautiful and less cumbersome digital experiences.</p>
+
+<p>Below are some additional thoughts regarding the good stuff (and some of the bad) that we’re likely to see this year. If you have any additional predictions, please share your thoughts!</p>
+
+<h3 id="visual-storytelling-and-the-resurgence-of-long-form-journalism">Visual Storytelling and the Resurgence of Long-Form Journalism</h3>
+
+<p>I don’t know about you, but I’m tired of my eyeballs popping out of my head every time I visit a nonprofit’s homepage that attempts to cram 1,000 headlines <em>above the fold</em>. I’m tired of the concept of “<em>a fold</em>” altogether. And don’t get me started about slideshow carousels as navigation: <a href="http://shouldiuseacarousel.com/">It’s 2015, folks</a><a href="http://shouldiuseacarousel.com/">!</a></p>
+
+<p>Fortunately, we are seeing an elegant slowdown in the pace of writing for the web. Audiences are getting a little more patient, particularly when presented with clean design, pleasing typography, and bold imagery. We’re also seeing nonprofits embrace visual storytelling, investing in imagery and content over whistles and bells and widgets.</p>
+
+<p><a href="https://medium.com">Medium</a> and <a href="https://exposure.co/">Exposure</a> are my two favorite examples of impactful long-form journalism and visual storytelling on the web. These deceptively simple sites leverage cutting-edge javascript and other complex technologies to <em>get out of the way</em> and let content and visuals speak for themselves.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/clutter-simple0.png" alt="clutter-simple0.png" /></p>
+
+<p>As an added benefit, adopting this more long-form storytelling approach may help your SEO. Google took bold steps in late 2014 to reward websites that focus on good content. With its release of <a href="http://www.huffingtonpost.com/jayson-demers/your-guide-to-googles-pan_b_5959634.html">Panda 4.1</a>, their new search algorithm, nonprofits who prioritize long-form writing and quality narrative will start to see significant benefits.</p>
+
+<p>We’re already seeing nonprofits adopt this approach, including one of my new favorites, <a href="https://www.themarshallproject.org/2014/10/06/no-country-for-young-men">The Marshall Project</a>. This site cuts away the usual frills and assumes an intelligent audience that <em>will do the work</em> to engage with the content. Don’t get me wrong: The Marshall Project website is slick and surprisingly complex from an engineering and user experience perspective – but its designers have worked hard to bring the content itself to the surface as the most compelling call-to-action.</p>
+
+<h3 id="interconnectivity">Interconnectivity</h3>
+
+<p>2015 will be a big year for APIs in the CMS space. Teasing out those acronyms, we will see content management systems, like Drupal and WordPress, release powerful tools allowing them to <em>talk</em> with other web applications and tools. Indeed, its new <em><a href="https://www.drupal.org/drupal-8.0">web services layer</a></em> is a central and much anticipated feature in the upcoming release of Drupal 8. WordPress made similar strides late last year with the early release of its own <a href="http://wp-api.org/">REST API</a>.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/clutter-simple1-2.png" alt="clutter-simple1-2.png" /></p>
+
+<p>Leveraging these APIs, 2015 will bring the nonprofit sector more mobile applications that share data and content with these organizations’ websites. The costs for developing these integrations should decrease relative to the usefulness of such solutions, which will hopefully lead to more experimentation and mobile investment among nonprofits. And as mentioned previously, because these new applications will have access to more constituent data across platforms, they will lend themselves to more robust and personalized digital experiences.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/clutter-simple3.png" alt="clutter-simple3.png" /><img src="http://thinkshout.com/assets/images/blog/clutter-simple4.png" alt="clutter-simple4.png" /></p>
+
+<p>On the less technical and more DIY front, 2015 will be marked by the maturation of 3rd-party services that allow non-developers to integrate their online tools. In its awesome post about <a href="http://www.frogdesign.com/techtrends2015/">technology trends in 2015</a>, the firm Frog Design refers to this development as the “emergence of the casual programmer.” Services like <a href="https://zapier.com/how-it-works/">Zapier</a>, and my new favorite <a href="https://ifttt.com/wtf">IFTTT</a>, will allow nonprofits to make more out of social networks and services like Google Apps, turn disparate data into actionable analytics, see the bigger picture across networks, and make more data-driven decisions.</p>
+
+<h3 id="more-big-and-perhaps-clunky-web-apps">More Big (And Perhaps Clunky) Web Apps</h3>
+
+<p>If you’ve been following ThinkShout for a while now, you probably know that we are big fans of Salesforce because of its great API and commitment to open data. We maintain the <a href="http://drupal.org/project/salesforce">Salesforce Integration Suite for Drupal</a>. At this point, the majority of our client work involves some sort of integration between the Drupal CMS and the Salesforce CRM.</p>
+
+<p>As proponents of data-driven constituent engagement, we couldn’t be more excited to see the nonprofit sector embrace Salesforce and recognize the importance of constituent relationship management (CRM) and CRM-CMS integration. Because of the power of the Salesforce Suite, we can build powerful, gorgeous tools in Drupal that sync data bidirectionally and in real time with Salesforce.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/clutter-simple5.jpg" alt="clutter-simple5.jpg" /></p>
+
+<p>That said, part of the rise of Salesforce in the nonprofit sector over the last two years has been driven by the vacuum created by <a href="http://www.thenonprofittimes.com/news-articles/blackbaud-to-acquire-convio-for-275-million/">Blackbaud’s purchase of Convio</a>. And now, with the recent releases of Salesforce’s <a href="http://www.salesforcefoundation.org/nonprofit-product-overview/">NGO Connect</a> and <a href="http://www.blackbaudnews.com/press-release/blackbaud-unveils-raisers-edge-nxt-and-financial-edge-nxt.htm">Blackbaud’s Raiser’s Edge NXT</a>, both “all-in-one” fundraising solutions with limited website integration potential (in my opinion…), we’re going to see more and more of an arms race between these two companies as they try to “out featurize” each other in marketing to nonprofits. In other words, in spite of the benefits from integrating Drupal and Salesforce, we’re going to see big nonprofit CRM offerings like Salesforce and Blackbaud push competing solutions that try to do everything in their own proprietary and sometimes clunky ecosystems.</p>
+
+<h3 id="the-internet-of-things">The Internet of Things</h3>
+
+<p><a href="http://en.wikipedia.org/wiki/Internet_of_Things">The Internet of Things</a> (IoT), or the interconnectivity of embedded Internet devices, is not a new concept for 2015. We’ve seen the rise of random <em>smart things</em>, from TVs to refrigerators, for the last few years. While the world’s population is estimated to reach <a href="http://en.wikipedia.org/wiki/World_population">7.7 billion in 2020</a>, the number of Internet-connected devices is predicted to hit <a href="http://www.gartner.com/newsroom/id/2636073">26 billion</a> that same year. <a href="https://www.apple.com/watch/">Apple’s announcement of its forthcoming Watch</a> last year tolled the the first meaningful generation of <em>wearable technology</em>. Of course, that doesn’t necessarily mean that you’ll want to wear this stuff just yet, depending upon your fashion sense…</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/clutter-simple6.jpg" alt="clutter-simple6.jpg" /></p>
+
+<p><em>(Image from <a href="http://venturebeat.com/2015/01/12/the-top-11-tech-trends-of-the-consumer-electronics-show/2/">VentureBeat’s coverage of the 2015 Consumer Electronics Show</a> last week. Would you wear these?)</em></p>
+
+<p>However, the advent of the wearable Internet presents many opportunities to the nonprofit sector, both as a delivery device for micro-campaigns and targeted appeals, and as a tool for collecting information about an organization’s constituency. Our colleagues at BlueSpark Labs recently wrote about how these technologies will allow organizations to build websites that are really <a href="http://www.bluespark.com/blog/5-technologies-focus-2015">“context-rich systems.”</a> For example, with an Internet-connected watch synced up to a nonprofit’s website, that organization could potentially monitor a volunteer athlete’s speed and heart rate during a workout. These contextualized web experiences could drive deeper feelings of commitment among donors and other nonprofit supporters.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/clutter-simple7.jpg" alt="clutter-simple7.jpg" /></p>
+
+<p><em>(Fast Company envisions <a href="http://www.fastcodesign.com/3040936/how-your-favorite-apps-will-look-on-the-apple-watch#7">how the NY Times might cover election results</a> on the Apple Watch.)</em></p>
+
+<h3 id="privacy-and-security">Privacy and Security</h3>
+
+<p>While not exactly a trend in nonprofit technology, I will be interested to see how the growing focus on Internet privacy and security will affect online fundraising and digital engagement strategies this year.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/clutter-simple8.png" alt="clutter-simple8.png" /></p>
+
+<p><em>(A poster for the film, The Interview, as most of you probably know, the film incited a major hack of Sony Studios and spurred international dialog about cyber security.)</em></p>
+
+<p>We are seeing more and more startups providing direct-to-consumer privacy and security offerings. This last year, Apple release <a href="https://www.apple.com/apple-pay/">Apple Pay</a> which adds security, as well as convenience, to both online and in-person credit card purchases. And <a href="https://silentcircle.com">Silent Circle</a> just released <a href="https://blackphone.ch/">Blackphone</a> - an encrypted cell phone with a sophisticated and secure operating system built on top of the Android platform.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/clutter-simple9.png" alt="clutter-simple9.png" /></p>
+
+<p>How might this focus on privacy and security affect the nonprofit sector? It’s hard to say for sure, but nonprofits should anticipate the need to pay for more routine security audits and best practices regarding maintenance of their web properties, especially as these tools begin to collect and leverage more constituent data. They should also consider how their online fundraising tools will begin to support new online payment formats, such as Apple Pay, as well as virtual currencies like <a href="https://bitcoin.org/en/">BitCoin</a>.</p>
+
+<h3 id="and-away-we-go">And Away We Go…</h3>
+
+<p>At ThinkShout, we’ve already rolled up our sleeves and are excitedly working away to implement many of these new strategies and approaches for our clients in 2015. What are you looking forward to seeing in the world of of nonprofit tech this year? What trends do you see on the horizon? Let us know. And consider swinging by the<a href="http://myntc.nten.org/eventdetails/precon/drupal"> “Drupal Day for Nonprofits”</a> event that we’re organizing on March 3rd in Austin, TX, as part of this year’s Nonprofit Technology Conference. We hope to dream with you there!</p>
+]]>
+  </description>
+  <pubDate>Wed, 21 Jan 2015 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2015/01/clutter-and-deceptively-simple/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/01/clutter-and-deceptively-simple/</guid>
+</item>
+
+    
+      <item>
+  <title>Nonprofit Website Benchmarks</title>
+  <description>
+    <![CDATA[<p>Your website is a unique snowflake with singular requirements. While there’s surely overlap, the make-up of your audience is different from every other site, because your mission – and the content you put on your website to support that mission – is different from every other nonprofit.</p>
+
+<p>But you’ve probably wondered how your site compares to others. I know I’ve always wanted access to website benchmarks – some way to see if the trends I notice in our own dashboards are reflective of larger patterns.</p>
+
+<p>Of course, <a href="http://www.thinkmetrics.com/benchmarks-for-websites.php">benchmarks can be dangerous</a>. If you obsess about them, the action becomes whatever the opposite of navel gazing is.</p>
+
+<p>When you analyze the efficacy of your own website, you always need to <a href="http://thinkshout.com/blog/2014/04/desire-paths/">consider it within the context of your own target audiences and organizational goals</a> instead of worrying that your overall bounce rate is 4% higher than the “average.”</p>
+
+<p>After all, if your site has the profile of a news organization, with links to recent articles shared widely through third-party channels, you should expect a higher bounce rate: people come, consume, and leave. That might be okay! The goal of that content may have been to spread some news, not generate donations.</p>
+
+<p>Benchmarks can inform us about larger trends, though, and it’s damned annoying that they’re so hard to find.</p>
+
+<p>It’s been almost four years since Groundwire published its 2010 Website Benchmarks Report. (Fortunately, you can still <a href="http://alaskaconservation.org/wp-content/uploads/2010/05/Groundwire-Website-Benchmarks-Study-2010.pdf">download the PDF from a third-party site</a>.) Since then, Google has <a href="https://productforums.google.com/forum/#!topic/analytics/17NoDhOIv8A">discontinued its Analytics Benchmarks Report</a> – and even <a href="https://groups.google.com/forum/#!msg/sjsu-csa-offiers/REkmko8K9RQ/tSDtcqTrOMcJ">the semi-useful newsletter</a> that followed.</p>
+
+<p>You can <a href="https://www.marketingsherpa.com/data/public/reports/benchmark-reports/EXCERPT-BMR-2013-Marketing-Analytics.pdf">order a $395 report from Marketing Sherpas</a> (PDF), which may or may not be helpful; I certainly didn’t buy it. <a href="http://www.kissmetrics.com">KISSmetrics</a> published <a href="https://blog.kissmetrics.com/bounce-rate/">an infographic about bounce rates</a> a couple of years ago with some interesting data… <a href="https://groups.yahoo.com/neo/groups/webanalytics/conversations/topics/6116">that may have come from a 2006 post to a Yahoo group</a>.</p>
+
+<p>Pew Research recently released <a href="http://www.journalism.org/2014/03/13/social-search-direct/">an interesting study comparing news sites</a>, using aggregated data from ComScore. I love how they’ve analyzed visitor loyalty across segments, but rare is the nonprofit that’s going to share the content goals of CNN or NBC News.</p>
+
+<p>On our side, there are a couple of stats of interest in the latest <a href="http://www.mrbenchmarks.com/">Benchmarks Study</a> from <a href="http://www.mrss.com">M+R</a> and <a href="http://www.nten.org">NTEN</a> and the <a href="https://www.blackbaud.com/nonprofit-resources/onlinemarketingstudy">2013 Online Marketing Benchmark Study for Nonprofits</a> from <a href="http://www.blackbaud.com">Blackbaud</a>, but they’re mostly focused on traffic growth and donation page conversions.</p>
+
+<p>At ThinkShout, because we start almost all of our engagements by exploring how our client’s audiences use their current website, we felt it would be important to have some point of comparison. To facilitate discussion around questions like “How much do we need to worry about mobile?” or “How can we convert the influx of new visitors into engaged users?”, we’ve aggregated the data we have available to us.</p>
+
+<p><a href="https://docs.google.com/a/thinkshout.com/spreadsheets/d/1xl8p1VKx4i6uG3kqmHmNdS6s4B6g2kmPIl9sKAtjHwA/edit#gid=0">It seems only fair to share some of it</a>.</p>
+
+<p>This data is in no way reflective of the industry as whole, and it is very top-level. It represents fifteen organizations with diverse missions and traffic patterns, ranging from a few thousand sessions per month to more than 100,000. These are also generally organizations that have recognized the need to redesign their website.</p>
+
+<p>With those caveats, we hope this data may help you understand that some of what you see in your own analytics may, in fact, be reflective of broader trends.</p>
+
+<p>The following are three I see in the 37,000,000 <a href="https://support.google.com/analytics/answer/1006243?hl=en">pageviews</a> we have access to.</p>
+
+<h3 id="search-is-the-ultimate-shortcut">Search Is the Ultimate Shortcut###</h3>
+
+<p>Back in 2010, Groundwire found that search engines referred 55% of traffic to the nonprofit websites in their study. While we can’t do a direct comparison since the sites in question aren’t the same, I feel comfortable making the blanket statement that the trend is toward more traffic coming from search.</p>
+
+<p>Here are the mean / median numbers since 2011:</p>
+
+<p><img src="http://www.thinkshout.com/assets/images/blog/benchmark1.png" alt="benchmark1.png" /></p>
+
+<ul>
+  <li>
+    <p>2011: 47.06% / 43.97%</p>
+  </li>
+  <li>
+    <p>2012: 48.12% / 50.12%</p>
+  </li>
+  <li>
+    <p>2013: 52.99% / 54.02%</p>
+  </li>
+</ul>
+
+<p>So far in 2014, those numbers have increased to 55% (mean) / 60% (median).</p>
+
+<p>That means, of course, that traffic from the other two legs of the standard triumvirate have dropped:</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/benchmark2.png" alt="benchmark2.png" /></p>
+
+<ul>
+  <li>
+    <p>2011: 22.04% / 22.13%</p>
+  </li>
+  <li>
+    <p>2012: 23.08% / 20.28%</p>
+  </li>
+  <li>
+    <p>2013: 18.67% / 17.00%</p>
+  </li>
+  <li>
+    <p>2014 (to date): 16.18% / 13.98%</p>
+  </li>
+</ul>
+
+<p><img src="http://www.thinkshout.com/assets/images/blog/benchmark3.png" alt="benchmark3.png" /></p>
+
+<ul>
+  <li>
+    <p>2011: 28.87% / 24.76%</p>
+  </li>
+  <li>
+    <p>2012: 26.81% / 20.75%</p>
+  </li>
+  <li>
+    <p>2013: 25.36% / 21.42%</p>
+  </li>
+  <li>
+    <p>2014 (to date): 25.82% / 19.75%</p>
+  </li>
+</ul>
+
+<p>Essentially, the best home page ever created will not solve your problems, as your users are more and more likely to turn to search first to find what they’re looking for. Your information architecture <strong>must</strong> take into account the fact that the first page your visitors encounter may be deep in your website.</p>
+
+<p>User Experience starts in the first place your users experience you. You can use your data to make some assumptions about where that’s mostly likely to happen and optimize the top landing pages, but, more and more, you need to worry about every piece of content on your site.</p>
+
+<h3 id="stop-wondering-if-mobile-is-important-right-now">Stop Wondering if Mobile Is Important Right Now###</h3>
+
+<p>It is. Groundwire found that in 2010, the median number of mobile visitors to the sites in their study was just 1%. That’s changed over the past few years. Looking just at mobile phones (not tablets), you can see the surge:</p>
+
+<p><img src="http://www.thinkshout.com/assets/images/blog/benchmark4.png" alt="benchmark4.png" /></p>
+
+<ul>
+  <li>
+    <p>2011: 5.70% / 4.97%</p>
+  </li>
+  <li>
+    <p>2012: 7.68% / 7.67%</p>
+  </li>
+  <li>
+    <p>2013: 12.84% / 12.04%</p>
+  </li>
+  <li>
+    <p>2014 (to date): 18.68% / 17.45%</p>
+  </li>
+</ul>
+
+<p>I’ve seen the argument made that mobile doesn’t require your attention quite yet because it still represents, according to this data, just 1 in 5 visits.</p>
+
+<p><strong>Our suggestion would be to get ahead of the curve instead of fighting to catch up</strong>. The growth in mobile traffic is having an obvious impact on the most basic measures of engagement.</p>
+
+<table>
+  <tr>
+    <td></td>
+    <td>Mean</td>
+    <td></td>
+    <td></td>
+    <td>Median</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Year</td>
+    <td>Bounce Rate</td>
+    <td>Time per Session</td>
+    <td>Pages per Session</td>
+    <td>Bounce Rate</td>
+    <td>Time per Session</td>
+    <td>Pages per Session</td>
+  </tr>
+  <tr>
+    <td>2011</td>
+    <td>62.30%</td>
+    <td>2:04</td>
+    <td>2.30</td>
+    <td>67.07%</td>
+    <td>1:57</td>
+    <td>2.09</td>
+  </tr>
+  <tr>
+    <td>2012</td>
+    <td>66.17%</td>
+    <td>1:58</td>
+    <td>2.06</td>
+    <td>67.20%</td>
+    <td>1:56</td>
+    <td>1.89</td>
+  </tr>
+  <tr>
+    <td>2013</td>
+    <td>70.48%</td>
+    <td>1:54</td>
+    <td>1.87</td>
+    <td>70.10%</td>
+    <td>1:39</td>
+    <td>1.84</td>
+  </tr>
+</table>
+
+<p><em>[I’ve excluded 2014 because I haven’t cleaned out the data from sites that have gone through a responsive redesign. This isn’t meant to be a marketing piece, but I can tell you that redesigning for mobile can have a significant impact.]</em></p>
+
+<p>My suspicion is that as people grow more comfortable using their smartphones to browse the Internet, visiting brands that have implemented a mobile strategy, they’re less likely to put up with sites that don’t work as well as they expect in their mobile browsers.</p>
+
+<p>By structuring your content properly, you can create ways to put the content mobile users are most interested in front and center. If nothing else, you should take the time to understand what mobile visitors are doing on your site as a first step.</p>
+
+<h3 id="loyalty-is-hard-to-come-by-or-even-define">Loyalty Is Hard to Come By (or Even Define)###</h3>
+
+<p>Perhaps, given the growth in search and mobile traffic, it’s no surprise that the percentage of “New” visitors has increased over the years:</p>
+
+<p><img src="http://www.thinkshout.com/assets/images/blog/benchmark5.png" alt="benchmark5.png" /></p>
+
+<ul>
+  <li>
+    <p>2011: 65.65% / 66.01%</p>
+  </li>
+  <li>
+    <p>2012: 70.34% / 70.13%</p>
+  </li>
+  <li>
+    <p>2013: 74.35% / 75.00%</p>
+  </li>
+</ul>
+
+<p>On the flip side, “Loyal” visitors (defined as those with at least three visits in the period under review) have crashed:</p>
+
+<p><img src="http://www.thinkshout.com/assets/images/blog/benchmark6.png" alt="benchmark6.png" /></p>
+
+<ul>
+  <li>
+    <p>2011: 20.86% / 19.00%</p>
+  </li>
+  <li>
+    <p>2012: 15.64% / 15.66%</p>
+  </li>
+  <li>
+    <p>2013: 12.16% / 12.26%</p>
+  </li>
+</ul>
+
+<p>And those numbers aren’t just relative percentage drops, caused by increases in other types of traffic, because the real numbers have dropped as well:</p>
+
+<ul>
+  <li>
+    <p>2011: 44,734 / 33,894</p>
+  </li>
+  <li>
+    <p>2012: 43,076 / 29,989</p>
+  </li>
+  <li>
+    <p>2013: 37,757 / 22,781</p>
+  </li>
+</ul>
+
+<p>I’m fairly confident, given the scale of the data, that this isn’t simply because people are getting better at clearing their cookies regularly – there’s wide variation in estimates, much of it from <a href="http://www.mnn.com/green-tech/computers/stories/americans-care-about-online-privacy-but-are-they-doing-anything-about">surveys of user behavior</a>, rather than <a href="http://www.kaushik.net/avinash/web-analytics-visitor-tracking-cookies/">actual data</a> – or <a href="http://www.elie.net/blog/privacy/19-of-users-use-their-browser-private-mode#.VAEKNWTt9ck">browsing the web incognito</a>. Those technologies have been around for years, and I doubt even Mr. Snowden has had that much of an impact on people’s everyday habits. (But I’m willing to be convinced otherwise.)</p>
+
+<p>This loss could also be reflective of device fragmentation. Google and others are <a href="http://searchenginewatch.com/article/2280159/How-to-Use-the-Google-Analytics-New-vs-Returning-Report">working on ways to track users across the many devices they use</a>, but right now, if somebody visits you on August 14th on their laptop, comes back on September 9th on their tablet, and then again on October 21st on their phone, they would be classified as three different New users. As we see mobile traffic grow, it may mean that right now, we don’t have an accurate way to track visitor loyalty.</p>
+
+<p>Perhaps some of that loyalty is being transferred elsewhere, however, from the website to social spaces, third party donation pages, or even mobile apps. In that case, the better sites are at converting website visitors into these different kinds of traffic, the less relevant the website will become to them.</p>
+
+<p>Rare is the constituent who comes once a year to donate. Engagement, even within a multi-channel strategy, has to strike a balance between assuming that visitors will find continued value from the resources we make available on the web and moving new visitors to spaces where they’re more likely to continue to interact with us and each other.</p>
+
+<p>In any case, if visitors <strong><em>are</em></strong> increasingly less likely to return to nonprofit websites, we need to rethink some of our engagement strategies. If they’re turning elsewhere because they aren’t finding what they want, when they want it, we’ve got some serious work to do.</p>
+
+<h3 id="interested-in-helping-out">Interested in Helping Out?###</h3>
+
+<p><a href="https://docs.google.com/a/thinkshout.com/spreadsheets/d/1xl8p1VKx4i6uG3kqmHmNdS6s4B6g2kmPIl9sKAtjHwA/edit#gid=0">I’ve made the spreadsheet with the cleaned data for 2011-2013 publicly available</a>. We hope you’ll check it out and add insights of your own!</p>
+
+<p>But beyond using it as a tool to inform your own website, we could use your help. What other data should we track and share? What do you want to know?</p>
+
+<p>And more importantly, are you willing to share your own?</p>
+
+<p>If you’d like to work with us on a template that can be used to collect data from other nonprofits, just let me know. We’ll keep the org-by-org breakdown anonymous. Once we reach an arbitrarily large threshold  – 100,000,000 pageviews? – we can do some follow-up work.</p>
+
+<p>Lev Tsypin, ThinkShout’s Director of Engineering, has suggested that we could go so far as to set up a Google form that feeds an anonymized spreadsheet. We could then make that data available via JSON, for further manipulation.</p>
+
+<p>In the end, I believe that the more we aggregate and share, the better we’ll identify the problem areas we need to focus on as a community.</p>
+]]>
+  </description>
+  <pubDate>Wed, 10 Sep 2014 12:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/09/nonprofit-website-benchmarks/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/09/nonprofit-website-benchmarks/</guid>
+</item>
+
+    
+      <item>
+  <title>What Nonprofits Can Learn About Content Structure… from Pearl Jam</title>
+  <description>
+    <![CDATA[<p><img src="/assets/images/blog/pearl-jam-header.jpg" alt="Pearl Jam" /></p>
+
+<p><em><a href="https://www.flickr.com/photos/24365773@N03/7425028964/in/photolist-cixdqJ-2E86ff-cj8eg3-cj8dqL-ci23iW-S2mmU-ci22Bh-cj8ekG-9QjszY-3bpmzG-6EyJ8m-2zsghF-6QWpZh-e22GeM-e28iUm-e28ifu-2FeFyx-RU5BQ-83PwyB-6FsT6p-bqThKu-bDNe9n-bqTmwL-bDNi9k-bDNejv-bDNhYX-2zsmgp-2zwDQo-2zsiG8-2zwMuu-2zsnTt-2zsow6-2zwF89-2zsfUK-2zse5R-2zsmSi-2zsko8-2zsnip-2zwHAm-2zwBo5-2zwFRQ-2zsp5K-2zwGzu-6QWpQU-6QWjFo-8dpsda-rKaZw-8dsJu5-8dpsmZ-8dpsvH">Photo</a> by <a href="https://www.flickr.com/photos/24365773@N03/">Phil King</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC 2.0</a>.</em></p>
+
+<p>Pearl Jam have been posterboys for a lot of things, but probably not structured web content. Content strategists like to point to NPR’s <a href="http://blog.programmableweb.com/2009/10/13/cope-create-once-publish-everywhere/">Create Once, Publish Everywhere (COPE)</a> framework, to large media outlets, sometimes to <a href="http://www.howto.gov/web-content/technology/content-management-systems/how-to-create-open-structured-content">the U.S. government</a> – but given the breadth of coverage (and budgets) available to those entities, making the move to fully structured content may seem daunting in the nonprofit context.</p>
+
+<p>If Pearl Jam can do it, so can you.</p>
+
+<p>The basic concept is this: by separating out the most important components of your content into “fields”, instead of dumping everything from images to embedded videos to pull quotes into a WYSIWYG editor, you’ll be able to :</p>
+
+<ul>
+  <li>Display your content responsively across devices;</li>
+  <li>Share it more easily with your affiliates and supporters; and</li>
+  <li>Create dynamic ways to surface relevant content and encourage engagement.</li>
+</ul>
+
+<p>In a striking example of why tech folks shouldn’t be allowed to name concepts, creating fields to structure your content is affectionately known as the difference between making <a href="http://karenmcgrane.com/2012/09/04/adapting-ourselves-to-adaptive-content-video-slides-and-transcript-oh-my/">blobs and chunks</a>.</p>
+
+<p>If you use a modern CMS, you’ve already used structured content to a degree. The title of your page or post is almost always separate from the body. This allows you, at the most basic level, to build a dynamic page of blog posts that displays only the title and maybe a snippet of the body, which then links off to a detail page containing the full post.</p>
+
+<p>The New York Times uses this concept, breaking out fields for author, publication date, and more for its news stories. Amazon has taken it to an entirely different level by assigning scores of categories to its products; when you narrow down your mattress search to a <a href="http://www.google.com/url?q=http%3A%2F%2Fwww.amazon.com%2Fs%2Fref%3Dsr_nr_p_89_0%3Frh%3Dn%253A1055398%252Cn%253A%25211063498%252Cn%253A1063252%252Cn%253A3732351%252Cn%253A3732361%252Cp_n_size_browse-bin%253A362281011%252Cp_n_feature_keywords_browse-bin%253A5707112011%252Cp_89%253APacific%2BCoast%26bbn%3D3732361%26ie%3DUTF8%26qid%3D1398384943%26rnid%3D2528832011&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNEl7hBe1NuOVj7ns-6p1GxLeERAmA">queen size goose down featherbed from Pacific Coast</a>, you’re taking advantage of structured data (in the form of <a href="http://en.wikipedia.org/wiki/Faceted_search">faceted search</a>).</p>
+
+<p>What Pearl Jam has done – and what every nonprofit should think about doing – is match the motivations their audience has in visiting their website to PJ’s own (organizational) goals and structured their site content so the two complement each other.</p>
+
+<p>Pearl Jam’s core offering is music. People visit their website to find that music, either in the form of upcoming (or past) shows, lyrics, or songs they can buy. So, much of Pearl Jam’s website is structured around the concept of the song.</p>
+
+<p><em>[Note that I don’t have any insider’s knowledge about the exact structure or software they’re using. This is just how we would do it if we built their site in Drupal.]</em></p>
+
+<p><img src="/assets/images/blog/pj1.jpg" alt="Pearl Jam 1" /></p>
+
+<p>Practically every song Pearl Jam has ever recorded or performed live has a place on the website, and they’re all structured the same:</p>
+
+<ul>
+  <li>Title</li>
+  <li>Release Date</li>
+  <li>Composer</li>
+  <li>Artist</li>
+  <li>Image</li>
+  <li>Lyrics</li>
+</ul>
+
+<p>That’s it. Everything else on that page, and much of the site, is built through the application of structured data.</p>
+
+<p><img src="/assets/images/blog/pj2.jpg" alt="Pearl Jam 2" /></p>
+
+<p>If you look at an individual album, you’re actually looking at a different content type, which has its own structure:</p>
+
+<ul>
+  <li>Title</li>
+  <li>Release Date</li>
+  <li>Cover Image</li>
+  <li>Purchase Links</li>
+  <li>Body</li>
+  <li>Song [REFERENCE]</li>
+</ul>
+
+<p>It’s that REFERENCE field that’s key. Every album is a collection of references to the individual songs, rather than list built by hand. (On Drupal, we’d probably use something like <a href="https://drupal.org/project/entityreference">Entity Reference.</a>) Clicking on an individual song takes you to its detail page.</p>
+
+<p><img src="/assets/images/blog/pj3.jpg" alt="Pearl Jam 3" /></p>
+
+<p>It gets more interesting when you look at a Setlist, another structured content type:</p>
+
+<ul>
+  <li>Venue</li>
+  <li>Location</li>
+  <li>Date</li>
+  <li>Concert Poster Image</li>
+  <li>Product Links</li>
+  <li>Bootleg Image</li>
+  <li>Song [REFERENCE]</li>
+  <li>Live Image [REFERENCE]</li>
+</ul>
+
+<p>A setlist is built up using the same song REFERENCE field as an album; each song exists as a single entity, but it can be referenced from hundreds of other pages (in the case of a classic like “Jeremy”).</p>
+
+<p>All the way back in 2000, Pearl Jam started recording every show they did off the mixing board so they could sell high-quality recordings. While you can’t quite get every one of the 672 versions of “Alive” they’ve performed over the years, you can come pretty close.</p>
+
+<p>Setlists include the all-important link to purchase a copy of an entire live performance.</p>
+
+<p>This relational system has created endless connections between the Songs they’ve performed – their core content offering – and where and when they’ve performed them. By then layering on the ability to purchase copies of those concerts at any time, Pearl Jam has taken one of the primary motivations of their audience – to engage with PJ’s music – and tied it directly to their organizational goal of making money, without shoving that in your face.</p>
+
+<p><img src="/assets/images/blog/pj4.jpg" alt="Pearl Jam 4" /></p>
+
+<p>It’s also worth noting that structured data has also allowed Pearl Jam to flesh out the detail pages for each of its content types with just a few lines of code.</p>
+
+<p><a href="http://pearljam.com/music/lyrics/997/studio/21989/sirens?ref_album_id=21996">On a song page</a>, the “First Played”, “Last Played”, and “Times Played” lines are created dynamically, as is the list of every place and date it’s been performed. <a href="https://pearljam.com/tour/history/show/clark-county-ampitheater">Tours are created by referencing each of the setlists</a>. I imagine that the <a href="http://pearljam.com/music/albums/997/studio">slider showing all of the album covers</a> is created by pulling the cover image associated with each album (instead of being inserted by hand).</p>
+
+<p>Once your content is structured, the ways you can reformat and display it are limited only by your imagination communications plan, your organizational goals, and your CMS. Oh, and it helps if you <a href="http://thinkshout.com/blog/2014/04/desire-paths/">understand the motivations of your various audiences</a>.</p>
+
+<p>What’s your core content offering? Can you create a similar structure? Have you already?</p>
+
+<p>And if anybody with PhotoShop skills wants to create that new poster for Pearl Jam, highlighting their mastery of structured content…</p>
+]]>
+  </description>
+  <pubDate>Thu, 08 May 2014 11:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/05/content-structure-from-pearl-jam/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/05/content-structure-from-pearl-jam/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

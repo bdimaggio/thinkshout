@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/iats-payments/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Nonprofit Payment Processing with iATS</title>
+  <description>
+    <![CDATA[<p>We mention <a href="http://home.iatspayments.com/">iATS Payments</a> quite frequently on our blog. Why? Well we <em>did</em> partner with them to create <a href="https://www.drupal.org/project/commerce_iats">Commerce iATS for Drupal</a>. It also happens to be one of our preferred online payment processors, due in no small part to its incredibly reasonable processing fees and the excellent support it offers nonprofits. It made sense for us to invest the time in making iATS Drupal compatible, given the ever-increasing number of nonprofits using Drupal to host their sites and fundraising efforts.</p>
+
+<p>We sat down with Mike Kim, Partner Account Manager at iATS Payments, and asked him to explain in his own words exactly what iATS brings to the table:</p>
+
+<p><strong>What is iATS Payments exactly? What differentiates it from other companies that offer similar services?</strong></p>
+
+<p><strong>Mike:</strong> iATS Payments offers payment processing solutions to over 10,000 nonprofit organizations around the globe.</p>
+
+<p>We take care of all of the backend processes that occur when an online or mobile transaction is initiated by one of your donors. To do so, we provide both the payment gateway (the interface for accepting online donations) and the merchant account (the bank account where funds are held as the transaction is being processed).</p>
+
+<p>We enable nonprofits to <a href="http://home.iatspayments.com/news/credit-card-processing-the-ultimate-guide-for-nonprofits/">accept all major credit cards</a> and <a href="http://home.iatspayments.com/news/direct-debit-payment-processing-what-your-nonprofit-needs-to-know/">ACH (direct debit) payments</a> to provide their supporters with the utmost flexibility when it comes to <a href="https://thinkshout.com/blog/2016/03/rethinking-strategies-for-online-donor-acquisition/">online giving.</a></p>
+
+<p>What sets iATS apart from other payment processors is that we’re one of the only services designed specifically for nonprofits. Since we only work with nonprofit organizations, we have a firm understanding of nonprofits’ needs and the pain points they face when accepting online donations.</p>
+
+<p>Additionally, <a href="https://thinkshout.com/blog/2014/05/commerce-iats-2-0/">we’ve established an extensive network of partners</a>, so our services can easily be integrated with many donor databases, event planning or auction software platforms, and other fundraising software. The ability to integrate simplifies data collection significantly and provides your organization with the most up-to-date and comprehensive financial reports, since all transactions are handled through one service.</p>
+
+<p><strong>Why would someone use iATS Payments instead of PayPal or another similar commercial service?</strong></p>
+
+<p><strong>Mike:</strong> There are many benefits of working with a dedicated payment processor like iATS instead of services like PayPal.</p>
+
+<p>PayPal and similar services are aggregators, meaning that they don’t allow organizations to select their own merchant accounts (the bank account used to hold donations while transactions are being verified). Instead, aggregators require their clients to use the merchant account that they (the aggregator) have set up, which your nonprofit would have to share with all of their other clients.</p>
+
+<p>Using a shared merchant account can put your donations in jeopardy, especially considering that aggregators likely process hundreds, if not thousands, of transactions each day. If anything were to happen to one of their clients, it could put the whole account (and thus, your funds) at risk. And since aggregators have so many clients to attend to, you wouldn’t receive attentive support in ironing out any issues.</p>
+
+<p>Not to mention, since PayPal and similar services aren’t specialized to nonprofits, they’re not as in-tune with your unique needs as we would be at iATS.</p>
+
+<p>Those are only a couple of the benefits of working with us over PayPal, but there are many, many more. If you’re interested in learning more about why your organization should choose a PayPal alternative, <a href="https://www.atpay.com/paypal-alternatives-nonprofits/">check out this article from @Pay.</a></p>
+
+<p><strong>A lot of nonprofits utilize nontechnical staff and volunteers. How does your company support them with what is very technical stuff?</strong></p>
+
+<p><strong>Mike:</strong> Our services were designed so that organizations don’t have to deal with any of the technical aspects of payment processing. We take care of all of the backend parts of the transaction for you so that your organization can spend more time focusing on what’s truly meaningful: connecting with supporters and enacting the good work that you do.</p>
+
+<p>That being said, if your organization has any questions or ever runs into any technical difficulties, we’re known for our excellent customer support. We offer live customer care, so your organization can quickly get in touch and we can solve issues with minimal turnaround time.</p>
+
+<p>We also offer user-friendly tutorial videos and product guides that nonprofit staffs and volunteers can use to gain a better understanding of our services.</p>
+
+<p><strong>What about security? This is a big issue for nonprofits. What methods do you have in place to instill trust in the security of your service?</strong></p>
+
+<p><strong>Mike:</strong> iATS takes data security very seriously. We are a level 1 PCI-compliant payment processor, meaning that our services adhere to the strictest security standards as outlined by the Payment Card Industry.</p>
+
+<p>Our payment processing solutions include many fraud prevention features that your organization can turn off and on dynamically as you see fit. Here are just a few that we offer:</p>
+
+<ul>
+  <li>
+    <p><strong>Address verification system (AVS)</strong>. An AVS checks the billing address that the donor has submitted on a webform against the billing address on file with their bank account to help you spot potentially fraudulent transactions.</p>
+  </li>
+  <li>
+    <p><strong>Card verification code requirement (CVV)</strong>. Turning on this feature requires the donor to enter the CVV number (the three digit number on the back of their credit or debit card) when making a transaction. Requiring another form of payment method identification can also deter fraud.</p>
+  </li>
+  <li>
+    <p><strong>Minimum transaction limit</strong>. Fraudsters often test out stolen credit cards on donation forms by entering small, random amounts (think: $1.32). With our services, you can set a minimum donation amount so that your donation form is less likely to become a testing ground for fraudulent transactions.</p>
+  </li>
+</ul>
+
+<p>Essentially, our services allow your organization to customize the level of security to your unique needs, providing both you and your donors with more peace of mind. At the same time, our security measures are non-invasive, keeping the donation process quick and convenient.</p>
+
+<p><strong>How can a nonprofit run by volunteers and non-technical staff offload the responsibilities that go with virtual transactions?</strong></p>
+
+<p><strong>Mike:</strong> There can be a lot of tricky regulations to maneuver around when it comes to online transactions. The best way to avoid having to take on these crucial responsibilities is to work with a dedicated payment processor like iATS.</p>
+
+<p>Our services are designed to be PCI-compliant and regulate the virtual transaction process so that organizations never have to bear the burden of these responsibilities (and the potential consequences that could arise as a result of failing to adhere to security standards and other regulations).</p>
+
+<p><strong>What platforms and implementations of your services do you support?</strong></p>
+
+<p><strong>Mike:</strong> There are three ways that nonprofits can take advantage of iATS’ services. Here’s a quick rundown of what we offer:</p>
+
+<ul>
+  <li>
+    <p><strong>Brickwork</strong>. Brickwork is a payment processing application offered on the <a href="https://thinkshout.com/blog/2015/04/salesforce-new-features/">Salesforce</a> App Exchange. It’s compatible with both the Nonprofit Success Pack and Enterprise editions of Salesforce so that your organization can accept both credit cards and direct debit payments through your Salesforce CRM and Auctions for Salesforce platforms.</p>
+  </li>
+  <li>
+    <p><strong>Aura</strong>. With Aura, your organization can use the iATS customer portal to create customizable donation forms for multiple campaigns. Then, you can seamlessly embed your forms into <a href="https://thinkshout.com/blog/2014/09/nonprofit-website-benchmarks/">your website</a> by placing a user-friendly Aura code on your site.</p>
+  </li>
+  <li>
+    <p><strong>Partnerships</strong>. iATS also partners with over 130 <a href="https://blog.fundly.com/nonprofit-crm-complete-guide/">donor database</a>, event management, and fundraising software vendors. Chances are that our services can be integrated with the other nonprofit software platforms your organization is already using.</p>
+  </li>
+</ul>
+
+<p>By providing multiple solutions, we can cater to nonprofits of all shapes and sizes, from those just starting out with online fundraising to those who already use an established suite of software to run their efforts.</p>
+
+<p><strong>How are you keeping up with the development and future of those platforms?</strong></p>
+
+<p><strong>Mike:</strong> At iATS, we’re always looking toward improvement. We actively seek out feedback from clients, partners, and other stakeholders to help us identify areas where our products or services could be adjusted to make the virtual transaction process easier for all parties involved.</p>
+
+<p>For example, one of the features we recently rolled out in the newest version of our Brickwork platform is card swipe reader support, so organizations can easily swipe credit cards on the go (which, as you know, is crucial now that donors are carrying cash less and less). We also added campaign and record type IDs so that transactions are recorded more accurately in the CRM.</p>
+
+<p><strong>How can a nonprofit get started with iATS if they decide today that they want to give it a try?</strong></p>
+
+<p><strong>Mike:</strong> If your organization would like to get started with iATS, you can get in contact with us by visiting the <a href="http://home.iatspayments.com/contact">contact page on our website</a>. Simply fill out the quick form, and then we’ll be in touch to evaluate your needs and guide you through the sales process.</p>
+
+<p>Consequently, you could also contact our sales department:</p>
+
+<p>By phone: 1.866.300.4287 (#2)
+By email: iats@iatspayments.com</p>
+
+<p>We hope to hear from you soon!</p>
+]]>
+  </description>
+  <pubDate>Fri, 16 Dec 2016 10:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2016/12/payment-processing-with-iats/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/12/payment-processing-with-iats/</guid>
+</item>
+
+    
+      <item>
+  <title>Adding Encrypted USB Card Reader Support to Commerce iATS</title>
+  <description>
+    <![CDATA[<p>Ever been in a situation where you wished your Drupal Commerce installation could operate more like a Point of Sale system? Especially for nonprofits, taking donations and charging admission to events are prime examples of times when swiping a customer’s credit card would be a great time saver.</p>
+
+<p>As of version 2.5, <a href="https://www.drupal.org/project/commerce_iats">Commerce iATS</a> supports the use of <a href="http://home.iatspayments.com/developers/encrypted-magnetic-stripe-readers">encrypted USB card readers</a> with iATS Payments.</p>
+
+<p>Setting things up is easy:</p>
+
+<ol>
+  <li>Upgrade to <a href="https://www.drupal.org/node/2345737">Commerce iATS 2.5</a></li>
+  <li>Edit the Commerce iATS credit card payment method by selecting <code class="highlighter-rouge">Store</code>, <code class="highlighter-rouge">Configuration</code>, then <code class="highlighter-rouge">Payment methods</code> from your Drupal admin menu</li>
+  <li>Check the “Use encrypted USB card reader” option of the credit card payment method (see screenshot below)</li>
+  <li>Select the name of the USB card reader you’re using</li>
+  <li>Save the changes to the payment method and you’re good to go</li>
+</ol>
+
+<p><img src="http://www.thinkshout.com/assets/images/blog/commerce-iats-card-reader-settings.png" alt="Enable USB card reader functionality" /></p>
+
+<p>The USB card reader option is only available to Drupal admin users, not regular customers, so you’ll need to create an order manually through the Drupal Commerce admin interface before you can process a payment by swiping a credit card.</p>
+
+<p>The next time you add a credit card payment to an order, you’ll see something like this:</p>
+
+<p><img src="http://www.thinkshout.com/assets/images/blog/commerce-iats-card-reader-data.png" alt="Adding a payment with an encrypted USB card reader" /></p>
+
+<p>That code is the encrypted credit card data fed into Drupal by the USB card reader. Or it might be the Matrix, we’re still not entirely sure.</p>
+
+<p>In addition to the convenience of not having to type in credit card details, the USB card readers are fully PCI compliant. All sensitive credit card information is encrypted by the reader before it reaches Drupal, meaning you never need to pass unencrypted card data through your server.</p>
+
+<p>For the developers out there, the USB card readers can hook into three of iATS Payments’ API services:</p>
+
+<ul>
+  <li><strong><a href="https://www.iatspayments.com/NetGate/ProcessLink.asmx?op=ProcessCreditCardV1">ProcessCreditCardV1</a></strong>
+    <ul>
+      <li>Process a credit card transaction without storing any data locally.</li>
+    </ul>
+  </li>
+  <li><strong><a href="https://www.iatspayments.com/NetGate/CustomerLink.asmx?op=CreateCreditCardCustomerCodeV1">CreateCreditCardCustomerCodeV1</a></strong>
+    <ul>
+      <li>Create a customer code without a charge. This is a great way to store a customer’s credit card to bill later. Fully PCI compliant as only the iATS Payments customer code is stored on your server, not the credit card information.</li>
+    </ul>
+  </li>
+  <li><strong><a href="https://www.iatspayments.com/NetGate/ProcessLink.asmx?op=CreateCustomerCodeAndProcessCreditCardV1">CreateCustomerCodeAndProcessCreditCardV1</a></strong>
+    <ul>
+      <li>A combination of the above two services, charge a credit card and create a customer code at the same time.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>You can see some example card data in iATS Payments’ <a href="http://home.iatspayments.com/developers/encrypted-swipe/usb-devices">developer documentation</a>. If you’re ready to start swiping credit cards, the documentation includes links to sites where you can purchase one of the two encrypted USB card readers supported by iATS Payments.</p>
+]]>
+  </description>
+  <pubDate>Tue, 30 Sep 2014 12:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/09/commerce-iats-usb-card-reader/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/09/commerce-iats-usb-card-reader/</guid>
+</item>
+
+    
+      <item>
+  <title>Learn About Commerce iATS at the iATS Payments Webinar</title>
+  <description>
+    <![CDATA[<p>At DrupalCon Austin, I gave a presentation on <a href="https://www.drupal.org/project/commerce_iats">Commerce iATS</a>, the module we developed to integrate payment processing using iATS Payments into Drupal. <a href="http://home.iatspayments.com/">iATS Payments</a> has made a huge investment in Drupal and the open source community by sponsoring development of Commerce iATS since April. They even had a presence at DrupalCon and were on hand to answer developers’ questions.</p>
+
+<p>We’re incredibly proud of the work we’ve done with iATS Payments, our preferred leading nonprofit payment provider. With the addition of our <a href="http://thinkshout.com/blog/2014/05/commerce-iats-2-0/">Commerce iATS module</a> this past year, Drupal users can utilize the stable, well-maintained payment gateway as we continue to improve upon the module and add more payment options for international users.</p>
+
+<p>If you missed us at DrupalCon, iATS Payments has you covered with an upcoming webinar and a new presentation about Commerce iATS, where we’ll go over the great features the module has to offer, as well as our most recent additions to Commerce iATS.</p>
+
+<p>We’ll be breaking things up into three sections:</p>
+
+<ul>
+  <li>An introduction to iATS Payments</li>
+  <li>An overview of the Commerce iATS Module implementation and configuration</li>
+  <li>A look at the code</li>
+</ul>
+
+<p>We’ll be covering all of the standard Commerce iATS capabilities:</p>
+
+<ul>
+  <li>What Commerce iATS is and how it integrates with Drupal</li>
+  <li>Accepting credit card, ACH/EFT and recurring payments</li>
+  <li>Accepting Direct Debit payments from UK customers</li>
+</ul>
+
+<p>We’ll also be covering these recent Commerce iATS additions:</p>
+
+<ul>
+  <li>Using Direct Post to securely send payments directly to iATS Payments</li>
+  <li>Using an encrypted USB card reader to process payments with a physical credit card</li>
+</ul>
+
+<p>The webinar will take place on Wednesday, September 17 from 11:00 a.m. to 11:30 a.m. PDT. The code review will be followed by a session of Q&amp;A. Sign up to get your questions answered. <a href="https://www2.gotomeeting.com/register/433030410">Registration is open now</a>.</p>
+
+<p>If you’d like to get some reading in before the webinar, you can brush up on iATS Payments at their recently launched <a href="http://home.iatspayments.com/developers">Developer Site</a>.</p>
+]]>
+  </description>
+  <pubDate>Mon, 08 Sep 2014 10:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/09/iats-webinar-2014/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/09/iats-webinar-2014/</guid>
+</item>
+
+    
+      <item>
+  <title>Meet the ThinkShout Team at DrupalCon Austin</title>
+  <description>
+    <![CDATA[<p>Next week, ten members of the ThinkShout crew will ship out to Austin, Texas for DrupalCon 2014. This is our largest delegation yet and we couldn’t be more excited about it! We’ve got Drupal 8 on the brain and we’re sure you do, too.</p>
+
+<p>If you plan on attending DrupalCon in Austin, we’re always down to talk shop - or not shop. We’ll be all over the place during those four days, but here’s where you can find us:</p>
+
+<h3 id="exhibit-hall">Exhibit Hall###</h3>
+
+<p>We’ll be sharing booth 508 with our partner and preferred nonprofit payment processor, iATS Payments. Stop by! We’d love to talk to you about the <a href="http://thinkshout.com/blog/2014/05/commerce-iats-2-0/">exciting work we’re doing with the iATS Drupal Module.</a> Dan Ruscoe himself will be available to discuss his work.</p>
+
+<h3 id="official-sessions">Official Sessions###</h3>
+
+<p><a href="https://austin2014.drupal.org/session/student-counselor-advocate-many-hats-content-strategists">“Student, Counselor, Advocate: The Many Hats of Content Strategists ”</a><br />
+Wednesday, 1:00-2:00pm, <br />
+Room: 16 - Pantheon, 4th Floor</p>
+
+<p>Brett Heckman and Brett Meyer will will provide you with some valuable techniques to help you facilitate a great discovery process.</p>
+
+<h3 id="birds-of-a-feather-bof">Birds of a Feather (BoF)###</h3>
+
+<p>The ThinkShout team will be leading a great variety of BoF sessions next week. Join in the conversations - we want to hear from you!</p>
+
+<h4 id="tuesday">TUESDAY:####</h4>
+
+<p>Title: <a href="https://austin2014.drupal.org/bof/leveraging-salesforce-drupal">Leveraging Salesforce with Drupal</a> with <strong>Tauno Hogue</strong><br />
+Room: 8A - JustDigital | 3rd floor<br />
+Time: Tuesday, 2:15-3:15pm</p>
+
+<p>Title: <a href="https://austin2014.drupal.org/bof/unmoderated-small-sample-user-testing">Unmoderated Small Sample User Testing</a> with <strong>Brett Meyer</strong> (@brett_meyer) &amp; <strong>Sean Larkin</strong> (@sean_larkin)<br />
+Room: 10A - Ashday | 3rd floor<br />
+Time: Tuesday, 2:15-3:15pm</p>
+
+<p>Title: <a href="https://austin2014.drupal.org/bof/static-site-generators-and-wireframes">Static Site Generators &amp; Wireframes</a> with <strong>Eric Paxton</strong> &amp; <strong>Brett Heckman</strong><br />
+Room: 8A - JustDigital | 3rd floor<br />
+Time: Tuesday, 3:45-4:45pm</p>
+
+<h4 id="wednesday">WEDNESDAY:####</h4>
+
+<p>Title: <a href="https://austin2014.drupal.org/bof/building-your-drupal-based-business-what-keeps-you-night">Building Your Drupal-Based Business: What Keeps You Up at Night?</a> with <strong>Sean Larkin</strong> (@sean_larkin) <strong>w/Chris Wolz</strong> (@cwolz) of Forum One (@forumone)<br />
+Room: 8B - Unicon | 3rd floor<br />
+Time slot: Wednesday, 10:45-11:45</p>
+
+<p>Title: <a href="https://austin2014.drupal.org/bof/email-marketing-mailchimp-1">Email Marketing with Drupal</a> with <strong>Lev Tsypin</strong> (@levelos)<br />
+Room: 10A - Ashday | 3rd floor<br />
+Time: Wednesday, 3:45-4:45pm</p>
+
+<h4 id="thursday">THURSDAY:####</h4>
+
+<p>Title: <a href="https://austin2014.drupal.org/bof/nonprofit-fundraising-drupal">Nonprofit Fundraising with Drupal</a> with <strong>Lev Tsypin</strong> (@levelos)<br />
+Room: 8C - VLM | 3rd floor<br />
+Time: Thursday, 10:45-11:45am</p>
+
+<p>Title: <a href="https://austin2014.drupal.org/bof/leveraging-drupal-commerce-nonprofit-payment-provider">Leveraging Drupal Commerce for a Nonprofit Payment Provider</a> with <strong>Dan Ruscoe</strong> (@danruscoe) and <strong>Stephen Bestbier</strong> of iATS Payments <br />
+ Room: 8A - JustDigital | 3rd floor<br />
+ Time slot: Thursday, 1:00-2:00pm</p>
+
+<p>Title:  <a href="https://austin2014.drupal.org/bof/discovery-workshop-many-hats-content-strategists">Discovery Workshop</a> with <strong>Brett Heckman</strong>  &amp; <strong>Brett Meyer</strong> (@brett_meyer)<br />
+Room: 10A - Ashday | 3rd floor<br />
+Time: Thursday, 1:00-2:00pm</p>
+
+<p><strong>If you can’t make it,</strong> no worries. Get in touch with us and we’ll be happy to fill you in one what you missed. Twitter, email, carrier pigeon, whatever works for you. To those of you Austin-bound, we’ll see you there. Bring on the breakfast tacos!</p>
+]]>
+  </description>
+  <pubDate>Fri, 30 May 2014 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/05/drupalcon-2014/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/05/drupalcon-2014/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

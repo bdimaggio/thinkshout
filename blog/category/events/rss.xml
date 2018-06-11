@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/events/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Upgrading MailChimp eCommerce and an Introduction to Drupal 8's Event System</title>
+  <description>
+    <![CDATA[<p>If you’ve ever built a Drupal 7 module, then you’ll be familiar with hooks: functions that allow modules to react to things happening in other modules. The hook system is functionally fine but, with so many hooks to implement, .module files often become bloated and difficult to manage.</p>
+
+<p>Drupal 8’s event system does a lot to reduce the clutter of hooks. Now, instead of using a hook, you can create an event subscriber that will execute your code every time a module triggers an event. This is similar to the hook system only in the effect; the execution is very different.</p>
+
+<p>Porting our popular MailChimp eCommerce module to Drupal 8 gave me the perfect opportunity learn about the event system. I use the word “opportunity” to disguise the fact that I was forced to learn how events work because it was impossible to port the module without doing so.</p>
+
+<p>The MailChimp eCommerce module depends on the Commerce module, naturally, and in Drupal 8, the Commerce module makes heavy use of events.</p>
+
+<p>First, let’s look at an event. I’m using an example ripped straight from Commerce.</p>
+
+<p>The Commerce submodule, Commerce Cart, contains a class named <code class="highlighter-rouge">CartEntityAddEvent</code>. You can <a href="http://cgit.drupalcode.org/commerce/tree/modules/cart/src/Event/CartEntityAddEvent.php?h=8.x-2.x">find it here</a>.</p>
+
+<p>The class itself is simple; it’s designed to store a few values - the cart, the item being added to the cart, and the quantity of that item. The class also has a few getter functions for convenience.</p>
+
+<p>Most importantly, this class represents an event that’s triggered every time a user adds an item to their shopping cart. This is done using just two lines of code:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$event</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CartEntityAddEvent</span><span class="p">(</span><span class="nv">$cart</span><span class="p">,</span> <span class="nv">$purchased_entity</span><span class="p">,</span> <span class="nv">$quantity</span><span class="p">,</span> <span class="nv">$saved_order_item</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">eventDispatcher</span><span class="o">-&gt;</span><span class="na">dispatch</span><span class="p">(</span><span class="nx">CartEvents</span><span class="o">::</span><span class="na">CART_ENTITY_ADD</span><span class="p">,</span> <span class="nv">$event</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The event class is created with all the relevant values, then “dispatched” to any event subscribers configured to pay attention to it. When dispatched, the event is identified by a constant - <code class="highlighter-rouge">CartEvents::CART_ENTITY_ADD</code>. This constant is used by event subscribers, which we’ll take a look at now.</p>
+
+<p>This is a cut-down version of an event subscriber used by our <a href="https://www.drupal.org/project/mailchimp_ecommerce">MailChimp eCommerce module</a>.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sd">/**
+ * Event Subscriber for Commerce Carts.
+ */</span>
+<span class="k">class</span> <span class="nc">CartEventSubscriber</span> <span class="k">implements</span> <span class="nx">EventSubscriberInterface</span> <span class="p">{</span>
+
+  <span class="sd">/**
+   * The Cart Handler.
+   *
+   * @var \Drupal\mailchimp_ecommerce\CartHandler
+   */</span>
+  <span class="k">private</span> <span class="nv">$cart_handler</span><span class="p">;</span>
+
+  <span class="sd">/**
+   * The Order Handler.
+   *
+   * @var \Drupal\mailchimp_ecommerce\OrderHandler
+   */</span>
+  <span class="k">private</span> <span class="nv">$order_handler</span><span class="p">;</span>
+
+  <span class="sd">/**
+   * CartEventSubscriber constructor.
+   *
+   * @param \Drupal\mailchimp_ecommerce\CartHandler $cart_handler
+   *   The Cart Handler.
+   * @param \Drupal\mailchimp_ecommerce\OrderHandler $order_handler
+   *   The Order Handler.
+   */</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">CartHandler</span> <span class="nv">$cart_handler</span><span class="p">,</span> <span class="nx">OrderHandler</span> <span class="nv">$order_handler</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cart_handler</span> <span class="o">=</span> <span class="nv">$cart_handler</span><span class="p">;</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">order_handler</span> <span class="o">=</span> <span class="nv">$order_handler</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="sd">/**
+   * Respond to event fired after adding a cart item.
+   */</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">cartAdd</span><span class="p">(</span><span class="nx">CartEntityAddEvent</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="sd">/** @var \Drupal\commerce_order\Entity\Order $order */</span>
+    <span class="nv">$order</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getCart</span><span class="p">();</span>
+
+    <span class="sd">/** @var \Drupal\commerce_order\Entity\OrderItem $order_item */</span>
+    <span class="nv">$order_item</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getOrderItem</span><span class="p">();</span>
+
+    <span class="nv">$product</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">order_handler</span><span class="o">-&gt;</span><span class="na">buildProduct</span><span class="p">(</span><span class="nv">$order_item</span><span class="p">);</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cart_handler</span><span class="o">-&gt;</span><span class="na">addCartLine</span><span class="p">(</span><span class="nv">$order</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">(),</span> <span class="nv">$order_item</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">(),</span> <span class="nv">$product</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="sd">/**
+   * {@inheritdoc}
+   */</span>
+  <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getSubscribedEvents</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$events</span><span class="p">[</span><span class="nx">CartEvents</span><span class="o">::</span><span class="na">CART_ENTITY_ADD</span><span class="p">][]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'cartAdd'</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="nv">$events</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/thinkshout/mailchimp_ecommerce/blob/8.x-1.x/modules/mailchimp_ecommerce_commerce/src/EventSubscriber/CartEventSubscriber.php">Here’s the complete version, if you’re interested</a>.</p>
+
+<p>So what does it do, exactly?</p>
+
+<p>Let’s start with the <code class="highlighter-rouge">getSubscribedEvents()</code> function. This is where we define which events we want to subscribe to, and assign each event a processing function. Here we are subscribing to just one event, the “cart entity add” event, and assigning the <code class="highlighter-rouge">cartAdd()</code> function as a processor.</p>
+
+<p>Note that the <code class="highlighter-rouge">cartAdd()</code> function takes one argument, an instance of the <code class="highlighter-rouge">CartEntityAddEvent</code> class. That’s the same class we looked at earlier - the event class defined in the Commerce Cart module. This is where our module reacts to that event being triggered.</p>
+
+<p>The <code class="highlighter-rouge">cartAdd()</code> function itself extracts the order and item information from the event and uses an instance of the <code class="highlighter-rouge">CartHandler</code> class, provided by the MailChimp eCommerce module, to send updated cart information to MailChimp’s API.</p>
+
+<p>One final thing:</p>
+
+<p>Event subscribers won’t work unless they are defined as a service. Services are defined in a module’s *.services.yml file, which you can <a href="https://www.drupal.org/docs/8/api/services-and-dependency-injection/structure-of-a-service-file">learn more about here</a>.</p>
+
+<p>The service definition for the <code class="highlighter-rouge">CartEventSubscriber</code> looks like this:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">mailchimp_ecommerce_commerce.cart_event_subscriber</span><span class="pi">:</span>
+    <span class="na">class</span><span class="pi">:</span> <span class="s1">'</span><span class="s">\Drupal\mailchimp_ecommerce_commerce\EventSubscriber\CartEventSubscriber'</span>
+    <span class="na">arguments</span><span class="pi">:</span> <span class="pi">[</span><span class="s1">'</span><span class="s">@mailchimp_ecommerce.cart_handler'</span><span class="pi">,</span> <span class="s1">'</span><span class="s">@mailchimp_ecommerce.order_handler'</span><span class="pi">]</span>
+    <span class="na">tags</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="pi">{</span> <span class="nv">name</span><span class="pi">:</span> <span class="nv">event_subscriber</span> <span class="pi">}</span>
+</code></pre></div></div>
+
+<p>We identify the class using its namespace, inject the “cart_handler” and “order_handler” services, then, finally, tag the service as an “event_subscriber”. <a href="https://github.com/thinkshout/mailchimp_ecommerce/blob/8.x-1.x/modules/mailchimp_ecommerce_commerce/mailchimp_ecommerce_commerce.services.yml">Check out the full file here</a>. Just for completeness, the two injected services are defined in <a href="https://github.com/thinkshout/mailchimp_ecommerce/blob/8.x-1.x/mailchimp_ecommerce.services.yml">here</a>.</p>
+
+<p>I’m a big fan of how Drupal 8 has shifted towards a more object-oriented way of doing things. It’s more organized, promotes consistency between modules, and, best of all, finally signals an end to massive .module files.</p>
+
+]]>
+  </description>
+  <pubDate>Thu, 06 Jul 2017 12:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/07/upgrading-mailchimp-ecommerce-and-and-introduction-to-drupal-8s-event-system/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/07/upgrading-mailchimp-ecommerce-and-and-introduction-to-drupal-8s-event-system/</guid>
+</item>
+
+    
+      <item>
+  <title>See You at the NTC</title>
+  <description>
+    <![CDATA[<p>The Nonprofit Technology Conference is just around the corner, and we’re hard at work making those final preparations for our trip to D.C. We have some exciting things in store for you this year, so mark your calendars!</p>
+
+<h2 id="drupal-salon">Drupal Salon</h2>
+
+<p>This year, we’re honored to coordinate the first ever Drupal Salon at the NTC. In lieu of the traditional pre-conference days as we’ve done in previous years, NTEN set aside space and time for subject matter experts to present nine twenty-minute-long talks on all things Drupal on Thursday, March 23rd. These talks will take place as part of the formal NTC schedule, and sessions can be viewed in the <a href="https://www.nten.org/ntc/program/agenda/">Wordpress &amp; Drupal Salon tracks on the NTC site</a>.</p>
+
+<p>We’re excited to have experts from the Southern Poverty Law Center, Shatterproof, and the Center for Strategic and International Studies share their Drupal insight and experiences. ThinkShout will also be providing one-on-one consulting at our Drupal Salon table, so bring us all of your Drupal questions! Drupal hosting providers Pantheon and Acquia will also be on hand to tackle whatever Drupal hosting questions you may have.</p>
+
+<p>We hope you’ll be able to join us! Here’s what we’ll be talking about:</p>
+
+<ul>
+  <li>
+    <p>“<a href="https://www.nten.org/session/stories-that-matter-how-the-splc-responded-to-the-2016-election/">Stories that Matter: How the SPLC Responded to the 2016 Election</a>” - Alex Amend, Digital Media Director (The Southern Poverty Law Center)</p>
+  </li>
+  <li>
+    <p>“<a href="https://www.nten.org/session/rapid-response-options-in-drupal/">Rapid Response Options in Drupal</a>” - Eric Paxton, Senior Front End Engineer (ThinkShout)</p>
+  </li>
+  <li>
+    <p>“<a href="https://www.nten.org/session/drupal-powered-digital-storytelling/">Drupal-Powered Digital Storytelling</a>” - Brett Meyer, Director of Strategy (ThinkShout)</p>
+  </li>
+  <li>
+    <p>“<a href="https://www.nten.org/session/drupal-as-a-hub-custom-integrations-for-csis/">Drupal as a Hub: Custom Integrations for CSIS</a>” - Ian Gottesman, Chief Information Officer (CSIS)</p>
+  </li>
+  <li>
+    <p>“<a href="https://www.nten.org/session/integrating-drupal-and-salesforce/">Integrating Drupal and Salesforce</a>” - Lev Tsypin, Founder &amp; CEO (ThinkShout)</p>
+  </li>
+  <li>
+    <p>“<a href="https://www.nten.org/session/event-registration-with-drupal/">Event Registration with Drupal</a>” - Gabe Carleton-Barnes, Engineering Manager (ThinkShout)</p>
+  </li>
+  <li>
+    <p>“<a href="https://www.nten.org/session/how-shatterproof-fights-addiction-with-compelling-content/">How Shatterproof Fights Addiction with Compelling Content</a>” - Anthony Della Camera, Technology Director &amp; Jessica Ishikawa, Interactive Designer (Shatterproof)</p>
+  </li>
+  <li>
+    <p>“<a href="https://www.nten.org/session/content-modeling-for-drupal-based-websites/">Content Modeling for Drupal-based Websites</a>” - Brett Meyer, Director of Strategy (ThinkShout)</p>
+  </li>
+  <li>
+    <p>“<a href="https://www.nten.org/session/leveraging-drupal-in-your-marketing-strategies/">Leveraging Drupal in Your Marketing Strategies</a>” - Natania LeClerc, Senior Digital Engagement Strategist (ThinkShout)</p>
+  </li>
+</ul>
+
+<p>We’re confident that the Drupal Salon sessions will have a little something for everyone, and we look forward to connecting with the nonprofit community with this new format.</p>
+
+<h2 id="meet-the-thinkshout-team">Meet the ThinkShout Team</h2>
+
+<p>Be sure to catch our team session on March 23rd, as well!</p>
+
+<ul>
+  <li>“<a href="https://www.nten.org/session/how-to-learn-to-stop-worrying-and-love-your-digital-agency/">How to Learn to Stop Worrying and Love Your Digital Agency</a>” - Alex Amend (Southern Poverty Law Center), Michele Kayal (Relief International), Alex MacMillan (ThinkShout), and Lev Tsypin (ThinkShout)</li>
+</ul>
+
+<p>The ThinkShout team will have a presence in the Exhibit Hall this year, of course. Stop by our booth (#501) and chat; we’ll be debuting brand new t-shirts and we’re excited to share them with you all (for free)! This is a great opportunity to learn more about our work and the organizations we partner with. We’re also available to talk about anything B Corp related, so send those questions our way!</p>
+
+<p>If you’d like to schedule a time to meet with our staff at the NTC in advance, drop us a line through our <a href="https://thinkshout.com/contact/">contact form</a>. See you in the capitol!</p>
+]]>
+  </description>
+  <pubDate>Fri, 03 Mar 2017 09:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2017/03/thinkshout-at-the-2017-ntc/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/03/thinkshout-at-the-2017-ntc/</guid>
+</item>
+
+    
+      <item>
+  <title>See You in the Big Easy</title>
+  <description>
+    <![CDATA[<p>Next week, nine of us will ship out to New Orleans for DrupalCon. As excited as we are to finally enjoy an authentic beignet and explore the French Quarter, the real draw here is the opportunity to once again catch up with our friends and collaborators in the Drupal community.</p>
+
+<p>We’ve been hard at work preparing our presentations and lining up BoF schedules, and putting those finishing touches on our booth. All that’s missing is you! We have five short days to see what all DrupalCon has to offer, and meet everyone we want to meet. Can we do it? Two words: Challenge accepted.</p>
+
+<p>As always, if you’re reading this and you plan on attending DrupalCon, too, we want to meet you! Here’s what we’ve got lined up.</p>
+
+<h2 id="exhibit-hall">Exhibit Hall</h2>
+
+<p>This year, booth 216 is the ThinkShout headquarters! Rest assured, we brought the swag. Shirts, socks, and MailChimp hats await you, so be sure to stop by and grab one before they’re all gone! We’ll also be raffling off another BB-8. All you have to do is sign up for our newsletter by dropping off a business card. Painless, right?</p>
+
+<p>We’ll also be on the lookout for folks interested in pursuing the <a href="https://thinkshout.com/careers/senior-software-engineer/">senior engineer position</a> we recently listed, so if you think you might be a good fit for the position and you’ll be at DrupalCon, then let’s chat! Drop us a line and we’ll set up a time to get to know each other a little better. Or just show up - that’s fine too.</p>
+
+<h2 id="thinkshout-sessions">ThinkShout Sessions</h2>
+
+<p>“<a href="https://events.drupal.org/neworleans2016/sessions/content-strategy-popular-culture">Content Strategy in Pop Culture</a>” - Wednesday (5/11), 1:00pm - 2:00pm</p>
+
+<p>Join Brett Meyer for an unconventional look at content strategy through a pop culture lens. Draw parallels between the information you consume every day and the sites you build, and have a little fun while doing it!</p>
+
+<p>“<a href="https://events.drupal.org/neworleans2016/sessions/story-successful-drupal-integrations-3-acts">The Story of Successful Drupal Integrations in 3 Acts</a>” - Thursday (5/12), 10:45am - 11:45am</p>
+
+<p>Lev Tsypin will share the stories of the MailChimp, iATS Payments, and Salesforce Drupal integrations, and share some insight into how to be successful when setting out to integrate Drupal with other third party systems.</p>
+
+<h2 id="birds-of-a-feather-bof-discussions">Birds of a Feather (BoF) Discussions</h2>
+
+<p>Our team has three birds of a feather discussions planned on the Tuesday of DrupalCon, so mark your calendars and join the conversation!</p>
+
+<p>“<a href="https://events.drupal.org/neworleans2016/bofs/fundraising-drupal">Fundraising in Drupal</a>” - Tuesday (5/10), 11:00am - 12:00pm</p>
+
+<p>“<a href="https://events.drupal.org/neworleans2016/bofs/static-fanatics-tips-developing-static-sites">Static Fanatic: Tips on Developing Static Sites</a>” - Tuesday (5/10), 11:00am - 12:00pm</p>
+
+<p>“<a href="https://events.drupal.org/neworleans2016/bofs/event-registration-drupal-8">Event Registration in Drupal</a>” - Tuesday (5/10), 3:45pm - 4:45pm</p>
+
+<p>Of course, we also plan on checking out the many wonderful social events that DrupalCon has in store in the evenings, so there’s a good chance you’ll see us there as well! It’s going to be a jam-packed week, and we can’t wait. As always, we’re looking forward to catching lots of sessions, brushing up on trends, and learning new things. We hope to see you there!</p>
+]]>
+  </description>
+  <pubDate>Thu, 05 May 2016 11:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2016/05/see-you-in-the-big-easy-drupalcon-2016/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/05/see-you-in-the-big-easy-drupalcon-2016/</guid>
+</item>
+
+    
+      <item>
+  <title>Networking, Content Strategy, and Web Development at the 2016 NTC</title>
+  <description>
+    <![CDATA[<p>While many of you were on spring break, working on your tans… we spent our spring break in San Jose. We weren’t catching rays, we were surfing… surfing through oodles of great content and meeting many amazing people working for worthy causes at the <a href="http://www.nten.org/ntc/">Nonprofit Technology Conference</a> (NTC).</p>
+
+<p>For the uninitiated, the NTC is an annual conference that brings together roughly 2,000 nonprofit professionals from around the world. (I met someone who flew in from India to attend.) It is, without question, the banner technology event of the year in our field. Not only do the sessions (of which there were <em>over 100</em>) spark conversations, collaboration, and change, they also explore the latest and greatest strategies and technologies available to help all of these worthy causes achieve their goals.</p>
+
+<p>We look forward to this event every year; it’s infectious to feel the energy in a room with like-minded individuals, and to be afforded the opportunity to solve problems and collaborate in the real world. You can certainly learn a lot from the articles and case studies sitting in your inbox, but sometimes, sitting across from someone at lunch and finding out how their organization approached a common struggle and found a resolution can be so much more illuminating. Remember talking to people? It’s that thing we all did before texting and tweeting took over our lives!</p>
+
+<p>I’m (mostly) kidding.</p>
+
+<p>Joking aside, if you’re in the nonprofit industry, whether it be on the tech side, marketing, fundraising, or leadership, this conference should be on your list for professional development. We’d like to share with you some of the sessions we were a part of – and keep an eye out for updates from <a href="http://www.nten.org/">NTEN</a> (that’s the Nonprofit Technology Network) for info on conference follow-ups or other webinars they host.</p>
+
+<h2 id="drupal-day">Drupal Day</h2>
+
+<p>We look forward to Drupal Day all year, as <a href="https://thinkshout.com/blog/2016/03/meet-thinkshout-at-the-2016-ntc/">Stephanie explained in her last blog post</a>. Lev kicked things off for us with his “Fundraising in <a href="https://www.drupal.com/">Drupal</a>” talk. This session explored the toolsets that enable anyone with limited coding skills to run compelling online campaigns, create one page donation forms with multiple payment options, and run viral fundraising campaigns with tools like <a href="https://www.drupal.org/project/redhen">RedHen CRM</a> and <a href="https://www.drupal.org/project/redhen_raiser">RedHen Raiser</a>. There is a wide range in the efficacy of online fundraising, and Lev walked through how Drupal provides the tools to do it right. He even covered some recent case studies where these tools were implemented and why they were especially effective in those environments. <a href="http://www.slideshare.net/loubabe/fundraising-with-drupal">You can find his slides on Slideshare.</a></p>
+
+<p>Next, Amy dove into the (somewhat) intimidating world of Web Development. In her session, she covered ways to maintain and improve your website without breaking the bank – which is important to just about anyone running a business today, but especially to those in the nonprofit sector. She talked about the pros and cons of using in-house developers versus vendors, considerations for static sites versus a CMS, and of course, strategies to help you keep costs down. Low and behold: it <em>is</em> possible to have a beautifully functional website in the face of budget constraints! Check out the slides from “<a href="https://docs.google.com/presentation/d/10mmV4nIuytwA64Snz-6rKotRIHWzms-xhb4AnYgd0q0/pub?start=false&amp;loop=false&amp;delayms=3000&amp;slide=id.gbde8c283a_0_7">Web Development Within Your Means</a>.”</p>
+
+<h2 id="ntc">NTC</h2>
+
+<p>On day one of the formal conference, Lev and I led a session on digital storytelling, explaining why it’s relevant, and talking about some common tools and tips to effectively tell your organization’s story online. Stories are how you engage your constituents and build a relationship with them. More importantly, it’s how they connect to your cause. But the way we tell our stories and digest information is rapidly evolving, and text on a web page isn’t enough. In the Internet of Things, there is a multitude of ways to share your message. Christian Anthony from <a href="http://earthjustice.org/">Earthjustice</a> shared the inventive ways they utilize technology for greater engagement through photo essays, maps, and infographics, just to name a few. You can find the slides for our session, “Show, Don’t Tell: Online Storytelling Through Digital Media,” on <a href="http://www.slideshare.net/ffnatania/show-dont-tell-online-storytelling-through-digital-media">Slideshare</a>.</p>
+
+<p>On day two, Brett teamed up with Melissa Barber from North Peak and Lara Koch of the Humane Society of the United States, and spoke about user experiences across 3rd-party systems. I’d wager that about 90% of nonprofits out there wish for nothing more than the opportunity to use a single platform to implement their digital strategy. Most of the time, though, business needs and historical requirements dictate that many projects require you to — somehow — create a cohesive user experience across multiple platforms, even when those platforms don’t provide you with extensive customization options.</p>
+
+<p>It’s not necessarily a pretty job, but we can’t ignore it. Fortunately, there are tried and true ways to streamline the process and maintain as clean a user experience as possible. Topics covered were:</p>
+
+<ul>
+  <li>
+    <p>Requirements Gathering: What systems are in play?</p>
+  </li>
+  <li>
+    <p>Design: How can we create reusable components?</p>
+  </li>
+  <li>
+    <p>APIs: Can we hide the 3rd-party systems altogether?</p>
+  </li>
+  <li>
+    <p>Compromise: How can we change our perceived organizational needs to put users first?</p>
+  </li>
+  <li>
+    <p>Governance: What are the human systems we need to consider?</p>
+  </li>
+  <li>
+    <p>Post-launch: How can we prevent fragmentation of the experience after the solution is implemented?</p>
+  </li>
+</ul>
+
+<p>And these were just the sessions we participated in! There is an unbelievable wealth of good information and content at the NTC. If you were there with us, you know it’s easy to get overwhelmed and come back to the office, head swirling with ideas, unsure of where to start. You’re likely already knee deep in your established day-to-day tasks and projects – but don’t forget what you learned.</p>
+
+<p>My suggestion? Look back to your notes and session materials – write your goals down and focus on accomplishing one of them this quarter, set a deadline for yourself with your supervisor and make yourself accountable. After all, do or do not, there is no try…</p>
+
+]]>
+  </description>
+  <pubDate>Fri, 01 Apr 2016 07:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2016/04/networking-content-strategy-web-development-at-the-ntc/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/04/networking-content-strategy-web-development-at-the-ntc/</guid>
+</item>
+
+    
+      <item>
+  <title>Meet ThinkShout at the 2016 Nonprofit Technology Conference</title>
+  <description>
+    <![CDATA[<p>It’s that <a href="http://www.nten.org/ntc/">Nonprofit Technology Conference</a> time of year. The NTC is one of our favorite conferences, as it’s an amazing place for us to learn more about the exciting work being done in the nonprofit world. It’s also a great time to for us to share what we’ve been doing, and make connections. So if you’re curious about a job opening we’ve posted, or have a project you’d like to talk to us about, the NTC is a great place to have those conversations!</p>
+
+<p>There are a few places you can connect with us this year.</p>
+
+<h2 id="drupal-day">Drupal Day</h2>
+
+<p>We’re co-sponsoring <a href="http://ntcdrupalday.org">Drupal Day</a> on March 22nd along with the fine folks at Aten Design, Four Kitchens, Forum One, Message Agency, and Zivtech. We’ve got a jam packed day of breakout sessions and nonprofit case studies lined up. There’s a great variety of session topics to choose from, from content strategy, Drupal fundraising, and theming to web projects on a nonprofit budget, so there will be something for everyone at Drupal Day!</p>
+
+<p>Want to stop by a ThinkShout-led breakout session at Drupal Day? Lev Tsypin and Amy Vaillancourt-Sals have a couple of sessions on the docket you should check out. Lev will be leading “Fundraising in Drupal” at 9:30 am, and Amy will be leading “Web Development Within Your Means” at 1:45 pm.</p>
+
+<p>You can check out the full <a href="http://ntcdrupalday.org/#schedule">Drupal Day schedule online.</a> If you’re planning on attending the NTC, but haven’t registered for Drupal Day and would like to, no problem. Just show up that morning and we’ll take care of the rest.</p>
+
+<h2 id="sessions">Sessions</h2>
+
+<p>There are two ThinkShout sessions in the official NTC schedule. Natania LeClerc and Lev Tsypin will be teaming up with Christian Anthony of Earthjustice.org for “<a href="http://www.nten.org/session/show-dont-tell-online-storytelling-through-digital-media/">Show, Don’t Tell: Online Storytelling on Digital Media</a>” on Wednesday, March 23rd at 3:30 pm.</p>
+
+<p>On Thursday, March 24th at 1:30 pm, you can catch Brett Meyer, Lara Koch from the Humane Society of the United States, Melissa Barber from North Peak at their session, “<a href="http://www.nten.org/session/if-i-only-had-a-framework-crafting-user-experiences-across-3rd-party-systems/">If I Only Had a Frame(work): Crafting User Experiences Across 3rd Party Systems</a>.”</p>
+
+<p>These sessions are great opportunities for you to see our staff in action, sharing their expertise with the nonprofit tech community. Be sure to follow <a href="https://twitter.com/brett_meyer">Brett</a> and <a href="https://twitter.com/levelos">Lev</a> on Twitter for updates on their sessions – and feel free to pick their brains in person!</p>
+
+<h2 id="exhibit-hall">Exhibit Hall</h2>
+
+<p><strong>Booth #715</strong> is the ThinkShout HQ at the 2016 Nonprofit Technology Conference. We’re debuting a brand new, super comfy shirt, so be sure to stop by and pick one up. This year, the exhibit hall will be closed during sessions, but you’re guaranteed to find us there during the breaks in between. If you’re looking to talk shop, or learn more about the services we offer, definitely stop by the booth. If you’d like to plan on a specific time to meet in advance, drop us a line and we’ll make it happen.</p>
+
+<p>At the very least, you should stop by our booth for a chance to win your very own Bluetooth BB-8. Or, as we like to call it, our new office best friend. Yes, you’ll get a chance to meet it before you take it home.</p>
+
+<p class="center"><img src="/assets/images/blog/bb8.jpg" alt="Image: BB-8" /><span class="caption"><i class="fa fa-caret-up"></i>“Beep boop”</span></p>
+
+<p>We’ll see you all in San Jose!</p>
+
+]]>
+  </description>
+  <pubDate>Wed, 16 Mar 2016 10:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2016/03/meet-thinkshout-at-the-2016-ntc/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/03/meet-thinkshout-at-the-2016-ntc/</guid>
+</item>
+
+    
+      <item>
+  <title>Drupal Global Events in Portland</title>
+  <description>
+    <![CDATA[<p>There are two exciting Drupal community events happening in Portland soon. The first is the <a href="https://groups.drupal.org/node/489228">Drupal Global Sprint Day</a> on January 30th - this coming Saturday - which is a day focused on bringing together volunteers to contribute work such as documentation, testing, code, and design to the Drupal project. The project needs improvements from a wide variety of skill sets, and it’s a great way for new folks to contribute to Drupal. The second is <a href="https://assoc.drupal.org/global-training-day-portland-oregon-february-2016">Drupal Global Training Day</a>, a free Drupal 8 training for new community members. We’re thrilled to be involved with both!</p>
+
+<h2 id="drupal-global-sprint">Drupal Global Sprint</h2>
+
+<blockquote>Bring your projects and come code with us!</blockquote>
+
+<p>We’re hosting the Portland sprint <a href="https://goo.gl/maps/2qjSPuVti6q">at our office</a>. Bring your projects and come code with us! If you’ve wanted to contribute to Drupal 8, but don’t know how to begin, we’re happy to help you get started. New contributors are encouraged to attend, as we will be providing sprint training and new contributor onboarding, so don’t worry if you’ve never contributed to Drupal before. The sprint starts at 9:00 am and goes until 5:00 pm. Programming help, snacks, coffee, tables, and wifi will all be provided by ThinkShout.</p>
+
+<h3 id="drupal-8-training">Drupal 8 Training</h3>
+
+<blockquote>These two global Drupal events offer something for Drupal folks of all skill levels</blockquote>
+
+<p>February 6th is the Drupal Global Training Day. We will be leading the Portland training at the <a href="https://goo.gl/maps/bX8fPX8Csmv">Drupal Association headquarters</a>, and it’s open to everyone. This free training is ideal for new community members and people who are new to Drupal – but PHP developers not familiar with Drupal should also find the training valuable. The training includes coffee and snacks. Participants need only bring a laptop. Everything you need to know to get started will be discussed in detail at the event. We’ll cover:</p>
+
+<ul>
+  <li>An introduction to CMS</li>
+  <li>File management and databases</li>
+  <li>Site building basics with content types, fields, and views</li>
+  <li>Installation of modules and themes</li>
+  <li>Deploying to your web host with Git</li>
+  <li>Introduction to Drupal 8 theming with Twig templates</li>
+  <li>Drupal 8 configuration management</li>
+</ul>
+
+<p>These two global Drupal events offer something for Drupal folks of all skill levels, helping us to tap into Portland’s strong Drupal community. I hope you’ll join us for either (or both!) of these great events.</p>
+]]>
+  </description>
+  <pubDate>Thu, 28 Jan 2016 08:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2016/01/drupal-global-events-portland/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/01/drupal-global-events-portland/</guid>
+</item>
+
+    
+      <item>
+  <title>Meet the ThinkShout Team at BADCamp!</title>
+  <description>
+    <![CDATA[<p>It’s another big week for us here at ThinkShout. We’re getting ready for a jam-packed weekend of Drupal at BADCamp in Berkeley, California. As we previously mentioned, we’re leading <a href="http://thinkshout.com/blog/2015/09/badcamp-trainings-redhen-salesforce/">two half-day trainings</a> on Friday, October 23rd. We’re thrilled that this training is completely sold out, and we’re looking forward to sharing our Salesforce and RedHen CRM curriculum!</p>
+
+<p>Once again, we’re a sponsor and co-organizer of the <a href="https://2015.badcamp.net/event/summit/non-profit-summit">Nonprofit Summit</a>, which takes place on Thursday, October 22nd. This summit is also free to attend, and we encourage anyone in the nonprofit tech world in the Bay Area to come out for a day full of nonprofit-led lightning talks, and intimate discussion groups focused on Drupal topics that matter to you. The schedule is now live, so be sure to check it out and register if you’re interested in attending! Our own Brett Meyer will be leading a breakout session at the summit on fundraising with Drupal that you won’t want to miss!</p>
+
+<p>We’re also Contrib Sponsors to BADCamp this year, which means we’ll have a table in the Pauley Ballroom West. We’d love to see your shining faces and chat about all things Drupal, tech, nonprofits, and even cats. This is an especially great time for job seekers to get to know us and our mission a little bit better. We’re still looking for a few good <a href="http://thinkshout.com/careers/">senior engineers</a> to join our team, so if you think you might fit the bill, definitely drop by our table!</p>
+
+<p>We’re looking forward to seeing you all in Berkeley!</p>
+]]>
+  </description>
+  <pubDate>Tue, 20 Oct 2015 09:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/10/badcamp-2015/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/10/badcamp-2015/</guid>
+</item>
+
+    
+      <item>
+  <title>Meet the ThinkShout Team at DrupalCon LA!</title>
+  <description>
+    <![CDATA[<p>It’s that time of year again - that’s right, DrupalCon! We’re excited to visit sunny (and warm, and apparently very dry) Los Angeles this year for DrupalCon 2015. We might have to dust off our shorts for this one.</p>
+
+<p>The location for this year’s conference holds a special place in our hearts, as we have a handful of awesome clients and partners (and some friends, too) that we can’t wait to see while we geek out about all things Drupal. As always, we’ll all be running around during this four day event, but here are all the specific places where you can catch up with us:</p>
+
+<h2 id="exhibit-hall">Exhibit Hall##</h2>
+
+<p>We’re partnering with our friends MailChimp at booth 800. Stop by for some cool swag, to talk shop, and learn about the exciting work we’re doing porting the MailChimp module to Drupal 8. We’re also hiring for <a href="http://thinkshout.com/careers/">several positions</a>, so if you’d like to meet face to face and get a better feel for what it would be like to join the ThinkShout team, come chat with us.</p>
+
+<h2 id="official-sessions">Official Sessions##</h2>
+
+<p><a href="https://events.drupal.org/losangeles2015/sessions/scaling-your-business-starts-right-spreadsheets-performance-metrics">Scaling Your Business Starts with the Right Spreadsheets: Performance Metrics</a><a href="https://events.drupal.org/losangeles2015/sessions/scaling-your-business-starts-right-spreadsheets-performance-metrics"> </a></p>
+
+<p>Join ThinkShout’s Sean Larkin and Forum One’s Chris Wolz as they discuss tools and techniques for collaboration and management that will help you make better long-term decisions for your business.</p>
+
+<p>Tuesday May 12th, 10:45-11:45am</p>
+
+<p>Room: 502B - Lullabot</p>
+
+<p><a href="https://events.drupal.org/losangeles2015/sessions/if-i-only-had-framework-creating-unified-digital-experience-across-3rd-party">If I Only Had a Frame(work): Crafting Experiences Across 3rd-Party Systems</a></p>
+
+<p>Lev Tsypin and Brett Meyer will discuss creating and developing a create a cohesive experience across multiple platforms even when they aren’t all open source.</p>
+
+<p>Wednesday May 13th, 1-2pm</p>
+
+<p>Room: 515A - Phase 2</p>
+
+<p><a href="https://events.drupal.org/losangeles2015/sessions/building-your-drupal-based-business-or-what-keeps-you-night">Building Your Drupal-Based Business, Or, What Keeps You Up at Night</a></p>
+
+<p>This facilitated panel session will include ThinkShout’s own Sean Larkin, and will cover insights from agency owners on lessons learned, areas of focus, and what NOT to worry about. All that and some guidance on best practices, and ideas to sustain and support growth - with an active audience Q&amp;A to boot.</p>
+
+<p>Wednesday May 13th, 2:15-3:15pm</p>
+
+<p>Room: Petree C - Acquia</p>
+
+<p><a href="https://events.drupal.org/losangeles2015/sessions/ballin-budget-how-create-great-design-without-breaking-bank">Ballin’ on a Budget: How to Create Great Design Without Breaking the Bank</a><a href="https://events.drupal.org/losangeles2015/sessions/ballin-budget-how-create-great-design-without-breaking-bank"> </a></p>
+
+<p>Our Lead User Experience Designer, Josh Riggs, will give us the low-down on creating kick-ass designs for any budget by utilizing solid design fundamentals, great communication, and maybe a few tricks up the sleeve.</p>
+
+<p>Thursday May 14th, 10:45-11:45am</p>
+
+<p>Room: 501 - NewMedia</p>
+
+<p><a href="https://events.drupal.org/losangeles2015/sessions/mailchimp-drupal-anatomy-successful-partnership">MailChimp and Drupal, The Anatomy of a Successful Partnership</a></p>
+
+<p>In this Lightning Talk, ThinkShout CTO Lev Tsypin and MailChimp API guru Nathan Ranson will cover the evolution of MailChimp’s support for Drupal, the basics of how the integration works, and hint at what’s to come for Drupal 8.</p>
+
+<p>Thursday May 14th, 1:15pm</p>
+
+<p>Room: TBD</p>
+
+<h2 id="birds-of-a-feather-bof">Birds of a Feather (BoF)##</h2>
+
+<p>ThinkShout team members will also be leading a couple of great BoF sessions. We hope to see you there!</p>
+
+<p><a href="https://events.drupal.org/losangeles2015/bofs/design-and-prototyping-methods-responsive-drupal-sites">Design and Prototyping Methods for Responsive Drupal Sites</a> with Josh Riggs (@joshriggs)</p>
+
+<p>Tuesday May 12th, 10:45-11:45am</p>
+
+<p>Room: 410 - The Cherry Hill Company</p>
+
+<p><a href="https://events.drupal.org/losangeles2015/bofs/integrating-drupal-salesforce">Integrating Drupal with Salesforce</a> with Tauno Hogue</p>
+
+<p>Wednesday May 13th, 10:45-11:45am</p>
+
+<p>Room: 505 - Chromatic</p>
+
+<p>And finally, as we mentioned earlier, we’re excited about visiting LA this year because we’ll get a bit of face time with some of the great west coast clients and partners we’ve been working with over the last few years. We will be hosting a special happy hour reception celebrating these LA organizations and honoring one of our long-time clients and partners, the <a href="http://thinkshout.com/work/la-conservancy/">Los Angeles Conservancy</a>, with a donation from our team.</p>
+
+<p>We hope to see you at DrupalCon this year. If you can’t make it, get in touch with us and we’ll fill you in on what you missed! You can also follow along on all the social networks: <a href="https://twitter.com/thinkshout">Twitter</a>, <a href="https://www.facebook.com/ThinkShout">Facebook</a>, and <a href="https://instagram.com/thinkshout/">Instagram</a> - we’ll keep you posted!</p>
+
+<p>To those of you heading down to LA, California or BUST!</p>
+]]>
+  </description>
+  <pubDate>Thu, 07 May 2015 09:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/05/drupalcon-la/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/05/drupalcon-la/</guid>
+</item>
+
+    
+      <item>
+  <title>Monkeying Around with D8</title>
+  <description>
+    <![CDATA[<h2 id="leading-the-charge">Leading the Charge</h2>
+
+<p>I have used A LOT of email marketing service providers over the years and my opinion of them was twofold: they were all similar and none of them were particularly great. Was it possible that this was just a category of business that would never be exciting or innovative? Was I destined to be a project manager who half-heartedly recommended whatever email service provider I was using most at the time to clients?</p>
+
+<p><em>Enter the Chimp…</em></p>
+
+<p>Despite its playful name, <a href="http://www.mailchimp.com">MailChimp</a> made a serious shift in a category that had always had potential but lacked a true champion. My first thought when I used the tool was that even if the feature set was identical to all its competitors, MailChimp’s user interface alone was what set it apart. But once I dug into its capabilities, I became a bona fide fan (dare I say ambassador) of the brand. From automated email workflows and slick segmentation capabilities, to the [Chimpadeedoo] (http://mailchimp.com/features/mobile-signup-forms/) tablet app that facilitates email sign-ups without an internet connection, MailChimp became the new king of the jungle.</p>
+
+<p>Fast forward a few years, and here I am working at ThinkShout, MailChimp’s Drupal partner. We built and maintain the MailChimp Drupal module, which is used by nearly 22,000 websites.</p>
+
+<p>If you are familiar with MailChimp’s motto - listen hard and change fast - (or if you just read the first couple paragraphs of this blog post), then it should come as no surprise that innovation is at the heart of MailChimp’s culture. With the release of Drupal 8 looming this Fall, MailChimp and ThinkShout saw a unique opportunity to lead the charge by porting one of the most popular email modules to be D8 compatible.</p>
+
+<h2 id="the-only-way-through-it-is-through-it">The Only Way Through it is Through it</h2>
+
+<p>Being a trailblazer isn’t easy, and MailChimp understood that pushing the envelope on D8 development would require a significant investment of time and resources. While the core MailChimp module is relatively simple, the bundled submodules are feature-rich and technically complex.</p>
+
+<p>Let’s recap what the MailChimp module allows you to do:</p>
+
+<ul>
+  <li>Any “object” in Drupal that has an email address, say a User, Contact, or even a Comment, can be automatically subscribed to a list and segmented based on other attributes, like their zip code.</li>
+  <li>Display a list subscription status on an entity or a subscription form.</li>
+  <li>Map Drupal Data, such as name and address, to merge fields in MailChimp.</li>
+  <li>Create forms to allow site visitors to sign up for any Mailchimp List or combination of Lists.</li>
+  <li>Create Pages, Blocks, or both to display forms.</li>
+  <li>Create campaigns containing any Drupal entity, or entities, as content.</li>
+  <li>Send campaigns created in Drupal through MailChimp or Drupal.</li>
+  <li>View campaign statistics and email activity for all list subscribers.</li>
+</ul>
+
+<p>Luckily, one of the greatest aspects of our partnership with MailChimp is our shared passion for recognizing opportunity in challenges and giving back to the community. With that spirit, a couple of ThinkShout engineers dove in head first with the goal of porting the majority of the popular D7 module’s features over to D8 in time for a beta release at [DrupalCon LA] (https://events.drupal.org/losangeles2015). During the process, they realized that the available Drupal 8 documentation wasn’t keeping up with the speedy pace of D8 development. Over the course of several weeks, our engineers updated documentation and created examples to make life (or at least development) a little easier for the next developer looking to create something similar.</p>
+
+<h2 id="its-a-sprint-not-a-marathon">It’s a Sprint, Not a Marathon</h2>
+
+<p>With the conference approaching, it was time to call on the ThinkShout village to help put the polish on the new module. Since nine heads are better than two when it comes to user testing and QA, we scheduled a sprint to focus our engineering department on providing that critical perspective needed at the end of a large development project.</p>
+
+<p><img src="/assets/images/blog/mailchimp_roadmap1.jpg" alt="mailchimp_roadmap1.jpg" /></p>
+
+<p>During our afternoon sprint, our team ran a battery of tests (both human and automated) to document and resolve bugs. Our engineering staff has grown quite a bit recently, so the sprint also provided an opportunity for knowledge sharing about MailChimp and D8 development across the team. As a non-engineer fly on the wall, it was exciting to witness the energy at the sprint table, as bugs were closed and high-fives were thrown.</p>
+
+<h2 id="the-future-is-now">The Future is Now</h2>
+
+<p>So far, I’ve focused on what some of the challenges of early D8 development have been, and you’re surely wondering by now “So, what do you think about D8?” Short answer: we’re excited, and we think you should be, too.</p>
+
+<p>Drupal 8 standardizes module development by enforcing PSR-4 compliant namespaces. Whereas D7 allows developers to dictate where a form or entity is placed, for example, D8 loads files in the correct path automatically. What does this mean for developers? Well, it means time saved by not having to search an entire codebase to find where the developer before you placed a form. And because this structure is more in line with general engineering practices, it will be easier for any developer to ramp up for Drupal development.</p>
+
+<p>But the benefits aren’t just for developers. We are also excited about the efficiencies that will be created for our nonprofit clients. Not only do they stand to benefit from the streamlined development approach, but that shift in approach will also make it easier to find resources to maintain and enhance their sites.</p>
+
+<h2 id="learn-more-about-the-new-mailchimp-module">Learn More About the New MailChimp Module</h2>
+
+<p>Come and see us at [DrupalCon LA] (https://events.drupal.org/losangeles2015), where our very own [Lev Tsypin] (http://thinkshout.com/team/lev/) will be giving a [lightning talk] (https://events.drupal.org/losangeles2015/sessions/mailchimp-drupal-anatomy-successful-partnership) about the evolution of MailChimp’s support for Drupal, the basics of how the integration works, and a hint at what’s to come for Drupal 8. Don’t worry if you can’t make it to the talk because we’ll also be hanging out in the MailChimp booth. And if you spot one of us (you’ll recognize us by our ThinkShout hoodies), stop us! We’d love to chat about what we’ve learned about D8 and why were are excited for its release. Also, be sure to check out <a href="http://thinkshout.com/blog/category/mailchimp/">past blogs</a> we’ve written about our work on the MailChimp module.</p>
+
+]]>
+  </description>
+  <pubDate>Tue, 05 May 2015 09:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/05/mailchimp-d8-sprint/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/05/mailchimp-d8-sprint/</guid>
+</item>
+
+    
+      <item>
+  <title>Join ThinkShout for Drupal Day and the NTC</title>
+  <description>
+    <![CDATA[<p><a href="http://www.nten.org/">NTEN’s</a> <a href="http://myntc.nten.org/home">Nonprofit Technology Conference</a> is nearly upon us! We’re gearing up to ship out to Austin, and we’re putting the finishing touches on <a href="http://myntc.nten.org/eventdetails/precon/drupal">Drupal Day</a>. This is one of our favorite events of the year, as it’s when we get to meet up with many of our nonprofit partners, learn about new organizations and their causes, and share our expertise with the folks that need it to further their missions. We’re especially excited about the Drupal Day we’ve been coordinating for the last several months.</p>
+
+<p>What’s Drupal Day? Well, the name pretty much gives it away, but specifically, it’s a full-day, pre-conference event that we’ve been organizing for the past few years. It’s full of Drupal trainings, discussions, and nonprofit technology staff sharing their successes with their community. Breakout session topics vary from content strategy, accessibility, fundraising, CRMs, design, and more, all led by Drupal experts. The day concludes with our keynote presentation on the future of Drupal and Drupal 8 by <a href="https://pantheon.io/team/zack-rosen">Zack Rosen</a>, CEO of Pantheon. All Drupal Day attendees and speakers are invited to join us for a sponsored Happy Hour at the Brass House that evening. Want to stay in the loop on Twitter? Look for the hashtag #15NTCDrupal. Of course, Drupal Day wouldn’t be possible without the help of its co-sponsors, <a href="http://atendesigngroup.com/">Aten Design</a>, <a href="http://forumone.com/">Forum One</a>, <a href="http://www.gortonstudios.com/">Gorton Studios</a>, <a href="https://messageagency.com/">Message Agency</a>, and <a href="https://www.zivtech.com/">Zivtech</a>.</p>
+
+<p>That’s not all we’re up to, though. This year, you can find the ThinkShout team at <strong>booth #301</strong> in the Science Fair on Wednesday and Thursday. Our friends at <a href="http://mailchimp.com/?pid=GAW&amp;source=website&amp;gclid=CIOxieHf-8MCFVFhfgodvBAA_Q">MailChimp</a> couldn’t attend the NTC this year, but they made sure you wouldn’t go home empty handed. Stop by our booth for your NTC MailChimp swag, and come talk to us about <a href="http://thinkshout.com/blog/category/mailchimp/">how we’re integrating Drupal with MailChimp</a>. We’ve also got a few ThinkShout goodies we’ll be handing out, so be sure to stop by. We’re happy to discuss just about anything under the sun.</p>
+
+<p>This has been a big year so far for ThinkShout’s open source contributions. We’re particularly thrilled about our recent release of <a href="http://thinkshout.com/blog/2015/01/reimagined-sprints-redhen-raiser/">RedHen Raiser</a>, the first peer-to-peer fundraising tool built on Drupal and RedHen. This is something we’re very excited to share with the nonprofit world, and we’d love to talk to you more about it at our booth.</p>
+
+<p>You’ll also be able to see some of the ThinkShout team in action as part of the NTC programming. On Thursday, March 5th, catch Lev Tsypin on the panel <a href="http://sched.co/1z4A">“Sync All the Things! How Progressive Nerds are Changing the Future of Political Data and Integration”</a> at 3:30 p.m. On Friday, March 6th at 10:30 a.m., Brett Meyer will be co-leading the session <a href="http://sched.co/1z4N">“Content Strategy 101”</a> with Katie Carrus from the Humane Society Legislative Fund. Brett will also be co-leading the session <a href="http://sched.co/2ECm">“Managing a Tech Project (Or Two or Three)” </a>with Lisa Goddard from the Capital Area Food Bank of Texas, Melissa Barber and Brian Pickett from North Peak Solutions on March 5th at 1:30 p.m.</p>
+
+<p>Don’t forget to follow us on Twitter @ThinkShout for our real time updates. Feel free to tweet us questions, or just say hi! (You can totally do that in person, too.) We’ll see you in Austin!</p>
+]]>
+  </description>
+  <pubDate>Wed, 25 Feb 2015 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2015/02/thinksout-ntc-2015/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/02/thinksout-ntc-2015/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

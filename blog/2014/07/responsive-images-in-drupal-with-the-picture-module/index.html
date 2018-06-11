@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Responsive Images in Drupal with the Picture Module | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="Want responsive images on your Drupal 7 site? Use a Drupal 8 backport to get the job done.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal Planet, Picture module, Responsive design, User experience">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">07.31.2014</span>
+  
+  </p>
+
+  <h1 class="post-title">Responsive Images in Drupal with the Picture Module</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/cooper2.jpg">
+    
+      <strong>Cooper Stimson</strong>
+    <br>
+      Developer
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <p>In today’s web device climate, you never know if your site will be viewed on a laptop, a tablet, a phone, an 84-inch 4k monitor, a Blu-ray player, a gaming console, or a <a href="http://www.samsung.com/us/appliances/refrigerators/RF4289HARS/XAA" title="Seriously.">refrigerator</a>. Most of us have probably experienced the frustration of using a website that displayed poorly because of its inbuilt assumptions about what the user’s screen would look like. The ability for your web content to adjust to its context—in particular, screen resolution—is critical to making sure you deliver the best web experience possible to every user.</p>
+
+<p>The tools and techniques to do so are known as responsive web design (RWD). One of the first high-profile sites to implement RWD was <a href="http://www.bostonglobe.com/">The Boston Globe</a>, which is a great example to take a look at. RWD in general is beyond the scope of this blog post. Today, we’ll focus on a specific bit of RWD that is a little tricky to handle in Drupal: responsive images.</p>
+
+<p>If you just did what I first did and typed <a href="http://drupal.org/project/responsive_images">drupal.org/project/responsive_images</a> into your browser to see what popped up, you’ll see a module that is no longer actively maintained. <a href="https://www.drupal.org/project/adaptive_image">Many</a> <a href="https://www.drupal.org/project/cs_adaptive_image">responsive</a> <a href="https://www.drupal.org/project/ais">image</a> <a href="https://www.drupal.org/project/resp_img">projects</a> have come and gone over the last few years, with varying approaches and degrees of success; it’s a crowded space.</p>
+
+<p>Luckily, Drupal 8 will feature a responsive image handling solution in core with the new <a href="https://www.drupal.org/project/picture">Picture</a> module, and it has already been backported to Drupal 7. It’s a bit tricky to set up with configurations spread across several different GUI menus, but once you have it running, it’s a fast, smooth solution to an important challenge, and it plays well with its neighbors.</p>
+
+<h2 id="the-gist-of-it">The Gist Of It</h2>
+
+<p>We’ll be dealing with a handful of new objects to get responsive image behaviors going smoothly.</p>
+
+<ul>
+  <li>Breakpoints
+    <ul>
+      <li>Breakpoints are ranges of screen sizes, described by conditional tests (i.e., minimum width = 640)</li>
+    </ul>
+  </li>
+  <li>Breakpoint Groups
+    <ul>
+      <li>EWISOTT (Exactly What It Says On The Tin)</li>
+    </ul>
+  </li>
+  <li>Image Styles
+    <ul>
+      <li>You may already know these from the Media module; they let you bundle dimensions, scaling modes, etc. into styles that can be reused across your site.</li>
+    </ul>
+  </li>
+  <li>Picture Mappings
+    <ul>
+      <li>Picture mappings pair up breakpoints with image styles</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Once an image is associated with a responsive style, the Picture module will check the page dimensions, look at the breakpoint group, find the <em>first</em> breakpoint that applies to those dimensions (we’ll come back to this point…), look at the picture mapping to find the associated image style, and apply that style to the image. This happens in real time, so a user resizing their window should see the image rescale to fit their new window size instantaneously.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>We’ll use <a href="http://drush.ws/">Drush</a>, a Drupal cli, to install the modules and their dependencies, and to enable them.</p>
+
+<p>Picture has two important dependencies:</p>
+
+<ul>
+  <li>The <a href="https://www.drupal.org/project/breakpoints">Breakpoints</a> module, which will keep its eye on the browser window size</li>
+  <li>The <a href="https://www.drupal.org/project/ctools">Chaos Tool Suite</a>, which gives us lots of handy development tools and APIs</li>
+</ul>
+
+<p>Drush will handle the dependencies for you; just navigate to your site root and type:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>drush en picture <span class="nt">-y</span>
+</code></pre></div></div>
+
+<p>We’ll also want the Media module:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>drush en media <span class="nt">-y</span>
+</code></pre></div></div>
+
+<p>(In the above commands, <code class="highlighter-rouge">-y</code> just tells drush to assume “yes” for any requests for confirmation.)</p>
+
+<h2 id="setting-up-breakpoints">Setting Up Breakpoints</h2>
+
+<p>Breakpoints can be found under Configuration &gt; Media &gt; Breakpoints. Each breakpoint needs a name and a <a href="http://css-tricks.com/resolution-specific-stylesheets/">media query</a>. Optionally, you can enable <a href="http://www.sitepoint.com/support-retina-displays/">Retina display</a> handling for each breakpoint.</p>
+
+<p><img src="/assets/images/blog/breakpoints-example-0.png" alt="breakpoints-example-0.png" title="Three breakpoints with basic media queries" /></p>
+
+<p>Note that the smallest breakpoint is set to a <code class="highlighter-rouge">0px</code> minimum. This ensures that arbitrarily small screen sizes will be accommodated.</p>
+
+<h3 id="ordering">Ordering</h3>
+
+<p>The order in which the breakpoints appear is the order your breakpoint group will check their media queries. The example configuration uses minimums in decreasing order, which is preferable for responsive image design. If a breakpoint query fails (if the screen width is below the minimum), the next breakpoint down the line will be checked. Make sure you get this order right; once you pull these breakpoints into a group, their order cannot be edited; you’d need to delete the breakpoints and their group and start over.</p>
+
+<h3 id="groups">Groups</h3>
+
+<p>Click ‘Add a new group’ to define a Breakpoint Group. The ordering on this screen will match the order defined by weights in the previous step.</p>
+
+<p><img src="/assets/images/blog/breakpoints-example-1.png" alt="breakpoints-example-1.png" title="A simple breakpoint group" /></p>
+
+<p>Note that once a breakpoint has been added to a group, it <em>cannot</em> be edited.</p>
+
+<h2 id="responsive-styles">Responsive Styles</h2>
+
+<p>This is an optional step provided by the Breakpoints module; it’s essentially a wizard which makes copies of a preexisting image style, one for each selected breakpoint. If you have some image style effects you want to apply everywhere (desaturate, perhaps?), this can be a handy time saver. For general use, it’s not really necessary.</p>
+
+<h2 id="image-styles-and-picture-mappings">Image Styles and Picture Mappings</h2>
+
+<p>Set up an image style for each breakpoint under Configuration &gt; Media &gt; Image Styles. For general use, these can be equal to or slightly less than the minimums of the associated breakpoints; for more complex layouts, id est columns, these might instead be set to match the behavior of the column widths.</p>
+
+<p><img src="/assets/images/blog/image-styles-example-0.png" alt="image-styles-example-0.png" title="Three basic image styles" /></p>
+
+<p>Picture Mappings are found under Configuration &gt; Media &gt; Picture Mappings. First, associate the new Picture Mapping with our Breakpoint Group.</p>
+
+<p><img src="/assets/images/blog/picture-mappings-example-0.png" alt="picture-mappings-example-0.png" title="Setting the breakpoint group of a picture mapping" /></p>
+
+<p>Now that the Picture Mapping has a Breakpoint Group, each breakpoint can be associated with an image style. Populate these with the image styles defined previously, and hit Finish.</p>
+
+<p><img src="/assets/images/blog/picture-mappings-example-1.png" alt="picture-mappings-example-1.png" title="Picture mapping configuration" /></p>
+
+<h2 id="file-type-display">File Type Display</h2>
+
+<p>Under Configuration &gt; Media &gt; File Types, select Images -&gt; Manage File Display. Enable the Picture display mode, and select the Example Group.</p>
+
+<p><img src="/assets/images/blog/file-display-examples-0.png" alt="file-display-examples-0.png" title="File display settings" /></p>
+
+<h2 id="content-type">Content Type</h2>
+
+<p>Now we’re ready to create a node type with a responsive image field.</p>
+
+<p>Make a content type and add a File field with the Media File Selector widget. Make sure that the field permits the image format file extensions you plan to use; by default it only allows <code class="highlighter-rouge">*.txt</code>.</p>
+
+<p><img src="/assets/images/blog/responsive-content-type-examples-0.png" alt="responsive-content-type-examples-0.png" title="Node content type" /></p>
+
+<p>Under Manage Display, make sure that the responsive image field is set to the Rendered File display formatter, which will connect the field to the file display mode we set earlier.</p>
+
+<h2 id="the-end-product">The End Product</h2>
+
+<p>We’re done! Create a node with the example content type, add an image, and start dragging the corner of your window around. The image should resize as the window width passes between breakpoints.</p>
+
+<p><img src="/assets/images/blog/responsive-image-example-0.png" alt="responsive-image-examples-0.png" title="Medium image" /></p>
+
+<p><img src="/assets/images/blog/responsive-image-example-1.png" alt="responsive-image-examples-1.png" title="Small image" /></p>
+
+<h2 id="the-benefits">The Benefits</h2>
+
+<p>There are several advantages to responsive web design, some of which are particular to image loading.</p>
+
+<ul>
+  <li>Controlled, consistent user experience across devices
+    <ul>
+      <li>Without clear knowledge of how our sites will be viewed, we cannot effectively design them to meet user needs.</li>
+    </ul>
+  </li>
+  <li>Ease of navigation
+    <ul>
+      <li>Never let important elements render offscreen.</li>
+    </ul>
+  </li>
+  <li>Bandwidth conservation
+    <ul>
+      <li>Don’t send a 4k image to a QVGA-screen phone that doesn’t need it.</li>
+    </ul>
+  </li>
+  <li>Code it once
+    <ul>
+      <li>No need to build a secondary mobile site.</li>
+    </ul>
+  </li>
+  <li>SEO optimization
+    <ul>
+      <li>Every node has one canonical URL, so Google won’t split its results between mobile and desktop versions (which could easily drop your site to the dreaded second page of search results)!</li>
+    </ul>
+  </li>
+  <li>Shareability
+    <ul>
+      <li>A bad example: <a href="http://en.wikipedia.org/wiki/Drupal">Wikipedia</a>. Take a look at how different its <a href="http://en.m.wikipedia.org/wiki/Drupal">mobile version</a> looks. If a mobile user posts an interesting article to Twitter, for example, both desktop and mobile users following the link will be hit with the mobile version, regardless of their device. With a single-URL responsive design, this is a nonissue.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://www.drupal.org/project/picture">Picture module project page</a></li>
+  <li><a href="https://www.drupal.org/project/breakpoints">Breakpoints module project page</a></li>
+  <li><a href="http://picture7d.h011.attiks.com/node/1">Live demo of Picture module on Drupal 7</a></li>
+  <li><a href="http://picture.responsiveimages.org/">The Picture element proposal document</a></li>
+</ul>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged Picture module.' href='/blog/category/picture-module/'>Picture module</a> <a class='tag' rel='tag category' title='View all posts tagged Responsive design.' href='/blog/category/responsive-design/'>Responsive design</a> <a class='tag' rel='tag category' title='View all posts tagged User experience.' href='/blog/category/user-experience/'>User experience</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2014/07/responsive-images-in-drupal-with-the-picture-module/';
+    this.page.identifier = '/blog/2014/07/responsive-images-in-drupal-with-the-picture-module';
+    this.page.title = 'Responsive Images in Drupal with the Picture Module'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2014/07/getting-started-with-sass-for-drupal-and-zen-part-ii/"><span class="fa fa-caret-left"></span> <span>Getting Started with SASS for Drupal and Zen, Part II</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2014/08/online-fundraising-with-redhen-donation/"><span>Online Fundraising with RedHen Donation</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

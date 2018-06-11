@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/modules/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>The Next Chapter for Mandrill</title>
+  <description>
+    <![CDATA[<p>It’s easy to take for granted all the great tools we use on the web, everything from email, to social media, to git hosting. Many of these services are free or use advertising to support the sometimes significant costs to run them. <a href="https://www.mandrill.com/">Mandrill</a> is one of those great tools and one that we’ve been recommending to our clients on a consistent basis. If you’re unfamiliar with Mandrill, it’s a transactional email service for sending email ranging from password resets to Commerce receipts. Now we realize that your webserver can already send email, so why bother with a service like Mandrill? It offers three major advantages:</p>
+
+<ul>
+  <li>Deliverability</li>
+  <li>Reporting and accountability</li>
+  <li>Templated emails that look great across all email clients</li>
+</ul>
+
+<p>As the team who originally partnered with <a href="http://mailchimp.com/">MailChimp</a> to build the <a href="https://www.drupal.org/project/mandrill">Mandrill module</a>, we might be a bit biased, but we think it’s one of the best transactional email services out there that integrates with Drupal. We have many clients that use both <a href="https://www.drupal.org/project/mailchimp">MailChimp</a> and Mandrill, and many that use Mandrill by itself. In fact, we just completed a <a href="https://www.drupal.org/node/2683599">Mandrill 8.x-1.0-alpha1</a> release with all the great features of Mandrill for Drupal 8.</p>
+
+<p>Change is inevitable though, and MailChimp has decided to refocus the Mandrill service on their core value of delivering customized email to users. This doesn’t mean Mandrill is going away by any means, just that it’s new focus will be on delivery of 1:1 customized emails as opposed to 1:many emails. MailChimp already provides a great way of delivering 1:many emails as a part of your email campaigns, and Mandrill will focus on the customized 1:1 delivery of email. This should reduce the number of users using Mandrill to send 1:many emails, many of which are spammers abusing the system.</p>
+
+<p>You can read more about the announcement on the <a href="http://blog.mandrill.com/important-changes-to-mandrill.html">MailChimp blog</a> along with the <a href="https://mandrill.zendesk.com/hc/en-us/articles/217467117-Mandrill-MailChimp-Transition-FAQs">FAQ</a> they prepared for customers. At the heart of the change is the requirement of having a paid MailChimp account and purchasing Mandrill credits to use the Mandrill service. Your MailChimp and Mandrill accounts can be merged on March 16th and a single monthly subscription will be maintained going forward. According to the MailChimp FAQ, the minimum cost of having both services will be $10 for the basic MailChimp account and $20 for 25,000 Mandrill emails sent in a month.</p>
+
+<p>This does mean Mandrill as a free service is going away and for some people, this means that they’ll need to find an alternative transactional email service. The good news is that there are alternatives out there, and some are even honoring Mandrill’s free level. If you’re looking for one of those free alternatives, try <a href="https://www.sparkpost.com/">Sparkpost</a>, <a href="http://aws.amazon.com/ses/details/">Amazon SES</a>, or <a href="https://sendgrid.com/">SendGrid</a>. Not all of these services have Drupal modules at this point, but many do, and could be worth trying out.</p>
+
+<p>Our recommendation for many of our clients is to stick with Mandrill for a number of reasons. For those that already use MailChimp and Mandrill, the additional monthly cost is not significant enough to switch in many cases, and having a single account to manage can be beneficial. For those clients that only use Mandrill now, adding a new monthly cost can feel a bit more burdensome. The stability of the Mandrill service and Drupal module does outweigh the cost of switching in many situations, but we are sensitive to our clients’ budgets and may look at the alternatives if it makes sense. It’s important to note that all Mandrill accounts must be merged with an existing MailChimp account by April 27th.</p>
+
+<p>What does this mean for the <a href="https://www.drupal.org/project/mandrill">Mandrill module</a> for Drupal and our ongoing support and maintenance of it? MailChimp has assured us they are committed to the Mandrill service for the foreseeable future and will be looking at ways MailChimp and Mandrill can work better together. We also see a lot of ways the two modules can be combined and managed as one, making it easier for users to view activity across the two services in one place. At this point, we will continue our support and development of the module, including the new <a href="https://www.drupal.org/node/2683599">Mandrill D8</a> release. We are excited to see where the Mandrill module goes and the additional value that MailChimp adds to the service going forward. Stay tuned for the next chapter of Mandrill!</p>
+]]>
+  </description>
+  <pubDate>Wed, 09 Mar 2016 10:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2016/03/next-chapter-for-mandrill/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/03/next-chapter-for-mandrill/</guid>
+</item>
+
+    
+      <item>
+  <title>Monkeying Around with D8</title>
+  <description>
+    <![CDATA[<h2 id="leading-the-charge">Leading the Charge</h2>
+
+<p>I have used A LOT of email marketing service providers over the years and my opinion of them was twofold: they were all similar and none of them were particularly great. Was it possible that this was just a category of business that would never be exciting or innovative? Was I destined to be a project manager who half-heartedly recommended whatever email service provider I was using most at the time to clients?</p>
+
+<p><em>Enter the Chimp…</em></p>
+
+<p>Despite its playful name, <a href="http://www.mailchimp.com">MailChimp</a> made a serious shift in a category that had always had potential but lacked a true champion. My first thought when I used the tool was that even if the feature set was identical to all its competitors, MailChimp’s user interface alone was what set it apart. But once I dug into its capabilities, I became a bona fide fan (dare I say ambassador) of the brand. From automated email workflows and slick segmentation capabilities, to the [Chimpadeedoo] (http://mailchimp.com/features/mobile-signup-forms/) tablet app that facilitates email sign-ups without an internet connection, MailChimp became the new king of the jungle.</p>
+
+<p>Fast forward a few years, and here I am working at ThinkShout, MailChimp’s Drupal partner. We built and maintain the MailChimp Drupal module, which is used by nearly 22,000 websites.</p>
+
+<p>If you are familiar with MailChimp’s motto - listen hard and change fast - (or if you just read the first couple paragraphs of this blog post), then it should come as no surprise that innovation is at the heart of MailChimp’s culture. With the release of Drupal 8 looming this Fall, MailChimp and ThinkShout saw a unique opportunity to lead the charge by porting one of the most popular email modules to be D8 compatible.</p>
+
+<h2 id="the-only-way-through-it-is-through-it">The Only Way Through it is Through it</h2>
+
+<p>Being a trailblazer isn’t easy, and MailChimp understood that pushing the envelope on D8 development would require a significant investment of time and resources. While the core MailChimp module is relatively simple, the bundled submodules are feature-rich and technically complex.</p>
+
+<p>Let’s recap what the MailChimp module allows you to do:</p>
+
+<ul>
+  <li>Any “object” in Drupal that has an email address, say a User, Contact, or even a Comment, can be automatically subscribed to a list and segmented based on other attributes, like their zip code.</li>
+  <li>Display a list subscription status on an entity or a subscription form.</li>
+  <li>Map Drupal Data, such as name and address, to merge fields in MailChimp.</li>
+  <li>Create forms to allow site visitors to sign up for any Mailchimp List or combination of Lists.</li>
+  <li>Create Pages, Blocks, or both to display forms.</li>
+  <li>Create campaigns containing any Drupal entity, or entities, as content.</li>
+  <li>Send campaigns created in Drupal through MailChimp or Drupal.</li>
+  <li>View campaign statistics and email activity for all list subscribers.</li>
+</ul>
+
+<p>Luckily, one of the greatest aspects of our partnership with MailChimp is our shared passion for recognizing opportunity in challenges and giving back to the community. With that spirit, a couple of ThinkShout engineers dove in head first with the goal of porting the majority of the popular D7 module’s features over to D8 in time for a beta release at [DrupalCon LA] (https://events.drupal.org/losangeles2015). During the process, they realized that the available Drupal 8 documentation wasn’t keeping up with the speedy pace of D8 development. Over the course of several weeks, our engineers updated documentation and created examples to make life (or at least development) a little easier for the next developer looking to create something similar.</p>
+
+<h2 id="its-a-sprint-not-a-marathon">It’s a Sprint, Not a Marathon</h2>
+
+<p>With the conference approaching, it was time to call on the ThinkShout village to help put the polish on the new module. Since nine heads are better than two when it comes to user testing and QA, we scheduled a sprint to focus our engineering department on providing that critical perspective needed at the end of a large development project.</p>
+
+<p><img src="/assets/images/blog/mailchimp_roadmap1.jpg" alt="mailchimp_roadmap1.jpg" /></p>
+
+<p>During our afternoon sprint, our team ran a battery of tests (both human and automated) to document and resolve bugs. Our engineering staff has grown quite a bit recently, so the sprint also provided an opportunity for knowledge sharing about MailChimp and D8 development across the team. As a non-engineer fly on the wall, it was exciting to witness the energy at the sprint table, as bugs were closed and high-fives were thrown.</p>
+
+<h2 id="the-future-is-now">The Future is Now</h2>
+
+<p>So far, I’ve focused on what some of the challenges of early D8 development have been, and you’re surely wondering by now “So, what do you think about D8?” Short answer: we’re excited, and we think you should be, too.</p>
+
+<p>Drupal 8 standardizes module development by enforcing PSR-4 compliant namespaces. Whereas D7 allows developers to dictate where a form or entity is placed, for example, D8 loads files in the correct path automatically. What does this mean for developers? Well, it means time saved by not having to search an entire codebase to find where the developer before you placed a form. And because this structure is more in line with general engineering practices, it will be easier for any developer to ramp up for Drupal development.</p>
+
+<p>But the benefits aren’t just for developers. We are also excited about the efficiencies that will be created for our nonprofit clients. Not only do they stand to benefit from the streamlined development approach, but that shift in approach will also make it easier to find resources to maintain and enhance their sites.</p>
+
+<h2 id="learn-more-about-the-new-mailchimp-module">Learn More About the New MailChimp Module</h2>
+
+<p>Come and see us at [DrupalCon LA] (https://events.drupal.org/losangeles2015), where our very own [Lev Tsypin] (http://thinkshout.com/team/lev/) will be giving a [lightning talk] (https://events.drupal.org/losangeles2015/sessions/mailchimp-drupal-anatomy-successful-partnership) about the evolution of MailChimp’s support for Drupal, the basics of how the integration works, and a hint at what’s to come for Drupal 8. Don’t worry if you can’t make it to the talk because we’ll also be hanging out in the MailChimp booth. And if you spot one of us (you’ll recognize us by our ThinkShout hoodies), stop us! We’d love to chat about what we’ve learned about D8 and why were are excited for its release. Also, be sure to check out <a href="http://thinkshout.com/blog/category/mailchimp/">past blogs</a> we’ve written about our work on the MailChimp module.</p>
+
+]]>
+  </description>
+  <pubDate>Tue, 05 May 2015 09:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/05/mailchimp-d8-sprint/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/05/mailchimp-d8-sprint/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

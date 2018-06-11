@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/project-management/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>How to make your Onsite last, and last...and last</title>
+  <description>
+    <![CDATA[<p>Goals. We’ve all got them, and your website should too. That’s why we kick off all of our redesign projects with a series of deep-diving, goal-seeking workshops hat we collectively call “The Onsite.”</p>
+
+<p>The onsite is an opportunity to meet our clients face to face, ask a lot of questions, understand their current systems and infrastructure, identify the goals of the new website and generate excitement around the upcoming redesign. We travel to them, wherever they are, and we spend two full days extracting as much information as we possible can out of the organization. There are a LOT of sticky notes involved.</p>
+
+<p><img src="/assets/images/ts_redesign/case-studies/splc-main/splc-process.jpg" alt="Intense Sticky Notes Working Session" /></p>
+
+<p>This intensive two-day session is meant to lay the foundation for the rest of the project. It’s critical to our success, and we invest a lot of time and energy into this part of our process. To get the most out of the investment, here are some best practices we’ve developed along the way:</p>
+
+<p><strong>1. Bring your Project Manager (PM), or someone else who will be solely responsible for taking kickass, copious notes.</strong>
+Not only should you write everything down, as a fail-safe, we also recommend recording the meetings. This is helpful in that once your PM’s fingers start bleeding from all the amazing notes they’re typing, you can rest assured that all of the information is still being captured and can be reference later. In addition to being a fail-safe for note taking, it allows other team members who weren’t able to attend in person the opportunity to absorb all the same information. To really streamline your resources and documents, try using Google Drive and add links to the audio files in the corresponding section of the notes. Or, try a program like Microsoft OneNote which will automatically sync your notes and audio.</p>
+
+<p><strong>2. Take lots of photos.</strong>
+Be sure to document any whiteboarding or sticky note activities so that you a have a visual reference when you’re digging through the notes and need more context. Also, take photos of the group because they’re working super-duper hard! Clients love to reflect back on evidence of the efforts they’ve put into their new website.</p>
+
+<p><strong>3. Continue the conversation with collaborative worksheets.</strong>
+If you’re not able to get everything during your working sessions (which is often the case), follow up with shared documents or worksheets on Google Drive that accurately reflect what was discussed, and what inforamtion is still needed. The client team can then collaborate and fill in the blanks for you online until documentation is complete.</p>
+
+<p><strong>4. Post Onsite, codify the goals you’ve just gathered in one simple, concise deliverable, and get sign off.</strong>
+We call this the Goals Document, and it is referenced again and again, and again, throughout a given project. Whenever there are questions, concerns, or decisions to be made, this document should be your guidepost and help keep everyone on track. So much can change over the lifecycle of a project, but the original goals for the redesign should not be forgotten. And if they do need to evolve, updating them in writing and getting approval from the client along the way will help keep everyone clear, focused, and anchored.</p>
+
+<p>And there you have it. Four pro tips for how to set your redesign project up for ultimate success, by making the critical information from your precious onsite last, and last…and last.</p>
+]]>
+  </description>
+  <pubDate>Wed, 27 Sep 2017 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/09/make-your-onsite-last/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/09/make-your-onsite-last/</guid>
+</item>
+
+    
+      <item>
+  <title>How to Lead a Retrospective for a More Successful Project</title>
+  <description>
+    <![CDATA[<p>So, what’s a retrospective meeting?</p>
+
+<p>For one thing, a retrospective meeting is <em>not</em> a post-mortem meeting. At the end of a project, the new website is anything but dead. It’s living and breathing. And hopefully neither our team or our client is feeling the need for resuscitation!</p>
+
+<p>On a more serious note, a retrospective meeting is an opportunity to look back at what worked well and what didn’t, with the ultimate goal of taking lessons away that will improve the project in question as well as future projects.</p>
+
+<h3 id="when">When</h3>
+<p>We always hold a retrospective at the end of every project. And for larger, more complex projects, we often hold a retrospective mid-way through. This allows us to address pain points immediately, making the rest of the project more successful and efficient.</p>
+
+<h3 id="who">Who</h3>
+<p>Everyone who touched the project at some point on our internal team should ideally be in the meeting - project manager (PM), account manager, team leaders, developers, designers, etc. But the meeting itself isn’t led by that project’s PM. We want PMs to be able to participate in the discussion without worrying about facilitating or taking notes. So another PM who did not participate in the project leads the retrospective.</p>
+
+<h3 id="what">What</h3>
+<p>We discuss the following topics:</p>
+<ul>
+  <li>Project budget and project timeline</li>
+  <li>What worked well?</li>
+  <li>What did not work well?</li>
+  <li>What problems did we solve during this project?</li>
+  <li>What problems have we not yet solved?</li>
+  <li>In hindsight, what one thing would we each have done differently on this project?</li>
+</ul>
+
+<h3 id="how">How</h3>
+<p>The retrospective has two components: An in-person discussion and and online follow-up.</p>
+
+<p>For the in-person discussion, we have a few ground rules that we review before we start the discussion.</p>
+
+<ul>
+  <li>Be honest: Nothing is meant personally, so it’s ok to speak honestly about what has been challenging.</li>
+  <li>Be positive: Don’t blame other team members for what didn’t work well. This is an opportunity to learn and improve.</li>
+  <li>No laptops or phones: The only person with a computer is the one leading the meeting and taking notes. We all need to be engaged and fully present.</li>
+</ul>
+
+<p>After the meeting, we send out a quick SurveyMonkey link that asks team members to score the project from 1-5 on a client satisfaction, product quality, adherence to budget, timeline, requirements, end user experience, project leadership, and team morale. They can also add more comments that they didn’t convey during the meeting. It’s anonymous, and once responses are in, the retrospective facilitator sends the summary to the project PM.</p>
+
+<h3 id="follow-up">Follow-Up</h3>
+<p>Our attitude with retrospectives is that the next time is NOW. We don’t have to wait until the next project starts to make improvements. The project PM digests all the retrospective notes, and they take the lead on moving forward any changes to the project itself (if it hasn’t fully wrapped), or if we have new projects coming up with the same team or client. They also share major takeaways with the other ThinkShout PMs. But the responsibility ultimately lies with every team member to make changes to how they work based on the outcomes from the meeting.</p>
+
+<h3 id="opportunities-for-improvement">Opportunities for Improvement</h3>
+<p>We can’t help but do a retrospective on our retrospectives! We could do a better job sharing out takeaways from retrospectives to our entire company. And for some projects, it might be useful to have a second retrospective exclusively for the project leads. They may hesitate to discuss certain challenges of a sensitive nature with the client, or other team members for that matter, but would be comfortable speaking about that with a smaller group. We’re continuously iterating and working to make our retrospectives more useful.</p>
+
+<h3 id="why-are-retrospectives-important">Why are retrospectives important?</h3>
+<p>As project managers, it’s our responsibility to not set our processes in stone, but rather to keep improving. A retrospective is an excellent way to make processes better and more efficient for entire project teams. It also helps your team members to feel heard and supported because they see that processes re not coming from on high, but are based on their direct feedback. Finally, retrospectives let you fix pain points before they begin to negatively impact your team or your client.</p>
+
+<p>Do you hold retrospectives at your organization? What has worked well for you? Drop us a line and <a href="https://thinkshout.com/contact/">let us know!</a></p>
+]]>
+  </description>
+  <pubDate>Mon, 25 Sep 2017 08:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/09/leading-a-retrospective/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/09/leading-a-retrospective/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

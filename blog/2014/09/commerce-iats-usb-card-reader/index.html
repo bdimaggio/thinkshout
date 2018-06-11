@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Adding Encrypted USB Card Reader Support to Commerce iATS | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="Process credit card payments quickly and securely using an encrypted USB card reader.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Commerce iATS, Drupal Planet, iATS, iATS Payments">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">09.30.2014</span>
+  
+  </p>
+
+  <h1 class="post-title">Adding Encrypted USB Card Reader Support to Commerce iATS</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/dan.jpg">
+    
+      <a class="team-name" href="/team/dan/">Dan Ruscoe</a>
+    <br>
+      Senior Software Engineer
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <p>Ever been in a situation where you wished your Drupal Commerce installation could operate more like a Point of Sale system? Especially for nonprofits, taking donations and charging admission to events are prime examples of times when swiping a customer’s credit card would be a great time saver.</p>
+
+<p>As of version 2.5, <a href="https://www.drupal.org/project/commerce_iats">Commerce iATS</a> supports the use of <a href="http://home.iatspayments.com/developers/encrypted-magnetic-stripe-readers">encrypted USB card readers</a> with iATS Payments.</p>
+
+<p>Setting things up is easy:</p>
+
+<ol>
+  <li>Upgrade to <a href="https://www.drupal.org/node/2345737">Commerce iATS 2.5</a></li>
+  <li>Edit the Commerce iATS credit card payment method by selecting <code class="highlighter-rouge">Store</code>, <code class="highlighter-rouge">Configuration</code>, then <code class="highlighter-rouge">Payment methods</code> from your Drupal admin menu</li>
+  <li>Check the “Use encrypted USB card reader” option of the credit card payment method (see screenshot below)</li>
+  <li>Select the name of the USB card reader you’re using</li>
+  <li>Save the changes to the payment method and you’re good to go</li>
+</ol>
+
+<p><img src="http://www.thinkshout.com/assets/images/blog/commerce-iats-card-reader-settings.png" alt="Enable USB card reader functionality" /></p>
+
+<p>The USB card reader option is only available to Drupal admin users, not regular customers, so you’ll need to create an order manually through the Drupal Commerce admin interface before you can process a payment by swiping a credit card.</p>
+
+<p>The next time you add a credit card payment to an order, you’ll see something like this:</p>
+
+<p><img src="http://www.thinkshout.com/assets/images/blog/commerce-iats-card-reader-data.png" alt="Adding a payment with an encrypted USB card reader" /></p>
+
+<p>That code is the encrypted credit card data fed into Drupal by the USB card reader. Or it might be the Matrix, we’re still not entirely sure.</p>
+
+<p>In addition to the convenience of not having to type in credit card details, the USB card readers are fully PCI compliant. All sensitive credit card information is encrypted by the reader before it reaches Drupal, meaning you never need to pass unencrypted card data through your server.</p>
+
+<p>For the developers out there, the USB card readers can hook into three of iATS Payments’ API services:</p>
+
+<ul>
+  <li><strong><a href="https://www.iatspayments.com/NetGate/ProcessLink.asmx?op=ProcessCreditCardV1">ProcessCreditCardV1</a></strong>
+    <ul>
+      <li>Process a credit card transaction without storing any data locally.</li>
+    </ul>
+  </li>
+  <li><strong><a href="https://www.iatspayments.com/NetGate/CustomerLink.asmx?op=CreateCreditCardCustomerCodeV1">CreateCreditCardCustomerCodeV1</a></strong>
+    <ul>
+      <li>Create a customer code without a charge. This is a great way to store a customer’s credit card to bill later. Fully PCI compliant as only the iATS Payments customer code is stored on your server, not the credit card information.</li>
+    </ul>
+  </li>
+  <li><strong><a href="https://www.iatspayments.com/NetGate/ProcessLink.asmx?op=CreateCustomerCodeAndProcessCreditCardV1">CreateCustomerCodeAndProcessCreditCardV1</a></strong>
+    <ul>
+      <li>A combination of the above two services, charge a credit card and create a customer code at the same time.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>You can see some example card data in iATS Payments’ <a href="http://home.iatspayments.com/developers/encrypted-swipe/usb-devices">developer documentation</a>. If you’re ready to start swiping credit cards, the documentation includes links to sites where you can purchase one of the two encrypted USB card readers supported by iATS Payments.</p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Commerce iATS.' href='/blog/category/commerce-iats/'>Commerce iATS</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged iATS.' href='/blog/category/iats/'>iATS</a> <a class='tag' rel='tag category' title='View all posts tagged iATS Payments.' href='/blog/category/iats-payments/'>iATS Payments</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2014/09/commerce-iats-usb-card-reader/';
+    this.page.identifier = '/blog/2014/09/commerce-iats-usb-card-reader';
+    this.page.title = 'Adding Encrypted USB Card Reader Support to Commerce iATS'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2014/09/small-business-of-nonprofits/"><span class="fa fa-caret-left"></span> <span>The Small Business of Open Source</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2014/10/getting-started-with-behat/"><span>Getting Started with Behat</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

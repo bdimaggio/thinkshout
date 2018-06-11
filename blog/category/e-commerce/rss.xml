@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/e-commerce/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Commerce iATS 2.0</title>
+  <description>
+    <![CDATA[<p>Last month, we released the 2.0-beta release of the Commerce iATS module, a Drupal module that leverages <a href="https://drupal.org/project/commerce">Drupal Commerce</a> and the <a href="http://thinkshout.com/blog/2014/03/announcing-iats-php-wrapper/">iATS Payments PHP Wrapper</a> to add support for payment processing via <a href="http://home.iatspayments.com/">iATS Payments</a>.</p>
+
+<p>We also <a href="http://thinkshout.com/blog/2014/04/refactoring-the-iats-drupal-module/">promised to deliver</a> ACH/EFT and Direct Debit payment functionality before DrupalCon Austin. It took a few long days, but we’re proud to announce the release of <a href="https://drupal.org/project/commerce_iats">Commerce iATS 2.0</a>.</p>
+
+<p>Commerce iATS 2.0 is packed with new features that allow you to fully take advantage of the services offered by iATS Payments.</p>
+
+<h2 id="new-payment-methods">New Payment Methods</h2>
+
+<p>In addition to supporting <strong>credit card payments</strong>, Commerce iATS now supports <strong>ACH/EFT</strong>, meaning your users can now make payments directly from their bank account.</p>
+
+<p>Because iATS Payments supports international payments, we made sure that you can too. Commerce iATS 2.0 fully supports <strong><a href="http://en.wikipedia.org/wiki/Direct_debit">Direct Debit</a></strong> for the UK.</p>
+
+<p><img src="/assets/images/blog/commerce-iats-direct-debit-declaration.png" alt="Direct Debit screenshot" title="Setting up a Direct Debit" /></p>
+
+<p>If you’re familiar with Direct Debit, you’ll know that any website offering the service is required to implement a very specific checkout process.</p>
+
+<p>With assistance from iATS Payments, we’ve done all the work for you. Commerce iATS now provides a set of <a href="https://drupal.org/node/2268891">custom checkout panes</a> for the complete Direct Debit checkout process. You don’t even have to worry about the 12-day lead time on initial payments; the module figures it out and gives your users a choice of start dates.</p>
+
+<p><img src="/assets/images/blog/commerce-iats-direct-debit-schedule.png" alt="Direct Debit schedule screenshot" title="Setting up a Direct Debit schedule" /></p>
+
+<h2 id="more-options-for-recurring-payments">More Options for Recurring Payments</h2>
+
+<p>Recurring payments are great for donations, which fits in with iATS Payments’ goal of supporting the needs of nonprofit organizations.</p>
+
+<p>With Drupal Commerce, you always had the option of recurring payments using the <a href="https://drupal.org/project/commerce_cardonfile">Commerce Card on File</a> module, but iATS Payments handles that for you. With Commerce iATS 2.0, you can opt to have iATS Payments bill your customers on a recurring schedule rather than have your Drupal site do all the work.</p>
+
+<p>The Drupal Commerce order stays updated with recurring transactions thanks to iATS Payment’s <a href="http://home.iatspayments.com/sites/default/files/iats_webservices_reportlink_version_4.0.pdf">ReportLink service</a>. Commerce iATS implements a cron task to pull in daily transaction reports from iATS, updating your orders in the process.</p>
+
+<p>In addition to the new features, we took time to make the module more robust. Some of our improvements are:</p>
+
+<ul>
+  <li>The Payment Methods Admin Page now warns of any unconfigured payment methods</li>
+  <li>Error handling in the checkout process is much more user-friendly</li>
+  <li>Payment method settings are clearer and easier to understand</li>
+</ul>
+
+<h2 id="see-you-at-drupalcon">See you at DrupalCon</h2>
+
+<p>ThinkShout and iATS Payments will be attending DrupalCon Austin. Don’t miss the chance to talk nonprofit payment processing with iATS at booth 508. We’ll be spending time at the iATS booth to talk about Commerce iATS. <a href="https://twitter.com/thinkshout">Follow us on Twitter</a> for updates on when we’ll be around.</p>
+
+<p>Get Commerce iATS from our <a href="https://drupal.org/project/commerce_iats">Drupal.org project page</a>.</p>
+]]>
+  </description>
+  <pubDate>Fri, 16 May 2014 11:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/05/commerce-iats-2-0/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/05/commerce-iats-2-0/</guid>
+</item>
+
+    
+      <item>
+  <title>Refactoring The iATS Drupal Commerce Module</title>
+  <description>
+    <![CDATA[<p>Last month, we wrapped up a project for nonprofit-oriented payment processor, <a href="http://home.iatspayments.com/">iATS Payments</a>. iATS Payments wanted to invest in gaining wider adoption of their services and enlisted ThinkShout’s help in building a <a href="http://thinkshout.com/blog/2014/03/announcing-iats-php-wrapper/">PHP wrapper</a> for their existing <a href="http://home.iatspayments.com/sites/default/files/iats_webservices_overview_version_4.0_0.pdf">SOAP API</a>.</p>
+
+<p>Being a bunch of software engineers who have implemented our fair share of APIs (both good and bad), we knew we had to achieve certain goals if we were going to ease the adoption of iATS Payments within PHP applications:</p>
+
+<ul>
+  <li><strong>Comprehensive:</strong> The wrapper handles all communication with the iATS Payments SOAP API, validation of API calls, and error handling.</li>
+  <li><strong>Well documented:</strong> We made use of phpDocumentor to generate <a href="http://iatspayments.github.io/PHP/namespaces/iATS.html">easily browsable documentation</a> from our code comments.</li>
+  <li><strong>Reliable:</strong> Via a comprehensive test suite covering every API call written in <a href="http://phpunit.de/">PHPUnit</a>.</li>
+</ul>
+
+<p>With the new PHP wrapper finished and unit tests passing, our attention shifted to the project we felt would most benefit from the work we’d done: the <a href="https://drupal.org/project/commerce_iats">Commerce iATS Drupal module</a>. This module leverages <a href="http://drupal.org/project/commerce">Drupal Commerce</a> to facilitate payment processing via iATS Payments on any Drupal website.</p>
+
+<p>We had already integrated Commerce iATS into some of our clients’ websites, so we knew it was a great module, but it was written before there was a standard iATS Payments PHP wrapper and contained some unwieldy code that could be eliminated by using the new PHP wrapper. With support from the community and sponsorship from iATS, we rewrote the module, drastically reducing complexity, which any engineer can appreciate, and improved stability, which site owners love even more. We’re excited to replicate the success of our partnership with MailChimp, which created a win for the community, the vendor, and, yes, ThinkShout.</p>
+
+<h2 id="refactoring-commerce-iats">Refactoring Commerce iATS</h2>
+
+<p>In refactoring Commerce iATS, we didn’t just plug in the PHP wrapper and call it a day. While Commerce iATS was originally written with support for only credit card payments, our PHP wrapper supports all payment methods provided by iATS Payments and we wanted to make sure Commerce iATS had room to grow and take advantage of those payment methods.</p>
+
+<h3 id="some-of-the-problems">Some of the problems</h3>
+
+<p>Looking through the code of the existing Commerce iATS module, we realized the current design would not scale well as we added additional payment methods.</p>
+
+<p>As an example, take a look at the <a href="http://drupalcode.org/project/commerce_iats.git/blob/dea433a:/commerce_iats.module#l305">2.x-dev release of Commerce iATS</a>.</p>
+
+<p>Here the function <code class="highlighter-rouge">commerce_iats_soap_process_submit_form_submit()</code> is being used to handle a lot more logic than a form submit handler ideally would. Breaking it down:</p>
+
+<ul>
+  <li>There’s some <a href="http://drupalcode.org/project/commerce_iats.git/blob/dea433a:/commerce_iats.module#l317">tight integration with the Commerce Card on File module</a>. This could be broken out into a different payment method type, avoiding the call to <code class="highlighter-rouge">module_exists()</code>.</li>
+  <li>A lot of conditions are used to <a href="http://drupalcode.org/project/commerce_iats.git/blob/dea433a:/commerce_iats.module#l332">build the API request</a>, depending on which payment method triggered the form submit handler. This won’t scale well when more payment methods are added.</li>
+  <li>A <a href="http://drupalcode.org/project/commerce_iats.git/blob/dea433a:/commerce_iats.module#l367">new transaction is created</a> based on the response from the iATS Payments API.</li>
+  <li>More tight integration with <a href="http://drupalcode.org/project/commerce_iats.git/blob/dea433a:/commerce_iats.module#l415">Commerce Card on File</a>.</li>
+</ul>
+
+<p>A lot of code in <code class="highlighter-rouge">commerce_iats_soap_process_submit_form_submit()</code> is <a href="http://drupalcode.org/project/commerce_iats.git/blob/dea433a:/commerce_iats.module#l521">later duplicated</a> when <code class="highlighter-rouge">commerce_iats_customer_code_charge_submit_form_submit()</code> is called.</p>
+
+<h3 id="the-refactor">The refactor</h3>
+
+<p>We set out to redesign the module’s architecture and rebuild it with modularity and expansion in mind. Here’s what we did.</p>
+
+<h4 id="created-a-new-standard-payment-processing-function">Created a new <a href="http://drupalcode.org/project/commerce_iats.git/blob/HEAD:/commerce_iats.module#l210">standard payment processing function</a></h4>
+
+<ul>
+  <li>This function handles the API call, response handling, transaction creation and logging.</li>
+  <li>To handle multiple payment methods, the function accepts a callback function as a parameter. This callback function is the function that makes the API call via the PHP Wrapper and returns the response.</li>
+</ul>
+
+<p>The first lines of <code class="highlighter-rouge">commerce_iats_process_payment()</code> demonstrate how the callback function is used:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">commerce_iats_process_payment</span><span class="p">(</span><span class="nv">$payment_method</span><span class="p">,</span> <span class="nv">$payment_data</span><span class="p">,</span> <span class="nv">$order</span><span class="p">,</span> <span class="nv">$charge</span><span class="p">,</span> <span class="nv">$payment_callback</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Process the payment using the defined callback method.</span>
+  <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$payment_callback</span><span class="p">(</span><span class="nv">$payment_method</span><span class="p">,</span> <span class="nv">$payment_data</span><span class="p">,</span> <span class="nv">$order</span><span class="p">,</span> <span class="nv">$charge</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="broke-payment-methods-out-into-their-own-include-files">Broke payment methods out into their own include files</h4>
+
+<p>As an example, here’s the <a href="http://drupalcode.org/project/commerce_iats.git/blob/HEAD:/includes/commerce_iats.credit_card.inc">credit card payment method</a>. Each payment method file contains these standard Commerce functions (where <code class="highlighter-rouge">credit_card</code> is the payment method:)</p>
+
+<ul>
+  <li><code class="highlighter-rouge">commerce_iats_credit_card_settings_form()</code></li>
+  <li><code class="highlighter-rouge">commerce_iats_credit_card_submit_form()</code></li>
+  <li><code class="highlighter-rouge">commerce_iats_credit_card_submit_form_validate()</code></li>
+  <li><code class="highlighter-rouge">commerce_iats_credit_card_submit_form_submit()</code></li>
+</ul>
+
+<p>Then we added our own callback function, <code class="highlighter-rouge">commerce_iats_process_credit_card_payment()</code>.</p>
+
+<p>The callback function handles building the API request and getting a response from the API. To show how this works, here’s a line from <code class="highlighter-rouge">commerce_iats_credit_card_submit_form_submit()</code>:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">return</span> <span class="nx">commerce_iats_process_payment</span><span class="p">(</span><span class="nv">$payment_method</span><span class="p">,</span> <span class="nv">$payment_data</span><span class="p">,</span> <span class="nv">$order</span><span class="p">,</span> <span class="nv">$charge</span><span class="p">,</span> <span class="s1">'commerce_iats_process_credit_card_payment'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>As you can see, all the payment information from the form submit handler is being passed into <code class="highlighter-rouge">commerce_iats_process_payment()</code>. That function then calls the callback function <code class="highlighter-rouge">commerce_iats_process_credit_card_payment()</code> to <a href="http://drupalcode.org/project/commerce_iats.git/blob/HEAD:/includes/commerce_iats.credit_card.inc#l84">make the API call and get the response</a>.</p>
+
+<p>This design is very easy to extend and allows us to add as many additional payment methods as we need in a very clean way. We were able to use this design to implement <a href="http://drupalcode.org/project/commerce_iats.git/tree/HEAD:/modules/commerce_iats_cardonfile">Commerce Card on File as a submodule of Commerce iATS</a>, eliminating that dependency from the base module.</p>
+
+<h2 id="roadmap-and-next-steps">Roadmap and next steps</h2>
+
+<p>All our work on Commerce iATS is currently available in the <a href="https://drupal.org/node/2227713">2.0-beta1 release</a>. Please take a look and let us know if you have any feedback.</p>
+
+<p>We’re already hard at work along with our partners at iATS Payments to integrate more of their payment processing facilities into the Commerce iATS module. While the module currently only supports credit card payments, ACH/EFT and Direct Debit payments will arrive before DrupalCon Austin. Speaking of, both ThinkShout and iATS Payments will be attending and spending some time at the iATS booth, number 508. Come find us to say hello and talk some e-commerce.</p>
+
+<p>Keep an eye on the <a href="https://drupal.org/project/commerce_iats">Commerce iATS project page</a> and this blog for more updates.</p>
+]]>
+  </description>
+  <pubDate>Tue, 15 Apr 2014 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/04/refactoring-the-iats-drupal-module/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/04/refactoring-the-iats-drupal-module/</guid>
+</item>
+
+    
+      <item>
+  <title>Announcing the Release of the PHP Wrapper for iATS Payments</title>
+  <description>
+    <![CDATA[<h2 id="supporting-iats-payments-open-source-contributions">Supporting iATS Payments’ Open Source Contributions</h2>
+
+<h3 id="the-release-of-its-php-wrapper-library">The Release of Its PHP Wrapper Library</h3>
+
+<p>This week, in conjunction with <a href="http://home.iatspayments.com/">iATS Payments</a>, ThinkShout is excited to announce the release of the <a href="https://github.com/iATSPayments/PHP/">iATS Payments PHP library</a>, a comprehensive wrapper around iATS web services exposing customer, processing, and reporting functionality in an easy to consume PHP library. Any PHP based system, including Drupal, Wordpress, and Magento, can now easily integrate the processing of online payments and donations via iATS Payments. The library includes a test suite built using <a href="http://phpunit.de/">PHPUnit</a> with complete code coverage so developers can feel confident in the code they’re using and a full set of documentation generated by <a href="http://www.phpdoc.org/">phpDocumentor</a>.</p>
+
+<p>ThinkShout worked closely with the iATS team to define the requirements for the library before jumping in to write the code, which we reviewed together every step of the way. The end result of the collaboration is a win for everyone involved, iATS Payments, ThinkShout, and, most importantly, the nonprofit community.</p>
+
+<h3 id="the-growing-importance-of-online-giving-tools">The Growing Importance of Online Giving Tools</h3>
+
+<p>By many reports, the nonprofit sector saw double digit growth in online giving in 2013. As nonprofits continue to invest in online outreach and advocacy, it could not be more important that these organizations leverage easy-to-use donation forms and other online fundraising tools that integrate tightly with their donor databases.</p>
+
+<p>Seamless donation forms (i.e., forms that are built into an organization’s website) provide a better user experience for potential supporters. They also convey significantly more credibility and professionalism to donors that might not be familiar with the online giving experience.</p>
+
+<p>Once an online donation has been received, it is critical that these financial transactions are captured within an organization’s donor database (or CRM). “Best of breed” online giving solutions integrate tightly with CRMs to provide additional donation processing features from directly inside of the CRM user interface.</p>
+
+<h3 id="why-iats-is-our-recommended-service-for-nonprofit-payment-processing">Why iATS Is Our Recommended Service for Nonprofit Payment Processing</h3>
+
+<p>At ThinkShout, we are constantly evaluating new payment processing services that can enhance the online giving features that we develop for our clients. About a year and a half ago, we were introduced to the good folks at iATS Payments. iATS has quickly become our payment processing service of choice for the nonprofit sector.</p>
+
+<p>In addition to its social mission and great customer support, iATS provides a suite of world-class payment processing tools, including one of the leading integrations with Salesforce and a robust API. We have leveraged these features for a number of our clients to build enterprise-grade e-commerce and paid event management solutions that support real-time integration between Drupal and Salesforce.</p>
+
+<h3 id="next-steps-deeper-integration-between-iats-and-drupal-commerce">Next Steps: Deeper Integration Between iATS and Drupal Commerce</h3>
+
+<p>Now that we have a solid foundation, ThinkShout will work closely with iATS Payments and the Drupal community to rewrite the <a href="https://drupal.org/project/commerce_iats/">Drupal Commerce iATS module</a> to make it even easier to integrate payment processing via iATS into Drupal. ThinkShout will leverage its integration experience with <a href="https://drupal.org/project/mailchimp/">MailChimp</a> and <a href="https://drupal.org/project/salesforce/">Salesforce</a> to ensure the module is flexible enough to serve a wide variety of customized use cases while still being a powerful “out of the box” tool for site administrators. Look for a release over the next month.</p>
+
+<h3 id="meet-the-iats-payments-and-thinkshout-teams-at-the-ntc">Meet the iATS Payments and ThinkShout Teams at the NTC</h3>
+
+<p>ThinkShout and iATS Payments will be at the <a href="http://www.nten.org/ntc/">Nonprofit Technology Conference</a> in Washington, D.C. from March 13th to 15th and we encourage developers and nonprofits alike to stop by our booths to learn more about the PHP wrapper and the other services offered by iATS. Stephen Bestbier of iATS Payments and Lev Tsypin of ThinkShout will be on site at NTC and look forward to discussing many facets of iATS Payments’ integrations for nonprofits.  Visit iATS Payments at booth #427 and ThinkShout at booth #231 to learn more.</p>
+
+<p>For more information about iATS Payments, visit their website at <a href="http://www.iatspayments.com/">www.iatspayments.com</a>.</p>
+]]>
+  </description>
+  <pubDate>Tue, 04 Mar 2014 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2014/03/announcing-iats-php-wrapper/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/03/announcing-iats-php-wrapper/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

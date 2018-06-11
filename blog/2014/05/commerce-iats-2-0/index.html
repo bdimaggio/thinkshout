@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Commerce iATS 2.0 | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="Our latest release of Commerce iATS brings ACH/EFT and Direct Debit payments.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal Give, Drupal Planet, E-commerce, modules">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">05.16.2014</span>
+  
+  </p>
+
+  <h1 class="post-title">Commerce iATS 2.0</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/dan.jpg">
+    
+      <a class="team-name" href="/team/dan/">Dan Ruscoe</a>
+    <br>
+      Senior Software Engineer
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <p>Last month, we released the 2.0-beta release of the Commerce iATS module, a Drupal module that leverages <a href="https://drupal.org/project/commerce">Drupal Commerce</a> and the <a href="http://thinkshout.com/blog/2014/03/announcing-iats-php-wrapper/">iATS Payments PHP Wrapper</a> to add support for payment processing via <a href="http://home.iatspayments.com/">iATS Payments</a>.</p>
+
+<p>We also <a href="http://thinkshout.com/blog/2014/04/refactoring-the-iats-drupal-module/">promised to deliver</a> ACH/EFT and Direct Debit payment functionality before DrupalCon Austin. It took a few long days, but we’re proud to announce the release of <a href="https://drupal.org/project/commerce_iats">Commerce iATS 2.0</a>.</p>
+
+<p>Commerce iATS 2.0 is packed with new features that allow you to fully take advantage of the services offered by iATS Payments.</p>
+
+<h2 id="new-payment-methods">New Payment Methods</h2>
+
+<p>In addition to supporting <strong>credit card payments</strong>, Commerce iATS now supports <strong>ACH/EFT</strong>, meaning your users can now make payments directly from their bank account.</p>
+
+<p>Because iATS Payments supports international payments, we made sure that you can too. Commerce iATS 2.0 fully supports <strong><a href="http://en.wikipedia.org/wiki/Direct_debit">Direct Debit</a></strong> for the UK.</p>
+
+<p><img src="/assets/images/blog/commerce-iats-direct-debit-declaration.png" alt="Direct Debit screenshot" title="Setting up a Direct Debit" /></p>
+
+<p>If you’re familiar with Direct Debit, you’ll know that any website offering the service is required to implement a very specific checkout process.</p>
+
+<p>With assistance from iATS Payments, we’ve done all the work for you. Commerce iATS now provides a set of <a href="https://drupal.org/node/2268891">custom checkout panes</a> for the complete Direct Debit checkout process. You don’t even have to worry about the 12-day lead time on initial payments; the module figures it out and gives your users a choice of start dates.</p>
+
+<p><img src="/assets/images/blog/commerce-iats-direct-debit-schedule.png" alt="Direct Debit schedule screenshot" title="Setting up a Direct Debit schedule" /></p>
+
+<h2 id="more-options-for-recurring-payments">More Options for Recurring Payments</h2>
+
+<p>Recurring payments are great for donations, which fits in with iATS Payments’ goal of supporting the needs of nonprofit organizations.</p>
+
+<p>With Drupal Commerce, you always had the option of recurring payments using the <a href="https://drupal.org/project/commerce_cardonfile">Commerce Card on File</a> module, but iATS Payments handles that for you. With Commerce iATS 2.0, you can opt to have iATS Payments bill your customers on a recurring schedule rather than have your Drupal site do all the work.</p>
+
+<p>The Drupal Commerce order stays updated with recurring transactions thanks to iATS Payment’s <a href="http://home.iatspayments.com/sites/default/files/iats_webservices_reportlink_version_4.0.pdf">ReportLink service</a>. Commerce iATS implements a cron task to pull in daily transaction reports from iATS, updating your orders in the process.</p>
+
+<p>In addition to the new features, we took time to make the module more robust. Some of our improvements are:</p>
+
+<ul>
+  <li>The Payment Methods Admin Page now warns of any unconfigured payment methods</li>
+  <li>Error handling in the checkout process is much more user-friendly</li>
+  <li>Payment method settings are clearer and easier to understand</li>
+</ul>
+
+<h2 id="see-you-at-drupalcon">See you at DrupalCon</h2>
+
+<p>ThinkShout and iATS Payments will be attending DrupalCon Austin. Don’t miss the chance to talk nonprofit payment processing with iATS at booth 508. We’ll be spending time at the iATS booth to talk about Commerce iATS. <a href="https://twitter.com/thinkshout">Follow us on Twitter</a> for updates on when we’ll be around.</p>
+
+<p>Get Commerce iATS from our <a href="https://drupal.org/project/commerce_iats">Drupal.org project page</a>.</p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal Give.' href='/blog/category/drupal-give/'>Drupal Give</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged E-commerce.' href='/blog/category/e-commerce/'>E-commerce</a> <a class='tag' rel='tag category' title='View all posts tagged modules.' href='/blog/category/modules/'>modules</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2014/05/commerce-iats-2-0/';
+    this.page.identifier = '/blog/2014/05/commerce-iats-2-0';
+    this.page.title = 'Commerce iATS 2.0'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2014/05/content-structure-from-pearl-jam/"><span class="fa fa-caret-left"></span> <span>What Nonprofits Can Learn About Content Structure… from Pearl Jam</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2014/05/chimpfestation/"><span>Chimpfestation, A Closer Look at the New MailChimp Module</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

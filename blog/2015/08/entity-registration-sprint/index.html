@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Sprinting on Entity Registration | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="We put our heads together to tackle the Entity Registration module.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal, Drupal Planet, Entity Registration, Event registration, Interns, Module release, Open source, Team sprints">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  <p class="featured">Featured Post</p>
+
+  <p><span class="date">08.05.2015</span>
+  
+    
+      
+    
+      
+        <a class="topic" href="/blog/topic/process">Project Management and Process</a>
+      
+    
+      
+    
+      
+    
+  
+  </p>
+
+  <h1 class="post-title">Sprinting on Entity Registration</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <p>We started hosting monthly sprints in order to pool our resources and give back to the open source community. We’re committed to maintaining our contributions that Drupal users rely upon - heck, we rely on them, too - and we owe it to this community to keep improving upon them. Not only that, but our own internal community here at ThinkShout grows as a result. There’s a camaraderie that develops when we all rally behind one cause, and it shows after every sprint in the way we collaborate on our projects.</p>
+
+<p>This month, we focused on one of our most widely-adopted Drupal modules: <a href="https://www.drupal.org/project/registration">Entity Registration</a>.</p>
+
+<p>There are nearly 10,000 sites currently using the Entity Registration module to power event signups. The module is supported by an active group of 43 developers who have contributed over 500 commits to the project. If you registered for a DrupalCon prior to this year, you’ve probably used this module. It’s been the canonical registration tool in Drupal because of the balance it strikes between ease of use and flexibility. We’ve built everything from simple signup forms for small, free events, to complex paid event registration workflows with tens of thousands of registrants.</p>
+
+<p>The sprint resulted in a much-needed release of the Entity Registration module: <a href="https://www.drupal.org/node/2544986">7.x-1.5</a>. We knocked out a chunk of issues, added a bunch of nifty new features, and paved the way for some even <em>bigger</em> new features. Additionally, we made our initial <a href="https://www.drupal.org/node/2543160">port of Registration to Drupal 8</a> on a completely different branch.</p>
+
+<p>What’s more, we had our interns on hand to participate in their very first sprint! <a href="http://thinkshout.com/blog/2015/06/meet-the-interns/">Daniel</a> even managed to make eight commits to Entity Registration. It was one of the most exciting Thursdays we’d had in a while. And that’s saying something, since bowtie Thursdays are pretty epic.</p>
+
+<p>For this sprint, we broke into three teams. Team one focused on resolving the highest priority items in the issue queue, team two worked on building out a roadmap for upcoming features in the 2.x release, and team three began working on the D8 port.</p>
+
+<p>Team one resolved over twenty issues in the queue and triaged nearly double that. I sat down with developers Gabe Carleton-Barnes, Jaymz Rhime, and Greg Boggs to discuss this latest sprint in detail.</p>
+
+<p><strong>Gabe, your team was responsible for tackling the issue queue. How did you and your team divide and conquer those tickets?</strong></p>
+
+<p><strong>Gabe</strong>: We started with the most important issues, and items that were prioritized in the issue queue already. We distributed them among our team, reproduced the issues, and came up with solutions. We had a lot of newer ThinkShout folks working on the queue, and our interns were on hand as well to help. It was a great opportunity for them to to get in there and give some feedback to the community. We were able to also get feedback from the community about these issues, evaluated their proposed solutions, and if they made sense, we implemented them as part of the fix.</p>
+
+<p><strong>What were some of those bigger fixes?</strong></p>
+
+<p><strong>Gabe:</strong> One of the more noteworthy had to do with anonymous registrations and permissions. Each time you create an event, you can allow people to register in different  ways. Registration by email address is one way, so anonymous users can provide an email address and not necessarily need to log into the site. But in order to make that work, you had to allow anonymous users with a permission called “allowed to register other people.” It logically worked at the time, but it was a little confusing for people setting up the module for the first time. So we took that out, which also provides a bit of a security buffer so you don’t have a bunch of anonymous users signing up with several different emails.</p>
+
+<p><strong>Let’s shift gears and talk about features. It sounds like there are some exciting changes in the works for the Entity Registration module.</strong></p>
+
+<p><strong>Greg</strong>: We started the process of refactoring entity registration in a big way. I created a <a href="https://www.drupal.org/node/2543164">roadmap</a> for the 2.x release of the module, which is important because there are contributors active in the Drupal community that are contributing to our module. So if we’re going to commit large chunks of new features to the module, it’s important to describe those to the other active developers working on the module so they know what’s coming and can participate in those changes.</p>
+
+<p><strong>Jaymz</strong>: We developed a plan for implementing the biggest new features, and we’ve made some headway in service of those new features. We’re hoping to have these features ready to roll out in a month or so.</p>
+
+<p><strong>Greg</strong>: There are two big features we’re prioritizing right now. The first is making entity registration work with any kind of entity, which is important for Drupal sites that use more than just “users.” This is a massive change that will drastically affect how this form will work. Right now, only users can register for events. With this feature, any entity will be able to register, whether it’s a contact, and email, etcetera, which is going to give both site owners and event registrants more options for both managing and registering for events. The second is the implementation of multiple registrations on a single event registration form.</p>
+
+<p><strong>Jaymz</strong>: Both of these are features that have sort of worked in the past, but needed some fine-tuning. So now we’re adding true support for both of them.</p>
+
+<p><strong>Greg</strong>: So many people use this module, and many of them are new to Drupal, which means this module has a very active issue queue. One of my top priorities is to respond to these issues, which I did during the sprint, ensuring people knew where to go for more support, reviewed proposed solutions, and so on.</p>
+
+<p><strong>Jaymz</strong>: We really appreciate the support from the community, and we owe a lot of this module’s success to their contributions. It takes a village sometimes, or in this case, a team sprint, and Entity Registration is proof of that.</p>
+
+<p><em>There are a lot of exciting things in the works for Registration. We can’t thank the community enough for their support of this module, and we’re looking forward to bringing it to Drupal 8. In the mean time, we hope you’ll give 7.x-1.5 a whirl and let us know what you think! Be on the lookout for updates about our progress and the new features coming in the near future.</em></p>
+
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal.' href='/blog/category/drupal/'>Drupal</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged Entity Registration.' href='/blog/category/entity-registration/'>Entity Registration</a> <a class='tag' rel='tag category' title='View all posts tagged Event registration.' href='/blog/category/event-registration/'>Event registration</a> <a class='tag' rel='tag category' title='View all posts tagged Interns.' href='/blog/category/interns/'>Interns</a> <a class='tag' rel='tag category' title='View all posts tagged Module release.' href='/blog/category/module-release/'>Module release</a> <a class='tag' rel='tag category' title='View all posts tagged Open source.' href='/blog/category/open-source/'>Open source</a> <a class='tag' rel='tag category' title='View all posts tagged Team sprints.' href='/blog/category/team-sprints/'>Team sprints</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2015/08/entity-registration-sprint/';
+    this.page.identifier = '/blog/2015/08/entity-registration-sprint';
+    this.page.title = 'Sprinting on Entity Registration'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2015/07/content-strategy-lessons-mad-max/"><span class="fa fa-caret-left"></span> <span>Four Things You Can Learn About Content Strategy...from Mad Max</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2015/08/becoming-a-bcorp/"><span>Being the Change - Becoming a B Corp</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+  <div class="team-member-blog">
+    <div class="container">
+      <h4>Related Blog Posts</h4>
+      <div class="row posts">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2017/09/make-your-onsite-last/">
+    <p class="post-date">09.27.2017</p>
+    <h3 class="post-title">How to make your Onsite last, and last...and last</h3>
+    <p class="post-short">Tracey shares some pro-tips on how to get the most out of your onsite.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/tracey.jpg">
+      <span class="byline-text">
+        <strong>Tracey Whitney</strong><br>
+        <span class="position">Senior Project Manager</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2017/09/leading-a-retrospective/">
+    <p class="post-date">09.25.2017</p>
+    <h3 class="post-title">How to Lead a Retrospective for a More Successful Project</h3>
+    <p class="post-short">Rose walks us through how to run a retrospective meeting, and why they're a vital component to the close of every project.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/Rose2.jpg">
+      <span class="byline-text">
+        <strong>Rose Hart</strong><br>
+        <span class="position">Project Manager</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2017/06/thinkshout-project-management-tool-selection-process/">
+    <p class="post-date">06.19.2017</p>
+    <h3 class="post-title">The ThinkShout Project Management Tool Selection Process</h3>
+    <p class="post-short">As technology evolves, so must our tools. Here's how we evulate which are right for our team.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/julia.jpg">
+      <span class="byline-text">
+        <strong>Julia Ford</strong><br>
+        <span class="position">Project Manager</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+            
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

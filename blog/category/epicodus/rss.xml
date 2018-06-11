@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/epicodus/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Introducing the ThinkShout Interns</title>
+  <description>
+    <![CDATA[<p><img src="/assets/images/blog/interns_0.jpg" alt="interns.jpg" /></p>
+
+<p>We are thrilled to introduce ThinkShout’s very first interns! In partnership with the Drupal Association, we will be working with two graduates of <a href="http://www.epicodus.com/">Epicodus’</a> first <a href="http://www.epicodus.com/php/">PHP class</a>, Daniel Toader and Bojana Skarich. We’re very excited to welcome them to our offices, and the Drupal Community. They’ll both be spending time at the <a href="https://assoc.drupal.org/">Drupal Association’s</a> headquarters as well as ours. They’ve already mastered the art of posing for ThinkShout photos…</p>
+
+<p>Without further ado, meet our interns!</p>
+
+<h2 id="daniel-toader">Daniel Toader##</h2>
+
+<p><img src="/assets/images/blog/interns_1.jpg" alt="daniel.jpg" /></p>
+
+<p>Daniel worked previously as a systems analyst for Microsoft and an insurance company before he decided to dive into code. He’s a University of Washington graduate with a degree in informatics. He got his first taste of code while in school. After several years of extensive traveling, Daniel decided it was time to take the plunge into web development, so he brushed up on his Javascript and enrolled in Epicodus. He hopes to someday work as a backend developer.</p>
+
+<p>Favorite snack: Pretzels and beer.</p>
+
+<p>Favorite word: Supercalifragilisticexpialidocious</p>
+
+<h2 id="bojana-skarich">Bojana Skarich##</h2>
+
+<p><img src="/assets/images/blog/interns_2.jpg" alt="bojana.jpg" /></p>
+
+<p>Bojana comes to us with a background as a public librarian. She’s an Americorp grad with a passion for technology, especially when it’s used for social good. She turned to Epicodus when she decided she wanted to pursue a career in web development. Front end development is her forte, and she dreams of one day building data-driven websites. She loves Drupal and is looking forward to getting more involved with the community.</p>
+
+<p>Favorite mythical creature: Griffin</p>
+
+<p>Favorite tree: Silver birch</p>
+
+<p>Welcome, Daniel and Bojana! We’re so happy we could be a part of your continued Drupal education.</p>
+]]>
+  </description>
+  <pubDate>Tue, 23 Jun 2015 10:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/06/meet-the-interns/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/06/meet-the-interns/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

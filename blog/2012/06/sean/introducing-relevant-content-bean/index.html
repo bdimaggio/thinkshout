@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Introducing the Relevant Content Bean | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="Allow site admins to create their own dynamically-filtered listings of node content in a block.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal Give, Drupal Planet, modules">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">06.16.2012</span>
+  
+  </p>
+
+  <h1 class="post-title">Introducing the Relevant Content Bean</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/sean2.jpg">
+    
+      <strong>Sean Larkin</strong>
+    <br>
+      Director of Sales, Founder
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <p>Have you ever wished that there was a simpler solution for allowing site adminstrators to create their own dynamically-filtered listings of node content in a block? Of course, you can very quickly create such listings with Views, but the Views approach presents certain tradeoffs that aren’t always idea for sites managed by non-developers. In our experience, the tradeoffs of site administers using Views often include the following:</p>
+
+<ul>
+  <li>Views can present a steep learning curve to site administrators.</li>
+  <li>Managing small variations in the block displays of a View (such as blocks with different item counts or different block titles) can lead to very large Views definitions.</li>
+  <li>Providing a site administrator with Views access can sometimes lead to deep, unintended changes in your site’s presentation layer.</li>
+  <li>Accounting for all of the possible variations in the Views display layout, particularly with Views that leverage “fields” rather than “view modes”, can lead to a lot of extra theming.</li>
+  <li>When managing Views definitions in code with Features, dealing with Views that keep getting overridden in the GUI can be a challenge.</li>
+</ul>
+
+<p><em>What if there was a simple solution for allowing site administrators to create their own dynamically-filtered listings of node content without the tradeoffs of opening up the Views UI?</em></p>
+
+<h2 id="enter-relevant-content-bean">Enter “Relevant Content Bean”</h2>
+
+<p>The <a href="http://drupal.org/project/bean_relevant">Relevant Content Bean</a> module is a plugin for the awesome <a href="http://drupal.org/project/bean">Bean</a> module. If you’ve unfamiliar Bean, it basically provides a way to treat blocks as fieldable entities. (“Bean” is an acronym for <strong>B</strong>lock <strong>E</strong>ntities <strong>A</strong>ren’t <strong>N</strong>odes.) The Bean module also provides an API for creating new <em>types</em> of blocks, which can have their own properties and fields.</p>
+
+<p>The Relevent Content Bean essentially provides your site administrators with a light-weight query builder (build on top of EntityFieldQuery) for creating blocks that contain dynamically-filtered listings of nodes. Like Views, Relevant Content Bean allows you to select the number of node results to display, apply filters to the list of returned nodes, change the display options for these nodes, and manage the sort order of your results.</p>
+
+<h2 id="how-it-works">How It Works</h2>
+
+<p>A screenshot of the default Relevant Content Bean configuration screen is shown below:</p>
+
+<p><img src="https://dl.dropbox.com/u/17914943/relevant_bean_screenshots/bean_empty.png" alt="full screenshot" /></p>
+
+<h3 id="view-modes-and-fields">View Modes and Fields</h3>
+
+<p>First, the Relevant Cotent Bean itself can leverage “view modes.”</p>
+
+<p><img src="https://dl.dropbox.com/u/17914943/relevant_bean_screenshots/view_mode.png" alt="view modes" /></p>
+
+<p>For developers, this means that you can write your own view modes to create different display options for the overall listing of nodes.</p>
+
+<p>Since Relevent Content Beans themselves are fieldable, you can even extend these Beans to include options, such as custom “Read More” links (using the <a href="http://drupal.org/project/link">Link</a> module) or content areas above and below the node listing returned by the Bean itself.</p>
+
+<h3 id="display-options">Display Options</h3>
+
+<p>Second, you can manage the “display options” for the individual nodes returned by the Bean.</p>
+
+<p><img src="https://dl.dropbox.com/u/17914943/relevant_bean_screenshots/node_display.png" alt="display options" /></p>
+
+<p>The returned list of nodes can be presented as “teasers” or any other view mode defined for your content types. In addition to selecting among view modes, Relevant Content Bean provides an option for simply displaying a list of “linked node titles.”</p>
+
+<h3 id="sort-options">Sort Options</h3>
+
+<p>Here’s where Relevant Content Bean gets really interesting… As with Views, you can sort the returned list of nodes by creation date or the date that each node was last updated. Similarly, you can sort on the “sticky” property.</p>
+
+<p><img src="https://dl.dropbox.com/u/17914943/relevant_bean_screenshots/order_on.png" alt="order nodes" /></p>
+
+<p>But check this out:</p>
+
+<p><img src="https://dl.dropbox.com/u/17914943/relevant_bean_screenshots/order_on_any_date.png" alt="date filter" /></p>
+
+<p>You can actually sort the returned nodes on <em>any</em> date property or field available to each content type. In the example above, we have two content types:</p>
+
+<ul>
+  <li>A “publication” content type with a “publication date” field that accepts a month and year.</li>
+  <li>An “event” contenty type with an “event date” field that accepts a month, date, year, and time.</li>
+</ul>
+
+<p>In this example, you can use the Relevant Content Bean to create a listing of publication and events nodes - sorting this <em>single</em> listing of nodes by different date fields.</p>
+
+<h3 id="filter-options">Filter Options</h3>
+
+<p>Relevant Content Bean also allows you to filter your listing of nodes by content type, taxonomy, and/or various date range options. When filtering by content type or taxonomy, you have the option of specifying which content types or taxonomy terms to return.</p>
+
+<p><img src="https://dl.dropbox.com/u/17914943/relevant_bean_screenshots/filter_content_type_not_same.png" alt="" /></p>
+
+<p><img src="https://dl.dropbox.com/u/17914943/relevant_bean_screenshots/taxonomy_filter.png" alt="" /></p>
+
+<p>Or, you can configure your bean to <strong>contextually</strong> filter nodes based upon the type and terms associated with a full-page node upon which your bean has been placed. (Think “argument handling” with block displays in Views.)</p>
+
+<p><img src="https://dl.dropbox.com/u/17914943/relevant_bean_screenshots/filter_content_type_same.png" alt="" /></p>
+
+<p>Similar to our sort options, you can also filter the returned listing of nodes based upon a date relative to any date property or field found on each content type.</p>
+
+<p><img src="https://dl.dropbox.com/u/17914943/relevant_bean_screenshots/date_filter.png" alt="" /></p>
+
+<h2 id="other-coolness">Other Coolness</h2>
+
+<p>The Relevant Content Bean module has quickly become a staple on all of our custom Drupal builds - as we continually find more and more interesting use cases for it. For example:</p>
+
+<ul>
+  <li>We’ve had clients create placeholder nodes and then drop a Relevant Content Bean into the page to minic full-page Views displays.</li>
+  <li>Writing our own custom Bean view modes, we can return a list of nodes as a javascript slideshow.</li>
+</ul>
+
+<p>And because Relevant Content Bean returns nodes using view modes, on sites that also use Views for returning node listings, we can use the same theme styles across node listings - regardless of whether those listings are generated by Relevant Content Beans or Views.</p>
+
+<h2 id="in-conclusion">In Conclusion</h2>
+
+<p>We’d encourage you to give the Relevant Content Bean module a try. We’d love to get your feedback and talk more about how we can make it even easier on site administrators to customize block content.</p>
+
+<p>And special thanks for ThinkShout developer, <a href="http://thinkshout.com/blog/Brandon">Brandon Lee</a>, for writing this great module!</p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal Give.' href='/blog/category/drupal-give/'>Drupal Give</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged modules.' href='/blog/category/modules/'>modules</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2012/06/sean/introducing-relevant-content-bean/';
+    this.page.identifier = '/blog/2012/06/sean/views-without-views-introducing-relevant-content-bean';
+    this.page.title = 'Introducing the Relevant Content Bean'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2012/06/kyle/add-to-cal/"><span class="fa fa-caret-left"></span> <span>An Adventure in iCal, my First Module</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2012/06/sean/redhen-crm-part-1/"><span>RedHen CRM Part 1, Keeping all your eggs in one Drupal basket</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

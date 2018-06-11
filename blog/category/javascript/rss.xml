@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/javascript/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Creating an Infinite Scroll Masonry Block Without Views</title>
+  <description>
+    <![CDATA[<p>#</p>
+
+<p>The <a href="https://drupal.org/project/views_infinite_scroll">Views Infinite Scroll module</a> provides a way to apply infinite scroll to the output of a view, but if you want to apply infinite scroll to custom block content, you’re out of luck. I found myself in this position while developing a recently-launched site for <a href="http://www.salmonlove.com">The Salmon Project</a>, which I’ll use as a loose reference point as I walk you through my solution to applying both Masonry and Infinite Scroll to custom block content.</p>
+
+<h2 id="overview">Overview</h2>
+
+<ol>
+  <li>Creating a block to hold our paged content that can be placed on a page</li>
+  <li>Generating a paged content array to return as block content</li>
+  <li>Applying Masonry to the paged content block</li>
+  <li>Applying Infinite Scroll to the paged content block</li>
+  <li>Creating an Infinite Scroll trigger</li>
+</ol>
+
+<h3 id="creating-a-block-to-hold-paged-content">Creating a block to hold paged content</h3>
+<p>The first step is creating a block to hold our custom paged view that can be placed on a page. To create the block, we’ll use a <code class="highlighter-rouge">hook_block_info()</code> followed by a <code class="highlighter-rouge">hook_block_view()</code>.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">my_module_block_info</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nv">$block</span><span class="p">[</span><span class="s1">'masonry_content'</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'info'</span> <span class="o">=&gt;</span> <span class="s1">'Masonry content'</span><span class="p">,</span>
+  <span class="p">);</span>
+  <span class="k">return</span> <span class="nv">$block</span>
+<span class="p">}</span>
+
+<span class="k">function</span> <span class="nf">my_module_block_view</span><span class="p">(</span><span class="nv">$delta</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nv">$block</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+  <span class="nv">$block</span><span class="p">[</span><span class="s1">'subject'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+  <span class="nv">$block</span><span class="p">[</span><span class="s1">'content'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">my_module_masonry_content</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Here, we’ve defined which function we’ll be generating our paged view from; namely <code class="highlighter-rouge">my_module_masonry_content</code>.</p>
+
+<h3 id="generating-a-paged-content-array">Generating a paged content array</h3>
+<p>Within our <code class="highlighter-rouge">my_module_masonry_content</code> function, we’ll create a paged view of nodes. To do so, we’ll use an EntityFieldQuery with the “pager” property, which causes the results of the query to be returned as a pager.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$query</span><span class="o">-&gt;</span><span class="na">pager</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The argument passed to the pager function determines how many results at a time will be returned; this is analogous to setting the number of items to be shown per page in a view – keep this bit in mind, as we’ll return to it later when implementing the infinite scroll.</p>
+
+<p>Now we’ll add some query conditions and, finally, execute the query.
+These conditions are, of course, site specific, but I’m including them as an example for thoroughness. For help constructing your EntityFieldQuery query, see <a href="https://api.drupal.org/api/drupal/includes!entity.inc/class/EntityFieldQuery/7">the EntityFieldQuery api documentation page</a>.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$query</span><span class="o">-&gt;</span><span class="na">fieldCondition</span><span class="p">(</span><span class="s1">'field_example'</span><span class="p">,</span> <span class="s1">'value'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">'value1'</span><span class="p">,</span> <span class="s1">'value2'</span><span class="p">),</span> <span class="s1">'IN'</span><span class="p">);</span>
+<span class="nv">$query</span><span class="o">-&gt;</span><span class="na">propertyCondition</span><span class="p">(</span><span class="s1">'status'</span><span class="p">,</span> <span class="s1">'1'</span><span class="p">);</span>
+<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>In this example, I’ve requested all nodes that have a <code class="highlighter-rouge">field_example</code> value of <code class="highlighter-rouge">value1</code> or <code class="highlighter-rouge">value2</code> and are published (i.e. node status property is equal to 1).</p>
+
+<p>Once we have our results set, we will need to create a renderable array to return as the block content.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$node_result</span><span class="p">[</span><span class="s1">'node'</span><span class="p">]</span> <span class="k">as</span> <span class="nv">$row</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nv">$node</span> <span class="o">=</span> <span class="nx">entity_load_single</span><span class="p">(</span><span class="s1">'node'</span><span class="p">,</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">nid</span><span class="p">);</span>
+  <span class="nv">$output</span><span class="p">[]</span> <span class="o">=</span> <span class="nx">node_view</span><span class="p">(</span><span class="nv">$node</span><span class="p">,</span> <span class="s1">'category_term_page'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Then we’ll apply pager theming to the output by explicitly adding it to the returned renderable array.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$output</span><span class="p">[</span><span class="s1">'pager'</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'#theme'</span> <span class="o">=&gt;</span> <span class="s1">'pager'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>We then return our output array and get to the JavaScript…</p>
+
+<h3 id="applying-masonry-to-the-paged-content-block">Applying Masonry to the paged content block</h3>
+<p>To apply Masonry to the paged block content, we’ll need some JavaScript so let’s create a new JavaScript file within our module’s js directory (<code class="highlighter-rouge">js/my_module.js</code>). This file will depend on the <a href="https://github.com/desandro/masonry">Masonry JavaScript library</a> so we’ll need to load it in addition to our new, custom JavaScript file.</p>
+
+<hr />
+
+<h4 id="loading-the-required-libraries">Loading the required libraries</h4>
+<p>For optimal performance, we only want to load our JavaScript when the <code class="highlighter-rouge">masonry_content</code> block is present. To conditionally load the JavaScript we’ll use a <code class="highlighter-rouge">hook_block_view_alter()</code>.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">my_module_block_view_alter</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$data</span><span class="p">,</span> <span class="nv">$block</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// only load libraries if masonry_content block is present</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nv">$block</span><span class="o">-&gt;</span><span class="na">module</span> <span class="o">==</span> <span class="s1">'my_module'</span> <span class="o">&amp;&amp;</span> <span class="nv">$block</span><span class="o">-&gt;</span><span class="na">delta</span> <span class="o">==</span> <span class="s1">'masonry_content'</span><span class="p">)</span>
+    <span class="nv">$module_path</span> <span class="o">=</span> <span class="nx">drupal_get_path</span><span class="p">(</span><span class="s1">'moduel'</span><span class="p">,</span> <span class="s1">'my_module'</span><span class="p">);</span>
+    <span class="nv">$data</span><span class="p">[</span><span class="s1">'content'</span><span class="p">][</span><span class="s1">'#attached'</span><span class="p">][</span><span class="s1">'js'</span><span class="p">][]</span> <span class="o">=</span> <span class="nv">$module_path</span> <span class="o">.</span> <span class="s1">'/js/my_module.js'</span><span class="p">;</span>
+    <span class="nv">$masonry_path</span> <span class="o">=</span> <span class="nx">libraries_get_path</span><span class="p">(</span><span class="s1">'masonry'</span><span class="p">);</span>
+    <span class="nv">$data</span><span class="p">[</span><span class="s1">'content'</span><span class="p">][</span><span class="s1">'#attached'</span><span class="p">][</span><span class="s1">'js'</span><span class="p">][]</span> <span class="o">=</span> <span class="nv">$masonry_path</span> <span class="o">.</span> <span class="s1">'/dist/masonry.pkgd.min.js'</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<hr />
+
+<p>Now that we’ve got our required JavaScripts, let’s take a look at how to apply Masonry to our paged content block.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// within my_module.js</span>
+<span class="kd">var</span> <span class="nx">container</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#my-module-masonry-content);
+container.masonry({
+  // Masonry options
+  itemSelector: '</span><span class="err">#</span><span class="nx">my</span><span class="o">-</span><span class="nx">module</span><span class="o">-</span><span class="nx">masonry</span><span class="o">-</span><span class="nx">content</span> <span class="nx">article</span><span class="p">.</span><span class="nx">node</span><span class="s1">'
+});
+</span></code></pre></div></div>
+
+<p>In this case, we’re selecting the &lt;div&gt; that has our block id and the node items within that &lt;div&gt;.</p>
+
+<p>Doing this will apply Masonry <em>once</em> to the items present after the initial page load, but since we are going to be loading more items via the pager, we’ll need to re-apply Masonry after those new items are loaded. We haven’t defined the “change” action yet, but will later when implementing the infinite scroll JavaScript.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// necessary to apply masonry to new items pulled in from infinite_scroll.js</span>
+<span class="nx">container</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">'change'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">container</span><span class="p">.</span><span class="nx">masonry</span><span class="p">(</span><span class="s1">'reloadItems'</span><span class="p">);</span>
+    <span class="nx">container</span><span class="p">.</span><span class="nx">masonry</span><span class="p">()</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Now that we’ve got Masonry applied to our block content, let’s move on to getting the infinite scroll behavior in place.</p>
+
+<h2 id="applying-infinite-scroll-to-the-paged-content-block">Applying Infinite Scroll to the paged content block</h2>
+<p>To pull new items into our content block (to which Masonry is being applied) we’ll leverage the <a href="https://code.google.com/p/jquery-autopager">Autopager library</a>. This means we’ll need to add Autopager to the list of JavaScript to be loaded conditionally when our block is present.</p>
+
+<hr />
+
+<h4 id="loading-more-required-libraries">Loading more required libraries</h4>
+<p>Again, we’ll use <code class="highlighter-rouge">drupal_get_path()</code> and <code class="highlighter-rouge">libraries_get_path()</code> to retrieve  more required JavaScript from within our <code class="highlighter-rouge">hook_block_view_alter()</code>.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$autopager_path</span> <span class="o">=</span> <span class="nx">libraries_get_path</span><span class="p">(</span><span class="s1">'autopager'</span><span class="p">);</span>
+<span class="nv">$data</span><span class="p">[</span><span class="s1">'content'</span><span class="p">][</span><span class="s1">'#attached'</span><span class="p">][</span><span class="s1">'js'</span><span class="p">][]</span> <span class="o">=</span> <span class="nv">$autopager_path</span> <span class="o">.</span> <span class="s1">'/jquery.autopager-1.0.0.js'</span><span class="p">;</span>
+</code></pre></div></div>
+<hr />
+
+<p>Now that we’ve got Autopager and <code class="highlighter-rouge">my_module_infinite_scroll.js</code> loaded, let’s apply the infinite scroll…</p>
+
+<p>The first thing we need to to is define the parameters that will be passed to Autopager.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="c1">// Make sure that autopager plugin is loaded</span>
+<span class="k">if</span><span class="p">(</span><span class="err">$</span><span class="o">.</span><span class="nx">autopager</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// define autopager parameters</span>
+  <span class="k">var</span> <span class="nx">content_selector</span> <span class="o">=</span> <span class="s1">'#my-module-masonry-content'</span><span class="p">;</span>
+  <span class="k">var</span> <span class="nx">items_selector</span> <span class="o">=</span> <span class="nx">content_selector</span> <span class="o">+</span> <span class="s1">'article.node'</span><span class="p">;</span>
+  <span class="k">var</span> <span class="nx">next_selector</span> <span class="o">=</span> <span class="s1">'.pager-next a'</span><span class="p">;</span>
+  <span class="k">var</span> <span class="nx">pager_selector</span> <span class="o">=</span> <span class="s1">'.pager'</span>
+</code></pre></div></div>
+
+<p>Notice that <code class="highlighter-rouge">$content_selector</code> matches the selector we used to apply Masonry to each piece of block content. This is because Autopager will, behind the scenes, retrieve more content similar to what’s already on the page when we click the “next” link.</p>
+
+<p>The <code class="highlighter-rouge">$next_selector</code> and <code class="highlighter-rouge">$pager_selector</code> selectors are what target the “next” and “1, 2, 3…” links our pager exposes and, not incidentally, what Autopager uses to retrieve the next set of content. Recall from above our query returns 3 nodes at a time so the “next” link will cause 3 more nodes to be shown.</p>
+
+<p>Though necessary to retrieve more content, we don’t want to see these pager links so let’s hide them.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="nx">pager_selector</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>…and now create our Autopager handler.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">handle</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">autopager</span><span class="p">({</span>
+  <span class="na">autoLoad</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="na">appendTo</span><span class="p">:</span> <span class="nx">content_selector</span><span class="p">,</span>
+  <span class="na">content</span><span class="p">:</span> <span class="nx">items_selector</span><span class="p">,</span>
+  <span class="na">link</span><span class="p">:</span> <span class="nx">next_selector</span><span class="p">,</span>
+  <span class="na">load</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="nx">content_selector</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">'change'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">$(content_selector).trigger('change')</code> bit is a key component of this snippet because the “change” action is what we are using to apply Masonry to new items added to our block (see the <code class="highlighter-rouge">container.bind('change'…</code> bit above).</p>
+
+<h2 id="triggering-the-infinite-scroll-function">Triggering the infinite scroll function</h2>
+
+<p>The Autopager handler we just defined acts as our gas with respect to the infinite scroll action, but we also need a brake. The following snippet, taken from <code class="highlighter-rouge">views_infinite_scroll.js</code> uses some fancy math to determine when the user has hit page bottom and only calls <code class="highlighter-rouge">handle.autopager('load')</code> when this is the case, effectively acting as the brake.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Trigger autoload if content height is less than doc height already</span>
+<span class="kd">var</span> <span class="nx">prev_content_height</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">content_selector</span><span class="p">).</span><span class="nx">height</span><span class="p">();</span>
+<span class="k">do</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">last</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">items_selector</span><span class="p">).</span><span class="nx">filter</span><span class="p">(</span><span class="s1">':last'</span><span class="p">);</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">last</span><span class="p">.</span><span class="nx">offset</span><span class="p">().</span><span class="nx">top</span> <span class="o">+</span> <span class="nx">last</span><span class="p">.</span><span class="nx">height</span><span class="p">()</span> <span class="o">&lt;</span> <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">scrollTop</span><span class="p">()</span> <span class="o">+</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">height</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nx">last</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">items_selector</span><span class="p">).</span><span class="nx">filter</span><span class="p">(</span><span class="s1">':last'</span><span class="p">);</span>
+    <span class="nx">handle</span><span class="p">.</span><span class="nx">autopager</span><span class="p">(</span><span class="s1">'load'</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">content_selector</span><span class="p">).</span><span class="nx">height</span><span class="p">()</span> <span class="o">&gt;</span> <span class="nx">prev_content_height</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>You’ll notice on <a href="http://www.salmonlove.com">The Salmon Project site</a> I am not using infinite scroll; instead I opted for a “View more” button to trigger the <code class="highlighter-rouge">autopager('load')</code> action and some logic in the function bound to the “change” action to hide said button.</p>
+
+<p>Regardless of the method you choose as a trigger, all the method needs to do is call Autopager’s load function (analogous to hitting the hidden “next” pager link) to load more content.</p>
+
+<p>And there you have it, an infinite scroll masonry block that loads 3 more nodes each time the user hits page bottom without the use of the Views module.</p>
+]]>
+  </description>
+  <pubDate>Tue, 17 Jun 2014 13:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/06/creating-an-infinite-scroll-masonry-block-without-views/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/06/creating-an-infinite-scroll-masonry-block-without-views/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

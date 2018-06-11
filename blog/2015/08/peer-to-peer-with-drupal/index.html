@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Peer-To-Peer Fundraising With Drupal - RedHen Raiser | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="We take a closer look at a RedHen Raiser success story.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="http://thinkshout.com/assets/images/blog/image_2.png">
+  <meta name="twitter:image" content="http://thinkshout.com/assets/images/blog/image_2.png">
+  
+
+  
+  <meta name="keywords" content="CAFB of DC, Drupal Planet, Drupal fundraising, Open Source, Peer-to-peer fundraising, RedHen, RedHen Donation, RedHen Raiser">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">08.13.2015</span>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+        <a class="topic" href="/blog/topic/technology">Technology and Innovation</a>
+      
+    
+  
+  </p>
+
+  <h1 class="post-title">Peer-To-Peer Fundraising With Drupal - RedHen Raiser</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/sean2.jpg">
+    
+      <strong>Sean Larkin</strong>
+    <br>
+      Director of Sales, Founder
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <h3 id="the-origin-of-redhen-raiser">The Origin of RedHen Raiser</h3>
+
+<p>Last summer, the <a href="http://www.capitalareafoodbank.org/">Capital Area Food Bank of Washington, DC</a> came to us with a great idea: The Food Bank wanted to increase its investment in team fundraising initiatives, but they didn’t necessarily want to continue to invest in a “pay as you go” service like StayClassy, TeamRaiser, or Razoo. Rather, they wanted to explore whether or not they could invest in the development of an open source alternative that would eliminate licensing costs, that they could customize more easily, and that they could then give back to the broader nonprofit community.</p>
+
+<p>We’ve spoken a lot in the community regarding various strategies for <a href="http://thinkshout.com/blog/2015/03/the-how-and-why-of-open-source/">how nonprofits can contribute to the development of open source tools</a>. Most of the time, we recommend that nonprofits start off by solving their own organizational problems first, and then abstracting components of the resulting solutions at the end of the project.</p>
+
+<p>However, in the case of the Capital Area Food Bank’s team fundraising needs, a competitive analysis of existing solutions provided us with a well-defined roadmap for how to meet the Food Bank’s goals, while simultaneously working on a suite of contributed tools that could be given back to the broader community. So, in coming up with their solution, we started out by developing RedHen Raiser as a stand-alone Drupal Distribution, and then implemented a customized instance of the Distribution to meet the Food Bank’s more specific design needs.</p>
+
+<h3 id="architectural-planning-for-the-redhen-raiser-drupal-distribution">Architectural Planning for the RedHen Raiser Drupal Distribution</h3>
+
+<p>As mentioned above, we began our feature design process for this peer-to-peer fundraising platform by doing a <strong>competitive analysis of existing tools</strong>. The table below shows our recommended feature set (“Our MVP”) compared to the functionality available as of June 2014 on eight of the leading platforms:</p>
+
+<p><img src="/assets/images/blog/image_0.png" alt="image alt text" /></p>
+
+<p><em>As a quick aside, it’s interesting in comparing these products that there is a lack of consensus in the industry regarding how to refer to these sorts of fundraising tools. We often hear the terms “peer-to-peer fundraising,” “team fundraising,” “viral fundraising,” and even “crowd fundraising” used interchangeably. With crowd fundraising being all the rage in the for-profit world of Kickstarter and the like, we feel that that descriptor could be a little misleading, but the other three terms all speak to different highlights and features of these tools.</em></p>
+
+<p>With a target feature set identified, we began <strong>wireframing our proposed solution</strong>. Again, peer-to-peer fundraising has become somewhat of a well-trodden space. While we came up with a few small enhancements to the user experiences we’ve seen in the marketplace, we recognized that donors are beginning to anticipate certain design patterns when visiting these fundraising sites:</p>
+
+<p><img src="/assets/images/blog/image_1.png" alt="image alt text" /></p>
+
+<p>With the wireframes in place, we turned to <strong>technical architecture</strong>. Given the need to collect a broad range of constituent data, not just user account information, it was clear to us that this Drupal distribution should be built on top of a CRM platform native to Drupal. For obvious reasons, we chose to go with <a href="https://www.drupal.org/project/redhen">RedHen CRM</a>.</p>
+
+<p>We also saw many advantages to leveraging <a href="https://www.drupal.org/project/redhen_donation">RedHen Donation</a>, a flexible tool for building single-page donation forms. With RedHen Donation, a “Donation field” can be attached to an entity, and in so doing, it attaches a form to that entity for processing donations. The <em>RedHen-specific</em> piece to this module is that it is configurable, so that incoming donation data is used to “upsert” (create or update) RedHen contacts. RedHen Donation also integrates with Drupal Commerce to handle order processing and payment handling. Integrating with the <a href="https://www.drupal.org/project/commerce_cardonfile">Commerce Card on File</a> and <a href="https://www.drupal.org/project/commerce_recurring">Commerce Recurring</a> modules, RedHen Donation can be configured to support recurring gifts as well.</p>
+
+<p>Missing from the underlying set of building blocks needed for building a peer-to-peer fundraising platform with Drupal was a tool for managing and tracking fundraising against campaign targets and goals. In the case of peer-to-peer fundraising, each team fundraising page needs to be connected to a larger campaign. To address this requirement, we released a module called <a href="https://www.drupal.org/project/redhen_campaign">RedHen Campaign</a>. This module, coupled with with RedHen Donation, are at the core of RedHen Raiser, allowing us to create a hierarchy between fundraising campaigns, teams, and individual donors.</p>
+
+<p>If you are interested in giving RedHen Raiser a spin, you can <a href="https://www.drupal.org/project/redhen_raiser">install the distribution</a> using your own Drupal Make workflow, you can checkout our own <a href="https://github.com/thinkshout/charlotte">RedHen Raiser development workflow</a>, or you can just click a button to spin up a <a href="https://dashboard.pantheon.io/products/redhen_raiser/spinup">free instance</a> on Pantheon’s hosting platform. (If you’re not a Drupal developer, this last approach is incredibly quick and easy. The distribution even ships with an example fundraising campaign to help you get started.)</p>
+
+<h3 id="customizing-redhen-raiser-to-meet-the-food-banks-needs">Customizing RedHen Raiser to Meet the Food Bank’s Needs</h3>
+
+<p>With a strong base in place, customizing RedHen Raiser to meet the Capital Area Food Bank’s requirements was straightforward and comparably inexpensive. It was largely a matter of adding Drupal Commerce configuration to work with their payment gateway, developing a custom theme that matched the Food Bank’s overall brand, and then training their team to start building out their first peer-to-peer fundraising campaign:</p>
+
+<p><img src="/assets/images/blog/image_2.png" alt="image_2.png" /></p>
+
+<h3 id="the-success-of-the-food-banks-first-peer-to-peer-fundraising-campaign">The Success of the Food Bank’s First Peer-to-Peer Fundraising Campaign</h3>
+
+<p>The Capital Area Food Bank launched this tool around its May 2015 <a href="http://www.capitalareafoodbank.org/food-from-the-bar/">“Food From The Bar” campaign</a>, targeting law firms in the D.C. Metro area. <strong><em>In just 30 days, the Food Bank raised close to <a href="https://give.capitalareafoodbank.org/campaigns/food-bar-2015">$150,000 on RedHen Raiser</a>.</em></strong></p>
+
+<p>The Food Bank’s Chief Digital Officer, Chris von Spiegelfield, had this to say about the project:</p>
+
+<p><em>“The Capital Area Food Bank has been no stranger to peer-to-peer fundraising tools. For years, it has relied on third-party sites such as Causes.com, Razoo, Crowdrise, among others. However, these tools often came with considerable branding and messaging limitations as well as pretty stiff transactional fees. Users got confused about where their money was going and complained after learning a considerable portion of their donation didn’t make its way to the Food Bank. We wanted to provide greater unity of purpose beyond a donation form without all the hassle, which is how we decided to invest in our own crowdfunding platform.</em></p>
+
+<p><em>After kicking the tires at a few SaaS options, we decided the best way forward was to build a customized website.  Out of all the different frameworks proposed, the open-source Drupal and RedHen Raiser combo impressed us the most. We wouldn’t  just be buying a website. We would be leveraging a vast network of programmers and community-minded architects who could start us off in a very good place, not to mention help our platform be secure and grow for the foreseeable future.</em></p>
+
+<p><em>We launched the website this year and couldn’t be happier with what ThinkShout built for us. We’re already seeing it pay dividends across several campaigns. We continue to add new features and hope our site might be a benchmark that other nonprofits could benefit from and contribute to as well.”</em></p>
+
+<h3 id="whats-next-for-redhen-raiser">What’s Next for RedHen Raiser?</h3>
+
+<p>The obvious answer to this question is <em>a port to Drupal 8</em>. But that will take a little time, as many complex pieces, such as Drupal Commerce and RedHen CRM will need to be ported before we can migrate over these higher-level fundraising features. But a RedHen CRM port is on our short(er) term horizon. And frankly, the idea of being able to use RedHen as a “headless CRM” is incredibly exciting.</p>
+
+<p>In the meantime, we are looking forward to collaborating with the community to make RedHen Raiser an even stronger open source competitor to the pay-as-you-go alternatives that are currently out there. So, please, give RedHen Raiser a test drive and send us your feedback!</p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged CAFB of DC.' href='/blog/category/cafb-of-dc/'>CAFB of DC</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal fundraising.' href='/blog/category/drupal-fundraising/'>Drupal fundraising</a> <a class='tag' rel='tag category' title='View all posts tagged Open Source.' href='/blog/category/open-source/'>Open Source</a> <a class='tag' rel='tag category' title='View all posts tagged Peer-to-peer fundraising.' href='/blog/category/peer-to-peer-fundraising/'>Peer-to-peer fundraising</a> <a class='tag' rel='tag category' title='View all posts tagged RedHen.' href='/blog/category/redhen/'>RedHen</a> <a class='tag' rel='tag category' title='View all posts tagged RedHen Donation.' href='/blog/category/redhen-donation/'>RedHen Donation</a> <a class='tag' rel='tag category' title='View all posts tagged RedHen Raiser.' href='/blog/category/redhen-raiser/'>RedHen Raiser</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2015/08/peer-to-peer-with-drupal/';
+    this.page.identifier = '/blog/2015/08/peer-to-peer-with-drupal';
+    this.page.title = 'Peer-To-Peer Fundraising With Drupal - RedHen Raiser'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2015/08/our-road-to-bcorp/"><span class="fa fa-caret-left"></span> <span>Our Road to B Corp</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2015/08/relaunching-splc/"><span>Relaunching the Southern Poverty Law Center's Website</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+  <div class="team-member-blog">
+    <div class="container">
+      <h4>Related Blog Posts</h4>
+      <div class="row posts">
+        
+        
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/05/Space-for-Empathy/">
+    <p class="post-date">05.24.2018</p>
+    <h3 class="post-title">Space for Empathy</h3>
+    <p class="post-short">How do we make space for empathy in our work and in our community? Jules takes us on a deep dive into what she learned at this year's DrupalCon</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/jules.jpg">
+      <span class="byline-text">
+        <strong>Jules Dickey</strong><br>
+        <span class="position">Software Engineer</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/05/Making-GDPR-Preparations/">
+    <p class="post-date">05.13.2018</p>
+    <h3 class="post-title">Preparing for the GDPR</h3>
+    <p class="post-short">The European Union’s General Data Protection Regulations go into effect May 25th. Here's how you need to prepare.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/tauno.jpg">
+      <span class="byline-text">
+        <strong>Tauno Hogue</strong><br>
+        <span class="position">Chief Technology Officer</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/01/Great-hoodie-mystery/">
+    <p class="post-date">01.06.2018</p>
+    <h3 class="post-title">The Great Hoodie Mystery</h3>
+    <p class="post-short">Gabe takes what would otherwise be an inane office exchange and ties it back to data structures.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/gabe.jpg">
+      <span class="byline-text">
+        <strong>Gabe Carleton-Barnes</strong><br>
+        <span class="position">Director of Engineering</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+            
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

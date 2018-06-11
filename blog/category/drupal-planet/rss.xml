@@ -1,0 +1,1624 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/drupal-planet/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Space for Empathy</title>
+  <description>
+    <![CDATA[<p>Last month I went to my first DrupalCon in Nashville. I met a lot of interesting people, had good conversations, and had a hard time choosing from the record number of sessions. As the week went on, I noticed a theme kept coming up. It showed up in sessions on how to create a better admin and content editing experience, in sessions on accessibility and what it’s like to be a blind or deaf engineer, in conversations about helping first-time users enjoy the experience of using Drupal, and in debates about what Drupal will look like in the future. What if the thing that will give Drupal a competitive advantage and improve the admin experience is the same thing that will attract new users and create sites that are accessible for all?</p>
+
+<p>The idea that kept surfacing during my week at DrupalCon was this: we need empathy. The Drupal community has excelled at solving complex engineering problems, and the next challenge we face is just as critical, though it requires us to think a little differently: how do we make space for empathy in our work and in our community?</p>
+
+<p class="center"><img src="/assets/images/blog/perspective.jpg" alt="Reflection photo" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>It’s time to shift our perspective. Photo Credit: Randy Jacob.</span></p>
+
+<h3 id="our-bias-is-our-blindspot">Our Bias is our Blindspot</h3>
+<p>Sometimes we don’t need more complex solutions, we need thoughtful ones. Building websites is challenging. There’s never enough time or resources. It’s easy to stick with what’s known and what works. But sometimes what I know is limited, and only works for people who look and think like me. It’s easy to become insular and indifferent to the needs of others because it’s hard to make everyone happy, and thinking about the effort required to change can be overwhelming.</p>
+
+<p>If someone told me, “It’s really hard to talk to people with accents, so I just avoid them,” I’d be shocked. But I know I’ve created sites and tools that are difficult—if not impossible—for people with disabilities to use. Arriving in Nashville, I knew enough about accessibility to know that I needed to learn more. So I dove in and attended every session I could.</p>
+
+<p class="center"><img src="/assets/images/blog/DrupalCon-Session.png" alt="DrupalCon Accessibility Session" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>I kicked off my deep dive with Katherine Shaw and Fito Kahn’s awesome all day Drupal Accessibility training. Check out Katherine Shaw’s <a href="https://www.prometsource.com/team/katherine-shaw">great blog posts on accessibility.</a></span></p>
+
+<h3 id="accessible-empathy">Accessible Empathy</h3>
+<p>I learned that excuses like “accessibility is hard,” or “it doesn’t affect me because I’m not working on a government site” won’t get me off the hook. Accessible websites are now a part of the Americans with Disabilities Act. And any site that is not accessible to all users is liable. I met several engineers who are currently resolving warnings or navigating lawsuits for not meeting <a href="https://www.w3.org/TR/WCAG20/">WCAG 2.0 guidelines.</a></p>
+
+<p>But it’s about much more than just changing processes to avoid a lawsuit. Listening to the Core Accessibility panel, I was humbled when it was pointed out that we labor over fixes for Internet Explorer, which can make up 2-3% of users. Meanwhile, <strong>12.6% of people in the US have disabilities (40.7 million people)</strong>, and accessibility can still be considered an edge case. Building a website that works for more users is not difficult, but it takes intention, a willingness to learn and <strong>empathy.</strong></p>
+
+<p>I also learned that having empathy for all types of users doesn’t mean everything has to change immediately. During his talk about accessibility, Everett Zufelt said, “The best place to start? Anywhere. If you fix one button, your site is that much more accessible than it was before.” So I’m challenging myself to build things the right way the first time, drop bad habits and to refine best practices so I can create sites and tools that serve all types of users.</p>
+
+<h3 id="inward-empathy">Inward Empathy</h3>
+<p>For some of you reading this, the challenge might be that you have empathy for everyone in the room, <em>except yourself.</em> You take on multiple roles at work. You handle the backend and the frontend and design and project management. You say yes because you know you can do it and how will you get ahead if you don’t show how valuable you are by doing all of the things all the time? I get it. Now stop it.</p>
+
+<p class="center"><img src="/assets/images/blog/Relax.jpg" alt="RELAX" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>“ ‘No’ might make them angry, but it will make you free.” –Nayyirah Waheed;  Photo credit: Clem Onojeghuo</span></p>
+
+<p>You deserve empathy too, so be kind to yourself. Good boundaries will keep you fresh and sane. A well cared for version of you will help your team more than the stretched and exhausted one that’s running on too little sleep and too much caffeine.</p>
+
+<p>Something that stood out to me in particular in sessions at DrupalCon was how people wouldn’t move over in their seats to make room and allow those in an already crowded session to sit comfortably in chairs instead of on the floor. People would have empty seats on either side, and not move down the row to make it easier others. There are people who don’t have an issue taking up space, taking what they need, and not for an instant feeling bad about it. Let’s find some balance somewhere in the middle. Give yourself the empathy you need to succeed, and–for the love of god–let’s all scoot down so no one is left sitting on the floor.</p>
+
+<h3 id="outward-empathy">Outward Empathy</h3>
+<p>A better admin experience, and faster and more accessible websites are only created when we think about how our work is used by everyone. Take a moment to walk a mile in someone else’s shoes. Now apologize for taking their shoes, sit down and talk to them about how they use your site, what the sticking points are, and how it can be improved. Most importantly, <strong>listen.</strong> Forget what you think you know, and learn about what it means to be someone else using your website. Then you just might have a week like mine where you were reminded: sometimes engineers are blind or deaf, or both. Sometimes keynotes are a she or a he or a they. Sometimes content editors know exactly what is needed to make a better editing experience–if you just ask.</p>
+
+<h3 id="be-human-think-digital">Be Human. Think Digital.</h3>
+<p>Empathy is what makes us human. We all want to be seen and known and understood. And at the end of the day we all want to use tools that help us to accomplish a task, not remind us that we’re not who the engineer had in mind. Technology without empathy is hollow. Empathy without technology is limited. Let’s make space for empathy in our community and in our code, and let’s change the world for good—for everyone.</p>
+
+<p class="center"><img src="/assets/images/blog/Driesnote.png" alt="Driesnote Slide: There is no power for change greater than a community discovering what it cares about" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>One of my favorite slides from the Driesnote at DrupalCon Nashville</span></p>
+
+<p class="center"><img src="/assets/images/blog/WID-event.png" alt="Women in Drupal Event" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>The ThinkShout team hanging out with some awesome folks at the Women in Drupal event.</span></p>
+
+<h3 id="resources">Resources</h3>
+<p>If you’re interested in learning more about the sessions I attended this week, here are links to some of my favorite talks:</p>
+
+<p><a href="https://www.youtube.com/watch?v=elRWQnzlfcw">JavaScript and Accessibility: Don’t blame the language</a></p>
+
+<p><a href="https://youtu.be/-z9bD2wMgqQ">DrupalCon Nashville 2018: Core Accessibility: Building Inclusivity into the Drupal Project</a></p>
+
+<p><a href="https://events.drupal.org/nashville2018/sessions/usability-testing-super-important-and-easier-you-think">Usability testing is super important and easier than you think</a></p>
+
+<p><a href="https://events.drupal.org/nashville2018/sessions/smarter-way-test-accessibility-comparison-top-tools-lighthouse-tenonio-and">A smarter Way to Test Accessibility - a comparison of top tools (Lighthouse, Tenon.io and WAVE API)</a></p>
+
+<p>If you’re overwhelmed by accessibility and don’t know where to start, here’s a great video on how to do <a href="https://youtu.be/cOmehxAU_4s">a very basic accessibility audit</a>.</p>
+
+<p>If you’re interested in refining your accessibility practices, there are some amazing tools and resources available. Here are some of my favorites. If you have tools or processes you love, please share in the comments below!</p>
+
+<p><a href="https://styleguide.enjoycreativity.com/">Style Guide Module</a>: Allows you to run accessibility tests on one page that is automatically populated with all basic layout elements. This is also great as a living style guide for the site.</p>
+
+<p><a href="https://webaim.org/articles/voiceover/">VoiceOver Screen Reader Getting Started Guide</a></p>
+
+<p><a href="https://a11yproject.com/checklist.html#aria-roles">A11y checklist</a>: A11y has a ton of patterns and a useful checklist.</p>
+
+<p><a href="https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh">WAVE Accessibility Plugin</a>: Described in the “A smarter Way to Test Accessibility” talk as the ‘Cadillac of accessibility plugins,” this free tool will catch errors, markup the page with an outline of your headings and make accessibility QA much easier.</p>
+
+<p><a href="https://itunes.apple.com/us/app/sim-daltonism/id693112260?mt=12">Sim Daltonism tool</a>: This overlay tool allows you to preview your site for multiple types of colorblindness.</p>
+
+<p><a href="https://chrome.google.com/webstore/detail/contrast-ratio-checker/kmicfegjejpginnockfnjpdgeffebdcf?hl=en">Color Contrast Ratio Checker</a>:  This chrome plugin will tell you whether the color contrast of fonts on your site passes WCAG 2.0 standards.</p>
+
+<p><a href="https://www.w3.org/TR/WCAG20-TECHS/aria.html">ARIA cheat sheet</a>: This doc outlines all of the different ways you can use ARIA to make your site more accessible</p>
+
+<p><a href="http://squizlabs.github.io/HTML_CodeSniffer/">HTML Codesniffer by Squiz</a>: Allows you to set the accessibility standard you want to meet (WCAG2AA is the new legal requirement), and creates a report identifying errors, warnings and notices.</p>
+]]>
+  </description>
+  <pubDate>Thu, 24 May 2018 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2018/05/Space-for-Empathy/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/05/Space-for-Empathy/</guid>
+</item>
+
+    
+      <item>
+  <title>Preparing for the GDPR</title>
+  <description>
+    <![CDATA[<h3 id="weve-recently-updated-our-privacy-policy"><strong>“We’ve recently updated our privacy policy.”</strong></h3>
+
+<p>If you’ve ever given your email address to an online store, entity, social media platform or done just about anything online, then you’ve probably received the above notice in your inbox from those entities with increasing regularity over the last month or two.</p>
+
+<p>Most of these notices are related to the European Union’s General Data Protection Regulations (GDPR) that are going into effect later this month on <strong>May 25, 2018.</strong></p>
+
+<p>To be clear, <strong>we at ThinkShout are not lawyers</strong> and we strongly encourage our clients and anyone collecting user information in some way, shape, or form to seek legal counsel for your own specific obligations related to the GDPR. Here’s how we’re viewing the regulations and what actions we are taking at ThinkShout.</p>
+
+<h3 id="the-big-picture">The big picture</h3>
+
+<p>The regulations apply specifically to organizations that collect or process data associated with EU citizens. The overall intent is to give EU citizens control over how their own data is collected and used. The stick that’s being wielded to enforce the regulations is the possibility of fines of up to €20 million or 4% of an organization’s global annual revenue (whichever is greater). Charitable organizations are not exempted from these penalties, however it’s likely that the steep fines will be for recurring or significant privacy issues and that the focus will be on fixing any issues that are discovered. There are questions about enforceability (particularly in the USA) that will likely need to be settled in court, but many of the regulations reflect smart privacy practices regardless of the penalties. All the chatter and hand wringing about the GDPR has led to a fast growing industry of businesses offering compliance audits, consulting and technical solutions to the regulations. Some of the vendors offering these services are legitimate, while many are simply designed to sell products or services based on embellished fears.</p>
+
+<p><a href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/principles/">The principles of the GDPR</a> can be broadly summed up as protecting personal data by allowing individuals to choose what data they allow to be collected, how that data is used or processed, and gives them control over that data even after it’s been collected. The UK’s Information Commissioner’s Office provides an easy to read <a href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/">guide to the GDPR</a> that goes into detail on the various provisions while the EU provides a <a href="http://ec.europa.eu/justice/smedataprotect/index_en.htm">more graphical explanation</a>. That last link might be more palatable for the visual learners reading this.</p>
+
+<p class="center"><img src="/assets/images/blog/GDPR-Data.png" alt="EU Graphic Explanation of GDPR" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Portion of the EU’s graphical explanation of GDPR - full explanation can be found <a href="http://ec.europa.eu/justice/smedataprotect/index_en.htm">here</a>.</span></p>
+
+<h3 id="does-the-gdpr-apply-to-you-and-your-users">Does the GDPR apply to you and your users?</h3>
+
+<p>In short, probably. While compliance is technically only needed when handling data for EU citizens, discerning who is and isn’t a EU citizen can be difficult, and compliance in many cases isn’t all that cumbersome.</p>
+
+<h3 id="documentation-and-communication-are-two-of-the-key-areas-of-responsibility">Documentation and communication are two of the key areas of responsibility.</h3>
+
+<p>Start with an audit of the data you collect from users, the data you collect from other sources and what is done with that data. Note that this isn’t just about new data but also any data already in your various systems (website, Salesforce, spreadsheets, etc.). Once you know what user information you have and why you have it, communicate that information to both your staff and your users by updating your privacy notices, and emailing constituents with that now famous subject line, “We’ve recently updated our privacy policy.”</p>
+
+<p>Document how your data handling processes are shared with new staff. It’s also a good idea to revise privacy policies written by lawyers to be “concise, transparent, intelligible and easily accessible” and should further be “written in clear plain language.”</p>
+
+<p><a href="https://ico.org.uk/media/for-organisations/documents/1625136/good-and-bad-examples-of-privacy-notices.pdf">Here’s an example of good privacy notices and requests for consent.</a></p>
+
+<p>Basically, ensure that the general population (who did not attend law school) can easily understand the language.</p>
+
+<h3 id="processing-must-be-allowed-under-a-lawful-basis">Processing must be allowed under a lawful basis.</h3>
+
+<p>Any processing of personal data must be supported by both the need to process that data as well as a lawful basis. Out of the <a href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/lawful-basis-for-processing/">eight lawful bases</a> that the GDPR defines, consent, legal obligation and legitimate interest appear to be the most likely to be cited in the work of our clients. For consent to apply, it must be active (opt-in), current, specific and revocable.</p>
+
+<p>Legal obligation covers data needed for accounting or other legal audit trails. Legitimate interest is less defined, but addresses situations where the usage of the data can be reasonably expected, has minimal privacy impact and there is strong justification for the processing of the data. Using a user’s email address on an account they created to send them a link to reset their password might be an example of legitimate interest as a lawful basis.</p>
+
+<h3 id="individuals-have-defined-rights-to-the-protection-and-usage-of-their-data">Individuals have defined rights to the protection and usage of their data.</h3>
+
+<ol>
+  <li>The right to be informed: privacy notices, accurate opt-in information, etc.</li>
+  <li>The right of access: ability to see any data you have on an individual.</li>
+  <li>The right to rectification: ability to correct any errors in the data you have - allowing users to update their own profiles covers much of this right.</li>
+  <li>The right to erasure: ability to request data be removed. This is not all encompassing, nor does it need to be automated. Data needed for legal or other legitimate needs can be retained.</li>
+  <li>The right to restrict processing: ability to request that their data not be processed but also not deleted.</li>
+  <li>The right to data portability: ability to request a machine readable export of their data.</li>
+  <li>The right to object: ability to opt out of marketing, processing based on legitimate interest or processing for research or statistical purposes. The process for opting out must be clearly explained in the privacy notice and at the point of first communication.</li>
+  <li>Rights in relation to automated decision making and profiling: If you collect data to profile individuals for behavior tracking or marketing purposes then <a href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/rights-related-to-automated-decision-making-including-profiling/">additional regulations apply.</a></li>
+</ol>
+
+<h3 id="what-about-cookies">What about cookies?</h3>
+
+<p>Cookies aren’t specifically called out in the GDPR, however some of the provisions can apply to them. Some experts recommend altering the site behavior to prevent cookies from being created until after the user has provided and the site has recorded consent. <a href="https://www.civicuk.com/cookie-control">Several</a> <a href="https://www.cookiebot.com/en/">services</a> seek to provide paid services that support this approach, although altering the code on your site is generally necessary to use them correctly. A few Drupal modules and WordPress plugins also seek to provide this functionality. It is expected that in 2019 the <a href="https://www.i-scoop.eu/gdpr/eu-eprivacy-regulation/#The_EU_ePrivacy_Regulation_and_cookies">revised e-Privacy Directive</a> will shift some or all of the obligations for managing consent related to cookies to the browser application.</p>
+
+<h3 id="recommendations">Recommendations</h3>
+
+<p>We’re recommending that all our clients take the following steps to ensure compliance:</p>
+
+<ul>
+  <li>Evaluate your organization’s legal needs related to the GDPR. Consulting with your own counsel is recommended.</li>
+  <li>Appoint an internal person to take responsibility for data protection in your organization. While the GDPR includes provisions for <a href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/accountability-and-governance/data-protection-officers/">appointing a Data Protection Officer (DPO)</a>, it’s specifically for public authorities and organizations whose core business is tracking behavior or processing criminal data. Appointing a staff person will help avoid a diffusion of responsibility regarding data security.</li>
+  <li>Audit your data collection and processing <a href="https://docs.google.com/spreadsheets/d/1fEys1ekOpHjup2l9Jto-Q8Ppv8P96jezou2kkOu9PcU/edit#gid=0">(here’s a sample template)</a>:
+    <ul>
+      <li>What is being held already and what is being collected?</li>
+      <li>Is there data being collected or stored that isn’t needed?</li>
+      <li>How is the collected data is used within the organization?</li>
+      <li>Is there a legal basis for the different pieces of personal data being collected?</li>
+      <li>If consent is the legal basis, is the consent active (opt-in), granular and recent?</li>
+    </ul>
+  </li>
+  <li>Review and revise privacy notices and cookie policies to be clearly written and comprehensive. Be sure to include information about third-party data collection (Google Analytics, AddThis, Facebook, etc). <a href="https://ico.org.uk/for-organisations/guide-to-data-protection/privacy-notices-transparency-and-control/your-privacy-notice-checklist/">Here’s a privacy notice checklist to get you started.</a></li>
+  <li>Document processes for handling user requests as well as security breaches. Your organization has a month to respond to an individual’s request for export, access, or deletion of their data. In most cases this will currently be a manual process although there is working happening in both the Drupal and WordPress communities to make these request easier to accommodate. If there is a data breach, the GDPR states that the regulating agency must be notified within 72-hours. A good starting point is the <a href="https://iapp.org/resources/article/security-breach-response-plan-toolkit/">Security Breach Response Plan Toolkit.</a></li>
+  <li>Evaluate if changes to your website (beyond the privacy/cookie notices) are necessary. Consider specifically:
+    <ul>
+      <li>Is Google Analytics configured properly? Ensure IP anonymization is enabled, data retention settings are correct and that no personal information is being tracked (check page urls, titles, etc.).</li>
+      <li>What third-party scripts or pixel trackers are included?</li>
+      <li>How is consent being collected in newsletter signup forms?</li>
+      <li>How is consent being collected in user registration forms?</li>
+      <li>Any other places that user data could be collected?</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="whats-next-for-us">What’s next for us?</h3>
+
+<p>Like most agencies, we’re continuing to learn more about the GDPR and the implications for our clients. We are working in partnership with them to help them understand and implement changes that might be needed on their sites or their internal processes. Internally we’re providing additional training on the principles of <a href="https://www.ryerson.ca/pbdce/certification/seven-foundational-principles-of-privacy-by-design/">privacy by design</a> to our team. In terms of our open source work we’ll be incorporating <a href="http://eepurl.com/dqP8Bb">MailChimp’s GDPR consent forms</a> into the <a href="https://www.drupal.org/project/mailchimp">Drupal MailChimp modules</a> as soon as the functionality is available in their API. We see opportunities for including functionality related to subject access requests (export, deletion, etc) and consent tracking in our RedHen CRM suite of modules as well.</p>
+
+<p>Bottom line is: this is something we all need to be cognizant of; it’s not solely an EU issue. We’ll continue to keep a close eye on this as GDPR gets rolled out – and there are many resources out there at your disposal (and within this blog post). You can be sure to get the latest from us on this and other digital trends by <a href="https://thinkshout.com/contact/">signing up for our newsletter</a> and following us on <a href="https://twitter.com/ThinkShout">twitter</a>. Good luck!</p>
+]]>
+  </description>
+  <pubDate>Sun, 13 May 2018 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2018/05/Making-GDPR-Preparations/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/05/Making-GDPR-Preparations/</guid>
+</item>
+
+    
+      <item>
+  <title>That's a wrap from New Orleans!</title>
+  <description>
+    <![CDATA[<p>It feels like it was just yesterday… probably because we still have visions of beignets dancing in our head. But we had such a blast at 18NTC, and we have you, the nonprofit community to thank for it.</p>
+
+<p class="center"><img src="/assets/images/blog/NTC Beingets.jpg" alt="Booth Beingets" /></p>
+
+<p>Our pre-conference Drupal Day was jam-packed with content from project management to content strategy, to <a href="https://thinkshout.com/bene/">Bene</a>.</p>
+
+<p class="center"><img src="/assets/images/blog/Drupal Day.jpg" alt="Drupal Day booth" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Brett and Mimi take over registration!</span></p>
+
+<p>Here were some highlights:</p>
+
+<p class="center"><img src="/assets/images/blog/Brett - Drupal Day.jpg" alt="Content Strategy" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Brett and Chris Carrol from University of Chicago Graham School definitely schooled us (sorry) on Content Strategy in Drupal.</span></p>
+
+<p class="center"><img src="/assets/images/blog/Lev - Drupal Day.jpg" alt="Bene" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Lev shares a case study on Bene with the crowd. Bene is an open source distribution intended for small to medium-sized nonprofits. We have a whole page dedicated to it <a href="https://thinkshout.com/bene/">here</a>.</span></p>
+
+<p class="center"><img src="/assets/images/blog/Carie and Jess - Drupal Day.jpg" alt="Carie and Jessica talk redesign" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Jessica and Carie Lewis Carlson (formerly from the Humane Society of the United States) shared some wisdom on the challenges often faced in a redesign process.</span></p>
+
+<p>We want to give a special shout out to our collaborators from <a href="https://www.gizra.com/">Gizra</a> and <a href="https://fionta.com/">Fionta</a> - who contributed to the breakout sessions – and to anyone who led a BOF (birds of a feather) breakout and conducted a lightning talk to close. We appreciate you adding your voice to the day.</p>
+
+<p>Next year we’re especially excited about NTC because it’s happening right in our home town of Portland, Oregon! We’re eager to participate and contribute to the rich and vibrant nonprofit community that we deeply care about, and also show you some of what we love best about our hometown.</p>
+
+<p>To stay up to date on everything pre-con / Drupal Day related, (or just to stay in touch!) <a href="https://thinkshout.com/contact/">sign up for our email list</a>. We’ll send a monthly newsletter with the latest trends and case studies to share…and as 19NTC approaches (too soon?) you’ll be first to hear about our plans and how you can join in the fun.</p>
+
+<p>Below is the full agenda from Drupal Day 2018, please <a href="mailto:natania.leclerc@thinkshout.com">reach out</a> if you would like slides from any of the presentations. Thanks and see you all soon!</p>
+
+<p class="center"><img src="/assets/images/blog/Drupal Day 2018 schedule.png" alt="Drupal Day 2018 Schedule" /></p>
+]]>
+  </description>
+  <pubDate>Wed, 02 May 2018 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2018/05/Drupal-Day-Recap/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/05/Drupal-Day-Recap/</guid>
+</item>
+
+    
+      <item>
+  <title>Teaching Tolerance is nominated for a Webby!</title>
+  <description>
+    <![CDATA[<p>We’re thrilled to announce that <a href="https://www.tolerance.org/">Teaching Tolerance</a>, a program of the <a href="https://www.splcenter.org/">Southern Poverty Law Center</a> is up for a <a href="https://vote.webbyawards.com/PublicVoting/#/2018/websites/general/education">Webby</a>! Their mission is to provide educators with the tools to create a kind and inclusive school climate. They do this through a library of articles and resources that they’ve turned into teachable materials via a Learning Plan Builder, and other classroom activities. It’s something that we feel is especially important work, now more than ever.</p>
+
+<p>This is a project that meant so much to everyone that touched it; and it was a true partnership every step of the way for both our teams (Tolerance and ThinkShout). It certainly speaks to the passion that was put into it from all angles, and it’s an honor to be recognized for this work.</p>
+
+<p>Our <a href="https://thinkshout.com/work/tolerance/">Case Study</a> will give you the full scope of work. But for a quick summary: In redesigning their website, ThinkShout set out to turn the wealth of articles and resources Tolerance had into teachable materials, and did so by creating a guided Learning Plan Builder that makes all content classroom-ready. Tolerance grants free access to thousands of resources – from video to essays to proven teaching strategies – and everything within that catalogue is now actionable. We also took on the challenge of migrating their content from two older Drupal 6 and 7 sites into one new Drupal 8 site.</p>
+
+<p>The result? Since launching summer of 2017, Tolerance.org has seen improvements across the board:</p>
+
+<ul>
+  <li>Pages per session up 21%</li>
+  <li>Session duration up 27%</li>
+  <li>Bounce rate decreased by 8%</li>
+  <li>Returning visitors up by 3%</li>
+  <li>Registrations nearly doubled (from 19,000 to 36,000)</li>
+</ul>
+
+<p>Here’s where you come in: our nomination for a <a href="https://vote.webbyawards.com/PublicVoting/#/2018/websites/general/education">Webby</a> means we need the people’s voice (aka <strong>VOTES</strong>) to actually win. Voting ends April 19th!</p>
+
+<p class="center"><a href="https://vote.webbyawards.com/PublicVoting/#/2018/websites/general/education">Vote for Tolerance.org in the Webby’s</a></p>
+
+<p>Personally, we can’t think of anything more critical at this time than the work Tolerance.org is doing to ensure the next generation is primed to participate in our democracy. And winning the Webby will certainly help them gain visibility and advance their mission even further.</p>
+
+<p>P.S. Travel Oregon also made it as an honoree in the Travel category, and they were up against some stiff competition! You can see their <a href="https://thinkshout.com/work/travel-oregon/">case study here.</a></p>
+]]>
+  </description>
+  <pubDate>Fri, 06 Apr 2018 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2018/04/vote-for-Webby-nominated-Teaching-Tolerance/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/04/vote-for-Webby-nominated-Teaching-Tolerance/</guid>
+</item>
+
+    
+      <item>
+  <title>ThinkShout hits all the conferences</title>
+  <description>
+    <![CDATA[<p>It unfolded like a sitcom. You know, the one where someone promises two separate people to be their date to the dance at school. It’s gonna end badly for everyone.</p>
+
+<p>Well, we saw it coming, and like the hero of that sitcom, we concocted an elaborate scheme to be in two places at once. Can we pull it off? Join us at DrupalCon and #18NTC to find out!</p>
+
+<p class="center"><img src="/assets/images/blog/zackmorris.gif" alt="Zack Morris" /></p>
+
+<h3 id="ntc">NTC</h3>
+
+<p>We’re heading to New Orleans for a week of jam-packed nonprofit goodness. The fun kicks off on April 10th with a pre-con event, Drupal Day:</p>
+
+<p class="center"><a href="http://ntcdrupalday.org/">Agenda Here!</a></p>
+
+<p>We’re still  looking for lightning talk speakers so <a href="mailto:natania.leclerc@thinkshout.com">contact us</a> if you have a hot topic you want to share. Lightning talks are traditionally 5 minutes in length, and can cover any topic ranging from Drupal to nonprofit life to lessons learned and funny predicaments involving all of the above!</p>
+
+<p>Brett Meyer and Jessica Tate will also be dropping some knowledge during the conference itself. Mark your calendars so you don’t miss their talks:</p>
+
+<p><a href="https://www.nten.org/ntc/program/sessions/supporting-diversity-with-multicultural-design/?mc_cid=997b26a472&amp;mc_eid=[UNIQID]">Supporting Culture with Multicultural Design</a></p>
+
+<p><a href="https://www.nten.org/ntc/program/sessions/content-strategy-in-popular-culture-2/?mc_cid=997b26a472&amp;mc_eid=[UNIQID]">Content Strategy in Popular Culture</a></p>
+
+<p>And no NTC would be complete without some ThinkShout classic tees! We’ll be handing out these beauties at our booth (number 606). We went with a 70s-inspired design this year, and they’ll give you all the posi-vibes you need.</p>
+
+<p class="center"><img src="/assets/images/blog/TS2018-shirts.jpg" alt="ThinkShout 2018 shirts" /></p>
+
+<h3 id="drupalcon">DrupalCon</h3>
+
+<p>They said it couldn’t be done…so naturally we took on the challenge! A handful of our team will also be in Nashville for DrupalCon to learn about and contribute to the latest innovations in the Drupal ecosystem. As long-time supporters of Drupal, we felt it was important to continue to deepen our involvement and commitment to the open source community.</p>
+
+<p>Join us for the <a href="https://events.drupal.org/nashville2018/nonprofit-summit">Nonprofit Summit</a>, an interactive day of learning and networking with nonprofit leaders and Drupal experts. The summit features breakout sessions on a variety of topics – including a case study presented by Gabe Carleton-Barnes on <a href="https://thinkshout.com/bene/">Bene</a>, the distribution we released this winter. Don’t miss it!</p>
+
+<p>We’re also sponsoring a <a href="https://events.drupal.org/nashville2018/women-drupal">Women in Drupal</a> event on April 10th. All women, transgender individuals, those who identify outside of the gender binary, and allies are welcome. Our goal is to foster inclusivity and embrace the involvement of individuals across the gender spectrum. We’ll be handing out those same tees at both events, so be sure to show up early and grab yours while supplies last!</p>
+
+<p>All joking about conference logistics aside, we truly appreciate every opportunity to connect with the nonprofit tech community. It’s a chance to hear more about the inspiring work being done in the world. If you’d like to sit with us and talk about what we can do for your digital presence, <a href="mailto:hello@thinkshout.com">let us know</a>, we look forward to hearing from you!</p>
+]]>
+  </description>
+  <pubDate>Wed, 28 Mar 2018 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2018/03/ThinkShout-hits-all-the-conferences/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/03/ThinkShout-hits-all-the-conferences/</guid>
+</item>
+
+    
+      <item>
+  <title>Meet Bene, an affordable, open-source website solution for nonprofits</title>
+  <description>
+    <![CDATA[<p>Bene is based on a simple goal: Smaller nonprofits deserve websites that are designed to increase their impact and grow alongside them. Sounds simple enough, but achieving it has always been a major challenge from both the nonprofit and agency perspective.</p>
+
+<p>Nonprofits have traditionally been forced to choose their digital solutions from two extremes on a spectrum. On the one side, you have low cost do-it-yourself solutions like SquareSpace or Wix. While inexpensive and easy to launch, these solutions serve such a wide array of use cases that they have nothing unique to offer nonprofits in terms of best practices. The content strategy and designs are not intended to tell a nonprofit’s compelling story and drive engagement. In addition, as the needs of a nonprofit grow, out of the box solutions may not flex to meet those needs, forcing an organization to start over with its digital strategy.</p>
+
+<p>On the other end of the spectrum are custom websites conceived through a rigorous discovery process and built on open source platforms like Drupal and WordPress. If done right, this approach yields the best results: a gorgeous responsive website that provides powerful storytelling tools, increases fundraising, advocacy, and other types of engagement, and serves as the hub of an organization’s digital ecosystem. But these projects take time and money, typically 6-9 months and upwards of $200k.</p>
+
+<p class="center"><img src="/assets/images/blog/bene-budget-curve.png" alt="RedHen Engagement Rules" /></p>
+
+<p>As ThinkShout has grown, our business has focused more on those larger projects. But in the process, it’s become harder to work with the thousands of organizations who can’t afford the time and cost involved in building a completely custom website. We wanted to find a way to partner with grassroots organizations, as helping them succeed is core to who we are and what we do.</p>
+
+<p>Bene is our answer to this problem: A low cost website for small nonprofits bundling content management, mission critical features, a tailored user experience, hosting, and strategic support. All built on an <a href="https://github.com/thinkshout/bene">open source Drupal distribution</a> that can grow alongside the organization.</p>
+
+<p>We first conceived of Bene during an open source “sprint for good” event nearly 2 years ago. This month, we’re proud to launch our first website on the platform for <a href="https://www.freegeek.org">Free Geek</a>, with two more on the way over the next few weeks. We do recognize there are other efforts to address this need, from <a href="https://drutopia.org">Drutopia</a> to WordPress.com. We support all of them, as the growing number of organizations working to make our world a better place have a wide range of requirements, and they need all the help they can get!</p>
+
+<p><a href="https://thinkshout.com/bene/">Learn more about Bene</a> and please <a href="https://thinkshout.com/contact/">get in touch</a> if you think it’s a good fit for you, or have some ideas on how to improve it. We realize we’ve only taken the first step.</p>
+]]>
+  </description>
+  <pubDate>Tue, 12 Dec 2017 06:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2017/12/meet-bene/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/12/meet-bene/</guid>
+</item>
+
+    
+      <item>
+  <title>My First BADCamp</title>
+  <description>
+    <![CDATA[<p>We’re fresh off of <a href="https://2017.badcamp.net/">BADCamp</a> (Bay Area Drupal Camp), and we’re eager to share our experience with you! If you’ve ever thought about going to one of the local Drupal Camps in your area, or attending BADCamp yourself, we hope our takeaways persuade you to seek this out as a professional development opportunity.</p>
+
+<p>BADCamp is essentially three days of intense workshops and sessions for Drupal users to hone their skills, meet other open source contributors, and make valuable connections in the community. Amongst the ThinkShout team, two had never attended BADCamp before. We were eager to hear their perspective on the conference and their key takeaways.</p>
+
+<p>Sessions they attended ranged from learning about component-based theming tools, object oriented php, module development, debugging JavaScript; to Drupal 9 and backward compatibility and the importance of upgrading to D8 now.</p>
+
+<p>Let’s hear from Mario and Lui–I mean Amy and Jules, on what their first BADCamp experience was like!</p>
+
+<p class="center"><img src="/assets/images/blog/marioluigi.jpg" alt="Amy and Jules" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Amy and Jules on Halloween. Costumes are not required at BADCamp.</span></p>
+
+<h3 id="what-did-you-learn-at-badcamp">What did you learn at BADCamp?</h3>
+<p><em>Amy</em>: Component-based theming is a hot topic these days for those building sites due to a number of reasons. Here are a couple of them:</p>
+
+<ul>
+  <li>It encourages a DRY (Don’t Repeat Yourself) and more organized theming code base.</li>
+  <li>It decouples site building in such a way that backend and frontend developers can work on the site at the same time, rather than the backend code needing to be built first before the frontend developer can do their work.</li>
+  <li>It provides clients with an interactive experience of their site (including responsiveness) before the database and backend elements are hooked up to it. This allows the client more time to provide feedback in case they want to change behaviors before they’re completely built.</li>
+</ul>
+
+<p>I also attended a session called: React, GraphQL, and Drupal. This talk was largely about an opportunity to create multiple suites using the same API. The team used “headless Drupal” (to serve as the API), React.js to build the sites, and GraphQL to explore data coming from the API in a much more direct and clear way. It seemed like a great solution for a tricky problem, in addition to giving this team the opportunity to learn and use cutting edge technologies - so much fun!</p>
+
+<p><em>Jules</em>: I learned a lot about the Drupal Community. This was my first BADCamp, and also my first Drupal conference. I was excited about how generous the community is with knowledge and tools, working together so we can succeed together.</p>
+
+<p>I learned about some of the changes to Drupal releases from <a href="https://twitter.com/webchick?lang=en">@Webchick’s</a> talk (Drupal 9 and Backward Compatibility: Why Now is the Time to Upgrade to Drupal 8). If I keep up with the incremental point releases (ie: 8.x), upgrading to 9 should be pretty painless, which is a relief. Knowing the incremental releases will be coming out with a regular six month-ish cadence will make planning easier. I’m also excited about the new features in the works; including Layouts, Work Spaces, a better out of the box experience on first install, a better UI admin experience (possibly with React?).</p>
+
+<h3 id="what-would-you-tell-someone-who-is-planing-to-attend-badcamp-next-year">What would you tell someone who is planing to attend BADCamp next year?</h3>
+<p><em>Amy</em>: Definitely invest in attending the full-day sessions if they interest you. The information I took away from my Pattern Lab day was priceless, and I came back to ThinkShout excited and empowered to figure out a way to make component based theming part of our usual practice.</p>
+
+<p><em>Jules</em>: The full day sessions were a great way to dive into deeper concepts. It’s hard to fully cover a subject in a shorter session. It also helps to show up with an open mind. It’s impossible to know everything about Drupal, and there are so many tools available. It was valuable just meeting people and talking to them about their workflows, challenges, and favorite new tools.</p>
+
+<h3 id="do-you-consider-badcamp-to-be-better-for-networking-professional-development-or-both">Do you consider BADCamp to be better for networking, professional development, or both?</h3>
+<p><em>Amy</em>: My big focus was on professional development. There were so many good training days and sessions happening that those filled my schedule almost entirely. Of course, attending sessions (and being a session speaker!) is a great way to network with like-minded people too.</p>
+
+<p><em>Jules</em>: My goal was to immerse myself in the Drupal community. Since I’m new to Drupal, the sessions were really valuable for me. Returning with more experience, that might not be the case. It was valuable to see new ideas being presented, challenged, discussed, and explored with mutual respect and support. We’re all in this together. Some talks were stronger than others, but every speaker had a nugget of gold I could take with me. It was encouraging to meet peers and to see all of the great work people are doing out in the world. It also served as a reminder that great strides can come from many small steps (or pushes)!</p>
+
+<h3 id="make-time-to-learn">Make time to learn</h3>
+
+<p>It can be difficult to take time away from project work and dedicate yourself to two or three days of conferencing. But when you disconnect and dive into several days of leaning, it makes your contributions back at the office invaluable. As Jules commented to me after her first day of sessions, “it was like php church!”</p>
+
+<p>Getting out of your usual environment and talking to other people opens your mind up to other ways of problem solving, and helps you arrive at solutions you otherwise wouldn’t get through sitting in your cubicle. We hope you’re inspired to go to a local Drupal Meetup or Camp – or even better, meet us at DrupalCon or NTC’s <a href="http://ntcdrupalday.org/">Drupal Day</a>!</p>
+]]>
+  </description>
+  <pubDate>Mon, 06 Nov 2017 07:30:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2017/11/my-first-badcamp/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/11/my-first-badcamp/</guid>
+</item>
+
+    
+      <item>
+  <title>The WYSIWYG is a Lie</title>
+  <description>
+    <![CDATA[<p>If you’ve ever implemented a WYSIWYG editor in Drupal, one thing that becomes apparent quickly is that the term (What You See Is What You Get) is a complete lie. None of the default theme styles appear in the editor, because the editor shows up in the admin theme. This obviously diminishes its value, and makes custom element styles useless. The good news is that it’s fairly simple to fix - once you know how.</p>
+
+<p>Drupal 8’s default WYSIWYG is CKEditor, and it’s included as a core module with <a href="https://www.drupal.org/docs/8/api/ckeditor-api/overview">its own API</a>. This is great, because they also added a way to get that default theme front-end code into the admin theme CKEditor. The description of how to manage this leaves a bit to be desired, as all they mention is ‘specifying a <code class="highlighter-rouge">ckeditor_stylesheets</code> key in the <code class="highlighter-rouge">*.info.yml</code> file’.</p>
+
+<p>Let’s start from the beginning. Say you’ve been working on a D8 site and the intro has an H2, some text, and a call to action button:</p>
+
+<p><img src="/assets/images/blog/intro1.png" alt="intro1.png" class="center" /></p>
+
+<p>That’s great! What does CKEditor show us?</p>
+
+<p><img src="/assets/images/blog/intro2.png" alt="intro2.png" class="center" /></p>
+
+<p>Oh. What I see is certainly <em>not</em> what I get. Let’s start by showing the basic styles in CKEditor. Go to your current default theme (ours is in <code class="highlighter-rouge">/web/themes/custom/</code>) and find your <code class="highlighter-rouge">THEMENAME.info.yml</code>. Open it in your favorite editor and you’ll see something like this:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">My Theme Name</span>
+<span class="na">type</span><span class="pi">:</span> <span class="s">theme</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s">A base theme for My Site</span>
+<span class="na">package</span><span class="pi">:</span> <span class="s">Other</span>
+<span class="na">core</span><span class="pi">:</span> <span class="s">8.x</span>
+
+<span class="na">base theme</span><span class="pi">:</span> <span class="s">classy</span>
+
+<span class="s">regions, etc...</span>
+</code></pre></div></div>
+
+<p>Now add the <code class="highlighter-rouge">ckeditor_stylesheets:</code> key and the target file right below the <code class="highlighter-rouge">core: 8.x</code> line, like so:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">...</span>
+<span class="na">package</span><span class="pi">:</span> <span class="s">Other</span>
+<span class="na">core</span><span class="pi">:</span> <span class="s">8.x</span>
+<span class="na">ckeditor_stylesheets</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">css/ckeditor.css</span>
+</code></pre></div></div>
+
+<p>If there’s something already under <code class="highlighter-rouge">core: 8.x</code> just put the CKEditor lines below it.</p>
+
+<p>Next you have to actually add a file there! Go to your theme’s <code class="highlighter-rouge">/css/</code> directory and add an empty <code class="highlighter-rouge">ckeditor.css</code> file next to the site’s <code class="highlighter-rouge">style.css</code>.</p>
+
+<p>Now, you <em>could</em> just tell CKEditor to load all of the site CSS - but that would be overkill for the poor little iframe. It’s better to just find the vanilla CSS styles you need in your <code class="highlighter-rouge">style.css</code> file and copy them over. In our case it’s only about 160 lines of CSS - the default styles for the site, plus some rendered Sass mixins for the button. How does our WYSIWYG look now?</p>
+
+<p><img src="/assets/images/blog/intro3.png" alt="intro3.png" class="center" /></p>
+
+<p>Bazinga! What a difference.</p>
+
+<p>Hmm, but our button is missing its styles because we haven’t configured the CKEditor for that yet.</p>
+
+<p>Go into the Drupal configs to set that up at <code class="highlighter-rouge">/admin/config/content/formats</code> and click ‘configure’ for the CKEditor text format you want (Full HTML, etc).</p>
+
+<p>If you don’t have ‘Styles’ in the ‘Active Toolbar’, add it by dragging it in. It looks good next to ‘Format’, and has a similar behavior:</p>
+
+<p><img src="/assets/images/blog/ckedit1.png" alt="ckedit1.png" class="center" /></p>
+
+<p>Then scroll down to the ‘Styles dropdown’ tab and add the appropriate markup and class for the button.</p>
+
+<p><img src="/assets/images/blog/ckedit2.png" alt="ckedit2.png" class="center" /></p>
+
+<p>In our case we want to turn an anchor link (<code class="highlighter-rouge">a</code>) into a button by adding a <code class="highlighter-rouge">.button</code> class, so we use <code class="highlighter-rouge">a.button</code>. The text after the pipe (<code class="highlighter-rouge">|</code>) is what will appear in the ‘Styles’ dropdown.</p>
+
+<p>Finally, make sure you’ve added that markup to the ‘allowed HTML tags’ section if you’re adding it to a restricted markup configuration:</p>
+
+<p><img src="/assets/images/blog/ckedit6.png" alt="ckedit6.png" class="center" /></p>
+
+<p><em>Important Note:</em> style options won’t show up in the Styles dropdown unless you have clicked/selected an eligible piece of markup - in our case the <code class="highlighter-rouge">a</code> tag - in the CKEditor window. So in our example, we’d have to click on ‘read more’ before we click on the Styles dropdown.</p>
+
+<p><img src="/assets/images/blog/ckedit5.gif" alt="ckedit5.gif" class="center" /></p>
+
+<p>As long as you have <code class="highlighter-rouge">a.button</code> styles in <code class="highlighter-rouge">ckeditor.css</code>, it should work right away. (Well, after a cache clear. It’s Drupal.)</p>
+
+<p>And that’s it! From here you can continue to add styles to <code class="highlighter-rouge">ckeditor.css</code>, and to the Styles dropdown in the Drupal ‘Text formats and editors’ admin.</p>
+
+<p>The WYSIWYG is no longer a lie!</p>
+
+]]>
+  </description>
+  <pubDate>Tue, 29 Aug 2017 04:20:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/08/the-wysiwyg-is-a-lie/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/08/the-wysiwyg-is-a-lie/</guid>
+</item>
+
+    
+      <item>
+  <title>Upgrading MailChimp eCommerce and an Introduction to Drupal 8's Event System</title>
+  <description>
+    <![CDATA[<p>If you’ve ever built a Drupal 7 module, then you’ll be familiar with hooks: functions that allow modules to react to things happening in other modules. The hook system is functionally fine but, with so many hooks to implement, .module files often become bloated and difficult to manage.</p>
+
+<p>Drupal 8’s event system does a lot to reduce the clutter of hooks. Now, instead of using a hook, you can create an event subscriber that will execute your code every time a module triggers an event. This is similar to the hook system only in the effect; the execution is very different.</p>
+
+<p>Porting our popular MailChimp eCommerce module to Drupal 8 gave me the perfect opportunity learn about the event system. I use the word “opportunity” to disguise the fact that I was forced to learn how events work because it was impossible to port the module without doing so.</p>
+
+<p>The MailChimp eCommerce module depends on the Commerce module, naturally, and in Drupal 8, the Commerce module makes heavy use of events.</p>
+
+<p>First, let’s look at an event. I’m using an example ripped straight from Commerce.</p>
+
+<p>The Commerce submodule, Commerce Cart, contains a class named <code class="highlighter-rouge">CartEntityAddEvent</code>. You can <a href="http://cgit.drupalcode.org/commerce/tree/modules/cart/src/Event/CartEntityAddEvent.php?h=8.x-2.x">find it here</a>.</p>
+
+<p>The class itself is simple; it’s designed to store a few values - the cart, the item being added to the cart, and the quantity of that item. The class also has a few getter functions for convenience.</p>
+
+<p>Most importantly, this class represents an event that’s triggered every time a user adds an item to their shopping cart. This is done using just two lines of code:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$event</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CartEntityAddEvent</span><span class="p">(</span><span class="nv">$cart</span><span class="p">,</span> <span class="nv">$purchased_entity</span><span class="p">,</span> <span class="nv">$quantity</span><span class="p">,</span> <span class="nv">$saved_order_item</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">eventDispatcher</span><span class="o">-&gt;</span><span class="na">dispatch</span><span class="p">(</span><span class="nx">CartEvents</span><span class="o">::</span><span class="na">CART_ENTITY_ADD</span><span class="p">,</span> <span class="nv">$event</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The event class is created with all the relevant values, then “dispatched” to any event subscribers configured to pay attention to it. When dispatched, the event is identified by a constant - <code class="highlighter-rouge">CartEvents::CART_ENTITY_ADD</code>. This constant is used by event subscribers, which we’ll take a look at now.</p>
+
+<p>This is a cut-down version of an event subscriber used by our <a href="https://www.drupal.org/project/mailchimp_ecommerce">MailChimp eCommerce module</a>.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sd">/**
+ * Event Subscriber for Commerce Carts.
+ */</span>
+<span class="k">class</span> <span class="nc">CartEventSubscriber</span> <span class="k">implements</span> <span class="nx">EventSubscriberInterface</span> <span class="p">{</span>
+
+  <span class="sd">/**
+   * The Cart Handler.
+   *
+   * @var \Drupal\mailchimp_ecommerce\CartHandler
+   */</span>
+  <span class="k">private</span> <span class="nv">$cart_handler</span><span class="p">;</span>
+
+  <span class="sd">/**
+   * The Order Handler.
+   *
+   * @var \Drupal\mailchimp_ecommerce\OrderHandler
+   */</span>
+  <span class="k">private</span> <span class="nv">$order_handler</span><span class="p">;</span>
+
+  <span class="sd">/**
+   * CartEventSubscriber constructor.
+   *
+   * @param \Drupal\mailchimp_ecommerce\CartHandler $cart_handler
+   *   The Cart Handler.
+   * @param \Drupal\mailchimp_ecommerce\OrderHandler $order_handler
+   *   The Order Handler.
+   */</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">CartHandler</span> <span class="nv">$cart_handler</span><span class="p">,</span> <span class="nx">OrderHandler</span> <span class="nv">$order_handler</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cart_handler</span> <span class="o">=</span> <span class="nv">$cart_handler</span><span class="p">;</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">order_handler</span> <span class="o">=</span> <span class="nv">$order_handler</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="sd">/**
+   * Respond to event fired after adding a cart item.
+   */</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">cartAdd</span><span class="p">(</span><span class="nx">CartEntityAddEvent</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="sd">/** @var \Drupal\commerce_order\Entity\Order $order */</span>
+    <span class="nv">$order</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getCart</span><span class="p">();</span>
+
+    <span class="sd">/** @var \Drupal\commerce_order\Entity\OrderItem $order_item */</span>
+    <span class="nv">$order_item</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getOrderItem</span><span class="p">();</span>
+
+    <span class="nv">$product</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">order_handler</span><span class="o">-&gt;</span><span class="na">buildProduct</span><span class="p">(</span><span class="nv">$order_item</span><span class="p">);</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cart_handler</span><span class="o">-&gt;</span><span class="na">addCartLine</span><span class="p">(</span><span class="nv">$order</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">(),</span> <span class="nv">$order_item</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">(),</span> <span class="nv">$product</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="sd">/**
+   * {@inheritdoc}
+   */</span>
+  <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getSubscribedEvents</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$events</span><span class="p">[</span><span class="nx">CartEvents</span><span class="o">::</span><span class="na">CART_ENTITY_ADD</span><span class="p">][]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'cartAdd'</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="nv">$events</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/thinkshout/mailchimp_ecommerce/blob/8.x-1.x/modules/mailchimp_ecommerce_commerce/src/EventSubscriber/CartEventSubscriber.php">Here’s the complete version, if you’re interested</a>.</p>
+
+<p>So what does it do, exactly?</p>
+
+<p>Let’s start with the <code class="highlighter-rouge">getSubscribedEvents()</code> function. This is where we define which events we want to subscribe to, and assign each event a processing function. Here we are subscribing to just one event, the “cart entity add” event, and assigning the <code class="highlighter-rouge">cartAdd()</code> function as a processor.</p>
+
+<p>Note that the <code class="highlighter-rouge">cartAdd()</code> function takes one argument, an instance of the <code class="highlighter-rouge">CartEntityAddEvent</code> class. That’s the same class we looked at earlier - the event class defined in the Commerce Cart module. This is where our module reacts to that event being triggered.</p>
+
+<p>The <code class="highlighter-rouge">cartAdd()</code> function itself extracts the order and item information from the event and uses an instance of the <code class="highlighter-rouge">CartHandler</code> class, provided by the MailChimp eCommerce module, to send updated cart information to MailChimp’s API.</p>
+
+<p>One final thing:</p>
+
+<p>Event subscribers won’t work unless they are defined as a service. Services are defined in a module’s *.services.yml file, which you can <a href="https://www.drupal.org/docs/8/api/services-and-dependency-injection/structure-of-a-service-file">learn more about here</a>.</p>
+
+<p>The service definition for the <code class="highlighter-rouge">CartEventSubscriber</code> looks like this:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">mailchimp_ecommerce_commerce.cart_event_subscriber</span><span class="pi">:</span>
+    <span class="na">class</span><span class="pi">:</span> <span class="s1">'</span><span class="s">\Drupal\mailchimp_ecommerce_commerce\EventSubscriber\CartEventSubscriber'</span>
+    <span class="na">arguments</span><span class="pi">:</span> <span class="pi">[</span><span class="s1">'</span><span class="s">@mailchimp_ecommerce.cart_handler'</span><span class="pi">,</span> <span class="s1">'</span><span class="s">@mailchimp_ecommerce.order_handler'</span><span class="pi">]</span>
+    <span class="na">tags</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="pi">{</span> <span class="nv">name</span><span class="pi">:</span> <span class="nv">event_subscriber</span> <span class="pi">}</span>
+</code></pre></div></div>
+
+<p>We identify the class using its namespace, inject the “cart_handler” and “order_handler” services, then, finally, tag the service as an “event_subscriber”. <a href="https://github.com/thinkshout/mailchimp_ecommerce/blob/8.x-1.x/modules/mailchimp_ecommerce_commerce/mailchimp_ecommerce_commerce.services.yml">Check out the full file here</a>. Just for completeness, the two injected services are defined in <a href="https://github.com/thinkshout/mailchimp_ecommerce/blob/8.x-1.x/mailchimp_ecommerce.services.yml">here</a>.</p>
+
+<p>I’m a big fan of how Drupal 8 has shifted towards a more object-oriented way of doing things. It’s more organized, promotes consistency between modules, and, best of all, finally signals an end to massive .module files.</p>
+
+]]>
+  </description>
+  <pubDate>Thu, 06 Jul 2017 12:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/07/upgrading-mailchimp-ecommerce-and-and-introduction-to-drupal-8s-event-system/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/07/upgrading-mailchimp-ecommerce-and-and-introduction-to-drupal-8s-event-system/</guid>
+</item>
+
+    
+      <item>
+  <title>Fade To Black - Responsive CSS Gradients</title>
+  <description>
+    <![CDATA[<p><img src="/assets/images/blog/fade-to-black-1.jpg" alt="fade-to-black-1.jpg" class="left forty" /> <a href="//alistapart.com/article/responsive-web-design">Responsive design</a> brings a fascinating array of challenges to both designers and developers. Using background images in a call to action or blockquote element is a great way to add visual appeal to a design, as you can see in the image to the left.</p>
+
+<p><br clear="all" /><br /></p>
+
+<p><img src="/assets/images/blog/fade-to-black-2.jpg" alt="fade-to-black-2.jpg" class="right thirty" /> However, at mobile sizes, you’re faced with some tough decisions. Do you try and stretch the image to fit the height of the container? If so, at very tall/narrow widths, you’re forced to load a giant image, and it likely won’t be recognizable.</p>
+
+<p>In addition, forcing mobile users to load a large image is bad for performance. Creating custom responsive image sets would work, but that sets up a maintenance problem, something most clients will <em>not</em> appreciate.</p>
+
+<p>Luckily, there’s a solution that allows us to keep the image aspect ratio, set up standard <a href="//css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/">responsive images</a>, and it looks great on mobile as well. The fade-out!</p>
+
+<p>I’ll be using screenshots and code here, but I’ve also made <a href="//codepen.io/collection/XeBvKo/">all 6 steps available on CodePen</a> if you want to play with the code and try out different colors, images, etc…</p>
+
+<p><br clear="all" /><br /></p>
+
+<p>Let’s start with that first blockquote:</p>
+
+<p><img src="/assets/images/blog/fade-to-black-1.jpg" alt="fade-to-black-1.jpg" class="left forty" /> <a href="//codepen.io/komejo/pen/GERJwy">(pen)</a> This is set up for desktop - the image aspect ratio is determining the height of the container using the <a href="//stackoverflow.com/questions/1495407/maintain-the-aspect-ratio-of-a-div-with-css">padding ratio trick</a>. Everything in the container is using absolute positioning and <a href="http://www.sketchingwithcss.com/samplechapter/cheatsheet.html">flexbox</a> for centering. We have a simple <code class="highlighter-rouge">rgba()</code> background set using the <code class="highlighter-rouge">:before</code> pseudo-property in the .parent-container:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nd">:before</span> <span class="p">{</span>
+    <span class="nl">content</span><span class="p">:</span> <span class="s1">""</span><span class="p">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.4</span><span class="p">);</span>
+    <span class="nl">z-index</span><span class="p">:</span> <span class="m">10</span><span class="p">;</span>
+    <span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p><br clear="all" /><br /></p>
+
+<p><img src="/assets/images/blog/fade-to-black-3.jpg" alt="fade-to-black-3.jpg" class="right forty" /> <a href="//codepen.io/komejo/pen/QgWyLN">(pen)</a> The issues arise once we get a quote of reasonable length, and/or the page width gets too small. As you can see, it overflows and breaks quite badly.</p>
+
+<p><br clear="all" /><br /></p>
+
+<p><img src="/assets/images/blog/fade-to-black-4.jpg" alt="fade-to-black-4.jpg" class="left forty" /> <a href="//codepen.io/komejo/pen/XgWXWz">(pen)</a> We can fix this by setting some changes to take place at a certain breakpoint, depending on the max length of the field and the size of the image used.</p>
+
+<p>Specifically, we remove the padding from the parent element, and make the .content-wrapper <code class="highlighter-rouge">position: static</code>. (I like to set a min-height as well just in case the content is very small)</p>
+
+<p><br clear="all" /><br /></p>
+
+<p><img src="/assets/images/blog/fade-to-black-5.jpg" alt="fade-to-black-5.jpg" class="right forty" /> <a href="//codepen.io/komejo/pen/JJjGXB">(pen)</a> Now we can add the fader code - <code class="highlighter-rouge">background-image: linear-gradient</code>, which can be used <a href="http://caniuse.com/#search=linear-gradient">unprefixed</a>. This is inserted into the .image-wrapper using another <code class="highlighter-rouge">:before</code> pseudo-element:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nd">:before</span> <span class="p">{</span>
+    <span class="nl">content</span><span class="p">:</span> <span class="s1">""</span><span class="p">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="n">inline-block</span><span class="p">;</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="nl">background-image</span><span class="p">:</span> <span class="n">linear-gradient</span><span class="p">(</span>
+      <span class="p">//</span> <span class="n">Fade</span> <span class="n">over</span> <span class="n">the</span> <span class="n">entire</span> <span class="n">image</span> <span class="n">-</span> <span class="n">not</span> <span class="n">great</span><span class="p">.</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">)</span> <span class="m">0%</span><span class="p">,</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)</span> <span class="m">100%</span>
+    <span class="p">);</span>
+  <span class="p">}</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p><br clear="all" /><br /></p>
+
+<p><img src="/assets/images/blog/fade-to-black-6.jpg" alt="fade-to-black-6.jpg" class="left forty" /> <a href="//codepen.io/komejo/pen/XgWXNZ">(pen)</a> The issue now is that the gradient covers the entire image, but we can fix that easily by adding additional <code class="highlighter-rouge">rgba()</code> values, in effect ‘stretching’ the part of the gradient that’s transparent:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nd">:before</span> <span class="p">{</span>
+    <span class="nl">background-image</span><span class="p">:</span> <span class="n">linear-gradient</span><span class="p">(</span>
+      <span class="p">//</span> <span class="n">Transparent</span> <span class="n">at</span> <span class="n">the</span> <span class="nb">top</span><span class="p">.</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">)</span> <span class="m">0%</span><span class="p">,</span>
+      <span class="p">//</span> <span class="n">Still</span> <span class="nb">transparent</span> <span class="n">through</span> <span class="m">70%</span> <span class="n">of</span> <span class="n">the</span> <span class="n">image</span><span class="p">.</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">)</span> <span class="m">70%</span><span class="p">,</span>
+      <span class="p">//</span> <span class="n">Now</span> <span class="n">fade</span> <span class="n">to</span> <span class="nb">solid</span> <span class="n">to</span> <span class="n">match</span> <span class="n">the</span> <span class="n">background</span><span class="p">.</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)</span> <span class="m">100%</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p><br clear="all" /><br /></p>
+
+<p><img src="/assets/images/blog/fade-to-black-7.jpg" alt="fade-to-black-7.jpg" class="right forty" /> <a href="//codepen.io/komejo/pen/RgwrZb">(pen)</a> Finally, we can fine-tune the gradient by adding even more <code class="highlighter-rouge">rgba()</code> values and setting the percentages and opacity as appropriate.</p>
+
+<p>Once we’re satisfied that the gradient matches the design, all that’s left is to make the gradient RGBA match the .parent-container background color (not the overlay - this tripped me up for a while!), which in our case is supposed to be <code class="highlighter-rouge">#000</code>:</p>
+
+<p><br clear="all" /></p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nd">:before</span> <span class="p">{</span>
+    <span class="nl">background-image</span><span class="p">:</span> <span class="n">linear-gradient</span><span class="p">(</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">)</span> <span class="m">0%</span><span class="p">,</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">)</span> <span class="m">70%</span><span class="p">,</span>
+      <span class="p">//</span> <span class="n">These</span> <span class="n">three</span> <span class="s2">'smooth'</span> <span class="n">out</span> <span class="n">the</span> <span class="n">fade</span><span class="p">.</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.2</span><span class="p">)</span> <span class="m">80%</span><span class="p">,</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.7</span><span class="p">)</span> <span class="m">90%</span><span class="p">,</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.9</span><span class="p">)</span> <span class="m">95%</span><span class="p">,</span>
+      <span class="p">//</span> <span class="n">Solid</span> <span class="n">to</span> <span class="n">match</span> <span class="n">the</span> <span class="n">background</span><span class="p">.</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)</span> <span class="m">100%</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p>We’ll be rolling out sites in a few weeks with these techniques in live code, and with several slight variations to the implementation (mostly adding responsive images and making allowances for Drupal’s markup), but this is the core idea used.</p>
+
+<p>Feel free to <a href="//codepen.io/collection/XeBvKo/">play with the code</a> yourself, and change the <code class="highlighter-rouge">rgba()</code> values so that you can see what each is doing.</p>
+
+]]>
+  </description>
+  <pubDate>Tue, 06 Jun 2017 08:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/06/fade-to-black-responsive-css-gradients/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/06/fade-to-black-responsive-css-gradients/</guid>
+</item>
+
+    
+      <item>
+  <title>Skipping a Version - Migrating from Drupal 6 to Drupal 8 with Drupal Migrate</title>
+  <description>
+    <![CDATA[<p>I recently had the opportunity to migrate content from a Drupal 6 site to a Drupal 8 site. This was especially interesting for me as I hadn’t used Drupal 6 before. As you’d expect, there are some major infrastructure changes between Drupal 6 and Drupal 8. Those differences introduce some migration challenges that I’d like to share.</p>
+
+<p>The <a href="https://www.drupal.org/project/migrate">Migrate module</a> is a wonderful thing.  The vast majority of node-based content can be migrated into a Drupal 8 site with minimal effort, and for the content that doesn’t quite fit, there are custom migration sources. A custom migration source is a small class that can provide extra data to your migration in the form of source fields. Typically, a migration will map source fields to destination fields, expecting the fields to exist on both the source node type and destination node type. We actually published an in-depth, <a href="https://thinkshout.com/blog/2017/01/using-google-docs-and-migrate-to-populate-your-drupal-site-part-1/">two-part blog series about how we use Drupal Migrate</a> to populate Drupal sites with content in conjunction with Google Sheets in our own projects.</p>
+
+<p>In the following example, we are migrating the value of content_field_text_author from Drupal 6 to field_author in Drupal 8. These two fields map one-to-one:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">id</span><span class="pi">:</span> <span class="s">book</span>
+<span class="na">label</span><span class="pi">:</span> <span class="s">Book</span>
+<span class="na">migration_group</span><span class="pi">:</span> <span class="s">d6</span>
+<span class="na">deriver</span><span class="pi">:</span> <span class="s">Drupal\node\Plugin\migrate\D6NodeDeriver</span>
+<span class="na">source</span><span class="pi">:</span>
+  <span class="na">key</span><span class="pi">:</span> <span class="s">migrate</span>
+  <span class="na">target</span><span class="pi">:</span> <span class="s">d6</span>
+  <span class="na">plugin</span><span class="pi">:</span> <span class="s">d6_node</span>
+  <span class="na">node_type</span><span class="pi">:</span> <span class="s">book</span>
+<span class="na">process</span><span class="pi">:</span>
+  <span class="na">field_author</span><span class="pi">:</span> <span class="s">content_field_text_author</span>
+<span class="na">destination</span><span class="pi">:</span>
+  <span class="na">plugin</span><span class="pi">:</span> <span class="s">entity:node</span>
+</code></pre></div></div>
+
+<p>This field mapping works because content_field_text_author is a table in the Drupal 6 database and is recognized by the Migrate module as a field. Everyone is happy.</p>
+
+<p>However, in Drupal 6, it’s possible for a field to exist only in the database table of the node type. These tables look like this:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">DESC</span> <span class="n">content_type_book</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">----------------------------+------------------+------+-----+---------+-------+</span>
+<span class="o">|</span> <span class="n">Field</span>                      <span class="o">|</span> <span class="k">Type</span>             <span class="o">|</span> <span class="k">Null</span> <span class="o">|</span> <span class="k">Key</span> <span class="o">|</span> <span class="k">Default</span> <span class="o">|</span> <span class="n">Extra</span>  <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------------------------+------------------+------+-----+---------+-------+</span>
+<span class="o">|</span> <span class="n">vid</span>                        <span class="o">|</span> <span class="n">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="n">unsigned</span> <span class="o">|</span> <span class="k">NO</span>   <span class="o">|</span> <span class="n">PRI</span> <span class="o">|</span> <span class="mi">0</span>             <span class="o">|</span>   <span class="o">|</span>
+<span class="o">|</span> <span class="n">nid</span>                        <span class="o">|</span> <span class="n">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="n">unsigned</span> <span class="o">|</span> <span class="k">NO</span>   <span class="o">|</span> <span class="n">MUL</span> <span class="o">|</span> <span class="mi">0</span>           <span class="o">|</span>   <span class="o">|</span>
+<span class="o">|</span> <span class="n">field_text_issue_value</span>     <span class="o">|</span> <span class="n">longtext</span>         <span class="o">|</span> <span class="n">YES</span>  <span class="o">|</span>     <span class="o">|</span> <span class="k">NULL</span> <span class="o">|</span>   <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------------------------+------------------+------+-----+---------+-------+</span>
+</code></pre></div></div>
+
+<p>If we want to migrate the content of field_text_issue_value to Drupal 8, we need to use a custom migration source.</p>
+
+<p>Custom migration sources are PHP classes that live in the src/Plugin/migrate/source directory of your module. For example, you may have a PHP file located at src/Plugin/migrate/source/BookNode.php that would provide custom source fields for a Book content type.</p>
+
+<p>A simple source looks like this:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">namespace</span> <span class="nx">Drupal\custom_migrate_d6\Plugin\migrate\source</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Drupal\node\Plugin\migrate\source\d6\Node</span><span class="p">;</span>
+
+<span class="sd">/**
+ * @MigrateSource(
+ *   id = "d6_book_node",
+ * )
+ */</span>
+<span class="k">class</span> <span class="nc">BookNode</span> <span class="k">extends</span> <span class="nx">Node</span> <span class="p">{</span>
+
+  <span class="sd">/**
+   * @inheritdoc
+   */</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">query</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$query</span> <span class="o">=</span> <span class="k">parent</span><span class="o">::</span><span class="na">query</span><span class="p">();</span>
+
+    <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">join</span><span class="p">(</span><span class="s1">'content_type_book'</span><span class="p">,</span> <span class="s1">'book'</span><span class="p">,</span> <span class="s1">'n.nid = book.nid'</span><span class="p">);</span>
+    <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">addField</span><span class="p">(</span><span class="s1">'book'</span><span class="p">,</span> <span class="s1">'field_text_issue_value'</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="nv">$query</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+<p>As you can see, we are using our migration source to modify the query the Migrate module uses to retrieve the data to be migrated. Our modification extracts the field_text_issue_value column of the book content type table and provides it to the migration as a source field.</p>
+
+<p>To use this migration source, we need to make one minor change to change to our migration. We replace this:</p>
+
+<p>plugin: d6_node</p>
+
+<p>With this:</p>
+
+<p>plugin: d6_book_node</p>
+
+<p>We do this because our migration source extends the standard Drupal 6 node migration source in order to add our custom source field.</p>
+
+<p>The migration now contains two source fields and looks like this:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">id</span><span class="pi">:</span> <span class="s">book</span>
+<span class="na">label</span><span class="pi">:</span> <span class="s">Book</span>
+<span class="na">migration_group</span><span class="pi">:</span> <span class="s">d6</span>
+<span class="na">deriver</span><span class="pi">:</span> <span class="s">Drupal\node\Plugin\migrate\D6NodeDeriver</span>
+<span class="na">source</span><span class="pi">:</span>
+  <span class="na">key</span><span class="pi">:</span> <span class="s">migrate</span>
+  <span class="na">target</span><span class="pi">:</span> <span class="s">d6</span>
+  <span class="na">plugin</span><span class="pi">:</span> <span class="s">d6_book_node</span>
+  <span class="na">node_type</span><span class="pi">:</span> <span class="s">book</span>
+<span class="na">process</span><span class="pi">:</span>
+  <span class="na">field_author</span><span class="pi">:</span> <span class="s">content_field_text_author</span>
+  <span class="na">field_issue</span><span class="pi">:</span> <span class="s">field_text_issue_value</span>
+<span class="na">destination</span><span class="pi">:</span>
+  <span class="na">plugin</span><span class="pi">:</span> <span class="s">entity:node</span>
+</code></pre></div></div>
+
+<p>You’ll find you can do a lot with custom migration sources, and this is especially useful with legacy versions of Drupal where you’ll have to fudge data at least a little bit. So if the Migrate module isn’t doing it for you, you’ll always have the option to step in and give it a little push.</p>
+]]>
+  </description>
+  <pubDate>Fri, 19 May 2017 08:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/05/skipping-a-version-migrating-from-drupal-6-to-drupal-8-with-drupal-migrate/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/05/skipping-a-version-migrating-from-drupal-6-to-drupal-8-with-drupal-migrate/</guid>
+</item>
+
+    
+      <item>
+  <title>What to Think About When You're Thinking About a Redesign</title>
+  <description>
+    <![CDATA[<p>Websites, like most things, have a lifespan. At first, they are new and shiny and aligned with both your organization’s goals and current web trends and best practices. As time goes on, however, technology continues to progress, and your organizational goals will probably evolve as well.</p>
+
+<p>If you’ve worked through a full Discovery process to develop an information architecture that supports your organization’s core mission, then all you may need to update is the look and some of the site content. But if you haven’t engaged in an in-depth Discovery process before, you may find that your site is not only technically outdated, but also no longer reflects who you are as an organization.</p>
+
+<p>So it’s time to think about a redesign. The good news is, starting your new project with a full Discovery will help you create a site structure that will serve your needs not just for the new version of the site, but for years to come. Additionally, if you build your new site on a widely-used and well-supported open source CMS platform (like Drupal or Wordpress), you won’t need to switch systems every couple of years. For example, Drupal 8, the latest version of Drupal, is expected to have a lifespan of 8-10 years.</p>
+
+<p>Investing time and energy to develop a strong foundation now will set you up for success in the future. But how can you ensure your website redesign gets off to the right start?</p>
+
+<p>Here at ThinkShout, we believe that technical excellence and award-worthy design should be a given, and that our focus should be on building you a site that helps you connect with your constituents and meet your goals. Through numerous discovery engagements with many different organizations, we’ve uncovered some key questions to ask during the initial requirements gathering phase that will help ensure the solution we create meets your needs and serves your mission.</p>
+
+<p>Here are some things to think about when you’re thinking about a redesign:</p>
+
+<h2 id="what-are-your-organizational-goals">What are Your Organizational Goals?</h2>
+
+<p>Before you dive into the specifics of your website, let’s take a step back and think at a higher level. Defining your organizational goals will help make sure that the solution you and your vendor create not only looks good and functions well, but will also support the fundamental mission of your organization.</p>
+
+<p>So it’s important to take a moment to think about what your organization’s goals are. What issue are you working to address? What does success for your organization look like? The more specific and measurable these goals are, the better. Measuring your progress towards your higher level goals can help you assess the success of your project.</p>
+
+<h2 id="what-are-your-project-goals">What are Your Project Goals?</h2>
+
+<p>Now it’s time to zoom in and focus on this project itself. Project goals should be tangible, attainable, and measurable. They may include a mixture of internal goals (perhaps relating to how you are able to manage the website) and external goals (how your users interact with the website: engagement, donations, tracking, etc.).</p>
+
+<p>It may be helpful when thinking about your project goals to determine how they relate to your organizational goals. Can you map your project goals to the organizational goals they support? If not, perhaps you should consider if that particular goal for the project is even necessary – or if it can be deprioritized.</p>
+
+<p>For example, if your organization is a local animal shelter, one of your organizational goals may be to increase pet adoption. Website project goals that support this higher-level goal might be to post profiles for adoptable pets online, or allow facilitate adoptions through your website.</p>
+
+<p>Identifying and then prioritizing your project goals may also help you define what success will look like for your redesign project. How will you measure progress towards these goals? Which goals need to be met for the project to be successful?</p>
+
+<h2 id="who-are-your-audiences">Who are Your Audiences?</h2>
+
+<p>A website only adds value for your organization if your audiences use it, and mostly people will come to your website looking for information, driven by their own needs and motivations. If you focus primarily on your goals, you may end up with a website that is geared towards your organization’s needs and structures, but that does not allow your users to easily access the information they seek.</p>
+
+<p>Defining who your audiences are will allow you to put your users first when redesigning your website. Once you know who your audiences are, you can determine what content will satisfy their needs, sparking the trust that will allow you to nudge them to take an action beneficial to you.</p>
+
+<p>These questions are just a starting place for your website redesign. A full discovery process will delve more deeply into your programs and departments, your needs and wants, and what makes your organization tick. But asking yourself these three questions before you start will help give you an anchor to help you ensure that your new website engages your users and supports your mission.</p>
+]]>
+  </description>
+  <pubDate>Mon, 15 May 2017 09:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/05/what-to-think-about-when-thinking-about-a-redesign/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/05/what-to-think-about-when-thinking-about-a-redesign/</guid>
+</item>
+
+    
+      <item>
+  <title>Meet the ThinkShout Team at DrupalCon Baltimore</title>
+  <description>
+    <![CDATA[<p>We’re packing our bags for Baltimore and polishing up our slide decks for DrupalCon! We’re so excited to join the Drupal community for a full week of Drupal-y things. We’ve got some great content planned for this year’s conference, and we’re very excited to share it with you all - here’s what you need to know:</p>
+
+<h2 id="exhibit-hall">Exhibit Hall</h2>
+
+<p>The ThinkShout Headquarters this year is <strong>booth 432</strong>! We’ll be giving away free t-shirts and raffling off an Amazon Echo. You can enter to win for the low, low price of one business card. If you have any questions about <a href="https://thinkshout.com/work/">our work</a>, current available <a href="https://thinkshout.com/careers/">job opportunities</a>, or what the <a href="https://isitraining.in/Portland">weather’s like in Portland</a> (spoiler: it’s probably raining), stop by - we’d love to chat with you!</p>
+
+<h2 id="thinkshout-sessions">ThinkShout Sessions</h2>
+
+<p>The ThinkShout team has two sessions in the DrupalCon agenda this year. We’re also very excited to be leading a discussion in our first DrupalCon Nonprofit Summit. Take a look at our lineup and mark your calendars</p>
+
+<p>“<a href="https://events.drupal.org/baltimore2017/nonprofit-summit">Rapid Response Campaigns &amp; Digital Tools</a>” - Monday (4/24), 12:30 - 1:15pm, Nonprofit Summit</p>
+
+<p>The news cycle doesn’t stop, and your website must help you respond to emergencies, not act as a barrier. Drupal can help you react quickly, in concert with your other channels, to turn current events into opportunities to spread your message and further your mission. In this breakout session, Brett Meyer and Lev Tsypin will talk about the tools you have at your disposal in Drupal, scenarios that call for rapid response solutions and how to implement them, and strategies that will help you turn these situations into lasting engagement with your constituents.</p>
+
+<p>“<a href="https://events.drupal.org/baltimore2017/sessions/demystifying-rendered-content-drupal-8-twig-files">Demystifying Rendered Content in Drupal 8 Twig Files</a>” - Tuesday (4/25), 3:45 - 4:45pm</p>
+
+<p>Amy Vaillancourt-Sals is going to show you the ins and outs of Twig! <a href="http://twig.sensiolabs.org/">Twig</a> is a robust and elegant template engine for PHP. It’s lightweight, fairly quick to pick up, very readable, and it grants users ultimate control over the markup, including wrapping elements and rendering exactly the output you need. In this session, you’ll learn about the debugging process of sorting through twig variables, using xdebug in PHPStorm, the other helpful debugging tools at your disposal, plus common patterns Amy found helpful for rendering content in twig files.</p>
+
+<p>“<a href="https://events.drupal.org/baltimore2017/sessions/content-strategy-popular-culture-part-deux">Content Strategy in Popular Culture, Part Deux</a>” - Thursday (4/27), 10:45 - 11:45am</p>
+
+<p>Brett Meyer’s got a sequel to <a href="https://www.youtube.com/watch?v=sJxtCPRde4k">his session from DrupalCon New Orleans</a>. Another year, another array of pop culture obsessions to examine and apply to the work we do. By exploring how crucial aspects of content strategy play out in movies, music, comic books, and video games, we’ll continue to expand the palette of language we can use to explain and convince more people about the importance of content strategy online, and ensure they understand that it’s not just vital, but fun as well.</p>
+
+<h2 id="lets-chat">Let’s Chat</h2>
+
+<p>If you’d like to schedule some time to chat with us in advance, drop us a line via our <a href="https://thinkshout.com/contact/">contact form</a>. We’d be happy to meet up with you in Baltimore!</p>
+
+]]>
+  </description>
+  <pubDate>Wed, 19 Apr 2017 12:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/04/meet-thinkshout-at-drupalcon-baltimore/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/04/meet-thinkshout-at-drupalcon-baltimore/</guid>
+</item>
+
+    
+      <item>
+  <title>See You at the NTC</title>
+  <description>
+    <![CDATA[<p>The Nonprofit Technology Conference is just around the corner, and we’re hard at work making those final preparations for our trip to D.C. We have some exciting things in store for you this year, so mark your calendars!</p>
+
+<h2 id="drupal-salon">Drupal Salon</h2>
+
+<p>This year, we’re honored to coordinate the first ever Drupal Salon at the NTC. In lieu of the traditional pre-conference days as we’ve done in previous years, NTEN set aside space and time for subject matter experts to present nine twenty-minute-long talks on all things Drupal on Thursday, March 23rd. These talks will take place as part of the formal NTC schedule, and sessions can be viewed in the <a href="https://www.nten.org/ntc/program/agenda/">Wordpress &amp; Drupal Salon tracks on the NTC site</a>.</p>
+
+<p>We’re excited to have experts from the Southern Poverty Law Center, Shatterproof, and the Center for Strategic and International Studies share their Drupal insight and experiences. ThinkShout will also be providing one-on-one consulting at our Drupal Salon table, so bring us all of your Drupal questions! Drupal hosting providers Pantheon and Acquia will also be on hand to tackle whatever Drupal hosting questions you may have.</p>
+
+<p>We hope you’ll be able to join us! Here’s what we’ll be talking about:</p>
+
+<ul>
+  <li>
+    <p>“<a href="https://www.nten.org/session/stories-that-matter-how-the-splc-responded-to-the-2016-election/">Stories that Matter: How the SPLC Responded to the 2016 Election</a>” - Alex Amend, Digital Media Director (The Southern Poverty Law Center)</p>
+  </li>
+  <li>
+    <p>“<a href="https://www.nten.org/session/rapid-response-options-in-drupal/">Rapid Response Options in Drupal</a>” - Eric Paxton, Senior Front End Engineer (ThinkShout)</p>
+  </li>
+  <li>
+    <p>“<a href="https://www.nten.org/session/drupal-powered-digital-storytelling/">Drupal-Powered Digital Storytelling</a>” - Brett Meyer, Director of Strategy (ThinkShout)</p>
+  </li>
+  <li>
+    <p>“<a href="https://www.nten.org/session/drupal-as-a-hub-custom-integrations-for-csis/">Drupal as a Hub: Custom Integrations for CSIS</a>” - Ian Gottesman, Chief Information Officer (CSIS)</p>
+  </li>
+  <li>
+    <p>“<a href="https://www.nten.org/session/integrating-drupal-and-salesforce/">Integrating Drupal and Salesforce</a>” - Lev Tsypin, Founder &amp; CEO (ThinkShout)</p>
+  </li>
+  <li>
+    <p>“<a href="https://www.nten.org/session/event-registration-with-drupal/">Event Registration with Drupal</a>” - Gabe Carleton-Barnes, Engineering Manager (ThinkShout)</p>
+  </li>
+  <li>
+    <p>“<a href="https://www.nten.org/session/how-shatterproof-fights-addiction-with-compelling-content/">How Shatterproof Fights Addiction with Compelling Content</a>” - Anthony Della Camera, Technology Director &amp; Jessica Ishikawa, Interactive Designer (Shatterproof)</p>
+  </li>
+  <li>
+    <p>“<a href="https://www.nten.org/session/content-modeling-for-drupal-based-websites/">Content Modeling for Drupal-based Websites</a>” - Brett Meyer, Director of Strategy (ThinkShout)</p>
+  </li>
+  <li>
+    <p>“<a href="https://www.nten.org/session/leveraging-drupal-in-your-marketing-strategies/">Leveraging Drupal in Your Marketing Strategies</a>” - Natania LeClerc, Senior Digital Engagement Strategist (ThinkShout)</p>
+  </li>
+</ul>
+
+<p>We’re confident that the Drupal Salon sessions will have a little something for everyone, and we look forward to connecting with the nonprofit community with this new format.</p>
+
+<h2 id="meet-the-thinkshout-team">Meet the ThinkShout Team</h2>
+
+<p>Be sure to catch our team session on March 23rd, as well!</p>
+
+<ul>
+  <li>“<a href="https://www.nten.org/session/how-to-learn-to-stop-worrying-and-love-your-digital-agency/">How to Learn to Stop Worrying and Love Your Digital Agency</a>” - Alex Amend (Southern Poverty Law Center), Michele Kayal (Relief International), Alex MacMillan (ThinkShout), and Lev Tsypin (ThinkShout)</li>
+</ul>
+
+<p>The ThinkShout team will have a presence in the Exhibit Hall this year, of course. Stop by our booth (#501) and chat; we’ll be debuting brand new t-shirts and we’re excited to share them with you all (for free)! This is a great opportunity to learn more about our work and the organizations we partner with. We’re also available to talk about anything B Corp related, so send those questions our way!</p>
+
+<p>If you’d like to schedule a time to meet with our staff at the NTC in advance, drop us a line through our <a href="https://thinkshout.com/contact/">contact form</a>. See you in the capitol!</p>
+]]>
+  </description>
+  <pubDate>Fri, 03 Mar 2017 09:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2017/03/thinkshout-at-the-2017-ntc/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/03/thinkshout-at-the-2017-ntc/</guid>
+</item>
+
+    
+      <item>
+  <title>The 2017 ThinkShout Front-End Stack</title>
+  <description>
+    <![CDATA[<p>Front-end development is full of challenges - changing design trends, browser idiosyncrasies, client demands, and ever-evolving web standards to name a few. Over the last few years though, a new challenge has emerged. Which development stack should you choose?</p>
+
+<p>Once upon a time, front end development didn’t really have a “dev stack.” You had markup in files, maybe output from a CMS, a stylesheet, and some jQuery if you felt like getting fancy. Now though, the array of options can be paralysing. Pre-processors, post-processors, task runners, and package managers have made many aspects of development faster, but which ones are best? Where do you start?</p>
+
+<p>Here at ThinkShout, under the watchful eye of <a href="/team/eric/">Eric Paxton</a>, our Senior Front End Engineer, we’ve been trying out the various options whenever we take on a new project, to see how well it fits in our theming process. We’re pretty busy, so this covers a lot of ground quickly. We’ve been careful to <a href="/blog/2016/07/the-hidden-power-of-documentation/">fully document</a> the tools used in the past so that we don’t bedevil the maintenance folks. (We are often the maintenance folks).</p>
+
+<p>The last few builds have seen our dev stack settle down to a flexible tool set that is easy to setup and maintain, while providing us with excellent modern theming tools. Let’s dive in!</p>
+
+<h2 id="getting-started-languages-handlers-and-package-management">Getting Started: Languages, Handlers, and Package Management</h2>
+<p>At the bottom of a development stack are the languages used, the language handlers, and the package managers that allow you to include pre-built tools and libraries in your project. Some of these are interchangeable, but it solves a lot of problems if everyone uses the same fundamental tools.</p>
+
+<p>In our case, we use <a href="https://www.ruby-lang.org/en/">Ruby</a> and <a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> as the base languages, and <a href="https://github.com/rbenv/rbenv">rbenv</a> and <a href="https://nodejs.org/en/">Node</a> as their handlers. By using Ruby and JavaScript, we get access to an extremely wide array of applications, tools, plugins, and more. Once these are installed (Using an OS package manager! In this case, <a href="http://brew.sh/">Homebrew</a> (since we all use Macs), we add package handling for these languages: <a href="http://bundler.io/">Bundler</a> and <a href="https://www.npmjs.com/">NPM</a> respectively. This gives us the following base:</p>
+
+<ul>
+  <li>Ruby via rbenv, managing gems using Bundler</li>
+  <li>JavaScript via Node.js, managing packages using NPM</li>
+</ul>
+
+<p>Now we can specify Ruby Gems and Node packages in a Ruby Make file (<code class="highlighter-rouge">Rakefile</code>), and a complex project setup is as simple as running <code class="highlighter-rouge">rake install</code> once from the theme directory, and starting the task watcher using <code class="highlighter-rouge">rake serve</code>. (To be more precise, we use the Rakefile to install the Ruby Gems as defined in the Gemfile, and the Node modules as specified in the <code class="highlighter-rouge">package.json</code> file).</p>
+
+<p>The complete project setup for a new developer would be the following:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~: brew install rbenv
+~: gem install bundler
+~: brew install node
+~: brew install npm
+~: cd ~/path/to/theme/directory
+~: rake install
+~: rake serve
+</code></pre></div></div>
+
+<p>After that, any new projects would only need the last three lines run.</p>
+
+<p>The key to making this work is to have a <code class="highlighter-rouge">Rakefile</code>, a <code class="highlighter-rouge">Gemfile</code> and a <code class="highlighter-rouge">package.json</code> set up in our project’s theme so that <code class="highlighter-rouge">rake install</code> works properly. In our case we use the Rakefile to first run <code class="highlighter-rouge">bundle install</code>, which installs the appropriate gems and their dependencies:</p>
+
+<p>Rakefile:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">task</span> <span class="ss">:install</span> <span class="k">do</span>
+     <span class="nb">system</span> <span class="s1">'bundle install'</span> <span class="c1"># this runs the Gemfile contents!</span>
+     <span class="nb">system</span> <span class="s1">'npm install -g browser-sync'</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Gemfile:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> <span class="s1">'http://rubygems.org'</span>
+gem <span class="s1">'sass'</span>
+gem <span class="s1">'sass-globbing'</span>
+</code></pre></div></div>
+
+<p>This <a href="http://bundler.io/v1.3/rationale.html">generates</a> a <code class="highlighter-rouge">Gemfile.lock</code> listing all of the installed packages/versions.</p>
+
+<p>The <code class="highlighter-rouge">npm install</code> lines in the Rakefile setup tools that we’ll discuss later. Our next layer in the stack are the SASS tools that Bundler installed.</p>
+
+<h2 id="sass-at-thinkshout-please-pass-the-bourbon">SASS at ThinkShout (please pass the Bourbon)</h2>
+<p>In the middle of our stack is <a href="http://sass-lang.com/">SASS</a>. We use SASS in a fairly simple way at ThinkShout, installing it with <a href="https://rubygems.org/gems/sass-globbing">sass-globbing</a>. This allows us to set up directories that allow any files using the appropriate <code class="highlighter-rouge">_filename.scss</code> syntax to be included in the build. We also tend to keep the directory structure fairly minimal:</p>
+
+<p><code class="highlighter-rouge">style.scss</code>:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@import</span> <span class="s2">'lib/bourbon/bourbon'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">'lib/neat/neat'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">'lib/normalize/normalize'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">'global/*'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">'layout/*'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">'modules/*'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>The first thing we include is the <a href="http://bourbon.io/">Bourbon</a> mixin library. This includes coding shortcuts such as the <a href="http://bourbon.io/docs/#px-to-rem">pixels-to-rems</a> syntax <code class="highlighter-rouge">rem(24)</code>. This allows us to read a design’s pixel spacing and it converts them to the appropriate rem values. The <a href="http://bourbon.io/docs/">Bourbon Docs</a> are excellent and well-maintained as well. Never worry about browser prefixes or fallbacks again.</p>
+
+<p>Next up is the Bourbon-related grid framework, <a href="http://neat.bourbon.io/">Neat</a>. A simple but powerful grid that uses semantic markup and easy-to-read terminology such as <code class="highlighter-rouge">@include span-columns(9)</code>. No extra wrappers, no specific classes to add, and it’s extremely robust. We haven’t run into any cross-browser issues in over two years of using it, which says a lot, and since it’s only applied as you specify, it’s easy to break out of the grid if you need to.</p>
+
+<p>Next up is <a href="https://github.com/necolas/normalize.css">normalize.css</a>, a modern update to the old CSS reset stylesheets. Not really much to add to that except it’s <em>really</em> well commented, so make sure you change it from <code class="highlighter-rouge">normalize.css</code> to <code class="highlighter-rouge">_normalize.scss</code> so that you don’t bloat your final <code class="highlighter-rouge">site.css</code> file.</p>
+
+<p>The <code class="highlighter-rouge">Global</code> directory has the following:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_01.vars.scss
+_02.mixins.scss
+_03.extends.scss
+_04.base.scss
+</code></pre></div></div>
+
+<p>The _01, _02, etc. prefixes take advantage of the sass-globbing’s alphabetical file inclusion. All our site variables (colors, font weights, and so forth) are in <code class="highlighter-rouge">vars</code>, our custom mixins are next, then extends. Base has all of the base markup styles:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="n">rem</span><span class="p">(</span><span class="m">16</span><span class="p">);</span>
+  <span class="nl">font-style</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="err">$</span><span class="n">regular</span><span class="p">;</span>
+  <span class="nl">-webkit-font-smoothing</span><span class="p">:</span> <span class="n">antialiased</span><span class="p">;</span>
+  <span class="nl">-moz-osx-font-smoothing</span><span class="p">:</span> <span class="n">grayscale</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span>
+  <span class="nl">text-rendering</span><span class="p">:</span> <span class="n">optimizeLegibility</span><span class="p">;</span> <span class="err">//</span> <span class="err">Fix</span> <span class="err">the</span> <span class="err">character</span> <span class="err">spacing</span> <span class="err">for</span> <span class="err">headings</span>
+<span class="p">}</span>
+
+<span class="nt">p</span><span class="o">,</span> <span class="nt">a</span><span class="o">,</span> <span class="nt">ul</span><span class="o">,</span> <span class="nt">ol</span><span class="o">,</span> <span class="nt">etc</span><span class="o">...</span>
+</code></pre></div></div>
+
+<p>The layouts directory usually has a <code class="highlighter-rouge">_layouts.scss</code> file, which covers the basics of site layout. Since we use Drupal, we’ll often add a <code class="highlighter-rouge">_regions.scss</code> as well to specify layout for the various Drupal-generated content zones on a site. These files are where we use the Neat framework the most.</p>
+
+<p>Finally, we have the <code class="highlighter-rouge">modules</code> directory - where most of the theming takes place. These are usually named by content type (<code class="highlighter-rouge">_basic-pages.scss</code>, <code class="highlighter-rouge">_articles.scss</code>, etc.), though there are often files such as <code class="highlighter-rouge">_forms.scss</code> and <code class="highlighter-rouge">_homepage.scss</code> as well. Sometimes we don’t even have to use our <a href="http://thesassway.com/intermediate/using-source-maps-with-sass">source maps</a> to know where code is!</p>
+
+<p>One of our good habits is to start with our mobile-first, responsive <code class="highlighter-rouge">_01.template.scss</code> file:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span> <span class="nt">Default</span> <span class="o">/</span> <span class="nt">Mobile</span>
+
+<span class="o">//</span> <span class="nt">Tablet</span> <span class="o">(</span><span class="nt">580px</span><span class="o">)</span>
+<span class="k">@media</span> <span class="n">all</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="err">$</span><span class="n">tablet</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="nt">Large</span> <span class="nt">Tablet</span> <span class="o">(</span><span class="nt">768px</span><span class="o">)</span>
+<span class="k">@media</span> <span class="n">all</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="err">$</span><span class="n">lg-tablet</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="nt">Desktop</span> <span class="o">(</span><span class="nt">1228px</span><span class="o">)</span> <span class="err">$</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">1440px</span>
+<span class="k">@media</span> <span class="n">all</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="err">$</span><span class="n">desktop</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>When you want to add another theming module, you just make a copy of the template and your progressive breakpoints are included! (The <code class="highlighter-rouge">$max-width: 1440px</code> is there in a comment  because it’s handy).</p>
+
+<p>All of this gets handled by a task in our Rakefile, which sets a watcher for changes to any SASS file and compiles them into a single <code class="highlighter-rouge">css/style.css</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">desc</span> <span class="s1">'Watch sass'</span>
+<span class="n">task</span> <span class="ss">:sasswatch</span> <span class="k">do</span>
+<span class="nb">system</span> <span class="s1">'sass -r sass-globbing --watch sass/style.scss:css/style.css'</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="pulling-it-all-together-browsersync">Pulling It All Together: Browsersync!</h2>
+
+<p>Finally, at the top of our stack, we have <a href="https://browsersync.io/">Browsersync</a>. Eric Paxton, our Senior Front End Engineer, wrote an <a href="https://thinkshout.com/blog/2016/04/syncing-up-with-drupal8-and-browsersync/">excellent overview</a> of why we use this amazing tool, what it does, as well as how to install it in detail for Drupal 8.</p>
+
+<p>In our stack it’s as simple as another task in that Rakefile:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">desc</span> <span class="s1">'Running Browsersync'</span>
+<span class="n">task</span> <span class="ss">:browsersync</span> <span class="k">do</span>
+     <span class="nb">system</span> <span class="s1">'browser-sync start --proxy "local.dev" --files "css/*.css" --no-inject-changes'</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>And adding the following (generated by running <code class="highlighter-rouge">browser-sync start</code>) to the site’s <code class="highlighter-rouge">&lt;head&gt;</code> :</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!--</span> <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"__bs_script__"</span><span class="o">&gt;</span>
+  <span class="c1">//&lt;![CDATA[ document.write("&lt;script async src='http://HOST:3000/browser-sync/browser-sync-client.2.12.3.js'&gt;&lt;\/script&gt;".replace("HOST", location.hostname));</span>
+  <span class="c1">//]]&gt;</span>
+<span class="o">&lt;</span><span class="sr">/script&gt; --</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>This also sets a watcher on the CSS, and refreshes every browser you have open to <code class="highlighter-rouge">localhost:3000</code> or the local network IP address it generates upon running <code class="highlighter-rouge">rake serve</code>.</p>
+
+<p>The last part of the Rakefile implements the tasks we set up:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">desc</span> <span class="s1">'Serve'</span>
+<span class="n">task</span> <span class="ss">:serve</span> <span class="k">do</span>
+  <span class="n">threads</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="sx">%w{sasswatch browsersync}</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">task</span><span class="o">|</span>
+    <span class="n">threads</span> <span class="o">&lt;&lt;</span> <span class="no">Thread</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">task</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">devtask</span><span class="o">|</span>
+      <span class="no">Rake</span><span class="o">::</span><span class="no">Task</span><span class="p">[</span><span class="n">devtask</span><span class="p">].</span><span class="nf">invoke</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+  <span class="n">threads</span><span class="p">.</span><span class="nf">each</span> <span class="p">{</span><span class="o">|</span><span class="n">thread</span><span class="o">|</span> <span class="n">thread</span><span class="p">.</span><span class="nf">join</span><span class="p">}</span>
+  <span class="nb">puts</span> <span class="n">threads</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This has the <em>magical</em> effect of opening a new browser window to <code class="highlighter-rouge">localhost:3000</code> when you run <code class="highlighter-rouge">rake serve</code>, and reloading it every time you save any of your SASS files. It also scrolls all open windows together, even when you open up things on your phone using the local network proxy, which it helpfully provides as output:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; Sass is watching for changes. Press Ctrl-C to stop.
+[BS] Proxying: http://site.dev
+[BS] Access URLs:
+ -------------------------------------
+       Local: http://localhost:3000
+    External: http://172.16.5.235:3000
+ -------------------------------------
+          UI: http://localhost:3001
+ UI External: http://172.16.5.235:3001
+ -------------------------------------
+[BS] Watching files...
+[BS] File changed: css/style.css
+      write css/style.css
+      write css/style.css.map
+</code></pre></div></div>
+
+<p>This is really the cherry on top of the dev stack - after using it for a little while, you’ll wonder how you ever got along reloading everything manually.</p>
+
+<h2 id="stack-overview">Stack Overview</h2>
+
+<p>In summary, here’s that front-end stack:</p>
+
+<ul>
+  <li>Ruby via rbenv, managing gems using Bundler</li>
+  <li>JavaScript via Node.js, managing packages using NPM</li>
+  <li>SASS with globbing, set up in a simple directory structure</li>
+  <li>Bourbon Mixin library</li>
+  <li>Neat Grid system</li>
+  <li>Normalize.css as _normalize.scss</li>
+  <li>A simple module template containing responsive breakpoints</li>
+  <li>Browsersync</li>
+</ul>
+
+<p>None of this is carved in stone of course, and it gets slightly tweaked for every new build based on the project requirements, such as internationalization, the base CMS (Drupal, WordPress, or Jekyl in our case), and the desire to try out something new, which is fairly constant. After all, that’s how we got to the stack we have today!</p>
+
+]]>
+  </description>
+  <pubDate>Mon, 06 Feb 2017 08:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2017/02/the-2017-thinkshout-front-end-stack/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/02/the-2017-thinkshout-front-end-stack/</guid>
+</item>
+
+    
+      <item>
+  <title>Using Google Docs and Migrate to Populate Your Drupal Site, Part 2</title>
+  <description>
+    <![CDATA[<p>In <a href="https://thinkshout.com/blog/2017/01/using-google-docs-and-migrate-to-populate-your-drupal-site-part-1/">Part 1</a>, I talked about using Google Docs + Migrate to populate your site. Now we’re going to do that with the <a href="https://www.drupal.org/project/migrate_google_sheets">Migrate Google Sheets</a> module. Below, I’ll provide the steps to get your own migration up and running, but if you prefer to experiment with a working example, <a href="https://live-mgs-demo.pantheonsite.io/">check out a demo of the Migrate Google Sheets Example module</a> (provided as a submodule within Migrate Google Sheets). <a href="https://docs.google.com/spreadsheets/d/1spS1BeUIzxR1KrGK2kKzAoiFZii6vBHyLx_SA0Sb89M">All content on that site was built using this example Google Sheet</a>.</p>
+
+<h2 id="setup-install-the-module">Setup: Install the Module</h2>
+
+<p>If you’ve already got a Drupal 8 site up and running, <a href="https://www.drupal.org/docs/8/extending-drupal-8/installing-contributed-modules-find-import-enable-configure-drupal-8">you can install the module</a> in any of the normal ways. I’m assuming here that you have access to the site using <a href="http://www.drush.org/en/master/">Drush</a>, as it’s not possible to run migrations through anything but the command line at this time. At ThinkShout, we use composer to build our site distributions, and have <a href="https://github.com/thinkshout/mgs_demo">a repo for building the demo site here</a>.</p>
+
+<h2 id="step-1-creating-your-custom-migration-module">Step 1: Creating Your Custom Migration Module</h2>
+
+<p>The easiest way to get started on your own set of migrations is to copy the migrate_google_sheets_example submodule and rename it something of your own. Let’s say we rename it “my_migration.” Follow these steps:</p>
+
+<ol>
+  <li>Rename your .install file to “my_migration.install”, and change the function migrate_google_sheets_example_uninstall to “my_migration_uninstall”.</li>
+  <li>Delete the helper submodule “migrate_google_sheets_example_setup” entirely – that is just necessary to build the content types required for the example module, but you shouldn’t need it for your migration module.</li>
+  <li>Rename your migrate_google_sheets_example.info.yml as “my_migration.info.yml” and open it up. At the very least, you’ll want to change the name of the migration to “name: my_migration” but you’ll also likely wish to remove the migrate_google_sheets:migrate_google_sheets_example_setup dependency. Mine ended up looking like this:</li>
+</ol>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">my_migration</span>
+<span class="na">type</span><span class="pi">:</span> <span class="s">module</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s">My Migrations</span>
+<span class="na">core</span><span class="pi">:</span> <span class="s">8.x</span>
+<span class="na">package</span><span class="pi">:</span> <span class="s">Migrate</span>
+<span class="na">dependencies</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">migrate_plus</span>
+  <span class="pi">-</span> <span class="s">migrate_tools</span>
+  <span class="pi">-</span> <span class="s">migrate_google_sheets</span>
+  <span class="pi">-</span> <span class="s">redirect</span> 
+</code></pre></div></div>
+
+<p>When completed, your module structure should look like this:</p>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-1.png" alt="Module Structure" /></p>
+
+<p>You are now ready to enable your My Migrations module. (Make sure you disable the migrate_google_sheets_example module first, if you’d previously enabled that!)</p>
+
+<h2 id="step-2-create-your-spreadsheet">Step 2: Create Your Spreadsheet</h2>
+
+<p>Assuming you have the Game and Landing page content types, you could now run the migrations in your “My Migrations” module and it will pull the data from the <a href="https://docs.google.com/spreadsheets/d/1spS1BeUIzxR1KrGK2kKzAoiFZii6vBHyLx_SA0Sb89M/edit">Google Sheet</a>.</p>
+
+<p>But since you don’t have permissions to edit that sheet, you’re going to need to copy the existing sheet and create your own to do any customizations.</p>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-2.png" alt="Spreadsheet" /></p>
+
+<p>When this is done, you’ll get a url like this:</p>
+
+<p>https://docs.google.com/spreadsheets/d/YourLongHashIDHere where YourLongHashIDHere is your feed key.</p>
+
+<p>Now you’ll need to publish your new spreadsheet. This is an option under “File” -&gt; “Publish to the web”</p>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-3.png" alt="Spreadsheet" /></p>
+
+<p>To verify that your migration module will be able to see the Google sheet, try opening an anonymous browser window and visiting the Feed version of the url, whose format is this:</p>
+
+<p>https://spreadsheets.google.com/feeds/list/YourLongHashIDHere/SHEET/public/values?alt=json</p>
+
+<p>If visiting that URL throws out a bunch of json, you’re ready to start migrating!</p>
+
+<p>But of course, your current set of migration files still point to the old feed. In the my_migrations/config/install folder, you’ll need to find all instances of our feed string (1spS1BeUIzxR1KrGK2kKzAoiFZii6vBHyLx_SA0Sb89M) and replace them with your feed string.</p>
+
+<h2 id="step-3-decide-which-migrations-to-keep">Step 3: Decide Which Migrations to Keep</h2>
+
+<p>The Migrate Google Sheets Example module provides one Migration Group (games_example) and 6 Migrations. Depending on your site configuration, some of these might be useful, like the menu_links and the blocks migrations, and some of them will not be so useful (like the node_game migration, likely). This is a good time to trim or modify any migrations that aren’t going to be useful for your Drupal site. That being said, here are a few things that the sample migrations demonstrate:</p>
+
+<ul>
+  <li>Block UUIDs: When you place a block using the Block Layout screen, the block’s UUID is saved in config. If you’re running a migration over and over, your block’s ID will iterate on its own, but the UUID can remain constant if  you add it to the migration. <a href="https://live-mgs-demo.pantheonsite.io/">In the demo site</a>, this allows us to create a persistent CTA block in the header.</li>
+</ul>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-4.png" alt="Module Structure" /></p>
+
+<ul>
+  <li>Menu Links parents: You can specify that a menu link item has a parent from within the current migration. This lets us say /bohnanza and /hanabi are children of /games</li>
+  <li>Page and Game redirects: These sheets demonstrate how to add the redirect from the url of content on an old site to the new home right in the content sheet. Try going to <a href="https://live-mgs-demo.pantheonsite.io/that-fireworks-game">https://live-mgs-demo.pantheonsite.io/that-fireworks-game</a> and see where you end up.</li>
+  <li>Related content as strings or ids: On the Page sheet, we have a reference to the “Related games” for the given page. This is an entity reference which we could fill with a couple of things. We could refer to the ID of the related games, as they are stored in the Games sheet, or we could do what we’ve done here and use the migrate_plus plugin “entity_lookup” to search for the related game node by name. 
+As long as there is a Game node called Bohnanza, we’ll always link to the right one. This is particularly useful with Term references, where the name of the item ideally remains constant.</li>
+</ul>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-5.png" alt="Related Content" /></p>
+
+<ul>
+  <li>Game downloadable file: Games have associated images, which are files hosted externally to the spreadsheet. In order to relate my game content to its image, I need to download the image, get it into the file_managed database table (creating a file entity) and THEN relate that entity to the current node. This is done with the following lines in the “node_games” migration:</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">public_file_directory</span><span class="pi">:</span>
+    <span class="na">plugin</span><span class="pi">:</span> <span class="s">default_value</span>
+    <span class="na">default_value</span><span class="pi">:</span> <span class="s1">'</span><span class="s">public://'</span>
+<span class="err">  </span><span class="na">public_file_uri</span><span class="pi">:</span>
+    <span class="na">plugin</span><span class="pi">:</span> <span class="s">concat</span>
+    <span class="na">delimiter</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+    <span class="na">source</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="err">@</span><span class="s">public_file_directory</span>
+      <span class="pi">-</span> <span class="s">imagefilename</span>
+  <span class="s">field_image/target_id</span><span class="pi">:</span>
+    <span class="pi">-</span>
+      <span class="na">plugin</span><span class="pi">:</span> <span class="s">file_copy</span>
+      <span class="na">source</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">image</span>
+        <span class="pi">-</span> <span class="err">@</span><span class="s">public_file_uri</span>
+    <span class="pi">-</span>
+      <span class="na">plugin</span><span class="pi">:</span> <span class="s">entity_generate</span>
+  <span class="s">field_image/alt</span><span class="pi">:</span> <span class="s">imagealt</span>
+  <span class="s">field_image/title</span><span class="pi">:</span> <span class="s">imagetitle</span>
+</code></pre></div></div>
+
+<p>You can keep as many or as few of the migration files as you’d like. You can also create new ones.</p>
+
+<h2 id="step-4-tell-drupal-about-your-changes">Step 4: Tell Drupal About Your Changes</h2>
+
+<p>Drupal 8 only sees the changes you’ve made to your migration yml files when you first install the module. That means that you need to uninstall and reinstall the module to make new changes show up. <a href="https://github.com/thinkshout/mgs_demo/blob/master/RoboFile.php#L18">ThinkShout has a Robo script that does this</a>, but the same thing can be  done in Drush:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">drush mr --all</span>             <span class="c1"># Rolls back all migrations</span>
+<span class="s">drush pmu my_migration -y</span>  <span class="c1"># Disables my migration module</span>
+<span class="s">drush en my_migration -y</span>   <span class="c1"># Enable my migration module</span>
+<span class="s">drush ms</span>                   <span class="c1"># Displays my current migration status</span>
+</code></pre></div></div>
+
+<p>You can also string these together as one line:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">drush mr --all &amp;&amp; drush pmu my_migration -y &amp;&amp; drush pmu my_migration -y &amp;&amp; drush ms</span>
+</code></pre></div></div>
+
+<h2 id="step-5-run-your-migrations">Step 5: Run your migrations</h2>
+
+<p>This part is simple. To run all migrations, it’s a quick drush command:</p>
+
+<p><code class="highlighter-rouge">drush mi --all</code></p>
+
+<p>If you’d like to find out about all the possible options for the migrate-import command, you can run</p>
+
+<p><code class="highlighter-rouge">drush help mi</code></p>
+
+<p>You can also see your list of migration groups at /admin/structure/migrate, and you can review your migrations by clicking “List Migrations.” The resulting page will give you the same output, more or less, that you get from running a <code class="highlighter-rouge">drush ms</code>.</p>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-6.png" alt="Migrations" /></p>
+
+<p>These pages are helpful to know about, as they give you an easy place to find errors logged during the migration process. However, you can’t currently run a migration from the UI (<a href="https://www.drupal.org/node/2470882">although there is an issue for this</a>).</p>
+
+<h2 id="gotchas">Gotchas</h2>
+
+<p>But before we close, I do want to acknowledge some challenges we’ve seen in this approach.</p>
+
+<p>Sad fact #1: HTML in a spreadsheet is ugly.</p>
+
+<p>Google Spreadsheets don’t let you make your rows smaller than the number of line breaks in a cell. So if you have pretty html with a bunch of line breaks, your row might be too tall to fit on your screen. <a href="http://webapps.stackexchange.com/questions/6953/in-a-google-spreadsheet-how-can-i-force-a-row-to-be-a-certain-height">People have some clever workarounds for this</a>, but so far we’ve not implemented any.</p>
+
+<p>Sad fact #2: Sheet order matters (right now)</p>
+
+<p>Maintaining the order of sheets isn’t top on everyone’s minds as they’re making changes to a spreadsheet, especially when duplicating tabs. Migrate Google Sheets asks for each sheet based on tab order. If I make a copy of the Page tab, the Game tab is now the fourth tab instead of the third tab.</p>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-7.png" alt="Copy of page" /></p>
+
+<p>As it stands now, the module will happily request columns that don’t exist on the third tab and then fail in puzzling ways.</p>
+
+<p>There is currently <a href="https://www.drupal.org/node/2822948">only one issue</a> in the issue queue for the Migrate Google Sheets module, and it’s to fix this.</p>
+
+<p>Sad fact #3: Google sheets must be publicly viewable to work (again, right now)</p>
+
+<p>As the module exists right now, there’s no authentication involved, so any migrated content must be publicly viewable. <a href="https://developers.google.com/google-apps/spreadsheets/authorize">Google authorization is possible with Oauth2</a>, but that is not currently implemented.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Thanks for following along! I hope you found this series helpful. And don’t forget to visit the <a href="https://www.drupal.org/project/migrate_google_sheets">Migrate Google Sheets</a> <a href="https://www.drupal.org/project/issues/migrate_google_sheets?categories=All">issue queue</a> if you find any bugs, have an idea for a feature, or need help!</p>
+]]>
+  </description>
+  <pubDate>Mon, 16 Jan 2017 09:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2017/01/using-google-docs-and-migrate-to-populate-your-drupal-site-part-2/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/01/using-google-docs-and-migrate-to-populate-your-drupal-site-part-2/</guid>
+</item>
+
+    
+      <item>
+  <title>Using Google Docs and Migrate to Populate Your Drupal Site, Part 1</title>
+  <description>
+    <![CDATA[<p>The problem:</p>
+
+<p>Content management systems are extremely powerful, in that they let developers focus on what they do best – build the infrastructure of a site, while allowing content editors to do what they do best – create content.</p>
+
+<p>But this can be a problem when building a new feature. How often have you heard something to this effect:</p>
+
+<p>Developer: “That blank spot right there will be a neat slideshow, once you build it.”</p>
+
+<p>Client: “I thought I was paying you to build it.”</p>
+
+<p>The separation between content and development can lead to missed edge cases, unfounded assumptions, and wasted time for everyone involved.</p>
+
+<p>There are a few workarounds to this problem. We often prototype our sites with dummy content (insert your <a href="http://www.cupcakeipsum.com/">favorite Ipsum</a> here). But this, without fail, leads to some nasty surprises when the client starts entering real content. It’s suddenly much longer (or shorter) than the designer or developer intended. Or maybe the images are far too big. Or they’re all portraits where we expected landscapes. In short, <a href="https://www.smashingmagazine.com/2010/01/lorem-ipsum-killing-designs/">the arguments made against using Lorem Ipsum in designs</a> go doubly once you start actually implementing fields on your Drupal site.</p>
+
+<p>So what about more meaningful content – maybe exported from another source? Modules like <a href="https://www.drupal.org/project/default_content">Default Content</a> allow developers to export certain content for import during the initial site build. But that content has the disadvantage of requiring a developer’s intervention. The more of a nuisance it is to update the content, sync the database, change the fields, etc, the less likely you are to keep the content up-to-date.</p>
+
+<p>At ThinkShout, we want to populate our client’s sites with content as soon as possible.</p>
+
+<p>It doesn’t need to be the final content…</p>
+
+<p>But it should be real content.</p>
+
+<p>It shouldn’t necessarily be exactly what’s on the old site…</p>
+
+<p>But it ought to be close…</p>
+
+<p>In other words, our initial content needs to be easy to change – easy enough that the client can do it. Easy enough that the developers don’t have to take a walk around the block to calm down when they find out the fields are changing (again). Easy.</p>
+
+<h2 id="our-solution-part-1-migrate">Our Solution Part 1: Migrate</h2>
+
+<p>“But isn’t Migration to Drupal hard?” I hear you saying.</p>
+
+<p>It certainly was in Drupal 7, where the Migrate module had a (deserved) reputation for being difficult to use. Migrating from one Drupal site to another, or even from Wordpress to Drupal was relatively smooth, but if you really wanted to do something unusual, like migrate from a less-common CMS to Drupal, you were going to be writing a lot of custom code “glue” to get it all working.</p>
+
+<p>In D8, Migrations have been moved to core. This means a few things. First, it means the core concept of entities is baked right in. In D7 migrations, you often had to hunt around for a plugin, hoping someone had written a Destination Handler for your favorite oddball entities, like <a href="https://www.drupal.org/node/1116408">Redirects</a>, or Addresses, or the dreaded Field Collections. In D8, an entity is an entity.</p>
+
+<p>As such, with a solid knowledge of the <a href="https://www.drupal.org/docs/8/api/migrate-api/migrate-process">helpful migration plugins</a> and two essential contributed modules, <a href="https://www.drupal.org/project/migrate_tools">Migrate Tools</a> and <a href="https://www.drupal.org/project/migrate_plus">Migrate Plus</a>, you can write a robust migration of both content and config entities without writing code more complicated than a few .yml files. If you don’t believe me, I encourage you to <a href="http://slides.com/illepic/d8-migrations">try upgrading your D6 or D7 site to D8</a> on a local or dev environment to see how much of your data is already in there.</p>
+
+<p>That being said, what if I don’t have an existing site? Or what if I want to implement a new content strategy to go along with my fancy new site?</p>
+
+<h2 id="our-solution-part-2-google-sheets">Our Solution Part 2: Google Sheets</h2>
+
+<p>Throw that new content into a Google Doc!</p>
+
+<p>Yes, spreadsheets are old school, but let’s take a minute to appreciate what they give us.</p>
+
+<ul>
+  <li>
+    <p><strong>Spreadsheets are familiar.</strong> When it comes right down to it, spreadsheets are the universal language of business. Putting content into little boxes gives us the ability to move those boxes around, highlight them, and sort them – few UX experiences can get you so much information so quickly.</p>
+  </li>
+  <li>
+    <p><strong>Spreadsheets are dynamic.</strong> It doesn’t take hours of database planning to get information into a spreadsheet. Nor does it take hours of testing to rearrange or remove items from a spreadsheet. It doesn’t demand anything of your data architect other than “organize things by columns and rows.”</p>
+  </li>
+  <li>
+    <p><strong>Spreadsheets are sharable.</strong> We can enable a Google spreadsheet and share it with the client in a few minutes. Clients can start entering their data from day 1 (alright, maybe day 2 or 3). And they can update content as needed – take it out of the sheet, update things, and change them.</p>
+  </li>
+  <li>
+    <p><strong>Google spreadsheets have revisioning built in.</strong> If someone really messes up a Google Doc, you can go back through its history and revert it. It’s a nice compromise between committing all your initial content to source control or just letting it live freely.</p>
+  </li>
+</ul>
+
+<p>Ready to give it a shot?</p>
+
+<p>Stay tuned for Part 2 of this series, where I go into detail about how to set up your own Google sheet Drupal 8 migration.</p>
+
+<p>Can’t wait? Check out the <a href="https://www.drupal.org/project/migrate_google_sheets">Migrate Google Sheets</a> module now! We’ve even set up a <a href="https://live-mgs-demo.pantheonsite.io/">sample site</a> where content comes entirely from <a href="https://docs.google.com/spreadsheets/d/1spS1BeUIzxR1KrGK2kKzAoiFZii6vBHyLx_SA0Sb89M">an external spreadsheet</a> to help you get started.</p>
+]]>
+  </description>
+  <pubDate>Fri, 06 Jan 2017 11:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2017/01/using-google-docs-and-migrate-to-populate-your-drupal-site-part-1/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/01/using-google-docs-and-migrate-to-populate-your-drupal-site-part-1/</guid>
+</item>
+
+    
+      <item>
+  <title>Nonprofit Payment Processing with iATS</title>
+  <description>
+    <![CDATA[<p>We mention <a href="http://home.iatspayments.com/">iATS Payments</a> quite frequently on our blog. Why? Well we <em>did</em> partner with them to create <a href="https://www.drupal.org/project/commerce_iats">Commerce iATS for Drupal</a>. It also happens to be one of our preferred online payment processors, due in no small part to its incredibly reasonable processing fees and the excellent support it offers nonprofits. It made sense for us to invest the time in making iATS Drupal compatible, given the ever-increasing number of nonprofits using Drupal to host their sites and fundraising efforts.</p>
+
+<p>We sat down with Mike Kim, Partner Account Manager at iATS Payments, and asked him to explain in his own words exactly what iATS brings to the table:</p>
+
+<p><strong>What is iATS Payments exactly? What differentiates it from other companies that offer similar services?</strong></p>
+
+<p><strong>Mike:</strong> iATS Payments offers payment processing solutions to over 10,000 nonprofit organizations around the globe.</p>
+
+<p>We take care of all of the backend processes that occur when an online or mobile transaction is initiated by one of your donors. To do so, we provide both the payment gateway (the interface for accepting online donations) and the merchant account (the bank account where funds are held as the transaction is being processed).</p>
+
+<p>We enable nonprofits to <a href="http://home.iatspayments.com/news/credit-card-processing-the-ultimate-guide-for-nonprofits/">accept all major credit cards</a> and <a href="http://home.iatspayments.com/news/direct-debit-payment-processing-what-your-nonprofit-needs-to-know/">ACH (direct debit) payments</a> to provide their supporters with the utmost flexibility when it comes to <a href="https://thinkshout.com/blog/2016/03/rethinking-strategies-for-online-donor-acquisition/">online giving.</a></p>
+
+<p>What sets iATS apart from other payment processors is that we’re one of the only services designed specifically for nonprofits. Since we only work with nonprofit organizations, we have a firm understanding of nonprofits’ needs and the pain points they face when accepting online donations.</p>
+
+<p>Additionally, <a href="https://thinkshout.com/blog/2014/05/commerce-iats-2-0/">we’ve established an extensive network of partners</a>, so our services can easily be integrated with many donor databases, event planning or auction software platforms, and other fundraising software. The ability to integrate simplifies data collection significantly and provides your organization with the most up-to-date and comprehensive financial reports, since all transactions are handled through one service.</p>
+
+<p><strong>Why would someone use iATS Payments instead of PayPal or another similar commercial service?</strong></p>
+
+<p><strong>Mike:</strong> There are many benefits of working with a dedicated payment processor like iATS instead of services like PayPal.</p>
+
+<p>PayPal and similar services are aggregators, meaning that they don’t allow organizations to select their own merchant accounts (the bank account used to hold donations while transactions are being verified). Instead, aggregators require their clients to use the merchant account that they (the aggregator) have set up, which your nonprofit would have to share with all of their other clients.</p>
+
+<p>Using a shared merchant account can put your donations in jeopardy, especially considering that aggregators likely process hundreds, if not thousands, of transactions each day. If anything were to happen to one of their clients, it could put the whole account (and thus, your funds) at risk. And since aggregators have so many clients to attend to, you wouldn’t receive attentive support in ironing out any issues.</p>
+
+<p>Not to mention, since PayPal and similar services aren’t specialized to nonprofits, they’re not as in-tune with your unique needs as we would be at iATS.</p>
+
+<p>Those are only a couple of the benefits of working with us over PayPal, but there are many, many more. If you’re interested in learning more about why your organization should choose a PayPal alternative, <a href="https://www.atpay.com/paypal-alternatives-nonprofits/">check out this article from @Pay.</a></p>
+
+<p><strong>A lot of nonprofits utilize nontechnical staff and volunteers. How does your company support them with what is very technical stuff?</strong></p>
+
+<p><strong>Mike:</strong> Our services were designed so that organizations don’t have to deal with any of the technical aspects of payment processing. We take care of all of the backend parts of the transaction for you so that your organization can spend more time focusing on what’s truly meaningful: connecting with supporters and enacting the good work that you do.</p>
+
+<p>That being said, if your organization has any questions or ever runs into any technical difficulties, we’re known for our excellent customer support. We offer live customer care, so your organization can quickly get in touch and we can solve issues with minimal turnaround time.</p>
+
+<p>We also offer user-friendly tutorial videos and product guides that nonprofit staffs and volunteers can use to gain a better understanding of our services.</p>
+
+<p><strong>What about security? This is a big issue for nonprofits. What methods do you have in place to instill trust in the security of your service?</strong></p>
+
+<p><strong>Mike:</strong> iATS takes data security very seriously. We are a level 1 PCI-compliant payment processor, meaning that our services adhere to the strictest security standards as outlined by the Payment Card Industry.</p>
+
+<p>Our payment processing solutions include many fraud prevention features that your organization can turn off and on dynamically as you see fit. Here are just a few that we offer:</p>
+
+<ul>
+  <li>
+    <p><strong>Address verification system (AVS)</strong>. An AVS checks the billing address that the donor has submitted on a webform against the billing address on file with their bank account to help you spot potentially fraudulent transactions.</p>
+  </li>
+  <li>
+    <p><strong>Card verification code requirement (CVV)</strong>. Turning on this feature requires the donor to enter the CVV number (the three digit number on the back of their credit or debit card) when making a transaction. Requiring another form of payment method identification can also deter fraud.</p>
+  </li>
+  <li>
+    <p><strong>Minimum transaction limit</strong>. Fraudsters often test out stolen credit cards on donation forms by entering small, random amounts (think: $1.32). With our services, you can set a minimum donation amount so that your donation form is less likely to become a testing ground for fraudulent transactions.</p>
+  </li>
+</ul>
+
+<p>Essentially, our services allow your organization to customize the level of security to your unique needs, providing both you and your donors with more peace of mind. At the same time, our security measures are non-invasive, keeping the donation process quick and convenient.</p>
+
+<p><strong>How can a nonprofit run by volunteers and non-technical staff offload the responsibilities that go with virtual transactions?</strong></p>
+
+<p><strong>Mike:</strong> There can be a lot of tricky regulations to maneuver around when it comes to online transactions. The best way to avoid having to take on these crucial responsibilities is to work with a dedicated payment processor like iATS.</p>
+
+<p>Our services are designed to be PCI-compliant and regulate the virtual transaction process so that organizations never have to bear the burden of these responsibilities (and the potential consequences that could arise as a result of failing to adhere to security standards and other regulations).</p>
+
+<p><strong>What platforms and implementations of your services do you support?</strong></p>
+
+<p><strong>Mike:</strong> There are three ways that nonprofits can take advantage of iATS’ services. Here’s a quick rundown of what we offer:</p>
+
+<ul>
+  <li>
+    <p><strong>Brickwork</strong>. Brickwork is a payment processing application offered on the <a href="https://thinkshout.com/blog/2015/04/salesforce-new-features/">Salesforce</a> App Exchange. It’s compatible with both the Nonprofit Success Pack and Enterprise editions of Salesforce so that your organization can accept both credit cards and direct debit payments through your Salesforce CRM and Auctions for Salesforce platforms.</p>
+  </li>
+  <li>
+    <p><strong>Aura</strong>. With Aura, your organization can use the iATS customer portal to create customizable donation forms for multiple campaigns. Then, you can seamlessly embed your forms into <a href="https://thinkshout.com/blog/2014/09/nonprofit-website-benchmarks/">your website</a> by placing a user-friendly Aura code on your site.</p>
+  </li>
+  <li>
+    <p><strong>Partnerships</strong>. iATS also partners with over 130 <a href="https://blog.fundly.com/nonprofit-crm-complete-guide/">donor database</a>, event management, and fundraising software vendors. Chances are that our services can be integrated with the other nonprofit software platforms your organization is already using.</p>
+  </li>
+</ul>
+
+<p>By providing multiple solutions, we can cater to nonprofits of all shapes and sizes, from those just starting out with online fundraising to those who already use an established suite of software to run their efforts.</p>
+
+<p><strong>How are you keeping up with the development and future of those platforms?</strong></p>
+
+<p><strong>Mike:</strong> At iATS, we’re always looking toward improvement. We actively seek out feedback from clients, partners, and other stakeholders to help us identify areas where our products or services could be adjusted to make the virtual transaction process easier for all parties involved.</p>
+
+<p>For example, one of the features we recently rolled out in the newest version of our Brickwork platform is card swipe reader support, so organizations can easily swipe credit cards on the go (which, as you know, is crucial now that donors are carrying cash less and less). We also added campaign and record type IDs so that transactions are recorded more accurately in the CRM.</p>
+
+<p><strong>How can a nonprofit get started with iATS if they decide today that they want to give it a try?</strong></p>
+
+<p><strong>Mike:</strong> If your organization would like to get started with iATS, you can get in contact with us by visiting the <a href="http://home.iatspayments.com/contact">contact page on our website</a>. Simply fill out the quick form, and then we’ll be in touch to evaluate your needs and guide you through the sales process.</p>
+
+<p>Consequently, you could also contact our sales department:</p>
+
+<p>By phone: 1.866.300.4287 (#2)
+By email: iats@iatspayments.com</p>
+
+<p>We hope to hear from you soon!</p>
+]]>
+  </description>
+  <pubDate>Fri, 16 Dec 2016 10:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2016/12/payment-processing-with-iats/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/12/payment-processing-with-iats/</guid>
+</item>
+
+    
+      <item>
+  <title>Demystifying Rendered Content in Drupal 8 Twig Files</title>
+  <description>
+    <![CDATA[<p>Have you ever stared at your computer screen with a deer-in-headlights expression on your face thinking “I have no idea where to even start with this…”? That was me about a month ago when I was asked to help theme a Drupal 8 project for the very first time. Getting started theming in Drupal 8, still being in a fairly new iteration with a programming style differing from Drupal 7, was both an exciting and daunting task. It was exciting in the sense that I heard good things from those who’ve already started theming in D8, and daunting because there’d been a lot of changes between D7 and D8.</p>
+
+<p>One of the differences between Drupal 7 and 8 is template files; PHPTemplate (.tpl.php) files were replaced with Twig (.html.twig) files. <a href="http://twig.sensiolabs.org/">Twig</a> is a robust and elegant template engine for PHP. Once I started working with Twig, I instantly loved it. I found it to be lightweight, fairly quick to pick up, and very readable. Not only that, but I had what felt like ultimate control to the markup, including wrapping elements and rendering exactly the ouput I needed. Often with Drupal 7, wrapping elements in a <code class="highlighter-rouge">&lt;div&gt;</code> requires assistance from a back-end developer.</p>
+
+<p>With this newfound enthusiasm, I set out to write the best twig code ever! In order to find the output I needed, I used the Twig function <a href="http://twig.sensiolabs.org/doc/functions/dump.html">dump()</a>. This function “dumps” a variable’s information right on the screen. This proved highly useful until I realized I needed to dig deeper into the arrays and objects contained within the variable. There was only so much guess work I could do here before getting epically frustrated, seemingly wasting valuable time looking for an image file’s path.</p>
+
+<p>Though there are a handful of debugging methods to choose from, I had the best luck getting what I needed by using <a href="https://dev.acquia.com/blog/debugging-drupal-8/debugging-twig-templates-in-drupal-8-with-phpstorm-and-xdebug/25/08/2016/16586">PHPStorm to debug Twig files</a>. That’s right, front-end friends, PHPStorm isn’t just for back-end PHP-coding devs. It can be a great tool for front-end programmers as well!</p>
+
+<p>After following the steps listed in <a href="https://dev.acquia.com/blog/debugging-drupal-8/debugging-twig-templates-in-drupal-8-with-phpstorm-and-xdebug/25/08/2016/16586">Lubomir Culen’s post about debugging Twig templates</a>, I began to look for templates in the following path <code class="highlighter-rouge">sites/default/files/php</code>. From my understanding, opening a template folder gains access to the current template version the project is using, hence the long hash.</p>
+
+<p><img src="/assets/images/blog/content-rendering-1.png" alt="Content rendering 1" /></p>
+
+<p>If a change is made to the template, an additional hash file is created and a new breakpoint will need to be set. If at any point the hash template files get overwhelming, clearing the cache (running <code class="highlighter-rouge">drush cr all</code>) will reset the PHP folder and the template files, reducing the hash files to one per template folder.</p>
+
+<p>First off, I needed to acclimate myself to translating PHPStorm syntax into Twig. For example, copying a variable name in PHPStorm produces a syntax like this: <code class="highlighter-rouge">$context[‘page’][‘#title’]-&gt;arguments[‘@name’]</code>. That gets translated into the twig file like so: <code class="highlighter-rouge">page[‘#title’].arguments[‘@name’]</code>. Here’s what my PHPStorm screen looked like while working on this solution:</p>
+
+<p><img src="/assets/images/blog/content-rendering-2.png" alt="Content rendering 2" /></p>
+
+<p>Some patterns and tricks I found helpful:</p>
+
+<ul>
+  <li>Ignoring <code class="highlighter-rouge">$context</code> and starting with the main content variable.</li>
+  <li>Strip array syntax, i.e. <code class="highlighter-rouge">[‘page’]</code> = <code class="highlighter-rouge">page</code>.</li>
+  <li>If arrays exist next to each other, separate them with periods. Ex. <code class="highlighter-rouge">[‘page’][‘content’]</code> = <code class="highlighter-rouge">page.content</code>.</li>
+  <li>If an array has a #, @, or other symbol associated, keep its integrity. No period is needed here. Ex. <code class="highlighter-rouge">[‘page’][‘#title’]</code> = <code class="highlighter-rouge">page[‘#title’]</code>, and <code class="highlighter-rouge">arguments[‘@name’]</code> stays the same.</li>
+  <li>If an arrow exists, treat the method (what comes after the -&gt;) in the same manner as arrays. Ex. <code class="highlighter-rouge">[‘#title’]-&gt;arguments</code> = <code class="highlighter-rouge">[‘#title’].arguments</code></li>
+  <li>If you’re having trouble rendering the desired output, try adding <code class="highlighter-rouge">.value</code> to the end of the render code and see if that does the trick.</li>
+  <li>Use <code class="highlighter-rouge">dump()</code> simultaneously with PHPStorm’s suggested variable path.</li>
+  <li>Refer to the <a href="http://twig.sensiolabs.org/documentation">Twig documentation</a> for other handy built-in features.</li>
+</ul>
+
+<p>Up until the moment I got PHPStorm doing the heavy lifting, my team and I were relying soley on the <code class="highlighter-rouge">dump()</code> Twig function. We were halfway through the project when I discovered a value was no longer present. The disappearance was due to a template’s reliance on a value being rendered via an array placement, i.e. <code class="highlighter-rouge">content.tile.3['#markup']</code>, the ‘3’ referring to the 4th placement in the ‘tile’ array. To alleviate potential confusion, ‘tile’ happened to be the custom field group where the <code class="highlighter-rouge">field_to_render</code> existed, and the <code class="highlighter-rouge">field_to_render</code> was the 4th field in the list of fields. When a field was moved within the ‘tile’ field group, the code broke. Once I had access to the phpstorm debugger, I was able to see a better way to render this element, i.e. <code class="highlighter-rouge">content.field_to_render</code>. It suddenly dawned on me that our project needed some tidying, so I rolled up my sleeves and got to work.</p>
+
+<p>These are the strategies I established during my clean-up process:</p>
+
+<ul>
+  <li>Create the shortest render code possible with the closest placement to the main content variable. This will be the most stable. My array placement example mentioned previously is a good example of this. The same value can be present and rendered in numerous ways.</li>
+  <li>If rendering a field, use this pattern: <code class="highlighter-rouge">content.field_to_render</code>. This will render the field object, inheriting any backend logic that’s been applied to that field existing in the view_mode you are theming.</li>
+  <li>If you prefer having just the markup or integer value, try adding a <code class="highlighter-rouge">.value</code> to the end. Examples: <code class="highlighter-rouge">content[‘#node’].nid.value</code> will provide just the node id, and <code class="highlighter-rouge">content.node_title</code> will render the title object whereas <code class="highlighter-rouge">content[‘#node’].title.value</code> will render the title as a string.</li>
+  <li>The first element in an array might be the most stable. For example, we often use the media module which can add complexity to a media item’s data structure. In order use a node’s image as a background for a <code class="highlighter-rouge">&lt;div&gt;</code>, this is the best approach we found: <code class="highlighter-rouge">&lt;div class=”banner-image” style="background-image: url({{file_url(content.field_banner_image.0['#item'].entity.uri.value)}})"&gt;</code>.</li>
+</ul>
+
+<p>Any change can be tough to navigate, but it’s often well worth the effort. My experience theming in Drupal 8 thus far has been lovely, and fairly intuitive. I find it offers front-end developers more authority over the markup than its predecessor, and makes me excited for the future of theming in Drupal 8. If you were at all daunted by the thought of theming in Drupal 8, I hope this post helps you in your future twig debugging endeavors!</p>
+
+<p><em>Note:</em> <a href="https://www.drupal.org/project/devel">Devel</a> and <a href="http://raveren.github.io/kint/">Kint</a> are a couple additional tools available for debugging Twig variables, and I mention those in case others find them useful. More information on how to set those tools up for debugging Twig files (and more!) can be found in this <a href="https://sqndr.github.io/d8-theming-guide/twig/twig-debug.html">Drupal 8 Theming Guide</a> and on Amber Matz’s <a href="https://drupalize.me/blog/201405/lets-debug-twig-drupal-8">Let’s Debug in Drupal 8!</a> post.</p>
+
+<p>If you’re new to Drupal 8 theming, I would start with the resources Amber specifies in her “Editor’s notes”, and <a href="https://sqndr.github.io/d8-theming-guide/">sqndr’s D8 theming docs</a>. Debugging twig files is an intermediate topic.</p>
+
+<p>If you have any personal experience with Drupal 8 theming, or insight you’d like to share, I’d love to hear about it in the comments section!</p>
+]]>
+  </description>
+  <pubDate>Wed, 09 Nov 2016 09:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2016/11/demystifying-content-rendering-in-drupal-8-twig-files/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/11/demystifying-content-rendering-in-drupal-8-twig-files/</guid>
+</item>
+
+    
+      <item>
+  <title>Content Modeling in Drupal 8</title>
+  <description>
+    <![CDATA[<p><em>Originally published Sept. 25, 2016 on <a href="http://www.gregboggs.com/drupal-8-content-modeling/">GregBoggs.com.</a></em></p>
+
+<p>In many modern frameworks, data modeling is done by building out database tables. In Drupal, we use a web-based interface to build our models. This interface makes building the database accessible for people with no database experience. However, this easy access can lead to overly complex content models because it’s so easy to build out advanced structures with a few hours of clicking. It’s surprising how often Drupal developers are expected to be content modeling experts. Rachel Lovinger wrote this great <a href="http://alistapart.com/article/content-modelling-a-master-skill">overview of content modeling</a> for the rest of us who aren’t experts yet.</p>
+
+<h2 id="data-modeling-goal">Data Modeling Goal</h2>
+<p>Our goal when modeling content in Drupal is to build out the structure that will become our editor interface and HTML output. We also need to create a model that supports the functionality needed in the website. While accomplishing this, we want to reduce the complexity of our models as much as possible.</p>
+
+<h2 id="getting-started">Getting Started</h2>
+<p>One of the first things to do when building a Drupal site is build content types. So, before you start a site build, start with either a content model or a detail page wireframe. This <a href="https://docs.google.com/spreadsheets/d/15htLLWLguhwiuTLg_nndQNpgWVdUMy6UaR_d1q-v6iw/edit#gid=0">spreadsheet from Palantir</a> will help you. The home page design may look amazing, but it’s unhelpful for building out content types. Get the detail pages before you start building.</p>
+
+<h2 id="why-reduce-complexity">Why Reduce Complexity?</h2>
+<p>The more content types you create, the more effort it will take to produce a site. Furthermore, the more types you have, the more time it will take to maintain the site in the future. If you have 15 content types and need to make a site-wide change, you need to edit 15 different pages.</p>
+
+<p>The more pages you need to edit, the more mistakes you will make in choosing labels, settings, and formatters. Lastly, content can’t easily be copied from one type to another, which makes moving content around your site harder when there are many content types. So, the first thing you’ll want to do with your content model is collapse your types into as few types as feasible. How many is that?</p>
+
+<h2 id="5-content-types-is-enough">5 Content Types is Enough</h2>
+<p>Drupal has many built in entities like files, taxonomy, users, nodes, comments, and config. So, the vast majority of sites don’t need any more than 5 content types. Instead of adding a new content type for every design, look for ways to reuse existing types by adding fields and applying layouts to those fields.</p>
+
+<h2 id="break-up-the-edit-form">Break Up the Edit Form</h2>
+<p>Drupal 8 allows you to have different form displays for a single content type. With either <a href="https://www.drupal.org/project/form_mode_control">Form Mode Control</a> or <a href="https://www.drupal.org/project/form_mode_manager">Form Mode Manager</a>, you can create different edit experiences for the same content type without overloading the admin interface.</p>
+
+<p>By reducing the complexity of the content model, we decrease maintenance cost, improve the consistency of the website, and simplify the editing experience. Now that you’ve got some content modeling basics, look for opportunities to reduce and reuse content types in your Drupal projects. Content editors will thank you.</p>
+]]>
+  </description>
+  <pubDate>Fri, 14 Oct 2016 11:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2016/10/content-modeling-in-drupal-8/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/10/content-modeling-in-drupal-8/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

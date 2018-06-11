@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/pantheon/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Drupal 8 File-based Configuration on Pantheon</title>
+  <description>
+    <![CDATA[<p>As Drupal 7 developers, we know how risky it is to edit production code and configuration live. However, we often let clients do it because using Features is hard. Drupal 8 has solved a lot of this headache with file-based configuration management, which allows <a href="http://www.gregboggs.com/drupal-configuration-best-practices/">file-based workflows</a> that gracefully avoid editing production directly. This article will show you how to use Drupal 8 configuration management and Pantheon’s amazing workflow tools to easily give your clients the ability to make configuration changes. We’ll show you how to seamlessly integrate those changes into your normal development workflow, so that you - and your clients - will win at Drupal!</p>
+
+<h2 id="benefits-of-file-based-config">Benefits of File-based Config</h2>
+
+<p>Storing active configuration directly in files has many benefits. The main benefit is that clients no longer have any reason to ever edit production configuration directly on production. Further, using file-based configuration removes the extra steps required to edit configuration in the database. These extra steps are confusing, can fail with fatal errors, and are made unnecessary by not storing configuration in the database.</p>
+
+<h2 id="how-to-enable-file-based-config">How to Enable File-based Config</h2>
+
+<p>The <a href="https://www.drupal.org/node/2416555">documentation for enabling this</a> isn’t too difficult. But, Pantheon recommends <a href="https://pantheon.io/docs/services-yml/">not storing the services.yml</a> file in version control. So, we’ll create a new services YAML file and include that along with the active configuration settings in settings.php. Before you start, export your current configuration to the sites/default/config folder and deploy that to Pantheon. Next, enable file storage by adding the following config.services.yml to your sites folder and using the following settings.php.</p>
+
+<script src="https://gist.github.com/Greg-Boggs/cfa837b4efddf268916ba30ac07d9a8d.js"></script>
+
+<p>Once deployed to Pantheon, the site will now be running in file-based configuration storage. To test this, go ahead and make a setting change in your local environment. You should see Drupal immediately write the change to site/default/config. Deploying this edit to Pantheon should make the Pantheon site immediately update to reflect the new configuration change. You just won at Drupal!</p>
+
+<h2 id="configuration-workflow-on-pantheon">Configuration Workflow on Pantheon</h2>
+
+<p>Now create a multidev for the client to use. Once the multidev is created, put the Pantheon account into SFTP mode because SFTP mode allows Drupal to edit the configuration files directory. So, now so the client can edit the configuration in Drupal and save their work with the Pantheon dashboard.</p>
+
+<p><img src="/assets/images/blog/file-config1.png" alt="file-config1" /><span class="caption"><i class="fa fa-caret-up"></i>Changes ready to commit</span></p>
+
+<p><img src="/assets/images/blog/file-config2.png" alt="file-config2" /><span class="caption"><i class="fa fa-caret-up"></i>Changes committed</span></p>
+
+<p><img src="/assets/images/blog/file-config3.png" alt="file-config3" /><span class="caption"><i class="fa fa-caret-up"></i>Merge to development</span></p>
+
+<p><img src="/assets/images/blog/file-config4.png" alt="file-config4" /><span class="caption"><i class="fa fa-caret-up"></i>Configuration deployed to development</span></p>
+
+<p>When the client has completed their work, they can deploy it using the Pantheon deployment tools. You can merge in a client’s work into your own easily because the client is now using version control. Once the configuration is merged to Dev, the standard Pantheon workflow makes it easy to deploy these changes to production.</p>
+
+<h2 id="dont-edit-production-directly">Don’t Edit Production Directly</h2>
+<p>If production is in SFTP mode, clients can still edit production live. To prevent this, either keep production in Git mode, or use the <a href="https://www.drupal.org/project/config_readonly">Config Readonly</a> module to lock production configuration.</p>
+
+<p>Drupal gives users the power to build and edit a website, and users can make dramatic changes to websites with just a few clicks in forms. With Pantheon’s tools and Drupal 8, we now have the ability to use those wonderful tools in a safe environment. The tools combined allow us to  bring clients into the workflow and manage deployments as a part of the team because Drupal 8 allows us to build robust, collaborative workflows like never before.</p>
+
+]]>
+  </description>
+  <pubDate>Tue, 03 May 2016 11:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2016/05/drupal-8-file-based-configuration-on-pantheon/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/05/drupal-8-file-based-configuration-on-pantheon/</guid>
+</item>
+
+    
+      <item>
+  <title>Six Scary Words and Un-hacking Drupal</title>
+  <description>
+    <![CDATA[<p>“I think our site’s been hacked.”</p>
+
+<p>These six scary words strike fear in the hearts of most developers. Even Drupal devs hear it now and then, though the security measures built into the codebase make it extremely robust. For attacks that target Drupal, exploiting known security holes are the easiest to implement on a large scale. This is why it’s important to keep your code up-to-date, and to host your Drupal sites with a company that specializes in Drupal, as well as to have a process in place so you can quickly update your sites should an exploit be discovered.</p>
+
+<p>However, even the most diligent Drupal developers could be forgiven for allowing their site to fall prey to the recent (mid-October 2014) database exploit ‘<a href="https://www.drupal.org/SA-CORE-2014-005">SA-CORE-2014-005 - Drupal core - SQL injection</a>’, better known as <strong><em>Drupageddon</em></strong>. Automated scripts were widely hacking sites a mere <em>seven hours</em> after the exploit was announced. There were also disturbing details after the announcement - some people were logging into their sites to find them already upgraded. It turns out that some of the hackers were upgrading the sites to keep additional hackers out!</p>
+
+<p>The good news for ThinkShout was the fact that we host most of our sites on <a href="https://www.getpantheon.com/">Pantheon</a>, a company that hosts ‘10s of 1000s of Drupal sites’, and thus had <a href="https://www.getpantheon.com/blog/what-we-are-seeing-drupal-sa-2014-005">advance notice</a> of the security announcement. Since security is an integral part of our Support &amp; Success practices, we were able to patch all of our client sites while Pantheon was monitoring and blocking the ongoing attacks.</p>
+
+<p>About a month later though, we were contacted by a former client whom we had not heard from in a few years. They were concerned about the vulnerability of their Drupal installation, which had not been upgraded or patched since we installed it in late 2012. It was not on Pantheon, but rather a generic shared hosting site, and they were very budget-constrained.</p>
+
+<p>We were given access to a cPanel login and asked to patch, review and (if needed), repair the site, or provide a detailed repair estimate if there was going to be substantial cost. At this point, it’s worth reviewing the official <a href="https://www.drupal.org/PSA-2014-003">Drupal checklist</a> for repairing a hacked site (paraphrased for brevity):</p>
+
+<ol>
+  <li>
+    <p>Take the website offline</p>
+  </li>
+  <li>
+    <p>Notify the server’s administrator (so they can look for backdoors)</p>
+  </li>
+  <li>
+    <p>Remove all the website’s files and database from the server</p>
+  </li>
+  <li>
+    <p>Restore all files and database from backups from before 15 October 2014</p>
+  </li>
+  <li>
+    <p>Update or patch the restored Drupal core code</p>
+  </li>
+  <li>
+    <p>Put the restored and patched/updated website back online</p>
+  </li>
+  <li>
+    <p>Manually redo all site changes since the date of the backup</p>
+  </li>
+  <li>
+    <p>Audit anything merged from the compromised website, such as custom code, configuration, files or other artifacts, to confirm they are correct and have not been tampered with.</p>
+  </li>
+</ol>
+
+<p>Logging into cPanel for the affected client site, we ran into problem #1: no backups! Even if there had been a backup system in place, it would have been close, since most hosts do not keep backups older than 30 days.</p>
+
+<p>What about version control? If I could get access to a Git repo, we should be able to recreate the file system locally from a master branch, and use that to compare against the live site. After setting up SSH keys on the server and importing to a local machine, we were able to log  into the shared hosting server. Alas, no version control. Worse, the file permissions in the web root meant we couldn’t install Git.</p>
+
+<p>At this point, it felt like we were running out of options, so we took a step back and reviewed our goals for the site:</p>
+
+<ol>
+  <li>
+    <p>Upgrade Drupal core.</p>
+  </li>
+  <li>
+    <p>Check if the site had, in fact, been hacked.</p>
+  </li>
+  <li>
+    <p>If hacked, determine the scope and remediation steps.</p>
+  </li>
+</ol>
+
+<p>Working from here, we went back into cPanel and created a backup of the site and its db. We then downloaded them and installed them on a local development machine. Drupal core had not been updated, so it had not been subject to one of the more sophisticated ‘upgrade’ hacks. We updated core, verified that the site still performed as expected, then did the same for the live site.</p>
+
+<p>We then ran the Drush <a href="https://www.drupal.org/project/drupalgeddon">drupalgeddon-test</a> on our local machine to determine if any obvious hacks had taken place. Success! It reported that it had been hacked, due to the presence of two suspicious users. Logging into the site showed a user with no email, and a <a href="mailto:test@test.com">test@test.com</a> account that had last logged in two weeks ago. We were lucky here - the site only had 10 registered users, so it was easy to spot outliers.</p>
+
+<p>At this point, we began a timestamp-based file-by-file check to ensure that no scripts had been inserted. This showed that only files in /sites/default/files had been altered. A manual review of these files showed only the usual stuff: images, videos, and PDFs. We then reviewed the site db, in particular, the menu_router table, looking for attempts to insert code or write to the server - these were also negative. Based on this, and the hosting site’s good practices regarding file permissions (the thing that kept us from installing Git), we felt confident that there was no malicious scripting inserted in the site’s codebase.</p>
+
+<p>At this point, the scope became fairly clear - the site had been ‘bot hacked’ once or twice, based on there being two suspicious users. At some point after the hack, someone, perhaps another bot, logged in using one of the fake accounts and had a look around the site, and either found nothing of value, or no easy way of compromising the site further (or some mix of both). Again, the site was lucky. With no e-commerce, minimal users, and a well-secured file system, it was a very low-value site for a hacker.</p>
+
+<p>Remediation was fairy simple - update core, remove the bad users, and advise the client to set up automated backups on their hosting account. We were able to do so in the eight hours allotted, despite the lack of backups of version control, and the client suffered no data loss or downtime. It was a very positive outcome, but the client was <em>very</em> lucky. If they had been a higher-value site with stored sensitive data, they would have been in a world of hurt.</p>
+
+<p>The lesson from all of this is to think proactively - don’t just take the best approach in preventing a hack (updated code, secure hosting), but also have systems and procedures in place (automatic backups, source control) in the event a hack does occur. By doing so, you’ll not only make a hack less likely, you’ll feel <em>slightly</em> less dread if someone utters those six scary words.</p>
+]]>
+  </description>
+  <pubDate>Mon, 22 Dec 2014 11:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2014/12/six-scary-words/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/12/six-scary-words/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

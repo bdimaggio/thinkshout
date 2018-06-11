@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/browsersync/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Syncing Up with Drupal 8 and Browsersync</title>
+  <description>
+    <![CDATA[<p>Drupal 8 theming can be irksome with cache-rebuilding and browser refreshing, especially with responsive design. Wouldn’t it be great if you could just open your site on three different devices and have them update live as you edit your theme?</p>
+
+<p>Let me introduce you to <a href="https://browsersync.io/">Browsersync</a>. Browsersync is a module for Node.js that allows you to sync your changes across browsers and devices.</p>
+
+<h2 id="preparing-drupal">Preparing Drupal</h2>
+<p>This article assumes you have a working install of Drupal 8 and a theme in place. If you don’t, check out Joe Komenda’s post, <a href="https://thinkshout.com/blog/2015/11/up-and-theming-with-drupal-8/">Up and Theming with Drupal 8</a>. This will get you going.</p>
+
+<p>Once you have D8 installed, you’ll need to turn off caching. Rename <code class="highlighter-rouge">sites/example.settings.local.php</code> to <code class="highlighter-rouge">sites/example.settings.local.php</code>.  You can rename the files with editor of choice, if you prefer, or run the following command from your site root :</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cp </span>sites/example.settings.local.php sites/default/settings.local.php
+</code></pre></div></div>
+
+<p>To be sure your changes are included, we’ll need to enable Drupal’s Null Cache Service. Uncomment the following line <code class="highlighter-rouge">sites/default/settings.php</code>:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$settings</span><span class="p">[</span><span class="s1">'container_yamls'</span><span class="p">][]</span> <span class="o">=</span> <span class="nx">DRUPAL_ROOT</span> <span class="o">.</span> <span class="s1">'/sites/development.services.yml'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Next, let’s disable the render cache and dynamic page cache. Uncomment the following in the same file.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$settings</span><span class="p">[</span><span class="s1">'cache'</span><span class="p">][</span><span class="s1">'bins'</span><span class="p">][</span><span class="s1">'render'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'cache.backend.null'</span><span class="p">;</span>
+<span class="nv">$settings</span><span class="p">[</span><span class="s1">'cache'</span><span class="p">][</span><span class="s1">'bins'</span><span class="p">][</span><span class="s1">'dynamic_page_cache'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'cache.backend.null'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Finally, add the following to <code class="highlighter-rouge">sites/development.service.yml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">parameters</span><span class="pi">:</span>
+  <span class="s">twig.config</span><span class="pi">:</span>
+    <span class="na">debug </span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">auto_reload</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">cache</span><span class="pi">:</span> <span class="no">false</span>
+</code></pre></div></div>
+
+<p>Run <code class="highlighter-rouge">drush cr</code> from the root of your site to rebuild the cache.</p>
+
+<h2 id="installing-browsersync">Installing Browsersync</h2>
+<p>Browsersync is installed using Node Package Manager (NPM). If you already have Node.js, then you already have NPM. If you don’t have it installed, head over to <a href="https://nodejs.org/en/">nodejs.org</a>.</p>
+
+<p>Once Node.js and NPM are set up, install Browsersync with <code class="highlighter-rouge">npm install -g browser-sync</code>.  This will install it globally so that you don’t have to reinstall it every time you spin up a new project. Test that your installation is working by running <code class="highlighter-rouge">browser-sync -h</code> in your terminal. That should show all the usage, commands, and options for the plugin.</p>
+
+<h2 id="connecting-browsersync-to-drupal">Connecting Browsersync to Drupal</h2>
+<p>Let’s make the magic happen by connecting Drupal and Browsersync. Go to the root of your Drupal theme folder. Run <code class="highlighter-rouge">browser-sync start</code>. Browsersync will generate a script tag for you to place just before the closing body tag. Browser sync also has  UI. You’ll see a URL for your localhost and one for sharing the connection to other devices on the same network.</p>
+
+<p><img src="https://raw.githubusercontent.com/heypaxton/Posts/master/img/browsersync-start.png" alt="Browsersync start" /></p>
+
+<p>Let’s add the script tag to your <code class="highlighter-rouge">html.html.twig</code> file just above closing <code class="highlighter-rouge">&lt;/body&gt;</code> tag. This will add a connection to your Drupal environment and Browsersync.</p>
+
+<script src="https://gist.github.com/levelos/0187b29071c3a56c3579ea2d95f42296.js"></script>
+
+<p>Since Drupal will most likely be running on a local server configured by your LAMP stack, you’ll need to run Browsersync with the proxy option. Run <code class="highlighter-rouge">browser-sync start --proxy &lt;your site localhost&gt;</code> in your terminal. For example, if your site is running at http://mysite.dev then use <code class="highlighter-rouge">browswersync start --proxy mysite.dev</code> Your browser will open automatically to http://localhost:3000. Now you should see “Connected to BrowswerSync” in the top right of your browser.</p>
+
+<h2 id="watching-for-changes">Watching for Changes</h2>
+<p>Although Browswersync and Drupal are connected, we need to watch for changes. Let’s run Browsersync with the the <code class="highlighter-rouge">--files</code> option. We’ll watch changes to our CSS file and have it automatically update the browser with our changes. In your terminal run:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>browswer-sync start <span class="nt">--proxy</span> mysite.dev <span class="nt">--files</span> <span class="s2">"css/*.css"</span> <span class="nt">--no-inject-changes</span>
+</code></pre></div></div>
+
+<p>This command tells Browswersync to start and watch for changes to files with the <code class="highlighter-rouge">.css</code> extension in the <code class="highlighter-rouge">css</code> directory. The <code class="highlighter-rouge">--no-inject-changes</code> option tells Browsersync to refresh the browser window instead of just injecting a new version of the stylesheet. Injecting the changes won’t work because of the way Drupal imports our stylesheets. We need to reload to get the new version.</p>
+
+<p>Try opening your site in Chrome, Firefox, and even on your mobile device browser. Once you make a change, you should see all of them automatically update.</p>
+
+<h2 id="where-to-go-from-here">Where to Go from Here</h2>
+<p>Browsersync is a great tool for fast development and syncing your changes across multiple devices without having to manually reload each one. I recommend integrating Browswersync with your task manager of choice. Here are some resources to help you integrate with Grunt or Gulp:</p>
+
+<ul>
+  <li><a href="https://browsersync.io/docs/grunt/">https://browsersync.io/docs/grunt/</a></li>
+  <li><a href="https://browsersync.io/docs/gulp/">https://browsersync.io/docs/gulp/</a></li>
+</ul>
+]]>
+  </description>
+  <pubDate>Wed, 27 Apr 2016 09:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2016/04/syncing-up-with-drupal8-and-browsersync/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/04/syncing-up-with-drupal8-and-browsersync/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

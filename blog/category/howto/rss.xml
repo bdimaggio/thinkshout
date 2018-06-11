@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/howto/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Don't let arrays make you loopy!</title>
+  <description>
+    <![CDATA[<p>As a Drupal developer, I spend 90% of my time mucking with PHP arrays. And as much as I love a foreach control structure, PHP provides some nice functions that can get you what you need from an array without having to loop through a huge Drupal Node array.</p>
+
+<p>For example, say I wanted to filter some nodes to see if they were referencing a specific Vocabulary term: The <a href="http://php.net/manual/en/function.array-filter.php">array_filter</a> function can be used to filter out empty values from an array, but it can also be used with a callback function to filter based on whatever specification you want:</p>
+
+<p>Here’s the simple “Filter out empty values” behavior:</p>
+
+<?php
+    $array = array(
+      1 => 'Apple',
+      2 => NULL,
+      3 => 1,
+    );
+    $filtered_array = array_filter($array);
+    print_r($filtered_array);
+    // Returns: Array ( [1] => Apple [3] => 1 )
+?>
+
+<p>But what if we wanted to filter for anything with a specific value?</p>
+
+<?php
+    function apple_callback($item) {
+      if($item == 'Apple') {
+        return TRUE;
+      }
+      return FALSE;
+    }
+    $callback_filtered_array = array_filter($array, 'apple_callback');
+    print_r($callback_filtered_array);
+    // Returns: Array ( [1] => Apple )
+?>
+
+<h3 id="dynamically-filtering-with-a-closure">Dynamically filtering with a closure</h3>
+
+<p>As of <a href="http://www.php.net/manual/en/functions.anonymous.php">PHP 5.3</a>, the callback function can also be a “closure”, or anonymous function. This allows for dynamically setting the value for the filter, which is awesome:</p>
+
+<?php
+    function filter_closure($filter_value) {
+        return function($item) use($filter_value) {
+        return $item == $filter_value;
+      };
+    }
+
+    $dynamic_variable = 'Apple';
+    $anonymous_filter = filter_closure($dynamic_variable);
+    $array_filtered_closure = array_filter($array, $anonymous_filter);
+    print_r($array_filtered_closure);
+    // Returns: Array ( [1] => Apple )
+?>
+]]>
+  </description>
+  <pubDate>Fri, 07 Jun 2013 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2013/06/brandon/dont-let-arrays-make-you-loopy/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/06/brandon/dont-let-arrays-make-you-loopy/</guid>
+</item>
+
+    
+      <item>
+  <title>Zen and the Art of Farmyard Maintenance</title>
+  <description>
+    <![CDATA[<p>Like many developers, we get pretty psyched about building stuff. Sometimes it takes us a little longer to get excited about describing the stuff we built… but <a href="http://redhencrm.com/">RedHen</a> has been getting enough attention that it was time to do some communicating, especially considering we recently released <a href="(http://drupal.org/project/redhen">version 7.x-1.2</a> of the module.</p>
+
+<p>Today we published a significant, if not quite complete, chunk of RedHen documentation to Drupal.org <a href="http://drupal.org/node/1989564">here</a>. That documentation can now grow with RedHen!</p>
+
+<p>But I know what you’re thinking: “Documentation? Am I having some horrible 2005 fever dream? Where’s the video??”</p>
+
+<p>So, ok: I made a little instructional video about getting started with RedHen. It’s my first one, so critique gently: it’s surprisingly difficult to converse with an imaginary audience.</p>
+
+<p>This video covers installing RedHen and configuring a Contact Type, and a few other introductory RedHen tricks. Note that the video gives instructions for creating a RedHen link in the Admin toolbar, but you can also just move the pre-built RedHen menu that lives under Structure into the Toolbar to get the full drop-down fun.</p>
+
+<iframe width="700" height="525" src="//www.youtube.com/embed/hivg0CsxG7c" frameborder="0" allowfullscreen=""></iframe>
+
+<p>Setting up RedHen: Creating your first Contact Type&lt;/a&gt; from <a href="http://thinkshout.com/team/gabe/">Gabe Carleton-Barnes</a> on <a href="http://YouTube.com">YouTube</a>.&lt;/p&gt;</p>
+]]>
+  </description>
+  <pubDate>Thu, 09 May 2013 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2013/05/gabe/zen-and-art-farmyard-maintenance/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/05/gabe/zen-and-art-farmyard-maintenance/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

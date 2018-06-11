@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/mailchimp-ecommerce/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Upgrading MailChimp eCommerce and an Introduction to Drupal 8's Event System</title>
+  <description>
+    <![CDATA[<p>If you’ve ever built a Drupal 7 module, then you’ll be familiar with hooks: functions that allow modules to react to things happening in other modules. The hook system is functionally fine but, with so many hooks to implement, .module files often become bloated and difficult to manage.</p>
+
+<p>Drupal 8’s event system does a lot to reduce the clutter of hooks. Now, instead of using a hook, you can create an event subscriber that will execute your code every time a module triggers an event. This is similar to the hook system only in the effect; the execution is very different.</p>
+
+<p>Porting our popular MailChimp eCommerce module to Drupal 8 gave me the perfect opportunity learn about the event system. I use the word “opportunity” to disguise the fact that I was forced to learn how events work because it was impossible to port the module without doing so.</p>
+
+<p>The MailChimp eCommerce module depends on the Commerce module, naturally, and in Drupal 8, the Commerce module makes heavy use of events.</p>
+
+<p>First, let’s look at an event. I’m using an example ripped straight from Commerce.</p>
+
+<p>The Commerce submodule, Commerce Cart, contains a class named <code class="highlighter-rouge">CartEntityAddEvent</code>. You can <a href="http://cgit.drupalcode.org/commerce/tree/modules/cart/src/Event/CartEntityAddEvent.php?h=8.x-2.x">find it here</a>.</p>
+
+<p>The class itself is simple; it’s designed to store a few values - the cart, the item being added to the cart, and the quantity of that item. The class also has a few getter functions for convenience.</p>
+
+<p>Most importantly, this class represents an event that’s triggered every time a user adds an item to their shopping cart. This is done using just two lines of code:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$event</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CartEntityAddEvent</span><span class="p">(</span><span class="nv">$cart</span><span class="p">,</span> <span class="nv">$purchased_entity</span><span class="p">,</span> <span class="nv">$quantity</span><span class="p">,</span> <span class="nv">$saved_order_item</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">eventDispatcher</span><span class="o">-&gt;</span><span class="na">dispatch</span><span class="p">(</span><span class="nx">CartEvents</span><span class="o">::</span><span class="na">CART_ENTITY_ADD</span><span class="p">,</span> <span class="nv">$event</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The event class is created with all the relevant values, then “dispatched” to any event subscribers configured to pay attention to it. When dispatched, the event is identified by a constant - <code class="highlighter-rouge">CartEvents::CART_ENTITY_ADD</code>. This constant is used by event subscribers, which we’ll take a look at now.</p>
+
+<p>This is a cut-down version of an event subscriber used by our <a href="https://www.drupal.org/project/mailchimp_ecommerce">MailChimp eCommerce module</a>.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sd">/**
+ * Event Subscriber for Commerce Carts.
+ */</span>
+<span class="k">class</span> <span class="nc">CartEventSubscriber</span> <span class="k">implements</span> <span class="nx">EventSubscriberInterface</span> <span class="p">{</span>
+
+  <span class="sd">/**
+   * The Cart Handler.
+   *
+   * @var \Drupal\mailchimp_ecommerce\CartHandler
+   */</span>
+  <span class="k">private</span> <span class="nv">$cart_handler</span><span class="p">;</span>
+
+  <span class="sd">/**
+   * The Order Handler.
+   *
+   * @var \Drupal\mailchimp_ecommerce\OrderHandler
+   */</span>
+  <span class="k">private</span> <span class="nv">$order_handler</span><span class="p">;</span>
+
+  <span class="sd">/**
+   * CartEventSubscriber constructor.
+   *
+   * @param \Drupal\mailchimp_ecommerce\CartHandler $cart_handler
+   *   The Cart Handler.
+   * @param \Drupal\mailchimp_ecommerce\OrderHandler $order_handler
+   *   The Order Handler.
+   */</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">CartHandler</span> <span class="nv">$cart_handler</span><span class="p">,</span> <span class="nx">OrderHandler</span> <span class="nv">$order_handler</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cart_handler</span> <span class="o">=</span> <span class="nv">$cart_handler</span><span class="p">;</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">order_handler</span> <span class="o">=</span> <span class="nv">$order_handler</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="sd">/**
+   * Respond to event fired after adding a cart item.
+   */</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">cartAdd</span><span class="p">(</span><span class="nx">CartEntityAddEvent</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="sd">/** @var \Drupal\commerce_order\Entity\Order $order */</span>
+    <span class="nv">$order</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getCart</span><span class="p">();</span>
+
+    <span class="sd">/** @var \Drupal\commerce_order\Entity\OrderItem $order_item */</span>
+    <span class="nv">$order_item</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getOrderItem</span><span class="p">();</span>
+
+    <span class="nv">$product</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">order_handler</span><span class="o">-&gt;</span><span class="na">buildProduct</span><span class="p">(</span><span class="nv">$order_item</span><span class="p">);</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cart_handler</span><span class="o">-&gt;</span><span class="na">addCartLine</span><span class="p">(</span><span class="nv">$order</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">(),</span> <span class="nv">$order_item</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">(),</span> <span class="nv">$product</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="sd">/**
+   * {@inheritdoc}
+   */</span>
+  <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getSubscribedEvents</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$events</span><span class="p">[</span><span class="nx">CartEvents</span><span class="o">::</span><span class="na">CART_ENTITY_ADD</span><span class="p">][]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'cartAdd'</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="nv">$events</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/thinkshout/mailchimp_ecommerce/blob/8.x-1.x/modules/mailchimp_ecommerce_commerce/src/EventSubscriber/CartEventSubscriber.php">Here’s the complete version, if you’re interested</a>.</p>
+
+<p>So what does it do, exactly?</p>
+
+<p>Let’s start with the <code class="highlighter-rouge">getSubscribedEvents()</code> function. This is where we define which events we want to subscribe to, and assign each event a processing function. Here we are subscribing to just one event, the “cart entity add” event, and assigning the <code class="highlighter-rouge">cartAdd()</code> function as a processor.</p>
+
+<p>Note that the <code class="highlighter-rouge">cartAdd()</code> function takes one argument, an instance of the <code class="highlighter-rouge">CartEntityAddEvent</code> class. That’s the same class we looked at earlier - the event class defined in the Commerce Cart module. This is where our module reacts to that event being triggered.</p>
+
+<p>The <code class="highlighter-rouge">cartAdd()</code> function itself extracts the order and item information from the event and uses an instance of the <code class="highlighter-rouge">CartHandler</code> class, provided by the MailChimp eCommerce module, to send updated cart information to MailChimp’s API.</p>
+
+<p>One final thing:</p>
+
+<p>Event subscribers won’t work unless they are defined as a service. Services are defined in a module’s *.services.yml file, which you can <a href="https://www.drupal.org/docs/8/api/services-and-dependency-injection/structure-of-a-service-file">learn more about here</a>.</p>
+
+<p>The service definition for the <code class="highlighter-rouge">CartEventSubscriber</code> looks like this:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">mailchimp_ecommerce_commerce.cart_event_subscriber</span><span class="pi">:</span>
+    <span class="na">class</span><span class="pi">:</span> <span class="s1">'</span><span class="s">\Drupal\mailchimp_ecommerce_commerce\EventSubscriber\CartEventSubscriber'</span>
+    <span class="na">arguments</span><span class="pi">:</span> <span class="pi">[</span><span class="s1">'</span><span class="s">@mailchimp_ecommerce.cart_handler'</span><span class="pi">,</span> <span class="s1">'</span><span class="s">@mailchimp_ecommerce.order_handler'</span><span class="pi">]</span>
+    <span class="na">tags</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="pi">{</span> <span class="nv">name</span><span class="pi">:</span> <span class="nv">event_subscriber</span> <span class="pi">}</span>
+</code></pre></div></div>
+
+<p>We identify the class using its namespace, inject the “cart_handler” and “order_handler” services, then, finally, tag the service as an “event_subscriber”. <a href="https://github.com/thinkshout/mailchimp_ecommerce/blob/8.x-1.x/modules/mailchimp_ecommerce_commerce/mailchimp_ecommerce_commerce.services.yml">Check out the full file here</a>. Just for completeness, the two injected services are defined in <a href="https://github.com/thinkshout/mailchimp_ecommerce/blob/8.x-1.x/mailchimp_ecommerce.services.yml">here</a>.</p>
+
+<p>I’m a big fan of how Drupal 8 has shifted towards a more object-oriented way of doing things. It’s more organized, promotes consistency between modules, and, best of all, finally signals an end to massive .module files.</p>
+
+]]>
+  </description>
+  <pubDate>Thu, 06 Jul 2017 12:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/07/upgrading-mailchimp-ecommerce-and-and-introduction-to-drupal-8s-event-system/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/07/upgrading-mailchimp-ecommerce-and-and-introduction-to-drupal-8s-event-system/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

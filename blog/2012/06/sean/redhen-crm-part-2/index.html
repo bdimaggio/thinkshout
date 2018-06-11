@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>RedHen CRM Part 2: Welcome To The Hen House | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="See how the framework could be leveraged to build an association management system (AMS).">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal Give, Drupal Planet, RedHen, nonprofit tech">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">06.29.2012</span>
+  
+  </p>
+
+  <h1 class="post-title">RedHen CRM Part 2: Welcome To The Hen House</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/sean2.jpg">
+    
+      <strong>Sean Larkin</strong>
+    <br>
+      Director of Sales, Founder
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <h4 id="note-for-a-more-current-review-of-redhen-features-this-video-tutorial-is-available">Note: for a more current review of RedHen features, this <a href="https://thinkshout.com/blog/2015/08/intro-to-redhen-video/">Video Tutorial</a> is available.</h4>
+
+<p>In <a href="/blog/2012/06/sean/redhen-crm-part-1">Part 1</a> of this article we explored the major benefits and broad concepts of <a href="http://drupal.org/project/redhen">RedHen CRM</a>. In this article, we will take a detailed look at RedHen’s current feature set - as demonstrated in our <a href="http://drupal.org/project/redhen_demo">sample RedHen installation profile</a>.</p>
+
+<p>In this RedHen CRM demonstration, we will show how the framework could be leveraged to build an association management system (AMS) supporting a fictional organization: <em>The National Association of Pet Shelters</em>.</p>
+
+<p>In this example, we have created two different types (or in Drupal speak “entity bundles”) of individual contact records - one for shelter staff and another for volunteers, each with its own unique set of fields. Similarly, we have created two different types of organization records - one for the shelters themselves and another for foundations that support the work of these organizations. We can then leverage RedHen to show the connections between these contact and organization records, as well as to manage both individual and organizational memberships within our fictional association.</p>
+
+<h2 id="working-with-contacts">Working with Contacts</h2>
+
+<h4 id="configuring-contact-entity-bundles">Configuring Contact Entity Bundles</h4>
+
+<p>RedHen CRM defines a custom entity type for “Contacts.” As mentioned above, RedHen CRM allows site administrators to create their own “contact bundles” - each with its own unique sets of fields.</p>
+
+<p>The “RedHen Contact Email” field is a new field type defined by RedHen CRM to provide additional options for managing the unique email communication preferences of your RedHen contacts. The “Availability” field provides an example of how we can extend contact records to include additional, customized field data about our contacts.</p>
+
+<h4 id="filtering-contacts">Filtering Contacts</h4>
+
+<p>Once we’ve configured our content entity bundles, we can view and search our contacts across various fields and properties:.</p>
+
+<p>When we change our “contact type” filter (or, in Drupal speak, when we filter on “contact entity bundle”), RedHen CRM’s contact listing automatically pulls in the fields available as filter options for the selected bundle.</p>
+
+<h4 id="connecting-content-entities-with-drupal-user-accounts">Connecting Content Entities with Drupal User Accounts</h4>
+
+<p>Optionally, you can choose to associate contact entities with Drupal user accounts on your site. You can either choose to connect the contact entity with an existing user account, or, you can create a new Drupal user account for the contact entity from within the RedHen interface.</p>
+
+<p>Within the next month, we will be extending this feature to allow Drupal users to edit their own content information via this linkage. But for now, this feature is primarily leveraged for managing access control and Drupal user roles via our <strong>membership management tools</strong>, which we describe shortly.</p>
+
+<h2 id="working-with-organizations">Working with Organizations</h2>
+
+<p>Organizations work similarly to Contacts. RedHen defines an entity type for organizations - which can be extended by a site administrator as custom organization entity bundles.</p>
+
+<h2 id="connecting-contacts-and-organizations">Connecting Contacts and Organizations</h2>
+
+<p>RedHen CRM leverages the <a href="http://drupal.org/project/relation">Relation module</a> to allow for different types of relationships (or <em>connections</em> in RedHen CRM speak) between contacts - as well as between contacts and organizations.</p>
+
+<p>As with all the other entity types/bundles that are part of RedHen CRM, these relationships are <em>fieldable</em>. This means that you can add fields to your relationships to track metadata about the connections between RedHen entities.</p>
+
+<h4 id="managing-primary-contacts-for-your-organizations">Managing Primary Contacts for Your Organizations</h4>
+
+<p>When managing connections between contacts and organizations, site administrators can also determine the primary contact for an organization entity. <em>See the “Primary Contact” link on the right-hand side of the screen.</em></p>
+
+<p>The primary contact is a <em>dynamic property</em> for organization entities, and has been exposed to Views and Rules.</p>
+
+<h2 id="managing-memberships">Managing Memberships</h2>
+
+<p>Our clients’ reoccurring need for a flexible and customizable membership management solution was one of our primary motivations in developing RedHen. Selling Drupal user roles with Drupal Commerce, or managing the expirations of Drupal user roles with contributed modules such as <a href="http://drupal.org/project/role_expire">Role Expire</a> is simply not a robust enough solution for large membership organizations with complex business rules around membership-based services.</p>
+
+<h4 id="individual-vs-organizational-memberships">Individual vs. Organizational Memberships</h4>
+
+<p>With this in mind, RedHen CRM allows you to create different types of memberships, which can be applied to both content entities organization entities. These membership types are, of course, entity bundles, so again - they are fieldable.</p>
+
+<h4 id="assigning-drupal-user-roles-via-memberships">Assigning Drupal User Roles Via Memberships</h4>
+
+<p>As mentioned above, Drupal user accounts can be associated with RedHen contacts. Once these connections are made, the assignment of an active membership can be leveraged to provide a user account with a Drupal user role.</p>
+
+<p>When a RedHen membership that is associated with a Drupal user role is assigned to a RedHen Organization - this role is applied to all Drupal user accounts associated with contacts related to that RedHen organization.</p>
+
+<p>Let me repeat this point, because it is truly one of the most unique features of RedHen CRM:</p>
+
+<blockquote>
+  <p>With RedHen CRM, you can manage Drupal user roles via organizational memberships.</p>
+</blockquote>
+
+<h4 id="role-based-membership-benefits">Role-based Membership Benefits</h4>
+
+<p>It goes without saying that Drupal’s role-based permission and access control system is one of its great strengths. Combining the Drupal user role framework with CRM functionality represents on of the most important value propositions of RedHen CRM and, more generally speaking, native Drupal CRM tools.</p>
+
+<p>Leveraging RedHen CRM with Drupal Commerce, you could use these membership management tools to provide discounts on e-commerce transactions. Leveraging a wide variety of contributed access control modules, could you could also build premium content libraries. The “Association Management Solution” (AMS) opportunities are endless.</p>
+
+<h2 id="capturing-notes-on-contacts-and-organizations">Capturing Notes on Contacts and Organizations</h2>
+
+<p>Notes can be added to both contact and organization entities. As an entity bundle, notes can be extended with fields.</p>
+
+<p>In the case of our RedHen Demo CRM, we have extended the notes bundle with a taxonomy reference field for the “type” of note that is being recorded. When viewing note history, these notes can then be filtered by this type taxonomy.</p>
+
+<h2 id="engagement-scoring">Engagement Scoring</h2>
+
+<p>In the notes screen, you’ll also notice a dropdown option for <strong><em>Engagement Score</em></strong>.</p>
+
+<p><em>Engagement scoring</em> (often referred to as “engagement analytics” or “engagement metrics”) is a relatively new concept in measuring the interactions of web site visitors. Web analytics packages such as Google Analytics generally focus on measuring <em>quantitative</em> analytics - or the number of page visits and clicks. Engagement scoring focuses on measuring the <em>quality</em> of these interactions by weighting the value of different types of interactions between site visitors and your website. For example, sharing an article from your website to a social network might be worth “5 engagement points”, commenting on a blog post might be worth “10 points.”</p>
+
+<p>The RedHen Engagement module provides an API and framework for tracking this type of engagement. The module also integrates with the “RedHen Notes” module, so that offline interactions with RedHen Contacts can also be tracked and scored. To learn more about engagement scoring in RedHen, check out this <a href="http://thinkshout.com/blog/2012/07/sean/engagement-scoring">blog post</a>.</p>
+
+<h2 id="tracking-event-registrations">Tracking Event Registrations</h2>
+
+<p>RedHen CRM integrates closely with the <a href="http://drupal.org/project/registration">Entity Registrations</a> module - which our ThinkShout geeks also maintain. The Entity Registrations module allows you to manage event registrations as entities.</p>
+
+<p>When enabled, the RedHen Registration module adds an additional tab to the contact entity screen called “Registrations.” There, both authenticated and anonymous event registrations will be listed for each contact, based upon a matching email address.</p>
+
+<p><em>Note: In the future, we plan to extend this module such that new registrations associated with email addresses <strong>not</strong> found in RedHen CRM will trigger the creation of new contact entities.</em></p>
+
+<h2 id="redhen-organizations-as-groups">RedHen Organizations as “Groups”</h2>
+
+<p>The RedHen Organization Groups module allows you to <em>groupify</em> organization entity bundles.</p>
+
+<p>This module provides functionality similar to <a href="http://drupal.org/project/og">Organic Groups</a>. A groupified organization can have node content associated with it. Optionally, this content can be made private, and therefore only viewable to Drupal user accounts associated with RedHen contact entities which are in turn associated with a specific RedHen organization entity.</p>
+
+<p>A node can be added to a groupified RedHen organization, then, when looking at a RedHen organization entity, you can see all associated group content.</p>
+
+<h4 id="so-why-not-just-use-organic-groups">So, why not just use Organic Groups?</h4>
+
+<p>The description above begs the question: Why not just use OG? In developing this feature, we considered leveraging Organic Groups. However, the relationships between Drupal user records, contacts and organizations were too complex to cleanly build this feature on top of both RedHen and Organic Groups. That said, much of the architecture of this module is based upon design patterns from Organic Groups.</p>
+
+<h2 id="whats-next">What’s Next?</h2>
+
+<p>ThinkShout will be launching our first client sites on RedHen CRM this summer. We are currently working towards a stable 1.0 release of RedHen - while simultaneously exploring new features and tools.</p>
+
+<p>We are very interested in continuing to explore:</p>
+
+<ul>
+  <li>Deeper integration with Drupal Commerce.</li>
+  <li>CRM data visualization - most notably geolocation and mapping of constituent data, as well as Google Charts visualization of engagement scoring data.</li>
+  <li>Bulk import tools, as well as Migrate 2.x integration.</li>
+  <li>Apache Solr integration.</li>
+  <li>The development of better HTML5 and responsive themes for RedHen CRM interfaces.</li>
+</ul>
+
+<p>We hope that the community will continue to work with us to make RedHen CRM a leading association management solution. We’ll see you in the issue queues and at a Drupal Camp near you!</p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal Give.' href='/blog/category/drupal-give/'>Drupal Give</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged RedHen.' href='/blog/category/redhen/'>RedHen</a> <a class='tag' rel='tag category' title='View all posts tagged nonprofit tech.' href='/blog/category/nonprofit-tech/'>nonprofit tech</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2012/06/sean/redhen-crm-part-2/';
+    this.page.identifier = '/blog/2012/06/sean/redhen-crm-part-2-welcome-to-the-hen-house';
+    this.page.title = 'RedHen CRM Part 2: Welcome To The Hen House'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2012/06/sean/redhen-crm-part-1/"><span class="fa fa-caret-left"></span> <span>RedHen CRM Part 1, Keeping all your eggs in one Drupal basket</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2012/07/sean/engagement-scoring/"><span>Engagement Scoring - A Case for Native Drupal CRM</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

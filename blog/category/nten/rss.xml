@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/nten/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Join ThinkShout for Drupal Day and the NTC</title>
+  <description>
+    <![CDATA[<p><a href="http://www.nten.org/">NTEN’s</a> <a href="http://myntc.nten.org/home">Nonprofit Technology Conference</a> is nearly upon us! We’re gearing up to ship out to Austin, and we’re putting the finishing touches on <a href="http://myntc.nten.org/eventdetails/precon/drupal">Drupal Day</a>. This is one of our favorite events of the year, as it’s when we get to meet up with many of our nonprofit partners, learn about new organizations and their causes, and share our expertise with the folks that need it to further their missions. We’re especially excited about the Drupal Day we’ve been coordinating for the last several months.</p>
+
+<p>What’s Drupal Day? Well, the name pretty much gives it away, but specifically, it’s a full-day, pre-conference event that we’ve been organizing for the past few years. It’s full of Drupal trainings, discussions, and nonprofit technology staff sharing their successes with their community. Breakout session topics vary from content strategy, accessibility, fundraising, CRMs, design, and more, all led by Drupal experts. The day concludes with our keynote presentation on the future of Drupal and Drupal 8 by <a href="https://pantheon.io/team/zack-rosen">Zack Rosen</a>, CEO of Pantheon. All Drupal Day attendees and speakers are invited to join us for a sponsored Happy Hour at the Brass House that evening. Want to stay in the loop on Twitter? Look for the hashtag #15NTCDrupal. Of course, Drupal Day wouldn’t be possible without the help of its co-sponsors, <a href="http://atendesigngroup.com/">Aten Design</a>, <a href="http://forumone.com/">Forum One</a>, <a href="http://www.gortonstudios.com/">Gorton Studios</a>, <a href="https://messageagency.com/">Message Agency</a>, and <a href="https://www.zivtech.com/">Zivtech</a>.</p>
+
+<p>That’s not all we’re up to, though. This year, you can find the ThinkShout team at <strong>booth #301</strong> in the Science Fair on Wednesday and Thursday. Our friends at <a href="http://mailchimp.com/?pid=GAW&amp;source=website&amp;gclid=CIOxieHf-8MCFVFhfgodvBAA_Q">MailChimp</a> couldn’t attend the NTC this year, but they made sure you wouldn’t go home empty handed. Stop by our booth for your NTC MailChimp swag, and come talk to us about <a href="http://thinkshout.com/blog/category/mailchimp/">how we’re integrating Drupal with MailChimp</a>. We’ve also got a few ThinkShout goodies we’ll be handing out, so be sure to stop by. We’re happy to discuss just about anything under the sun.</p>
+
+<p>This has been a big year so far for ThinkShout’s open source contributions. We’re particularly thrilled about our recent release of <a href="http://thinkshout.com/blog/2015/01/reimagined-sprints-redhen-raiser/">RedHen Raiser</a>, the first peer-to-peer fundraising tool built on Drupal and RedHen. This is something we’re very excited to share with the nonprofit world, and we’d love to talk to you more about it at our booth.</p>
+
+<p>You’ll also be able to see some of the ThinkShout team in action as part of the NTC programming. On Thursday, March 5th, catch Lev Tsypin on the panel <a href="http://sched.co/1z4A">“Sync All the Things! How Progressive Nerds are Changing the Future of Political Data and Integration”</a> at 3:30 p.m. On Friday, March 6th at 10:30 a.m., Brett Meyer will be co-leading the session <a href="http://sched.co/1z4N">“Content Strategy 101”</a> with Katie Carrus from the Humane Society Legislative Fund. Brett will also be co-leading the session <a href="http://sched.co/2ECm">“Managing a Tech Project (Or Two or Three)” </a>with Lisa Goddard from the Capital Area Food Bank of Texas, Melissa Barber and Brian Pickett from North Peak Solutions on March 5th at 1:30 p.m.</p>
+
+<p>Don’t forget to follow us on Twitter @ThinkShout for our real time updates. Feel free to tweet us questions, or just say hi! (You can totally do that in person, too.) We’ll see you in Austin!</p>
+]]>
+  </description>
+  <pubDate>Wed, 25 Feb 2015 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2015/02/thinksout-ntc-2015/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/02/thinksout-ntc-2015/</guid>
+</item>
+
+    
+      <item>
+  <title>Reflections on Drupal Day: Creating a One-Size-Fits-All Day for Nonprofit Professionals and Technologists</title>
+  <description>
+    <![CDATA[<p><em>Originally published March 26 on <a href="http://www.nten.org/articles/2014/reflections-on-drupal-day-creating-a-one-size-fits-all-day-for-nonprofit-professionals-and-technologists">NTEN.org</a></em></p>
+
+<p>Learning a new technology can be incredibly intimidating, especially if you’re going at it alone. There’s great comfort in knowing that you’re not the only one with those particular questions or having this recurring, frustrating problem. Stranding yourself on a technological island is so unnecessary, especially given how accessible learning resources are these days. This is the beauty of the modern technology communities.</p>
+
+<p>Specifically, the Drupal community. It’s everywhere, it’s friendly, and it’s full of helpful people excited to share their expertise and bring new talent into the fold. I spent the last four months preparing for Drupal Day, a Drupal-centric, day-long workshop that ThinkShout coordinates as part of NTEN’s Nonprofit Technology Conference (NTC).  I didn’t quite understand the scope of this community until those months finally culminated in the big day.</p>
+
+<p>The process was an interesting one for me especially, as it was not only my very first Drupal Day but also my first experience at the NTC. How do you create a one-size-fits-all day for a large group of people, both nonprofit professionals and technologists, with a wide range of technical competency levels?</p>
+
+<p>It may not be a perfect fit, but so long as there are options, your attendees remain in control and are able to choose the sessions relevant to their interests. With the collaborative efforts of our sponsors and nonprofit feedback, we were able to put together a day jam-packed with content.</p>
+
+<p>My experience with Drupal Day left me with a few key takeaways for those looking to dive into Drupal:</p>
+
+<p><strong>1. The Drupal community really is awesome.</strong></p>
+
+<p><a href="http://drupal.org">Drupal.org</a> is only the beginning, but it’s a fantastic beginning full of answers. There are forums, an archive of resources, and even a live chat if that’s more your speed. There’s a wealth of information available to you online, all of it curated by the people that know and love Drupal best. This community isn’t purely digital, either. If you live in a large city, chances are there’s a Drupal meetup near you. If you’d prefer to meet face to face, you can, whether it’s through a local event, full-blown <a href="https://austin2014.drupal.org/">DrupalCon</a>, or nonprofit summits at <a href="http://www.nyccamp.org/">NYC Camp</a>, and <a href="http://2014.badcamp.net/">BADCamp</a>.  You can also access paid training on <a href="http://buildamodule.com/">BuildAModule</a>, but the best part is that you can meet Chris Shattuck, the BuildAModule instructor, in person at a ton of these events. You’re going to start recognizing people quickly, and it’s going to be more helpful than you might think.</p>
+
+<p><strong>2. Learn from others’ stories and share your own.</strong></p>
+
+<p>One of the draws of Drupal Day is that it’s a great opportunity to hear from nonprofit decision makers about their experiences with Drupal. This year, every single one of our speakers represented a nonprofit with a successful Drupal story and each came from different technological backgrounds. We chose speakers that we believed had great, impactful stories that Drupal Day attendees could learn from. This year, Erin Harrington from <a href="http://www.salmonproject.org/">The Salmon Project</a>, Jess Snyder from <a href="http://www.weta.org/">WETA</a>, Porter Mason from <a href="http://www.unicefusa.org/">UNICEF</a>, Milo Sybrant from the <a href="http://www.rescue.org/">International Rescue Committee</a>, and Tony Kopetchny from <a href="http://www.rescue.org/">Pew Charitable Trusts</a> joined us to share their experiences. You can learn more about their projects by clicking through to their websites.</p>
+
+<p><strong>3. Every question is a good question.</strong></p>
+
+<p>There really aren’t any dumb questions, especially when it comes to Drupal. The community embraces newcomers and fosters a great environment for learning. No matter your technical competency level, they’ve got an answer for you. This is why we structured Drupal Day 2014 the way we did: nonprofit speakers in the morning talking about their personal accounts of their organization’s experience with Drupal, followed by an afternoon of twelve breakout sessions covering a variety of topics, where guests could move from classroom to classroom easily. We collaborated with our developer sponsors and nonprofit attendees to determine what information was most relevant to nonprofits. We crafted a day around the topics they wanted to learn about. Everything from Google Analytics to content creation had a place at Drupal Day.</p>
+
+<p>The Drupal community is one that needs to be experienced to truly understand its value. It’s a wonderful stage for nonprofits, no matter where their organization is at technology-wise. Drupal Day is a prime example of that, but there are many more events on the horizon, which I highly recommend if you’re on the fence about diving into Drupal. Of course, I also encourage everyone to come out to Drupal Day at the next NTC and see just what exactly it feels like to be part of this fantastic community.</p>
+]]>
+  </description>
+  <pubDate>Thu, 03 Apr 2014 11:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/04/one-size-fits-all-at-Drupal-Day/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/04/one-size-fits-all-at-Drupal-Day/</guid>
+</item>
+
+    
+      <item>
+  <title>ThinkShout welcomes Brett Meyer to the team!</title>
+  <description>
+    <![CDATA[<p>ThinkShout is very proud to announce that <a href="https://twitter.com/brett_meyer">Brett Meyer</a> has joined our team as our new Technical Project Manager!</p>
+
+<p>Brett has a long history of making significant contributions to the nonprofit tech community, and for the last six years Brett was the Director of Communications at <a href="http://www.nten.org/">NTEN</a>.  Brett brings a wealth of knowledge surrounding nonprofit tech goals and strategies, and we are thrilled to have him on our team working closely with our nonprofit clients.</p>
+
+<p>As our technical project manager, Brett’s primary objective is to help guide nonprofits we work with from discovery through launch, and to help us focus on our mission of developing useful and sustainable open source tools that help our clients achieve their goals.</p>
+
+<p>Our excitement for bringing Brett on board only continues to grow as we get closer and closer to NTEN’s annual <a href="http://www.nten.org/ntc">Nonprofit Technology Conference</a> in Minneapolis, MN from April 11-13. For the second year in a row, we’ll be organizing the <a href="http://www.nten.org/ntc/precon/drupal">NTC Drupal Day</a>, so be sure to stop by Drupal Day and say “Hi” to Brett!</p>
+
+<p>We’re glad to have you on the team, Brett!</p>
+]]>
+  </description>
+  <pubDate>Wed, 13 Mar 2013 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2013/03/sean/thinkshout-welcomes-brett-meyer-team/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/03/sean/thinkshout-welcomes-brett-meyer-team/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

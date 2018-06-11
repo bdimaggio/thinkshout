@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/google-docs/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Using Google Docs and Migrate to Populate Your Drupal Site, Part 2</title>
+  <description>
+    <![CDATA[<p>In <a href="https://thinkshout.com/blog/2017/01/using-google-docs-and-migrate-to-populate-your-drupal-site-part-1/">Part 1</a>, I talked about using Google Docs + Migrate to populate your site. Now we’re going to do that with the <a href="https://www.drupal.org/project/migrate_google_sheets">Migrate Google Sheets</a> module. Below, I’ll provide the steps to get your own migration up and running, but if you prefer to experiment with a working example, <a href="https://live-mgs-demo.pantheonsite.io/">check out a demo of the Migrate Google Sheets Example module</a> (provided as a submodule within Migrate Google Sheets). <a href="https://docs.google.com/spreadsheets/d/1spS1BeUIzxR1KrGK2kKzAoiFZii6vBHyLx_SA0Sb89M">All content on that site was built using this example Google Sheet</a>.</p>
+
+<h2 id="setup-install-the-module">Setup: Install the Module</h2>
+
+<p>If you’ve already got a Drupal 8 site up and running, <a href="https://www.drupal.org/docs/8/extending-drupal-8/installing-contributed-modules-find-import-enable-configure-drupal-8">you can install the module</a> in any of the normal ways. I’m assuming here that you have access to the site using <a href="http://www.drush.org/en/master/">Drush</a>, as it’s not possible to run migrations through anything but the command line at this time. At ThinkShout, we use composer to build our site distributions, and have <a href="https://github.com/thinkshout/mgs_demo">a repo for building the demo site here</a>.</p>
+
+<h2 id="step-1-creating-your-custom-migration-module">Step 1: Creating Your Custom Migration Module</h2>
+
+<p>The easiest way to get started on your own set of migrations is to copy the migrate_google_sheets_example submodule and rename it something of your own. Let’s say we rename it “my_migration.” Follow these steps:</p>
+
+<ol>
+  <li>Rename your .install file to “my_migration.install”, and change the function migrate_google_sheets_example_uninstall to “my_migration_uninstall”.</li>
+  <li>Delete the helper submodule “migrate_google_sheets_example_setup” entirely – that is just necessary to build the content types required for the example module, but you shouldn’t need it for your migration module.</li>
+  <li>Rename your migrate_google_sheets_example.info.yml as “my_migration.info.yml” and open it up. At the very least, you’ll want to change the name of the migration to “name: my_migration” but you’ll also likely wish to remove the migrate_google_sheets:migrate_google_sheets_example_setup dependency. Mine ended up looking like this:</li>
+</ol>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">my_migration</span>
+<span class="na">type</span><span class="pi">:</span> <span class="s">module</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s">My Migrations</span>
+<span class="na">core</span><span class="pi">:</span> <span class="s">8.x</span>
+<span class="na">package</span><span class="pi">:</span> <span class="s">Migrate</span>
+<span class="na">dependencies</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">migrate_plus</span>
+  <span class="pi">-</span> <span class="s">migrate_tools</span>
+  <span class="pi">-</span> <span class="s">migrate_google_sheets</span>
+  <span class="pi">-</span> <span class="s">redirect</span> 
+</code></pre></div></div>
+
+<p>When completed, your module structure should look like this:</p>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-1.png" alt="Module Structure" /></p>
+
+<p>You are now ready to enable your My Migrations module. (Make sure you disable the migrate_google_sheets_example module first, if you’d previously enabled that!)</p>
+
+<h2 id="step-2-create-your-spreadsheet">Step 2: Create Your Spreadsheet</h2>
+
+<p>Assuming you have the Game and Landing page content types, you could now run the migrations in your “My Migrations” module and it will pull the data from the <a href="https://docs.google.com/spreadsheets/d/1spS1BeUIzxR1KrGK2kKzAoiFZii6vBHyLx_SA0Sb89M/edit">Google Sheet</a>.</p>
+
+<p>But since you don’t have permissions to edit that sheet, you’re going to need to copy the existing sheet and create your own to do any customizations.</p>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-2.png" alt="Spreadsheet" /></p>
+
+<p>When this is done, you’ll get a url like this:</p>
+
+<p>https://docs.google.com/spreadsheets/d/YourLongHashIDHere where YourLongHashIDHere is your feed key.</p>
+
+<p>Now you’ll need to publish your new spreadsheet. This is an option under “File” -&gt; “Publish to the web”</p>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-3.png" alt="Spreadsheet" /></p>
+
+<p>To verify that your migration module will be able to see the Google sheet, try opening an anonymous browser window and visiting the Feed version of the url, whose format is this:</p>
+
+<p>https://spreadsheets.google.com/feeds/list/YourLongHashIDHere/SHEET/public/values?alt=json</p>
+
+<p>If visiting that URL throws out a bunch of json, you’re ready to start migrating!</p>
+
+<p>But of course, your current set of migration files still point to the old feed. In the my_migrations/config/install folder, you’ll need to find all instances of our feed string (1spS1BeUIzxR1KrGK2kKzAoiFZii6vBHyLx_SA0Sb89M) and replace them with your feed string.</p>
+
+<h2 id="step-3-decide-which-migrations-to-keep">Step 3: Decide Which Migrations to Keep</h2>
+
+<p>The Migrate Google Sheets Example module provides one Migration Group (games_example) and 6 Migrations. Depending on your site configuration, some of these might be useful, like the menu_links and the blocks migrations, and some of them will not be so useful (like the node_game migration, likely). This is a good time to trim or modify any migrations that aren’t going to be useful for your Drupal site. That being said, here are a few things that the sample migrations demonstrate:</p>
+
+<ul>
+  <li>Block UUIDs: When you place a block using the Block Layout screen, the block’s UUID is saved in config. If you’re running a migration over and over, your block’s ID will iterate on its own, but the UUID can remain constant if  you add it to the migration. <a href="https://live-mgs-demo.pantheonsite.io/">In the demo site</a>, this allows us to create a persistent CTA block in the header.</li>
+</ul>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-4.png" alt="Module Structure" /></p>
+
+<ul>
+  <li>Menu Links parents: You can specify that a menu link item has a parent from within the current migration. This lets us say /bohnanza and /hanabi are children of /games</li>
+  <li>Page and Game redirects: These sheets demonstrate how to add the redirect from the url of content on an old site to the new home right in the content sheet. Try going to <a href="https://live-mgs-demo.pantheonsite.io/that-fireworks-game">https://live-mgs-demo.pantheonsite.io/that-fireworks-game</a> and see where you end up.</li>
+  <li>Related content as strings or ids: On the Page sheet, we have a reference to the “Related games” for the given page. This is an entity reference which we could fill with a couple of things. We could refer to the ID of the related games, as they are stored in the Games sheet, or we could do what we’ve done here and use the migrate_plus plugin “entity_lookup” to search for the related game node by name. 
+As long as there is a Game node called Bohnanza, we’ll always link to the right one. This is particularly useful with Term references, where the name of the item ideally remains constant.</li>
+</ul>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-5.png" alt="Related Content" /></p>
+
+<ul>
+  <li>Game downloadable file: Games have associated images, which are files hosted externally to the spreadsheet. In order to relate my game content to its image, I need to download the image, get it into the file_managed database table (creating a file entity) and THEN relate that entity to the current node. This is done with the following lines in the “node_games” migration:</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">public_file_directory</span><span class="pi">:</span>
+    <span class="na">plugin</span><span class="pi">:</span> <span class="s">default_value</span>
+    <span class="na">default_value</span><span class="pi">:</span> <span class="s1">'</span><span class="s">public://'</span>
+<span class="err">  </span><span class="na">public_file_uri</span><span class="pi">:</span>
+    <span class="na">plugin</span><span class="pi">:</span> <span class="s">concat</span>
+    <span class="na">delimiter</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+    <span class="na">source</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="err">@</span><span class="s">public_file_directory</span>
+      <span class="pi">-</span> <span class="s">imagefilename</span>
+  <span class="s">field_image/target_id</span><span class="pi">:</span>
+    <span class="pi">-</span>
+      <span class="na">plugin</span><span class="pi">:</span> <span class="s">file_copy</span>
+      <span class="na">source</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">image</span>
+        <span class="pi">-</span> <span class="err">@</span><span class="s">public_file_uri</span>
+    <span class="pi">-</span>
+      <span class="na">plugin</span><span class="pi">:</span> <span class="s">entity_generate</span>
+  <span class="s">field_image/alt</span><span class="pi">:</span> <span class="s">imagealt</span>
+  <span class="s">field_image/title</span><span class="pi">:</span> <span class="s">imagetitle</span>
+</code></pre></div></div>
+
+<p>You can keep as many or as few of the migration files as you’d like. You can also create new ones.</p>
+
+<h2 id="step-4-tell-drupal-about-your-changes">Step 4: Tell Drupal About Your Changes</h2>
+
+<p>Drupal 8 only sees the changes you’ve made to your migration yml files when you first install the module. That means that you need to uninstall and reinstall the module to make new changes show up. <a href="https://github.com/thinkshout/mgs_demo/blob/master/RoboFile.php#L18">ThinkShout has a Robo script that does this</a>, but the same thing can be  done in Drush:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">drush mr --all</span>             <span class="c1"># Rolls back all migrations</span>
+<span class="s">drush pmu my_migration -y</span>  <span class="c1"># Disables my migration module</span>
+<span class="s">drush en my_migration -y</span>   <span class="c1"># Enable my migration module</span>
+<span class="s">drush ms</span>                   <span class="c1"># Displays my current migration status</span>
+</code></pre></div></div>
+
+<p>You can also string these together as one line:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">drush mr --all &amp;&amp; drush pmu my_migration -y &amp;&amp; drush pmu my_migration -y &amp;&amp; drush ms</span>
+</code></pre></div></div>
+
+<h2 id="step-5-run-your-migrations">Step 5: Run your migrations</h2>
+
+<p>This part is simple. To run all migrations, it’s a quick drush command:</p>
+
+<p><code class="highlighter-rouge">drush mi --all</code></p>
+
+<p>If you’d like to find out about all the possible options for the migrate-import command, you can run</p>
+
+<p><code class="highlighter-rouge">drush help mi</code></p>
+
+<p>You can also see your list of migration groups at /admin/structure/migrate, and you can review your migrations by clicking “List Migrations.” The resulting page will give you the same output, more or less, that you get from running a <code class="highlighter-rouge">drush ms</code>.</p>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-6.png" alt="Migrations" /></p>
+
+<p>These pages are helpful to know about, as they give you an easy place to find errors logged during the migration process. However, you can’t currently run a migration from the UI (<a href="https://www.drupal.org/node/2470882">although there is an issue for this</a>).</p>
+
+<h2 id="gotchas">Gotchas</h2>
+
+<p>But before we close, I do want to acknowledge some challenges we’ve seen in this approach.</p>
+
+<p>Sad fact #1: HTML in a spreadsheet is ugly.</p>
+
+<p>Google Spreadsheets don’t let you make your rows smaller than the number of line breaks in a cell. So if you have pretty html with a bunch of line breaks, your row might be too tall to fit on your screen. <a href="http://webapps.stackexchange.com/questions/6953/in-a-google-spreadsheet-how-can-i-force-a-row-to-be-a-certain-height">People have some clever workarounds for this</a>, but so far we’ve not implemented any.</p>
+
+<p>Sad fact #2: Sheet order matters (right now)</p>
+
+<p>Maintaining the order of sheets isn’t top on everyone’s minds as they’re making changes to a spreadsheet, especially when duplicating tabs. Migrate Google Sheets asks for each sheet based on tab order. If I make a copy of the Page tab, the Game tab is now the fourth tab instead of the third tab.</p>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-7.png" alt="Copy of page" /></p>
+
+<p>As it stands now, the module will happily request columns that don’t exist on the third tab and then fail in puzzling ways.</p>
+
+<p>There is currently <a href="https://www.drupal.org/node/2822948">only one issue</a> in the issue queue for the Migrate Google Sheets module, and it’s to fix this.</p>
+
+<p>Sad fact #3: Google sheets must be publicly viewable to work (again, right now)</p>
+
+<p>As the module exists right now, there’s no authentication involved, so any migrated content must be publicly viewable. <a href="https://developers.google.com/google-apps/spreadsheets/authorize">Google authorization is possible with Oauth2</a>, but that is not currently implemented.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Thanks for following along! I hope you found this series helpful. And don’t forget to visit the <a href="https://www.drupal.org/project/migrate_google_sheets">Migrate Google Sheets</a> <a href="https://www.drupal.org/project/issues/migrate_google_sheets?categories=All">issue queue</a> if you find any bugs, have an idea for a feature, or need help!</p>
+]]>
+  </description>
+  <pubDate>Mon, 16 Jan 2017 09:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2017/01/using-google-docs-and-migrate-to-populate-your-drupal-site-part-2/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/01/using-google-docs-and-migrate-to-populate-your-drupal-site-part-2/</guid>
+</item>
+
+    
+      <item>
+  <title>Using Google Docs and Migrate to Populate Your Drupal Site, Part 1</title>
+  <description>
+    <![CDATA[<p>The problem:</p>
+
+<p>Content management systems are extremely powerful, in that they let developers focus on what they do best – build the infrastructure of a site, while allowing content editors to do what they do best – create content.</p>
+
+<p>But this can be a problem when building a new feature. How often have you heard something to this effect:</p>
+
+<p>Developer: “That blank spot right there will be a neat slideshow, once you build it.”</p>
+
+<p>Client: “I thought I was paying you to build it.”</p>
+
+<p>The separation between content and development can lead to missed edge cases, unfounded assumptions, and wasted time for everyone involved.</p>
+
+<p>There are a few workarounds to this problem. We often prototype our sites with dummy content (insert your <a href="http://www.cupcakeipsum.com/">favorite Ipsum</a> here). But this, without fail, leads to some nasty surprises when the client starts entering real content. It’s suddenly much longer (or shorter) than the designer or developer intended. Or maybe the images are far too big. Or they’re all portraits where we expected landscapes. In short, <a href="https://www.smashingmagazine.com/2010/01/lorem-ipsum-killing-designs/">the arguments made against using Lorem Ipsum in designs</a> go doubly once you start actually implementing fields on your Drupal site.</p>
+
+<p>So what about more meaningful content – maybe exported from another source? Modules like <a href="https://www.drupal.org/project/default_content">Default Content</a> allow developers to export certain content for import during the initial site build. But that content has the disadvantage of requiring a developer’s intervention. The more of a nuisance it is to update the content, sync the database, change the fields, etc, the less likely you are to keep the content up-to-date.</p>
+
+<p>At ThinkShout, we want to populate our client’s sites with content as soon as possible.</p>
+
+<p>It doesn’t need to be the final content…</p>
+
+<p>But it should be real content.</p>
+
+<p>It shouldn’t necessarily be exactly what’s on the old site…</p>
+
+<p>But it ought to be close…</p>
+
+<p>In other words, our initial content needs to be easy to change – easy enough that the client can do it. Easy enough that the developers don’t have to take a walk around the block to calm down when they find out the fields are changing (again). Easy.</p>
+
+<h2 id="our-solution-part-1-migrate">Our Solution Part 1: Migrate</h2>
+
+<p>“But isn’t Migration to Drupal hard?” I hear you saying.</p>
+
+<p>It certainly was in Drupal 7, where the Migrate module had a (deserved) reputation for being difficult to use. Migrating from one Drupal site to another, or even from Wordpress to Drupal was relatively smooth, but if you really wanted to do something unusual, like migrate from a less-common CMS to Drupal, you were going to be writing a lot of custom code “glue” to get it all working.</p>
+
+<p>In D8, Migrations have been moved to core. This means a few things. First, it means the core concept of entities is baked right in. In D7 migrations, you often had to hunt around for a plugin, hoping someone had written a Destination Handler for your favorite oddball entities, like <a href="https://www.drupal.org/node/1116408">Redirects</a>, or Addresses, or the dreaded Field Collections. In D8, an entity is an entity.</p>
+
+<p>As such, with a solid knowledge of the <a href="https://www.drupal.org/docs/8/api/migrate-api/migrate-process">helpful migration plugins</a> and two essential contributed modules, <a href="https://www.drupal.org/project/migrate_tools">Migrate Tools</a> and <a href="https://www.drupal.org/project/migrate_plus">Migrate Plus</a>, you can write a robust migration of both content and config entities without writing code more complicated than a few .yml files. If you don’t believe me, I encourage you to <a href="http://slides.com/illepic/d8-migrations">try upgrading your D6 or D7 site to D8</a> on a local or dev environment to see how much of your data is already in there.</p>
+
+<p>That being said, what if I don’t have an existing site? Or what if I want to implement a new content strategy to go along with my fancy new site?</p>
+
+<h2 id="our-solution-part-2-google-sheets">Our Solution Part 2: Google Sheets</h2>
+
+<p>Throw that new content into a Google Doc!</p>
+
+<p>Yes, spreadsheets are old school, but let’s take a minute to appreciate what they give us.</p>
+
+<ul>
+  <li>
+    <p><strong>Spreadsheets are familiar.</strong> When it comes right down to it, spreadsheets are the universal language of business. Putting content into little boxes gives us the ability to move those boxes around, highlight them, and sort them – few UX experiences can get you so much information so quickly.</p>
+  </li>
+  <li>
+    <p><strong>Spreadsheets are dynamic.</strong> It doesn’t take hours of database planning to get information into a spreadsheet. Nor does it take hours of testing to rearrange or remove items from a spreadsheet. It doesn’t demand anything of your data architect other than “organize things by columns and rows.”</p>
+  </li>
+  <li>
+    <p><strong>Spreadsheets are sharable.</strong> We can enable a Google spreadsheet and share it with the client in a few minutes. Clients can start entering their data from day 1 (alright, maybe day 2 or 3). And they can update content as needed – take it out of the sheet, update things, and change them.</p>
+  </li>
+  <li>
+    <p><strong>Google spreadsheets have revisioning built in.</strong> If someone really messes up a Google Doc, you can go back through its history and revert it. It’s a nice compromise between committing all your initial content to source control or just letting it live freely.</p>
+  </li>
+</ul>
+
+<p>Ready to give it a shot?</p>
+
+<p>Stay tuned for Part 2 of this series, where I go into detail about how to set up your own Google sheet Drupal 8 migration.</p>
+
+<p>Can’t wait? Check out the <a href="https://www.drupal.org/project/migrate_google_sheets">Migrate Google Sheets</a> module now! We’ve even set up a <a href="https://live-mgs-demo.pantheonsite.io/">sample site</a> where content comes entirely from <a href="https://docs.google.com/spreadsheets/d/1spS1BeUIzxR1KrGK2kKzAoiFZii6vBHyLx_SA0Sb89M">an external spreadsheet</a> to help you get started.</p>
+]]>
+  </description>
+  <pubDate>Fri, 06 Jan 2017 11:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2017/01/using-google-docs-and-migrate-to-populate-your-drupal-site-part-1/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/01/using-google-docs-and-migrate-to-populate-your-drupal-site-part-1/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

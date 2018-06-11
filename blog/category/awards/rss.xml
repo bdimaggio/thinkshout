@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/awards/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>The Southern Poverty Law Center Gets Nominated for a Webby</title>
+  <description>
+    <![CDATA[<p>Have you heard the news? A ThinkShout-built site has been nominated for a <a href="http://webbyawards.com/">Webby</a>! And yes, it’s a Drupal site.</p>
+
+<p>The nominated site is none other than <a href="https://www.splcenter.org/">Splcenter.org</a>, the online voice of the Southern Poverty Law Center, an organization committed to teaching tolerance, battling institutionalized prejudice, and giving a voice to the most vulnerable people in our communities. Our partnership with the SPLC has been a source of great pride for us, as it’s led to an amazing collaboration for our respective teams.</p>
+
+<p>The Southern Poverty Law Center demonstrated its commitment to web excellence during the redesign process by investing in a platform that supports the vital work they do in the fight against injustice in our country, making it available and accessible to the people who need it most. This was an incredible undertaking, and I encourage you to check out our <a href="https://thinkshout.com/work/splc/">case study</a> on the journey to the relaunch of the SPLC to learn more about the process.</p>
+
+<p>The Webbys are perhaps the most prestigious awards of their kind and simply being nominated is an honor. Splcenter.org is technically up for two awards in the “Websites - Law” category. The first is a Webby, chosen by the Webby Academy. The second is the People’s Voice Webby. While we can’t affect the outcome of the first award (beyond the work we put into making a great website), the community  decides the winner of the second. <a href="https://pv.webbyawards.com/2016/websites/general-website/law">Yes, you can help a great organization win by voting for the SPLC</a>!</p>
+
+<p>The site is the product of countless hours of work and careful planning. We strove to build the SPLC a site that would further their mission and protect them from cyber attacks carried out by the forces of hate they combat every day. Together, we’ve accomplished these goals. We believe that work speaks for itself on the new site, but the improvement is measurable, too: since launch, we’ve tracked a 55% increase in overall traffic year-over-year, with a 120% increase in mobile traffic. From the <a href="https://www.splcenter.org/hate-map">Hate Map</a> – which provides a highly accessible, albeit terrifying view of the rise of hate groups in the U.S. – to the sheer volume of civil rights news and resources made readily available and searchable from any page, the SPLC continues to expand its award-winning voice online. We’re asking you to contribute your vote and show the world that the SPLC deserves the People’s Voice award.</p>
+
+<p><a href="https://pv.webbyawards.com/2016/websites/general-website/law">Please take a moment to cast your vote for the Southern Poverty Law Center</a>. With the Webby’s, your voice makes a difference, so please vote and be heard!</p>
+]]>
+  </description>
+  <pubDate>Tue, 12 Apr 2016 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2016/04/splc-nominated-for-a-webby/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/04/splc-nominated-for-a-webby/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

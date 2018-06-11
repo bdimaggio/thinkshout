@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Under the Hood of RedHen CRM | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="The ThinkShout team will be at the Pacific Northwest Drupal Summit if anyone wants to connect.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal Give, Drupal Planet, RedHen">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">10.18.2012</span>
+  
+  </p>
+
+  <h1 class="post-title">Under the Hood of RedHen CRM</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/lev.jpg">
+    
+      <a class="team-name" href="/team/lev/">Lev Tsypin</a>
+    <br>
+      Founder, CEO
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <p><em>RedHen CRM is one of many great stories featured in the <a href="http://www.linuxjournal.com/content/drupal-special-edition">Linux Journal’s recent Drupal special addition</a>. RedHen just laid a <a href="http://drupal.org/node/1816026">beta3 release</a> and the ThinkShout team will be at the <a href="http://2012.pnwdrupalsummit.org/">Pacific Northwest Drupal Summit</a> if anyone wants to connect.</em></p>
+
+<p>This is the 5th in a <a href="http://thinkshout.com/blog/category/redhen">series of articles exploring RedHen</a>, ThinkShout’s native Drupal 7 CRM platform. ThinkShout initially designed <a href="http://drupal.org/project/redhen">RedHen CRM</a> around the complex <a href="http://en.wikipedia.org/wiki/Association_management_system">association management</a> (AMS) needs of nonprofits and trade associations. These association management requirements go well beyond the standard needs of most CRM/CMS solutions. However, in building an abstract tool with these needs at the forefront, our goal has been to future proof RedHen CRM as much as possible to ensure that its architecture can accommodate a wide variety of use cases.</p>
+
+<p>RedHen CRM is similar to <a href="http://drupal.org/project/commerce">Drupal Commerce</a> in its modular structure. As with Drupal Commerce, the core RedHen modules that can be downloaded on the Drupal.org project page won’t provide you with a working CRM right out of the box. RedHen is intended to provide developers and site builders with the building blocks for quickly creating their own CRM data models that map to their particular business requirements and workflow. Consequently, setting up a new RedHen CRM instance does require configuration.</p>
+
+<p>In the future, ThinkShout is likely to release RedHen “Features” or “Apps” that provide prepackaged CRM solutions for different use cases. At the time of the publication of this article, we know of more than 70 RedHen CRM solutions built by other Drupal developers and site builders.</p>
+
+<p>In addition to its association management uses, we see RedHen CRM as an ideal starting point for building custom sales pipeline management tools and project management applications, as well as Drupal integration points with 3rd-party ERP (enterprise resource planning) tools and financial accounting packages.
+<!--break--></p>
+<h2 id="project-structure">Project Structure</h2>
+
+<p>RedHen CRM consists of a core module containing shared APIs and interfaces and a collection of feature specific sub-modules, including:</p>
+
+<ul>
+  <li>Contact (redhen_contact): Contact entities and APIs, along with integration with Drupal users.</li>
+  <li>Fields (redhen_fields): Custom field types used by RedHen entities. Currently includes a unique email field, which assigns attributes to emails, such primary, bulk, and custom labels (home, work, etc).</li>
+  <li>Organization (redhen_org): Organization entities and APIs.</li>
+  <li>Organization Group (redhen_group): Lightweight group feature which turns organizations into containers for private content with a broadcast system.</li>
+  <li>Relations (redhen_relation): The Relation module allows connections between contacts and organizations.</li>
+  <li>Note (redhen_note): Notes on contacts and organizations.</li>
+  <li>Engagement (redhen_engagement): Engagement scoring system and APIs. RedHen Note integration is included, as well as Rules integration for popular modules such as Comment, Registration, and Webform.</li>
+  <li>Registration (redhen_registration): Integration with the Entity Registration module.</li>
+  <li>Activity (redhen_activity): Activity logging based on the <a href="http://drupal.org/project/message">Message</a> module.</li>
+</ul>
+
+<p>We maintain other functionality that is not needed for all uses cases in separate projects in order to keep the core RedHen code base as lean as possible. The <a href="http://drupal.org/project/redhen_membership">RedHen Membership</a> system is our most widely used RedHen component with its own project name space. It handles individual and organizational membership subscriptions. As with Drupal Commerce, key sub-modules will continue to be included with the main module code base. However, we anticipate that as the RedHen CRM developer community grows, we will see more and more contributed modules that extend RedHen’s core feature set.</p>
+
+<p>The overall architecture of RedHen CRM consists of a set of minimalistic building blocks that developers and site builders can use to develop solutions tailored to specific use cases. Like Drupal Commerce, RedHen relies on Drupal distributions and installation profiles for the heavy lifting of fleshing out polished applications that serve specific needs. <a href="http://drupal.org/user/4481">Nedjo Rogers</a> of <a href="http://chocolatelilyweb.ca/">Chocolate Lily</a> has incorporated RedHen into <a href="http://openoutreach.org/">Open Outreach</a>,</p>
+<blockquote>
+  <p>a Drupal distribution for nonprofit &amp; grassroots groups</p>
+</blockquote>
+
+<p>and ThinkShout has released it’s own demonstration of RedHen in the form of a <a href="http://drupal.org/project/redhen_demo">distribution to server the needs of a fictional pet shelter association</a>.</p>
+
+<h2 id="module-dependences">Module Dependences</h2>
+
+<p>RedHen has minimal dependencies on other Drupal contributed modules, striving for a balance between relying on its own code base and leveraging other code where it makes the most sense. Beyond Drupal core, RedHen CRM currently depends only on Entity API, discussed in detail below, and the <a href="http://drupal.org/project/relation">Relation</a> module for managing connections. Additionally, RedHen Activity is based on the <a href="http://drupal.org/project/message">Message module</a> which, by the way, does a great job of balancing a lean extendable base while still remaining accessible to site builders. RedHen CRM <em>supports</em> integration with popular contributed tools, like Views and Rules, but these modules are not <em>required</em>. This makes RedHen a lean and stable application platform, as it relies less on a shifting foundation of other contributed modules over which we have little to no control.</p>
+
+<p>This centrist approach helps assure other Drupal developers that their customizations and extensions of RedHen won’t break due to fragile module interdependencies. At the same time, it provides less-technical site builders with a known approach to extending RedHen CRM with standard Drupal tools, such as Views, Rules, and the Fields API.</p>
+
+<h2 id="custom-entities">Custom Entities</h2>
+
+<p>RedHen CRM relies on custom Drupal entity types and bundles. It leans heavily on <a href="http://drupal.org/project/entity">Entity API</a>, a wrapper around Drupal’s core entity system that eases developing entities in several ways. The Entity API module:</p>
+
+<ul>
+  <li>Provides classes and controllers to streamline entity creation and management. RedHen extends these base classes as needed.</li>
+  <li>Eases integration with key contributed modules, namely <a href="http://drupal.org/project/views">Views</a> and <a href="http://drupal.org/project/rules">Rules</a>.</li>
+  <li>Exposes standardized API hooks during CRUD operations providing a consistent interface for other modules to interface with your custom entities.</li>
+  <li>Provides hooks and data structures allowing for entities to be exported, for example, using Features or CTools. RedHen leverages this feature to make entity bundle definitions, E.g., types of contacts and organizations, exportable.</li>
+</ul>
+
+<p>On a site note, Entity API has 133,647 reported installs all on Drupal 7 and is among the top 20 modules on Drupal.org. As Drupal dependencies go, it is highly stable and reliable.</p>
+
+<p>RedHen ships with the following entity types, each of which come bundled with core properties and can be extended with additional user-defined fields.</p>
+
+<ul>
+  <li>Contacts</li>
+  <li>Organizations</li>
+  <li>Notes</li>
+  <li>Memberships (part of RedHen Membership)</li>
+  <li>Engagements</li>
+</ul>
+
+<h2 id="connections">Connections</h2>
+<p>A key feature of any CRM is managing connections between organizations and contacts. RedHen features a very flexible connection system built on top of the Relation module, which allows for bidirectional connections between arbitrary types of entities. These relationships themselves can have additional user-defined <em>fields</em>. RedHen ships with two types of relationships: [ital]Affiliations[ital], which are connections between an organization and a contact, and <em>Personal Connections</em>, which are connections between contacts. These relationships come bundled with status and role properties, but fields can be added that are applicable to a given relationship.</p>
+
+<p>For example, imagine that you want to define a relationship between a contact of the type “Staff” and an organization of the type “Company.” Suppose you want to include information about the position that contact has at that organization. This field value only has meaning within the context of relationship, and therefore this data is stored with the relationship rather than on the contact record or the organization record itself.</p>
+
+<p><img src="/assets/images/blog/redhen-connections.png" alt="Connections" />
+Listing of a contact’s connections</p>
+
+<h2 id="playing-well-in-the-drupal-sandbox">Playing well in the Drupal sandbox</h2>
+<p>RedHen’s default listings of contacts are a good start, but the fun really starts if you want to create your own custom views. The venerable Views module, a powerful graphical query builder, is the gold standard in Drupal for creating custom “lists of stuff,” including RedHen entities. Much of the heavy lifting involved in Views integration is handled by Entity API, but any module implementing the Entity API interfaces still needs to clarify the data types of all entity properties and provide Views handlers for any non-standard data. For example, organization entities have a primary contact associated with them and it’s up to RedHen to explain to Views that the related contact id within an organization record is actually a RedHen contact. Let’s create a new View adding additional fields and relationships to our standard list of contacts:</p>
+
+<ol>
+  <li>Create a new view at /admin/structure/views/add of Contacts.</li>
+  <li>Add relationships to Memberships and Organization affiliation.</li>
+  <li>Add the following fields: Contact first and last name, contact email (change the formatter to primary email), membership name, and organization name.</li>
+</ol>
+
+<p>You now have a View of all contacts that includes their membership and organization. If you set the path of the View to /redhen/contact, it will simply override the default contacts listing, or you can move it elsewhere to maintain both interfaces.</p>
+
+<p><img src="/assets/images/blog/redhen-views.png" alt="Custom RedHen View" />
+Custom contact view with an address and exposed filters.</p>
+
+<p>Similarly, business rules can be extended using the Rules module, which provides an interface for defining logic based upon a trigger-&gt;action model. RedHen again leans on Entity API to expose RedHen entities into this model so that you can, for example, send an email to a contact when a related membership entity is updated.</p>
+
+<p><img src="/assets/images/blog/redhen-rules.png" alt="screenshot" />
+Custom Rule that demonstrates sending an email to new contacts.</p>
+
+<h2 id="extending-core-functionality">Extending core functionality</h2>
+<p>RedHen can also be extended and customized the old fashioned way – by writing custom code. All of RedHen’s entity types feature APIs with standard CRUD operations and wrappers around many common tasks, such as getting all related entities. In addition, RedHen can be manipulated using Drupal’s hook system. Each entity can be altered using a hook implementation when it’s loaded, created, updated, and deleted. Most of hooks are exposed through Entity API’s inherited controller classes, but RedHen features some of its own unique hooks as explained in redhen.api.php. For example, a module can dictate whether or not a contact entity can be deleted by implementing hook_redhen_contact_can_delete():</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="nf">mymodule_redhen_contact_can_delete</span><span class="p">(</span><span class="nx">RedhenContact</span> <span class="nv">$contact</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// prevent the deletion of active contacts</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">redhen_state</span> <span class="o">==</span> <span class="nx">REDHEN_STATE_ACTIVE</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In addition, all of RedHen’s main interfaces are wrapped in theme functions so they can be overridden at the theme level. For example, to alter the default list of contacts, implement <code class="highlighter-rouge">theme_redhen_contact_list()</code>:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="nf">mytheme_redhen_contact_list</span><span class="p">(</span><span class="nv">$variables</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nv">$contacts</span> <span class="o">=</span> <span class="nv">$variables</span><span class="p">[</span><span class="s1">'contacts'</span><span class="p">];</span>
+  <span class="nv">$header</span> <span class="o">=</span> <span class="nv">$variables</span><span class="p">[</span><span class="s1">'header'</span><span class="p">];</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$contacts</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nv">$rows</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$contacts</span> <span class="k">as</span> <span class="nv">$contact</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nv">$uri</span> <span class="o">=</span> <span class="nx">entity_uri</span><span class="p">(</span><span class="s1">'redhen_contact'</span><span class="p">,</span> <span class="nv">$contact</span><span class="p">);</span>
+      <span class="nv">$actions</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="nx">l</span><span class="p">(</span><span class="nx">t</span><span class="p">(</span><span class="s1">'edit'</span><span class="p">),</span> <span class="nv">$uri</span><span class="p">[</span><span class="s1">'path'</span><span class="p">]</span> <span class="o">.</span> <span class="s1">'/view/edit'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">'query'</span> <span class="o">=&gt;</span> <span class="nx">drupal_get_destination</span><span class="p">())),</span>
+        <span class="nx">l</span><span class="p">(</span><span class="nx">t</span><span class="p">(</span><span class="s1">'delete'</span><span class="p">),</span> <span class="nv">$uri</span><span class="p">[</span><span class="s1">'path'</span><span class="p">]</span> <span class="o">.</span> <span class="s1">'/view/delete'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">'query'</span> <span class="o">=&gt;</span> <span class="nx">drupal_get_destination</span><span class="p">())),</span>
+      <span class="p">);</span>
+
+      <span class="nv">$redhen_contact_type</span> <span class="o">=</span> <span class="nx">redhen_contact_type_load</span><span class="p">(</span><span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">type</span><span class="p">);</span>
+      <span class="nv">$rows</span><span class="p">[]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+          <span class="nv">$redhen_contact_type</span><span class="o">-&gt;</span><span class="na">label</span><span class="p">,</span>
+          <span class="nx">l</span><span class="p">(</span><span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">first_name</span><span class="p">,</span> <span class="nv">$uri</span><span class="p">[</span><span class="s1">'path'</span><span class="p">]),</span>
+          <span class="nx">l</span><span class="p">(</span><span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">last_name</span><span class="p">,</span> <span class="nv">$uri</span><span class="p">[</span><span class="s1">'path'</span><span class="p">]),</span>
+          <span class="nx">l</span><span class="p">(</span><span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">,</span> <span class="s1">'mailto:'</span> <span class="o">.</span> <span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">),</span>
+          <span class="nx">format_date</span><span class="p">(</span><span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">updated</span><span class="p">,</span> <span class="s1">'short'</span><span class="p">),</span>
+          <span class="nb">implode</span><span class="p">(</span><span class="s1">' | '</span><span class="p">,</span> <span class="nv">$actions</span><span class="p">)</span>
+        <span class="p">)</span>
+      <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nv">$render</span><span class="p">[</span><span class="s1">'table'</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'#theme'</span> <span class="o">=&gt;</span> <span class="s1">'table'</span><span class="p">,</span>
+      <span class="s1">'#header'</span> <span class="o">=&gt;</span> <span class="nv">$header</span><span class="p">,</span>
+      <span class="s1">'#rows'</span> <span class="o">=&gt;</span> <span class="nv">$rows</span>
+    <span class="p">);</span>
+    <span class="nv">$render</span><span class="p">[</span><span class="s1">'pager'</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'#theme'</span> <span class="o">=&gt;</span> <span class="s1">'pager'</span><span class="p">,</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// no results, set a message</span>
+    <span class="nv">$render</span><span class="p">[</span><span class="s1">'no-result'</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'#type'</span> <span class="o">=&gt;</span> <span class="s1">'markup'</span><span class="p">,</span>
+      <span class="s1">'#markup'</span> <span class="o">=&gt;</span> <span class="nx">t</span><span class="p">(</span><span class="s1">'Sorry, there are no contacts that match your criteria.'</span><span class="p">),</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">render</span><span class="p">(</span><span class="nv">$render</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In short, using RedHen’s comprehensive APIs, hooks, and theme wrappers, a developer can build a complex, elegant solution to meet nearly any use case requiring CRM functionality.</p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal Give.' href='/blog/category/drupal-give/'>Drupal Give</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged RedHen.' href='/blog/category/redhen/'>RedHen</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2012/10/lev/under-hood-redhen-crm/';
+    this.page.identifier = '/blog/2012/10/lev/under-the-hood-of-redhen-crm';
+    this.page.title = 'Under the Hood of RedHen CRM'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2012/09/tauno/redhen-wild-mission-investors-exchange/"><span class="fa fa-caret-left"></span> <span>RedHen in the Wild: Mission Investors Exchange</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2012/10/betsy/badcamp/"><span>It's that time of year again, BADCamp</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>RedHen CRM Part 1, Keeping all your eggs in one Drupal basket | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="ThinkShout is proud to announce the Alpha release of RedHen CRM.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal Give, Drupal Planet, RedHen, nonprofit tech">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">06.29.2012</span>
+  
+  </p>
+
+  <h1 class="post-title">RedHen CRM Part 1, Keeping all your eggs in one Drupal basket</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/sean2.jpg">
+    
+      <strong>Sean Larkin</strong>
+    <br>
+      Director of Sales, Founder
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <h2 id="introducing-redhen-crm">Introducing RedHen CRM</h2>
+<p><img src="https://dl.dropbox.com/s/3vsjjgva9gimabh/redhen_logo.png" style="float: right; margin: -10px 0px 10px 15px" /></p>
+
+<p>The Drupal community has long aspired for native CRM functionality for many years. Unfortunately, solutions to this problem in older releases of Drupal were less than perfect - usually relying on the node system to manage contact data. Of course, the node system was designed for managing <em>content</em>, so these node-based CRM solutions required lots of extra code and duct tape to keep content and <em>contacts</em> separated.</p>
+
+<p>Fortunately, the arrival of the entity framework in Drupal 7.x core has opened the door to the development of more robust CRM solutions built natively in Drupal. So, after a year of scheming and over 700 hours of very intense development, ThinkShout is proud to announce the Alpha release of <a href="http://drupal.org/project/redhen">RedHen CRM</a>.</p>
+
+<h2 id="why-does-native-crm-matter">Why Does Native CRM Matter?</h2>
+
+<p><em><a href="http://civicrm.org">CiviCRM</a> is a mature open source CRM solution that integrates with Drupal, so why not just use that? Drupal also integrates well with many 3rd-party SaaS solutions, such as Salesforce, why reinvent the wheel?</em></p>
+
+<p>There are many benefits to integrating your Drupal site with a 3rd-party CRM solution. But there are many missed opportunities and drawbacks to these integrations as well. The most obvious benefits to native CRM in Drupal include:</p>
+
+<ul>
+  <li>A more seamless user experience for site visitors registering for events, making donations/payments, or engaging in other website transactions.</li>
+  <li>The opportunity to leverage Drupal’s growing suite of mobile and responsive tools and themes for CRM interfaces.</li>
+  <li>The ability to expose CRM data as content, and/or the ability to display aggregate CRM data on your site.</li>
+  <li>Increased opportunities to integrate CRM data with Drupal contributed tools - such as data visualization tools, geo-mapping tools, and more.</li>
+  <li>Decreased staff training costs - because staff doesn’t need to get trained on multiple platforms.</li>
+  <li>Potential reductions in technical risk - because all your tools rely on a single, Drupal framework.</li>
+  <li>Potential reductions in hosting and IT costs.</li>
+  <li>The ability to do complex <em>engagement scoring</em> or <em>engagement analytics</em> (more on this later).</li>
+  <li><strong>And probably most important - the ability to fully customize your CRM solution.</strong></li>
+</ul>
+
+<h2 id="native-crm-and-not-versus-enterprise-crm">Native CRM And <em>(Not Versus)</em> Enterprise CRM</h2>
+
+<p>One last point before diving into the guts of RedHen CRM:</p>
+
+<p>While we think that it’s possible to build very robust, large-scale CRM solutions natively in Drupal, our goal in releasing RedHen is not to compete with the enterprise CRM market. Platforms like Salesforce will inevitably out scale what we can build with Drupal.</p>
+
+<p>That said, enterprise CRM solutions are often overkill for small to mid-sized organizations. Moreover, even if your organization does need an enterprise CRM solution, we see RedHen as a natural integration point between your website and such a system.</p>
+
+<p>With the right Drupal development partner, tools such as RedHen open the door to the creation of highly innovative “front end” CRM tools. We anticipate that collecting and displaying data in RedHen (and Drupal) will often be much more affordable and nimble than trying to develop comparable features upon larger, more cumbersome enterprise packages.</p>
+
+<h2 id="what-can-you-do-with-redhen-crm">What Can You Do With RedHen CRM?</h2>
+
+<p>RedHen CRM has been largely designed around the <strong><a href="http://en.wikipedia.org/wiki/Association_management_system">association management</a></strong> (AMS) needs of membership organizations. That said, the RedHen framework is flexible and can be leveraged to develop a wide range of CRM solutions. For example, RedHen could be used as a light weight sales pipeline management tool for small to mid-size businesses.</p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>RedHen CRM is similar to <a href="http://drupal.org/project/commerce">Drupal Commerce</a> in its modular structure. As with Drupal Commerce, the core RedHen modules that can be downloaded on the <a href="http://drupal.org/project/redhen">Drupal.org project page</a> won’t provide you with a working CRM right out of the box. They require configuration. In the future, ThinkShout is likely to release RedHen “Features” or “Apps” that provide prepackaged CRM solutions for different use cases.</p>
+
+<p>In the short term, if you would like to explore RedHen CRM, we would encourage you to check out our <a href="http://drupal.org/project/redhen_demo">demonstration RedHen CRM installation profile</a>. This install profile will build out a simple example of how RedHen could be leveraged to support the CRM needs of a fictional “pet shelter” organization.</p>
+
+<h2 id="project-structure">Project Structure</h2>
+
+<p>RedHen CRM relies heavily on custom Drupal entity types and bundles. The <a href="http://drupal.org/project/entity">Entity API</a> module is leveraged to do most of the heavy lifting for these custom entities. The <a href="http://drupal.org/project/relation">Relation</a> module is leveraged to manage connections between these custom entity bundles. The core RedHen module provides shared APIs, although the majority of RedHen features are broken out into separate sub-modules that ship with the main module. As with Drupal Commerce, we will continue to include key sub-modules with the main module code base. However, we anticipate that an ecosystem of plug-in modules will soon be available to extend the core feature set.</p>
+
+<h2 id="basic-concepts-and-features">Basic Concepts and Features</h2>
+
+<ul>
+  <li>
+    <p>RedHen CRM defines two main entity types: Contacts and Organizations. Site administrators can then create different entity bundles for each of these types. Each bundle can then be <em>fielded.</em></p>
+  </li>
+  <li>
+    <p><strong>Connections</strong> can then be made between contacts, as well as between contacts and organizations. <strong>Connections</strong> are managed as custom entity bundles as well, based upon the relation entity type defined by the Relation module. As such, these connections can be fielded as well. In other words, you can create a relationship, or connection, between contacts and organizations that include field data about the relationship. Potential connection fields might include “job title” or “job start date.”</p>
+  </li>
+  <li>
+    <p><strong>Memberships</strong> are another custom entity type defined by the “RedHen Membership” module. Both contacts and organizations can be associated with memberships. RedHen’s membership management features are very flexible and feature rich. Memberships can be associated with the management of Drupal user roles to provide website access based upon individual and organizational membership status.</p>
+  </li>
+  <li>
+    <p>Optionally, contact entities can be associated with Drupal user accounts. Currently, these connections are managed from the contact entity edit screen. Contacts can be associated with existing Drupal user accounts, or a new Drupal user account can be created from the contact entity edit form.</p>
+  </li>
+  <li>
+    <p><strong>Notes</strong> is another custom entity type and bundle provided by the “RedHen Notes” sub-module. Notes provide a site administrator a simple tool for capturing tagged notes about contacts and organizations. As a custom entity bundle, notes are fieldable as well.</p>
+  </li>
+  <li>
+    <p>The Notes module also integrates with the “RedHen engagement scoring” sub-module. Engagement scores allow a site administrator to track and score various types of interactions with contact entities.</p>
+  </li>
+  <li>
+    <p>Finally, RedHen CRM ships with a “RedHen groups” sub-module that allows you to <em>groupify</em> RedHen organizations. Groupified organizations function similarly to <a href="http://drupal.org/project/og">Organic Groups</a>, in that they provide a simple container for managing private node content associated with each organization.</p>
+  </li>
+</ul>
+
+<h2 id="extending-redhen-crm-with-views-and-rules-integration">Extending RedHen CRM with Views and Rules Integration</h2>
+
+<p>The RedHen CRM framework does not require <a href="http://drupal.org/project/views">Views</a>. However, because RedHen is built upon Entity API, you can easily extend RedHen to work with Views and Rules. With Views, you can customize your instance of RedHen CRM to create personalized reports of contact, organization, membership and/or engagement scoring data. With Views plugins such as <a href="http://drupal.org/project/views_bulk_operations">Views Bulk Operations</a> and <a href="http://drupal.org/project/views_data_export">Views Data Export</a>, you can further extend RedHen with bulk editing and export tools.</p>
+
+<h2 id="for-more-information">For More Information</h2>
+
+<p>Complete RedHen site administration docs will be coming soon. You can also check out the README files contained with each RedHen module. For technical issues, please use the <a href="http://drupal.org/project/issues/redhen">D.O. issue queue</a>. For community support and to learn about RedHen usage, please consider joining the <a href="http://groups.drupal.org/redhen-crm">RedHen Drupal group</a> and follow us on Twitter <a href="http://twitter.com/redhen_crm">@RedHen_CRM</a>.</p>
+
+<h2 id="next-up-a-redhen-crm-feature-deep-dive">Next Up: A RedHen CRM Feature Deep-Dive</h2>
+
+<p>For a detailed look at RedHen CRM, check out <a href="/blog/2012/06/sean/redhen-crm-part-2">Part 2</a> of this article.</p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal Give.' href='/blog/category/drupal-give/'>Drupal Give</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged RedHen.' href='/blog/category/redhen/'>RedHen</a> <a class='tag' rel='tag category' title='View all posts tagged nonprofit tech.' href='/blog/category/nonprofit-tech/'>nonprofit tech</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2012/06/sean/redhen-crm-part-1/';
+    this.page.identifier = '/blog/2012/06/sean/redhen-crm-part-1-keeping-all-your-eggs-in-one-drupal-basket';
+    this.page.title = 'RedHen CRM Part 1, Keeping all your eggs in one Drupal basket'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2012/06/sean/introducing-relevant-content-bean/"><span class="fa fa-caret-left"></span> <span>Introducing the Relevant Content Bean</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2012/06/sean/redhen-crm-part-2/"><span>RedHen CRM Part 2: Welcome To The Hen House</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/redhen-raiser/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>RedHen Raiser in Action</title>
+  <description>
+    <![CDATA[<p>This past summer, <a href="http://thinkshout.com/blog/2015/08/peer-to-peer-with-drupal/">Sean shed some light on one of our most exciting Drupal contributions</a> to date: <a href="https://www.drupal.org/project/redhen_raiser">RedHen Raiser</a>, our open source peer-to-peer fundraising solution, the first of its kind to be built entirely with Drupal. Thanks to the <a href="https://www.capitalareafoodbank.org/">Capital Area Food Bank of Washington, D.C.</a>, we finally had the opportunity to build a platform that would provide fundraisers a highly-customizable, Drupal alternative to SAAS applications like Causevox and Crowdrise.</p>
+
+<p>After a year of leveraging Raiser as their vehicle for crowdfunding, we’re thrilled to see that the Capital Area Food Bank of Washington, D.C. brought in over $324,000, representing tens of thousands of pounds of food, through 17 different campaigns to help fight hunger in their community.</p>
+
+<p>The Food Bank recently shared an infographic with its constituents that breaks down the donations they received through their RedHen Raiser campaigns over this past year.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/cafb_info2.jpg" alt="cafb_info2.jpg" /></p>
+
+<p>It’s really exciting for us to think of what other organizations will accomplish with RedHen Raiser. Raiser’s features allow fundraisers to tailor their campaigns to fit a variety of causes. The Food Bank utilized the Teams feature to give local law firms their own fundraising pages during the “<a href="https://www.capitalareafoodbank.org/food-from-the-bar/">Food from the Bar</a>” campaign. There are so many other possible applications: walk-a-thons, food drives, even parties - <a href="https://give.capitalareafoodbank.org/campaigns/party-against-hunger">as the Food Bank has shown us</a> - have the potential to be great fundraising opportunities for your organization, and they can all be easily managed with RedHen Raiser.</p>
+
+<p>We can’t thank the Food Bank enough for working with us to release RedHen Raiser as an open source platform so other members of the Drupal nonprofit community can benefit from it, too – and, of course, make it even better.</p>
+
+<p>Is your organization using RedHen Raiser to crowdfundraise? Get in touch with us. We’d love to hear about your experience and share your story.</p>
+]]>
+  </description>
+  <pubDate>Mon, 18 Jan 2016 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2016/01/redhen-raiser-in-action/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/01/redhen-raiser-in-action/</guid>
+</item>
+
+    
+      <item>
+  <title>Peer-To-Peer Fundraising With Drupal - RedHen Raiser</title>
+  <description>
+    <![CDATA[<h3 id="the-origin-of-redhen-raiser">The Origin of RedHen Raiser</h3>
+
+<p>Last summer, the <a href="http://www.capitalareafoodbank.org/">Capital Area Food Bank of Washington, DC</a> came to us with a great idea: The Food Bank wanted to increase its investment in team fundraising initiatives, but they didn’t necessarily want to continue to invest in a “pay as you go” service like StayClassy, TeamRaiser, or Razoo. Rather, they wanted to explore whether or not they could invest in the development of an open source alternative that would eliminate licensing costs, that they could customize more easily, and that they could then give back to the broader nonprofit community.</p>
+
+<p>We’ve spoken a lot in the community regarding various strategies for <a href="http://thinkshout.com/blog/2015/03/the-how-and-why-of-open-source/">how nonprofits can contribute to the development of open source tools</a>. Most of the time, we recommend that nonprofits start off by solving their own organizational problems first, and then abstracting components of the resulting solutions at the end of the project.</p>
+
+<p>However, in the case of the Capital Area Food Bank’s team fundraising needs, a competitive analysis of existing solutions provided us with a well-defined roadmap for how to meet the Food Bank’s goals, while simultaneously working on a suite of contributed tools that could be given back to the broader community. So, in coming up with their solution, we started out by developing RedHen Raiser as a stand-alone Drupal Distribution, and then implemented a customized instance of the Distribution to meet the Food Bank’s more specific design needs.</p>
+
+<h3 id="architectural-planning-for-the-redhen-raiser-drupal-distribution">Architectural Planning for the RedHen Raiser Drupal Distribution</h3>
+
+<p>As mentioned above, we began our feature design process for this peer-to-peer fundraising platform by doing a <strong>competitive analysis of existing tools</strong>. The table below shows our recommended feature set (“Our MVP”) compared to the functionality available as of June 2014 on eight of the leading platforms:</p>
+
+<p><img src="/assets/images/blog/image_0.png" alt="image alt text" /></p>
+
+<p><em>As a quick aside, it’s interesting in comparing these products that there is a lack of consensus in the industry regarding how to refer to these sorts of fundraising tools. We often hear the terms “peer-to-peer fundraising,” “team fundraising,” “viral fundraising,” and even “crowd fundraising” used interchangeably. With crowd fundraising being all the rage in the for-profit world of Kickstarter and the like, we feel that that descriptor could be a little misleading, but the other three terms all speak to different highlights and features of these tools.</em></p>
+
+<p>With a target feature set identified, we began <strong>wireframing our proposed solution</strong>. Again, peer-to-peer fundraising has become somewhat of a well-trodden space. While we came up with a few small enhancements to the user experiences we’ve seen in the marketplace, we recognized that donors are beginning to anticipate certain design patterns when visiting these fundraising sites:</p>
+
+<p><img src="/assets/images/blog/image_1.png" alt="image alt text" /></p>
+
+<p>With the wireframes in place, we turned to <strong>technical architecture</strong>. Given the need to collect a broad range of constituent data, not just user account information, it was clear to us that this Drupal distribution should be built on top of a CRM platform native to Drupal. For obvious reasons, we chose to go with <a href="https://www.drupal.org/project/redhen">RedHen CRM</a>.</p>
+
+<p>We also saw many advantages to leveraging <a href="https://www.drupal.org/project/redhen_donation">RedHen Donation</a>, a flexible tool for building single-page donation forms. With RedHen Donation, a “Donation field” can be attached to an entity, and in so doing, it attaches a form to that entity for processing donations. The <em>RedHen-specific</em> piece to this module is that it is configurable, so that incoming donation data is used to “upsert” (create or update) RedHen contacts. RedHen Donation also integrates with Drupal Commerce to handle order processing and payment handling. Integrating with the <a href="https://www.drupal.org/project/commerce_cardonfile">Commerce Card on File</a> and <a href="https://www.drupal.org/project/commerce_recurring">Commerce Recurring</a> modules, RedHen Donation can be configured to support recurring gifts as well.</p>
+
+<p>Missing from the underlying set of building blocks needed for building a peer-to-peer fundraising platform with Drupal was a tool for managing and tracking fundraising against campaign targets and goals. In the case of peer-to-peer fundraising, each team fundraising page needs to be connected to a larger campaign. To address this requirement, we released a module called <a href="https://www.drupal.org/project/redhen_campaign">RedHen Campaign</a>. This module, coupled with with RedHen Donation, are at the core of RedHen Raiser, allowing us to create a hierarchy between fundraising campaigns, teams, and individual donors.</p>
+
+<p>If you are interested in giving RedHen Raiser a spin, you can <a href="https://www.drupal.org/project/redhen_raiser">install the distribution</a> using your own Drupal Make workflow, you can checkout our own <a href="https://github.com/thinkshout/charlotte">RedHen Raiser development workflow</a>, or you can just click a button to spin up a <a href="https://dashboard.pantheon.io/products/redhen_raiser/spinup">free instance</a> on Pantheon’s hosting platform. (If you’re not a Drupal developer, this last approach is incredibly quick and easy. The distribution even ships with an example fundraising campaign to help you get started.)</p>
+
+<h3 id="customizing-redhen-raiser-to-meet-the-food-banks-needs">Customizing RedHen Raiser to Meet the Food Bank’s Needs</h3>
+
+<p>With a strong base in place, customizing RedHen Raiser to meet the Capital Area Food Bank’s requirements was straightforward and comparably inexpensive. It was largely a matter of adding Drupal Commerce configuration to work with their payment gateway, developing a custom theme that matched the Food Bank’s overall brand, and then training their team to start building out their first peer-to-peer fundraising campaign:</p>
+
+<p><img src="/assets/images/blog/image_2.png" alt="image_2.png" /></p>
+
+<h3 id="the-success-of-the-food-banks-first-peer-to-peer-fundraising-campaign">The Success of the Food Bank’s First Peer-to-Peer Fundraising Campaign</h3>
+
+<p>The Capital Area Food Bank launched this tool around its May 2015 <a href="http://www.capitalareafoodbank.org/food-from-the-bar/">“Food From The Bar” campaign</a>, targeting law firms in the D.C. Metro area. <strong><em>In just 30 days, the Food Bank raised close to <a href="https://give.capitalareafoodbank.org/campaigns/food-bar-2015">$150,000 on RedHen Raiser</a>.</em></strong></p>
+
+<p>The Food Bank’s Chief Digital Officer, Chris von Spiegelfield, had this to say about the project:</p>
+
+<p><em>“The Capital Area Food Bank has been no stranger to peer-to-peer fundraising tools. For years, it has relied on third-party sites such as Causes.com, Razoo, Crowdrise, among others. However, these tools often came with considerable branding and messaging limitations as well as pretty stiff transactional fees. Users got confused about where their money was going and complained after learning a considerable portion of their donation didn’t make its way to the Food Bank. We wanted to provide greater unity of purpose beyond a donation form without all the hassle, which is how we decided to invest in our own crowdfunding platform.</em></p>
+
+<p><em>After kicking the tires at a few SaaS options, we decided the best way forward was to build a customized website.  Out of all the different frameworks proposed, the open-source Drupal and RedHen Raiser combo impressed us the most. We wouldn’t  just be buying a website. We would be leveraging a vast network of programmers and community-minded architects who could start us off in a very good place, not to mention help our platform be secure and grow for the foreseeable future.</em></p>
+
+<p><em>We launched the website this year and couldn’t be happier with what ThinkShout built for us. We’re already seeing it pay dividends across several campaigns. We continue to add new features and hope our site might be a benchmark that other nonprofits could benefit from and contribute to as well.”</em></p>
+
+<h3 id="whats-next-for-redhen-raiser">What’s Next for RedHen Raiser?</h3>
+
+<p>The obvious answer to this question is <em>a port to Drupal 8</em>. But that will take a little time, as many complex pieces, such as Drupal Commerce and RedHen CRM will need to be ported before we can migrate over these higher-level fundraising features. But a RedHen CRM port is on our short(er) term horizon. And frankly, the idea of being able to use RedHen as a “headless CRM” is incredibly exciting.</p>
+
+<p>In the meantime, we are looking forward to collaborating with the community to make RedHen Raiser an even stronger open source competitor to the pay-as-you-go alternatives that are currently out there. So, please, give RedHen Raiser a test drive and send us your feedback!</p>
+]]>
+  </description>
+  <pubDate>Thu, 13 Aug 2015 11:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/08/peer-to-peer-with-drupal/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/08/peer-to-peer-with-drupal/</guid>
+</item>
+
+    
+      <item>
+  <title>The How and Why of Nonprofits Contributing to Open Source</title>
+  <description>
+    <![CDATA[<p><em>Originally published on February 23rd, 2015 on <a href="http://www.nten.org/articles/2015/the-how-and-why-of-nonprofits-contributing-to-open-source">NTEN.org</a>. Republished with permission.</em></p>
+
+<p>For the last 15 years or so, we’ve seen consistent growth in nonprofits’ appreciation for how open source tools can support their goals for online engagement. Rarely do we run across an RFP for a nonprofit website redesign that doesn’t specify either Drupal or WordPress as the preferred CMS platform. The immediate benefits of implementing an open source solution are pretty clear:</p>
+
+<ul>
+  <li>
+    <p>With open source tools, organizations avoid costly licensing fees.</p>
+  </li>
+  <li>
+    <p>Open source tools are generally easier to customize.</p>
+  </li>
+  <li>
+    <p>Open source tools often have stronger and more diverse vendor/support options.</p>
+  </li>
+  <li>
+    <p>Open source platforms are often better suited for integration with other tools and services.</p>
+  </li>
+</ul>
+
+<p>The list goes on… And without going down a rabbit hole, I’ll simply throw out that the benefits of open source go well beyond content management use cases these days.</p>
+
+<p>But the benefits of nonprofits supporting and contributing to these open source projects and communities are a little less obvious, and sometimes less immediate. While our customers generally appreciate the contributions we make to the larger community in solving their specific problems, we still often get asked the following in the sales cycle:</p>
+
+<p>“So let me get this straight: First you want me to pay you to build my organization a website. Then you want me to pay you to give away everything you built for us to other organizations, many of whom we compete with for eyeballs and donations?”</p>
+
+<p>This is a legitimate question! One of the additional benefits of using an open source solution is that you get a lot of functionality “for free.” You can save budget over building entirely custom solutions with open source because they offer so much functionality out of the box. So, presumably, some of that saving could be lost if additional budget is spent on releasing code to the larger community.</p>
+
+<p>There are many other arguments <em>against</em> open sourcing. Some organizations think that exposing the tools that underpin their website is a security risk. Others worry that if they open source their solutions, the larger community will change the direction of projects they support and rely upon. But most of the time, it comes down to that first argument:</p>
+
+<p>“We know our organization benefits from open source, but we’re not in a position to give back financially or in terms of our time.”</p>
+
+<p>Again, this is an understandable concern, but one that can be mitigated pretty easily with proper planning, good project management, and sound and sustainable engineering practices.</p>
+
+<h3 id="debunking-the-myths-of-contributing-to-open-source">Debunking the Myths of Contributing to Open Source</h3>
+
+<p><strong>Myth #1: “Open sourcing components of our website is a security risk.”</strong></p>
+
+<p>Not really true. Presumably the concern here is that if a would-be hacker were to see the code that underlies parts of your website, they could exploit security holes in that code. While yes, that could happen, the chances are that working with a software developer who has a strong reputation for contributing to an open source project is pretty safe. More importantly, most strong open source communities, such as the Drupal community, have dedicated security teams and thousands of developers who actively review and report issues that could compromise the security of these contributions. In our experience, unreviewed code and code developed by engineers working in isolation are much more likely to present security risks. And on the off chance that someone in the community does report a security issue, more often than not, the reporter will work with you, for free, to come up with a security patch that fixes the issue.</p>
+
+<p><strong>Myth #2: “If we give away our code, we are giving away our organization’s competitive advantage.”</strong></p>
+
+<p>As a software vendor that’s given away code that powers over 45,000 Drupal websites, we can say with confidence: there is no secret sauce. Trust me, all of our competitors use Drupal modules that we’ve released - and vice versa.</p>
+
+<p>By leveraging open source tools, your organization can take advantage of being part of a larger <em>community of practice</em>. And frankly, if your organization is trying to do something new, something that’s not supported by such a community, giving away tools is a great way to build a community around your ideas.</p>
+
+<p>We’ve seen many examples of this. Four years ago, we helped a local nonprofit implement a robust mobile mapping solution on top of the <a href="http://leafletjs.com/">Leaflet Javascript library</a>. At the time, there wasn’t an integration for this library and Drupal. So, as part of this project we asked the client invest 20 hours or so for us release the barebones scaffolding of their mapping tool as a <a href="https://www.drupal.org/project/leaflet">contributed Drupal module</a>.</p>
+
+<p>At first, this contributed module was simply a developer tool. It didn’t have an interface allowing Drupal site builders to use it. It just provided an easier starting point for custom map development. However, this 20 hour starting point lowered the cost for us to build mapping solutions for other clients, who also pitched in a little extra development time here and there to the open source project. Within a few months, the Leaflet module gained enough momentum that other developers from other shops started giving back. Now the module is leveraged on over 5,700 websites and has been supported by code contributions from 37 Drupal developers.</p>
+
+<p>What did that first nonprofit and the other handful of early adopters get for supporting the initial release? Within less than a year of initially contributing to this Drupal module, they opened the door to many tens of thousands of dollars worth of free enhancements to their website and mapping tools.</p>
+
+<p>Did they lose their competitive advantage or the uniqueness of their implementation of these online maps? I think you know what I’m gonna say: <em>No!</em> In fact, the usefulness of their mapping interfaces improved dramatically as those of us with an interest in these tools collaborated and iterated on each other’s ideas and design patterns.</p>
+
+<p><strong>Myth #3: “Contributing to an open source project will take time and money away from solving our organization’s specific problems.”</strong></p>
+
+<p>This perception may or may not be true, depending on some of the specifics of the problems your organization is trying to solve. More importantly, this depends upon the approach you use to contribute to an open source project. We’ve definitely seen organizations get buried in the weeds of trying to do things in an open source way. We’ve seen organizations contribute financially to open source projects <em>on spec</em> (on speculation that the project will succeed). This can present challenges. We’ve also seen vendors try to abstract too much of what they’re building for clients up front, and that can lead to problems as well.</p>
+
+<p>Generally, our preferred approach is generally to solve our clients immediate problems first, and then abstract useful bits that can be reused by the community towards the end of the project. There are situations when the abstraction, or the open source contribution, needs to come first. But for the most part, we encourage our clients to solve their own problems first, and in so doing so provide real-life use cases for the solutions that they open source. Then, abstraction can happen later as a way of future-proofing their investment.</p>
+
+<p><strong>Myth #4: “If we open source our tools, we’ll lose control over the direction of the technologies in which we’ve invested.”</strong></p>
+
+<p>Don’t worry, this isn’t true! In fact:</p>
+
+<p><em>Contributing to an open source project is positively selfish.</em></p>
+
+<p>By this I mean that by contributing to an open source project, your organization actually gets to have a stronger say in the direction of that project. Most open source communities are guided by those that just get up and do, rather than by committee or council.</p>
+
+<p>Our team loves the fact that so many organizations leverage our Drupal modules to meet their own needs. It’s great showing up at nonprofit technology conferences and having folks come up to us to thank us for our contributions. But what’s even better is knowing that these projects have been guided by the direct business needs of our nonprofit clients.</p>
+
+<h3 id="how-to-go-about-contributing-to-open-source">How to Go About Contributing to Open Source</h3>
+
+<p>There are a number of ways that your nonprofit organization can contribute to open source. In most of the examples above, we speak to financial contributions towards the release of open source code. Those are obviously great, but meaningful community contributions can start much smaller:</p>
+
+<ul>
+  <li>
+    <p><strong>Participate in an open source community event.</strong> By engaging with other organizations with similar needs, you can help guide the conversation regarding how a platform like Drupal can support your organization’s needs. Events like <a href="http://myntc.nten.org/eventdetails/precon/drupal">Drupal Day at the NTC</a> are a great place to start.</p>
+  </li>
+  <li>
+    <p><strong>Host a code sprint or hackathon.</strong> Sometimes developers just need a space to hack on stuff. You’d be surprised at the meaningful that connections and support that can come from just coordinating a local hackathon. One of our clients, <a href="http://www.feedingtexas.org/">Feeding Texas</a>, recently took this idea further and hosted a dedicated sprint on a hunger mapping project called <a href="https://github.com/snap-hackathon/snapshot-texas">SNAPshot Texas</a>. As part of this sprint, four developers volunteered a weekend to helping Feeding Texas build a data visualization of Food Stamp data across the state. This effort built upon the work of Feeding America volunteers across the country and became a cornerstone of our redesign of <a href="http://www.feedingtexas.org/">FeedingTexas.org</a>. Feeding Texas believes so strongly in the benefits they received from this work that they felt comfortable <a href="https://github.com/thinkshout/feeding-texas">open sourcing their entire website on GitHub</a>.</p>
+  </li>
+</ul>
+
+<p>Of course, if your organization is considering a more direct contribution to an open source project, for example, by releasing a module as part of a website redesign, we have some advice for you as well:</p>
+
+<ul>
+  <li>
+    <p><strong>First and foremost, solve your organization’s immediate problems first.</strong> As mentioned earlier in the article, the failure of many open source projects is that their sponsors have to handle too many use cases all at once. Rest assured that if you solve your organization’s problems, you’re likely to create something that’s useful to others. Not every contribution needs to solve every problem.</p>
+  </li>
+  <li>
+    <p><strong>Know when to start with abstraction vs. when to end with abstraction.</strong> We have been involved in client-driven open source projects, such as the release of <a href="http://drupal.org/project/redhen_raiser">RedHen Raiser</a>, a peer-to-peer fundraising platform, for which the open source contribution needed to be made first, before addressing our client’s specific requirements. In the case of RedHen Raiser, the Capital Area Food Bank of Washington, DC came to us with a need for a Drupal-based peer-to-peer fundraising solution. Learning that nothing like that existed, they were excited to help us get something started that they could then leverage. In this case, starting with abstraction made the most sense, given the technical complexities of releasing such a tool on Drupal. However, for the most part, the majority of open source contributions come from easy wins that are abstracted after the fact. Of course, there’s no hard and fast rule about this - it’s just something that you need to consider.</p>
+  </li>
+  <li>
+    <p><strong>Celebrate your contributions and the development team!</strong> It might sound silly, but many software nerds take great pride in just knowing that the stuff they build is going to be seen by their peers. By offering to open source even just small components of your project, you are more likely to motivate your development partners. They will generally work harder and do better work, which again adds immediate value to your project.</p>
+  </li>
+</ul>
+
+<p>In conclusion, I hope that this article helps you better understand that there’s a lot of value in contributing to open source. It doesn’t have to be that daunting of an effort and it doesn’t have to take you off task.</p>
+]]>
+  </description>
+  <pubDate>Wed, 25 Mar 2015 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/03/the-how-and-why-of-open-source/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/03/the-how-and-why-of-open-source/</guid>
+</item>
+
+    
+      <item>
+  <title>Reimagined Sprints and Introducing RedHen Raiser</title>
+  <description>
+    <![CDATA[<p><img src="/assets/images/blog/raiser_0.jpg" alt="raiser_0.jpg" /></p>
+
+<p>We’ve been experimenting with monthly team sprints at ThinkShout over the last year with varied levels of structure and outcomes. This month, we decided to take a step back, reevaluate our goals, and reimagine our sprint process. And, we moved it to a Thursday. <a href="https://twitter.com/thinkshout/status/558334360416305152">A bow-tie Thursday</a>.</p>
+
+<p>Previously, these sprints were loosely structured around a topic or technology, such as <a href="https://www.drupal.org/theme-guide/8/twig">Twig in Drupal 8</a>. Suffice it to say, they were a lot of fun and very exploratory, but they weren’t the most engaging for everyone on the team. This time around, we decided to collaborate on a single initiative - in this instance, a product - that would benefit from the skills and perspectives of everyone in the company. Consequently, we decided to rally around <a href="http://drupal.org/project/redhen_raiser">RedHen Raiser</a>, our new peer-to-peer fundraising distribution for Drupal.</p>
+
+<h3 id="introducing-redhen-raiser">Introducing RedHen Raiser</h3>
+
+<p><img src="http://thinkshout.com/assets/images/blog/raiser_1.jpg" alt="raiser_1.jpg" /></p>
+
+<p>RedHen Raiser is designed for building peer-to-peer fundraising websites, like the sites you see for marathons and walks, where a fundraising campaign is made up of myriad individual and team pages, and can be customized by the participants for fundraising amongst their respective communities, while remaining connected to the larger campaign.</p>
+
+<p>As the name suggests, RedHen Raiser is built on top of <a href="https://www.drupal.org/project/redhen">RedHen CRM</a>, including the <a href="http://drupal.org/project/redhen_donation">RedHen Donation</a> and <a href="http://drupal.org/project/redhen_campaign">RedHen Campaign</a> modules, and it’s chock full of awesome:</p>
+
+<ul>
+  <li>
+    <p>Easy Campaign creation so site visitors can join right away by creating their own Team or Individual fundraisers.</p>
+  </li>
+  <li>
+    <p>A beautiful, consistent fundraising experience that is based on inherited display values from the larger Campaign.</p>
+  </li>
+  <li>
+    <p>Goal progress widgets including thermometers, leaderboards, etc.</p>
+  </li>
+  <li>
+    <p>Mini-blogs for Campaigns and Fundraisers via Update content type.</p>
+  </li>
+  <li>
+    <p>Ability to create and maintain different pages for different fundraisers with a single account.</p>
+  </li>
+  <li>
+    <p>Automated start and end dates.</p>
+  </li>
+  <li>
+    <p>Commerce-readiness - just add your payment method and go!</p>
+  </li>
+  <li>
+    <p>Single-page donation forms via RedHen Donation.</p>
+  </li>
+  <li>
+    <p>Built using established modules with simple UI (Views, RedHen, Context, etc) for easy customization.</p>
+  </li>
+</ul>
+
+<p>It’s ThinkShout’s latest offering in a suite of nonprofit engagement building blocks that we’ve been developing, and was initially developed for the <a href="http://www.capitalareafoodbank.org/">Capital Area Food Bank of Washington, DC</a>. RedHen Raiser competes feature for feature with top <em>software as a service (SaaS)</em> peer-to-peer fundraising platforms, such as TeamRaiser, CauseVox and Razoo.</p>
+
+<p>As a result of our work with this client, we were able to release a very rudimentary version of RedHen Raiser on Drupal.org that would provide a basic starting point to other developers interested in building a peer-to-peer fundraising tool. The product is also a huge win for CAFB of DC, simply because they were able to reap a huge dividend on their initial investment by getting these improvements for free.</p>
+
+<h3 id="involving-the-full-team-in-one-sprint">Involving the Full Team in One Sprint</h3>
+
+<p><img src="http://thinkshout.com/assets/images/blog/raiser_2.jpg" alt="raiser_2.jpg" /></p>
+
+<p>As an open source <em>product</em>, RedHen Raiser presented us with some interesting opportunities to engage more than just our engineers in the sprint process, and it certainly needed a lot of love on a lot of fronts. Leveraging the different interests and expertise of our 18-person company, we split into five teams:</p>
+
+<ul>
+  <li>
+    <p><strong>Dev Ops</strong> - this team focused on deployment infrastructure, build processes, and automated testing;</p>
+  </li>
+  <li>
+    <p><strong>Bug Fix &amp; Feature Dev</strong> - team members spent the sprint day working on the development backlog;</p>
+  </li>
+  <li>
+    <p><strong>UX</strong> - the User Experience team worked ahead of the feature development team to identify and sketch out new features and enhancements;</p>
+  </li>
+  <li>
+    <p><strong>QA</strong> - the Quality Assurance team was made up of our project managers acting as “product owners;”</p>
+  </li>
+  <li>
+    <p><strong>Community Engagemen</strong>t - this team, consisting of our sales, marketing, and operations staff, was tasked with documenting the sprint and sharing our contributions with the wider Drupal and nonprofit technology communities.</p>
+  </li>
+</ul>
+
+<p>It’s worth noting that the quality assurance team and the community engagement team came together for the first half of the sprint for an in-depth training on the Drupal contributed modules and components underlying RedHen Raiser. Ironically, we often get so busy building these sorts of tools for our clients that we don’t stop to educate our own “non-developer” team members on how stuff works. By taking this time to dive into the nitty gritty with our project managers, marketing and operations folks, we create better advocates for these solutions and help ensure that everyone in the company feels like contributor to our success.</p>
+
+<h3 id="planning-for-the-sprint">Planning for the Sprint</h3>
+
+<p><img src="http://thinkshout.com/assets/images/blog/raiser_3.jpg" alt="raiser_3.jpg" /></p>
+
+<p>As ThinkShout has grown, the need for sprint planning has grown with it. Back when we first started these sprints, we could fit our entire team around a single table (covered in pizza boxes and beer) and call out development tickets we each needed help with.</p>
+
+<p>Now, with a team of 18 working together from 11am to 5pm, these sprints take a bit more planning - to say nothing of balancing the opportunity cost of investing a collective 108 hours of non-client work into a single week. To keep things running smoothly, we’ve taken a more project-planning-esque approach to our sprint days:</p>
+
+<ul>
+  <li>
+    <p><strong>Scheduling in advance</strong>: The date and time of the sprint is scheduled a month in advance. We used to just stick with the last Friday of the month, but found that this sometimes excluded certain team members on deadlines or vacation. Now, we coordinate a bit more tightly to help ensure participation of as many team members as possible.</p>
+  </li>
+  <li>
+    <p><strong>Laser focus</strong>: the focus of the sprint is announced to the team three weeks in advance. This gives the team time to think about stuff they want to work on, and add to the feature backlog in the weeks coming up to the sprint.</p>
+  </li>
+  <li>
+    <p><strong>Pre-sprint planning meetings</strong>: The department leads meet a week before the sprint to form teams and structure the sprint agenda, and prioritize the development/feature backlog two days in advance of the sprint.</p>
+  </li>
+  <li>
+    <p><strong>Pre-sprint presentations</strong>: The week before the sprint, we do a short, company-wide presentation on the sprint topic at our weekly staff lunch. This helps energize the team and sparks knowledge sharing in the lead up to the sprint day.</p>
+  </li>
+  <li>
+    <p><strong>Formally “opening” and “closing” the sprint day</strong>: As our sprint commences, we kick things off with a quick, all-staff scrum. More importantly, we pull the team back together at the end of the day for each sprint team to present (and celebrate!) what they’ve completed.</p>
+  </li>
+</ul>
+
+<h3 id="outcomes-of-our-redhen-raiser-sprint">Outcomes of Our RedHen Raiser Sprint</h3>
+
+<p><img src="http://thinkshout.com/assets/images/blog/raiser_4.png" alt="raiser_4.png" /></p>
+
+<p>So what does it all mean? This new approach to our team sprints resulted in just shy of 100 commits on RedHen Raiser and the underlying modules that power the distribution. We published a <a href="https://www.drupal.org/node/2414581">new release</a> of RedHen Raiser, <a href="https://www.drupal.org/node/2413307">RedHen Donation</a> and the <a href="https://www.drupal.org/node/2414563">RedHen Campaign</a> modules - as well as a release of our base <a href="https://www.drupal.org/node/2414559">RedHen CRM</a><a href="https://www.drupal.org/node/2414559"> suite</a>.</p>
+
+<p>One of the biggest wins to come out of the sprint are <a href="https://github.com/thinkshout/redhen_raiser/tree/7.x-1.x/tests">automated tests</a> powered by <a href="http://docs.behat.org/en/v2.5/">Behat</a>. Tests are triggered with every commit to GitHub and run on <a href="https://travis-ci.org/thinkshout/redhen_raiser">Travis CI</a>. At this point, test coverage is a bit limited, but the foundation has been laid for complete test coverage for RedHen Raiser, a critical factor when organizations are evaluating which software to use.</p>
+
+<p>To top it off, we cleaned up a few RedHen project pages on Drupal.org and began working on a RedHen-specfic QA testing plan. We also reached out to the RedHen open source community to let them know what we were up to and how folks can continue to get involved. Most of all, we are proud to say that this effort is a huge contribution to the nonprofit tech community, in that it provides major improvements to a powerful tool that can be leveraged for free - and has the documentation to support it!</p>
+
+<p>All in all, the ThinkShout team came together in a big way, and accomplished much more than we could have if we had remained siloed in our approach. We had a lot of fun, drank some beer, ate some good food, and got to collaborate as a whole team on something really cool. We’re really looking forward to the next one!</p>
+]]>
+  </description>
+  <pubDate>Wed, 28 Jan 2015 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2015/01/reimagined-sprints-redhen-raiser/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/01/reimagined-sprints-redhen-raiser/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

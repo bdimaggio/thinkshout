@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Upgrading MailChimp eCommerce and an Introduction to Drupal 8's Event System | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="Get your hooks out of Drupal with Drupal 8's event system.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal 8, Drupal Planet, Events, MailChimp, Mailchimp eCommerce">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  <p class="featured">Featured Post</p>
+
+  <p><span class="date">07.06.2017</span>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+        <a class="topic" href="/blog/topic/technology">Technology and Innovation</a>
+      
+    
+  
+  </p>
+
+  <h1 class="post-title">Upgrading MailChimp eCommerce and an Introduction to Drupal 8's Event System</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/dan.jpg">
+    
+      <a class="team-name" href="/team/dan/">Dan Ruscoe</a>
+    <br>
+      Senior Software Engineer
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <p>If you’ve ever built a Drupal 7 module, then you’ll be familiar with hooks: functions that allow modules to react to things happening in other modules. The hook system is functionally fine but, with so many hooks to implement, .module files often become bloated and difficult to manage.</p>
+
+<p>Drupal 8’s event system does a lot to reduce the clutter of hooks. Now, instead of using a hook, you can create an event subscriber that will execute your code every time a module triggers an event. This is similar to the hook system only in the effect; the execution is very different.</p>
+
+<p>Porting our popular MailChimp eCommerce module to Drupal 8 gave me the perfect opportunity learn about the event system. I use the word “opportunity” to disguise the fact that I was forced to learn how events work because it was impossible to port the module without doing so.</p>
+
+<p>The MailChimp eCommerce module depends on the Commerce module, naturally, and in Drupal 8, the Commerce module makes heavy use of events.</p>
+
+<p>First, let’s look at an event. I’m using an example ripped straight from Commerce.</p>
+
+<p>The Commerce submodule, Commerce Cart, contains a class named <code class="highlighter-rouge">CartEntityAddEvent</code>. You can <a href="http://cgit.drupalcode.org/commerce/tree/modules/cart/src/Event/CartEntityAddEvent.php?h=8.x-2.x">find it here</a>.</p>
+
+<p>The class itself is simple; it’s designed to store a few values - the cart, the item being added to the cart, and the quantity of that item. The class also has a few getter functions for convenience.</p>
+
+<p>Most importantly, this class represents an event that’s triggered every time a user adds an item to their shopping cart. This is done using just two lines of code:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$event</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CartEntityAddEvent</span><span class="p">(</span><span class="nv">$cart</span><span class="p">,</span> <span class="nv">$purchased_entity</span><span class="p">,</span> <span class="nv">$quantity</span><span class="p">,</span> <span class="nv">$saved_order_item</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">eventDispatcher</span><span class="o">-&gt;</span><span class="na">dispatch</span><span class="p">(</span><span class="nx">CartEvents</span><span class="o">::</span><span class="na">CART_ENTITY_ADD</span><span class="p">,</span> <span class="nv">$event</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The event class is created with all the relevant values, then “dispatched” to any event subscribers configured to pay attention to it. When dispatched, the event is identified by a constant - <code class="highlighter-rouge">CartEvents::CART_ENTITY_ADD</code>. This constant is used by event subscribers, which we’ll take a look at now.</p>
+
+<p>This is a cut-down version of an event subscriber used by our <a href="https://www.drupal.org/project/mailchimp_ecommerce">MailChimp eCommerce module</a>.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sd">/**
+ * Event Subscriber for Commerce Carts.
+ */</span>
+<span class="k">class</span> <span class="nc">CartEventSubscriber</span> <span class="k">implements</span> <span class="nx">EventSubscriberInterface</span> <span class="p">{</span>
+
+  <span class="sd">/**
+   * The Cart Handler.
+   *
+   * @var \Drupal\mailchimp_ecommerce\CartHandler
+   */</span>
+  <span class="k">private</span> <span class="nv">$cart_handler</span><span class="p">;</span>
+
+  <span class="sd">/**
+   * The Order Handler.
+   *
+   * @var \Drupal\mailchimp_ecommerce\OrderHandler
+   */</span>
+  <span class="k">private</span> <span class="nv">$order_handler</span><span class="p">;</span>
+
+  <span class="sd">/**
+   * CartEventSubscriber constructor.
+   *
+   * @param \Drupal\mailchimp_ecommerce\CartHandler $cart_handler
+   *   The Cart Handler.
+   * @param \Drupal\mailchimp_ecommerce\OrderHandler $order_handler
+   *   The Order Handler.
+   */</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">CartHandler</span> <span class="nv">$cart_handler</span><span class="p">,</span> <span class="nx">OrderHandler</span> <span class="nv">$order_handler</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cart_handler</span> <span class="o">=</span> <span class="nv">$cart_handler</span><span class="p">;</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">order_handler</span> <span class="o">=</span> <span class="nv">$order_handler</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="sd">/**
+   * Respond to event fired after adding a cart item.
+   */</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">cartAdd</span><span class="p">(</span><span class="nx">CartEntityAddEvent</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="sd">/** @var \Drupal\commerce_order\Entity\Order $order */</span>
+    <span class="nv">$order</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getCart</span><span class="p">();</span>
+
+    <span class="sd">/** @var \Drupal\commerce_order\Entity\OrderItem $order_item */</span>
+    <span class="nv">$order_item</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getOrderItem</span><span class="p">();</span>
+
+    <span class="nv">$product</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">order_handler</span><span class="o">-&gt;</span><span class="na">buildProduct</span><span class="p">(</span><span class="nv">$order_item</span><span class="p">);</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cart_handler</span><span class="o">-&gt;</span><span class="na">addCartLine</span><span class="p">(</span><span class="nv">$order</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">(),</span> <span class="nv">$order_item</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">(),</span> <span class="nv">$product</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="sd">/**
+   * {@inheritdoc}
+   */</span>
+  <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getSubscribedEvents</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$events</span><span class="p">[</span><span class="nx">CartEvents</span><span class="o">::</span><span class="na">CART_ENTITY_ADD</span><span class="p">][]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'cartAdd'</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="nv">$events</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/thinkshout/mailchimp_ecommerce/blob/8.x-1.x/modules/mailchimp_ecommerce_commerce/src/EventSubscriber/CartEventSubscriber.php">Here’s the complete version, if you’re interested</a>.</p>
+
+<p>So what does it do, exactly?</p>
+
+<p>Let’s start with the <code class="highlighter-rouge">getSubscribedEvents()</code> function. This is where we define which events we want to subscribe to, and assign each event a processing function. Here we are subscribing to just one event, the “cart entity add” event, and assigning the <code class="highlighter-rouge">cartAdd()</code> function as a processor.</p>
+
+<p>Note that the <code class="highlighter-rouge">cartAdd()</code> function takes one argument, an instance of the <code class="highlighter-rouge">CartEntityAddEvent</code> class. That’s the same class we looked at earlier - the event class defined in the Commerce Cart module. This is where our module reacts to that event being triggered.</p>
+
+<p>The <code class="highlighter-rouge">cartAdd()</code> function itself extracts the order and item information from the event and uses an instance of the <code class="highlighter-rouge">CartHandler</code> class, provided by the MailChimp eCommerce module, to send updated cart information to MailChimp’s API.</p>
+
+<p>One final thing:</p>
+
+<p>Event subscribers won’t work unless they are defined as a service. Services are defined in a module’s *.services.yml file, which you can <a href="https://www.drupal.org/docs/8/api/services-and-dependency-injection/structure-of-a-service-file">learn more about here</a>.</p>
+
+<p>The service definition for the <code class="highlighter-rouge">CartEventSubscriber</code> looks like this:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">mailchimp_ecommerce_commerce.cart_event_subscriber</span><span class="pi">:</span>
+    <span class="na">class</span><span class="pi">:</span> <span class="s1">'</span><span class="s">\Drupal\mailchimp_ecommerce_commerce\EventSubscriber\CartEventSubscriber'</span>
+    <span class="na">arguments</span><span class="pi">:</span> <span class="pi">[</span><span class="s1">'</span><span class="s">@mailchimp_ecommerce.cart_handler'</span><span class="pi">,</span> <span class="s1">'</span><span class="s">@mailchimp_ecommerce.order_handler'</span><span class="pi">]</span>
+    <span class="na">tags</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="pi">{</span> <span class="nv">name</span><span class="pi">:</span> <span class="nv">event_subscriber</span> <span class="pi">}</span>
+</code></pre></div></div>
+
+<p>We identify the class using its namespace, inject the “cart_handler” and “order_handler” services, then, finally, tag the service as an “event_subscriber”. <a href="https://github.com/thinkshout/mailchimp_ecommerce/blob/8.x-1.x/modules/mailchimp_ecommerce_commerce/mailchimp_ecommerce_commerce.services.yml">Check out the full file here</a>. Just for completeness, the two injected services are defined in <a href="https://github.com/thinkshout/mailchimp_ecommerce/blob/8.x-1.x/mailchimp_ecommerce.services.yml">here</a>.</p>
+
+<p>I’m a big fan of how Drupal 8 has shifted towards a more object-oriented way of doing things. It’s more organized, promotes consistency between modules, and, best of all, finally signals an end to massive .module files.</p>
+
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal 8.' href='/blog/category/drupal-8/'>Drupal 8</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged Events.' href='/blog/category/events/'>Events</a> <a class='tag' rel='tag category' title='View all posts tagged MailChimp.' href='/blog/category/mailchimp/'>MailChimp</a> <a class='tag' rel='tag category' title='View all posts tagged Mailchimp eCommerce.' href='/blog/category/mailchimp-ecommerce/'>Mailchimp eCommerce</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2017/07/upgrading-mailchimp-ecommerce-and-and-introduction-to-drupal-8s-event-system/';
+    this.page.identifier = '/blog/2017/07/upgrading-mailchimp-ecommerce-and-and-introduction-to-drupal-8s-event-system';
+    this.page.title = 'Upgrading MailChimp eCommerce and an Introduction to Drupal 8's Event System'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2017/06/the-2017-thinkshout-interns/"><span class="fa fa-caret-left"></span> <span>The 2017 ThinkShout Summer Interns</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2017/08/thinkshout-cares-and-so-can-you/"><span>ThinkShout Cares (and So Can You)</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+  <div class="team-member-blog">
+    <div class="container">
+      <h4>Related Blog Posts</h4>
+      <div class="row posts">
+        
+        
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/05/Space-for-Empathy/">
+    <p class="post-date">05.24.2018</p>
+    <h3 class="post-title">Space for Empathy</h3>
+    <p class="post-short">How do we make space for empathy in our work and in our community? Jules takes us on a deep dive into what she learned at this year's DrupalCon</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/jules.jpg">
+      <span class="byline-text">
+        <strong>Jules Dickey</strong><br>
+        <span class="position">Software Engineer</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/05/Making-GDPR-Preparations/">
+    <p class="post-date">05.13.2018</p>
+    <h3 class="post-title">Preparing for the GDPR</h3>
+    <p class="post-short">The European Union’s General Data Protection Regulations go into effect May 25th. Here's how you need to prepare.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/tauno.jpg">
+      <span class="byline-text">
+        <strong>Tauno Hogue</strong><br>
+        <span class="position">Chief Technology Officer</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/01/Great-hoodie-mystery/">
+    <p class="post-date">01.06.2018</p>
+    <h3 class="post-title">The Great Hoodie Mystery</h3>
+    <p class="post-short">Gabe takes what would otherwise be an inane office exchange and ties it back to data structures.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/gabe.jpg">
+      <span class="byline-text">
+        <strong>Gabe Carleton-Barnes</strong><br>
+        <span class="position">Director of Engineering</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+            
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

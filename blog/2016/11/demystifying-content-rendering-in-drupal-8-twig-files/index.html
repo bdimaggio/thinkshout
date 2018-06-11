@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Demystifying Rendered Content in Drupal 8 Twig Files | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="New to Drupal 8 theming? These tips might make the learning curve a little less steep.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/blog/content-rendering-header.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/blog/content-rendering-header.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal 8, Drupal Planet, Twig">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">11.09.2016</span>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+        <a class="topic" href="/blog/topic/technology">Technology and Innovation</a>
+      
+    
+  
+  </p>
+
+  <h1 class="post-title">Demystifying Rendered Content in Drupal 8 Twig Files</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/amy.jpg">
+    
+      <a class="team-name" href="/team/amy/">Amy Vaillancourt-Sals</a>
+    <br>
+      Senior Software Engineer
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+<div class="blog-header-image">
+  <img src="/assets/images/blog/content-rendering-header.jpg" alt="Content Rendering in Drupal 8">
+</div>
+
+
+
+
+<section class="body">
+  <p>Have you ever stared at your computer screen with a deer-in-headlights expression on your face thinking “I have no idea where to even start with this…”? That was me about a month ago when I was asked to help theme a Drupal 8 project for the very first time. Getting started theming in Drupal 8, still being in a fairly new iteration with a programming style differing from Drupal 7, was both an exciting and daunting task. It was exciting in the sense that I heard good things from those who’ve already started theming in D8, and daunting because there’d been a lot of changes between D7 and D8.</p>
+
+<p>One of the differences between Drupal 7 and 8 is template files; PHPTemplate (.tpl.php) files were replaced with Twig (.html.twig) files. <a href="http://twig.sensiolabs.org/">Twig</a> is a robust and elegant template engine for PHP. Once I started working with Twig, I instantly loved it. I found it to be lightweight, fairly quick to pick up, and very readable. Not only that, but I had what felt like ultimate control to the markup, including wrapping elements and rendering exactly the ouput I needed. Often with Drupal 7, wrapping elements in a <code class="highlighter-rouge">&lt;div&gt;</code> requires assistance from a back-end developer.</p>
+
+<p>With this newfound enthusiasm, I set out to write the best twig code ever! In order to find the output I needed, I used the Twig function <a href="http://twig.sensiolabs.org/doc/functions/dump.html">dump()</a>. This function “dumps” a variable’s information right on the screen. This proved highly useful until I realized I needed to dig deeper into the arrays and objects contained within the variable. There was only so much guess work I could do here before getting epically frustrated, seemingly wasting valuable time looking for an image file’s path.</p>
+
+<p>Though there are a handful of debugging methods to choose from, I had the best luck getting what I needed by using <a href="https://dev.acquia.com/blog/debugging-drupal-8/debugging-twig-templates-in-drupal-8-with-phpstorm-and-xdebug/25/08/2016/16586">PHPStorm to debug Twig files</a>. That’s right, front-end friends, PHPStorm isn’t just for back-end PHP-coding devs. It can be a great tool for front-end programmers as well!</p>
+
+<p>After following the steps listed in <a href="https://dev.acquia.com/blog/debugging-drupal-8/debugging-twig-templates-in-drupal-8-with-phpstorm-and-xdebug/25/08/2016/16586">Lubomir Culen’s post about debugging Twig templates</a>, I began to look for templates in the following path <code class="highlighter-rouge">sites/default/files/php</code>. From my understanding, opening a template folder gains access to the current template version the project is using, hence the long hash.</p>
+
+<p><img src="/assets/images/blog/content-rendering-1.png" alt="Content rendering 1" /></p>
+
+<p>If a change is made to the template, an additional hash file is created and a new breakpoint will need to be set. If at any point the hash template files get overwhelming, clearing the cache (running <code class="highlighter-rouge">drush cr all</code>) will reset the PHP folder and the template files, reducing the hash files to one per template folder.</p>
+
+<p>First off, I needed to acclimate myself to translating PHPStorm syntax into Twig. For example, copying a variable name in PHPStorm produces a syntax like this: <code class="highlighter-rouge">$context[‘page’][‘#title’]-&gt;arguments[‘@name’]</code>. That gets translated into the twig file like so: <code class="highlighter-rouge">page[‘#title’].arguments[‘@name’]</code>. Here’s what my PHPStorm screen looked like while working on this solution:</p>
+
+<p><img src="/assets/images/blog/content-rendering-2.png" alt="Content rendering 2" /></p>
+
+<p>Some patterns and tricks I found helpful:</p>
+
+<ul>
+  <li>Ignoring <code class="highlighter-rouge">$context</code> and starting with the main content variable.</li>
+  <li>Strip array syntax, i.e. <code class="highlighter-rouge">[‘page’]</code> = <code class="highlighter-rouge">page</code>.</li>
+  <li>If arrays exist next to each other, separate them with periods. Ex. <code class="highlighter-rouge">[‘page’][‘content’]</code> = <code class="highlighter-rouge">page.content</code>.</li>
+  <li>If an array has a #, @, or other symbol associated, keep its integrity. No period is needed here. Ex. <code class="highlighter-rouge">[‘page’][‘#title’]</code> = <code class="highlighter-rouge">page[‘#title’]</code>, and <code class="highlighter-rouge">arguments[‘@name’]</code> stays the same.</li>
+  <li>If an arrow exists, treat the method (what comes after the -&gt;) in the same manner as arrays. Ex. <code class="highlighter-rouge">[‘#title’]-&gt;arguments</code> = <code class="highlighter-rouge">[‘#title’].arguments</code></li>
+  <li>If you’re having trouble rendering the desired output, try adding <code class="highlighter-rouge">.value</code> to the end of the render code and see if that does the trick.</li>
+  <li>Use <code class="highlighter-rouge">dump()</code> simultaneously with PHPStorm’s suggested variable path.</li>
+  <li>Refer to the <a href="http://twig.sensiolabs.org/documentation">Twig documentation</a> for other handy built-in features.</li>
+</ul>
+
+<p>Up until the moment I got PHPStorm doing the heavy lifting, my team and I were relying soley on the <code class="highlighter-rouge">dump()</code> Twig function. We were halfway through the project when I discovered a value was no longer present. The disappearance was due to a template’s reliance on a value being rendered via an array placement, i.e. <code class="highlighter-rouge">content.tile.3['#markup']</code>, the ‘3’ referring to the 4th placement in the ‘tile’ array. To alleviate potential confusion, ‘tile’ happened to be the custom field group where the <code class="highlighter-rouge">field_to_render</code> existed, and the <code class="highlighter-rouge">field_to_render</code> was the 4th field in the list of fields. When a field was moved within the ‘tile’ field group, the code broke. Once I had access to the phpstorm debugger, I was able to see a better way to render this element, i.e. <code class="highlighter-rouge">content.field_to_render</code>. It suddenly dawned on me that our project needed some tidying, so I rolled up my sleeves and got to work.</p>
+
+<p>These are the strategies I established during my clean-up process:</p>
+
+<ul>
+  <li>Create the shortest render code possible with the closest placement to the main content variable. This will be the most stable. My array placement example mentioned previously is a good example of this. The same value can be present and rendered in numerous ways.</li>
+  <li>If rendering a field, use this pattern: <code class="highlighter-rouge">content.field_to_render</code>. This will render the field object, inheriting any backend logic that’s been applied to that field existing in the view_mode you are theming.</li>
+  <li>If you prefer having just the markup or integer value, try adding a <code class="highlighter-rouge">.value</code> to the end. Examples: <code class="highlighter-rouge">content[‘#node’].nid.value</code> will provide just the node id, and <code class="highlighter-rouge">content.node_title</code> will render the title object whereas <code class="highlighter-rouge">content[‘#node’].title.value</code> will render the title as a string.</li>
+  <li>The first element in an array might be the most stable. For example, we often use the media module which can add complexity to a media item’s data structure. In order use a node’s image as a background for a <code class="highlighter-rouge">&lt;div&gt;</code>, this is the best approach we found: <code class="highlighter-rouge">&lt;div class=”banner-image” style="background-image: url({{file_url(content.field_banner_image.0['#item'].entity.uri.value)}})"&gt;</code>.</li>
+</ul>
+
+<p>Any change can be tough to navigate, but it’s often well worth the effort. My experience theming in Drupal 8 thus far has been lovely, and fairly intuitive. I find it offers front-end developers more authority over the markup than its predecessor, and makes me excited for the future of theming in Drupal 8. If you were at all daunted by the thought of theming in Drupal 8, I hope this post helps you in your future twig debugging endeavors!</p>
+
+<p><em>Note:</em> <a href="https://www.drupal.org/project/devel">Devel</a> and <a href="http://raveren.github.io/kint/">Kint</a> are a couple additional tools available for debugging Twig variables, and I mention those in case others find them useful. More information on how to set those tools up for debugging Twig files (and more!) can be found in this <a href="https://sqndr.github.io/d8-theming-guide/twig/twig-debug.html">Drupal 8 Theming Guide</a> and on Amber Matz’s <a href="https://drupalize.me/blog/201405/lets-debug-twig-drupal-8">Let’s Debug in Drupal 8!</a> post.</p>
+
+<p>If you’re new to Drupal 8 theming, I would start with the resources Amber specifies in her “Editor’s notes”, and <a href="https://sqndr.github.io/d8-theming-guide/">sqndr’s D8 theming docs</a>. Debugging twig files is an intermediate topic.</p>
+
+<p>If you have any personal experience with Drupal 8 theming, or insight you’d like to share, I’d love to hear about it in the comments section!</p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal 8.' href='/blog/category/drupal-8/'>Drupal 8</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged Twig.' href='/blog/category/twig/'>Twig</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2016/11/demystifying-content-rendering-in-drupal-8-twig-files/';
+    this.page.identifier = '/blog/2016/11/demystifying-content-rendering-in-drupal-8-twig-files';
+    this.page.title = 'Demystifying Rendered Content in Drupal 8 Twig Files'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2016/11/civic-engagement/"><span class="fa fa-caret-left"></span> <span>Civic Engagement at ThinkShout</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2016/12/is-november-2016-and-outlier-or-the-new-normal/"><span>Is November 2016 an Outlier or the New Normal?</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+  <div class="team-member-blog">
+    <div class="container">
+      <h4>Related Blog Posts</h4>
+      <div class="row posts">
+        
+        
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/05/Space-for-Empathy/">
+    <p class="post-date">05.24.2018</p>
+    <h3 class="post-title">Space for Empathy</h3>
+    <p class="post-short">How do we make space for empathy in our work and in our community? Jules takes us on a deep dive into what she learned at this year's DrupalCon</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/jules.jpg">
+      <span class="byline-text">
+        <strong>Jules Dickey</strong><br>
+        <span class="position">Software Engineer</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/05/Making-GDPR-Preparations/">
+    <p class="post-date">05.13.2018</p>
+    <h3 class="post-title">Preparing for the GDPR</h3>
+    <p class="post-short">The European Union’s General Data Protection Regulations go into effect May 25th. Here's how you need to prepare.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/tauno.jpg">
+      <span class="byline-text">
+        <strong>Tauno Hogue</strong><br>
+        <span class="position">Chief Technology Officer</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/01/Great-hoodie-mystery/">
+    <p class="post-date">01.06.2018</p>
+    <h3 class="post-title">The Great Hoodie Mystery</h3>
+    <p class="post-short">Gabe takes what would otherwise be an inane office exchange and ties it back to data structures.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/gabe.jpg">
+      <span class="byline-text">
+        <strong>Gabe Carleton-Barnes</strong><br>
+        <span class="position">Director of Engineering</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+            
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

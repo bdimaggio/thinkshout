@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/entrepreneurism/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Sean's Take on the New ThinkShout, Inc.</title>
+  <description>
+    <![CDATA[<p>If you follow me on <a href="http://twitter.com/sean_larkin" target="_blank">Twitter</a>, it’s probably no surprise from all my excited tweets over the last year and a half that starting my own consultancy has brought me much joy, pride and personal growth. I’ve worked in the nonprofit sector my entire career. I’ve been a Drupal geek for the last 5 years. My academic studies have been in organizational development. The opportunity to combine these interests to build an effective team of technologists to solve problems for communities working to make the world a better place has been, at the risk of sounding cheesy, <i>ridiculously awesome</i>. I consider myself blessed that I can make a sustainable living, working in a great city, serving people who make a difference.
+</p>
+<p>One of my favorite aspects of starting ThinkShout has been the opportunity to work closely with <a href="http://twitter.com/levelos" target="_blank">Lev Tsypin</a> of <a href="http://levelos.com" target="_blank">Level Online Strategy</a> as a collaborator and lead engineer on a number of great projects. I’ve been following Lev’s work with progressive organizations and Drupal for the last four years. Lev is one of the best software engineers I’ve ever met. And in my admittedly biased opinion, he has few equals in terms of his pragmatic ability to leverage open source technologies to solve his client’s problems.
+</p>
+<p>
+After sharing an office and over 2,000 hours of client work this last year, Lev and I have pulled the trigger, recently deciding to go into business together as equal partners in the re-branded, newly incorporated ThinkShout Inc.
+</p>
+<p>
+I’d encourage you read Lev’s much more articulate description of the thinking behind this <a href="/blog/2011/01/lev/levs-take-new-thinkshout-inc">decision to join forces</a>. As strong, opinionated entrepreneurs in the progressive sector - it was definitely a move that we discussed thoroughly (we have the beer tabs to prove it). But what it means for our current and future clients is increased capacity and a “deeper bench.” It will also equate to efficiency gains that will allow us to contribute back more code and tools to the Drupal and nonprofit technology community.
+</p>
+]]>
+  </description>
+  <pubDate>Tue, 25 Jan 2011 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2011/01/sean/seans-take-new-thinkshout-inc/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2011/01/sean/seans-take-new-thinkshout-inc/</guid>
+</item>
+
+    
+      <item>
+  <title>Lev's Take on the New ThinkShout, Inc.</title>
+  <description>
+    <![CDATA[<p><img src="http://www.levelos.com/files/thinkshout_logo.png" alt="thinkshout-logo" height="200" width="300" style="float:right; margin: 0 0 10px 10px;" />When I started Level Online Strategy back in 2004, I never intended to remain on my own as long as I have. I assumed that I’d soon find a partner who shared my vision about how to run a consulting company and my passion for helping progressive organizations through our work. In large part because I was too busy running the business, I never found that person, until I met <a href="http://twitter.com/sean_larkin">Sean Larkin</a> back in the summer of 2009. He was just starting out on his own, dba ThinkShout. We realized early on that we had complimentary skills, similar approaches to business, and wanted to serve the same base of clients, in our case nonprofits and social ventures having a positive impact in their communities. Neither one of us was quite willing to give up our independence and personal brands, at least yet, but we did start collaborating and had some huge wins, including <a href="http://saveourgulf.org">SaveOurGulf</a>, <a href="http://maps.lcrep.org">The Lower Columbia River Estuary Partnership</a>, <a href="http://geomeridian.com">GeoMeridian</a>, and our work together on <a href="http://drupal.org/project/watershednow">Watershed Now</a>. During that time, we also released several modules back to the community (<a href="http://drupal.org/project/mapstraction">Mapstraction</a>, <a href="http://drupal.org/project/qr_codes">QR Codes</a>, <a href="http://drupal.org/project/openlayers_taxonomy">Openlayers Taxonomy</a>, and <a href="http://drupal.org/project/openlayers_kml_layer">Openlayers KML Layer</a>, <a href="http://drupal.org/project/vs_webform">VoteSmart Webform</a>, <a href="http://drupal.org/project/watershednow">Watershed Now</a>), something we found much easier and more rewarding working in tandem.</p>
+
+<p>Which brings us to the present day. After our successful year and half long trial, we’re finally pulling the trigger and <em>tying the knot</em>, so to speak. As of January, 2011, Sean and I are equal partners in <a href="http://thinkshout.com">ThinkShout, Inc.</a>, a new Oregon corporation. The process hasn’t always been easy, but it has been extremely rewarding. We have a full slate of exciting projects for Q1 and beyond, as well as some top secret product initiatives that we can’t wait to share with the world. As a partnership with room to grow we can <strong>much</strong> better serve our existing clients, provide a broader and deeper set of services and products, and give much more back to the community. And by community I mean the places we live, work, and play, organizations we work with, and, of course, the <a href="http://drupal.org">Drupal</a> community itself within which we operate. To celebrate, we’ve given <a href="http://thinkshout.com">ThinkShout.com</a> a new look and feel, including a new logo. Well, that’s at least the start of the celebration.</p>
+
+<p>I am 100% committed to my existing Level OS clients, to whom I owe so much from the last 6 years. I will continue serving them however it suits them best, be it through Level OS or ThinkShout. For the most part, I plan on transitioning all of my consulting work to ThinkShout (After all, having 2 throats to choke is better than one!), and keep Level OS around for the occasional side venture, a personal outlet on the web, and for any work that may not fit within ThinkShout. I’ll do most of my work related blogging over on ThinkShout.com, and hopefully will have time for more of it now. I’ll still post the occasional web/geek/personal interest story here on levelos.com.</p>
+
+<p>Oh, and we’re also moving to a new office in February, over in the <a href="http://www.ecotrust.org/">Ecotrust</a> building, which we’re thrilled about. <a href="http://nedspace.com">NedSpace</a> has been an amazing and nurturing environment, and I couldn’t recommend it more, but it’s time for us to move on. So that’s the big news. Please chime in with any thoughts or questions. It’s a big move for us, but, again, we couldn’t be more excited about the future.</p>
+
+<p><em>This post was originally published on levelos.com at http://www.levelos.com/blog/2011/01/thinkshout-inc.</em></p>
+]]>
+  </description>
+  <pubDate>Tue, 25 Jan 2011 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2011/01/lev/levs-take-new-thinkshout-inc/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2011/01/lev/levs-take-new-thinkshout-inc/</guid>
+</item>
+
+    
+      <item>
+  <title>The brutal truth</title>
+  <description>
+    <![CDATA[<p>This week I had the rare, but gut-wrenching experience of a lynchpin service provider flaking on a client project at a critical point on our development cycle. This isn’t one of those typical experiences that development shops blog about - but it does happen from time to time. And in choosing a software provider, I think that it’s something that you should ask about, because how a company handles this situation speaks volumes about their professionalism and integrity.</p>
+
+<p>Like I said, fortunately since starting ThinkShout this hasn’t been a situation that I’ve had to deal with. And with this client in particular, we have a solid history of over-delivering. Still, admitting to any client that a major piece of a project has seen a hiccup isn’t fun. And going into our meeting to discuss this situation, I felt like my guts where going to explode. We were now going to have to rejigger much of our project plan and schedule - and ultimately, I was going to have to fall on my sword and eat a non-trivial amount of costs to make this situation right.</p>
+
+<p>But then, something awesome happened. I presented the client the truth about the situation. I didn’t drag her into the muddy details, but was fully transparent - and opened the meeting by saying that ThinkShout was committed to making this situation right. With the truth out on the table, the client and I then began talking through alternative solutions to best meet their functional, as well as scheduling needs. And in the end, this experience led to us re-examining our project goals and approach, such that we actually were able to come up with a better technology solution than we had originally conceived.</p>
+
+<p>So, with transparency and clear thinking, we were able to leverage a bad situation into an opportunity to build a better product. And ThinkShout will complete this project with a more satisfied customer.</p>
+]]>
+  </description>
+  <pubDate>Fri, 19 Mar 2010 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2010/03/sean/brutal-truth/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2010/03/sean/brutal-truth/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

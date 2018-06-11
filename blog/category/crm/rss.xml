@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/crm/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Video Tutorial - &quot;Introduction to RedHen CRM&quot;</title>
+  <description>
+    <![CDATA[<p>We recently teamed up with Drupalize.me to produce a brand new (free!) video tutorial: “<a href="https://drupalize.me/videos/introduction-redhen-crm">Introduction to RedHen CRM</a>.”</p>
+
+<p>In this introductory video, you’ll tour RedHen CRM’s central features, get a detailed walkthrough of the setup process, and learn a few of RedHen’s cool tricks, like duplicate management (a pet feature of mine). This is a great resource for anyone who is looking for a step-by-step guide to setting up and configuring RedHen, or just wants to learn more about it!</p>
+
+<iframe width="700" height="545" src="//www.youtube.com/embed/-R3iXjvIWeo" frameborder="0" allowfullscreen=""></iframe>
+
+]]>
+  </description>
+  <pubDate>Mon, 31 Aug 2015 11:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/08/intro-to-redhen-video/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/08/intro-to-redhen-video/</guid>
+</item>
+
+    
+      <item>
+  <title>Migrating from Luminate CRM to Drupal and the Salesforce Nonprofit Starter Pack</title>
+  <description>
+    <![CDATA[<p>We’ve helped a number of nonprofits move from Luminate CRM to Drupal-Salesforce solutions, including the Young Survival Coalition, Facing History and Ourselves, the National Kidney Foundation, and the Los Angeles Conservancy.</p>
+
+<p>Without getting too deep into the technical architecture - <a href="http://thinkshout.com/blog/2015/04/salesforce-new-features/">which you can nerd out on in other posts on our blog</a> - our open source Salesforce integration can map any object/field in Salesforce to a corresponding entity type/field in Drupal. We can then sync these records bidirectionally. We can even support complex, cascading upserts of multiple records in real time.</p>
+
+<p>This allows us to leverage everything that’s great about Drupal (CMS tools, personalization, paid and unpaid event registrations, membership purchases, general ecommerce, and user access controls) with everything that’s great about Salesforce’s Nonprofit Starter Pack (NPSP) 3.0 (best-in-class donor management, unlimited extendability and scalability, flexible and intuitive reporting tools, and the most robust Application Exchange available).</p>
+
+<p>It’s always been clear that Salesforce provides much better constituent relationship management tools on the backend than Luminate or other Convio/Blackbaud products. What’s kept Luminate in the game for so long has been its public-facing web features, such as membership management and event registration tools.</p>
+
+<p>That said, there is no way that Luminate could ever keep up with the pace of innovation that we see with comparable features in Drupal. The open source model and volume of contributions from the Drupal community is unparalleled. Leveraging Drupal as a donor/constituent front-end for Salesforce, we can provide seamless user experiences that engage with website visitors more deeply, because we can personalize these experience based upon data pulled from Salesforce’s API.</p>
+
+<p><strong>Take the Los Angeles Conservancy as a case study:</strong></p>
+
+<p>When we met the <a href="https://www.laconservancy.org/">Conservancy</a>, they were struggling to engage stakeholders through an aging website and cumbersome collection of Luminate donation and event management tools. Asking website visitors to click away from their website to third-party forms provided by Convio severely hurt their conversion rates. Mobile event registrations and contributions were almost nonexistent on their site.</p>
+
+<p>The Conservancy wanted an interactive and mobile-friendly solution that would allow their constituents to easily sign up for free walking tours, buy tickets to movie events, update their membership information, set up recurring membership payments, and make donations towards different fundraising campaigns.</p>
+
+<p>By leveraging Drupal event registration and ecommerce tools, we were able to build all of these features within the Conservancy’s new responsive website. This provided a much more seamless user experience. Conversion rates soared as a result. In fact, the Conservancy staff came to us 3 months after the relaunch concerned that their Google Analytics showed decreased traffic on their event registration pages. They worried that they were losing registrations - when in reality, their conversation rates were going up so dramatically, and the time for completing an ecommerce transaction was dropping so quickly, that these forms were seeing less page clicks while their volume of transactions and their revenue was going up.</p>
+
+<p>With Drupal-based event registration and donation tools, we have 100% control over ecommerce workflows. We can also support complex pricing options based upon constituent data in Salesforce. For example, we can adjust ticket pricing based upon membership status. Again, we benefit from Drupal Commerce, an ecommerce solution that powers over 60,000 websites, including some of the largest stores on the Internet.</p>
+
+<p>Further, integrating these Drupal-Salesforce solutions with <a href="http://home.iatspayments.com/">iATS Payments</a>, we can create Drupal-based donation portals that support “card on file” as well as recurring donations. And with iATS’s integration with Salesforce, donors can update their credit card information or make a donation over the phone by calling the Conservancy, storing this payment information for their next online transaction.</p>
+
+<p>In short, Convio/Blackbaud just can’t compete… With what our clients save in confusing and expensive Blackbaud licensing fees, we can build more effective fundraising solutions that lead to much higher returns for their investment.</p>
+]]>
+  </description>
+  <pubDate>Wed, 26 Aug 2015 11:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/08/from-luminate-to-drupal-salesforce/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/08/from-luminate-to-drupal-salesforce/</guid>
+</item>
+
+    
+      <item>
+  <title>Building Community, Building Drupal at the BADCamp Nonprofit Summit!</title>
+  <description>
+    <![CDATA[<p>If you’ve never been to the <a href="http://2013.badcamp.net">Bay Area Drupal Camp</a>, we strongly recommend you consider attending this year. It’s become our team’s most anticipated pilgrimage. In many ways, it embodies <em>exactly</em> what we love about the Drupal community. Of course, we focus on the nonprofit sector, and the now 3rd-annual <a href="http://2013.badcamp.net/events/drupal-non-profit-summit">BADCamp Nonprofit Summit</a> is one of our favorite days of the year.</p>
+
+<p>Planning for this event is well underway. We’ve already lined up some great speakers and experts from the nonprofit community who are excited to share their experience leveraging Drupal to promote nonprofit causes. Suki O’Kane from the <a href="http://www.haassr.org/">Elise Haas Fund</a> will be presenting on collaborative practices in nonprofit technology development. Erik Mathy of <a href="http://techsoup.com">TechSoup</a> will be discussing the challenges in building and gaining adoption of nonprofit web portals.</p>
+
+<p>While a handful of Drupal service providers will be on hand to share their expertise, this event truly is a great opportunity for nonprofit leaders and technologists to get together to discuss their successes and challenges in adopting Drupal-based tools. We’ll be diving into data visualization, responsive design, fundraising strategy and the latest in CRM integrations! If you are a nonprofit technologist interested in sharing your experience with Drupal, please <a href="http://thinkshout.com/contact">get in touch</a>! We’d love to have you present and/or lead a breakout session. Or, if you’re interested in discussing specific topics in nonprofit tech, <a href="http://thinkshout.com/contact">let us know</a> and we can make sure to include these discussions in the event’s program.</p>
+
+<p>Four of the five sponsorship slots have already been filled by ThinkShout and our friends at <a href="http://forumone.com/">Forum One</a>, <a href="http://www.phase2technology.com/">Phase 2</a>, <a href="http://www.chapterthree.com/">Chapter 3</a>, and <a href="http://www.civicactions.com/">CivicActions</a>. (If your organization would like to sponsor the event, get your <a href="http://2013.badcamp.net/sponsorship-packages">sponsorship request</a> in ASAP.)</p>
+
+<p>Can’t wait to see you all in Berkeley, CA!</p>
+]]>
+  </description>
+  <pubDate>Sat, 28 Sep 2013 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2013/09/betsy/building-community-building-drupal-badcamp-nonprofit-summit/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/09/betsy/building-community-building-drupal-badcamp-nonprofit-summit/</guid>
+</item>
+
+    
+      <item>
+  <title>Magic, CRM and Shiny Objects Galore!  </title>
+  <description>
+    <![CDATA[<p><img src="http://portland2013.drupal.org/sites/default/files/drupalcon_pdx_icon_2.png" alt="DrupalCon Portland" title="DrupalCon Portland" height="200" width="163" img="" style="float:right" />
+With the session submission deadline drawing to a close for <a href="http://portland2013.drupal.org">DrupalCon Portland 2013</a>, <a href="http://thinkshout.com">ThinkShout</a> (along with many other fine Drupal community members) participated in the mad rush to get all of our awesome session ideas in on time!  The DrupalCon session committee has a busy couple of weeks coming their way, and in the meantime, we’d love to hear your comments and feedback on our presentation ideas.</p>
+
+<p>Our team has a broad range of topics we can’t wait to share with the community, from CRM and Salesforce to Magic: The Gathering!</p>
+
+<p>Check them out in more detail below, we can’t wait to hear what you think:</p>
+
+<ul>
+  <li><a href="http://portland2013.drupal.org/session/register-pay-and-attend-making-advanced-event-management-easy-drupal">Register, Pay and Attend:  Making advanced event management easy with Drupal</a> In this session <a href="http://thinkshout.com/blog/Tauno">Tauno</a> will be focusing on the recipes for contributed modules that can be combined to enable functionality such as: paid event registrations, early bird pricing, tracking attendance and even integrating with Salesforce.</li>
+  <li><a href="http://thinkshout.com/blog/sean">Sean</a> and <a href="http://thinkshout.com/blog/lev">Lev</a> joined forces to propose <a href="http://portland2013.drupal.org/session/association-management-redhen-crm">Association Management with RedHen</a>, which will teach participants how to leverage RedHen CRM in building vibrant online communities and portals.</li>
+  <li><a href="http://portland2013.drupal.org/session/need-drupal-website-wait-have-you-gone-through-discovery-process">Need a Drupal Website? Wait! Have you gone through a a discovery process?</a> is based on ThinkShout’s resident UX expert, <a href="http://thinkshout.com/blog/brett">Brett Heckman</a>, and <a href="http://thinkshout.com/blog/sean">Sean</a>’s experience in guiding clients through an effective approach to beginning a website redesign project.</li>
+  <li><a href="http://portland2013.drupal.org/session/micro-site-development-workflows-drush-make-and-git">Micro-Site Development Workflows with Drush Make and Git</a> in this proposed session, ThinkShout will be walking through the real world challenges and successes with Val Rozansky from the <a href="http://givingforum.org/s_forum/index.asp">Forum of Regional Associations of Grantmakers</a> as a case study for best practices around managing micro-sites with Drush Make build process and a Git-based deployment workflow.</li>
+  <li>In <a href="http://portland2013.drupal.org/session/crm-drupal-way">CRM the Drupal Way</a>, Lev and Tauno hope to take the stage to explore the ins and outs of building a CRM offering with Drupal.</li>
+  <li>Looking to dig into <a href="http://portland2013.drupal.org/session/integrating-drupal-salesforce">Integrating Drupal with Salesforce</a>? Lev’s proposed session will cover the technical aspects of integrating Drupal and Salesforce and then explore how to leverage this tool in your projects.</li>
+  <li>Pro-Magic aficionado <a href="http://thinkshout.com/blog/gabe">Gabe Carleton-Barnes</a> hopes to engage audiences with the intertwine of the strategy game and open source technology in <a href="http://portland2013.drupal.org/session/magic-gathering-and-freelibreopen-source">MAGIC: The Gathering and Free/Libre/Open Source</a>.</li>
+  <li><a href="http://portland2013.drupal.org/session/distributions-site-building-distros-arent-just-products-and-quick-starts">Distributions for Site Building: Distor’s aren’t just for products and quick starts</a> and in this session <a href="http://thinkshout.com/blog/brandon">Brandon</a> and Gabe hope to demonstrate how installation profiles and Drush make files are powerful tools for distribution building, and can also smooth collaborative development for one-off projects.</li>
+  <li><a href="http://portland2013.drupal.org/session/now-time-sprockets-when-we-make-money-how-run-profitable-small-digital-agency">Now is the time on Sprockets when we make money:  How to run a profitable small digital agency</a>.  In this session, I’ll (fingers crossed) be joining forces with Director of Strategy, Nate Parsons at Phase2 Technology, to share best practices for improving profitability for small digital agencies.</li>
+  <li><a href="http://portland2013.drupal.org/session/shiny-object-developing-cohesive-pmo-toolset-doesn%E2%80%99t-overwhelm-your-team">Shiny Object:  Developing a cohesive PMO toolset that doesn’t overwhelm your team</a>.  Nate and I will be tackling the shiny object syndrome in tool adoption to help guide attendees to develop a PMO toolset that fits for their team.</li>
+</ul>
+]]>
+  </description>
+  <pubDate>Wed, 20 Feb 2013 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2013/02/betsy/drupalcon-2013-sessions/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/02/betsy/drupalcon-2013-sessions/</guid>
+</item>
+
+    
+      <item>
+  <title>Free Range RedHen: Code Sprint at the ThinkShout Office</title>
+  <description>
+    <![CDATA[<p><img src="https://dl.dropbox.com/s/3vsjjgva9gimabh/redhen_logo.png" style="float: right; margin: -10px 0px 10px 15px" />With 2013 well underway, we thought it was time to circle up in the office and bust out an open source sprint.  Our focus this time was on <a href="http://drupal.org/project/redhen">RedHen</a>, our <a href="http://thinkshout.com/blog/2012/06/sean/redhen-crm-part-1">native Drupal CRM</a>, which is fully open sourced and lives on Drupal.org.  In one afternoon, with our team of 8, we were able to give the issue queue some lovin’ and also roll the release of RedHen 1.0!</p>
+
+<p>So kudos and applause to <a href="http://thinkshout.com/team#Lev">Lev</a>, <a href="http://thinkshout.com/team#Sean">Sean</a>, <a href="http://thinkshout.com/team#Tauno">Tauno</a>, <a href="http://thinkshout.com/team#Brandon">Brandon</a>, <a href="http://thinkshout.com/team#Brett">Brett</a>, <a href="http://thinkshout.com/team#Gabe">Gabe</a> and <a href="http://thinkshout.com/team#David">David</a>, ThinkShout’s newest team member who was in Portland for the first time, for coding up a storm.  Here’s a quick update on the most recent 1.0 releases we’ve been able to get out the door:</p>
+
+<ul>
+  <li><a href="http://drupal.org/node/1910206">RedHen core</a>, ‘nough said.</li>
+  <li><a href="http://drupal.org/project/redhen_membership">RedHen membership</a>, a separate module to manage association memberships.</li>
+  <li><a href="http://drupal.org/project/registration">Entity registrations</a>, ThinkShout’s Drupal 7 answer to Signup which is becoming the defacto Drupal event registration solution.</li>
+  <li><a href="http://drupal.org/project/poultry">Poultry</a>, the responsive theme that can be used to power RedHen’s interface.</li>
+  <li><a href="http://drupal.org/project/poultry">RedHen Demo</a>, an installation profile that packages all of RedHen’s features into a fictional pet shelter.</li>
+</ul>
+
+<p>As I said, RedHen is fully open sourced and its success is possible due to the support we receive from the community.  So I also want to give a shout out to all of the <a href="http://drupal.org/node/1068848/committers">contributors</a> who submitted patches.</p>
+
+<p>Sometimes the message is at least as important as the code behind it. As such, our wordsmith Gabe Carleton-Barnes made the <a href="http://drupal.org/project/redhen">RedHen project page</a> decipherable and, dare I say, fun?</p>
+]]>
+  </description>
+  <pubDate>Wed, 13 Feb 2013 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2013/02/betsy/free-range-redhen-code-sprint-thinkshout-office/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/02/betsy/free-range-redhen-code-sprint-thinkshout-office/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

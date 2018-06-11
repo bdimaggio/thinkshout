@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/ckeditor/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>The WYSIWYG is a Lie</title>
+  <description>
+    <![CDATA[<p>If you’ve ever implemented a WYSIWYG editor in Drupal, one thing that becomes apparent quickly is that the term (What You See Is What You Get) is a complete lie. None of the default theme styles appear in the editor, because the editor shows up in the admin theme. This obviously diminishes its value, and makes custom element styles useless. The good news is that it’s fairly simple to fix - once you know how.</p>
+
+<p>Drupal 8’s default WYSIWYG is CKEditor, and it’s included as a core module with <a href="https://www.drupal.org/docs/8/api/ckeditor-api/overview">its own API</a>. This is great, because they also added a way to get that default theme front-end code into the admin theme CKEditor. The description of how to manage this leaves a bit to be desired, as all they mention is ‘specifying a <code class="highlighter-rouge">ckeditor_stylesheets</code> key in the <code class="highlighter-rouge">*.info.yml</code> file’.</p>
+
+<p>Let’s start from the beginning. Say you’ve been working on a D8 site and the intro has an H2, some text, and a call to action button:</p>
+
+<p><img src="/assets/images/blog/intro1.png" alt="intro1.png" class="center" /></p>
+
+<p>That’s great! What does CKEditor show us?</p>
+
+<p><img src="/assets/images/blog/intro2.png" alt="intro2.png" class="center" /></p>
+
+<p>Oh. What I see is certainly <em>not</em> what I get. Let’s start by showing the basic styles in CKEditor. Go to your current default theme (ours is in <code class="highlighter-rouge">/web/themes/custom/</code>) and find your <code class="highlighter-rouge">THEMENAME.info.yml</code>. Open it in your favorite editor and you’ll see something like this:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">My Theme Name</span>
+<span class="na">type</span><span class="pi">:</span> <span class="s">theme</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s">A base theme for My Site</span>
+<span class="na">package</span><span class="pi">:</span> <span class="s">Other</span>
+<span class="na">core</span><span class="pi">:</span> <span class="s">8.x</span>
+
+<span class="na">base theme</span><span class="pi">:</span> <span class="s">classy</span>
+
+<span class="s">regions, etc...</span>
+</code></pre></div></div>
+
+<p>Now add the <code class="highlighter-rouge">ckeditor_stylesheets:</code> key and the target file right below the <code class="highlighter-rouge">core: 8.x</code> line, like so:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">...</span>
+<span class="na">package</span><span class="pi">:</span> <span class="s">Other</span>
+<span class="na">core</span><span class="pi">:</span> <span class="s">8.x</span>
+<span class="na">ckeditor_stylesheets</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">css/ckeditor.css</span>
+</code></pre></div></div>
+
+<p>If there’s something already under <code class="highlighter-rouge">core: 8.x</code> just put the CKEditor lines below it.</p>
+
+<p>Next you have to actually add a file there! Go to your theme’s <code class="highlighter-rouge">/css/</code> directory and add an empty <code class="highlighter-rouge">ckeditor.css</code> file next to the site’s <code class="highlighter-rouge">style.css</code>.</p>
+
+<p>Now, you <em>could</em> just tell CKEditor to load all of the site CSS - but that would be overkill for the poor little iframe. It’s better to just find the vanilla CSS styles you need in your <code class="highlighter-rouge">style.css</code> file and copy them over. In our case it’s only about 160 lines of CSS - the default styles for the site, plus some rendered Sass mixins for the button. How does our WYSIWYG look now?</p>
+
+<p><img src="/assets/images/blog/intro3.png" alt="intro3.png" class="center" /></p>
+
+<p>Bazinga! What a difference.</p>
+
+<p>Hmm, but our button is missing its styles because we haven’t configured the CKEditor for that yet.</p>
+
+<p>Go into the Drupal configs to set that up at <code class="highlighter-rouge">/admin/config/content/formats</code> and click ‘configure’ for the CKEditor text format you want (Full HTML, etc).</p>
+
+<p>If you don’t have ‘Styles’ in the ‘Active Toolbar’, add it by dragging it in. It looks good next to ‘Format’, and has a similar behavior:</p>
+
+<p><img src="/assets/images/blog/ckedit1.png" alt="ckedit1.png" class="center" /></p>
+
+<p>Then scroll down to the ‘Styles dropdown’ tab and add the appropriate markup and class for the button.</p>
+
+<p><img src="/assets/images/blog/ckedit2.png" alt="ckedit2.png" class="center" /></p>
+
+<p>In our case we want to turn an anchor link (<code class="highlighter-rouge">a</code>) into a button by adding a <code class="highlighter-rouge">.button</code> class, so we use <code class="highlighter-rouge">a.button</code>. The text after the pipe (<code class="highlighter-rouge">|</code>) is what will appear in the ‘Styles’ dropdown.</p>
+
+<p>Finally, make sure you’ve added that markup to the ‘allowed HTML tags’ section if you’re adding it to a restricted markup configuration:</p>
+
+<p><img src="/assets/images/blog/ckedit6.png" alt="ckedit6.png" class="center" /></p>
+
+<p><em>Important Note:</em> style options won’t show up in the Styles dropdown unless you have clicked/selected an eligible piece of markup - in our case the <code class="highlighter-rouge">a</code> tag - in the CKEditor window. So in our example, we’d have to click on ‘read more’ before we click on the Styles dropdown.</p>
+
+<p><img src="/assets/images/blog/ckedit5.gif" alt="ckedit5.gif" class="center" /></p>
+
+<p>As long as you have <code class="highlighter-rouge">a.button</code> styles in <code class="highlighter-rouge">ckeditor.css</code>, it should work right away. (Well, after a cache clear. It’s Drupal.)</p>
+
+<p>And that’s it! From here you can continue to add styles to <code class="highlighter-rouge">ckeditor.css</code>, and to the Styles dropdown in the Drupal ‘Text formats and editors’ admin.</p>
+
+<p>The WYSIWYG is no longer a lie!</p>
+
+]]>
+  </description>
+  <pubDate>Tue, 29 Aug 2017 04:20:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/08/the-wysiwyg-is-a-lie/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/08/the-wysiwyg-is-a-lie/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

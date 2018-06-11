@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/theming/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Syncing Up with Drupal 8 and Browsersync</title>
+  <description>
+    <![CDATA[<p>Drupal 8 theming can be irksome with cache-rebuilding and browser refreshing, especially with responsive design. Wouldn’t it be great if you could just open your site on three different devices and have them update live as you edit your theme?</p>
+
+<p>Let me introduce you to <a href="https://browsersync.io/">Browsersync</a>. Browsersync is a module for Node.js that allows you to sync your changes across browsers and devices.</p>
+
+<h2 id="preparing-drupal">Preparing Drupal</h2>
+<p>This article assumes you have a working install of Drupal 8 and a theme in place. If you don’t, check out Joe Komenda’s post, <a href="https://thinkshout.com/blog/2015/11/up-and-theming-with-drupal-8/">Up and Theming with Drupal 8</a>. This will get you going.</p>
+
+<p>Once you have D8 installed, you’ll need to turn off caching. Rename <code class="highlighter-rouge">sites/example.settings.local.php</code> to <code class="highlighter-rouge">sites/example.settings.local.php</code>.  You can rename the files with editor of choice, if you prefer, or run the following command from your site root :</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cp </span>sites/example.settings.local.php sites/default/settings.local.php
+</code></pre></div></div>
+
+<p>To be sure your changes are included, we’ll need to enable Drupal’s Null Cache Service. Uncomment the following line <code class="highlighter-rouge">sites/default/settings.php</code>:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$settings</span><span class="p">[</span><span class="s1">'container_yamls'</span><span class="p">][]</span> <span class="o">=</span> <span class="nx">DRUPAL_ROOT</span> <span class="o">.</span> <span class="s1">'/sites/development.services.yml'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Next, let’s disable the render cache and dynamic page cache. Uncomment the following in the same file.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$settings</span><span class="p">[</span><span class="s1">'cache'</span><span class="p">][</span><span class="s1">'bins'</span><span class="p">][</span><span class="s1">'render'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'cache.backend.null'</span><span class="p">;</span>
+<span class="nv">$settings</span><span class="p">[</span><span class="s1">'cache'</span><span class="p">][</span><span class="s1">'bins'</span><span class="p">][</span><span class="s1">'dynamic_page_cache'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'cache.backend.null'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Finally, add the following to <code class="highlighter-rouge">sites/development.service.yml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">parameters</span><span class="pi">:</span>
+  <span class="s">twig.config</span><span class="pi">:</span>
+    <span class="na">debug </span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">auto_reload</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">cache</span><span class="pi">:</span> <span class="no">false</span>
+</code></pre></div></div>
+
+<p>Run <code class="highlighter-rouge">drush cr</code> from the root of your site to rebuild the cache.</p>
+
+<h2 id="installing-browsersync">Installing Browsersync</h2>
+<p>Browsersync is installed using Node Package Manager (NPM). If you already have Node.js, then you already have NPM. If you don’t have it installed, head over to <a href="https://nodejs.org/en/">nodejs.org</a>.</p>
+
+<p>Once Node.js and NPM are set up, install Browsersync with <code class="highlighter-rouge">npm install -g browser-sync</code>.  This will install it globally so that you don’t have to reinstall it every time you spin up a new project. Test that your installation is working by running <code class="highlighter-rouge">browser-sync -h</code> in your terminal. That should show all the usage, commands, and options for the plugin.</p>
+
+<h2 id="connecting-browsersync-to-drupal">Connecting Browsersync to Drupal</h2>
+<p>Let’s make the magic happen by connecting Drupal and Browsersync. Go to the root of your Drupal theme folder. Run <code class="highlighter-rouge">browser-sync start</code>. Browsersync will generate a script tag for you to place just before the closing body tag. Browser sync also has  UI. You’ll see a URL for your localhost and one for sharing the connection to other devices on the same network.</p>
+
+<p><img src="https://raw.githubusercontent.com/heypaxton/Posts/master/img/browsersync-start.png" alt="Browsersync start" /></p>
+
+<p>Let’s add the script tag to your <code class="highlighter-rouge">html.html.twig</code> file just above closing <code class="highlighter-rouge">&lt;/body&gt;</code> tag. This will add a connection to your Drupal environment and Browsersync.</p>
+
+<script src="https://gist.github.com/levelos/0187b29071c3a56c3579ea2d95f42296.js"></script>
+
+<p>Since Drupal will most likely be running on a local server configured by your LAMP stack, you’ll need to run Browsersync with the proxy option. Run <code class="highlighter-rouge">browser-sync start --proxy &lt;your site localhost&gt;</code> in your terminal. For example, if your site is running at http://mysite.dev then use <code class="highlighter-rouge">browswersync start --proxy mysite.dev</code> Your browser will open automatically to http://localhost:3000. Now you should see “Connected to BrowswerSync” in the top right of your browser.</p>
+
+<h2 id="watching-for-changes">Watching for Changes</h2>
+<p>Although Browswersync and Drupal are connected, we need to watch for changes. Let’s run Browsersync with the the <code class="highlighter-rouge">--files</code> option. We’ll watch changes to our CSS file and have it automatically update the browser with our changes. In your terminal run:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>browswer-sync start <span class="nt">--proxy</span> mysite.dev <span class="nt">--files</span> <span class="s2">"css/*.css"</span> <span class="nt">--no-inject-changes</span>
+</code></pre></div></div>
+
+<p>This command tells Browswersync to start and watch for changes to files with the <code class="highlighter-rouge">.css</code> extension in the <code class="highlighter-rouge">css</code> directory. The <code class="highlighter-rouge">--no-inject-changes</code> option tells Browsersync to refresh the browser window instead of just injecting a new version of the stylesheet. Injecting the changes won’t work because of the way Drupal imports our stylesheets. We need to reload to get the new version.</p>
+
+<p>Try opening your site in Chrome, Firefox, and even on your mobile device browser. Once you make a change, you should see all of them automatically update.</p>
+
+<h2 id="where-to-go-from-here">Where to Go from Here</h2>
+<p>Browsersync is a great tool for fast development and syncing your changes across multiple devices without having to manually reload each one. I recommend integrating Browswersync with your task manager of choice. Here are some resources to help you integrate with Grunt or Gulp:</p>
+
+<ul>
+  <li><a href="https://browsersync.io/docs/grunt/">https://browsersync.io/docs/grunt/</a></li>
+  <li><a href="https://browsersync.io/docs/gulp/">https://browsersync.io/docs/gulp/</a></li>
+</ul>
+]]>
+  </description>
+  <pubDate>Wed, 27 Apr 2016 09:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2016/04/syncing-up-with-drupal8-and-browsersync/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/04/syncing-up-with-drupal8-and-browsersync/</guid>
+</item>
+
+    
+      <item>
+  <title>Up and Theming with Drupal 8</title>
+  <description>
+    <![CDATA[<p>Drupal 8 is <a href="https://www.drupal.org/8">finally here</a>! We’ve been digging into the code and learning how to install D8 in a way that allow us to sync sites and use it for production work. A lot of things have changed, which we covered in our previous article, <a href="http://thinkshout.com/blog/2015/11/up-and-running-with-drupal-8/">Up and Running with Drupal 8</a>. The next step is to see what’s changed in the theming layer, installing a basic theme, and working with the new Twig templating system. There’s a good deal to cover, so let’s <a href="http://twig.sensiolabs.org/">jump in</a>!</p>
+
+<h2 id="creating-a-theme">Creating a Theme##</h2>
+
+<p>The steps for setting up a basic site theme are fairly simple: create a <code class="highlighter-rouge">custom/THEMENAME</code> directory in <code class="highlighter-rouge">web/themes</code>, and then add a <code class="highlighter-rouge">THEMENAME.info.yml</code> file with the following:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">THEMENAME Theme</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s1">'</span><span class="s">D8</span><span class="nv"> </span><span class="s">theme</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">THEMENAME</span><span class="nv"> </span><span class="s">site.'</span>
+<span class="na">package</span><span class="pi">:</span> <span class="s">Custom</span>
+<span class="c1"># base theme: classy</span>
+<span class="na">type</span><span class="pi">:</span> <span class="s">theme</span>
+<span class="na">version</span><span class="pi">:</span> <span class="s">1.0</span>
+<span class="na">core</span><span class="pi">:</span> <span class="s">8.x</span>
+<span class="na">regions</span><span class="pi">:</span>
+  <span class="na">header</span><span class="pi">:</span> <span class="s">Header</span>
+  <span class="na">content</span><span class="pi">:</span> <span class="s">Content</span> <span class="c1"># required!</span>
+  <span class="na">sidebar_first</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Sidebar</span><span class="nv"> </span><span class="s">first'</span>
+  <span class="na">footer</span><span class="pi">:</span> <span class="s">Footer</span>
+</code></pre></div></div>
+
+<p>Then you can enable your theme (<code class="highlighter-rouge">administer » themes</code>) in the interface. Note that uncommenting  <code class="highlighter-rouge">base theme: classy</code> will cause you to set Classy as a parent theme. We feel that Classy is great if you want a lot of useful examples, but really clutters up the markup, so use at your own discretion. <a href="https://www.drupal.org/node/2575421">After rc1</a>, the default theme will be ‘stable,’ and you may want to pull all of the core templates into your theme to ensure you’re working from the latest updated template code.</p>
+
+<p>Also, the theme name must not contain hyphens. So <code class="highlighter-rouge">/theme-name/</code> is invalid (it won’t even show up!), but <code class="highlighter-rouge">/theme_name/</code> is fine.</p>
+
+<p>Now we’ll want to start customizing our theme. Let us say we have a content type called ‘blog’ (machine name: <code class="highlighter-rouge">blog</code>), with a field type called ‘Publish Date’ (machine name: <code class="highlighter-rouge">field_publish_date</code>).</p>
+
+<p>Despite setting the label of <code class="highlighter-rouge">field_publish_date</code> to ‘inline,’ it’s wrapping to a new line due to the fact that it’s a simple, unstyled <code class="highlighter-rouge">&lt;div&gt;</code>.</p>
+
+<p>Worse, it has no classes to specifically style it. Let’s set ourselves some goals:</p>
+
+<ol>
+  <li>Add the inline styling class(s).</li>
+  <li>Change the markup for this field, so that we have a class for the label.</li>
+  <li>Add CSS to style the label, but ONLY for the ‘Blog’ content type.</li>
+</ol>
+
+<p>The documentation for this seemingly simple task is obfuscated and evolving right now, but we were able to get it working correctly using the following steps:</p>
+
+<p><strong>Step 1</strong>: Turn on <a href="https://www.drupal.org/node/1906392">twig debug mode</a>. We also found it helpful at this point to make a copy of <code class="highlighter-rouge">web/sites/example.settings.local.php</code> in <code class="highlighter-rouge">web/sites/default/</code> and uncomment the following in <code class="highlighter-rouge">settings.php</code>:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nb">file_exists</span><span class="p">(</span><span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">'/settings.local.php'</span><span class="p">))</span> <span class="p">{</span>
+  <span class="k">include</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">'/settings.local.php'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This will allow you to <a href="https://www.drupal.org/node/2598914">disable caching</a> during development, which is no longer a simple checkbox in the performance section. Note that disabling caching can be tricky; the <code class="highlighter-rouge">drush cr</code> (cache rebuild) command is the most reliable way to ensure the cache is really cleared. You’ll also have to rebuild the cache at least once after turning caching off, so the new cache settings are applied.</p>
+
+<p><strong>Step 2</strong>: Make a custom field template.</p>
+
+<p>In this case, the suggested debug fields are:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- FILE NAME SUGGESTIONS:
+   * field--node--field-publish-date--blog.html.twig
+   * field--node--field-publish-date.html.twig
+   * field--node--blog.html.twig
+   * field--field-publish-date.html.twig
+   * field--datetime.html.twig
+   x field.html.twig
+--&gt;</span>
+<span class="c">&lt;!-- BEGIN OUTPUT from 'core/modules/system/templates/field.html.twig' --&gt;</span>
+</code></pre></div></div>
+
+<p>The highlighted line above shows the template currently being used, suggestions for increased specificity, and the file location (<code class="highlighter-rouge">core/modules/system/templates/</code>).</p>
+
+<p>We want to update <code class="highlighter-rouge">field_publish_date</code> globally, so we’ll create a template called <code class="highlighter-rouge">field--field-publish-date.html.twig</code></p>
+
+<p>To do this, we copy <code class="highlighter-rouge">field.html.twig</code> from the core theme (see the ‘BEGIN OUTPUT’ line above for the path), and rename it in our theme’s folder to <code class="highlighter-rouge">field--field-publish-date.html.twig</code>. Now when we reload, we see the following (if your cache is disabled, of course, otherwise drush cr will clear the cache):</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- FILE NAME SUGGESTIONS:
+   * field--node--field-publish-date--blog.html.twig
+   * field--node--field-publish-date.html.twig
+   * field--node--blog.html.twig
+   x field--field-publish-date.html.twig
+   * field--datetime.html.twig
+   * field.html.twig
+--&gt;</span>
+<span class="c">&lt;!-- BEGIN OUTPUT from 'themes/custom/THEMENAME/templates/field--field-publish-date.html.twig' --&gt;</span>
+</code></pre></div></div>
+
+<p>Now we can begin to update the markup. The relevant code is:</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if label_hidden %}
+  ... (we don’t care about the label_hidden stuff)
+{% else %}
+  <span class="nt">&lt;div</span><span class="err">{{</span> <span class="na">attributes</span> <span class="err">}}</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span><span class="err">{{</span> <span class="na">title_attributes</span> <span class="err">}}</span><span class="nt">&gt;</span>{{ label }}<span class="nt">&lt;/div&gt;</span>
+    ...
+{% endif %}
+</code></pre></div></div>
+<p></p>
+
+<p>To add the inline styling class, we add the following to the top of the template (below the comments):</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{%
+  set classes = [
+    'field--label-' ~ label_display,
+  ]
+%}
+</code></pre></div></div>
+<p></p>
+
+<p>And then update the label’s parent div attributes:</p>
+
+<p>before: <code class="highlighter-rouge">&lt;div&gt;</code>
+after: &lt;div{{ attributes.addClass(classes) }}&gt;</p>
+
+<p>Now the correct class is in place, but we see no change yet - because the <code class="highlighter-rouge">&lt;div&gt;</code> isn’t populating any classes. To fix that, we add the following, again at the top of the template:</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{%
+  set title_classes = [
+    'field__label',
+    'field__publish-date-label',
+    label_display == 'visually_hidden' ? 'visually-hidden',
+  ]
+%}
+</code></pre></div></div>
+<p></p>
+
+<p>And update the div:</p>
+
+<p>before: <code class="highlighter-rouge">&lt;div&gt;&lt;/div&gt;</code>
+after: <code class="highlighter-rouge">&lt;div {{ title_attributes.addClass(title_classes) }}&gt;{{ label }}&lt;/div&gt;</code></p>
+
+<p>Rebuild the cache (drush cr) and… success! well sort of - we still have to add CSS. Note that we also added a custom class of ‘field__publish-date-label’ in case we want to style it directly.</p>
+
+<p><strong>Step 3</strong>: Add a <code class="highlighter-rouge">THEMENAME.libraries.yml</code> file to hold attachment library definitions.</p>
+
+<p>This is pretty simple; it’s a file with the following:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">blog</span><span class="pi">:</span>
+  <span class="na">version</span><span class="pi">:</span> <span class="s">1.x</span>
+  <span class="na">css</span><span class="pi">:</span>
+    <span class="na">theme</span><span class="pi">:</span>
+      <span class="s">css/blog.css</span><span class="pi">:</span> <span class="pi">{}</span>
+  <span class="na">js</span><span class="pi">:</span>
+    <span class="s">js/blog.js</span><span class="pi">:</span> <span class="pi">{}</span>
+  <span class="na">dependencies</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">core/jquery</span>
+</code></pre></div></div>
+
+<p>We then add the directories (<code class="highlighter-rouge">/css</code> and <code class="highlighter-rouge">/js</code>) and files (<code class="highlighter-rouge">blog.css/js</code>). We’ve also added a jQuery dependency, just so you can see how that’s done. If we had something simple that could be done with <a href="http://vanilla-js.com/">Vanilla JS</a> we could leave it off. Note that this won’t actually do anything until we follow step 4 below.</p>
+
+<p><strong>Step 4</strong>: Add a <code class="highlighter-rouge">THEMENAME.theme</code> file to hold theme hooks (this is actually a PHP file, so start it with <code class="highlighter-rouge"><span class="cp">&lt;?php</span></code>).</p>
+
+<p>This is the code that appends the library based on the content type. The trickiest part of this is figuring out the correct format of <code class="highlighter-rouge">hook_preprocess_HOOK()</code>:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="nf">THEMENAME_preprocess_node__blog</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$variables</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nv">$variables</span><span class="p">[</span><span class="s1">'#attached'</span><span class="p">][</span><span class="s1">'library'</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">'THEMENAME/blog'</span><span class="p">;</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<p>The theme hook format for content types is to use <code class="highlighter-rouge">node__MACHINENAME</code> format - two underscores.</p>
+
+<p>After that, rebuild your cache (<code class="highlighter-rouge">drush cr</code>), and your CSS and JS files should be loading on every instance of that content type, regardless of the page. (full or teaser)</p>
+
+<p>And that’s it! Note that we could have changed the markup in any number of ways to suit our designs, or even make the template specific to the content type as well as the field.</p>
+
+<h3 id="disclaimer">Disclaimer###</h3>
+
+<p>The post was written at the end of 2015 while Drupal 8 was still in a Release Candidate stage. While some effort will be made to keep the post up-to-date, if it’s after 2016, you should probably add the current year to your Google search, or better yet, check the docs on <a href="http://drupal.org">Drupal.org</a>.</p>
+]]>
+  </description>
+  <pubDate>Mon, 23 Nov 2015 06:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2015/11/up-and-theming-with-drupal-8/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/11/up-and-theming-with-drupal-8/</guid>
+</item>
+
+    
+      <item>
+  <title>Getting Started with SASS for Drupal and Zen, Part II</title>
+  <description>
+    <![CDATA[<p>In <a href="http://thinkshout.com/blog/2013/10/candice/getting-started-sass-drupal-and-zen/">part one of “Getting Started with SASS for Drupal and Zen,”</a> we went over getting your environment set up to work with SASS.</p>
+
+<p>If you followed the instructions in part one, you should have SASS/Compass, Zen, and your sub-theme installed. Your theme will be installed in <code class="highlighter-rouge">sites/all/YOUR THEME NAME</code>.</p>
+
+<h2 id="test-the-install">Test the Install</h2>
+
+<p>Let’s test to see if SASS is installed and compiling. Use your toolkit to compile your SASS directory or run <code class="highlighter-rouge">compass watch</code> from the command line in your theme directory. You should see the following output.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; Compass is watching for changes. Press Ctrl-C to Stop
+</code></pre></div></div>
+
+<p>To see more Compass commands, you can run <code class="highlighter-rouge">Compass -h</code>.</p>
+
+<p>Open your Drupal site in your browser. Now that we are polling for changes with Compass, let’s add the following to <code class="highlighter-rouge">style.scss</code> to see our changes being applied. After you save your change, refresh your page and you should see the difference.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="m">#000</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Compass will also output the overwritten files in your console if you are using command line to run it. It’s okay to delete the CSS you added, so things will appear like the default Zen theme.</p>
+
+<h2 id="sass-primer">SASS Primer</h2>
+<p>If you haven’t used SASS, prepare to be hooked on it. Some advantages of SASS include DRY (Don’t Repeat Yourself), CSS, function (mixins) for repetitive and lengthy blocks of CSS, and the ability to extend common styles.</p>
+
+<h3 id="variables">Variables</h3>
+<p>Variables in SASS start with a ‘$’. Use variables to define values you will use throughout your stylesheets. For example, let’s define our color palette in <code class="highlighter-rouge">_init.scss</code>. There is a commented section for colors. You can drop them in there. I’m going to grab this <a href="http://www.colourlovers.com/palette/56833/zen.">zen 2</a> palette from Kuler.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$sand</span><span class="p">:</span>      <span class="mh">#b0ae9e</span><span class="p">;</span>
+<span class="nv">$brown</span><span class="p">:</span>     <span class="mh">#424345</span><span class="p">;</span>
+<span class="nv">$white</span><span class="p">:</span>     <span class="mh">#fafeff</span><span class="p">;</span>
+<span class="nv">$seagreen</span><span class="p">:</span>  <span class="mh">#9dbec7</span><span class="p">;</span>
+<span class="nv">$wetsand</span><span class="p">:</span>   <span class="mh">#b0a092</span><span class="p">;</span>
+<span class="nv">$red</span><span class="p">:</span>       <span class="mh">#ff0000</span><span class="p">;</span>
+<span class="nv">$gray</span><span class="p">:</span>      <span class="mh">#a1a1a1</span><span class="p">;</span>
+</code></pre></div></div>
+<p>Now these colors can be used everywhere in our stylesheets without having to write the hex value each time.</p>
+
+<h3 id="nesting">Nesting</h3>
+<p>In typical CSS fashion, we would write a style like this:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">a</span> <span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span> <span class="m">#9dbec7</span><span class="p">;</span>
+	<span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">a</span><span class="nd">:hover</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#424345</span><span class="p">;</span>
+  <span class="nl">-webkit-transition</span><span class="p">:</span>   <span class="n">color</span> <span class="m">0.5</span> <span class="n">ease-out</span> <span class="m">0.5s</span><span class="p">;</span>
+  <span class="nl">-moz-transition</span><span class="p">:</span>      <span class="n">color</span> <span class="m">0.5</span> <span class="n">ease-out</span> <span class="m">0.5s</span><span class="p">;</span>
+  <span class="nl">-o-transition</span><span class="p">:</span>        <span class="n">color</span> <span class="m">0.5</span> <span class="n">ease-out</span> <span class="m">0.5</span><span class="p">;</span>
+  <span class="nl">transition</span><span class="p">:</span>           <span class="n">color</span> <span class="m">0.5</span> <span class="n">ease-out</span> <span class="m">0.5s</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>With SASS, we can nest the style like this:</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">a</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="nv">$seagreen</span><span class="p">;</span>
+  <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+
+  <span class="k">&amp;</span><span class="nd">:hover</span> <span class="p">{</span>
+  	<span class="nl">color</span><span class="p">:</span> <span class="nv">$brown</span><span class="p">;</span>
+  	<span class="na">-webkit-transition</span><span class="p">:</span> <span class="n">color</span> <span class="m">0</span><span class="mi">.5s</span> <span class="n">ease-out</span> <span class="m">0</span><span class="mi">.5s</span><span class="p">;</span>
+  	<span class="na">-moz-transition</span><span class="p">:</span>    <span class="n">color</span> <span class="m">0</span><span class="mi">.5s</span> <span class="n">ease-out</span> <span class="m">0</span><span class="mi">.5s</span><span class="p">;</span>
+  	<span class="na">-o-transition</span><span class="p">:</span>      <span class="n">color</span> <span class="m">0</span><span class="mi">.5s</span> <span class="n">ease-out</span> <span class="m">0</span><span class="mi">.5</span><span class="p">;</span>
+  	<span class="nl">transition</span><span class="p">:</span>         <span class="n">color</span> <span class="m">0</span><span class="mi">.5s</span> <span class="n">ease-out</span> <span class="m">0</span><span class="mi">.5s</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The ampersand represents the outer anchor selector. Also, notice how we are relying on the variables we defined for the colors instead of using hex values.</p>
+
+<h3 id="mixins-and-extends">Mixins and Extends</h3>
+
+<h4 id="mixins">Mixins</h4>
+<p>Let’s clean up that transition by writing a mixin for it.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">transition</span><span class="p">(</span><span class="nv">$property</span><span class="o">,</span> <span class="nv">$duration</span><span class="o">,</span> <span class="nv">$easing</span><span class="p">)</span> <span class="p">{</span>
+  <span class="na">-webkit-transition</span><span class="p">:</span>	<span class="nv">$color</span> <span class="nv">$duration</span> <span class="nv">$easing</span><span class="p">;</span>
+     <span class="na">-moz-transition</span><span class="p">:</span>	<span class="nv">$color</span> <span class="nv">$duration</span> <span class="nv">$easing</span><span class="p">;</span>
+       <span class="na">-o-transition</span><span class="p">:</span>	<span class="nv">$color</span> <span class="nv">$duration</span> <span class="nv">$easing</span><span class="p">;</span>
+          <span class="nl">transition</span><span class="p">:</span>	<span class="nv">$color</span> <span class="nv">$duration</span> <span class="nv">$easing</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now we can rewrite the anchor style and include the transition mixin.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">a</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="nv">$seagreen</span><span class="p">;</span>
+  <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+
+  <span class="k">&amp;</span><span class="nd">:hover</span> <span class="p">{</span>
+  	<span class="nl">color</span><span class="p">:</span> <span class="nv">$brown</span><span class="p">;</span>
+  	<span class="k">@include</span> <span class="nd">transition</span><span class="p">(</span><span class="n">color</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5s</span><span class="o">,</span> <span class="n">ease-out</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5s</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Keep in mind that Compass already provides some great <a href="http://compass-style.org/reference/compass/css3/">cross-browser mixins</a> for CSS3. Style transition is one of them.</p>
+
+<h4 id="extends">Extends</h4>
+<p>SASS lets you inherit common styles. A practical example is styling buttons. Buttons might have common styling, but differ in color or size.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// This is a SASS comment</span>
+<span class="cm">/* This is also a comment */</span>
+
+<span class="c1">// Our default button</span>
+<span class="nc">.button</span> <span class="p">{</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nv">$seagreen</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">1em</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="nv">$seagreen</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.primary</span> <span class="p">{</span>
+  <span class="k">@extend</span> <span class="nc">.button</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">1</span><span class="mi">.5em</span> <span class="m">2em</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.warn</span> <span class="p">{</span>
+  <span class="k">@extend</span> <span class="nc">.button</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nv">$red</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.disabled</span> <span class="p">{</span>
+  <span class="k">@extend</span> <span class="nc">.button</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nv">$gray</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>So why didn’t we just use nesting? Extending keeps you from having to write multiple class names on html elements instead of writing it like the following:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button primary"</span> <span class="na">href=</span><span class="s">"http://thinkshout.com"</span><span class="nt">&gt;</span>ThinkShout<span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+<p>We can use one class because ‘primary’ will include all the same styles as ‘button.’</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"primary"</span> <span class="na">href=</span><span class="s">"http://thinkshout.com"</span><span class="nt">&gt;</span>ThinkShout<span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+<h2 id="using-sass-in-your-theme">Using SASS in Your Theme</h2>
+<p>The stylesheets in your Zen sub-theme are organized according to the principles of <a href="http://smacss.com">SMACSS</a>. You’ll notice the <code class="highlighter-rouge">style.scss</code> file doesn’t actually contain any styles, but only imports. The <code class="highlighter-rouge">_init.scss</code> file contains additional imports such as Zen Grids and Compass utilities, mixins and helpers. If you look in <code class="highlighter-rouge">layouts/responsive.scss</code>, you’ll see the Zen theme includes a mobile-first responsive layout by default.</p>
+
+<p>Let’s add some sass of our own. Add a file called <code class="highlighter-rouge">_main-nav.scss</code> to the <code class="highlighter-rouge">components</code> directory. In that file, add the following SASS. It’s similar to the style we used in our SASS primer.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">#navigation</span> <span class="p">{</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nv">$sand</span><span class="p">;</span>
+
+  <span class="nc">.links</span>  <span class="p">{</span>
+    <span class="nt">a</span><span class="o">,</span> <span class="nt">a</span><span class="nd">:visited</span> <span class="p">{</span>
+      <span class="nl">color</span><span class="p">:</span> <span class="nv">$white</span><span class="p">;</span>
+      <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+
+      <span class="k">&amp;</span><span class="nd">:hover</span> <span class="p">{</span>
+        <span class="nl">color</span><span class="p">:</span> <span class="nv">$brown</span><span class="p">;</span>
+        <span class="k">@include</span> <span class="nd">transition</span><span class="p">(</span><span class="n">color</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5s</span><span class="o">,</span> <span class="n">ease-out</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5s</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In order to get this change to take effect, you need to import it into your <code class="highlighter-rouge">style.scss</code>. Add an import statement for <code class="highlighter-rouge">_main-nav.scss</code> in the components section.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Component (SMACSS module) rules */</span>
+<span class="k">@import</span> <span class="s2">"components/misc"</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">"components/main-nav"</span><span class="p">;</span> <span class="c1">// Add this import statement</span>
+</code></pre></div></div>
+
+<p>You may be wondering why you don’t need the underscore in front of the file when importing. The underscore tells SASS that the file is a partial. The partial won’t be compiled into its own file. It will be included in the <code class="highlighter-rouge">style.css</code> when compiled. If you don’t have Compass running, go ahead and run <code class="highlighter-rouge">compass watch</code> in your theme directory or use your toolkit to compile. You should see your navigation style applied to your Drupal site when you refresh.</p>
+
+<p>As you progress in your SASS development, I encourage you to use the <a href="https://github.com/chriseppstein/sass-globbing">SASS Globbing</a> gem. It makes importing a breeze.</p>
+
+<p>Now that you have used SASS in your theme and have the basics down, be sure to check out the <a href="http://sass-lang.com/documentation">SASS</a> and <a href="http://zengrids.com">Zen Grids</a> documentation to be even more productive in your theme development. Get the code for this article on <a href="https://github.com/thinkshout/Drupal-Sass-Zen-Blog">Github</a>.</p>
+]]>
+  </description>
+  <pubDate>Fri, 18 Jul 2014 09:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/07/getting-started-with-sass-for-drupal-and-zen-part-ii/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/07/getting-started-with-sass-for-drupal-and-zen-part-ii/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

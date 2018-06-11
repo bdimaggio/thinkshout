@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Exporting Custom Date Formats in Drupal | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="Having trouble exporting dates in Drupal? We've got an easy solution for you.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal, Drupal Planet">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">05.02.2014</span>
+  
+  </p>
+
+  <h1 class="post-title">Exporting Custom Date Formats in Drupal</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/david.jpg">
+    
+      <strong>David Lanier</strong>
+    <br>
+      Software Engineer
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <p>Like most development shops, we like code. It gives us and our clients a feeling of confidence to have configuration and logic as much as possible living in code, rather than in the database. So naturally, as we build Drupal sites, we use the <a href="https://drupal.org/project/features">Features</a> module to lock configuration into code.</p>
+
+<p>Not too long ago, when we were building some features for RidePDW.com, we needed to format some dates in specific ways, primarily on their <a href="https://www.ridepdw.com/events">events page</a> and their <a href="https://www.ridepdw.com/blog">blog</a>. Date formats are used in many places on probably every site, including fields on content type view modes, and in views configurations. They are simple to set up in the dates UI in Drupal, so you would think it would be easy to export into code. Unfortunately, there is no simple way to export it. Fortunately, there is a different way, still easy, to get this into code, and it’s a great introduction to using Drupal module hooks.</p>
+
+<p>We will look at using custom code plus a small export using features and <a href="https://drupal.org/project/strongarm">strongarm</a>. This is the same process we used for RidePDW and it worked perfectly.</p>
+
+<h2 id="collect-your-facts">Collect your facts</h2>
+
+<p>Decide on a format. Go ahead and look at the format options at http://php.net/date, so you know what the options are.</p>
+
+<p>Pick a name for that format. Examples: “Month Year” or “Short: MM D”.</p>
+
+<h2 id="code-it-up">Code it up</h2>
+
+<p>By the time we are adding a custom date format, we usually have a few features modules already created. It’s usually best to put this new code in a generic or common feature, since most date formats will be used by several content types and views.</p>
+
+<p>Let’s say the name of your site is “mysite” and the name of your genric feature module is “mysite_common”. If you don’t have any features modules at all, go ahead and create one and enable it, exporting something like the site name into it, mainly so we have similar starting points.</p>
+
+<p>Quick overview of the code:</p>
+
+<ol>
+  <li>hook_date_formats().</li>
+  <li>hook_date_format_types().</li>
+  <li>strongarm export.</li>
+</ol>
+
+<p>Let’s start with hook_date_formats(). This accomplishes the same thing as creating a new format at admin/config/regional/date-time/formats.</p>
+
+<p><img src="/assets/images/blog/date-formats-list-1.jpg" alt="Date formats screenshot" title="Date formats" /></p>
+
+<p><img src="/assets/images/blog/date-formats-creating.jpg" alt="Creating new date format" title="Creating new date format" /></p>
+
+<p>Here’s an example.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="sd">/**
+ * Implements hook_date_formats().
+ */</span>
+<span class="k">function</span> <span class="nf">mysite_common_date_formats</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+    <span class="c1">// Creates a new format for a new, custom format type.</span>
+    <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'type'</span> <span class="o">=&gt;</span> <span class="s1">'mysite_short_y_m'</span><span class="p">,</span>
+      <span class="s1">'format'</span> <span class="o">=&gt;</span> <span class="s1">'Y-m'</span><span class="p">,</span>
+      <span class="s1">'locales'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(),</span>
+    <span class="p">),</span>
+    <span class="c1">// Defines a format and makes it available to core's short format type.</span>
+    <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'type'</span> <span class="o">=&gt;</span> <span class="s1">'short'</span><span class="p">,</span>
+      <span class="s1">'format'</span> <span class="o">=&gt;</span> <span class="s1">'Y-m-d'</span><span class="p">,</span>
+      <span class="s1">'locales'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(),</span>
+    <span class="p">),</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The type points to the date format type that this format will be available for. I tend to make it unique and prefix it with the site name in order to avoid future namespace collisions. You may want to prefix it with the full module name. The format key is a string that ends up getting passed to <code class="highlighter-rouge">date()</code>. I usually leave locales as an empty array because I want the date format to be available for all locales.</p>
+
+<p>The only effect this hook implementation has is that it makes formats available in the date admin UI. Nothing more. Full hook documentation at https://api.drupal.org/hook_date_formats.</p>
+
+<p>Moving on to hook_date_format_types(). This is similar to creating a “date type” at admin/config/regional/date-time, but it only creates a machine name with a human readable name.</p>
+
+<p><img src="/assets/images/blog/date-formats-type-list.jpg" alt="Date format types" title="Date format types" /></p>
+
+<p>Here’s the example:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="sd">/**
+ * Implements hook_date_format_types().
+ */</span>
+<span class="k">function</span> <span class="nf">mysite_common_date_format_types</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'mysite_short_y_m'</span> <span class="o">=&gt;</span> <span class="nx">t</span><span class="p">(</span><span class="s1">'Short: YYYY-MM'</span><span class="p">),</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Clear caches, return to your site’s date format settings, and you’ll see your new date format.</p>
+
+<p><img src="/assets/images/blog/date-formats-type-list-after.jpg" alt="Date format types, new type added" title="Date format types, new type added" /></p>
+
+<p>However, navigate to the display settings of a date field and you will see the name of your custom date format type, but the format won’t be right.</p>
+
+<p><img src="/assets/images/blog/date-formats-field-display.jpg" alt="Field display settings" title="Field display settings" /></p>
+
+<p>Come back to the date format settings page and click that “save” button. Now the date formats presented in field settings will be correct.</p>
+
+<p><img src="/assets/images/blog/date-formats-field-display-better.jpg" alt="Field display settings, better" title="Field display settings, better" /></p>
+
+<p>To make those setting stick and be deployable, we need to do one final thing. We export a new variable. Saving the date format types page creates a new variable that ties the new date format type (just a name) to an actual format (the code that defines the format, such as “Y-m”).</p>
+
+<p>So head back to the features UI and you should see a new variable listed in the strongarm section.</p>
+
+<p><img src="/assets/images/blog/date-formats-features-export.jpg" alt="Features export" title="Features export" /></p>
+
+<p>This is specifically the date format <em>type</em>. Export it into your mysite_common feature.</p>
+
+<h2 id="done">Done</h2>
+
+<p>At this point, you should have code that can be deployed to an existing site, and after enabling and reverting the feature, will provide a consistent date format for use wherever dates need to be displayed.</p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal.' href='/blog/category/drupal/'>Drupal</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2014/05/custom-date-formats-in-drupal/';
+    this.page.identifier = '/blog/2014/05/custom-date-formats-in-drupal';
+    this.page.title = 'Exporting Custom Date Formats in Drupal'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2014/04/salesforce-big-data/"><span class="fa fa-caret-left"></span> <span>"Big Data" Challenges with Salesforce for Facing History and Ourselves
+</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2014/05/content-structure-from-pearl-jam/"><span>What Nonprofits Can Learn About Content Structure… from Pearl Jam</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

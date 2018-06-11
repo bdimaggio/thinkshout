@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Drupal and Salesforce Integrations Get Some (Data) Integrity | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="Adding data integrity and other enterprise features to the Drupal-Salesforce integration.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal, Drupal Community, Drupal Planet, Nonprofit Tech, Open Source, Salesforce, Team Sprints">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">04.21.2015</span>
+  
+  </p>
+
+  <h1 class="post-title">Drupal and Salesforce Integrations Get Some (Data) Integrity</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/lev.jpg">
+    
+      <a class="team-name" href="/team/lev/">Lev Tsypin</a>
+    <br>
+      Founder, CEO
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <p>Hot on the heels of our <a href="http://thinkshout.com/blog/2015/01/reimagined-sprints-redhen-raiser/">all-hands-on-deck sprint to release</a> <a href="https://www.drupal.org/project/redhen_raiser">RedHen Raiser</a>, we decided to change gears to focus on some of our marquee open source contributions, namely the <a href="https://www.drupal.org/project/salesforce">Salesforce Suite</a>.</p>
+
+<p>The Salesforce Suite has been around since Drupal 5 and it’s evolved quite a bit in order to keep up with the ever-changing <a href="http://salesforce.com">Salesforce</a> and Drupal landscapes. Several years ago, we found ourselves relying heavily upon the Salesforce Suite for our Salesforce-Drupal integrations. But there came a point where we realized the module could no longer keep up with our needs. So we, in collaboration with the maintainers of the module at the time, set out to rewrite the suite for Drupal 7.</p>
+
+<p>We completely rewrote the module, leveraging Drupal’s entity architecture, Salesforce’s REST API, and OAUTH for authentication. We also added much-needed features such as a completely new user experience, the ability to synchronize <em>any</em> Drupal and Salesforce objects, and a number of performance enhancements. This was a heck of an undertaking, and there were dozens of other improvements we made to the suite that you can read about in this <a href="http://thinkshout.com/blog/2012/11/lev/salesforce-rest-oauth/">blog post</a>. We’ve maintained this module ever since and have endeavored to add new features and enhancements as they become necessary. We realized this winter that it was time for yet another batch of improvements as the complexity and scale of our integrations has grown.</p>
+
+<p>In addition to over 150 performance enhancements and bug fixes, this release features an all new Drupal entity mapping system which shows a log of all synchronization activity, including any errors. You can now see a log entry for every attempted data synchronization. If there’s a problem, the log will tell you where it is and why it’s an issue. There’s now a whole interface designed to help you pinpoint where these issues are so you can solve them quickly.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/salesforce-activity.png" alt="Salesforce Activity" /></p>
+
+<p>Administrators can even manually create or edit a connection between Drupal and Salesforce objects. Before this update, the only way to connect two objects was to create the mapping and then wait for an object to be updated or created in either Drupal or Salesforce. Now you can just enter the Salesforce ID and you’re all set.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/salesforce-edit.png" alt="Salesforce Edit Mapping" /></p>
+
+<p>Take the following example to understand why these improvements are so critical. Say that your constituents are volunteering through your Drupal site using the <a href="https://www.drupal.org/project/registration">Registration module</a>. The contacts are created or updated in <a href="https://www.drupal.org/project/redhen">RedHen</a> and then synced to Salesforce. For some reason, you can see the new volunteers in Drupal, but they are not showing in Salesforce. It used to be that the only clue to a problem was buried in the error log. Now, all you have to do is go to the RedHen contact record, and then click “Salesforce activity,” and you’ll see a record of the attempted sync and an explanation of why it failed. Furthermore, you can manually connect the contact to Salesforce by entering the Salesforce ID.</p>
+
+<p>Finally, you can now delete existing mappings, or map to an entirely different content type. The bottom line is that module users have more control of, and insights into, how their data syncs to Salesforce. You can <a href="https://www.drupal.org/node/2452127">download version 7.x-3.1</a> from Drupal.org and experience these improvements for yourself.</p>
+
+<p>We’ve been hard at work polishing several other of our modules and tools, like the RedHen suite and Entity Registration, which also saw new releases. We’ll tell you more about what you can expect from those new versions in our upcoming blogs.</p>
+
+<p>Want to chat about our module work at <a href="https://events.drupal.org/losangeles2015">DrupalCon</a> in LA? You can find us hanging out with our friends from <a href="http://thinkshout.com/blog/category/mailchimp/">MailChimp</a> at their booth. We’d love to talk to you more about what we’re working on.</p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal.' href='/blog/category/drupal/'>Drupal</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Community.' href='/blog/category/drupal-community/'>Drupal Community</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged Nonprofit Tech.' href='/blog/category/nonprofit-tech/'>Nonprofit Tech</a> <a class='tag' rel='tag category' title='View all posts tagged Open Source.' href='/blog/category/open-source/'>Open Source</a> <a class='tag' rel='tag category' title='View all posts tagged Salesforce.' href='/blog/category/salesforce/'>Salesforce</a> <a class='tag' rel='tag category' title='View all posts tagged Team Sprints.' href='/blog/category/team-sprints/'>Team Sprints</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2015/04/salesforce-new-features/';
+    this.page.identifier = '/blog/2015/04/salesforce-new-features';
+    this.page.title = 'Drupal and Salesforce Integrations Get Some (Data) Integrity'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2015/03/media-optimization-with-splc/"><span class="fa fa-caret-left"></span> <span>Media Optimization for Selma, Bridge to the Ballot</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2015/05/mailchimp-d8-sprint/"><span>Monkeying Around with D8</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

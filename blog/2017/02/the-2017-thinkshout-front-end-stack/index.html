@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>The 2017 ThinkShout Front-End Stack | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="A solid base for theming world-class websites, regardless of CMS.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Bourbon, Browserstack, Drupal, Drupal Planet, Front-end, SASS">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">02.06.2017</span>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+        <a class="topic" href="/blog/topic/technology">Technology and Innovation</a>
+      
+    
+  
+  </p>
+
+  <h1 class="post-title">The 2017 ThinkShout Front-End Stack</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/joe.jpg">
+    
+      <a class="team-name" href="/team/joe/">Joe Komenda</a>
+    <br>
+      Software Engineer
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <p>Front-end development is full of challenges - changing design trends, browser idiosyncrasies, client demands, and ever-evolving web standards to name a few. Over the last few years though, a new challenge has emerged. Which development stack should you choose?</p>
+
+<p>Once upon a time, front end development didn’t really have a “dev stack.” You had markup in files, maybe output from a CMS, a stylesheet, and some jQuery if you felt like getting fancy. Now though, the array of options can be paralysing. Pre-processors, post-processors, task runners, and package managers have made many aspects of development faster, but which ones are best? Where do you start?</p>
+
+<p>Here at ThinkShout, under the watchful eye of <a href="/team/eric/">Eric Paxton</a>, our Senior Front End Engineer, we’ve been trying out the various options whenever we take on a new project, to see how well it fits in our theming process. We’re pretty busy, so this covers a lot of ground quickly. We’ve been careful to <a href="/blog/2016/07/the-hidden-power-of-documentation/">fully document</a> the tools used in the past so that we don’t bedevil the maintenance folks. (We are often the maintenance folks).</p>
+
+<p>The last few builds have seen our dev stack settle down to a flexible tool set that is easy to setup and maintain, while providing us with excellent modern theming tools. Let’s dive in!</p>
+
+<h2 id="getting-started-languages-handlers-and-package-management">Getting Started: Languages, Handlers, and Package Management</h2>
+<p>At the bottom of a development stack are the languages used, the language handlers, and the package managers that allow you to include pre-built tools and libraries in your project. Some of these are interchangeable, but it solves a lot of problems if everyone uses the same fundamental tools.</p>
+
+<p>In our case, we use <a href="https://www.ruby-lang.org/en/">Ruby</a> and <a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> as the base languages, and <a href="https://github.com/rbenv/rbenv">rbenv</a> and <a href="https://nodejs.org/en/">Node</a> as their handlers. By using Ruby and JavaScript, we get access to an extremely wide array of applications, tools, plugins, and more. Once these are installed (Using an OS package manager! In this case, <a href="http://brew.sh/">Homebrew</a> (since we all use Macs), we add package handling for these languages: <a href="http://bundler.io/">Bundler</a> and <a href="https://www.npmjs.com/">NPM</a> respectively. This gives us the following base:</p>
+
+<ul>
+  <li>Ruby via rbenv, managing gems using Bundler</li>
+  <li>JavaScript via Node.js, managing packages using NPM</li>
+</ul>
+
+<p>Now we can specify Ruby Gems and Node packages in a Ruby Make file (<code class="highlighter-rouge">Rakefile</code>), and a complex project setup is as simple as running <code class="highlighter-rouge">rake install</code> once from the theme directory, and starting the task watcher using <code class="highlighter-rouge">rake serve</code>. (To be more precise, we use the Rakefile to install the Ruby Gems as defined in the Gemfile, and the Node modules as specified in the <code class="highlighter-rouge">package.json</code> file).</p>
+
+<p>The complete project setup for a new developer would be the following:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~: brew install rbenv
+~: gem install bundler
+~: brew install node
+~: brew install npm
+~: cd ~/path/to/theme/directory
+~: rake install
+~: rake serve
+</code></pre></div></div>
+
+<p>After that, any new projects would only need the last three lines run.</p>
+
+<p>The key to making this work is to have a <code class="highlighter-rouge">Rakefile</code>, a <code class="highlighter-rouge">Gemfile</code> and a <code class="highlighter-rouge">package.json</code> set up in our project’s theme so that <code class="highlighter-rouge">rake install</code> works properly. In our case we use the Rakefile to first run <code class="highlighter-rouge">bundle install</code>, which installs the appropriate gems and their dependencies:</p>
+
+<p>Rakefile:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">task</span> <span class="ss">:install</span> <span class="k">do</span>
+     <span class="nb">system</span> <span class="s1">'bundle install'</span> <span class="c1"># this runs the Gemfile contents!</span>
+     <span class="nb">system</span> <span class="s1">'npm install -g browser-sync'</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Gemfile:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> <span class="s1">'http://rubygems.org'</span>
+gem <span class="s1">'sass'</span>
+gem <span class="s1">'sass-globbing'</span>
+</code></pre></div></div>
+
+<p>This <a href="http://bundler.io/v1.3/rationale.html">generates</a> a <code class="highlighter-rouge">Gemfile.lock</code> listing all of the installed packages/versions.</p>
+
+<p>The <code class="highlighter-rouge">npm install</code> lines in the Rakefile setup tools that we’ll discuss later. Our next layer in the stack are the SASS tools that Bundler installed.</p>
+
+<h2 id="sass-at-thinkshout-please-pass-the-bourbon">SASS at ThinkShout (please pass the Bourbon)</h2>
+<p>In the middle of our stack is <a href="http://sass-lang.com/">SASS</a>. We use SASS in a fairly simple way at ThinkShout, installing it with <a href="https://rubygems.org/gems/sass-globbing">sass-globbing</a>. This allows us to set up directories that allow any files using the appropriate <code class="highlighter-rouge">_filename.scss</code> syntax to be included in the build. We also tend to keep the directory structure fairly minimal:</p>
+
+<p><code class="highlighter-rouge">style.scss</code>:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@import</span> <span class="s2">'lib/bourbon/bourbon'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">'lib/neat/neat'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">'lib/normalize/normalize'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">'global/*'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">'layout/*'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">'modules/*'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>The first thing we include is the <a href="http://bourbon.io/">Bourbon</a> mixin library. This includes coding shortcuts such as the <a href="http://bourbon.io/docs/#px-to-rem">pixels-to-rems</a> syntax <code class="highlighter-rouge">rem(24)</code>. This allows us to read a design’s pixel spacing and it converts them to the appropriate rem values. The <a href="http://bourbon.io/docs/">Bourbon Docs</a> are excellent and well-maintained as well. Never worry about browser prefixes or fallbacks again.</p>
+
+<p>Next up is the Bourbon-related grid framework, <a href="http://neat.bourbon.io/">Neat</a>. A simple but powerful grid that uses semantic markup and easy-to-read terminology such as <code class="highlighter-rouge">@include span-columns(9)</code>. No extra wrappers, no specific classes to add, and it’s extremely robust. We haven’t run into any cross-browser issues in over two years of using it, which says a lot, and since it’s only applied as you specify, it’s easy to break out of the grid if you need to.</p>
+
+<p>Next up is <a href="https://github.com/necolas/normalize.css">normalize.css</a>, a modern update to the old CSS reset stylesheets. Not really much to add to that except it’s <em>really</em> well commented, so make sure you change it from <code class="highlighter-rouge">normalize.css</code> to <code class="highlighter-rouge">_normalize.scss</code> so that you don’t bloat your final <code class="highlighter-rouge">site.css</code> file.</p>
+
+<p>The <code class="highlighter-rouge">Global</code> directory has the following:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_01.vars.scss
+_02.mixins.scss
+_03.extends.scss
+_04.base.scss
+</code></pre></div></div>
+
+<p>The _01, _02, etc. prefixes take advantage of the sass-globbing’s alphabetical file inclusion. All our site variables (colors, font weights, and so forth) are in <code class="highlighter-rouge">vars</code>, our custom mixins are next, then extends. Base has all of the base markup styles:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="n">rem</span><span class="p">(</span><span class="m">16</span><span class="p">);</span>
+  <span class="nl">font-style</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="err">$</span><span class="n">regular</span><span class="p">;</span>
+  <span class="nl">-webkit-font-smoothing</span><span class="p">:</span> <span class="n">antialiased</span><span class="p">;</span>
+  <span class="nl">-moz-osx-font-smoothing</span><span class="p">:</span> <span class="n">grayscale</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span>
+  <span class="nl">text-rendering</span><span class="p">:</span> <span class="n">optimizeLegibility</span><span class="p">;</span> <span class="err">//</span> <span class="err">Fix</span> <span class="err">the</span> <span class="err">character</span> <span class="err">spacing</span> <span class="err">for</span> <span class="err">headings</span>
+<span class="p">}</span>
+
+<span class="nt">p</span><span class="o">,</span> <span class="nt">a</span><span class="o">,</span> <span class="nt">ul</span><span class="o">,</span> <span class="nt">ol</span><span class="o">,</span> <span class="nt">etc</span><span class="o">...</span>
+</code></pre></div></div>
+
+<p>The layouts directory usually has a <code class="highlighter-rouge">_layouts.scss</code> file, which covers the basics of site layout. Since we use Drupal, we’ll often add a <code class="highlighter-rouge">_regions.scss</code> as well to specify layout for the various Drupal-generated content zones on a site. These files are where we use the Neat framework the most.</p>
+
+<p>Finally, we have the <code class="highlighter-rouge">modules</code> directory - where most of the theming takes place. These are usually named by content type (<code class="highlighter-rouge">_basic-pages.scss</code>, <code class="highlighter-rouge">_articles.scss</code>, etc.), though there are often files such as <code class="highlighter-rouge">_forms.scss</code> and <code class="highlighter-rouge">_homepage.scss</code> as well. Sometimes we don’t even have to use our <a href="http://thesassway.com/intermediate/using-source-maps-with-sass">source maps</a> to know where code is!</p>
+
+<p>One of our good habits is to start with our mobile-first, responsive <code class="highlighter-rouge">_01.template.scss</code> file:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span> <span class="nt">Default</span> <span class="o">/</span> <span class="nt">Mobile</span>
+
+<span class="o">//</span> <span class="nt">Tablet</span> <span class="o">(</span><span class="nt">580px</span><span class="o">)</span>
+<span class="k">@media</span> <span class="n">all</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="err">$</span><span class="n">tablet</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="nt">Large</span> <span class="nt">Tablet</span> <span class="o">(</span><span class="nt">768px</span><span class="o">)</span>
+<span class="k">@media</span> <span class="n">all</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="err">$</span><span class="n">lg-tablet</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="nt">Desktop</span> <span class="o">(</span><span class="nt">1228px</span><span class="o">)</span> <span class="err">$</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">1440px</span>
+<span class="k">@media</span> <span class="n">all</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="err">$</span><span class="n">desktop</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>When you want to add another theming module, you just make a copy of the template and your progressive breakpoints are included! (The <code class="highlighter-rouge">$max-width: 1440px</code> is there in a comment  because it’s handy).</p>
+
+<p>All of this gets handled by a task in our Rakefile, which sets a watcher for changes to any SASS file and compiles them into a single <code class="highlighter-rouge">css/style.css</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">desc</span> <span class="s1">'Watch sass'</span>
+<span class="n">task</span> <span class="ss">:sasswatch</span> <span class="k">do</span>
+<span class="nb">system</span> <span class="s1">'sass -r sass-globbing --watch sass/style.scss:css/style.css'</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="pulling-it-all-together-browsersync">Pulling It All Together: Browsersync!</h2>
+
+<p>Finally, at the top of our stack, we have <a href="https://browsersync.io/">Browsersync</a>. Eric Paxton, our Senior Front End Engineer, wrote an <a href="https://thinkshout.com/blog/2016/04/syncing-up-with-drupal8-and-browsersync/">excellent overview</a> of why we use this amazing tool, what it does, as well as how to install it in detail for Drupal 8.</p>
+
+<p>In our stack it’s as simple as another task in that Rakefile:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">desc</span> <span class="s1">'Running Browsersync'</span>
+<span class="n">task</span> <span class="ss">:browsersync</span> <span class="k">do</span>
+     <span class="nb">system</span> <span class="s1">'browser-sync start --proxy "local.dev" --files "css/*.css" --no-inject-changes'</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>And adding the following (generated by running <code class="highlighter-rouge">browser-sync start</code>) to the site’s <code class="highlighter-rouge">&lt;head&gt;</code> :</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!--</span> <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"__bs_script__"</span><span class="o">&gt;</span>
+  <span class="c1">//&lt;![CDATA[ document.write("&lt;script async src='http://HOST:3000/browser-sync/browser-sync-client.2.12.3.js'&gt;&lt;\/script&gt;".replace("HOST", location.hostname));</span>
+  <span class="c1">//]]&gt;</span>
+<span class="o">&lt;</span><span class="sr">/script&gt; --</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>This also sets a watcher on the CSS, and refreshes every browser you have open to <code class="highlighter-rouge">localhost:3000</code> or the local network IP address it generates upon running <code class="highlighter-rouge">rake serve</code>.</p>
+
+<p>The last part of the Rakefile implements the tasks we set up:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">desc</span> <span class="s1">'Serve'</span>
+<span class="n">task</span> <span class="ss">:serve</span> <span class="k">do</span>
+  <span class="n">threads</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="sx">%w{sasswatch browsersync}</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">task</span><span class="o">|</span>
+    <span class="n">threads</span> <span class="o">&lt;&lt;</span> <span class="no">Thread</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">task</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">devtask</span><span class="o">|</span>
+      <span class="no">Rake</span><span class="o">::</span><span class="no">Task</span><span class="p">[</span><span class="n">devtask</span><span class="p">].</span><span class="nf">invoke</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+  <span class="n">threads</span><span class="p">.</span><span class="nf">each</span> <span class="p">{</span><span class="o">|</span><span class="n">thread</span><span class="o">|</span> <span class="n">thread</span><span class="p">.</span><span class="nf">join</span><span class="p">}</span>
+  <span class="nb">puts</span> <span class="n">threads</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This has the <em>magical</em> effect of opening a new browser window to <code class="highlighter-rouge">localhost:3000</code> when you run <code class="highlighter-rouge">rake serve</code>, and reloading it every time you save any of your SASS files. It also scrolls all open windows together, even when you open up things on your phone using the local network proxy, which it helpfully provides as output:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; Sass is watching for changes. Press Ctrl-C to stop.
+[BS] Proxying: http://site.dev
+[BS] Access URLs:
+ -------------------------------------
+       Local: http://localhost:3000
+    External: http://172.16.5.235:3000
+ -------------------------------------
+          UI: http://localhost:3001
+ UI External: http://172.16.5.235:3001
+ -------------------------------------
+[BS] Watching files...
+[BS] File changed: css/style.css
+      write css/style.css
+      write css/style.css.map
+</code></pre></div></div>
+
+<p>This is really the cherry on top of the dev stack - after using it for a little while, you’ll wonder how you ever got along reloading everything manually.</p>
+
+<h2 id="stack-overview">Stack Overview</h2>
+
+<p>In summary, here’s that front-end stack:</p>
+
+<ul>
+  <li>Ruby via rbenv, managing gems using Bundler</li>
+  <li>JavaScript via Node.js, managing packages using NPM</li>
+  <li>SASS with globbing, set up in a simple directory structure</li>
+  <li>Bourbon Mixin library</li>
+  <li>Neat Grid system</li>
+  <li>Normalize.css as _normalize.scss</li>
+  <li>A simple module template containing responsive breakpoints</li>
+  <li>Browsersync</li>
+</ul>
+
+<p>None of this is carved in stone of course, and it gets slightly tweaked for every new build based on the project requirements, such as internationalization, the base CMS (Drupal, WordPress, or Jekyl in our case), and the desire to try out something new, which is fairly constant. After all, that’s how we got to the stack we have today!</p>
+
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Bourbon.' href='/blog/category/bourbon/'>Bourbon</a> <a class='tag' rel='tag category' title='View all posts tagged Browserstack.' href='/blog/category/browserstack/'>Browserstack</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal.' href='/blog/category/drupal/'>Drupal</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged Front-end.' href='/blog/category/front-end/'>Front-end</a> <a class='tag' rel='tag category' title='View all posts tagged SASS.' href='/blog/category/sass/'>SASS</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2017/02/the-2017-thinkshout-front-end-stack/';
+    this.page.identifier = '/blog/2017/02/the-2017-thinkshout-front-end-stack';
+    this.page.title = 'The 2017 ThinkShout Front-End Stack'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2017/01/using-google-docs-and-migrate-to-populate-your-drupal-site-part-2/"><span class="fa fa-caret-left"></span> <span>Using Google Docs and Migrate to Populate Your Drupal Site, Part 2</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2017/02/going-for-gold-in-sustainability/"><span>Going for Gold in Sustainability</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+  <div class="team-member-blog">
+    <div class="container">
+      <h4>Related Blog Posts</h4>
+      <div class="row posts">
+        
+        
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/05/Space-for-Empathy/">
+    <p class="post-date">05.24.2018</p>
+    <h3 class="post-title">Space for Empathy</h3>
+    <p class="post-short">How do we make space for empathy in our work and in our community? Jules takes us on a deep dive into what she learned at this year's DrupalCon</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/jules.jpg">
+      <span class="byline-text">
+        <strong>Jules Dickey</strong><br>
+        <span class="position">Software Engineer</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/05/Making-GDPR-Preparations/">
+    <p class="post-date">05.13.2018</p>
+    <h3 class="post-title">Preparing for the GDPR</h3>
+    <p class="post-short">The European Union’s General Data Protection Regulations go into effect May 25th. Here's how you need to prepare.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/tauno.jpg">
+      <span class="byline-text">
+        <strong>Tauno Hogue</strong><br>
+        <span class="position">Chief Technology Officer</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/01/Great-hoodie-mystery/">
+    <p class="post-date">01.06.2018</p>
+    <h3 class="post-title">The Great Hoodie Mystery</h3>
+    <p class="post-short">Gabe takes what would otherwise be an inane office exchange and ties it back to data structures.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/gabe.jpg">
+      <span class="byline-text">
+        <strong>Gabe Carleton-Barnes</strong><br>
+        <span class="position">Director of Engineering</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+            
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

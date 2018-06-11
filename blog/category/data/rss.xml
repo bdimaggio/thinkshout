@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/data/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>The Great Hoodie Mystery</title>
+  <description>
+    <![CDATA[<p>Last summer, Rose noticed a problem at the ThinkShout offices. What seemed at first to be an innocuous little issue turned into an unsolvable mystery that had been hiding in our office for an unknown period of time. <em>It remains unsolved to this day!</em></p>
+
+<p>What is this mystery? Here’s Rose on the ThinkShout Slack “General” channel, June 30th 2017:</p>
+
+<p class="center"><img src="/assets/images/blog/rose_slack.png" alt="rose_slack" /></p>
+
+<p>Being a data structure enthusiast, I was immediately struck by the strong possibility that this question could not be answered.</p>
+
+<p class="center"><img src="/assets/images/blog/gcb_slack.png" alt="gcb_slack" /></p>
+
+<p>With an organization full of developers, suggestions were quickly provided. Someone suggested using the “Refrigerator leftovers” method: place the hoodies somewhere conspicuous with a sign that says, “If this is yours, claim it by such-and-such date”. Katrina didn’t like it:</p>
+
+<p class="center"><img src="/assets/images/blog/katrina_slack.png" alt="katrina_slack" /></p>
+
+<p>A fine point! Leftovers are naturally somewhat unique. ThinkShout hoodies are, of course, unquestionably unique (and beautifully designed!) in the greater world of hoodies. But in the ThinkShout offices, the “uniqueness” factor is undermined. Moving the hoodies would remove one of the most vital pieces of identifying information in the mind of the only person likely to be able to identify it: the mind of the person who left the hoodie where it currently is!</p>
+
+<p>Nancy had the real solution to this mystery:</p>
+
+<p class="center"><img src="/assets/images/blog/nancy_slack.png" alt="nancy_slack" /></p>
+
+<p>Perfect! Connect the identifying information permanently to the hoodie in a way that anyone, not just the owner, can use to identify it!</p>
+
+<p>So! Problem solved, right Rose?</p>
+
+<p>….</p>
+
+<p>Rose was too polite, of course, to point out that this “solution” was, shall we say, a little less than timely.</p>
+
+<p>However, our data interpretation resources (employees who owned hoodies) did a great job identifying the two hoodies on the back coat rack. As for the one in the front? I recently returned from 3 months away from the office, and saw this:</p>
+
+<p class="center"><img src="/assets/images/blog/hoodie_lives_web.jpg" alt="hoodie_lives" /></p>
+
+<p>The mystery remains! In fact, as far as I can recall, that hoodie has been hanging there for at least three years.</p>
+
+<p>Perhaps you are thinking, “This is no great mystery. Someone who left the organization at some point forgot their hoody, and never came back for it.” That is an excellent explanation! But is it true? There’s no longer any way to know for sure.</p>
+
+<p>Some have advocated for removal of the mystery hoodie, arguing that the owner has long given up their claim to it. I am strongly opposed! Nevermind the owner: the mystery hoodie is an object lesson on the importance of thinking through your data structures carefully at the start. It can be tempting, when building a data system, to get cute and clever and end up in trouble:</p>
+
+<p>“We’ll know whose hoodie it is because they’ll be wearing it!” (This only accounts for data in the active state.)
+“We’ll know whose hoodie it is because when they aren’t wearing it, they will leave it at their desk!” (Optimistic assumption about future usage.)
+“We can use sizing information to help us figure out any lost person-hoodie connections.” (Insufficiently specific identifier.)
+“The owner will know that it’s theirs.” (Impractical data retrieval method; owner may not be an available resource.)</p>
+
+<p>These cute answers can be fun, but let’s call them what they really are: lazy. And let’s take a cue from Nancy: put complete, identifying information in the appropriate place right from the start:</p>
+
+<p class="center"><img src="/assets/images/blog/nancy_slack.png" alt="nancy_slack" /></p>
+
+<p>Now, if you’ll excuse me, I need to track down a magic marker.</p>
+]]>
+  </description>
+  <pubDate>Sat, 06 Jan 2018 07:30:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2018/01/Great-hoodie-mystery/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/01/Great-hoodie-mystery/</guid>
+</item>
+
+    
+      <item>
+  <title>&quot;Big Data&quot; Challenges with Salesforce for Facing History and Ourselves
+</title>
+  <description>
+    <![CDATA[<h2 id="the-introduction">The Introduction</h2>
+<p><a href="http://facinghistory.org">Facing History and Ourselves</a> is an international educational and professional development organization whose mission is to engage students of diverse backgrounds in an examination of racism, prejudice, and antisemitism in order to promote the development of a more humane and informed citizenry. As part of their recent <a href="http://thinkshout.com/work/facing-history/">site launch</a>, ThinkShout was tasked with synching their new Salesforce instance, built by our partner on the project, <a href="http://www.kellpartners.com/">Kell Partners</a>, with Drupal. This is a use case tailor made for the Salesforce Suite, and one that we have lots of experience with including recent projects for the <a href="http://thinkshout.com/work/la-conservancy">Los Angeles Conservancy</a> and the <a href="https://www.getpantheon.com/blog/how-teams-are-launching-17-drupal-websites-single-distribution">Forum of Regional Association of Grant Makers</a>, however there was one small difference. Actually, a big one. For Facing History, we had to sync 300,000+ plus records in near real time as opposed to tens of thousands. How this was accomplished was an exercise in troubleshooting, scripting, and patience.</p>
+
+<p>The Drupal <a href="https://drupal.org/project/salesforce">Salesforce Suite</a> allows any <a href="http://thinkshout.com/blog/2012/11/lev/salesforce-rest-oauth/">Drupal entity to be synchronized with any Salesforce object</a>, with field level granularity and directionality. Data can be pushed from Drupal in real time or it can be batched. Data from Salesforce is pulled into a queue at regular intervals and then a configurable amount of queued records are processed during those intervals. During processing, contacts and orgs in <a href="https://drupal.org/project/redhen">RedHen CRM</a> are created or updated, keeping the user experience of managing contact data within the Drupal site. In future phases, we will add engagement scoring to the mix by scoring user engagements on the website and pushing that data back to Salesforce.</p>
+
+<h2 id="the-challenge">The Challenge</h2>
+<p>Getting 300,000+ records into the queue was a relatively quick operation that took less than 4 hours. Processing those records was much more time consuming as only a few hundred records were processed during a single cron run. Since the site is hosted on Pantheon, the standard cron run is hourly, which would mean the processing would take weeks. Even manually triggering the process would take days. We needed a better solution.</p>
+
+<h2 id="the-solution">The Solution</h2>
+
+<h3 id="queue-processing">Queue processing</h3>
+
+<p>One of the ways to improve this process was to allow more records to be processed during the cron run. The default worker timeout was set to 180 seconds (3 minutes).  Meaning that every hour, records from the queue were processed for 3 minutes and then nothing would happen until the next cron run. So that timeout was altered using <code class="highlighter-rouge">hook_cron_queue_info_alter()</code> to 3600 seconds (1 hour). We also wanted to limit other processes from running during this time. Just firing off cron processes <em>all</em> cron tasks from all modules. Running <code class="highlighter-rouge">drush queue-run</code> we could just process the queue worker identified. But it would still require someone manually running that command every hour. That command also allows queue processing in parallel, which theoretically would process the records even faster.</p>
+
+<p>We created a bash script which would process the queue every hour running multiple parallel threads:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+<span class="nv">NUM_RUNS</span><span class="o">=</span><span class="nv">$1</span>
+<span class="nv">NUM_PROCESSES</span><span class="o">=</span><span class="nv">$2</span>
+
+<span class="nv">r</span><span class="o">=</span>0
+
+<span class="nv">START</span><span class="o">=</span><span class="sb">`</span><span class="nb">date</span> +%s<span class="sb">`</span>
+<span class="k">while</span> <span class="o">[</span> <span class="nv">$r</span> <span class="nt">-lt</span> <span class="nv">$NUM_RUNS</span> <span class="o">]</span><span class="p">;</span> <span class="k">do
+  </span><span class="nv">p</span><span class="o">=</span>0
+  <span class="nv">run</span><span class="o">=</span><span class="k">$((</span><span class="nv">$r</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
+  <span class="nb">echo</span> <span class="s2">"Run: </span><span class="nv">$run</span><span class="s2">"</span><span class="p">;</span>
+  <span class="k">while</span> <span class="o">[</span> <span class="nv">$p</span> <span class="nt">-lt</span> <span class="nv">$NUM_PROCESSES</span> <span class="o">]</span><span class="p">;</span> <span class="k">do
+    </span><span class="nv">proc</span><span class="o">=</span><span class="k">$((</span><span class="nv">$p</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
+    <span class="nb">echo</span> <span class="s2">"Process: </span><span class="nv">$proc</span><span class="s2">"</span><span class="p">;</span>
+    <span class="c">#create file with header and time stamp</span>
+    <span class="nb">printf</span> <span class="s2">"Run: </span><span class="nv">$run</span><span class="s2"> Process: </span><span class="nv">$proc</span><span class="s2"> Log</span><span class="se">\n</span><span class="s2">"</span> <span class="o">&gt;</span> sync.R<span class="nv">$run</span>.P<span class="nv">$proc</span>.log
+    drush @pantheon.facing-history.live queue-run salesforce_pull <span class="nt">--strict</span><span class="o">=</span>0 <span class="o">&gt;&gt;</span> sync.R<span class="nv">$run</span>.P<span class="nv">$proc</span>.log &amp;
+    <span class="nv">p</span><span class="o">=</span><span class="nv">$proc</span>
+  <span class="k">done
+  </span><span class="nv">r</span><span class="o">=</span><span class="nv">$run</span>
+  <span class="c"># Should match worker timeout</span>
+  <span class="nb">sleep </span>3600
+<span class="k">done</span>
+</code></pre></div></div>
+<p>During our testing, however, we quickly realized that running parallel Drupal processes caused MySQL deadlocks. It appeared that this was caused by a lack of database transactions being created when doing field level operations. We spent some time researching ways to prevent this, but in the end decided that it would be better to improve the way that records were imported into the SalesForce module in the first place.</p>
+
+<h3 id="identify-and-remove-inefficient-code">Identify and remove inefficient code</h3>
+
+<p>While troubleshooting an unrelated issue, it was found that when pulling mapped <a href="https://drupal.org">Relations</a> from Salesforce the entity ID was needed, but since the entity was not saved at the time of processing those mappings, the ID was not available yet. This was temporarily resolved to prevent errors by saving the entity before the mapping took place. Then the mappings were completed and the entity was saved again. This meant that whether a Relation was used or not, the entity was saved twice. To prevent this double save from causing a decrease in performance, a check was made to see if the pulled entity was mapped with a Relation. If so, the entity was saved to provide the entity ID. If not, the entity was only saved after the field mappings were completed.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">salesforce_mapping_related_entity_fieldmap_pull_value</span><span class="p">(</span><span class="nv">$entity_wrapper</span><span class="p">,</span> <span class="o">...</span>
+<span class="c1">// Handle relations.</span>
+<span class="k">elseif</span> <span class="p">(</span><span class="nx">module_exists</span><span class="p">(</span><span class="s1">'relation'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$info</span><span class="p">[</span><span class="s1">'relation_type'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="c1">// We cannot create relationships between new items. We are saving them here</span>
+<span class="c1">// to avoid performing a duplicate save for all entities in</span>
+<span class="c1">// salesforce_pull_process_records().</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$info</span><span class="p">[</span><span class="s1">'parent'</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">getIdentifier</span><span class="p">())</span> <span class="p">{</span>
+	<span class="nv">$info</span><span class="p">[</span><span class="s1">'parent'</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Another performance improvement came from changing the way field mappings were handled if an error was thrown. Previously, if an error was thrown while updating a mapping, the mapping object (the entity that links Drupal entities to Salesforce objects) was not created or, if it existed, was removed. Instead, now if a valid entity ID is present the mapping is still saved. This cause less errors and allows for better data syncing.</p>
+
+<p>The function salesforce_pull_process_records in salesforce_pull.module was updated</p>
+
+<p>from</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$mapping_object</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nv">$sf_mapping</span><span class="o">-&gt;</span><span class="na">sync_triggers</span> <span class="o">&amp;</span> <span class="nx">SALESFORCE_MAPPING_SYNC_SF_UPDATE</span><span class="p">))</span>
+</code></pre></div></div>
+<p>to</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$mapping_object</span> <span class="o">=</span> <span class="nx">salesforce_mapping_object_load_by_sfid</span><span class="p">(</span><span class="nv">$sf_object</span><span class="p">[</span><span class="s1">'Id'</span><span class="p">]);</span>
+<span class="nv">$exists</span> <span class="o">=</span> <span class="nv">$mapping_object</span> <span class="o">?</span> <span class="k">TRUE</span> <span class="o">:</span> <span class="k">FALSE</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$exists</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nv">$sf_mapping</span><span class="o">-&gt;</span><span class="na">sync_triggers</span> <span class="o">&amp;</span> <span class="nx">SALESFORCE_MAPPING_SYNC_SF_UPDATE</span><span class="p">))</span> <span class="p">{</span>
+</code></pre></div></div>
+<p>The code checks for existence of an entity referenced by a mapping to ensure it exists, and behaves intelligently if it doesn’t. Previously this would cause an unrecoverable sync state for objects.</p>
+
+<h3 id="query-optimization">Query optimization</h3>
+
+<p>By analyzing queries using <a href="http://newrelic.com/">New Relic</a> during Salesforce data pulls we were able to track down a troublesome frequently run query in the <a href="https://drupal.org/project/relation">Relation</a> module that was used in the <a href="http://drupalcode.org/project/salesforce.git/tree/refs/heads/7.x-3.x:/modules/salesforce_mapping">Salesforce Mapping</a> module to map related entities. Researching this led to a known issue <a href="https://drupal.org/node/1649398">when dealing with a high volume of relations</a> caused by  <a href="https://drupal.org/node/1859084">conditions on multi-column fields in Entity Field Query</a>. In short, EFQ caused additional unneeded joins when creating the SQL query. Without the time to patch core, we created a custom Database API query duplicating the results of the EFQ without the extra joins. This resulted in a <em>700 times increase in performance</em> in execution of that query.</p>
+
+<p>Additionally, we found that EFQ always checks for node grants by joining on the node_grants table even when we are not dealing with nodes, in our case contacts. Elimination this join also resulted in improved query performance, although not as great an impact as the issue described above.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>After we completed a test run of the import in Pantheon’s test environment, we were ready to import data into the production instance of the new site. We decided to set cron to “never run” to again limit the amount of processes running at the time of the import. We also did not want to recreate the parallel issues we discovered during the our tests with our scripted solution.  After our first production test run of a few thousand records over 3 hours, we noticed that we were still getting deadlocks. Upon investigation, we discovered that Pantheon runs cron against their production instances using drush, which does not respect the “never run” configuration. Pantheon had documentation about this which lead us to <a href="https://drupal.org/project/elysia_cron">Elysia Cron</a>. This module does prevent cron from running by setting the “Globally Disable” flag. This module gives itself the highest system weight so that its <code class="highlighter-rouge">hook_cron</code> is the first to run. And if that flag is set, Elysia Cron stops the process.</p>
+
+<p>At the end of the day, 300,000+ records were successfully imported into Drupal from Salesforce. Many lessons were learned and significant improvements were made to the Salesforce Suite. Facing History and Ourselves provided us with an opportunity to go further than we ever had before in understanding and improving upon this process.</p>
+]]>
+  </description>
+  <pubDate>Mon, 28 Apr 2014 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/04/salesforce-big-data/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/04/salesforce-big-data/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/drupal/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>ThinkShout and the Los Angeles Conservancy win the “Modernism in America Award”</title>
+  <description>
+    <![CDATA[<p>As web geeks, we love ones and zeros, pixels and typography. We love the Internet and probably spend way too many nights and weekends researching the latest trends in web design and engineering. At the same time, we are inspired to serve grassroots organizations that make a real difference in their local communities.</p>
+
+<p>For the last year and a half, we have had the opportunity to leverage our talents for the Interwebs to serve the Los Angeles Conservancy, a nonprofit that advocates for the preservation of historical and cultural sites throughout Los Angeles County. We couldn’t be more proud of this website. It grounds us as nerds who love to be part of something bigger.</p>
+
+<p>Yesterday, we were excited to learn that the website, in particular its <a href="https://www.laconservancy.org/modern/">“Curating the City” microsite</a>, was recognized with the <a href="http://docomomo-us.org/programs/awards/">Modernism in America Award</a>, presented by a collection of some of the most influential minds in architecture and urban renewal.</p>
+
+<p>Speaking for the award selection committee, James Polshek, Former Dean of the Architecture School at Columbia University, wrote: “Their use of innovative technology, preservation talent, historical knowledge and web design talent to attractively bring together a vast amount of information available to the general public is [to be] commended.”</p>
+
+<p>Of course, we do what we do because we are passionate about bringing the best of open source software and design to forward-thinking organizations. But it’s nice to be recognized from time to time, and we are excited to celebrate the great CRM integration work that we did on this project with <a href="http://www.kellpartners.com/">Kell Partners</a>, as well as the great design provided by our partners at <a href="http://www.yyes.org/">YYES</a>.</p>
+
+<p>We invite you to read about <a href="http://thinkshout.com/work/la-conservancy/">this project</a> in our portfolio. In building this website, we pioneered deep <a href="http://thinkshout.com/blog/2014/01/tauno/rebuilding-los-angeles-conservancy-website-power-salesforce/">integration between Drupal and Salesforce</a>. We also leveraged responsive design and online mapping features to tell beautiful, timeless stories of the history of L.A.’s architecture and the growth of its local communities.</p>
+
+<p><img src="/assets/images/blog/lac_screenshot1.png" alt="Curating the City homepage" title="Curating the City homepage" /></p>
+
+<p><img src="/assets/images/blog/lac_screenshot2.png" alt="Curating the City second page" title="Curating the City second page" /></p>
+
+<p><img src="/assets/images/blog/lac_screenshot3.png" alt="Curating the City third page" title="Curating the City third page" /></p>
+]]>
+  </description>
+  <pubDate>Wed, 26 Feb 2014 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2014/02/modernism-award/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/02/modernism-award/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/webby/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Teaching Tolerance is nominated for a Webby!</title>
+  <description>
+    <![CDATA[<p>We’re thrilled to announce that <a href="https://www.tolerance.org/">Teaching Tolerance</a>, a program of the <a href="https://www.splcenter.org/">Southern Poverty Law Center</a> is up for a <a href="https://vote.webbyawards.com/PublicVoting/#/2018/websites/general/education">Webby</a>! Their mission is to provide educators with the tools to create a kind and inclusive school climate. They do this through a library of articles and resources that they’ve turned into teachable materials via a Learning Plan Builder, and other classroom activities. It’s something that we feel is especially important work, now more than ever.</p>
+
+<p>This is a project that meant so much to everyone that touched it; and it was a true partnership every step of the way for both our teams (Tolerance and ThinkShout). It certainly speaks to the passion that was put into it from all angles, and it’s an honor to be recognized for this work.</p>
+
+<p>Our <a href="https://thinkshout.com/work/tolerance/">Case Study</a> will give you the full scope of work. But for a quick summary: In redesigning their website, ThinkShout set out to turn the wealth of articles and resources Tolerance had into teachable materials, and did so by creating a guided Learning Plan Builder that makes all content classroom-ready. Tolerance grants free access to thousands of resources – from video to essays to proven teaching strategies – and everything within that catalogue is now actionable. We also took on the challenge of migrating their content from two older Drupal 6 and 7 sites into one new Drupal 8 site.</p>
+
+<p>The result? Since launching summer of 2017, Tolerance.org has seen improvements across the board:</p>
+
+<ul>
+  <li>Pages per session up 21%</li>
+  <li>Session duration up 27%</li>
+  <li>Bounce rate decreased by 8%</li>
+  <li>Returning visitors up by 3%</li>
+  <li>Registrations nearly doubled (from 19,000 to 36,000)</li>
+</ul>
+
+<p>Here’s where you come in: our nomination for a <a href="https://vote.webbyawards.com/PublicVoting/#/2018/websites/general/education">Webby</a> means we need the people’s voice (aka <strong>VOTES</strong>) to actually win. Voting ends April 19th!</p>
+
+<p class="center"><a href="https://vote.webbyawards.com/PublicVoting/#/2018/websites/general/education">Vote for Tolerance.org in the Webby’s</a></p>
+
+<p>Personally, we can’t think of anything more critical at this time than the work Tolerance.org is doing to ensure the next generation is primed to participate in our democracy. And winning the Webby will certainly help them gain visibility and advance their mission even further.</p>
+
+<p>P.S. Travel Oregon also made it as an honoree in the Travel category, and they were up against some stiff competition! You can see their <a href="https://thinkshout.com/work/travel-oregon/">case study here.</a></p>
+]]>
+  </description>
+  <pubDate>Fri, 06 Apr 2018 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2018/04/vote-for-Webby-nominated-Teaching-Tolerance/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/04/vote-for-Webby-nominated-Teaching-Tolerance/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

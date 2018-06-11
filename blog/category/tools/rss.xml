@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/tools/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>The ThinkShout Project Management Tool Selection Process</title>
+  <description>
+    <![CDATA[<p>Project management in the digital world is an ever-changing arena. New tools are constantly being created, updates to current software are always on deck, and team members have specific predilections and preferences that must be assessed and accommodated. Project managers walk the line of being flexible and change-aware, while also taking a hard line on internal processes that streamline and codify success.</p>
+
+<p>A newcomer to the ThinkShout family goes through a rigorous project onboarding process. A large part of the first few weeks of working for ThinkShout is familiarization with the myriad of tools used to manage projects. These range from detailed excel spreadsheets to integrated software systems. At first glance, redundancies seem to be prevalent, but as I familiarized myself with projects and internal processes, it became apparent that each tool had a purpose. The need for fully integrated software to aide project teams has been realized, and the hope is that as advancements in the field are made, necessary tools will continue to be combined, and a cadillac system will emerge.</p>
+
+<p>The cadillac system has not yet arrived. In the meantime, ThinkShout’s project management team works hard to ensure our strategists, designers, and developers have tools that work for them - and most importantly, for our clients.</p>
+
+<p>ThinkShout currently identifies and decides on project management tools by:</p>
+<ul>
+  <li><strong>Identifying all tools currently being used in house.</strong> We ask ourselves what is working, what isn’t working, and where problem areas have continuously popped up that we would like to solve for.</li>
+  <li><strong>Making a list.</strong> What is mandatory to our team’s success? What would be nice to have but isn’t absolutely necessary? We identify features which could actually hinder a tool’s ability to aid in our processes. We prioritize the list and cross apply it to available software solutions.</li>
+</ul>
+
+<p>Once we whittle down the options to a few leading candidates, we evaluate:</p>
+<ul>
+  <li>Is this software going to be easy and intuitive to use?</li>
+  <li>Will it scale to fit our organization and the needs of our clients?</li>
+  <li>Is is well-maintained and supported?</li>
+  <li>Does it have growth potential?</li>
+</ul>
+
+<p>As our clients grow and change, so do we. We are constantly evaluating ease of use, transparency in communication methods, and above all, efficiency, as we adopt and adapt to new management tools.</p>
+
+]]>
+  </description>
+  <pubDate>Mon, 19 Jun 2017 09:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/06/thinkshout-project-management-tool-selection-process/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/06/thinkshout-project-management-tool-selection-process/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

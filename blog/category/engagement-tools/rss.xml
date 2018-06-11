@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/engagement-tools/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>RedHen Raiser in Action</title>
+  <description>
+    <![CDATA[<p>This past summer, <a href="http://thinkshout.com/blog/2015/08/peer-to-peer-with-drupal/">Sean shed some light on one of our most exciting Drupal contributions</a> to date: <a href="https://www.drupal.org/project/redhen_raiser">RedHen Raiser</a>, our open source peer-to-peer fundraising solution, the first of its kind to be built entirely with Drupal. Thanks to the <a href="https://www.capitalareafoodbank.org/">Capital Area Food Bank of Washington, D.C.</a>, we finally had the opportunity to build a platform that would provide fundraisers a highly-customizable, Drupal alternative to SAAS applications like Causevox and Crowdrise.</p>
+
+<p>After a year of leveraging Raiser as their vehicle for crowdfunding, we’re thrilled to see that the Capital Area Food Bank of Washington, D.C. brought in over $324,000, representing tens of thousands of pounds of food, through 17 different campaigns to help fight hunger in their community.</p>
+
+<p>The Food Bank recently shared an infographic with its constituents that breaks down the donations they received through their RedHen Raiser campaigns over this past year.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/cafb_info2.jpg" alt="cafb_info2.jpg" /></p>
+
+<p>It’s really exciting for us to think of what other organizations will accomplish with RedHen Raiser. Raiser’s features allow fundraisers to tailor their campaigns to fit a variety of causes. The Food Bank utilized the Teams feature to give local law firms their own fundraising pages during the “<a href="https://www.capitalareafoodbank.org/food-from-the-bar/">Food from the Bar</a>” campaign. There are so many other possible applications: walk-a-thons, food drives, even parties - <a href="https://give.capitalareafoodbank.org/campaigns/party-against-hunger">as the Food Bank has shown us</a> - have the potential to be great fundraising opportunities for your organization, and they can all be easily managed with RedHen Raiser.</p>
+
+<p>We can’t thank the Food Bank enough for working with us to release RedHen Raiser as an open source platform so other members of the Drupal nonprofit community can benefit from it, too – and, of course, make it even better.</p>
+
+<p>Is your organization using RedHen Raiser to crowdfundraise? Get in touch with us. We’d love to hear about your experience and share your story.</p>
+]]>
+  </description>
+  <pubDate>Mon, 18 Jan 2016 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2016/01/redhen-raiser-in-action/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/01/redhen-raiser-in-action/</guid>
+</item>
+
+    
+      <item>
+  <title>Supporting Young Inventors with RedHen</title>
+  <description>
+    <![CDATA[<p>We always talk about <a href="https://www.drupal.org/project/redhen">RedHen</a> as a Customer Relationship Management framework. When you install RedHen in your Drupal site, you get the basic building blocks of a CRM. Your job is to get to work defining fields, connecting entities, and building out everything you might imagine you’d like a website-integrated CRM to do. We recently partnered with the the <a href="http://lemelson.mit.edu/">Lemelson-MIT</a> Program at the Massachusetts Institute of Technology, who needed all of these building blocks. The Lemelson-MIT Program celebrates outstanding inventors and inspires young people to pursue creative lives and careers through invention. They had a vision to create an integrated experience within their Drupal site specifically for educators and students associated with their InvenTeam program. This was a perfect fit for the RedHen framework.</p>
+
+<p>Through the <a href="http://lemelson.mit.edu/inventeams">InvenTeams</a> initiative, the Lemelson-MIT Program awards annual grants of up to $10,000 each to teams of high-school students, teachers and mentors to invent technological solutions to real world problems. They needed a system for managing years of CRM data for all of their programs, including all of their InvenTeam grant winners. Because Lemelson-MIT already had a fresh Drupal 7 site, this wasn’t a typical site build. We integrated a brand new RedHen application for managing InvenTeams into their existing website. We linked InvenTeams to contacts using RedHen Relation, and defined standard Drupal fields for contacts, teams, and relationships. We also linked educator and student profiles to schools, which was a great fit for RedHen Organization.</p>
+
+<p><img src="/assets/images/blog/lemelson-mit-roster.png" alt="lemelson_mit_1.png" /></p>
+
+<p>Participants who log in are presented with a dashboard customized for the team that they are associated with. Team members can view a team roster, and educator administrators can manage their roster by adding new members or changing member roles. Team members’ most recent blog posts are featured on the dashboard, and blog posts are linked to individual RedHen contacts. This gives InvenTeam participants a chance to share out about the experience that they have had with the program, and post progress updates about their invention.</p>
+
+<p><img src="/assets/images/blog/lemelson-mit-finances.png" alt="lemelson_mit_2.png" /></p>
+
+<p>Since InvenTeams are working against a set amount of grant money for their project, they need a way to track that financial information associated with their team. We built a general ledger within the RedHen application, which updates a display showing the remaining funds left to spend against the grant total. Educators and students who are in charge of tracking finances can log transactions with a receipt or request pre-approval for purchases. Financials are flagged for a Lemelson-MIT administrator in an administrative back-end, and they can approve purchases or write notes attached to individual transactions.</p>
+
+<p>We also built a document management system for Lemelson-MIT to gather forms and progress updates from the teams within the application. Lemelson-MIT is able to broadcast important documents, as well as share documents back and forth with individual teams. Leaning on Drupal’s powerful admin features, we built an administrative backend for Lemelson-MIT to manage those documents, as well as financial transactions and the teams themselves. RedHen made this easy thanks to its own native administrative interface unified with the rest of the admin tools that we created specifically for this site.</p>
+
+<p><img src="/assets/images/blog/lemelson-mit-documents.png" alt="lemelson_mit_3.png" /></p>
+
+<p>A big challenge for any organization getting started with a CRM is how they’re going to set up a sustainable process for getting data into the CRM. Often this is a manual data entry process, which we all know can be painful. RedHen can help ease the pain with its integration directly into your Drupal website. It’s able to attach itself to user accounts, email list sign up, event registrations, and so on. Lemelson-MIT had a unique challenge because a large portion of its CRM data is housed in SlideRoom, which is an external application - not integrated with their website.</p>
+
+<p>Lemelson-MIT uses <a href="http://www.slideroom.com/">SlideRoom</a> for managing its InvenTeam grant application process. We didn’t want to recreate SlideRoom in Drupal, but we also didn’t want to require a bunch of manual data entry if we could help it. So we built a <a href="https://www.drupal.org/project/slideroom">SlideRoom Drupal module</a> and a <a href="https://github.com/thinkshout/slideroom-api-php">SlideRoom API Wrapper for PHP</a>, which connect Drupal to the SlideRoom API. You can use these today! Paste in an API key and implement a couple of Drupal hooks, and your SlideRoom data is all available to you directly in your Drupal site. For Lemelson-MIT, we wrote a little bit of code to periodically scoop up that valuable CRM data and create contact entities attached to schools. This bridges a data silo to Lemelson-MIT’s Drupal site, and has become an important part of their workflow from accepting InvenTeam applications, to eventually forming a team of young inventors. All that’s left is to let that creativity loose, and get started inventing!</p>
+
+<p>Using RedHen as a Customer Relationship Management framework, we were able to capture the unique requirements for the Lemelson-MIT Program. We tied CRM data tightly into their Drupal website, and linked records directly to applications in SlideRoom. Building on top of the RedHen framework enabled us to provide immediate value for educators and students in the InvenTeam program, as well as Lemelson-MIT staff. We are inspired by these young people who are crafting inventions that aim to solve real world problems, and we’re proud to have built an application that supports their work.</p>
+]]>
+  </description>
+  <pubDate>Wed, 09 Dec 2015 18:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2015/12/supporting-young-inventors-with-redhen/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/12/supporting-young-inventors-with-redhen/</guid>
+</item>
+
+    
+      <item>
+  <title>Migrating from Luminate CRM to Drupal and the Salesforce Nonprofit Starter Pack</title>
+  <description>
+    <![CDATA[<p>We’ve helped a number of nonprofits move from Luminate CRM to Drupal-Salesforce solutions, including the Young Survival Coalition, Facing History and Ourselves, the National Kidney Foundation, and the Los Angeles Conservancy.</p>
+
+<p>Without getting too deep into the technical architecture - <a href="http://thinkshout.com/blog/2015/04/salesforce-new-features/">which you can nerd out on in other posts on our blog</a> - our open source Salesforce integration can map any object/field in Salesforce to a corresponding entity type/field in Drupal. We can then sync these records bidirectionally. We can even support complex, cascading upserts of multiple records in real time.</p>
+
+<p>This allows us to leverage everything that’s great about Drupal (CMS tools, personalization, paid and unpaid event registrations, membership purchases, general ecommerce, and user access controls) with everything that’s great about Salesforce’s Nonprofit Starter Pack (NPSP) 3.0 (best-in-class donor management, unlimited extendability and scalability, flexible and intuitive reporting tools, and the most robust Application Exchange available).</p>
+
+<p>It’s always been clear that Salesforce provides much better constituent relationship management tools on the backend than Luminate or other Convio/Blackbaud products. What’s kept Luminate in the game for so long has been its public-facing web features, such as membership management and event registration tools.</p>
+
+<p>That said, there is no way that Luminate could ever keep up with the pace of innovation that we see with comparable features in Drupal. The open source model and volume of contributions from the Drupal community is unparalleled. Leveraging Drupal as a donor/constituent front-end for Salesforce, we can provide seamless user experiences that engage with website visitors more deeply, because we can personalize these experience based upon data pulled from Salesforce’s API.</p>
+
+<p><strong>Take the Los Angeles Conservancy as a case study:</strong></p>
+
+<p>When we met the <a href="https://www.laconservancy.org/">Conservancy</a>, they were struggling to engage stakeholders through an aging website and cumbersome collection of Luminate donation and event management tools. Asking website visitors to click away from their website to third-party forms provided by Convio severely hurt their conversion rates. Mobile event registrations and contributions were almost nonexistent on their site.</p>
+
+<p>The Conservancy wanted an interactive and mobile-friendly solution that would allow their constituents to easily sign up for free walking tours, buy tickets to movie events, update their membership information, set up recurring membership payments, and make donations towards different fundraising campaigns.</p>
+
+<p>By leveraging Drupal event registration and ecommerce tools, we were able to build all of these features within the Conservancy’s new responsive website. This provided a much more seamless user experience. Conversion rates soared as a result. In fact, the Conservancy staff came to us 3 months after the relaunch concerned that their Google Analytics showed decreased traffic on their event registration pages. They worried that they were losing registrations - when in reality, their conversation rates were going up so dramatically, and the time for completing an ecommerce transaction was dropping so quickly, that these forms were seeing less page clicks while their volume of transactions and their revenue was going up.</p>
+
+<p>With Drupal-based event registration and donation tools, we have 100% control over ecommerce workflows. We can also support complex pricing options based upon constituent data in Salesforce. For example, we can adjust ticket pricing based upon membership status. Again, we benefit from Drupal Commerce, an ecommerce solution that powers over 60,000 websites, including some of the largest stores on the Internet.</p>
+
+<p>Further, integrating these Drupal-Salesforce solutions with <a href="http://home.iatspayments.com/">iATS Payments</a>, we can create Drupal-based donation portals that support “card on file” as well as recurring donations. And with iATS’s integration with Salesforce, donors can update their credit card information or make a donation over the phone by calling the Conservancy, storing this payment information for their next online transaction.</p>
+
+<p>In short, Convio/Blackbaud just can’t compete… With what our clients save in confusing and expensive Blackbaud licensing fees, we can build more effective fundraising solutions that lead to much higher returns for their investment.</p>
+]]>
+  </description>
+  <pubDate>Wed, 26 Aug 2015 11:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/08/from-luminate-to-drupal-salesforce/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/08/from-luminate-to-drupal-salesforce/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

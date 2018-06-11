@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/desire-paths/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Desire Paths, Part 2: Your Website is Telling You a Story</title>
+  <description>
+    <![CDATA[<p>You want your website to tell your organization’s story. To do that, you need to listen to the stories your website is telling you.</p>
+
+<p>I have the opportunity to work with a lot of great nonprofits, including one that supports women with breast cancer. While conducting a site audit, we noticed that they had higher mobile traffic than many of ThinkShout’s clients. It had grown from 5% of the site’s total in 2010 to 30% so far in 2014.</p>
+
+<p>Digging a bit deeper, we found that many of the mobile visitors go directly to a section focusing on breast cancer in young women, including “survivor stories”:</p>
+
+<ul>
+  <li>
+    <p>This section generated 50% of all pageviews for mobile users, as opposed to 27% of non-mobile traffic.</p>
+  </li>
+  <li>
+    <p>73% of mobile site visitors came directly to these pages through search, as opposed to 44% of non-mobile searchers; visitors coming to the site through search on their computers largely landed on the home page.</p>
+  </li>
+  <li>
+    <p>Top search terms on mobile include “breast cancer stories,” “breast cancer in young women,” and “young breast cancer survivors.” Those terms are 2 to 5 times more likely to have been used by mobile visitors than by those coming to the site on their computers.</p>
+  </li>
+</ul>
+
+<p>Those numbers tell a story.</p>
+
+<p>The news that you have cancer must come as a shock. Particularly when you’re young, it may seem to come out of the blue. It’s entirely possible that, when you first receive this jolt, you’re alone, having just left your doctor’s office or set down the phone.</p>
+
+<p>The first thing I would want is some reassurance, confirmation at this juncture in my life that I’m going to be okay. Ideally, I’d talk to a loved one, but in the moment, I might turn to my smartphone: it’s immediately available, it’s connected, it could provide some answers.</p>
+
+<p>Our client had created content that could meet that need, opening opportunities not just to reassure a key audience, but to connect them to a broader community of support and thereby further their mission.</p>
+
+<p>By experimenting with layouts and calls to action specifically for mobile visitors – essentially, by doing our job – we have the chance to help people in a very real way.</p>
+
+<p>And that’s why we all do this work, isn’t it?</p>
+
+<p>Taking the time to create data-informed personas can help you hone a strategy for your content that goes beyond assumptions and guesswork.</p>
+
+<p><a href="http://thinkshout.com/blog/2014/04/desire-paths/">Once you understand HOW users arrive at your site</a> and examine WHAT they do after they get there, you can begin to parse out WHY they’re interested in your content in the first place – and implement the tactics that will tie their motivations to your organizational goals.</p>
+
+<p><strong>So, what <em>are</em> they doing?</strong></p>
+
+<p>As we’ve suggested before, <a href="http://thinkshout.com/blog/2014/04/desire-paths/">a good website will nudge a visitor from her desire path</a> – the reason she visited your site to begin with – to the desired path: a series of actions that will serve your organization’s mission.</p>
+
+<p>It pains me to say it, but you need to start with a content audit. If you don’t understand what you have, you can’t understand how it’s being used.</p>
+
+<p><a href="http://www.mightybytes.com/blog/how-to-perform-a-website-content-audit/">Dozens</a> <a href="http://www.4syllables.com.au/resources/templates-checklists/content-audits/">of articles</a> <a href="http://searchenginewatch.com/article/2342510/How-to-Prepare-for-Your-Content-Audit">already cover</a> <a href="https://www.distilled.net/blog/seo/how-to-perform-a-content-audit/">site audits</a>. Some of them <a href="http://uxmastery.com/how-to-conduct-a-content-audit/">even provide templates</a>.</p>
+
+<p>Don’t use them.</p>
+
+<p>Or rather, use them in a way that serves your mission. Your website likely has hundreds or thousands of “pages” from highly trafficked to, sniffed at, forgotten, and abandoned. Microsoft once found that <a href="http://www.gerrymcgovern.com/new-thinking/removing-poor-quality-content-increases-customer-satisfaction">30% of its webpages had never been visited</a>. (That number is more impressive in real numbers: 3,000,000. Yes, three <em>million</em> pages essentially served no purpose at all.) More recently, an audit by the World Bank revealed that <a href="http://www.theguardian.com/technology/2014/may/09/is-the-pdf-hurting-democracy">31% of its reports had never been downloaded</a>.</p>
+
+<p>There’s always a reason a piece of content was added to your website. Somebody, at some point, thought it would be valuable. They may still have some emotional attachment to it.</p>
+
+<p>Tough. Kill it.</p>
+
+<p><a href="https://twitter.com/WomenWhoTech">Allyson Kapin</a> recently <a href="http://www.eecs.harvard.edu/~kgajos/papers/2013/reinecke13aesthetics.pdf">pointed to a Harvard study</a> that found that “the more complex a website is, <a href="http://www.eecs.harvard.edu/~kgajos/papers/2013/reinecke13aesthetics.pdf">the less appealing the website is to visitors</a>.” Microsoft discovered that <a href="http://www.gerrymcgovern.com/new-thinking/removing-poor-quality-content-increases-customer-satisfaction">removing poor quality content improved customer satisfaction</a>. On a more basic level, psychologists have found that <a href="http://www.gerrymcgovern.com/new-thinking/removing-poor-quality-content-increases-customer-satisfaction">providing too many options can stall the decision-making process</a>. When you go to the cereal aisle, do you want to spend time evaluating all of the possible cereal options? No, you just want the Golden Grahams. Everything else is a distraction.</p>
+
+<p>When you put barriers in the way of your users, in the form of content they’re not interested in, they’re less likely to fight through to find the content they want. Yes, even if your organization thinks that content is central to your mission.</p>
+
+<p><a href="http://johnmccrory.com/">John McCrory</a> created this handy dandy template to help you sort out what to keep and what to throw in the hopper:</p>
+
+<p><img src="/assets/images/blog/desire-paths-ii-venn-diagram.png" alt="desire-paths-ii-venn-diagram.png" /></p>
+
+<p>If you need to run a full inventory, you might want to look into a tool like <a href="http://www.screamingfrog.co.uk/seo-spider/">Screaming Frog</a> or <a href="http://www.content-insight.com/">CAT (Content Analysis Tool)</a>. Or you can <a href="http://www.ripenn.com/blog/create-data-driven-content-inventory/">export reports from Google Analytics and combine it</a> with data from social channels.</p>
+
+<p>But you don’t need to care about everything. We suggest you:</p>
+
+<p>1) <strong>Focus on your high-traffic content.</strong> You’ll need to decide what the cut-off should be, but in general, if a page represents less than .05% of your total pageviews, it’s probably not worth the time it takes to care about it. Your threshold may very well be higher than that.</p>
+
+<p>You’ll want to analyze performance as well. Just because a page is heavily visited doesn’t mean it’s working the way you’d hoped. <a href="http://alistapart.com/article/a-checklist-for-content-work">You may need to rewrite and reformat a lot of it</a>. But there’s probably a reason people arrive there, and you should spend the time to figure out why.</p>
+
+<p>On ThinkShout’s own site, for example, we know that there are a handful of older blog posts, mostly on technical subjects, that account for a high percentage of our site traffic. We’re not actively engaged in driving visitors to them, but they do present opportunities to encourage visitors to learn more about the work we do. For us, they’re old news. For our visitors, they may contain valuable information, and that’s a motivation we can tap.</p>
+
+<p>2) <strong>Include any page in your site navigation</strong>, down two or three levels. Presumably, this content was once important to some stakeholder, somewhere. You may still cut it – hopefully, that stakeholder has already left your organization – but if it was important enough to include in your site architecture the last time around, you should try to understand why it’s there, even if it’s failing. This will help you not simply develop a strong argument to convince, say, your development director that her pet page is just getting in the way, but identify the pages that DO work and use them as exemplars to rewrite content deemed vital to the organization that may not be connecting with end users… yet.</p>
+
+<p>3) <strong>Aggregate data for your primary content types</strong>. Task number one will catch that one event you did with Pharrell Williams in 2011 that still drives a lot of traffic to your site, but you probably have a certain number of content types – you can think of these as page “templates” – that handle the bulk of your content. You may have a blog, you may run events. If you’re already <a href="http://thinkshout.com/blog/2014/05/content-structure-from-pearl-jam/">good at the structured content thing</a>, you may have broken videos or media mentions into their own content types.</p>
+
+<p><a href="https://twitter.com/kivilm">Kivi Leroux Miller</a> talks about <a href="http://www.nonprofitmarketingguide.com/blog/2013/04/11/creating-content-on-the-topics-you-want-to-be-known-for/">differentiating between your evergreen content</a> (your main site pages, likely contained in your navigation structure) from your perennial and annual color (those blog posts and tweets). A lot of your content has a shelf life, so you need to make sure the wrapper keeps it as fresh as possible. Part of your content audit should examine how well the standard structure around your more temporal content is performing.</p>
+
+<p>If you find that your audit still runs into hundreds of pages, Facebook’s <a href="https://twitter.com/jcolman">Jonathon Colman</a> has some <a href="http://www.slideshare.net/jcolman/data-sets-you-free-confab-2013">great tips on how to use conditional formatting</a> in Excel to highlight the areas that need the most attention. (Start on slide 131.)</p>
+
+<p><strong>Who’s doing it?</strong></p>
+
+<p>Now it’s time to tie content back to your users. <a href="http://thinkshout.com/blog/2014/04/desire-paths/">You have a good idea how they arrived</a>. By segmenting your traffic, you can study what they do next, all the way down to a page-by-page basis, if you’re feeling frisky.</p>
+
+<p>A good place to start is the Google Analytics “Navigation Summary.” This hidden gem of a report can be found under Behavior -&gt; Site Content -&gt; All Pages. In the upper left corner of the content, there are a series of tabs for “Explorer,” “Navigation Summary,” and “In-Page.” You want the middle one.</p>
+
+<p>This report will tell you four things about any page on your site:</p>
+
+<ol>
+  <li>
+    <p>How many users landed on this page (“Entrances”)</p>
+  </li>
+  <li>
+    <p>If it’s not a landing page, what their previous page was (“Previous Page Path”)</p>
+  </li>
+  <li>
+    <p>How many users exited from this page (“Exits”)</p>
+  </li>
+  <li>
+    <p>If they didn’t exit, the page they go to next (“Next Page Path”)</p>
+  </li>
+</ol>
+
+<p><img src="/assets/images/blog/Navigation-Summary.png" alt="Navigation-Summary.png" /></p>
+
+<p>Magic! But wait, there’s more. You can – and should! – use this page in conjunction with segmentation.</p>
+
+<p>I don’t want to get bogged down in the details of Google’s Advanced Segments here. If you decide you want to take this on yourself, <a href="https://blog.kissmetrics.com/new-google-analytics-advanced-segments/">KISSMetrics has a good overview</a>. Google itself made <a href="https://www.youtube.com/watch?v=Q1aCmHYkIsI&amp;feature=youtu.be">a slightly less helpful video</a>.</p>
+
+<p>When we begin a new project, we like to create segments that relate to the ways people arrive at a client’s site, in particular, engaged users.</p>
+
+<p>You can define engagement in a number of ways: non-bounce visits, repeat visits, time on site – pretty much anything Google Analytics provides a metric for. If you have enough traffic, you can combine more than one of them to segment out a group of the highly engaged.</p>
+
+<p>Combine engagement with mode and place of entry, and you’ll begin to flesh out your personas – and your content audit, if you set it up to track key audience segments for each top-level page. You might also consider using the information you generate in <a href="http://24ways.org/2011/extracting-the-content/">Page Tables</a> for your evergreen content.</p>
+
+<p>This sort of analysis sets the stage for much of the work we do here at ThinkShout. Getting back to the breast cancer organization, we created an advanced segment that looked only at mobile traffic, specifically mobile traffic that didn’t bounce (ie, they viewed more than one page).</p>
+
+<p>Here’s what the segmentation looks like on the “Navigation Summary” report in the context of ThinkShout’s “Work” page:</p>
+
+<p><img src="/assets/images/blog/Work-Page.png" alt="Work-Page.png" /></p>
+
+<p>We did this to answer two questions:</p>
+
+<ol>
+  <li>
+    <p>If a visitor navigates on a mobile device to a particular page (or group of pages), and doesn’t bounce, what do they do next?</p>
+  </li>
+  <li>
+    <p>How can we take advantage of that knowledge to try to capture the attention of more visitors?</p>
+  </li>
+</ol>
+
+<p>By examining how the actions of engaged users differ from those you don’t capture, you can start to develop ideas about the calls to action, related content blocks, or other improvements to your information architecture that might make a particular group of users more likely to interact with your website – and your organization.</p>
+
+<p>Next time, we’ll take a look at how you can make real improvements to your website based on the information you glean from your audience’s desire paths.</p>
+
+<p>In the meantime, you can import three of ThinkShout’s commonly-used analytics segments:</p>
+
+<ul>
+  <li>
+    <p><a href="https://www.google.com/analytics/web/template?uid=8bQY8Z3RR9GjEcJq2Fn5CQ">Searched for a particular term (or terms), didn’t bounce</a></p>
+  </li>
+  <li>
+    <p><a href="https://www.google.com/analytics/web/template?uid=HH0GpOd5RBOyGxdI0YP0yw">Arrived on a particular page (or page set), didn’t bounce</a></p>
+  </li>
+  <li>
+    <p><a href="https://www.google.com/analytics/web/template?uid=mKMZOquzSQq6WVxtcVijoQ">Mobile traffic, didn’t bounce</a></p>
+  </li>
+</ul>
+
+<p>You’ll likely need to edit these, based on your own URL structures, but they should be enough to get you started.</p>
+
+]]>
+  </description>
+  <pubDate>Thu, 03 Jul 2014 10:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/07/desire-paths-part-ii/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/07/desire-paths-part-ii/</guid>
+</item>
+
+    
+      <item>
+  <title>Desire Paths, Part 1: Retracing Your Audience's Steps</title>
+  <description>
+    <![CDATA[<p><img src="/assets/images/blog/desire_path.jpg" alt="" /></p>
+
+<h3 id="why-do-people-visit-your-organizations-website"><em>Why do people visit your organization’s website?</em></h3>
+
+<p>It’s such a basic question, I’d hesitate to posit it – if it weren’t so fundamental to the work of making the world, and the Web, a better place.</p>
+
+<p>If your first thought was something along the lines of “To support our work, of course”, note that the question is not “Why <strong><em>should</em></strong> people visit” but “Why <strong><em>do</em></strong> they”.</p>
+
+<p>Nonprofit organizations often approach communications and outreach assuming that everyone should just get it. Because you spend so much time organizing around complex issues, you may assume a shared vocabulary with the broader world when that vocabulary really only resonates within your organization.</p>
+
+<p>This is further complicated because nonprofit departments often have competing priorities: Development wants donors, Program wants event participants, Communications wants names for the email marketing list.</p>
+
+<p>I can pretty much guarantee that very few people arrive at your website thinking, “You know what would be great? Giving you my email address.”</p>
+
+<p>The truth is, the motivations of your visitors are often very different from your organizational goals. This is further complicated because, to paraphrase Jeanne Bliss from <a href="http://www.amazon.com/Chief-Customer-Officer-Getting-Passionate/dp/0787980943">Chief Customer Officer</a>, “The nonprofit often does not live in rapport with its constituents because they don’t experience the nonprofit through its departments. The constituent experiences a nonprofit horizontally, across its departmental silos.”</p>
+
+<p>To improve the efficacy of your website by making your users happy, you must resolve the dichotomy between “Desire Paths” and “the desired path.”</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Desire_path">“Desire path”</a> is a term of art in the urban planning world describing the shortest path between an origin and a destination, particularly those that weren’t planned. You’ve seen them: a dirt trail between two sidewalks, a cut corner, a hole in the fence. Desire paths exist in defiance of all the thought that goes into a made environment, the creation of what planners consider the right way to move through a space. An architect might think, “The staircase will give this hill some gravitas.” The college students may think, “Ehn, I’d rather just walk up the hill,” the resulting path eroding that gravitas.</p>
+
+<p>You can see the parallels to your website, I’m sure. We spend hours thinking about the information architecture most likely to move visitors into a funnel that will lead them to donate or volunteer – only for them to pop up on that blog post mentioning Channing Tatum, liking it, and closing the tab.</p>
+
+<p>If Channing Tatum resonates with a core audience segment, you need to find a way to tap into that. The magic of the Internet, the work of the user experience engineer, is to find the intersection of the desire path – the motivation driving someone to visit your site – with the <strong><em>desired</em></strong> path, or any of the potential actions you hope a visitor will take to support your organizational goals.</p>
+
+<p>To begin, understanding how they arrive at your website will give you clues about what motivated them to check you out.</p>
+
+<h3 id="search">Search###</h3>
+
+<p>There’s no greater shortcut to your content than <a href="http://www.gocomics.com/pearlsbeforeswine/2009/10/21#.U1GiEOZdVJ9">the Google</a>. In the 7 years since analytics guru Avinash Kaushik pronounced “<a href="http://www.gocomics.com/pearlsbeforeswine/2009/10/21#.U1GiEOZdVJ9">Home pages are dead</a>,” we’ve seen search become ever more important.</p>
+
+<p>As much as we may complain about web search being <a href="http://www.theglobeandmail.com/technology/smartphones-the-ultimate-conversation-killer/article4196233/">the ultimate conversation killer</a>, these people are coming to your site <strong>driven by the desire to know something</strong>. Is your website prepared not only to answer the question, but to redirect that motivation into greater engagement?</p>
+
+<p>In a recent audit of some of ThinkShout’s great clients – with monthly traffic ranging from a couple of thousand visits on up to hundreds of thousands – we found:</p>
+
+<ul>
+  <li>
+    <p>Homepage traffic accounted for less than 20% of the total for 7 of 9 organizations; for 2 of the 9, it’s less than 10%.</p>
+  </li>
+  <li>
+    <p>The percentage of traffic driven by search was more than 40% for 7 of 9; for 5 of them, it’s significantly more than half.</p>
+  </li>
+  <li>
+    <p>The <a href="http://en.wikipedia.org/wiki/Bounce_rate">bounce rate</a> for search traffic for 6 of the 9 was significantly worse than for the site as a whole.</p>
+  </li>
+</ul>
+
+<p>I do need to toot a little horn for the team here at ThinkShout, because for the 4 sites we can compare year over year, we’ve seen improvements of between 6% and 20% in the bounce rate for search traffic post-redesign. That’s because, as part of our discovery process, we put user motivations first – and you can, too.</p>
+
+<p><strong>Tip: Know Your “Search Terms”</strong></p>
+
+<p>Search traffic is probably the easiest to get real, actionable data for, even if all you have is Google Analytics.</p>
+
+<p>This is advice that has been repeated almost endlessly, but Google made it more complicated a few years ago by <a href="http://googleblog.blogspot.com/2011/10/making-search-more-secure.html">filtering out search results for anybody logged in to one of their products</a>. (You know, almost everybody.) Fortunately, there’s an easy way to approximate that data.</p>
+
+<ol>
+  <li>
+    <p>Go to the organic search terms report at “Acquisition” -&gt; “Keywords” -&gt; “Organic.” You’ll see most of the terms are “not provided.”</p>
+  </li>
+  <li>
+    <p>Set the “Secondary Dimension” to “Behavior” -&gt; “Landing Page.” This will show you where that “not provided” traffic is going, which can give you a clue as to the search terms.</p>
+  </li>
+  <li>
+    <p>Click the “advanced” link next to the search box and change it to “Include” “Landing Page” “Containing” and the URL of one of your landing pages, then click “Apply.” This will align the “not provided” landing page with all of the returned search terms for that page. Extrapolate from there for each of your highest traffic landing pages to build your list of important search terms.</p>
+  </li>
+</ol>
+
+<h3 id="social-media">Social Media###</h3>
+
+<p>Social media traffic is generally some of the worst quality, in terms of meeting your organizational goals.</p>
+
+<p>The metrics for bounce rate, visit duration, and pages per session were significantly worse for social referrals compared to the site as a whole for 6 of the 9 organizations we reviewed. (Interestingly, the redesigned <a href="http://thinkshout.com/">ThinkShout.com</a> showed significant improvement across the board.) For the most part, they come, they spend a moment, they go back to Facebook.</p>
+
+<p>Social traffic can be driven by all sorts of user motivations, from links posted in your own social channels – “I want to keep up with the latest news from one of my favorite organizations” – to something posted on your Wall by your mom – “I’d better know what that is so I can talk about it at our next dinner.” You’re not likely to meet all of them, so your analysis should focus on the highest value interactions. What are the outliers? If you have a few pages that outperform the majority, try to figure out what’s unique about them.</p>
+
+<p>Again, pay special attention to landing pages. High bounce rates from a news article about your latest initiative probably won’t be of much concern. Bounces from your donation page should be: what drove traffic there in the first place, if it wasn’t you? Find those influencers!</p>
+
+<p><strong>Tip: Set up a special Analytics dashboard for social media.</strong></p>
+
+<p>Even if you can’t afford something like <a href="http://www.salesforcemarketingcloud.com/products/social-media-listening/">Radian6</a>, you can use Google Analytics to do some pretty good analysis of traffic being driven to you by social channels. I find that the default reports provided are actually harder to use than they used to be, but you can aggregate the information most important to your team on a custom dashboard.</p>
+
+<ol>
+  <li>
+    <p>Start with a premade dashboard. Go to “Dashboards” -&gt; “New Dashboard” and click “Import from Gallery.”</p>
+  </li>
+  <li>
+    <p>Justin Cutroni’s “Social Media Dashboard” is a great starting point. Click “Import”.</p>
+  </li>
+  <li>
+    <p>“Social Media Dashboard” will now be listed as an option under your Dashboards. Modify it to meet your needs!</p>
+  </li>
+</ol>
+
+<h3 id="other-referrals">Other Referrals###</h3>
+
+<p>If somebody likes your content enough to post it on their own website, you need to be aware of that, not just because you may have found a new partner, but because analyzing the pages sending traffic to you can tell you more about your own (potential) audience.</p>
+
+<p>One of ThinkShout’s clients got significant traffic – roughly 3% of the site total in the first quarter of this year – from a regional magazine, mostly from a single article in which they were mentioned only tangentially; 90% of the visits are new to them. Knowing this opens the opportunity to think about user motivations from several angles:</p>
+
+<ul>
+  <li>
+    <p>What is it about our services that prompted the magazine to mention us? What do they know about their own audience that caused them to try to match them to our own? Are there other opportunities to engage that audience? Could what became a major landing page have been structured better?</p>
+  </li>
+  <li>
+    <p>What is it about the service described that prompted all the clickthroughs? These folks had a particular motivation for engaging with the content on the magazine’s site in the first place, which triggered the motivation to look at our offerings. How can we tap into that?</p>
+  </li>
+  <li>
+    <p>Was there any difference in behavior between the new visitors and repeat visitors?</p>
+  </li>
+</ul>
+
+<p><strong>Tip: Look at the actual sites and pages that are referring traffic your way.</strong></p>
+
+<ul>
+  <li>
+    <p>Go to the basic Referrals report in Google Analytics: “Acquisition” -&gt; “All Referrals.”</p>
+  </li>
+  <li>
+    <p>Click the domain name of the “Source” that interests you. This will bring up a list of the pages on that site that have referred visitors to you.</p>
+  </li>
+  <li>
+    <p>Combine one of the referral pages with the domain of the source. (Side note: I’m sure Google used to provide a direct link to this, but doesn’t seem to anymore. Boo.)</p>
+  </li>
+  <li>
+    <p>Spend some time poking around the site. Think about their audiences and what may have sparked the interest in your own content.</p>
+  </li>
+</ul>
+
+<h3 id="campaigns">Campaigns###</h3>
+
+<p>You’re probably running campaigns to drive your current supporters to your website through email, social channels, and web advertising – maybe even billboard, radio, and TV, if you’re blessed with a large advertising budget.</p>
+
+<p>If you’re not already <a href="http://www.nten.org/blog/2010/06/24/howto-use-google-analytics-track-your-online-marketing-campaigns">using tracking codes to better quantify the success of your campaigns</a>, you should be. The desire paths here will be much more evident – and likely in line with your organizational goals: you send out a Call to Action (CTA), they respond. The key thing to watch for here is when the CTA doesn’t lead them to take desired action.</p>
+
+<p><strong>Tip: Track your non-digital campaigns.</strong></p>
+
+<p>Just because you’re not sending a URL to your supporters directly doesn’t mean you can’t put some basic campaign tracking in place.</p>
+
+<ol>
+  <li>
+    <p>First, set up the campaign URL, complete with codes.</p>
+  </li>
+  <li>
+    <p>Then, redirect to that URL, which Google will pick up.
+ 	* For print, you can <a href="https://www.the-qrcode-generator.com/">embed the long campaign URL in a QR code</a>.
+ 	* If you don’t expect your users to have a QR reader, create a simple landing page with a redirect to the tracked URL: your.org/campaignname is reasonable for somebody to type into a browser, so <a href="https://support.google.com/webmasters/answer/93633?hl=en redirect to your.org/reallandingpage?utm_actualdata=hereitis">hit it with a 301</a>.</p>
+    <ul>
+      <li>Or, use an URL shortener like <a href="https://bitly.com/">bit.ly</a> to create the redirect to the campaign URL for you.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="direct-traffic">Direct Traffic###</h3>
+
+<p>Uh-oh, I was afraid you were going to stick around this long. There’s not much to say about “Direct” traffic, in terms of  quantifiable user motivations. Maybe they typed your URL directly into their browser. Maybe somebody chatted the URL to them (the so-called “dark social” network). Maybe your mom’s proud of your work and mentioned it to a friend. Maybe they’ve bookmarked your site. Maybe you sent out an email campaign without a tracking code. Maybe… well, you get the picture.</p>
+
+<p>Direct traffic does not have a lot of data attached to it that will enable you to figure out why a user arrived at your site beyond examining their landing pages.</p>
+
+<p>This is, however, very important traffic: for some reason, almost unbidden, they showed up at your site. We can still apply the concept of desire paths to this segment, we just need to do it a bit differently: by taking a look at how they move through your site itself.</p>
+
+<p>Determining “how” users arrive at your site is just the beginning of understanding the “why.” The next question to answer is “what”, as in “What are they doing on our site now?” By combining “how” with “what”, we can build models of behavior that will help us understand what motivates our audiences to seek us out online.</p>
+
+<p>And once we get to the “why”, we be able to create structures that tap into the identified desire paths and subtly redirect them in ways that will help you meet your organizational goals.</p>
+
+<p>So, if you’re so motivated, add to ThinkShout’s “direct traffic” report by bookmarking this page and we’ll point you to the next part when it’s available.</p>
+]]>
+  </description>
+  <pubDate>Mon, 21 Apr 2014 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/04/desire-paths/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/04/desire-paths/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

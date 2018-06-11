@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/ncyl/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Drupal 8 Routing Tricks for Better Admin URLs</title>
+  <description>
+    <![CDATA[<p>We recently launched a new case tracker for foster ed youth designed to improve their educational outcomes in partnership with <a href="http://youthlaw.org/">The National Center for Youth Law</a> (NCYL). The web application replaces their existing platform, Goal Book, which lacked the flexibility they needed to meet their requirements. A web application differs from a website in that a website primarily provides <em>content</em> where a web application primarily provides <em>tools</em>.</p>
+
+<p>The project presented us with an opportunity to do extensive custom development with our favorite new platform, Drupal 8. D8’s many developer experience improvements, including standardized object-oriented development methods, allowed us to meet NCYL’s requirements efficiently and with a level of quality that would have been more difficult on Drupal 7. In addition, we were able to accelerate the release of <a href="https://drupal.org/project/redhen">RedHen CRM</a> on <a href="https://www.drupal.org/project/redhen/releases/8.x-1.0-alpha1">Drupal 8</a>, which lives at the heart of the application managing all of the contacts, organizations, and relationships.</p>
+
+<p>To enhance the utility of the application, we made an early decision to customize every URL a user would interact with. As most of the functionality would revolve around nodes, we wanted to make sure we avoided URLs like <code class="highlighter-rouge">/node/256/edit</code> that don’t give the user any indication of which part of the application they’re using.</p>
+
+<h2 id="implementation">Implementation</h2>
+
+<p>If you wanted to customize URLs in Drupal 7, you could use the <a href="https://www.drupal.org/project/pathauto">Pathauto</a> module. You can still do that in Drupal 8, but D8’s routing system can be coaxed into doing something similar. It works on admin pages, too, which was perfect for NCYL’s needs.</p>
+
+<h2 id="overriding-existing-node-paths">Overriding Existing Node Paths</h2>
+
+<p>As an example, let’s say you have a node type specifically for storing information about schools: a School Node. The standard admin path for adding a School Node would be something like this:</p>
+
+<p><code class="highlighter-rouge">/node/add/school</code></p>
+
+<p>But, add a custom module with route configuration and you can have this:</p>
+
+<p><code class="highlighter-rouge">/school/add</code></p>
+
+<p>For simplicity, we’ll call our module <strong>school.module</strong>. The directory structure looks like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>modules/
+  school/
+    school.module
+    school.routing.yml
+</code></pre></div></div>
+
+<p>The route configuration sits inside <strong>school.routing.yml</strong> and looks like this:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">school.add</span><span class="pi">:</span>
+  <span class="na">path</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/school/add'</span>
+  <span class="na">defaults</span><span class="pi">:</span>
+    <span class="na">_controller</span><span class="pi">:</span> <span class="s1">'</span><span class="s">\Drupal\node\Controller\NodeController::add'</span>
+    <span class="na">_title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Add</span><span class="nv"> </span><span class="s">School'</span>
+    <span class="na">node_type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">school'</span>
+  <span class="na">requirements</span><span class="pi">:</span>
+    <span class="na">_node_add_access</span><span class="pi">:</span> <span class="s1">'</span><span class="s">node:school'</span>
+</code></pre></div></div>
+
+<p>Line by line:</p>
+
+<p><code class="highlighter-rouge">school.add:</code></p>
+
+<p>This is the name of the route. Route names should be unique and usually start with the name of your module.</p>
+
+<p><code class="highlighter-rouge">path: '/school/add'</code></p>
+
+<p>The path the route points to. This is the part that comes after your site’s base URL.</p>
+
+<p><code class="highlighter-rouge">_controller: '\Drupal\node\Controller\NodeController::add'</code></p>
+
+<p>This tells the route to use the NodeController, provided by the Node module. No need for a custom controller here.</p>
+
+<p><code class="highlighter-rouge">_title: 'Add School'</code></p>
+
+<p>This sets the page title of the node add form.</p>
+
+<p><code class="highlighter-rouge">_node_add_access: 'node:school'</code></p>
+
+<p>This is an access handler that ensures the user has permission to add a node of type “school.”</p>
+
+<p>Providing a custom path to edit School Nodes is even easier:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">school.edit</span><span class="pi">:</span>
+  <span class="na">path</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/school/{node}/edit'</span>
+  <span class="na">defaults</span><span class="pi">:</span>
+    <span class="na">_entity_form</span><span class="pi">:</span> <span class="s1">'</span><span class="s">node.edit'</span>
+  <span class="na">requirements</span><span class="pi">:</span>
+    <span class="na">node</span><span class="pi">:</span> <span class="s">\d+</span>
+    <span class="na">_entity_access</span><span class="pi">:</span> <span class="s1">'</span><span class="s">node.update'</span>
+</code></pre></div></div>
+
+<p>We no longer need to tell the route which controller to use or what type of node we’re using. Drupal 8’s Entity API figures it out using the node ID passed in the URL.</p>
+
+<p>Line by line again:</p>
+
+<p><code class="highlighter-rouge">path: '/school/{node}/edit'</code></p>
+
+<p>The path now contains a placeholder, {node}, which represents the node ID in the URL.</p>
+
+<p><code class="highlighter-rouge">_entity_form: 'node.edit'</code></p>
+
+<p>The form we want to use to edit the node.</p>
+
+<p><code class="highlighter-rouge">node: \d+</code></p>
+
+<p>Some validation to ensure the URL contains the right data type for a node ID. By specifying the regular expression pattern <code class="highlighter-rouge">\d+</code>, we are telling Drupal to only use this route when <code class="highlighter-rouge">{node}</code> is one or more digits. The route will match a URL like /school/32/edit, but will not match /school/lincoln-high/edit.</p>
+
+<p><code class="highlighter-rouge">_entity_access: 'node.update'</code></p>
+
+<p>An access handler, ensuring the user has permission to update this node. No need to specify the node type, as we did when adding a node.</p>
+
+<p>Finally, a route for viewing the node:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">school.view</span><span class="pi">:</span>
+  <span class="na">path</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/school/{node}'</span>
+  <span class="na">defaults</span><span class="pi">:</span>
+    <span class="na">_controller</span><span class="pi">:</span> <span class="s1">'</span><span class="s">\Drupal\node\Controller\NodeViewController::view'</span>
+  <span class="na">requirements</span><span class="pi">:</span>
+    <span class="na">node</span><span class="pi">:</span> <span class="s">\d+</span>
+    <span class="na">_entity_access</span><span class="pi">:</span> <span class="s1">'</span><span class="s">node.view'</span>
+</code></pre></div></div>
+
+<p>Very similar to the node edit route, just with a different path and controller.</p>
+
+<p>For a more thorough explanation of routes and route options not covered here, check out the <a href="https://www.drupal.org/node/2092643">official docs</a>.</p>
+
+<h2 id="custom-controllers">Custom Controllers</h2>
+
+<p>What if you want to provide a custom controller for adding a node and still take advantage of Drupal’s permissions system? Routes can do that, too.</p>
+
+<p>Let’s introduce a Teacher Node and an accompanying module.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>modules/
+  school/
+  teacher/
+    src/
+      Controller/
+        TeacherController.php
+    teacher.module
+    teacher.routing.yml
+</code></pre></div></div>
+
+<p><strong>teacher.routing.yml</strong> looks like this:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">teacher.add</span><span class="pi">:</span>
+  <span class="na">path</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/teacher/add'</span>
+  <span class="na">defaults</span><span class="pi">:</span>
+    <span class="na">_controller</span><span class="pi">:</span> <span class="s1">'</span><span class="s">\Drupal\teacher\Controller\TeacherController::addTeacher'</span>
+    <span class="na">_title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Add</span><span class="nv"> </span><span class="s">Teacher'</span>
+    <span class="na">node_type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">teacher'</span>
+  <span class="na">requirements</span><span class="pi">:</span>
+    <span class="na">_node_add_access</span><span class="pi">:</span> <span class="s1">'</span><span class="s">node:teacher'</span>
+</code></pre></div></div>
+
+<p>Very similar to the route we used to add School Nodes, but with a custom controller.</p>
+
+<p><strong>TeacherController.php</strong> looks like this:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">namespace</span> <span class="nx">Drupal\teacher\Controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Drupal\node\NodeTypeInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">TeacherController</span> <span class="k">extends</span> <span class="nx">ControllerBase</span> <span class="p">{</span>
+
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">addTeacher</span><span class="p">(</span><span class="nx">NodeTypeInterface</span> <span class="nv">$node_type</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The <strong>addTeacher</strong> function is where you would add your custom code for adding Teacher Nodes.</p>
+
+<p>That’s how you can use core Drupal 8 functionality to make your Drupal admin pages a little more user friendly.</p>
+]]>
+  </description>
+  <pubDate>Wed, 20 Jul 2016 10:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2016/07/drupal-8-routing-tricks-for-better-admin-urls/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/07/drupal-8-routing-tricks-for-better-admin-urls/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

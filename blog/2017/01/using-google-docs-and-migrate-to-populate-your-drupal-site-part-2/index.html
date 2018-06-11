@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Using Google Docs and Migrate to Populate Your Drupal Site, Part 2 | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="In part 2, learn how to get your own migration up and running.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/content-migrations-header.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/content-migrations-header.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal, Drupal Planet, Drush, Google docs, Migrate">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  <p class="featured">Featured Post</p>
+
+  <p><span class="date">01.16.2017</span>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+        <a class="topic" href="/blog/topic/technology">Technology and Innovation</a>
+      
+    
+  
+  </p>
+
+  <h1 class="post-title">Using Google Docs and Migrate to Populate Your Drupal Site, Part 2</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/maria.jpg">
+    
+      <a class="team-name" href="/team/maria/">Maria Fisher</a>
+    <br>
+      Technical Architect
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+<div class="blog-header-image">
+  <img src="/assets/images/blog/content-migrations-header.jpg" alt="Using Google Docs and Migrate to Populate Your Site, Part 2">
+</div>
+
+
+
+
+<section class="body">
+  <p>In <a href="https://thinkshout.com/blog/2017/01/using-google-docs-and-migrate-to-populate-your-drupal-site-part-1/">Part 1</a>, I talked about using Google Docs + Migrate to populate your site. Now we’re going to do that with the <a href="https://www.drupal.org/project/migrate_google_sheets">Migrate Google Sheets</a> module. Below, I’ll provide the steps to get your own migration up and running, but if you prefer to experiment with a working example, <a href="https://live-mgs-demo.pantheonsite.io/">check out a demo of the Migrate Google Sheets Example module</a> (provided as a submodule within Migrate Google Sheets). <a href="https://docs.google.com/spreadsheets/d/1spS1BeUIzxR1KrGK2kKzAoiFZii6vBHyLx_SA0Sb89M">All content on that site was built using this example Google Sheet</a>.</p>
+
+<h2 id="setup-install-the-module">Setup: Install the Module</h2>
+
+<p>If you’ve already got a Drupal 8 site up and running, <a href="https://www.drupal.org/docs/8/extending-drupal-8/installing-contributed-modules-find-import-enable-configure-drupal-8">you can install the module</a> in any of the normal ways. I’m assuming here that you have access to the site using <a href="http://www.drush.org/en/master/">Drush</a>, as it’s not possible to run migrations through anything but the command line at this time. At ThinkShout, we use composer to build our site distributions, and have <a href="https://github.com/thinkshout/mgs_demo">a repo for building the demo site here</a>.</p>
+
+<h2 id="step-1-creating-your-custom-migration-module">Step 1: Creating Your Custom Migration Module</h2>
+
+<p>The easiest way to get started on your own set of migrations is to copy the migrate_google_sheets_example submodule and rename it something of your own. Let’s say we rename it “my_migration.” Follow these steps:</p>
+
+<ol>
+  <li>Rename your .install file to “my_migration.install”, and change the function migrate_google_sheets_example_uninstall to “my_migration_uninstall”.</li>
+  <li>Delete the helper submodule “migrate_google_sheets_example_setup” entirely – that is just necessary to build the content types required for the example module, but you shouldn’t need it for your migration module.</li>
+  <li>Rename your migrate_google_sheets_example.info.yml as “my_migration.info.yml” and open it up. At the very least, you’ll want to change the name of the migration to “name: my_migration” but you’ll also likely wish to remove the migrate_google_sheets:migrate_google_sheets_example_setup dependency. Mine ended up looking like this:</li>
+</ol>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">my_migration</span>
+<span class="na">type</span><span class="pi">:</span> <span class="s">module</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s">My Migrations</span>
+<span class="na">core</span><span class="pi">:</span> <span class="s">8.x</span>
+<span class="na">package</span><span class="pi">:</span> <span class="s">Migrate</span>
+<span class="na">dependencies</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">migrate_plus</span>
+  <span class="pi">-</span> <span class="s">migrate_tools</span>
+  <span class="pi">-</span> <span class="s">migrate_google_sheets</span>
+  <span class="pi">-</span> <span class="s">redirect</span> 
+</code></pre></div></div>
+
+<p>When completed, your module structure should look like this:</p>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-1.png" alt="Module Structure" /></p>
+
+<p>You are now ready to enable your My Migrations module. (Make sure you disable the migrate_google_sheets_example module first, if you’d previously enabled that!)</p>
+
+<h2 id="step-2-create-your-spreadsheet">Step 2: Create Your Spreadsheet</h2>
+
+<p>Assuming you have the Game and Landing page content types, you could now run the migrations in your “My Migrations” module and it will pull the data from the <a href="https://docs.google.com/spreadsheets/d/1spS1BeUIzxR1KrGK2kKzAoiFZii6vBHyLx_SA0Sb89M/edit">Google Sheet</a>.</p>
+
+<p>But since you don’t have permissions to edit that sheet, you’re going to need to copy the existing sheet and create your own to do any customizations.</p>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-2.png" alt="Spreadsheet" /></p>
+
+<p>When this is done, you’ll get a url like this:</p>
+
+<p>https://docs.google.com/spreadsheets/d/YourLongHashIDHere where YourLongHashIDHere is your feed key.</p>
+
+<p>Now you’ll need to publish your new spreadsheet. This is an option under “File” -&gt; “Publish to the web”</p>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-3.png" alt="Spreadsheet" /></p>
+
+<p>To verify that your migration module will be able to see the Google sheet, try opening an anonymous browser window and visiting the Feed version of the url, whose format is this:</p>
+
+<p>https://spreadsheets.google.com/feeds/list/YourLongHashIDHere/SHEET/public/values?alt=json</p>
+
+<p>If visiting that URL throws out a bunch of json, you’re ready to start migrating!</p>
+
+<p>But of course, your current set of migration files still point to the old feed. In the my_migrations/config/install folder, you’ll need to find all instances of our feed string (1spS1BeUIzxR1KrGK2kKzAoiFZii6vBHyLx_SA0Sb89M) and replace them with your feed string.</p>
+
+<h2 id="step-3-decide-which-migrations-to-keep">Step 3: Decide Which Migrations to Keep</h2>
+
+<p>The Migrate Google Sheets Example module provides one Migration Group (games_example) and 6 Migrations. Depending on your site configuration, some of these might be useful, like the menu_links and the blocks migrations, and some of them will not be so useful (like the node_game migration, likely). This is a good time to trim or modify any migrations that aren’t going to be useful for your Drupal site. That being said, here are a few things that the sample migrations demonstrate:</p>
+
+<ul>
+  <li>Block UUIDs: When you place a block using the Block Layout screen, the block’s UUID is saved in config. If you’re running a migration over and over, your block’s ID will iterate on its own, but the UUID can remain constant if  you add it to the migration. <a href="https://live-mgs-demo.pantheonsite.io/">In the demo site</a>, this allows us to create a persistent CTA block in the header.</li>
+</ul>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-4.png" alt="Module Structure" /></p>
+
+<ul>
+  <li>Menu Links parents: You can specify that a menu link item has a parent from within the current migration. This lets us say /bohnanza and /hanabi are children of /games</li>
+  <li>Page and Game redirects: These sheets demonstrate how to add the redirect from the url of content on an old site to the new home right in the content sheet. Try going to <a href="https://live-mgs-demo.pantheonsite.io/that-fireworks-game">https://live-mgs-demo.pantheonsite.io/that-fireworks-game</a> and see where you end up.</li>
+  <li>Related content as strings or ids: On the Page sheet, we have a reference to the “Related games” for the given page. This is an entity reference which we could fill with a couple of things. We could refer to the ID of the related games, as they are stored in the Games sheet, or we could do what we’ve done here and use the migrate_plus plugin “entity_lookup” to search for the related game node by name. 
+As long as there is a Game node called Bohnanza, we’ll always link to the right one. This is particularly useful with Term references, where the name of the item ideally remains constant.</li>
+</ul>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-5.png" alt="Related Content" /></p>
+
+<ul>
+  <li>Game downloadable file: Games have associated images, which are files hosted externally to the spreadsheet. In order to relate my game content to its image, I need to download the image, get it into the file_managed database table (creating a file entity) and THEN relate that entity to the current node. This is done with the following lines in the “node_games” migration:</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">public_file_directory</span><span class="pi">:</span>
+    <span class="na">plugin</span><span class="pi">:</span> <span class="s">default_value</span>
+    <span class="na">default_value</span><span class="pi">:</span> <span class="s1">'</span><span class="s">public://'</span>
+<span class="err">  </span><span class="na">public_file_uri</span><span class="pi">:</span>
+    <span class="na">plugin</span><span class="pi">:</span> <span class="s">concat</span>
+    <span class="na">delimiter</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+    <span class="na">source</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="err">@</span><span class="s">public_file_directory</span>
+      <span class="pi">-</span> <span class="s">imagefilename</span>
+  <span class="s">field_image/target_id</span><span class="pi">:</span>
+    <span class="pi">-</span>
+      <span class="na">plugin</span><span class="pi">:</span> <span class="s">file_copy</span>
+      <span class="na">source</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">image</span>
+        <span class="pi">-</span> <span class="err">@</span><span class="s">public_file_uri</span>
+    <span class="pi">-</span>
+      <span class="na">plugin</span><span class="pi">:</span> <span class="s">entity_generate</span>
+  <span class="s">field_image/alt</span><span class="pi">:</span> <span class="s">imagealt</span>
+  <span class="s">field_image/title</span><span class="pi">:</span> <span class="s">imagetitle</span>
+</code></pre></div></div>
+
+<p>You can keep as many or as few of the migration files as you’d like. You can also create new ones.</p>
+
+<h2 id="step-4-tell-drupal-about-your-changes">Step 4: Tell Drupal About Your Changes</h2>
+
+<p>Drupal 8 only sees the changes you’ve made to your migration yml files when you first install the module. That means that you need to uninstall and reinstall the module to make new changes show up. <a href="https://github.com/thinkshout/mgs_demo/blob/master/RoboFile.php#L18">ThinkShout has a Robo script that does this</a>, but the same thing can be  done in Drush:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">drush mr --all</span>             <span class="c1"># Rolls back all migrations</span>
+<span class="s">drush pmu my_migration -y</span>  <span class="c1"># Disables my migration module</span>
+<span class="s">drush en my_migration -y</span>   <span class="c1"># Enable my migration module</span>
+<span class="s">drush ms</span>                   <span class="c1"># Displays my current migration status</span>
+</code></pre></div></div>
+
+<p>You can also string these together as one line:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">drush mr --all &amp;&amp; drush pmu my_migration -y &amp;&amp; drush pmu my_migration -y &amp;&amp; drush ms</span>
+</code></pre></div></div>
+
+<h2 id="step-5-run-your-migrations">Step 5: Run your migrations</h2>
+
+<p>This part is simple. To run all migrations, it’s a quick drush command:</p>
+
+<p><code class="highlighter-rouge">drush mi --all</code></p>
+
+<p>If you’d like to find out about all the possible options for the migrate-import command, you can run</p>
+
+<p><code class="highlighter-rouge">drush help mi</code></p>
+
+<p>You can also see your list of migration groups at /admin/structure/migrate, and you can review your migrations by clicking “List Migrations.” The resulting page will give you the same output, more or less, that you get from running a <code class="highlighter-rouge">drush ms</code>.</p>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-6.png" alt="Migrations" /></p>
+
+<p>These pages are helpful to know about, as they give you an easy place to find errors logged during the migration process. However, you can’t currently run a migration from the UI (<a href="https://www.drupal.org/node/2470882">although there is an issue for this</a>).</p>
+
+<h2 id="gotchas">Gotchas</h2>
+
+<p>But before we close, I do want to acknowledge some challenges we’ve seen in this approach.</p>
+
+<p>Sad fact #1: HTML in a spreadsheet is ugly.</p>
+
+<p>Google Spreadsheets don’t let you make your rows smaller than the number of line breaks in a cell. So if you have pretty html with a bunch of line breaks, your row might be too tall to fit on your screen. <a href="http://webapps.stackexchange.com/questions/6953/in-a-google-spreadsheet-how-can-i-force-a-row-to-be-a-certain-height">People have some clever workarounds for this</a>, but so far we’ve not implemented any.</p>
+
+<p>Sad fact #2: Sheet order matters (right now)</p>
+
+<p>Maintaining the order of sheets isn’t top on everyone’s minds as they’re making changes to a spreadsheet, especially when duplicating tabs. Migrate Google Sheets asks for each sheet based on tab order. If I make a copy of the Page tab, the Game tab is now the fourth tab instead of the third tab.</p>
+
+<p><img src="/assets/images/blog/google-sheets-migrate-7.png" alt="Copy of page" /></p>
+
+<p>As it stands now, the module will happily request columns that don’t exist on the third tab and then fail in puzzling ways.</p>
+
+<p>There is currently <a href="https://www.drupal.org/node/2822948">only one issue</a> in the issue queue for the Migrate Google Sheets module, and it’s to fix this.</p>
+
+<p>Sad fact #3: Google sheets must be publicly viewable to work (again, right now)</p>
+
+<p>As the module exists right now, there’s no authentication involved, so any migrated content must be publicly viewable. <a href="https://developers.google.com/google-apps/spreadsheets/authorize">Google authorization is possible with Oauth2</a>, but that is not currently implemented.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Thanks for following along! I hope you found this series helpful. And don’t forget to visit the <a href="https://www.drupal.org/project/migrate_google_sheets">Migrate Google Sheets</a> <a href="https://www.drupal.org/project/issues/migrate_google_sheets?categories=All">issue queue</a> if you find any bugs, have an idea for a feature, or need help!</p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal.' href='/blog/category/drupal/'>Drupal</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged Drush.' href='/blog/category/drush/'>Drush</a> <a class='tag' rel='tag category' title='View all posts tagged Google docs.' href='/blog/category/google-docs/'>Google docs</a> <a class='tag' rel='tag category' title='View all posts tagged Migrate.' href='/blog/category/migrate/'>Migrate</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2017/01/using-google-docs-and-migrate-to-populate-your-drupal-site-part-2/';
+    this.page.identifier = '/blog/2017/01/using-google-docs-and-migrate-to-populate-your-drupal-site-part-2';
+    this.page.title = 'Using Google Docs and Migrate to Populate Your Drupal Site, Part 2'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2017/01/using-google-docs-and-migrate-to-populate-your-drupal-site-part-1/"><span class="fa fa-caret-left"></span> <span>Using Google Docs and Migrate to Populate Your Drupal Site, Part 1</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2017/02/the-2017-thinkshout-front-end-stack/"><span>The 2017 ThinkShout Front-End Stack</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+  <div class="team-member-blog">
+    <div class="container">
+      <h4>Related Blog Posts</h4>
+      <div class="row posts">
+        
+        
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/05/Space-for-Empathy/">
+    <p class="post-date">05.24.2018</p>
+    <h3 class="post-title">Space for Empathy</h3>
+    <p class="post-short">How do we make space for empathy in our work and in our community? Jules takes us on a deep dive into what she learned at this year's DrupalCon</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/jules.jpg">
+      <span class="byline-text">
+        <strong>Jules Dickey</strong><br>
+        <span class="position">Software Engineer</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/05/Making-GDPR-Preparations/">
+    <p class="post-date">05.13.2018</p>
+    <h3 class="post-title">Preparing for the GDPR</h3>
+    <p class="post-short">The European Union’s General Data Protection Regulations go into effect May 25th. Here's how you need to prepare.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/tauno.jpg">
+      <span class="byline-text">
+        <strong>Tauno Hogue</strong><br>
+        <span class="position">Chief Technology Officer</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/01/Great-hoodie-mystery/">
+    <p class="post-date">01.06.2018</p>
+    <h3 class="post-title">The Great Hoodie Mystery</h3>
+    <p class="post-short">Gabe takes what would otherwise be an inane office exchange and ties it back to data structures.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/gabe.jpg">
+      <span class="byline-text">
+        <strong>Gabe Carleton-Barnes</strong><br>
+        <span class="position">Director of Engineering</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+            
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

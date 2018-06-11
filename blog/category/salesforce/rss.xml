@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/salesforce/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Porting ThinkShout to Drupal 8</title>
+  <description>
+    <![CDATA[<p>A fundamental part of ThinkShout’s philosophy and business is to not only use great open source tools, but to <a href="http://thinkshout.com/blog/2015/03/the-how-and-why-of-open-source/">actively give back</a> to the open source community. The most recognizable part of that contribution is in the form of Drupal modules: over 60,000 Drupal sites run on ThinkShout technology! This strategy has been a huge <a href="http://thinkshout.com/blog/2014/09/small-business-of-nonprofits/">win for our clients</a>, who get features, bugfixes, and security updates from the community because they are sharing code. We benefit from this work as well, as it enhances our profile in the community and helps us generate leads for new projects. Of course, the vast majority of these sites are built on Drupal 7, which <a href="https://www.drupal.org/drupal-7-released">released</a> in the same month that <a href="http://thinkshout.com/blog/2016/01/five-years/">ThinkShout was founded</a>.</p>
+
+<p>The exciting and much-anticipated release of Drupal 8 has given us a lot to think about. Internally, we’ve been running a Drupal 8 “book club” to give our development team a chance to dive in and figure out what’s going on with D8. While we’ve bathed in the glories of Composer, Twig, and YAML files galore, we’ve also had a chance to start upgrading a few of our favorite modules to Drupal 8!</p>
+
+<p>With support from the incredible folks over at <a href="http://mailchimp.com/">MailChimp</a>, we’ve already got a working release of the <a href="https://www.drupal.org/project/mailchimp">MailChimp integration module</a> for Drupal 8, and are hard at work on the <a href="https://www.drupal.org/project/mandrill">integration with Mandrill</a>, MailChimp’s awesome transactional email service, which may have a Drupal 8 release before this blog post goes live.</p>
+
+<p>This is a great start, but it’s really only the tip of the iceberg: ThinkShout has about 50 modules released for Drupal 7! As much as we’d love to dive in and update all of them for Drupal 8 today, that’s not particularly practical. To better focus our work, I analyzed some of these modules so we can prioritize them and look for opportunities to work with our partners and clients to get the most useful, popular, and important modules upgraded to Drupal 8 first.</p>
+
+<p>Of our 50 modules, we started by de-prioritizing anything that was:</p>
+
+<ul>
+  <li>
+    <p>Extremely narrow in purpose (<a href="https://www.drupal.org/project/er_plus">Entity Reference Plus Data</a>)</p>
+  </li>
+  <li>
+    <p>Blocked by another module’s Drupal 8 development (<a href="https://www.drupal.org/project/apachesolr_geo">Apache Solr Geo</a>, lots of others)</p>
+  </li>
+  <li>
+    <p>Offers modest functionality replaceable by custom code (<a href="https://www.drupal.org/project/footer_message">Footer Message</a>) or</p>
+  </li>
+  <li>
+    <p>Just not seeing much usage (<a href="https://www.drupal.org/project/instagram">Instagram Realtime</a>)</p>
+  </li>
+</ul>
+
+<p>That left us with around 10 projects, among them MailChimp and Mandrill, which we were already working on. We wanted to pick a manageable number of these remaining modules to get started on.</p>
+
+<p>Based on community usage, the priorities of our clients, and perceived usefulness, it was clear that the <a href="https://www.drupal.org/project/registration">Registration module</a> belonged on this list. The story of Registration’s development is connected to the story of ThinkShout’s fledgling years and open source philosophy, so it’s an added bonus that Registration will be part of our early push into Drupal 8.</p>
+
+<p>ThinkShout has also carved out a reputation as experts in the CRM world, with <a href="https://www.drupal.org/project/redhen">RedHen</a>, our leading Drupal-integrated CRM, and the <a href="https://www.drupal.org/project/salesforce">Salesforce Suite</a>, a fabulous tool for integrating Drupal sites with Salesforce. Though these modules don’t have the 5-digit usage numbers that Registration or MailChimp have, they still have lots of users who are very engaged, and are central to the needs of our clients. We added them to the top of the list for Drupal 8 consideration.</p>
+
+<p>In thinking about the rest of our modules and the nature of our work, it became clear that these three projects really stand out from the rest: they are our “Big 3”, and we set about creating a roadmap for developing them on Drupal 8.</p>
+
+<p>You can already see the beginnings of this work! At our team sprint on February 11, we put together an outline for bringing RedHen to Drupal 8, and pushed the first commits to Drupal.org.</p>
+
+<p><img src="/assets/images/blog/porting-thinkshout.jpg" alt="porting-thinkshout.jpg" />
+<em>These are our sprint faces!</em></p>
+
+<p>As of February 11, all of the Big 3 have nominal Drupal 8 branches.</p>
+
+<p>As we kick off four Drupal 8 sites in the first part of this year, we will be working with our clients to bring Registration, RedHen CRM, and Salesforce Suite to Drupal 8. All three should update beautifully, as they are built on top of Entity API, which is part of Core in D8.</p>
+
+<p>We will also be focusing our internal open source contribution hours on these three projects to kickstart their jump into the Drupal 8 sea. If you’re looking for awesome CRM or registration systems for your Drupal 8 site, fear not! They are on their way.</p>
+
+<p>We have two Drupal 8 sites utilizing ThinkShout core technologies scheduled for launch this summer, so look for a release of RedHen in the spring!</p>
+
+<p>Our next round of prioritization will depend significantly on the progress of Commerce solutions in Drupal 8: once that landscape settles, we have some projects that will jump up that priority list, including:</p>
+
+<ul>
+  <li>
+    <p><a href="https://www.drupal.org/project/registration_commerce">Registration Commerce</a>, our favorite paid registration solution</p>
+  </li>
+  <li>
+    <p><a href="https://www.drupal.org/project/redhen_donation">RedHen Donation</a>, our CRM-integrated, single-page donation tool</p>
+  </li>
+  <li>
+    <p><a href="https://www.drupal.org/project/commerce_iats">Commerce IATS</a>, the payment integration module for our favorite nonprofit-focused payment processing partner, <a href="http://home.iatspayments.com/">iATS Payments</a></p>
+  </li>
+</ul>
+
+<p>So if you’re a fan of our Commerce integrations, or <a href="https://www.drupal.org/project/addtocal">Add to Cal</a>, or even little <a href="https://www.drupal.org/project/bean_entity_view">Bean Entity View</a> (I know I am): stay tuned! We love these tools, we love that you’re using them, and we look forward to bringing you even more awesome stuff for Drupal 8 than we have for Drupal 7!</p>
+
+]]>
+  </description>
+  <pubDate>Tue, 23 Feb 2016 10:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2016/02/porting-thinkshout-to-drupal-8/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/02/porting-thinkshout-to-drupal-8/</guid>
+</item>
+
+    
+      <item>
+  <title>Meet the ThinkShout Team at BADCamp!</title>
+  <description>
+    <![CDATA[<p>It’s another big week for us here at ThinkShout. We’re getting ready for a jam-packed weekend of Drupal at BADCamp in Berkeley, California. As we previously mentioned, we’re leading <a href="http://thinkshout.com/blog/2015/09/badcamp-trainings-redhen-salesforce/">two half-day trainings</a> on Friday, October 23rd. We’re thrilled that this training is completely sold out, and we’re looking forward to sharing our Salesforce and RedHen CRM curriculum!</p>
+
+<p>Once again, we’re a sponsor and co-organizer of the <a href="https://2015.badcamp.net/event/summit/non-profit-summit">Nonprofit Summit</a>, which takes place on Thursday, October 22nd. This summit is also free to attend, and we encourage anyone in the nonprofit tech world in the Bay Area to come out for a day full of nonprofit-led lightning talks, and intimate discussion groups focused on Drupal topics that matter to you. The schedule is now live, so be sure to check it out and register if you’re interested in attending! Our own Brett Meyer will be leading a breakout session at the summit on fundraising with Drupal that you won’t want to miss!</p>
+
+<p>We’re also Contrib Sponsors to BADCamp this year, which means we’ll have a table in the Pauley Ballroom West. We’d love to see your shining faces and chat about all things Drupal, tech, nonprofits, and even cats. This is an especially great time for job seekers to get to know us and our mission a little bit better. We’re still looking for a few good <a href="http://thinkshout.com/careers/">senior engineers</a> to join our team, so if you think you might fit the bill, definitely drop by our table!</p>
+
+<p>We’re looking forward to seeing you all in Berkeley!</p>
+]]>
+  </description>
+  <pubDate>Tue, 20 Oct 2015 09:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/10/badcamp-2015/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/10/badcamp-2015/</guid>
+</item>
+
+    
+      <item>
+  <title>Free Salesforce and RedHen Trainings at BADCamp</title>
+  <description>
+    <![CDATA[<p>This year marks a particularly exciting BADCamp for us. On Friday, October 23, we’ll be leading two official half-day trainings on Salesforce and RedHen CRM!</p>
+
+<p>We talk a lot about Salesforce and RedHen on our blog, which is inevitable given how much time we spend working with both. Given that the <a href="https://www.drupal.org/project/salesforce">Drupal Salesforce Suite</a> we wrote and maintain powers over 1,200 sites, we decided we should talk about it more! Lev Tsypin, Tauno Hogue, Greg Boggs and I will be your trainers for the day.</p>
+
+<h2 id="redhen-crm-exploring-crm-solutions-that-extend-drupal">RedHen CRM: Exploring CRM Solutions That Extend Drupal##</h2>
+
+<p>This half-day workshop will begin with a detailed review of the modules that make up the “RedHen CRM ecosystem.” We’ll then show you how to leverage RedHen for building advanced CRM-driven solutions. A hands-on training, we will help you configure and customize your own RedHen instance, and we will teach you best practices for building solutions on top of this module suite. We’ll cover tools in the RedHen ecosystem, including memberships, donations, campaigns, engagements, deduping contacts, and integrating RedHen with other Drupal standard bearers such as Views, Rules, Context, etc.</p>
+
+<h2 id="integrating-drupal-and-salesforce-the-worlds-most-flexible-cms-meets-the-most-powerful-crm">Integrating Drupal and Salesforce: The World’s Most Flexible CMS Meets the Most Powerful CRM##</h2>
+
+<p>After lunch, the latter half of our workshop block will start with the basics of configuring mappings between Drupal entities and Salesforce objects and leveraging typical Drupal development workflows. Then we’ll dive deeper into complex scenarios including managing large datasets, customizing behaviors as objects are synced, and managing errors.</p>
+
+<p>If you’ve ever wanted to talk to us in person about our work, or how to better leverage these CRMs to meet yours or your client’s needs, now’s your chance. These trainings are FREE (it’s $20 to reserve a seat, but that $20 will be refunded) and space is limited, so <a href="https://2015.badcamp.net/training/drupal-redhen-salesforce">register early</a>!</p>
+]]>
+  </description>
+  <pubDate>Tue, 29 Sep 2015 12:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/09/badcamp-trainings-redhen-salesforce/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/09/badcamp-trainings-redhen-salesforce/</guid>
+</item>
+
+    
+      <item>
+  <title>Ready or Not: Dreamforce for the Nonprofit Drupaller</title>
+  <description>
+    <![CDATA[<p>Next week, Lev and I will be attending our third <a href="http://www.salesforce.com/dreamforce/DF15/">Dreamforce</a>, the annual Salesforce conference in San Francisco. I’m not gonna lie, each year the two of us feel about as much dread regarding Dreamforce as we do anticipation. If you’ve never been to Dreamforce, all I can say is that it’s BIG. Like overwhelmingly big. It’s the largest software conference in the world. Dreamforce 2014 had over 135,000 attendees. (That’s an influx of 16% of the total population of San Francisco.) Last year’s conference generated over $100 million in revenue for the city. There are conference badges everywhere, parties everywhere… Open hotel rooms and cabs are nowhere to be found….</p>
+
+<p>That said, from an innovation and collaboration perspective, Dreamforce is one of the more important convenings we attend each year. Once you strip away all the pomp and circumstance and assuming you know how to navigate through the fray, there is a lot to be gained by the nonprofit technologist and the Drupal developer interested in integrating our beloved CMS with this robust CRM platform.</p>
+
+<p>For those of you who are either braving your first Dreamforce or interested in following along online (at a safe distance from the Bay Area), below is a list of a few things we are most excited to explore at this year’s conference:</p>
+
+<h3 id="the-foo-fighters-concert">The Foo Fighters Concert</h3>
+<p>Dave Grohl fans, rejoice: The Foo Fighters will be playing Dreamforce! Every year, Dreamforce brings in a globally-recognized entertainment act. This year, it’s the Foo Fighters. But why the bands? Why the celebrities? Well, you have to think about just how integral Salesforce is to a ton of people. Some of the largest names in the country utilize Salesforce, and that means there’s a heck of a lot of clout backing the product. That also means people like Alec Baldwin, Jessica Alba, and Goldie Hawn (all of whom use Salesforce to support their organizations) might just show up to tell you exactly why Salesforce is their CRM of choice. So it’s no surprise that a band as big as the Foo Fighters would make an appearance at Dreamforce.</p>
+
+<h3 id="the-unveiling-of-the-lightning-experience">The Unveiling of the “Lightning Experience”</h3>
+
+<p>Not a Justin Bieber reference (though you never know with Dreamforce…), the <em>Lightning Experience</em> is one of the slickest and most useful product announcements we’ve seen from Salesforce in a long time.</p>
+
+<p>As part of Salesforce’s <a href="http://www.salesforce.com/customer-resources/releases/winter16/">“Winter 2016 release”</a>, Salesforce is rolling out huge user interface enhancements under the marketing banner of <em>The Lightning Experience.</em> From the few screenshots that have been released of the new UI, it looks like Salesforce is borrowing from Google’s embrace of <a href="https://www.google.com/design/spec/material-design/introduction.html">“material design.”</a> Even more significant, the Lightning Experience includes drag-and-drop templating tools that will allow non-developers to construct robust Salesforce applications, dashboards, and mobile interfaces from within their web browser.</p>
+
+<h3 id="the-new-salesforce-wave-app---free-for-nonprofits">The New Salesforce Wave App - Free for Nonprofits</h3>
+
+<p>Also included in the Winter 2016 release of Salesforce is a new data visualization and analytics tool called the Wave App. (Wave is Salesforce’s new underlying analytics engine.) Coupled with the Lightning Experience, Salesforce administrators will be able to build powerful visual reports of their constituent data.</p>
+
+<p>What’s also neat about the Wave App is that the Salesforce Foundation is expected to announce that it will be free for nonprofits.</p>
+
+<h3 id="the-salesforce-foundations-increased-commitment-to-open-source">The Salesforce Foundation’s Increased Commitment to Open Source</h3>
+
+<p>Just this summer, the Salesforce Foundation hired its first Open Source Manager, our good friend and long-time nonprofit tech advocate, Judi Sohn. One of Judi’s first tasks in this new role has been to put together an <a href="http://www.salesforcefoundation.org/join-the-new-nonprofit-starter-pack-advisory-board/">open source advisory board for the Foundation</a>, focused on promoting open source contributions and collaboration around its <a href="http://www.salesforcefoundation.org/help/nonprofitstarterpack/">Nonprofit Starter Pack</a>.</p>
+
+<p>As a result, the <a href="http://www.salesforcefoundation.org/dreamforce-15/">nonprofit track</a> at Dreamforce is where you will see the majority of conference sessions around open source integrations and development workflows. We are particularly excited about the following sessions:</p>
+
+<ul>
+  <li>
+    <p><a href="https://success.salesforce.com/Ev_Sessions?eventId=a1Q30000000DHQlEAO#/session/a2q300000019kJjAAI">Open Source Development of Managed Packages</a> - For open source developers, this might be one of the most useful sessions at the entire conference, as it will talk about how you can leverage GitHub and Jenkins workflows in the development of Salesforce products.</p>
+  </li>
+  <li>
+    <p><a href="https://success.salesforce.com/Ev_Sessions?eventId=a1Q30000000DHQlEAO#/session/a2q30000001CIenAAG">Integrating Salesforce with an Open Source Content Management System (Drupal)</a> - As the maintainers of the <a href="https://www.drupal.org/project/salesforce">Salesforce Suite for Drupal</a>, we are excited to see how our colleagues at Confluence are integrating Drupal and WordPress with their nonprofit Salesforce customers.</p>
+  </li>
+  <li>
+    <p><a href="https://success.salesforce.com/Ev_Sessions?eventId=a1Q30000000DHQlEAO#/session/a2q30000001BWXrAAO">Salesforce Open Source for Fun and Everyone’s Profit</a> - This session will focus on contributing to open source projects that leverage <a href="http://www.salesforce.com/mobile/overview/">Salesforce1</a>, Salesforce’s mobile application platform.</p>
+  </li>
+  <li>
+    <p><a href="https://success.salesforce.com/Ev_Sessions?eventId=a1Q30000000DHQlEAO#/session/a2q30000001CYS7AAO">Write/Speak/Code: Open Source Workshop for Developers</a> - This will be a hands-on workshop for developers interested in contributing to open source Salesforce applications.</p>
+  </li>
+  <li>
+    <p><a href="https://success.salesforce.com/Ev_Sessions?eventId=a1Q30000000DHQlEAO#/session/a2q30000001BTlUAAW">Getting Started with the Nonprofit Starter Pack 3.0</a> - The 3.0 release of the Nonprofit Starter Pack (NPSP) this year was a huge step forward for this free tool for nonprofits. We are excited to participate in this session to see the NPSP through the lense of the nonprofits we serve who are just getting acquainted with the platform’s features.</p>
+  </li>
+</ul>
+
+<h3 id="see-you-there">See You There!</h3>
+
+<p>If you’re headed to Dreamforce, we will be primarily hanging out in the <a href="http://www.salesforcefoundation.org/dreamforce-15/">Salesforce Foundation Zone</a>, talking with nonprofits and other vendors who share our interest in how Salesforce can be leveraged for fundraising and constituent engagement. <a href="https://twitter.com/thinkshout">Connect with us on Twitter</a> to schedule a meetup in person if you’ll be there.</p>
+]]>
+  </description>
+  <pubDate>Wed, 09 Sep 2015 12:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/09/dreamforce-for-the-nonprofit-drupaller/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/09/dreamforce-for-the-nonprofit-drupaller/</guid>
+</item>
+
+    
+      <item>
+  <title>Migrating from Luminate CRM to Drupal and the Salesforce Nonprofit Starter Pack</title>
+  <description>
+    <![CDATA[<p>We’ve helped a number of nonprofits move from Luminate CRM to Drupal-Salesforce solutions, including the Young Survival Coalition, Facing History and Ourselves, the National Kidney Foundation, and the Los Angeles Conservancy.</p>
+
+<p>Without getting too deep into the technical architecture - <a href="http://thinkshout.com/blog/2015/04/salesforce-new-features/">which you can nerd out on in other posts on our blog</a> - our open source Salesforce integration can map any object/field in Salesforce to a corresponding entity type/field in Drupal. We can then sync these records bidirectionally. We can even support complex, cascading upserts of multiple records in real time.</p>
+
+<p>This allows us to leverage everything that’s great about Drupal (CMS tools, personalization, paid and unpaid event registrations, membership purchases, general ecommerce, and user access controls) with everything that’s great about Salesforce’s Nonprofit Starter Pack (NPSP) 3.0 (best-in-class donor management, unlimited extendability and scalability, flexible and intuitive reporting tools, and the most robust Application Exchange available).</p>
+
+<p>It’s always been clear that Salesforce provides much better constituent relationship management tools on the backend than Luminate or other Convio/Blackbaud products. What’s kept Luminate in the game for so long has been its public-facing web features, such as membership management and event registration tools.</p>
+
+<p>That said, there is no way that Luminate could ever keep up with the pace of innovation that we see with comparable features in Drupal. The open source model and volume of contributions from the Drupal community is unparalleled. Leveraging Drupal as a donor/constituent front-end for Salesforce, we can provide seamless user experiences that engage with website visitors more deeply, because we can personalize these experience based upon data pulled from Salesforce’s API.</p>
+
+<p><strong>Take the Los Angeles Conservancy as a case study:</strong></p>
+
+<p>When we met the <a href="https://www.laconservancy.org/">Conservancy</a>, they were struggling to engage stakeholders through an aging website and cumbersome collection of Luminate donation and event management tools. Asking website visitors to click away from their website to third-party forms provided by Convio severely hurt their conversion rates. Mobile event registrations and contributions were almost nonexistent on their site.</p>
+
+<p>The Conservancy wanted an interactive and mobile-friendly solution that would allow their constituents to easily sign up for free walking tours, buy tickets to movie events, update their membership information, set up recurring membership payments, and make donations towards different fundraising campaigns.</p>
+
+<p>By leveraging Drupal event registration and ecommerce tools, we were able to build all of these features within the Conservancy’s new responsive website. This provided a much more seamless user experience. Conversion rates soared as a result. In fact, the Conservancy staff came to us 3 months after the relaunch concerned that their Google Analytics showed decreased traffic on their event registration pages. They worried that they were losing registrations - when in reality, their conversation rates were going up so dramatically, and the time for completing an ecommerce transaction was dropping so quickly, that these forms were seeing less page clicks while their volume of transactions and their revenue was going up.</p>
+
+<p>With Drupal-based event registration and donation tools, we have 100% control over ecommerce workflows. We can also support complex pricing options based upon constituent data in Salesforce. For example, we can adjust ticket pricing based upon membership status. Again, we benefit from Drupal Commerce, an ecommerce solution that powers over 60,000 websites, including some of the largest stores on the Internet.</p>
+
+<p>Further, integrating these Drupal-Salesforce solutions with <a href="http://home.iatspayments.com/">iATS Payments</a>, we can create Drupal-based donation portals that support “card on file” as well as recurring donations. And with iATS’s integration with Salesforce, donors can update their credit card information or make a donation over the phone by calling the Conservancy, storing this payment information for their next online transaction.</p>
+
+<p>In short, Convio/Blackbaud just can’t compete… With what our clients save in confusing and expensive Blackbaud licensing fees, we can build more effective fundraising solutions that lead to much higher returns for their investment.</p>
+]]>
+  </description>
+  <pubDate>Wed, 26 Aug 2015 11:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/08/from-luminate-to-drupal-salesforce/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/08/from-luminate-to-drupal-salesforce/</guid>
+</item>
+
+    
+      <item>
+  <title>Drupal and Salesforce Integrations Get Some (Data) Integrity</title>
+  <description>
+    <![CDATA[<p>Hot on the heels of our <a href="http://thinkshout.com/blog/2015/01/reimagined-sprints-redhen-raiser/">all-hands-on-deck sprint to release</a> <a href="https://www.drupal.org/project/redhen_raiser">RedHen Raiser</a>, we decided to change gears to focus on some of our marquee open source contributions, namely the <a href="https://www.drupal.org/project/salesforce">Salesforce Suite</a>.</p>
+
+<p>The Salesforce Suite has been around since Drupal 5 and it’s evolved quite a bit in order to keep up with the ever-changing <a href="http://salesforce.com">Salesforce</a> and Drupal landscapes. Several years ago, we found ourselves relying heavily upon the Salesforce Suite for our Salesforce-Drupal integrations. But there came a point where we realized the module could no longer keep up with our needs. So we, in collaboration with the maintainers of the module at the time, set out to rewrite the suite for Drupal 7.</p>
+
+<p>We completely rewrote the module, leveraging Drupal’s entity architecture, Salesforce’s REST API, and OAUTH for authentication. We also added much-needed features such as a completely new user experience, the ability to synchronize <em>any</em> Drupal and Salesforce objects, and a number of performance enhancements. This was a heck of an undertaking, and there were dozens of other improvements we made to the suite that you can read about in this <a href="http://thinkshout.com/blog/2012/11/lev/salesforce-rest-oauth/">blog post</a>. We’ve maintained this module ever since and have endeavored to add new features and enhancements as they become necessary. We realized this winter that it was time for yet another batch of improvements as the complexity and scale of our integrations has grown.</p>
+
+<p>In addition to over 150 performance enhancements and bug fixes, this release features an all new Drupal entity mapping system which shows a log of all synchronization activity, including any errors. You can now see a log entry for every attempted data synchronization. If there’s a problem, the log will tell you where it is and why it’s an issue. There’s now a whole interface designed to help you pinpoint where these issues are so you can solve them quickly.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/salesforce-activity.png" alt="Salesforce Activity" /></p>
+
+<p>Administrators can even manually create or edit a connection between Drupal and Salesforce objects. Before this update, the only way to connect two objects was to create the mapping and then wait for an object to be updated or created in either Drupal or Salesforce. Now you can just enter the Salesforce ID and you’re all set.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/salesforce-edit.png" alt="Salesforce Edit Mapping" /></p>
+
+<p>Take the following example to understand why these improvements are so critical. Say that your constituents are volunteering through your Drupal site using the <a href="https://www.drupal.org/project/registration">Registration module</a>. The contacts are created or updated in <a href="https://www.drupal.org/project/redhen">RedHen</a> and then synced to Salesforce. For some reason, you can see the new volunteers in Drupal, but they are not showing in Salesforce. It used to be that the only clue to a problem was buried in the error log. Now, all you have to do is go to the RedHen contact record, and then click “Salesforce activity,” and you’ll see a record of the attempted sync and an explanation of why it failed. Furthermore, you can manually connect the contact to Salesforce by entering the Salesforce ID.</p>
+
+<p>Finally, you can now delete existing mappings, or map to an entirely different content type. The bottom line is that module users have more control of, and insights into, how their data syncs to Salesforce. You can <a href="https://www.drupal.org/node/2452127">download version 7.x-3.1</a> from Drupal.org and experience these improvements for yourself.</p>
+
+<p>We’ve been hard at work polishing several other of our modules and tools, like the RedHen suite and Entity Registration, which also saw new releases. We’ll tell you more about what you can expect from those new versions in our upcoming blogs.</p>
+
+<p>Want to chat about our module work at <a href="https://events.drupal.org/losangeles2015">DrupalCon</a> in LA? You can find us hanging out with our friends from <a href="http://thinkshout.com/blog/category/mailchimp/">MailChimp</a> at their booth. We’d love to talk to you more about what we’re working on.</p>
+]]>
+  </description>
+  <pubDate>Tue, 21 Apr 2015 13:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/04/salesforce-new-features/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/04/salesforce-new-features/</guid>
+</item>
+
+    
+      <item>
+  <title>The Clutter and the Deceptively Simple</title>
+  <description>
+    <![CDATA[<p>2015 is poised to be a great year for nonprofit technology and the adoption of digital tools to advance the causes we love. While I can’t say that I see too many groundbreaking innovations on the immediate horizon, I do believe that this will be a <em>year of implementation and refinement</em>. Building upon trends that we saw arise last year in the consumer industry and private sector, 2015 will be the year that many nonprofits leap into digital engagement strategies and begin to leverage new tools that will create fundamental change in the way that they interact with their constituencies.</p>
+
+<p>Of course, as always happens when a growing sector first embraces new tools, the nonprofit technology world will see more than its fair share of awkward clunkiness this year, mainly as “software as a service” product companies rebrand their offerings for nonprofits and flash shiny objects at the earnest and hungry organizations we all support.</p>
+
+<p>But as a more general and <em>appealing</em> trend, I believe that we’ll see a slimming down and a focus on polish this coming year. Visual storytelling and “long form” journalism are <em>hopefully</em> on the rise in the nonprofit digital world. We should see more, and better, integrations between web applications, data management systems, and social networks. These integrations will power more seamless and personalized user experiences. Rather than tossing up an incongruent collection of web interfaces and forms delivered by different paid service platforms, nonprofits will be able to present calls-to-action through more beautiful and less cumbersome digital experiences.</p>
+
+<p>Below are some additional thoughts regarding the good stuff (and some of the bad) that we’re likely to see this year. If you have any additional predictions, please share your thoughts!</p>
+
+<h3 id="visual-storytelling-and-the-resurgence-of-long-form-journalism">Visual Storytelling and the Resurgence of Long-Form Journalism</h3>
+
+<p>I don’t know about you, but I’m tired of my eyeballs popping out of my head every time I visit a nonprofit’s homepage that attempts to cram 1,000 headlines <em>above the fold</em>. I’m tired of the concept of “<em>a fold</em>” altogether. And don’t get me started about slideshow carousels as navigation: <a href="http://shouldiuseacarousel.com/">It’s 2015, folks</a><a href="http://shouldiuseacarousel.com/">!</a></p>
+
+<p>Fortunately, we are seeing an elegant slowdown in the pace of writing for the web. Audiences are getting a little more patient, particularly when presented with clean design, pleasing typography, and bold imagery. We’re also seeing nonprofits embrace visual storytelling, investing in imagery and content over whistles and bells and widgets.</p>
+
+<p><a href="https://medium.com">Medium</a> and <a href="https://exposure.co/">Exposure</a> are my two favorite examples of impactful long-form journalism and visual storytelling on the web. These deceptively simple sites leverage cutting-edge javascript and other complex technologies to <em>get out of the way</em> and let content and visuals speak for themselves.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/clutter-simple0.png" alt="clutter-simple0.png" /></p>
+
+<p>As an added benefit, adopting this more long-form storytelling approach may help your SEO. Google took bold steps in late 2014 to reward websites that focus on good content. With its release of <a href="http://www.huffingtonpost.com/jayson-demers/your-guide-to-googles-pan_b_5959634.html">Panda 4.1</a>, their new search algorithm, nonprofits who prioritize long-form writing and quality narrative will start to see significant benefits.</p>
+
+<p>We’re already seeing nonprofits adopt this approach, including one of my new favorites, <a href="https://www.themarshallproject.org/2014/10/06/no-country-for-young-men">The Marshall Project</a>. This site cuts away the usual frills and assumes an intelligent audience that <em>will do the work</em> to engage with the content. Don’t get me wrong: The Marshall Project website is slick and surprisingly complex from an engineering and user experience perspective – but its designers have worked hard to bring the content itself to the surface as the most compelling call-to-action.</p>
+
+<h3 id="interconnectivity">Interconnectivity</h3>
+
+<p>2015 will be a big year for APIs in the CMS space. Teasing out those acronyms, we will see content management systems, like Drupal and WordPress, release powerful tools allowing them to <em>talk</em> with other web applications and tools. Indeed, its new <em><a href="https://www.drupal.org/drupal-8.0">web services layer</a></em> is a central and much anticipated feature in the upcoming release of Drupal 8. WordPress made similar strides late last year with the early release of its own <a href="http://wp-api.org/">REST API</a>.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/clutter-simple1-2.png" alt="clutter-simple1-2.png" /></p>
+
+<p>Leveraging these APIs, 2015 will bring the nonprofit sector more mobile applications that share data and content with these organizations’ websites. The costs for developing these integrations should decrease relative to the usefulness of such solutions, which will hopefully lead to more experimentation and mobile investment among nonprofits. And as mentioned previously, because these new applications will have access to more constituent data across platforms, they will lend themselves to more robust and personalized digital experiences.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/clutter-simple3.png" alt="clutter-simple3.png" /><img src="http://thinkshout.com/assets/images/blog/clutter-simple4.png" alt="clutter-simple4.png" /></p>
+
+<p>On the less technical and more DIY front, 2015 will be marked by the maturation of 3rd-party services that allow non-developers to integrate their online tools. In its awesome post about <a href="http://www.frogdesign.com/techtrends2015/">technology trends in 2015</a>, the firm Frog Design refers to this development as the “emergence of the casual programmer.” Services like <a href="https://zapier.com/how-it-works/">Zapier</a>, and my new favorite <a href="https://ifttt.com/wtf">IFTTT</a>, will allow nonprofits to make more out of social networks and services like Google Apps, turn disparate data into actionable analytics, see the bigger picture across networks, and make more data-driven decisions.</p>
+
+<h3 id="more-big-and-perhaps-clunky-web-apps">More Big (And Perhaps Clunky) Web Apps</h3>
+
+<p>If you’ve been following ThinkShout for a while now, you probably know that we are big fans of Salesforce because of its great API and commitment to open data. We maintain the <a href="http://drupal.org/project/salesforce">Salesforce Integration Suite for Drupal</a>. At this point, the majority of our client work involves some sort of integration between the Drupal CMS and the Salesforce CRM.</p>
+
+<p>As proponents of data-driven constituent engagement, we couldn’t be more excited to see the nonprofit sector embrace Salesforce and recognize the importance of constituent relationship management (CRM) and CRM-CMS integration. Because of the power of the Salesforce Suite, we can build powerful, gorgeous tools in Drupal that sync data bidirectionally and in real time with Salesforce.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/clutter-simple5.jpg" alt="clutter-simple5.jpg" /></p>
+
+<p>That said, part of the rise of Salesforce in the nonprofit sector over the last two years has been driven by the vacuum created by <a href="http://www.thenonprofittimes.com/news-articles/blackbaud-to-acquire-convio-for-275-million/">Blackbaud’s purchase of Convio</a>. And now, with the recent releases of Salesforce’s <a href="http://www.salesforcefoundation.org/nonprofit-product-overview/">NGO Connect</a> and <a href="http://www.blackbaudnews.com/press-release/blackbaud-unveils-raisers-edge-nxt-and-financial-edge-nxt.htm">Blackbaud’s Raiser’s Edge NXT</a>, both “all-in-one” fundraising solutions with limited website integration potential (in my opinion…), we’re going to see more and more of an arms race between these two companies as they try to “out featurize” each other in marketing to nonprofits. In other words, in spite of the benefits from integrating Drupal and Salesforce, we’re going to see big nonprofit CRM offerings like Salesforce and Blackbaud push competing solutions that try to do everything in their own proprietary and sometimes clunky ecosystems.</p>
+
+<h3 id="the-internet-of-things">The Internet of Things</h3>
+
+<p><a href="http://en.wikipedia.org/wiki/Internet_of_Things">The Internet of Things</a> (IoT), or the interconnectivity of embedded Internet devices, is not a new concept for 2015. We’ve seen the rise of random <em>smart things</em>, from TVs to refrigerators, for the last few years. While the world’s population is estimated to reach <a href="http://en.wikipedia.org/wiki/World_population">7.7 billion in 2020</a>, the number of Internet-connected devices is predicted to hit <a href="http://www.gartner.com/newsroom/id/2636073">26 billion</a> that same year. <a href="https://www.apple.com/watch/">Apple’s announcement of its forthcoming Watch</a> last year tolled the the first meaningful generation of <em>wearable technology</em>. Of course, that doesn’t necessarily mean that you’ll want to wear this stuff just yet, depending upon your fashion sense…</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/clutter-simple6.jpg" alt="clutter-simple6.jpg" /></p>
+
+<p><em>(Image from <a href="http://venturebeat.com/2015/01/12/the-top-11-tech-trends-of-the-consumer-electronics-show/2/">VentureBeat’s coverage of the 2015 Consumer Electronics Show</a> last week. Would you wear these?)</em></p>
+
+<p>However, the advent of the wearable Internet presents many opportunities to the nonprofit sector, both as a delivery device for micro-campaigns and targeted appeals, and as a tool for collecting information about an organization’s constituency. Our colleagues at BlueSpark Labs recently wrote about how these technologies will allow organizations to build websites that are really <a href="http://www.bluespark.com/blog/5-technologies-focus-2015">“context-rich systems.”</a> For example, with an Internet-connected watch synced up to a nonprofit’s website, that organization could potentially monitor a volunteer athlete’s speed and heart rate during a workout. These contextualized web experiences could drive deeper feelings of commitment among donors and other nonprofit supporters.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/clutter-simple7.jpg" alt="clutter-simple7.jpg" /></p>
+
+<p><em>(Fast Company envisions <a href="http://www.fastcodesign.com/3040936/how-your-favorite-apps-will-look-on-the-apple-watch#7">how the NY Times might cover election results</a> on the Apple Watch.)</em></p>
+
+<h3 id="privacy-and-security">Privacy and Security</h3>
+
+<p>While not exactly a trend in nonprofit technology, I will be interested to see how the growing focus on Internet privacy and security will affect online fundraising and digital engagement strategies this year.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/clutter-simple8.png" alt="clutter-simple8.png" /></p>
+
+<p><em>(A poster for the film, The Interview, as most of you probably know, the film incited a major hack of Sony Studios and spurred international dialog about cyber security.)</em></p>
+
+<p>We are seeing more and more startups providing direct-to-consumer privacy and security offerings. This last year, Apple release <a href="https://www.apple.com/apple-pay/">Apple Pay</a> which adds security, as well as convenience, to both online and in-person credit card purchases. And <a href="https://silentcircle.com">Silent Circle</a> just released <a href="https://blackphone.ch/">Blackphone</a> - an encrypted cell phone with a sophisticated and secure operating system built on top of the Android platform.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/clutter-simple9.png" alt="clutter-simple9.png" /></p>
+
+<p>How might this focus on privacy and security affect the nonprofit sector? It’s hard to say for sure, but nonprofits should anticipate the need to pay for more routine security audits and best practices regarding maintenance of their web properties, especially as these tools begin to collect and leverage more constituent data. They should also consider how their online fundraising tools will begin to support new online payment formats, such as Apple Pay, as well as virtual currencies like <a href="https://bitcoin.org/en/">BitCoin</a>.</p>
+
+<h3 id="and-away-we-go">And Away We Go…</h3>
+
+<p>At ThinkShout, we’ve already rolled up our sleeves and are excitedly working away to implement many of these new strategies and approaches for our clients in 2015. What are you looking forward to seeing in the world of of nonprofit tech this year? What trends do you see on the horizon? Let us know. And consider swinging by the<a href="http://myntc.nten.org/eventdetails/precon/drupal"> “Drupal Day for Nonprofits”</a> event that we’re organizing on March 3rd in Austin, TX, as part of this year’s Nonprofit Technology Conference. We hope to dream with you there!</p>
+]]>
+  </description>
+  <pubDate>Wed, 21 Jan 2015 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2015/01/clutter-and-deceptively-simple/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/01/clutter-and-deceptively-simple/</guid>
+</item>
+
+    
+      <item>
+  <title>Meet the ThinkShout Team at DrupalCon Austin</title>
+  <description>
+    <![CDATA[<p>Next week, ten members of the ThinkShout crew will ship out to Austin, Texas for DrupalCon 2014. This is our largest delegation yet and we couldn’t be more excited about it! We’ve got Drupal 8 on the brain and we’re sure you do, too.</p>
+
+<p>If you plan on attending DrupalCon in Austin, we’re always down to talk shop - or not shop. We’ll be all over the place during those four days, but here’s where you can find us:</p>
+
+<h3 id="exhibit-hall">Exhibit Hall###</h3>
+
+<p>We’ll be sharing booth 508 with our partner and preferred nonprofit payment processor, iATS Payments. Stop by! We’d love to talk to you about the <a href="http://thinkshout.com/blog/2014/05/commerce-iats-2-0/">exciting work we’re doing with the iATS Drupal Module.</a> Dan Ruscoe himself will be available to discuss his work.</p>
+
+<h3 id="official-sessions">Official Sessions###</h3>
+
+<p><a href="https://austin2014.drupal.org/session/student-counselor-advocate-many-hats-content-strategists">“Student, Counselor, Advocate: The Many Hats of Content Strategists ”</a><br />
+Wednesday, 1:00-2:00pm, <br />
+Room: 16 - Pantheon, 4th Floor</p>
+
+<p>Brett Heckman and Brett Meyer will will provide you with some valuable techniques to help you facilitate a great discovery process.</p>
+
+<h3 id="birds-of-a-feather-bof">Birds of a Feather (BoF)###</h3>
+
+<p>The ThinkShout team will be leading a great variety of BoF sessions next week. Join in the conversations - we want to hear from you!</p>
+
+<h4 id="tuesday">TUESDAY:####</h4>
+
+<p>Title: <a href="https://austin2014.drupal.org/bof/leveraging-salesforce-drupal">Leveraging Salesforce with Drupal</a> with <strong>Tauno Hogue</strong><br />
+Room: 8A - JustDigital | 3rd floor<br />
+Time: Tuesday, 2:15-3:15pm</p>
+
+<p>Title: <a href="https://austin2014.drupal.org/bof/unmoderated-small-sample-user-testing">Unmoderated Small Sample User Testing</a> with <strong>Brett Meyer</strong> (@brett_meyer) &amp; <strong>Sean Larkin</strong> (@sean_larkin)<br />
+Room: 10A - Ashday | 3rd floor<br />
+Time: Tuesday, 2:15-3:15pm</p>
+
+<p>Title: <a href="https://austin2014.drupal.org/bof/static-site-generators-and-wireframes">Static Site Generators &amp; Wireframes</a> with <strong>Eric Paxton</strong> &amp; <strong>Brett Heckman</strong><br />
+Room: 8A - JustDigital | 3rd floor<br />
+Time: Tuesday, 3:45-4:45pm</p>
+
+<h4 id="wednesday">WEDNESDAY:####</h4>
+
+<p>Title: <a href="https://austin2014.drupal.org/bof/building-your-drupal-based-business-what-keeps-you-night">Building Your Drupal-Based Business: What Keeps You Up at Night?</a> with <strong>Sean Larkin</strong> (@sean_larkin) <strong>w/Chris Wolz</strong> (@cwolz) of Forum One (@forumone)<br />
+Room: 8B - Unicon | 3rd floor<br />
+Time slot: Wednesday, 10:45-11:45</p>
+
+<p>Title: <a href="https://austin2014.drupal.org/bof/email-marketing-mailchimp-1">Email Marketing with Drupal</a> with <strong>Lev Tsypin</strong> (@levelos)<br />
+Room: 10A - Ashday | 3rd floor<br />
+Time: Wednesday, 3:45-4:45pm</p>
+
+<h4 id="thursday">THURSDAY:####</h4>
+
+<p>Title: <a href="https://austin2014.drupal.org/bof/nonprofit-fundraising-drupal">Nonprofit Fundraising with Drupal</a> with <strong>Lev Tsypin</strong> (@levelos)<br />
+Room: 8C - VLM | 3rd floor<br />
+Time: Thursday, 10:45-11:45am</p>
+
+<p>Title: <a href="https://austin2014.drupal.org/bof/leveraging-drupal-commerce-nonprofit-payment-provider">Leveraging Drupal Commerce for a Nonprofit Payment Provider</a> with <strong>Dan Ruscoe</strong> (@danruscoe) and <strong>Stephen Bestbier</strong> of iATS Payments <br />
+ Room: 8A - JustDigital | 3rd floor<br />
+ Time slot: Thursday, 1:00-2:00pm</p>
+
+<p>Title:  <a href="https://austin2014.drupal.org/bof/discovery-workshop-many-hats-content-strategists">Discovery Workshop</a> with <strong>Brett Heckman</strong>  &amp; <strong>Brett Meyer</strong> (@brett_meyer)<br />
+Room: 10A - Ashday | 3rd floor<br />
+Time: Thursday, 1:00-2:00pm</p>
+
+<p><strong>If you can’t make it,</strong> no worries. Get in touch with us and we’ll be happy to fill you in one what you missed. Twitter, email, carrier pigeon, whatever works for you. To those of you Austin-bound, we’ll see you there. Bring on the breakfast tacos!</p>
+]]>
+  </description>
+  <pubDate>Fri, 30 May 2014 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/05/drupalcon-2014/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/05/drupalcon-2014/</guid>
+</item>
+
+    
+      <item>
+  <title>&quot;Big Data&quot; Challenges with Salesforce for Facing History and Ourselves
+</title>
+  <description>
+    <![CDATA[<h2 id="the-introduction">The Introduction</h2>
+<p><a href="http://facinghistory.org">Facing History and Ourselves</a> is an international educational and professional development organization whose mission is to engage students of diverse backgrounds in an examination of racism, prejudice, and antisemitism in order to promote the development of a more humane and informed citizenry. As part of their recent <a href="http://thinkshout.com/work/facing-history/">site launch</a>, ThinkShout was tasked with synching their new Salesforce instance, built by our partner on the project, <a href="http://www.kellpartners.com/">Kell Partners</a>, with Drupal. This is a use case tailor made for the Salesforce Suite, and one that we have lots of experience with including recent projects for the <a href="http://thinkshout.com/work/la-conservancy">Los Angeles Conservancy</a> and the <a href="https://www.getpantheon.com/blog/how-teams-are-launching-17-drupal-websites-single-distribution">Forum of Regional Association of Grant Makers</a>, however there was one small difference. Actually, a big one. For Facing History, we had to sync 300,000+ plus records in near real time as opposed to tens of thousands. How this was accomplished was an exercise in troubleshooting, scripting, and patience.</p>
+
+<p>The Drupal <a href="https://drupal.org/project/salesforce">Salesforce Suite</a> allows any <a href="http://thinkshout.com/blog/2012/11/lev/salesforce-rest-oauth/">Drupal entity to be synchronized with any Salesforce object</a>, with field level granularity and directionality. Data can be pushed from Drupal in real time or it can be batched. Data from Salesforce is pulled into a queue at regular intervals and then a configurable amount of queued records are processed during those intervals. During processing, contacts and orgs in <a href="https://drupal.org/project/redhen">RedHen CRM</a> are created or updated, keeping the user experience of managing contact data within the Drupal site. In future phases, we will add engagement scoring to the mix by scoring user engagements on the website and pushing that data back to Salesforce.</p>
+
+<h2 id="the-challenge">The Challenge</h2>
+<p>Getting 300,000+ records into the queue was a relatively quick operation that took less than 4 hours. Processing those records was much more time consuming as only a few hundred records were processed during a single cron run. Since the site is hosted on Pantheon, the standard cron run is hourly, which would mean the processing would take weeks. Even manually triggering the process would take days. We needed a better solution.</p>
+
+<h2 id="the-solution">The Solution</h2>
+
+<h3 id="queue-processing">Queue processing</h3>
+
+<p>One of the ways to improve this process was to allow more records to be processed during the cron run. The default worker timeout was set to 180 seconds (3 minutes).  Meaning that every hour, records from the queue were processed for 3 minutes and then nothing would happen until the next cron run. So that timeout was altered using <code class="highlighter-rouge">hook_cron_queue_info_alter()</code> to 3600 seconds (1 hour). We also wanted to limit other processes from running during this time. Just firing off cron processes <em>all</em> cron tasks from all modules. Running <code class="highlighter-rouge">drush queue-run</code> we could just process the queue worker identified. But it would still require someone manually running that command every hour. That command also allows queue processing in parallel, which theoretically would process the records even faster.</p>
+
+<p>We created a bash script which would process the queue every hour running multiple parallel threads:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+<span class="nv">NUM_RUNS</span><span class="o">=</span><span class="nv">$1</span>
+<span class="nv">NUM_PROCESSES</span><span class="o">=</span><span class="nv">$2</span>
+
+<span class="nv">r</span><span class="o">=</span>0
+
+<span class="nv">START</span><span class="o">=</span><span class="sb">`</span><span class="nb">date</span> +%s<span class="sb">`</span>
+<span class="k">while</span> <span class="o">[</span> <span class="nv">$r</span> <span class="nt">-lt</span> <span class="nv">$NUM_RUNS</span> <span class="o">]</span><span class="p">;</span> <span class="k">do
+  </span><span class="nv">p</span><span class="o">=</span>0
+  <span class="nv">run</span><span class="o">=</span><span class="k">$((</span><span class="nv">$r</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
+  <span class="nb">echo</span> <span class="s2">"Run: </span><span class="nv">$run</span><span class="s2">"</span><span class="p">;</span>
+  <span class="k">while</span> <span class="o">[</span> <span class="nv">$p</span> <span class="nt">-lt</span> <span class="nv">$NUM_PROCESSES</span> <span class="o">]</span><span class="p">;</span> <span class="k">do
+    </span><span class="nv">proc</span><span class="o">=</span><span class="k">$((</span><span class="nv">$p</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
+    <span class="nb">echo</span> <span class="s2">"Process: </span><span class="nv">$proc</span><span class="s2">"</span><span class="p">;</span>
+    <span class="c">#create file with header and time stamp</span>
+    <span class="nb">printf</span> <span class="s2">"Run: </span><span class="nv">$run</span><span class="s2"> Process: </span><span class="nv">$proc</span><span class="s2"> Log</span><span class="se">\n</span><span class="s2">"</span> <span class="o">&gt;</span> sync.R<span class="nv">$run</span>.P<span class="nv">$proc</span>.log
+    drush @pantheon.facing-history.live queue-run salesforce_pull <span class="nt">--strict</span><span class="o">=</span>0 <span class="o">&gt;&gt;</span> sync.R<span class="nv">$run</span>.P<span class="nv">$proc</span>.log &amp;
+    <span class="nv">p</span><span class="o">=</span><span class="nv">$proc</span>
+  <span class="k">done
+  </span><span class="nv">r</span><span class="o">=</span><span class="nv">$run</span>
+  <span class="c"># Should match worker timeout</span>
+  <span class="nb">sleep </span>3600
+<span class="k">done</span>
+</code></pre></div></div>
+<p>During our testing, however, we quickly realized that running parallel Drupal processes caused MySQL deadlocks. It appeared that this was caused by a lack of database transactions being created when doing field level operations. We spent some time researching ways to prevent this, but in the end decided that it would be better to improve the way that records were imported into the SalesForce module in the first place.</p>
+
+<h3 id="identify-and-remove-inefficient-code">Identify and remove inefficient code</h3>
+
+<p>While troubleshooting an unrelated issue, it was found that when pulling mapped <a href="https://drupal.org">Relations</a> from Salesforce the entity ID was needed, but since the entity was not saved at the time of processing those mappings, the ID was not available yet. This was temporarily resolved to prevent errors by saving the entity before the mapping took place. Then the mappings were completed and the entity was saved again. This meant that whether a Relation was used or not, the entity was saved twice. To prevent this double save from causing a decrease in performance, a check was made to see if the pulled entity was mapped with a Relation. If so, the entity was saved to provide the entity ID. If not, the entity was only saved after the field mappings were completed.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">salesforce_mapping_related_entity_fieldmap_pull_value</span><span class="p">(</span><span class="nv">$entity_wrapper</span><span class="p">,</span> <span class="o">...</span>
+<span class="c1">// Handle relations.</span>
+<span class="k">elseif</span> <span class="p">(</span><span class="nx">module_exists</span><span class="p">(</span><span class="s1">'relation'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$info</span><span class="p">[</span><span class="s1">'relation_type'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="c1">// We cannot create relationships between new items. We are saving them here</span>
+<span class="c1">// to avoid performing a duplicate save for all entities in</span>
+<span class="c1">// salesforce_pull_process_records().</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$info</span><span class="p">[</span><span class="s1">'parent'</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">getIdentifier</span><span class="p">())</span> <span class="p">{</span>
+	<span class="nv">$info</span><span class="p">[</span><span class="s1">'parent'</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Another performance improvement came from changing the way field mappings were handled if an error was thrown. Previously, if an error was thrown while updating a mapping, the mapping object (the entity that links Drupal entities to Salesforce objects) was not created or, if it existed, was removed. Instead, now if a valid entity ID is present the mapping is still saved. This cause less errors and allows for better data syncing.</p>
+
+<p>The function salesforce_pull_process_records in salesforce_pull.module was updated</p>
+
+<p>from</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$mapping_object</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nv">$sf_mapping</span><span class="o">-&gt;</span><span class="na">sync_triggers</span> <span class="o">&amp;</span> <span class="nx">SALESFORCE_MAPPING_SYNC_SF_UPDATE</span><span class="p">))</span>
+</code></pre></div></div>
+<p>to</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$mapping_object</span> <span class="o">=</span> <span class="nx">salesforce_mapping_object_load_by_sfid</span><span class="p">(</span><span class="nv">$sf_object</span><span class="p">[</span><span class="s1">'Id'</span><span class="p">]);</span>
+<span class="nv">$exists</span> <span class="o">=</span> <span class="nv">$mapping_object</span> <span class="o">?</span> <span class="k">TRUE</span> <span class="o">:</span> <span class="k">FALSE</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$exists</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nv">$sf_mapping</span><span class="o">-&gt;</span><span class="na">sync_triggers</span> <span class="o">&amp;</span> <span class="nx">SALESFORCE_MAPPING_SYNC_SF_UPDATE</span><span class="p">))</span> <span class="p">{</span>
+</code></pre></div></div>
+<p>The code checks for existence of an entity referenced by a mapping to ensure it exists, and behaves intelligently if it doesn’t. Previously this would cause an unrecoverable sync state for objects.</p>
+
+<h3 id="query-optimization">Query optimization</h3>
+
+<p>By analyzing queries using <a href="http://newrelic.com/">New Relic</a> during Salesforce data pulls we were able to track down a troublesome frequently run query in the <a href="https://drupal.org/project/relation">Relation</a> module that was used in the <a href="http://drupalcode.org/project/salesforce.git/tree/refs/heads/7.x-3.x:/modules/salesforce_mapping">Salesforce Mapping</a> module to map related entities. Researching this led to a known issue <a href="https://drupal.org/node/1649398">when dealing with a high volume of relations</a> caused by  <a href="https://drupal.org/node/1859084">conditions on multi-column fields in Entity Field Query</a>. In short, EFQ caused additional unneeded joins when creating the SQL query. Without the time to patch core, we created a custom Database API query duplicating the results of the EFQ without the extra joins. This resulted in a <em>700 times increase in performance</em> in execution of that query.</p>
+
+<p>Additionally, we found that EFQ always checks for node grants by joining on the node_grants table even when we are not dealing with nodes, in our case contacts. Elimination this join also resulted in improved query performance, although not as great an impact as the issue described above.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>After we completed a test run of the import in Pantheon’s test environment, we were ready to import data into the production instance of the new site. We decided to set cron to “never run” to again limit the amount of processes running at the time of the import. We also did not want to recreate the parallel issues we discovered during the our tests with our scripted solution.  After our first production test run of a few thousand records over 3 hours, we noticed that we were still getting deadlocks. Upon investigation, we discovered that Pantheon runs cron against their production instances using drush, which does not respect the “never run” configuration. Pantheon had documentation about this which lead us to <a href="https://drupal.org/project/elysia_cron">Elysia Cron</a>. This module does prevent cron from running by setting the “Globally Disable” flag. This module gives itself the highest system weight so that its <code class="highlighter-rouge">hook_cron</code> is the first to run. And if that flag is set, Elysia Cron stops the process.</p>
+
+<p>At the end of the day, 300,000+ records were successfully imported into Drupal from Salesforce. Many lessons were learned and significant improvements were made to the Salesforce Suite. Facing History and Ourselves provided us with an opportunity to go further than we ever had before in understanding and improving upon this process.</p>
+]]>
+  </description>
+  <pubDate>Mon, 28 Apr 2014 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/04/salesforce-big-data/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/04/salesforce-big-data/</guid>
+</item>
+
+    
+      <item>
+  <title>Magic, CRM and Shiny Objects Galore!  </title>
+  <description>
+    <![CDATA[<p><img src="http://portland2013.drupal.org/sites/default/files/drupalcon_pdx_icon_2.png" alt="DrupalCon Portland" title="DrupalCon Portland" height="200" width="163" img="" style="float:right" />
+With the session submission deadline drawing to a close for <a href="http://portland2013.drupal.org">DrupalCon Portland 2013</a>, <a href="http://thinkshout.com">ThinkShout</a> (along with many other fine Drupal community members) participated in the mad rush to get all of our awesome session ideas in on time!  The DrupalCon session committee has a busy couple of weeks coming their way, and in the meantime, we’d love to hear your comments and feedback on our presentation ideas.</p>
+
+<p>Our team has a broad range of topics we can’t wait to share with the community, from CRM and Salesforce to Magic: The Gathering!</p>
+
+<p>Check them out in more detail below, we can’t wait to hear what you think:</p>
+
+<ul>
+  <li><a href="http://portland2013.drupal.org/session/register-pay-and-attend-making-advanced-event-management-easy-drupal">Register, Pay and Attend:  Making advanced event management easy with Drupal</a> In this session <a href="http://thinkshout.com/blog/Tauno">Tauno</a> will be focusing on the recipes for contributed modules that can be combined to enable functionality such as: paid event registrations, early bird pricing, tracking attendance and even integrating with Salesforce.</li>
+  <li><a href="http://thinkshout.com/blog/sean">Sean</a> and <a href="http://thinkshout.com/blog/lev">Lev</a> joined forces to propose <a href="http://portland2013.drupal.org/session/association-management-redhen-crm">Association Management with RedHen</a>, which will teach participants how to leverage RedHen CRM in building vibrant online communities and portals.</li>
+  <li><a href="http://portland2013.drupal.org/session/need-drupal-website-wait-have-you-gone-through-discovery-process">Need a Drupal Website? Wait! Have you gone through a a discovery process?</a> is based on ThinkShout’s resident UX expert, <a href="http://thinkshout.com/blog/brett">Brett Heckman</a>, and <a href="http://thinkshout.com/blog/sean">Sean</a>’s experience in guiding clients through an effective approach to beginning a website redesign project.</li>
+  <li><a href="http://portland2013.drupal.org/session/micro-site-development-workflows-drush-make-and-git">Micro-Site Development Workflows with Drush Make and Git</a> in this proposed session, ThinkShout will be walking through the real world challenges and successes with Val Rozansky from the <a href="http://givingforum.org/s_forum/index.asp">Forum of Regional Associations of Grantmakers</a> as a case study for best practices around managing micro-sites with Drush Make build process and a Git-based deployment workflow.</li>
+  <li>In <a href="http://portland2013.drupal.org/session/crm-drupal-way">CRM the Drupal Way</a>, Lev and Tauno hope to take the stage to explore the ins and outs of building a CRM offering with Drupal.</li>
+  <li>Looking to dig into <a href="http://portland2013.drupal.org/session/integrating-drupal-salesforce">Integrating Drupal with Salesforce</a>? Lev’s proposed session will cover the technical aspects of integrating Drupal and Salesforce and then explore how to leverage this tool in your projects.</li>
+  <li>Pro-Magic aficionado <a href="http://thinkshout.com/blog/gabe">Gabe Carleton-Barnes</a> hopes to engage audiences with the intertwine of the strategy game and open source technology in <a href="http://portland2013.drupal.org/session/magic-gathering-and-freelibreopen-source">MAGIC: The Gathering and Free/Libre/Open Source</a>.</li>
+  <li><a href="http://portland2013.drupal.org/session/distributions-site-building-distros-arent-just-products-and-quick-starts">Distributions for Site Building: Distor’s aren’t just for products and quick starts</a> and in this session <a href="http://thinkshout.com/blog/brandon">Brandon</a> and Gabe hope to demonstrate how installation profiles and Drush make files are powerful tools for distribution building, and can also smooth collaborative development for one-off projects.</li>
+  <li><a href="http://portland2013.drupal.org/session/now-time-sprockets-when-we-make-money-how-run-profitable-small-digital-agency">Now is the time on Sprockets when we make money:  How to run a profitable small digital agency</a>.  In this session, I’ll (fingers crossed) be joining forces with Director of Strategy, Nate Parsons at Phase2 Technology, to share best practices for improving profitability for small digital agencies.</li>
+  <li><a href="http://portland2013.drupal.org/session/shiny-object-developing-cohesive-pmo-toolset-doesn%E2%80%99t-overwhelm-your-team">Shiny Object:  Developing a cohesive PMO toolset that doesn’t overwhelm your team</a>.  Nate and I will be tackling the shiny object syndrome in tool adoption to help guide attendees to develop a PMO toolset that fits for their team.</li>
+</ul>
+]]>
+  </description>
+  <pubDate>Wed, 20 Feb 2013 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2013/02/betsy/drupalcon-2013-sessions/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/02/betsy/drupalcon-2013-sessions/</guid>
+</item>
+
+    
+      <item>
+  <title>Salesforce Integration with REST, OAUTH, and Entities</title>
+  <description>
+    <![CDATA[<p><img src="http://www.sfdcstatic.com/common/assets/img/logo-company.png" alt="Salesforce logo" style="float:left; margin:0 10px 10px 0 " /> 
+The <a href="http://drupal.org/project/salesforce">Drupal Salesforce Suite</a> has been around since Drupal 5, having undergone many transformations in trying to keep pace with both Drupal and Salesforce API changes. The result is a feature set as impressive as it is ambitious, although the incremental updates and additions have come at a cost of significant technical debt, inconsistent API usage, a monolithic architecture, and fragility.</p>
+
+<p>ThinkShout, not being strangers to major rewrites, <a href="http://thinkshout.com/blog/2011/06/lev/mailchimp-20-anatomy-drupal-module-rewrite">even of our own modules</a>, and driven by our need to integrate Salesforce with our native Drupal CRM, <a href="http://drupal.org/project/redhen">RedHen</a>, undertook the challenge to completely rewrite the Salesforce suite this fall.</p>
+
+<h2 id="why-a-rewrite">Why a rewrite?</h2>
+<ul>
+  <li>The current modules uses the <a href="http://www.salesforce.com/us/developer/docs/api/index.htm">SOAP API</a> and depends on the external <a href="http://wiki.developerforce.com/page/Force.com_Toolkit_for_PHP">PHP Toolkit library</a>. We wanted to leverage the much lighter weight, real time, <a href="http://www.salesforce.com/us/developer/docs/api_rest/index.htm">REST API</a>.</li>
+  <li>The REST API uses <a href="http://oauth.net/2/">OAuth 2.0</a> for authorization, which is more secure and flexible than providing a username and password.</li>
+  <li>Legacy code dating back to Drupal 5, E.g., inline SQL in some cases, DBTNG in others.</li>
+  <li>Our preference for treating custom data models as entities. There’s an argument to be made that any custom data schema should be bolted on top of the Entity System.</li>
+  <li>Redesign the suite with a lean, modular architecture allowing the module to be used by developers for a wide variety of uses cases without the need to take unused code along for the ride.</li>
+  <li>The current mapping scheme was entity and field specific, with the module actually listing out available properties for nodes, users, etc. Aside from being difficult to maintain, it made synchronizing custom entities, which are critical in the Drupal eco system, nearly impossible. We decide to use Entity API’s metadata wrappers instead, see below!</li>
+</ul>
+
+<h2 id="collaboration">Collaboration</h2>
+<p>We started by reaching out to the current module maintainers to better understand the state of the module, it’s roadmap, if any, and the current teams involvement, as well as to feel out their interest in participating in a rewrite. The entire team, <a href="http://drupal.org/user/209141">kostajh</a> in particular, has been very receptive and helpful, and we eventually agreed that ThinkShout would do the rewrite in a new branch, 7.x-3.x, in the current project. There was talk of collaboration, but busy schedules and priorities got in the way as they often do and we’re approaching an MVP release on our own. <s>The maintainers gave ThinkShout access to the repository and project page, but not administrative control over the repository, understandably. That put us in a minor bind, however, as we are committing many hundreds of hours to a project we don't have any control over. As a result, we're developing the project on [GitHub](https://github.com/thinkshout/salesforce) and mirroring the code to [7.x-3.x branch on Drupal.org](http://drupalcode.org/project/salesforce.git/tree/refs/heads/7.x-3.x). This will likely change, but that's our plan for now</s>. UPDATE: Project development is now taking place on Drupal.org, although we’ll continue mirroring to GitHub.</p>
+
+<h2 id="core-features">Core features</h2>
+<ol>
+  <li>OAuth 2.0 authorization</li>
+  <li>Object oriented REST API wrapper for use within Drupal.</li>
+  <li>Drupal entity and Salesforce object mapping system
+    <ul>
+      <li>Field level mappings, including granular directionality and support for external keys.</li>
+      <li>Map Drupal bundles to Salesforce record types.</li>
+      <li>Select per mapping trigger points, E.g., Drupal entity create, Salesforce object update, etc.</li>
+      <li>Select batch or realtime processing per mapping.</li>
+    </ul>
+  </li>
+  <li>Push Drupal entities to Salesforce.</li>
+  <li>Pull Salesforce objects into Drupal.</li>
+  <li>Lightweight wrapper around the SOAP API when needed, using the same OAuth authorization.</li>
+</ol>
+
+<p>In addition, with the systems modular OO design, we are laying the groundwork for a contrib ecosystem to handle more specific needs like Webform integration and lead generation. And, of course, developers can use the module as a starting point for their own solutions, be it importing Drupal users as contacts, lead generation through blog comments, etc.</p>
+
+<h2 id="architecture">Architecture</h2>
+<h3 id="api-selection-and-oauth">API selection and OAuth</h3>
+<p>Salesforce provides a veritable alphabet soup of API options, including SOAP, bulk, meta, streaming, apex, and REST. In their own words, the REST API is the best choice for “mobile applications and Web projects”. Well, Drupal is certainly a web platform, so we figured that’s the right place to start. In addition, we found the REST API provided the following benefits:</p>
+
+<ul>
+  <li>Small foot print and no dependency on the complex PHP Toolkit, which needs to be installed and maintained to use the SOAP API.</li>
+  <li>Stop talking about WSDLs, specifically whether you need a client or parter wsdl. That all feels very 10 years ago.</li>
+  <li>Fast.</li>
+  <li>Realtime. In our testing, changes made to Salesforce using the REST API where instantaneous, whereas SOAP changes took some time to propagate to the Salesforce instance.</li>
+</ul>
+
+<p><img src="https://raw.github.com/aaronpk/oauth.net/master/images/oauth-2-sm.png" alt="oauth 2" style="float:right; margin:0 0 10px 10px " />
+In addition, the REST API allows, or rather requires, the use of <a href="http://oauth.net/2/">OAuath 2.0</a>  for authorization. While not perfect, the OAuth flow is more secure and flexible than providing a single username and password. The OAuth process, in short:</p>
+
+<ol>
+  <li>Create a remote application within the Salesforce instance. The callback URL must be in the format <em>https://mydrupalsite.com/salesforce/oauch_callback</em>. Obviously replace <em>mydrupalsite.com</em> with the url of the site being integrated with Salesforce. Also note that HTTPS is <em>required</em> for a secure authorization to take place. Yes, that means this module will not work on sites that don’t support HTTPS.</li>
+  <li>Obtain the consumer key and secret from the remote application created in step 1 and enter it in the authorization form. Click the authorize button.
+<img src="http://thinkshout.com/sites/default/files/images/inline/salesforce-authorize-2.png" alt="authorization form" /></li>
+  <li>This will initiate 2 requests to Salesforce. The first redirects the user to Salesforce, sending along the consumer key and callback URL. If the user authorizes the remote application, the same one created in step 1, in our case a Drupal site, Salesforce responds with an authorization code.</li>
+  <li>The Module then sends another request to Salesforce with the authorization code obtained in step 3, along with the consumer key, secret, and callback URL, and gets a response containing a refresh token and API instance URL.</li>
+  <li>The refresh token is used to obtain an ephermal access token, analogous to a session ID, which is used to access the REST resources. The access token is actually only stored in session storage to emphasize it’s temporary nature and a new one is obtained when the access token expires on the Salesforce side or the Drupal session ends. There’s certainly room for improvement in this process, but it seems to work for now.</li>
+</ol>
+
+<p>As of writing, the Drupal OAuth module, which we preferred to leverage, did not yet support the OAuth 2.0 specification, so we were forced to go on our own. If/when a stable OAuth 2.0 library is released within Drupal, we’d certainly rather take advantage of that then reinvent any wheels.</p>
+
+<h3 id="submodules">Submodules</h3>
+<ul>
+  <li>Salesforce: OAuth authorization and wrapper around the Salesforce REST API in the form of an extendable class.</li>
+  <li>Salesforce Mapping: Allows for mapping Drupal Entities and Salesforce objets as a custom entity. It also manages the connection between Drupal entities and Salesforce objects as another custom entity. If a connection exists, it is loaded and displayed with the linked entity and used to determine if data should be updated or created.</li>
+  <li>Salesforce Push: Pushes Drupal data to Salesforce when defined triggers occur, either in real time or in a brach process.</li>
+  <li>Salesforce Pull: Pulls Salesforce objects into Drupal when defined triggers occur. Salesforce is queried for any changes to objects that are mapped to a Drupal entity and loaded into a queue for processing. By it’s nature, importing Salesforce data is an asynchronous, batch process. We explored leveraging Salesforce’s outbound notification system to enable realtime updates, but found that approach untenable, namely due to the inability to throttle the number of outbound messages coming from Salesforce and the difficult in configuring those messages.</li>
+  <li>Salesforce SOAP: A lightweight module to wrap the Salesforce SOAP API. It manages the dependency and loading of the PHP Toolkit and extends the partner and enterprise clients so they can authenticate using the OAUTH2 access token.</li>
+</ul>
+
+<h3 id="entity-api-metadata-wrappers">Entity API metadata wrappers</h3>
+<p>Are, simply put, awesome. The <a href="http://drupal.org/project/entity">Entity API</a> metadata wrappers provided a silky smooth unified process for getting and setting an entity’s fields and properties. To demonstrate, this little snippet of code handles the mapping of Drupal data to Salesforce for some 90% of use cases,
+&lt;?php
+$drupal_fields_array = explode(‘:’, $fieldmap[‘drupal_field’][‘fieldmap_value’]);
+$parent = $entity_wrapper;
+foreach ($drupal_fields_array as $drupal_field) {
+  if ($parent instanceof EntityListWrapper) {
+    // First list&lt;&gt; types, get the property from the first item
+    $child_wrapper = $parent-&gt;get(0)-&gt;{$drupal_field};
+  }
+  else {
+    $child_wrapper = $parent-&gt;{$drupal_field};
+  }
+  $parent = $child_wrapper;
+}</p>
+
+<p>$value = $child_wrapper-&gt;value();
+?&gt;</p>
+
+<p>Similiarly, when importing Salesforce data, we can set entity values like this,
+&lt;?php
+$drupal_fields_array = explode(‘:’, $field_map[‘drupal_field’][‘fieldmap_value’]);
+$parent = $entity_wrapper;
+foreach ($drupal_fields_array as $drupal_field) {
+  if ($parent instanceof EntityListWrapper) {
+   $child_wrapper = $parent-&gt;get(0)-&gt;{$drupal_field};
+  }
+  else {
+    $child_wrapper = $parent-&gt;{$drupal_field};
+  }
+  $parent = $child_wrapper;
+}
+$fieldmap_type = salesforce_mapping_get_fieldmap_types($field_map[‘drupal_field’][‘fieldmap_type’]);
+$value = call_user_func($fieldmap_type[‘pull_value_callback’], $parent, $sf_object, $field_map);</p>
+
+<p>// Allow this value to be altered before assigning to the entity.
+drupal_alter(‘salesforce_pull_entity_value’, $value, $field_map, $sf_object);
+if (isset($value)) {
+  if ($parent instanceof EntityListWrapper) {
+    $parent-&gt;offsetSet(0, $value);
+  }
+  else {
+    $parent-&gt;set($value);
+  }
+}
+?&gt;</p>
+
+<h3 id="field-mappings">Field mappings</h3>
+<p>Salesforce field mappings are the configuraiton that guides how Salesforce objects and Drupal entities are syncronized. Highlihts include:</p>
+
+<ul>
+  <li>Fully exportable custom entity type.</li>
+  <li>Map a Drupal entity type and bundle to a Salesforce object and record type.</li>
+  <li>Create one or more field level mappings (see below) based on the selected bundles and record types.</li>
+  <li>Specify the triggers points for syncronizing data.</li>
+  <li>Process the data in realtime or via a batch process.</li>
+  <li>Mappings are weighted so that related entities can be processed in the right order.
+<img src="http://thinkshout.com/sites/default/files/images/inline/salesforce-mappings-list.png" alt="Mappings list" /></li>
+</ul>
+
+<h3 id="flexible-fieldmap-type-system">Flexible fieldmap type system</h3>
+<p>When mapping fields, we needed a flexible system to handle different type of data mappings and how to derive the correct values. We modeled the fieldmap type system very loosely after Drupal entity definition hooks. Any module can implement <code>hook_salesforce_mapping_fieldmap_type()</code> to define a type of field mapping. The module ships with 4 fieldmap types:</p>
+
+<ul>
+  <li>Property (or field)</li>
+  <li>Token</li>
+  <li>Constant</li>
+  <li>Related entity (E.g., Relation, Entity Reference)</li>
+</ul>
+
+<p>Each fieldmap type must define:</p>
+
+<ul>
+  <li>label</li>
+  <li>FAPI field type</li>
+  <li>description</li>
+  <li>options callback (optional)</li>
+  <li>validation callback (optional)</li>
+  <li>push and pull value callbacks</li>
+</ul>
+
+<p>A fieldmap type definition will look like this,
+&lt;?php
+/**</p>
+<ul>
+  <li>Implements hook_salesforce_mapping_fieldmap_type().
+ */
+function salesforce_mapping_salesforce_mapping_fieldmap_type() {
+  $types = array(
+ ‘property’ =&gt; array(
+   ‘label’ =&gt; t(‘Properties’),
+   ‘field_type’ =&gt; ‘select’,
+   ‘description’ =&gt; t(‘Select a Drupal field or property to map to a Salesforce field. Related are left out and should be handled using another fieldmap type like tokens.’),
+   ‘options_callback’ =&gt; ‘salesforce_mapping_property_fieldmap_options’,
+   ‘push_value_callback’ =&gt; ‘salesforce_mapping_property_fieldmap_push_value’,
+   ‘pull_value_callback’ =&gt; ‘salesforce_mapping_property_fieldmap_pull_value’,
+   ‘validation_callback’ =&gt; ‘salesforce_mapping_property_validation’,
+ ),
+  );</li>
+</ul>
+
+<p>return $types;
+}
+?&gt;</p>
+
+<p>The fieldmap UI allows an admin to select a fieldmap type which then presents either a list of options, E.g. a list of fields and properties in the case of a Property fieldmap type, or a textbox, E.g., for Tokens. After passing an optional validation step, the value is saved with the field mapping. When data is synced, the push or pull value callback is used to get the correct value. We’re hopeful this approach will provide the right balance between flexibility and out of the box utility in mapping simple and complex data structures.</p>
+
+<p><img src="http://thinkshout.com/sites/default/files/images/inline/salesforce-field-mappings-2.png" alt="field mappings" /></p>
+
+<h2 id="where-things-are-heading">Where things are heading</h2>
+<p>We’ll be launching several sites before years using the new version of the Salesforce module and are including it in a private distribution we’ve developed for the <a href="http://www.givingforum.org/">Forum of Regional Associations of Grantmakers</a>, who have generously sponsored the initial development, and we already feel it’s alpha quality and at the “MVP” stage. There are certain to be lots of bugs, and perhaps even major API changes, but that’s to be expected for a project of this complexity and with a such a wide array of use cases. We’re hoping to engage even more with the community at this time to gather architectural feedback and help work out the kinks.</p>
+
+<p>Salesforce is a very widely used, powerful platform, and having a canonical, robust Drupal integration is a major win for the entire community. We’re hopeful this is a good starting point to achieve that goal.</p>
+]]>
+  </description>
+  <pubDate>Mon, 26 Nov 2012 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2012/11/lev/salesforce-rest-oauth/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/11/lev/salesforce-rest-oauth/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

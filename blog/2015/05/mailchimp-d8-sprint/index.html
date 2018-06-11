@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Monkeying Around with D8 | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="Porting the MailChimp Module to Drupal 8 for DrupalCon LA">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal, Drupal Community, Drupal Planet, Events, MailChimp, Modules, Open Source, Team Sprints">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">05.05.2015</span>
+  
+  </p>
+
+  <h1 class="post-title">Monkeying Around with D8</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/marci.jpg">
+    
+      <strong>Marci Marshall</strong>
+    <br>
+      Senior Project Manager
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <h2 id="leading-the-charge">Leading the Charge</h2>
+
+<p>I have used A LOT of email marketing service providers over the years and my opinion of them was twofold: they were all similar and none of them were particularly great. Was it possible that this was just a category of business that would never be exciting or innovative? Was I destined to be a project manager who half-heartedly recommended whatever email service provider I was using most at the time to clients?</p>
+
+<p><em>Enter the Chimp…</em></p>
+
+<p>Despite its playful name, <a href="http://www.mailchimp.com">MailChimp</a> made a serious shift in a category that had always had potential but lacked a true champion. My first thought when I used the tool was that even if the feature set was identical to all its competitors, MailChimp’s user interface alone was what set it apart. But once I dug into its capabilities, I became a bona fide fan (dare I say ambassador) of the brand. From automated email workflows and slick segmentation capabilities, to the [Chimpadeedoo] (http://mailchimp.com/features/mobile-signup-forms/) tablet app that facilitates email sign-ups without an internet connection, MailChimp became the new king of the jungle.</p>
+
+<p>Fast forward a few years, and here I am working at ThinkShout, MailChimp’s Drupal partner. We built and maintain the MailChimp Drupal module, which is used by nearly 22,000 websites.</p>
+
+<p>If you are familiar with MailChimp’s motto - listen hard and change fast - (or if you just read the first couple paragraphs of this blog post), then it should come as no surprise that innovation is at the heart of MailChimp’s culture. With the release of Drupal 8 looming this Fall, MailChimp and ThinkShout saw a unique opportunity to lead the charge by porting one of the most popular email modules to be D8 compatible.</p>
+
+<h2 id="the-only-way-through-it-is-through-it">The Only Way Through it is Through it</h2>
+
+<p>Being a trailblazer isn’t easy, and MailChimp understood that pushing the envelope on D8 development would require a significant investment of time and resources. While the core MailChimp module is relatively simple, the bundled submodules are feature-rich and technically complex.</p>
+
+<p>Let’s recap what the MailChimp module allows you to do:</p>
+
+<ul>
+  <li>Any “object” in Drupal that has an email address, say a User, Contact, or even a Comment, can be automatically subscribed to a list and segmented based on other attributes, like their zip code.</li>
+  <li>Display a list subscription status on an entity or a subscription form.</li>
+  <li>Map Drupal Data, such as name and address, to merge fields in MailChimp.</li>
+  <li>Create forms to allow site visitors to sign up for any Mailchimp List or combination of Lists.</li>
+  <li>Create Pages, Blocks, or both to display forms.</li>
+  <li>Create campaigns containing any Drupal entity, or entities, as content.</li>
+  <li>Send campaigns created in Drupal through MailChimp or Drupal.</li>
+  <li>View campaign statistics and email activity for all list subscribers.</li>
+</ul>
+
+<p>Luckily, one of the greatest aspects of our partnership with MailChimp is our shared passion for recognizing opportunity in challenges and giving back to the community. With that spirit, a couple of ThinkShout engineers dove in head first with the goal of porting the majority of the popular D7 module’s features over to D8 in time for a beta release at [DrupalCon LA] (https://events.drupal.org/losangeles2015). During the process, they realized that the available Drupal 8 documentation wasn’t keeping up with the speedy pace of D8 development. Over the course of several weeks, our engineers updated documentation and created examples to make life (or at least development) a little easier for the next developer looking to create something similar.</p>
+
+<h2 id="its-a-sprint-not-a-marathon">It’s a Sprint, Not a Marathon</h2>
+
+<p>With the conference approaching, it was time to call on the ThinkShout village to help put the polish on the new module. Since nine heads are better than two when it comes to user testing and QA, we scheduled a sprint to focus our engineering department on providing that critical perspective needed at the end of a large development project.</p>
+
+<p><img src="/assets/images/blog/mailchimp_roadmap1.jpg" alt="mailchimp_roadmap1.jpg" /></p>
+
+<p>During our afternoon sprint, our team ran a battery of tests (both human and automated) to document and resolve bugs. Our engineering staff has grown quite a bit recently, so the sprint also provided an opportunity for knowledge sharing about MailChimp and D8 development across the team. As a non-engineer fly on the wall, it was exciting to witness the energy at the sprint table, as bugs were closed and high-fives were thrown.</p>
+
+<h2 id="the-future-is-now">The Future is Now</h2>
+
+<p>So far, I’ve focused on what some of the challenges of early D8 development have been, and you’re surely wondering by now “So, what do you think about D8?” Short answer: we’re excited, and we think you should be, too.</p>
+
+<p>Drupal 8 standardizes module development by enforcing PSR-4 compliant namespaces. Whereas D7 allows developers to dictate where a form or entity is placed, for example, D8 loads files in the correct path automatically. What does this mean for developers? Well, it means time saved by not having to search an entire codebase to find where the developer before you placed a form. And because this structure is more in line with general engineering practices, it will be easier for any developer to ramp up for Drupal development.</p>
+
+<p>But the benefits aren’t just for developers. We are also excited about the efficiencies that will be created for our nonprofit clients. Not only do they stand to benefit from the streamlined development approach, but that shift in approach will also make it easier to find resources to maintain and enhance their sites.</p>
+
+<h2 id="learn-more-about-the-new-mailchimp-module">Learn More About the New MailChimp Module</h2>
+
+<p>Come and see us at [DrupalCon LA] (https://events.drupal.org/losangeles2015), where our very own [Lev Tsypin] (http://thinkshout.com/team/lev/) will be giving a [lightning talk] (https://events.drupal.org/losangeles2015/sessions/mailchimp-drupal-anatomy-successful-partnership) about the evolution of MailChimp’s support for Drupal, the basics of how the integration works, and a hint at what’s to come for Drupal 8. Don’t worry if you can’t make it to the talk because we’ll also be hanging out in the MailChimp booth. And if you spot one of us (you’ll recognize us by our ThinkShout hoodies), stop us! We’d love to chat about what we’ve learned about D8 and why were are excited for its release. Also, be sure to check out <a href="http://thinkshout.com/blog/category/mailchimp/">past blogs</a> we’ve written about our work on the MailChimp module.</p>
+
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal.' href='/blog/category/drupal/'>Drupal</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Community.' href='/blog/category/drupal-community/'>Drupal Community</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged Events.' href='/blog/category/events/'>Events</a> <a class='tag' rel='tag category' title='View all posts tagged MailChimp.' href='/blog/category/mailchimp/'>MailChimp</a> <a class='tag' rel='tag category' title='View all posts tagged Modules.' href='/blog/category/modules/'>Modules</a> <a class='tag' rel='tag category' title='View all posts tagged Open Source.' href='/blog/category/open-source/'>Open Source</a> <a class='tag' rel='tag category' title='View all posts tagged Team Sprints.' href='/blog/category/team-sprints/'>Team Sprints</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2015/05/mailchimp-d8-sprint/';
+    this.page.identifier = '/blog/2015/05/mailchimp-d8-sprint';
+    this.page.title = 'Monkeying Around with D8'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2015/04/salesforce-new-features/"><span class="fa fa-caret-left"></span> <span>Drupal and Salesforce Integrations Get Some (Data) Integrity</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2015/05/drupalcon-la/"><span>Meet the ThinkShout Team at DrupalCon LA!</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/drupal-commerce/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Reimagined Sprints and Introducing RedHen Raiser</title>
+  <description>
+    <![CDATA[<p><img src="/assets/images/blog/raiser_0.jpg" alt="raiser_0.jpg" /></p>
+
+<p>We’ve been experimenting with monthly team sprints at ThinkShout over the last year with varied levels of structure and outcomes. This month, we decided to take a step back, reevaluate our goals, and reimagine our sprint process. And, we moved it to a Thursday. <a href="https://twitter.com/thinkshout/status/558334360416305152">A bow-tie Thursday</a>.</p>
+
+<p>Previously, these sprints were loosely structured around a topic or technology, such as <a href="https://www.drupal.org/theme-guide/8/twig">Twig in Drupal 8</a>. Suffice it to say, they were a lot of fun and very exploratory, but they weren’t the most engaging for everyone on the team. This time around, we decided to collaborate on a single initiative - in this instance, a product - that would benefit from the skills and perspectives of everyone in the company. Consequently, we decided to rally around <a href="http://drupal.org/project/redhen_raiser">RedHen Raiser</a>, our new peer-to-peer fundraising distribution for Drupal.</p>
+
+<h3 id="introducing-redhen-raiser">Introducing RedHen Raiser</h3>
+
+<p><img src="http://thinkshout.com/assets/images/blog/raiser_1.jpg" alt="raiser_1.jpg" /></p>
+
+<p>RedHen Raiser is designed for building peer-to-peer fundraising websites, like the sites you see for marathons and walks, where a fundraising campaign is made up of myriad individual and team pages, and can be customized by the participants for fundraising amongst their respective communities, while remaining connected to the larger campaign.</p>
+
+<p>As the name suggests, RedHen Raiser is built on top of <a href="https://www.drupal.org/project/redhen">RedHen CRM</a>, including the <a href="http://drupal.org/project/redhen_donation">RedHen Donation</a> and <a href="http://drupal.org/project/redhen_campaign">RedHen Campaign</a> modules, and it’s chock full of awesome:</p>
+
+<ul>
+  <li>
+    <p>Easy Campaign creation so site visitors can join right away by creating their own Team or Individual fundraisers.</p>
+  </li>
+  <li>
+    <p>A beautiful, consistent fundraising experience that is based on inherited display values from the larger Campaign.</p>
+  </li>
+  <li>
+    <p>Goal progress widgets including thermometers, leaderboards, etc.</p>
+  </li>
+  <li>
+    <p>Mini-blogs for Campaigns and Fundraisers via Update content type.</p>
+  </li>
+  <li>
+    <p>Ability to create and maintain different pages for different fundraisers with a single account.</p>
+  </li>
+  <li>
+    <p>Automated start and end dates.</p>
+  </li>
+  <li>
+    <p>Commerce-readiness - just add your payment method and go!</p>
+  </li>
+  <li>
+    <p>Single-page donation forms via RedHen Donation.</p>
+  </li>
+  <li>
+    <p>Built using established modules with simple UI (Views, RedHen, Context, etc) for easy customization.</p>
+  </li>
+</ul>
+
+<p>It’s ThinkShout’s latest offering in a suite of nonprofit engagement building blocks that we’ve been developing, and was initially developed for the <a href="http://www.capitalareafoodbank.org/">Capital Area Food Bank of Washington, DC</a>. RedHen Raiser competes feature for feature with top <em>software as a service (SaaS)</em> peer-to-peer fundraising platforms, such as TeamRaiser, CauseVox and Razoo.</p>
+
+<p>As a result of our work with this client, we were able to release a very rudimentary version of RedHen Raiser on Drupal.org that would provide a basic starting point to other developers interested in building a peer-to-peer fundraising tool. The product is also a huge win for CAFB of DC, simply because they were able to reap a huge dividend on their initial investment by getting these improvements for free.</p>
+
+<h3 id="involving-the-full-team-in-one-sprint">Involving the Full Team in One Sprint</h3>
+
+<p><img src="http://thinkshout.com/assets/images/blog/raiser_2.jpg" alt="raiser_2.jpg" /></p>
+
+<p>As an open source <em>product</em>, RedHen Raiser presented us with some interesting opportunities to engage more than just our engineers in the sprint process, and it certainly needed a lot of love on a lot of fronts. Leveraging the different interests and expertise of our 18-person company, we split into five teams:</p>
+
+<ul>
+  <li>
+    <p><strong>Dev Ops</strong> - this team focused on deployment infrastructure, build processes, and automated testing;</p>
+  </li>
+  <li>
+    <p><strong>Bug Fix &amp; Feature Dev</strong> - team members spent the sprint day working on the development backlog;</p>
+  </li>
+  <li>
+    <p><strong>UX</strong> - the User Experience team worked ahead of the feature development team to identify and sketch out new features and enhancements;</p>
+  </li>
+  <li>
+    <p><strong>QA</strong> - the Quality Assurance team was made up of our project managers acting as “product owners;”</p>
+  </li>
+  <li>
+    <p><strong>Community Engagemen</strong>t - this team, consisting of our sales, marketing, and operations staff, was tasked with documenting the sprint and sharing our contributions with the wider Drupal and nonprofit technology communities.</p>
+  </li>
+</ul>
+
+<p>It’s worth noting that the quality assurance team and the community engagement team came together for the first half of the sprint for an in-depth training on the Drupal contributed modules and components underlying RedHen Raiser. Ironically, we often get so busy building these sorts of tools for our clients that we don’t stop to educate our own “non-developer” team members on how stuff works. By taking this time to dive into the nitty gritty with our project managers, marketing and operations folks, we create better advocates for these solutions and help ensure that everyone in the company feels like contributor to our success.</p>
+
+<h3 id="planning-for-the-sprint">Planning for the Sprint</h3>
+
+<p><img src="http://thinkshout.com/assets/images/blog/raiser_3.jpg" alt="raiser_3.jpg" /></p>
+
+<p>As ThinkShout has grown, the need for sprint planning has grown with it. Back when we first started these sprints, we could fit our entire team around a single table (covered in pizza boxes and beer) and call out development tickets we each needed help with.</p>
+
+<p>Now, with a team of 18 working together from 11am to 5pm, these sprints take a bit more planning - to say nothing of balancing the opportunity cost of investing a collective 108 hours of non-client work into a single week. To keep things running smoothly, we’ve taken a more project-planning-esque approach to our sprint days:</p>
+
+<ul>
+  <li>
+    <p><strong>Scheduling in advance</strong>: The date and time of the sprint is scheduled a month in advance. We used to just stick with the last Friday of the month, but found that this sometimes excluded certain team members on deadlines or vacation. Now, we coordinate a bit more tightly to help ensure participation of as many team members as possible.</p>
+  </li>
+  <li>
+    <p><strong>Laser focus</strong>: the focus of the sprint is announced to the team three weeks in advance. This gives the team time to think about stuff they want to work on, and add to the feature backlog in the weeks coming up to the sprint.</p>
+  </li>
+  <li>
+    <p><strong>Pre-sprint planning meetings</strong>: The department leads meet a week before the sprint to form teams and structure the sprint agenda, and prioritize the development/feature backlog two days in advance of the sprint.</p>
+  </li>
+  <li>
+    <p><strong>Pre-sprint presentations</strong>: The week before the sprint, we do a short, company-wide presentation on the sprint topic at our weekly staff lunch. This helps energize the team and sparks knowledge sharing in the lead up to the sprint day.</p>
+  </li>
+  <li>
+    <p><strong>Formally “opening” and “closing” the sprint day</strong>: As our sprint commences, we kick things off with a quick, all-staff scrum. More importantly, we pull the team back together at the end of the day for each sprint team to present (and celebrate!) what they’ve completed.</p>
+  </li>
+</ul>
+
+<h3 id="outcomes-of-our-redhen-raiser-sprint">Outcomes of Our RedHen Raiser Sprint</h3>
+
+<p><img src="http://thinkshout.com/assets/images/blog/raiser_4.png" alt="raiser_4.png" /></p>
+
+<p>So what does it all mean? This new approach to our team sprints resulted in just shy of 100 commits on RedHen Raiser and the underlying modules that power the distribution. We published a <a href="https://www.drupal.org/node/2414581">new release</a> of RedHen Raiser, <a href="https://www.drupal.org/node/2413307">RedHen Donation</a> and the <a href="https://www.drupal.org/node/2414563">RedHen Campaign</a> modules - as well as a release of our base <a href="https://www.drupal.org/node/2414559">RedHen CRM</a><a href="https://www.drupal.org/node/2414559"> suite</a>.</p>
+
+<p>One of the biggest wins to come out of the sprint are <a href="https://github.com/thinkshout/redhen_raiser/tree/7.x-1.x/tests">automated tests</a> powered by <a href="http://docs.behat.org/en/v2.5/">Behat</a>. Tests are triggered with every commit to GitHub and run on <a href="https://travis-ci.org/thinkshout/redhen_raiser">Travis CI</a>. At this point, test coverage is a bit limited, but the foundation has been laid for complete test coverage for RedHen Raiser, a critical factor when organizations are evaluating which software to use.</p>
+
+<p>To top it off, we cleaned up a few RedHen project pages on Drupal.org and began working on a RedHen-specfic QA testing plan. We also reached out to the RedHen open source community to let them know what we were up to and how folks can continue to get involved. Most of all, we are proud to say that this effort is a huge contribution to the nonprofit tech community, in that it provides major improvements to a powerful tool that can be leveraged for free - and has the documentation to support it!</p>
+
+<p>All in all, the ThinkShout team came together in a big way, and accomplished much more than we could have if we had remained siloed in our approach. We had a lot of fun, drank some beer, ate some good food, and got to collaborate as a whole team on something really cool. We’re really looking forward to the next one!</p>
+]]>
+  </description>
+  <pubDate>Wed, 28 Jan 2015 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2015/01/reimagined-sprints-redhen-raiser/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/01/reimagined-sprints-redhen-raiser/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

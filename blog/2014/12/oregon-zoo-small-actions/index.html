@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Oregon Zoo Small Actions | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="We created an "action portal" for the Oregon Metro Zoo in Portland. Here's how.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal Planet, Facebook, Oregon Zoo, conservation, sharing, social, sustainability, views, wildlife, zoo">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">12.12.2014</span>
+  
+  </p>
+
+  <h1 class="post-title">Oregon Zoo Small Actions</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/david.jpg">
+    
+      <strong>David Lanier</strong>
+    <br>
+      Software Engineer
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <h1 id="oregon-zoo-small-actions">Oregon Zoo: Small Actions</h1>
+
+<p>The Oregon Zoo in Portland approached us to develop an action portal component for their Drupal web site. The action portal is a tool that suggests real-world actions that anyone can take to help wildlife survive and flourish. A social sharing component is important for spreading these tips organically. Pun intended. Like wildflowers.</p>
+
+<p>Many sites integrate social sharing, but there are a couple of things that make the Zoo’s action portal different. The main difference is that by sharing an action, you are saying that you’ve actually done that action in the real world, and you are encouraging your friends and followers to take the same action. The aim is not just to generate site traffic, but rather to encourage people to make real change that has a tangible impact on wildlife. Also, the shared content is more personalized, since it’s a combination of a single species and the action that you’ve taken, plus custom messaging the visitor would like to add.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/zoo-action-portal-action-page-fsc.png" alt="action page" /></p>
+
+<p>The original intent was to enable visitors to share an action on several social channels: Facebook, Twitter, etc. During technical planning, it was decided that Facebook alone would be the best place to start. We would integrate directly with Facebook and track the shares internally with a custom integration code interacting with Facebook’s API.</p>
+
+<p>When we began implementation, we spent a little more time exploring options for sharing on multiple channels, compared to Facebook only. There would be a couple of benefits of sharing directly on Facebook. Using their API would pave the way for deeper integration in the future, taking advantage of Open Graph properties as a starting point. We would have better control over messaging, and we would have complete control over how logging happens in Drupal. And I must say, the Facebook developer documentation is top notch.</p>
+
+<p>But adding the ability later to share on other social networks would require additional API integration for each site. We wanted to consider paving a clearer path forward, so we looked into existing services for sharing on multiple sites. There are many: Gigya, AddThis, ShareThis, and more. For something to work for us, it would need to be free or very inexpensive, allow us to customize the shared message, and provide some statistics, mainly for a share count to display on the site. The ShareThis service ended up working best for us. When using any of these services, there is less control over how shares are logged.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/zoo-action-portal-species-page-chimp.png" alt="chimpanzee page" /></p>
+
+<p>We presented the client with these options along with the pros &amp; cons of each and, ultimately, it was decided that we’d use <a href="http://www.sharethis.com/">ShareThis</a>. Having approximate share counts was an acceptable tradeoff in exchange for the benefit of being able to share to multiple social networks.</p>
+
+<p>So, back to how we actually did this…</p>
+
+<p>Structurally, we started with two content types: Action (for the action we want people to take) and Animal (Species that relate to the actions). These each have mostly common field types, such as image and body text.</p>
+
+<p>On the Action content type, we added an Animals entityreference field in order to make the connection between the two content types.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/zoo-action-portal-landing-page-species.png" alt="landing page" /></p>
+
+<p>There are three new pages for this feature: the main landing page, the animal detail page, and the action detail page. We created an Animals view for the landing page and action detail page, and we created an Actions view also for the Explore by Action tab of the landing page and for the animal detail page. For the tabs on the landing page, we created a simple block using <code class="highlighter-rouge">hook_block_info()</code> and <code class="highlighter-rouge">hook_block_view()</code>.</p>
+
+<p>Something that’s easy to miss when initially planning lists of things is how sorting should be controlled. Since an action references multiple animals, we use that order for displaying animals on the action detail page. But we were pretty limited in how to control the order of actions on an animal detail page. We needed independent sorting control between animals on action pages, and actions on animal pages. We opted to stay with the native drag and drop sorting of entityreference fields, so we added a matching entityreference field on animals to reference actions, and added the <a href="https://www.drupal.org/project/cer">Corresponding Entity References</a> to keep these references in sync with each other. Now we have native draggable sorting on both content types. There are several other methods that could have been used, such as adding a weight field, using the <a href="https://www.drupal.org/project/draggableviews">draggable views</a> module, or using <a href="https://www.drupal.org/project/nodequeue">nodequeue</a>, but using CER with a pair of entityreference fields kept complexity at a minimum.</p>
+
+<p>An essential goal of this feature is sharing an action. The requirement was to have the sharing widget appear on individual actions only when listed on an animal detail page. The shared message is a combination of elements from both content types: the image and name of the animal, plus the contents of a Sharing Message text field from the action. The the URL shared is related to the action.</p>
+
+<p>Message when sharing the FSC action from the Chimpanzee page:</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/zoo-action-portal-share-chimp-fsc.png" alt="landing page" /></p>
+
+<p>Here’s how we put that together. We start by including the global stuff for the ShareThis widget. An implementation of <code class="highlighter-rouge">hook_views_pre_render()</code> adds some javascript settings and includes the ShareThis javascript library. To add the unique things to each action, we add a new variable “sharethis_attributes” in <code class="highlighter-rouge">hook_preprocess_views_view_field()</code>. This variable contains a string of pseudo attributes: <code class="highlighter-rouge">st_url="http://example.com/the-page" st_title="Example Page Title" st_image="http://example.com/image.jpg" st_summary="This is the text that will be shared." st_via="OregonZoo"</code>. We use that variable in a very specifically-named template file that takes effect for only this field in this view. The rest of the markup and classes placed in that field template came from ShareThis.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span> <span class="k">print</span> <span class="nv">$output</span><span class="p">;</span> <span class="cp">?&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"sharethis-custom"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">'st_sharethis_vcount'</span> <span class="na">displayText=</span><span class="s">'ShareThis'</span> <span class="cp">&lt;?php</span> <span class="k">print</span> <span class="nv">$sharethis_attributes</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>All of this work: content types, fields, image styles for the image fields, views, and the handful of custom hook implementations are bundled together in a new custom feature.</p>
+
+<p>Check out the <a href="http://www.oregonzoo.org/conserve/small-actions">small actions</a> pages at the Oregon Zoo site and see if there is a small action you can take that will have an impact on a wild animal you care about. There are some great tips that will help you live cleaner and sustain our irreplaceable wildlife.</p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged Facebook.' href='/blog/category/facebook/'>Facebook</a> <a class='tag' rel='tag category' title='View all posts tagged Oregon Zoo.' href='/blog/category/oregon-zoo/'>Oregon Zoo</a> <a class='tag' rel='tag category' title='View all posts tagged conservation.' href='/blog/category/conservation/'>conservation</a> <a class='tag' rel='tag category' title='View all posts tagged sharing.' href='/blog/category/sharing/'>sharing</a> <a class='tag' rel='tag category' title='View all posts tagged social.' href='/blog/category/social/'>social</a> <a class='tag' rel='tag category' title='View all posts tagged sustainability.' href='/blog/category/sustainability/'>sustainability</a> <a class='tag' rel='tag category' title='View all posts tagged views.' href='/blog/category/views/'>views</a> <a class='tag' rel='tag category' title='View all posts tagged wildlife.' href='/blog/category/wildlife/'>wildlife</a> <a class='tag' rel='tag category' title='View all posts tagged zoo.' href='/blog/category/zoo/'>zoo</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2014/12/oregon-zoo-small-actions/';
+    this.page.identifier = '/blog/2014/12/oregon-zoo-small-actions';
+    this.page.title = 'Oregon Zoo Small Actions'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2014/12/creating-dynamic-menus-in-jekyll/"><span class="fa fa-caret-left"></span> <span>Creating Dynamic Menus in Jekyll</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2014/12/six-scary-words/"><span>Six Scary Words and Un-hacking Drupal</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

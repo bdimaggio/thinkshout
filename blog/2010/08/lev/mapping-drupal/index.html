@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Mapping with Drupal | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="I've recently become more involved with map scripting in my work on LCREP, Save Our Gulf, Geomeridian, and a few others in the works.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal, mapping">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">08.05.2010</span>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+        <a class="topic" href="/blog/topic/technology">Technology and Innovation</a>
+      
+    
+  
+  </p>
+
+  <h1 class="post-title">Mapping with Drupal</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/lev.jpg">
+    
+      <a class="team-name" href="/team/lev/">Lev Tsypin</a>
+    <br>
+      Founder, CEO
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <p><img alt="compass" height="250" src="http://www.levelos.com/files/compass.png" style="float: right; margin: 0 0 10px 10px; border: none" width="200" /> I&#39;ve recently become more involved with map scripting in my work on <a href="http://maps.lcrep.org">LCREP</a>, <a href="http://saveourgulf.org/observations">Save Our Gulf</a>, <a href="http://geomeridian.com">Geomeridian</a>, and a few others in the works. One commonality amongst all the projects was the need to display geocoded data on a map, a problem solved many times over. When I began work on the first of these projects this past spring, the state of mapping in <a href="http://drupal.org">Drupal</a> boiled down to these tools.</p>
+<h2>Mapedelic</h2>
+<p>Mapedelic is the name given to the powerful and well established duo of <a href="http://drupal.org/project/location">Location</a> and <a href="http://drupal.org/project/gmap">Gmap</a>. The former stores address and coordinates as either CCK fields or in its own schema and can geocode addresses when called upon. The latter then renders those locations on a Google map. Gmap also plays well with Views. Both these modules have large install bases and have been in use for some time.</p>
+<h3>Pros</h3>
+<ul><li>Large, well established user base</li><li>Stability</li><li>Geocoding of addresses</li></ul>
+<h3>Cons</h3>
+<ul><li>Location paradigm of collecting addresses is not applicable for more diverse use cases.</li><li>Geocoding has some problems when updating addresses.</li><li>You can&#39;t change between a fields and node based approach. Since fields is by far more flexible, and the future, there&#39;s lots of code debt to the pure nodes approach that most people don&#39;t need.</li><li>Gmap uses the legacy v2 Google Maps API.</li><li>Configuration and customization of the Gmaps output can be difficult.</li><li>You&#39;re locked into using Google Maps.</li></ul>
+<h2><a href="http://drupal.org/project/openlayers">OpenLayers</a></h2>
+<p>From the project page,</p>
+<blockquote>The OpenLayers Module and its submodules bring the <a href="http://openlayers.org">OpenLayers JS library</a> into Drupal. They enable users to combine maps from different map providers with data from Views and CCK input. The OpenLayers JavaScript library is open source, making it flexible and capable across standards as well as proprietary APIs.</blockquote>
+<h3>Pros</h3>
+<ul><li>Well thought out architecture and API allowing for many use cases.</li><li>Comes bundled with OpenLayers CCK, a WKT field which can store point, linestring, or polygon data in a single field. It also comes with a &quot;map picker&quot;, allowing users to enter data via a map interface.</li><li>Ecosystem of supporting modules such as <a href="http://drupal.org/project/openlayers_proximity">OpenLayers Proximity</a>, <a href="http://drupal.org/project/openlayers_geocoder">OpenLayers Geocoder</a>, <a href="http://drupal.org/project/geotaxonomy">Geo Taxonomy</a>, and <a href="http://drupal.org/project/mapbox">MapBox</a>.</li><li>Provides a set of tools to mash your Drupal data with external sources, E.g., KML files.</li><li>OpenLayers is open source, unlike the proprietary map scripting APIs from Google, Yahoo, and Bing.</li></ul>
+<h3>Cons</h3>
+<ul><li>The flexibility translates to a complicated setup and configuration.</li><li>Views integration is particularly non-intuitive, as you have to create at least 2 views. One for your data and another simply as a &quot;vehicle&quot; to carry your preset along.</li><li>Still in alpha and there are some stability issues.</li><li>The OpenLayers library slows to a crawl with more than 500 or so features on a map.</li><li>There are potential licensing issues when using tiles from proprietary providers like Google. Basically, OpenLayers directly accesses the map tiles of a given provider without going through their APIs, and that&#39;s against Google&#39;s TOS unless one gets express permission. Not to mention Google could easily shut down access to it&#39;s tiles by OpenLayers, not that there&#39;s any indication they would do that.</li></ul>
+<h2><a href="http://drupal.org/project/geo">Geo</a></h2>
+<p>I really want to love this module, as it stores geo data natively in a spatially enabled databases, PostGIS and MySql Spatial specifically. This allows for powerful and efficient spatial queries, such as, do these set of points fall in this polygon, or do these two linestrings intersect and, if so, where? It also provides support for proximity filters within Views. Unfortunately, though, I&#39;ve found that it&#39;s just not ready for production, is very unstable, and difficult to work with. It has also been stuck in alpha for nearly a year, with no new releases since April. One of the challenges that Geo, or any module wanting to implement native spatial data storage, is that the Drupal schema API doesn&#39;t support a spatial datatype, although there are some work arounds.</p>
+<h2><a href="http://drupal.org/project/gmaps">GMAPS</a></h2>
+<blockquote>This project integrates the Google Maps API and Google Static Maps API. It makes possible to add addresses and/or coordinates (points) to nodes through CCK fields, display these geographical informations on node pages as text or interactive map or static map and use them on GeoRSS feeds. The project provides style plugins and row style plugins for views to build both interactive and static maps. This project is an independent competitor for the Location and GMap pair (also known as Mapadelic), and this is the successor of the Google Client Geocoder project.</blockquote>
+<p>I have to admit that I have spent the least amount of time working with this module, but the feature set does look very promising. A couple of things that jump out.</p>
+<ul><li>It has LOTS of dependencies.</li><li>Still using the deprecated V2 of the Google API.</li><li>The whole proprietary provider thing.</li><li>On the plus side, it implements <a href="http://code.google.com/apis/maps/documentation/staticmaps/">Google Static Maps API</a> which, returns a single map graphic when passes a set of points and other parameters.</li></ul>
+<h2><a href="http://drupal.org/project/mapstraction">Mapstraction</a></h2>
+<p>When we began working on <a href="http://maps.lcrep.org">maps.lcrep.org</a>, I decided that using the <a href="http://mapstraction.com">Mapstraction library</a> was the best option, and in the process I took over the development and maintenance of the module and released a 2.x branch, which uses the newest version of the API and adds many other improvements.</p>
+<blockquote>This module delivers support for the Mapstraction javascript library, which provides an abstraction layer for the various map providers including Google, Yahoo!, and MapQuest. It allows you to quickly display maps on your site from multiple providers and switch between providers without worrying about differences in their APIs. The module provides a Views style plugin and an API for developers to use maps elsewhere. When the Views style is used, it will display nodes as points on a map. The latitude/longitude points, info balloon contents, map icon, and one or more attributes can be provided by any view fields, including those from CCK. Other settings can be seen on the attached screen shot.</blockquote>
+<p>The architecture of the module is very simple. Aside from a set of core API calls developers can use in their code to render maps, it exposes a Views style plugin which has options for mapping fields to coordinates, tooltips, map icons, and attributes. The last item is a nice feature of Mapstraction. Any point on a map can have an arbitrary collection of attributes, really name/value pairs, which can then be used to filter the map with a simple Javascript call. That&#39;s how we&#39;re doing the map filtering on maps.lcrep.org. We also used an updated version of the module, with Google V3 integration, on <a href="http://saveourgulf.org">Save Our Gulf</a>. The module is in fairly active development, and is plotting along with the Mapstraction library. So when an official release of that will be made, I&#39;ll do the same with the module.</p>
+<h2>Conclusion</h2>
+<p>In the end, the right mapping tool of course depends on the requirements. For complex interfaces that display lots of different data, I think OpenLayers might be the way to go, at least if your rendering less than 500 points on a single map. For fairly simple requirements such as plotting points on a map, I think Mapstraction is a great fit, but, of course, I&#39;m biased towards it. All of the tools discussed here are excellent, and, I have to stress, are evolving rapidly, so what might be unstable one day may be polished and ready for production the next. And they all point to the powerful mapping features that can be built with Drupal. I have also begun work on two additional mapping related modules. A dedicated <a href="http://code.google.com/apis/maps/documentation/javascript/">Google Maps Javascript API</a> taking full advantage of the V3 feature set and a fields module integrating with <a href="http://simplegeo.com/">SimpleGeo</a>. Early suggestions welcome!</p>
+
+<p><em>Note that this article was originally published by Lev at http://www.levelos.com/blog/2010/08/mapping-drupal.</em></p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal.' href='/blog/category/drupal/'>Drupal</a> <a class='tag' rel='tag category' title='View all posts tagged mapping.' href='/blog/category/mapping/'>mapping</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2010/08/lev/mapping-drupal/';
+    this.page.identifier = '/blog/2010/08/lev/mapping-with-drupal';
+    this.page.title = 'Mapping with Drupal'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2010/06/sean/thinkshout-turns-1-year-old-today/"><span class="fa fa-caret-left"></span> <span>ThinkShout turns 1-year old today!</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2010/09/sean/watershed-now-released-geeks/"><span>Watershed Now! released!! (For geeks)</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+  <div class="team-member-blog">
+    <div class="container">
+      <h4>Related Blog Posts</h4>
+      <div class="row posts">
+        
+        
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/05/Space-for-Empathy/">
+    <p class="post-date">05.24.2018</p>
+    <h3 class="post-title">Space for Empathy</h3>
+    <p class="post-short">How do we make space for empathy in our work and in our community? Jules takes us on a deep dive into what she learned at this year's DrupalCon</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/jules.jpg">
+      <span class="byline-text">
+        <strong>Jules Dickey</strong><br>
+        <span class="position">Software Engineer</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/05/Making-GDPR-Preparations/">
+    <p class="post-date">05.13.2018</p>
+    <h3 class="post-title">Preparing for the GDPR</h3>
+    <p class="post-short">The European Union’s General Data Protection Regulations go into effect May 25th. Here's how you need to prepare.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/tauno.jpg">
+      <span class="byline-text">
+        <strong>Tauno Hogue</strong><br>
+        <span class="position">Chief Technology Officer</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/01/Great-hoodie-mystery/">
+    <p class="post-date">01.06.2018</p>
+    <h3 class="post-title">The Great Hoodie Mystery</h3>
+    <p class="post-short">Gabe takes what would otherwise be an inane office exchange and ties it back to data structures.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/gabe.jpg">
+      <span class="byline-text">
+        <strong>Gabe Carleton-Barnes</strong><br>
+        <span class="position">Director of Engineering</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+            
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/mailchimp/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Upgrading MailChimp eCommerce and an Introduction to Drupal 8's Event System</title>
+  <description>
+    <![CDATA[<p>If you’ve ever built a Drupal 7 module, then you’ll be familiar with hooks: functions that allow modules to react to things happening in other modules. The hook system is functionally fine but, with so many hooks to implement, .module files often become bloated and difficult to manage.</p>
+
+<p>Drupal 8’s event system does a lot to reduce the clutter of hooks. Now, instead of using a hook, you can create an event subscriber that will execute your code every time a module triggers an event. This is similar to the hook system only in the effect; the execution is very different.</p>
+
+<p>Porting our popular MailChimp eCommerce module to Drupal 8 gave me the perfect opportunity learn about the event system. I use the word “opportunity” to disguise the fact that I was forced to learn how events work because it was impossible to port the module without doing so.</p>
+
+<p>The MailChimp eCommerce module depends on the Commerce module, naturally, and in Drupal 8, the Commerce module makes heavy use of events.</p>
+
+<p>First, let’s look at an event. I’m using an example ripped straight from Commerce.</p>
+
+<p>The Commerce submodule, Commerce Cart, contains a class named <code class="highlighter-rouge">CartEntityAddEvent</code>. You can <a href="http://cgit.drupalcode.org/commerce/tree/modules/cart/src/Event/CartEntityAddEvent.php?h=8.x-2.x">find it here</a>.</p>
+
+<p>The class itself is simple; it’s designed to store a few values - the cart, the item being added to the cart, and the quantity of that item. The class also has a few getter functions for convenience.</p>
+
+<p>Most importantly, this class represents an event that’s triggered every time a user adds an item to their shopping cart. This is done using just two lines of code:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$event</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CartEntityAddEvent</span><span class="p">(</span><span class="nv">$cart</span><span class="p">,</span> <span class="nv">$purchased_entity</span><span class="p">,</span> <span class="nv">$quantity</span><span class="p">,</span> <span class="nv">$saved_order_item</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">eventDispatcher</span><span class="o">-&gt;</span><span class="na">dispatch</span><span class="p">(</span><span class="nx">CartEvents</span><span class="o">::</span><span class="na">CART_ENTITY_ADD</span><span class="p">,</span> <span class="nv">$event</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The event class is created with all the relevant values, then “dispatched” to any event subscribers configured to pay attention to it. When dispatched, the event is identified by a constant - <code class="highlighter-rouge">CartEvents::CART_ENTITY_ADD</code>. This constant is used by event subscribers, which we’ll take a look at now.</p>
+
+<p>This is a cut-down version of an event subscriber used by our <a href="https://www.drupal.org/project/mailchimp_ecommerce">MailChimp eCommerce module</a>.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sd">/**
+ * Event Subscriber for Commerce Carts.
+ */</span>
+<span class="k">class</span> <span class="nc">CartEventSubscriber</span> <span class="k">implements</span> <span class="nx">EventSubscriberInterface</span> <span class="p">{</span>
+
+  <span class="sd">/**
+   * The Cart Handler.
+   *
+   * @var \Drupal\mailchimp_ecommerce\CartHandler
+   */</span>
+  <span class="k">private</span> <span class="nv">$cart_handler</span><span class="p">;</span>
+
+  <span class="sd">/**
+   * The Order Handler.
+   *
+   * @var \Drupal\mailchimp_ecommerce\OrderHandler
+   */</span>
+  <span class="k">private</span> <span class="nv">$order_handler</span><span class="p">;</span>
+
+  <span class="sd">/**
+   * CartEventSubscriber constructor.
+   *
+   * @param \Drupal\mailchimp_ecommerce\CartHandler $cart_handler
+   *   The Cart Handler.
+   * @param \Drupal\mailchimp_ecommerce\OrderHandler $order_handler
+   *   The Order Handler.
+   */</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">CartHandler</span> <span class="nv">$cart_handler</span><span class="p">,</span> <span class="nx">OrderHandler</span> <span class="nv">$order_handler</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cart_handler</span> <span class="o">=</span> <span class="nv">$cart_handler</span><span class="p">;</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">order_handler</span> <span class="o">=</span> <span class="nv">$order_handler</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="sd">/**
+   * Respond to event fired after adding a cart item.
+   */</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">cartAdd</span><span class="p">(</span><span class="nx">CartEntityAddEvent</span> <span class="nv">$event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="sd">/** @var \Drupal\commerce_order\Entity\Order $order */</span>
+    <span class="nv">$order</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getCart</span><span class="p">();</span>
+
+    <span class="sd">/** @var \Drupal\commerce_order\Entity\OrderItem $order_item */</span>
+    <span class="nv">$order_item</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getOrderItem</span><span class="p">();</span>
+
+    <span class="nv">$product</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">order_handler</span><span class="o">-&gt;</span><span class="na">buildProduct</span><span class="p">(</span><span class="nv">$order_item</span><span class="p">);</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cart_handler</span><span class="o">-&gt;</span><span class="na">addCartLine</span><span class="p">(</span><span class="nv">$order</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">(),</span> <span class="nv">$order_item</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">(),</span> <span class="nv">$product</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="sd">/**
+   * {@inheritdoc}
+   */</span>
+  <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getSubscribedEvents</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$events</span><span class="p">[</span><span class="nx">CartEvents</span><span class="o">::</span><span class="na">CART_ENTITY_ADD</span><span class="p">][]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'cartAdd'</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="nv">$events</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/thinkshout/mailchimp_ecommerce/blob/8.x-1.x/modules/mailchimp_ecommerce_commerce/src/EventSubscriber/CartEventSubscriber.php">Here’s the complete version, if you’re interested</a>.</p>
+
+<p>So what does it do, exactly?</p>
+
+<p>Let’s start with the <code class="highlighter-rouge">getSubscribedEvents()</code> function. This is where we define which events we want to subscribe to, and assign each event a processing function. Here we are subscribing to just one event, the “cart entity add” event, and assigning the <code class="highlighter-rouge">cartAdd()</code> function as a processor.</p>
+
+<p>Note that the <code class="highlighter-rouge">cartAdd()</code> function takes one argument, an instance of the <code class="highlighter-rouge">CartEntityAddEvent</code> class. That’s the same class we looked at earlier - the event class defined in the Commerce Cart module. This is where our module reacts to that event being triggered.</p>
+
+<p>The <code class="highlighter-rouge">cartAdd()</code> function itself extracts the order and item information from the event and uses an instance of the <code class="highlighter-rouge">CartHandler</code> class, provided by the MailChimp eCommerce module, to send updated cart information to MailChimp’s API.</p>
+
+<p>One final thing:</p>
+
+<p>Event subscribers won’t work unless they are defined as a service. Services are defined in a module’s *.services.yml file, which you can <a href="https://www.drupal.org/docs/8/api/services-and-dependency-injection/structure-of-a-service-file">learn more about here</a>.</p>
+
+<p>The service definition for the <code class="highlighter-rouge">CartEventSubscriber</code> looks like this:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">mailchimp_ecommerce_commerce.cart_event_subscriber</span><span class="pi">:</span>
+    <span class="na">class</span><span class="pi">:</span> <span class="s1">'</span><span class="s">\Drupal\mailchimp_ecommerce_commerce\EventSubscriber\CartEventSubscriber'</span>
+    <span class="na">arguments</span><span class="pi">:</span> <span class="pi">[</span><span class="s1">'</span><span class="s">@mailchimp_ecommerce.cart_handler'</span><span class="pi">,</span> <span class="s1">'</span><span class="s">@mailchimp_ecommerce.order_handler'</span><span class="pi">]</span>
+    <span class="na">tags</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="pi">{</span> <span class="nv">name</span><span class="pi">:</span> <span class="nv">event_subscriber</span> <span class="pi">}</span>
+</code></pre></div></div>
+
+<p>We identify the class using its namespace, inject the “cart_handler” and “order_handler” services, then, finally, tag the service as an “event_subscriber”. <a href="https://github.com/thinkshout/mailchimp_ecommerce/blob/8.x-1.x/modules/mailchimp_ecommerce_commerce/mailchimp_ecommerce_commerce.services.yml">Check out the full file here</a>. Just for completeness, the two injected services are defined in <a href="https://github.com/thinkshout/mailchimp_ecommerce/blob/8.x-1.x/mailchimp_ecommerce.services.yml">here</a>.</p>
+
+<p>I’m a big fan of how Drupal 8 has shifted towards a more object-oriented way of doing things. It’s more organized, promotes consistency between modules, and, best of all, finally signals an end to massive .module files.</p>
+
+]]>
+  </description>
+  <pubDate>Thu, 06 Jul 2017 12:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/07/upgrading-mailchimp-ecommerce-and-and-introduction-to-drupal-8s-event-system/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/07/upgrading-mailchimp-ecommerce-and-and-introduction-to-drupal-8s-event-system/</guid>
+</item>
+
+    
+      <item>
+  <title>See No Email, Hear No Email, Speak No Email</title>
+  <description>
+    <![CDATA[<p>Listen up, Drupal savvy MailChimp fans. We’ve got some news for you: MailChimp recently rolled out a newer and more robust version of their API - <a href="http://developer.mailchimp.com/documentation/mailchimp/">MailChimp API version 3.0</a>! Now I can probably guess what you’re thinking so I’ll just come out and say it: this means <a href="https://apidocs.mailchimp.com/api/2.0/">MailChimp’s API version 2.0</a> is about to become deprecated, and we’re not monkeying around.</p>
+
+<p>For those of you using the 8.x and 7.x-4.x branches of the <a href="https://www.drupal.org/project/mailchimp">MailChimp module</a>, feel free to sit back and relax - you are already using MailChimp’s API v3.0. Those of of you still using the 7.x-2.x and 7.x-3.x branches, get ready: API v2.0 will be phased out on December 31st, so we encourage you all to upgrade.</p>
+
+<p>Don’t be a furious George - we’ve got you covered. Our documentation up on <a href="https://www.drupal.org/project/mailchimp">Drupal.org</a> has been updated, and we’ve provided information that will help make your upgrade experience as seamless as possible. We’ve even included a shiny new <a href="https://www.drupal.org/node/2793241">FAQ page</a> this go around. For additional support, feel free to post questions on <a href="http://drupal.stackexchange.com/questions/tagged/mailchimp">Drupal Answers</a>.</p>
+
+<p>Alright, let’s get down to monkey business. Those of you who upgrade are about to have a module that is regularly maintained, has an improved infrastructure (see the <a href="http://cgit.drupalcode.org/mailchimp/tree/README.txt">README.txt</a> on the 7.x-4.x branch for more info), and can be integrated with the new <a href="https://www.drupal.org/project/mailchimp_ecommerce">MailChimp E-Commerce module</a> (more on that in a future blogpost) - now, that’s something to go bananas for!</p>
+]]>
+  </description>
+  <pubDate>Thu, 01 Sep 2016 09:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2016/09/see-no-email-mailchimp/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/09/see-no-email-mailchimp/</guid>
+</item>
+
+    
+      <item>
+  <title>The Next Chapter for Mandrill</title>
+  <description>
+    <![CDATA[<p>It’s easy to take for granted all the great tools we use on the web, everything from email, to social media, to git hosting. Many of these services are free or use advertising to support the sometimes significant costs to run them. <a href="https://www.mandrill.com/">Mandrill</a> is one of those great tools and one that we’ve been recommending to our clients on a consistent basis. If you’re unfamiliar with Mandrill, it’s a transactional email service for sending email ranging from password resets to Commerce receipts. Now we realize that your webserver can already send email, so why bother with a service like Mandrill? It offers three major advantages:</p>
+
+<ul>
+  <li>Deliverability</li>
+  <li>Reporting and accountability</li>
+  <li>Templated emails that look great across all email clients</li>
+</ul>
+
+<p>As the team who originally partnered with <a href="http://mailchimp.com/">MailChimp</a> to build the <a href="https://www.drupal.org/project/mandrill">Mandrill module</a>, we might be a bit biased, but we think it’s one of the best transactional email services out there that integrates with Drupal. We have many clients that use both <a href="https://www.drupal.org/project/mailchimp">MailChimp</a> and Mandrill, and many that use Mandrill by itself. In fact, we just completed a <a href="https://www.drupal.org/node/2683599">Mandrill 8.x-1.0-alpha1</a> release with all the great features of Mandrill for Drupal 8.</p>
+
+<p>Change is inevitable though, and MailChimp has decided to refocus the Mandrill service on their core value of delivering customized email to users. This doesn’t mean Mandrill is going away by any means, just that it’s new focus will be on delivery of 1:1 customized emails as opposed to 1:many emails. MailChimp already provides a great way of delivering 1:many emails as a part of your email campaigns, and Mandrill will focus on the customized 1:1 delivery of email. This should reduce the number of users using Mandrill to send 1:many emails, many of which are spammers abusing the system.</p>
+
+<p>You can read more about the announcement on the <a href="http://blog.mandrill.com/important-changes-to-mandrill.html">MailChimp blog</a> along with the <a href="https://mandrill.zendesk.com/hc/en-us/articles/217467117-Mandrill-MailChimp-Transition-FAQs">FAQ</a> they prepared for customers. At the heart of the change is the requirement of having a paid MailChimp account and purchasing Mandrill credits to use the Mandrill service. Your MailChimp and Mandrill accounts can be merged on March 16th and a single monthly subscription will be maintained going forward. According to the MailChimp FAQ, the minimum cost of having both services will be $10 for the basic MailChimp account and $20 for 25,000 Mandrill emails sent in a month.</p>
+
+<p>This does mean Mandrill as a free service is going away and for some people, this means that they’ll need to find an alternative transactional email service. The good news is that there are alternatives out there, and some are even honoring Mandrill’s free level. If you’re looking for one of those free alternatives, try <a href="https://www.sparkpost.com/">Sparkpost</a>, <a href="http://aws.amazon.com/ses/details/">Amazon SES</a>, or <a href="https://sendgrid.com/">SendGrid</a>. Not all of these services have Drupal modules at this point, but many do, and could be worth trying out.</p>
+
+<p>Our recommendation for many of our clients is to stick with Mandrill for a number of reasons. For those that already use MailChimp and Mandrill, the additional monthly cost is not significant enough to switch in many cases, and having a single account to manage can be beneficial. For those clients that only use Mandrill now, adding a new monthly cost can feel a bit more burdensome. The stability of the Mandrill service and Drupal module does outweigh the cost of switching in many situations, but we are sensitive to our clients’ budgets and may look at the alternatives if it makes sense. It’s important to note that all Mandrill accounts must be merged with an existing MailChimp account by April 27th.</p>
+
+<p>What does this mean for the <a href="https://www.drupal.org/project/mandrill">Mandrill module</a> for Drupal and our ongoing support and maintenance of it? MailChimp has assured us they are committed to the Mandrill service for the foreseeable future and will be looking at ways MailChimp and Mandrill can work better together. We also see a lot of ways the two modules can be combined and managed as one, making it easier for users to view activity across the two services in one place. At this point, we will continue our support and development of the module, including the new <a href="https://www.drupal.org/node/2683599">Mandrill D8</a> release. We are excited to see where the Mandrill module goes and the additional value that MailChimp adds to the service going forward. Stay tuned for the next chapter of Mandrill!</p>
+]]>
+  </description>
+  <pubDate>Wed, 09 Mar 2016 10:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2016/03/next-chapter-for-mandrill/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/03/next-chapter-for-mandrill/</guid>
+</item>
+
+    
+      <item>
+  <title>Porting ThinkShout to Drupal 8</title>
+  <description>
+    <![CDATA[<p>A fundamental part of ThinkShout’s philosophy and business is to not only use great open source tools, but to <a href="http://thinkshout.com/blog/2015/03/the-how-and-why-of-open-source/">actively give back</a> to the open source community. The most recognizable part of that contribution is in the form of Drupal modules: over 60,000 Drupal sites run on ThinkShout technology! This strategy has been a huge <a href="http://thinkshout.com/blog/2014/09/small-business-of-nonprofits/">win for our clients</a>, who get features, bugfixes, and security updates from the community because they are sharing code. We benefit from this work as well, as it enhances our profile in the community and helps us generate leads for new projects. Of course, the vast majority of these sites are built on Drupal 7, which <a href="https://www.drupal.org/drupal-7-released">released</a> in the same month that <a href="http://thinkshout.com/blog/2016/01/five-years/">ThinkShout was founded</a>.</p>
+
+<p>The exciting and much-anticipated release of Drupal 8 has given us a lot to think about. Internally, we’ve been running a Drupal 8 “book club” to give our development team a chance to dive in and figure out what’s going on with D8. While we’ve bathed in the glories of Composer, Twig, and YAML files galore, we’ve also had a chance to start upgrading a few of our favorite modules to Drupal 8!</p>
+
+<p>With support from the incredible folks over at <a href="http://mailchimp.com/">MailChimp</a>, we’ve already got a working release of the <a href="https://www.drupal.org/project/mailchimp">MailChimp integration module</a> for Drupal 8, and are hard at work on the <a href="https://www.drupal.org/project/mandrill">integration with Mandrill</a>, MailChimp’s awesome transactional email service, which may have a Drupal 8 release before this blog post goes live.</p>
+
+<p>This is a great start, but it’s really only the tip of the iceberg: ThinkShout has about 50 modules released for Drupal 7! As much as we’d love to dive in and update all of them for Drupal 8 today, that’s not particularly practical. To better focus our work, I analyzed some of these modules so we can prioritize them and look for opportunities to work with our partners and clients to get the most useful, popular, and important modules upgraded to Drupal 8 first.</p>
+
+<p>Of our 50 modules, we started by de-prioritizing anything that was:</p>
+
+<ul>
+  <li>
+    <p>Extremely narrow in purpose (<a href="https://www.drupal.org/project/er_plus">Entity Reference Plus Data</a>)</p>
+  </li>
+  <li>
+    <p>Blocked by another module’s Drupal 8 development (<a href="https://www.drupal.org/project/apachesolr_geo">Apache Solr Geo</a>, lots of others)</p>
+  </li>
+  <li>
+    <p>Offers modest functionality replaceable by custom code (<a href="https://www.drupal.org/project/footer_message">Footer Message</a>) or</p>
+  </li>
+  <li>
+    <p>Just not seeing much usage (<a href="https://www.drupal.org/project/instagram">Instagram Realtime</a>)</p>
+  </li>
+</ul>
+
+<p>That left us with around 10 projects, among them MailChimp and Mandrill, which we were already working on. We wanted to pick a manageable number of these remaining modules to get started on.</p>
+
+<p>Based on community usage, the priorities of our clients, and perceived usefulness, it was clear that the <a href="https://www.drupal.org/project/registration">Registration module</a> belonged on this list. The story of Registration’s development is connected to the story of ThinkShout’s fledgling years and open source philosophy, so it’s an added bonus that Registration will be part of our early push into Drupal 8.</p>
+
+<p>ThinkShout has also carved out a reputation as experts in the CRM world, with <a href="https://www.drupal.org/project/redhen">RedHen</a>, our leading Drupal-integrated CRM, and the <a href="https://www.drupal.org/project/salesforce">Salesforce Suite</a>, a fabulous tool for integrating Drupal sites with Salesforce. Though these modules don’t have the 5-digit usage numbers that Registration or MailChimp have, they still have lots of users who are very engaged, and are central to the needs of our clients. We added them to the top of the list for Drupal 8 consideration.</p>
+
+<p>In thinking about the rest of our modules and the nature of our work, it became clear that these three projects really stand out from the rest: they are our “Big 3”, and we set about creating a roadmap for developing them on Drupal 8.</p>
+
+<p>You can already see the beginnings of this work! At our team sprint on February 11, we put together an outline for bringing RedHen to Drupal 8, and pushed the first commits to Drupal.org.</p>
+
+<p><img src="/assets/images/blog/porting-thinkshout.jpg" alt="porting-thinkshout.jpg" />
+<em>These are our sprint faces!</em></p>
+
+<p>As of February 11, all of the Big 3 have nominal Drupal 8 branches.</p>
+
+<p>As we kick off four Drupal 8 sites in the first part of this year, we will be working with our clients to bring Registration, RedHen CRM, and Salesforce Suite to Drupal 8. All three should update beautifully, as they are built on top of Entity API, which is part of Core in D8.</p>
+
+<p>We will also be focusing our internal open source contribution hours on these three projects to kickstart their jump into the Drupal 8 sea. If you’re looking for awesome CRM or registration systems for your Drupal 8 site, fear not! They are on their way.</p>
+
+<p>We have two Drupal 8 sites utilizing ThinkShout core technologies scheduled for launch this summer, so look for a release of RedHen in the spring!</p>
+
+<p>Our next round of prioritization will depend significantly on the progress of Commerce solutions in Drupal 8: once that landscape settles, we have some projects that will jump up that priority list, including:</p>
+
+<ul>
+  <li>
+    <p><a href="https://www.drupal.org/project/registration_commerce">Registration Commerce</a>, our favorite paid registration solution</p>
+  </li>
+  <li>
+    <p><a href="https://www.drupal.org/project/redhen_donation">RedHen Donation</a>, our CRM-integrated, single-page donation tool</p>
+  </li>
+  <li>
+    <p><a href="https://www.drupal.org/project/commerce_iats">Commerce IATS</a>, the payment integration module for our favorite nonprofit-focused payment processing partner, <a href="http://home.iatspayments.com/">iATS Payments</a></p>
+  </li>
+</ul>
+
+<p>So if you’re a fan of our Commerce integrations, or <a href="https://www.drupal.org/project/addtocal">Add to Cal</a>, or even little <a href="https://www.drupal.org/project/bean_entity_view">Bean Entity View</a> (I know I am): stay tuned! We love these tools, we love that you’re using them, and we look forward to bringing you even more awesome stuff for Drupal 8 than we have for Drupal 7!</p>
+
+]]>
+  </description>
+  <pubDate>Tue, 23 Feb 2016 10:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2016/02/porting-thinkshout-to-drupal-8/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/02/porting-thinkshout-to-drupal-8/</guid>
+</item>
+
+    
+      <item>
+  <title>Meet the ThinkShout Team at DrupalCon LA!</title>
+  <description>
+    <![CDATA[<p>It’s that time of year again - that’s right, DrupalCon! We’re excited to visit sunny (and warm, and apparently very dry) Los Angeles this year for DrupalCon 2015. We might have to dust off our shorts for this one.</p>
+
+<p>The location for this year’s conference holds a special place in our hearts, as we have a handful of awesome clients and partners (and some friends, too) that we can’t wait to see while we geek out about all things Drupal. As always, we’ll all be running around during this four day event, but here are all the specific places where you can catch up with us:</p>
+
+<h2 id="exhibit-hall">Exhibit Hall##</h2>
+
+<p>We’re partnering with our friends MailChimp at booth 800. Stop by for some cool swag, to talk shop, and learn about the exciting work we’re doing porting the MailChimp module to Drupal 8. We’re also hiring for <a href="http://thinkshout.com/careers/">several positions</a>, so if you’d like to meet face to face and get a better feel for what it would be like to join the ThinkShout team, come chat with us.</p>
+
+<h2 id="official-sessions">Official Sessions##</h2>
+
+<p><a href="https://events.drupal.org/losangeles2015/sessions/scaling-your-business-starts-right-spreadsheets-performance-metrics">Scaling Your Business Starts with the Right Spreadsheets: Performance Metrics</a><a href="https://events.drupal.org/losangeles2015/sessions/scaling-your-business-starts-right-spreadsheets-performance-metrics"> </a></p>
+
+<p>Join ThinkShout’s Sean Larkin and Forum One’s Chris Wolz as they discuss tools and techniques for collaboration and management that will help you make better long-term decisions for your business.</p>
+
+<p>Tuesday May 12th, 10:45-11:45am</p>
+
+<p>Room: 502B - Lullabot</p>
+
+<p><a href="https://events.drupal.org/losangeles2015/sessions/if-i-only-had-framework-creating-unified-digital-experience-across-3rd-party">If I Only Had a Frame(work): Crafting Experiences Across 3rd-Party Systems</a></p>
+
+<p>Lev Tsypin and Brett Meyer will discuss creating and developing a create a cohesive experience across multiple platforms even when they aren’t all open source.</p>
+
+<p>Wednesday May 13th, 1-2pm</p>
+
+<p>Room: 515A - Phase 2</p>
+
+<p><a href="https://events.drupal.org/losangeles2015/sessions/building-your-drupal-based-business-or-what-keeps-you-night">Building Your Drupal-Based Business, Or, What Keeps You Up at Night</a></p>
+
+<p>This facilitated panel session will include ThinkShout’s own Sean Larkin, and will cover insights from agency owners on lessons learned, areas of focus, and what NOT to worry about. All that and some guidance on best practices, and ideas to sustain and support growth - with an active audience Q&amp;A to boot.</p>
+
+<p>Wednesday May 13th, 2:15-3:15pm</p>
+
+<p>Room: Petree C - Acquia</p>
+
+<p><a href="https://events.drupal.org/losangeles2015/sessions/ballin-budget-how-create-great-design-without-breaking-bank">Ballin’ on a Budget: How to Create Great Design Without Breaking the Bank</a><a href="https://events.drupal.org/losangeles2015/sessions/ballin-budget-how-create-great-design-without-breaking-bank"> </a></p>
+
+<p>Our Lead User Experience Designer, Josh Riggs, will give us the low-down on creating kick-ass designs for any budget by utilizing solid design fundamentals, great communication, and maybe a few tricks up the sleeve.</p>
+
+<p>Thursday May 14th, 10:45-11:45am</p>
+
+<p>Room: 501 - NewMedia</p>
+
+<p><a href="https://events.drupal.org/losangeles2015/sessions/mailchimp-drupal-anatomy-successful-partnership">MailChimp and Drupal, The Anatomy of a Successful Partnership</a></p>
+
+<p>In this Lightning Talk, ThinkShout CTO Lev Tsypin and MailChimp API guru Nathan Ranson will cover the evolution of MailChimp’s support for Drupal, the basics of how the integration works, and hint at what’s to come for Drupal 8.</p>
+
+<p>Thursday May 14th, 1:15pm</p>
+
+<p>Room: TBD</p>
+
+<h2 id="birds-of-a-feather-bof">Birds of a Feather (BoF)##</h2>
+
+<p>ThinkShout team members will also be leading a couple of great BoF sessions. We hope to see you there!</p>
+
+<p><a href="https://events.drupal.org/losangeles2015/bofs/design-and-prototyping-methods-responsive-drupal-sites">Design and Prototyping Methods for Responsive Drupal Sites</a> with Josh Riggs (@joshriggs)</p>
+
+<p>Tuesday May 12th, 10:45-11:45am</p>
+
+<p>Room: 410 - The Cherry Hill Company</p>
+
+<p><a href="https://events.drupal.org/losangeles2015/bofs/integrating-drupal-salesforce">Integrating Drupal with Salesforce</a> with Tauno Hogue</p>
+
+<p>Wednesday May 13th, 10:45-11:45am</p>
+
+<p>Room: 505 - Chromatic</p>
+
+<p>And finally, as we mentioned earlier, we’re excited about visiting LA this year because we’ll get a bit of face time with some of the great west coast clients and partners we’ve been working with over the last few years. We will be hosting a special happy hour reception celebrating these LA organizations and honoring one of our long-time clients and partners, the <a href="http://thinkshout.com/work/la-conservancy/">Los Angeles Conservancy</a>, with a donation from our team.</p>
+
+<p>We hope to see you at DrupalCon this year. If you can’t make it, get in touch with us and we’ll fill you in on what you missed! You can also follow along on all the social networks: <a href="https://twitter.com/thinkshout">Twitter</a>, <a href="https://www.facebook.com/ThinkShout">Facebook</a>, and <a href="https://instagram.com/thinkshout/">Instagram</a> - we’ll keep you posted!</p>
+
+<p>To those of you heading down to LA, California or BUST!</p>
+]]>
+  </description>
+  <pubDate>Thu, 07 May 2015 09:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/05/drupalcon-la/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/05/drupalcon-la/</guid>
+</item>
+
+    
+      <item>
+  <title>Monkeying Around with D8</title>
+  <description>
+    <![CDATA[<h2 id="leading-the-charge">Leading the Charge</h2>
+
+<p>I have used A LOT of email marketing service providers over the years and my opinion of them was twofold: they were all similar and none of them were particularly great. Was it possible that this was just a category of business that would never be exciting or innovative? Was I destined to be a project manager who half-heartedly recommended whatever email service provider I was using most at the time to clients?</p>
+
+<p><em>Enter the Chimp…</em></p>
+
+<p>Despite its playful name, <a href="http://www.mailchimp.com">MailChimp</a> made a serious shift in a category that had always had potential but lacked a true champion. My first thought when I used the tool was that even if the feature set was identical to all its competitors, MailChimp’s user interface alone was what set it apart. But once I dug into its capabilities, I became a bona fide fan (dare I say ambassador) of the brand. From automated email workflows and slick segmentation capabilities, to the [Chimpadeedoo] (http://mailchimp.com/features/mobile-signup-forms/) tablet app that facilitates email sign-ups without an internet connection, MailChimp became the new king of the jungle.</p>
+
+<p>Fast forward a few years, and here I am working at ThinkShout, MailChimp’s Drupal partner. We built and maintain the MailChimp Drupal module, which is used by nearly 22,000 websites.</p>
+
+<p>If you are familiar with MailChimp’s motto - listen hard and change fast - (or if you just read the first couple paragraphs of this blog post), then it should come as no surprise that innovation is at the heart of MailChimp’s culture. With the release of Drupal 8 looming this Fall, MailChimp and ThinkShout saw a unique opportunity to lead the charge by porting one of the most popular email modules to be D8 compatible.</p>
+
+<h2 id="the-only-way-through-it-is-through-it">The Only Way Through it is Through it</h2>
+
+<p>Being a trailblazer isn’t easy, and MailChimp understood that pushing the envelope on D8 development would require a significant investment of time and resources. While the core MailChimp module is relatively simple, the bundled submodules are feature-rich and technically complex.</p>
+
+<p>Let’s recap what the MailChimp module allows you to do:</p>
+
+<ul>
+  <li>Any “object” in Drupal that has an email address, say a User, Contact, or even a Comment, can be automatically subscribed to a list and segmented based on other attributes, like their zip code.</li>
+  <li>Display a list subscription status on an entity or a subscription form.</li>
+  <li>Map Drupal Data, such as name and address, to merge fields in MailChimp.</li>
+  <li>Create forms to allow site visitors to sign up for any Mailchimp List or combination of Lists.</li>
+  <li>Create Pages, Blocks, or both to display forms.</li>
+  <li>Create campaigns containing any Drupal entity, or entities, as content.</li>
+  <li>Send campaigns created in Drupal through MailChimp or Drupal.</li>
+  <li>View campaign statistics and email activity for all list subscribers.</li>
+</ul>
+
+<p>Luckily, one of the greatest aspects of our partnership with MailChimp is our shared passion for recognizing opportunity in challenges and giving back to the community. With that spirit, a couple of ThinkShout engineers dove in head first with the goal of porting the majority of the popular D7 module’s features over to D8 in time for a beta release at [DrupalCon LA] (https://events.drupal.org/losangeles2015). During the process, they realized that the available Drupal 8 documentation wasn’t keeping up with the speedy pace of D8 development. Over the course of several weeks, our engineers updated documentation and created examples to make life (or at least development) a little easier for the next developer looking to create something similar.</p>
+
+<h2 id="its-a-sprint-not-a-marathon">It’s a Sprint, Not a Marathon</h2>
+
+<p>With the conference approaching, it was time to call on the ThinkShout village to help put the polish on the new module. Since nine heads are better than two when it comes to user testing and QA, we scheduled a sprint to focus our engineering department on providing that critical perspective needed at the end of a large development project.</p>
+
+<p><img src="/assets/images/blog/mailchimp_roadmap1.jpg" alt="mailchimp_roadmap1.jpg" /></p>
+
+<p>During our afternoon sprint, our team ran a battery of tests (both human and automated) to document and resolve bugs. Our engineering staff has grown quite a bit recently, so the sprint also provided an opportunity for knowledge sharing about MailChimp and D8 development across the team. As a non-engineer fly on the wall, it was exciting to witness the energy at the sprint table, as bugs were closed and high-fives were thrown.</p>
+
+<h2 id="the-future-is-now">The Future is Now</h2>
+
+<p>So far, I’ve focused on what some of the challenges of early D8 development have been, and you’re surely wondering by now “So, what do you think about D8?” Short answer: we’re excited, and we think you should be, too.</p>
+
+<p>Drupal 8 standardizes module development by enforcing PSR-4 compliant namespaces. Whereas D7 allows developers to dictate where a form or entity is placed, for example, D8 loads files in the correct path automatically. What does this mean for developers? Well, it means time saved by not having to search an entire codebase to find where the developer before you placed a form. And because this structure is more in line with general engineering practices, it will be easier for any developer to ramp up for Drupal development.</p>
+
+<p>But the benefits aren’t just for developers. We are also excited about the efficiencies that will be created for our nonprofit clients. Not only do they stand to benefit from the streamlined development approach, but that shift in approach will also make it easier to find resources to maintain and enhance their sites.</p>
+
+<h2 id="learn-more-about-the-new-mailchimp-module">Learn More About the New MailChimp Module</h2>
+
+<p>Come and see us at [DrupalCon LA] (https://events.drupal.org/losangeles2015), where our very own [Lev Tsypin] (http://thinkshout.com/team/lev/) will be giving a [lightning talk] (https://events.drupal.org/losangeles2015/sessions/mailchimp-drupal-anatomy-successful-partnership) about the evolution of MailChimp’s support for Drupal, the basics of how the integration works, and a hint at what’s to come for Drupal 8. Don’t worry if you can’t make it to the talk because we’ll also be hanging out in the MailChimp booth. And if you spot one of us (you’ll recognize us by our ThinkShout hoodies), stop us! We’d love to chat about what we’ve learned about D8 and why were are excited for its release. Also, be sure to check out <a href="http://thinkshout.com/blog/category/mailchimp/">past blogs</a> we’ve written about our work on the MailChimp module.</p>
+
+]]>
+  </description>
+  <pubDate>Tue, 05 May 2015 09:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/05/mailchimp-d8-sprint/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/05/mailchimp-d8-sprint/</guid>
+</item>
+
+    
+      <item>
+  <title>Join ThinkShout for Drupal Day and the NTC</title>
+  <description>
+    <![CDATA[<p><a href="http://www.nten.org/">NTEN’s</a> <a href="http://myntc.nten.org/home">Nonprofit Technology Conference</a> is nearly upon us! We’re gearing up to ship out to Austin, and we’re putting the finishing touches on <a href="http://myntc.nten.org/eventdetails/precon/drupal">Drupal Day</a>. This is one of our favorite events of the year, as it’s when we get to meet up with many of our nonprofit partners, learn about new organizations and their causes, and share our expertise with the folks that need it to further their missions. We’re especially excited about the Drupal Day we’ve been coordinating for the last several months.</p>
+
+<p>What’s Drupal Day? Well, the name pretty much gives it away, but specifically, it’s a full-day, pre-conference event that we’ve been organizing for the past few years. It’s full of Drupal trainings, discussions, and nonprofit technology staff sharing their successes with their community. Breakout session topics vary from content strategy, accessibility, fundraising, CRMs, design, and more, all led by Drupal experts. The day concludes with our keynote presentation on the future of Drupal and Drupal 8 by <a href="https://pantheon.io/team/zack-rosen">Zack Rosen</a>, CEO of Pantheon. All Drupal Day attendees and speakers are invited to join us for a sponsored Happy Hour at the Brass House that evening. Want to stay in the loop on Twitter? Look for the hashtag #15NTCDrupal. Of course, Drupal Day wouldn’t be possible without the help of its co-sponsors, <a href="http://atendesigngroup.com/">Aten Design</a>, <a href="http://forumone.com/">Forum One</a>, <a href="http://www.gortonstudios.com/">Gorton Studios</a>, <a href="https://messageagency.com/">Message Agency</a>, and <a href="https://www.zivtech.com/">Zivtech</a>.</p>
+
+<p>That’s not all we’re up to, though. This year, you can find the ThinkShout team at <strong>booth #301</strong> in the Science Fair on Wednesday and Thursday. Our friends at <a href="http://mailchimp.com/?pid=GAW&amp;source=website&amp;gclid=CIOxieHf-8MCFVFhfgodvBAA_Q">MailChimp</a> couldn’t attend the NTC this year, but they made sure you wouldn’t go home empty handed. Stop by our booth for your NTC MailChimp swag, and come talk to us about <a href="http://thinkshout.com/blog/category/mailchimp/">how we’re integrating Drupal with MailChimp</a>. We’ve also got a few ThinkShout goodies we’ll be handing out, so be sure to stop by. We’re happy to discuss just about anything under the sun.</p>
+
+<p>This has been a big year so far for ThinkShout’s open source contributions. We’re particularly thrilled about our recent release of <a href="http://thinkshout.com/blog/2015/01/reimagined-sprints-redhen-raiser/">RedHen Raiser</a>, the first peer-to-peer fundraising tool built on Drupal and RedHen. This is something we’re very excited to share with the nonprofit world, and we’d love to talk to you more about it at our booth.</p>
+
+<p>You’ll also be able to see some of the ThinkShout team in action as part of the NTC programming. On Thursday, March 5th, catch Lev Tsypin on the panel <a href="http://sched.co/1z4A">“Sync All the Things! How Progressive Nerds are Changing the Future of Political Data and Integration”</a> at 3:30 p.m. On Friday, March 6th at 10:30 a.m., Brett Meyer will be co-leading the session <a href="http://sched.co/1z4N">“Content Strategy 101”</a> with Katie Carrus from the Humane Society Legislative Fund. Brett will also be co-leading the session <a href="http://sched.co/2ECm">“Managing a Tech Project (Or Two or Three)” </a>with Lisa Goddard from the Capital Area Food Bank of Texas, Melissa Barber and Brian Pickett from North Peak Solutions on March 5th at 1:30 p.m.</p>
+
+<p>Don’t forget to follow us on Twitter @ThinkShout for our real time updates. Feel free to tweet us questions, or just say hi! (You can totally do that in person, too.) We’ll see you in Austin!</p>
+]]>
+  </description>
+  <pubDate>Wed, 25 Feb 2015 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2015/02/thinksout-ntc-2015/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/02/thinksout-ntc-2015/</guid>
+</item>
+
+    
+      <item>
+  <title>Chimpfestation, A Closer Look at the New MailChimp Module</title>
+  <description>
+    <![CDATA[<h2 id="your-basic-monkey">Your Basic Monkey</h2>
+
+<p>A few weeks ago, we released <a href="https://drupal.org/node/2260305">the initial beta of the 3.x version of the MailChimp Module</a> on Drupal.org. The third major revision of the MailChimp Module for Drupal 7 is actually the fifth major revision of the module, including two versions for Drupal 6. ThinkShout Partner <a href="http://thinkshout.com/team/lev/">Lev Tsypin</a> rolled the first release in January of 2008, and the first version of the project page included a little information about his goals for the module:</p>
+<blockquote>
+  <p>Right now, I am focusing on 3 types of integration:</p>
+</blockquote>
+
+<blockquote>
+  <ol>
+    <li>Using hook_user to maintain a members list in MailChimp.</li>
+    <li>Having an opt in field in the user profile which uses one of the MC merge fields to allow for segmenting the members into those who want to receive communications.</li>
+    <li>Having an anonymous sign up form to enroll users in a general newsletter.</li>
+  </ol>
+</blockquote>
+
+<p>The module (and the project page!) have both come a long way since then, but the functionality described in that initial post has remained the core of the module through each version: <em>anonymous signup forms</em> and <em>authenticated subscription control</em> describe the core use cases that have resulted in over 15,000 installs. Sure, there’s campaign integration, activity reporting, and all sorts of bells and whistles around list and subscription management, but anonymous signup forms and user-based subscription control have always been the bread and butter.</p>
+
+<h2 id="identity-crisis">Identity Crisis</h2>
+
+<p>Building on the success of the MailChimp module, ThinkShout has made the contribution of robust, useful Drupal modules a core part of our business. In building <a href="https://drupal.org/project/registration">Entity Registration</a>, <a href="https://drupal.org/project/redhen">RedHen</a>, <a href="https://drupal.org/project/salesforce">Salesforce v3</a>, <a href="https://drupal.org/project/leaflet">Leaflet</a>, and a bunch of other great modules, we’ve often leveraged Drupal 7’s Entity and Field systems to make our tools as versatile and abstract as possible, allowing for any imaginable use-case.</p>
+
+<p>We had a bit of a wake-up call when one of our favorite clients, <a href="http://www.salmonlove.com/">The Salmon Project</a>, asked us to integrate their fancy new RedHen CRM directly with MailChimp. Integrating RedHen Contact Entities doesn’t actually match up with either of these: <em>anonymous signup forms</em> and <em>authenticated subscription control</em>.</p>
+
+<p>It was time to bring ThinkShout’s signature versatility and abstraction to ThinkShout’s signature module.</p>
+
+<h2 id="monkeys-everywhere">Monkeys Everywhere!</h2>
+
+<p>The first thing we did was de-couple the configuration of anonymous signup forms and authenticated subscription control. The MailChimp Lists configuration UI had grown into a bit of a monster: it included 16 separate options, not counting merge field sync settings, ranging from the <strong>submit button label</strong> (on the signup form) to the <strong>roles allowed</strong> (to access the list on user configuration pages). For version 3, rather than framing everything around each list, we broke things out by their Drupal-side functionality:</p>
+
+<ol>
+  <li>The Signup Module was created for generating anonymous list signup forms.</li>
+  <li>The List Module now provides a field type: “MailChimp Subscription”, which, modeled on Entity Registration’s successful architecture, leverages Drupal’s Field API to allow any entity to become an independently-controlled MailChimp list subscriber.</li>
+</ol>
+
+<p>What does this mean? If all you need to do is generate some anonymous subscription blocks or pages, the MailChimp Signup module has you covered. Just enable it, go to the “Signup Forms” tab in the MailChimp Admin UI, and create a signup! The UI lets you generate blocks or pages easily, include one or more lists on each form, pick which merge fields to include, and voila!</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/signup_ui.png" alt="signup_ui.png" /></p>
+
+<p>If, however, you want to subscribe some type of entity to a MailChimp List (like a user, say, or a RedHen contact), you can now do that lickity-split using Field UI:</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/field_type.png" alt="field_type.png" /></p>
+
+<p>This handy MailChimp Signup field will insist on being tied to one of your MailChimp lists. Once that’s done, you can configure instances of this field like you would any other Drupal field. It will automatically pull in the available Merge Fields and let you select which properties or fields from the entity you want to push into these fields:
+<img src="http://thinkshout.com/assets/images/blog/field_instance_config.png" alt="field_instance_config.png" />
+Want to default your entity to be subscribed to the list? Use field UI’s built-in configuration options. Use field display options to hide the field if you want to, or display it as a form right on the entity.</p>
+
+<p>Do you want to get the old role-based subscription behavior? Easily done with a field on your user bundle and a simple rule or two! We’ve included the <a href="http://cgit.drupalcode.org/mailchimp/tree/modules/mailchimp_lists/mailchimp_lists.rules.inc?h=7.x-3.x">custom rules actions</a> you need, and there’s even an example rule in the <a href="http://cgit.drupalcode.org/mailchimp/tree/modules/mailchimp_lists/README.txt?h=7.x-3.x#n36">README</a> file in the MailChimp Lists submodule.</p>
+
+<p>What this all boils down to is do what you want! You can MailChimp-ify any entity on your site with an email address in under 5 minutes. So go ape!</p>
+
+<h2 id="peeling-away-campaign-complexity">Peeling Away Campaign Complexity</h2>
+
+<p>ThinkShouter <a href="http://thinkshout.com/team/dan/">Dan Ruscoe</a> brought huge improvement to the Campaign module, including the ability to send to list segments from directly within Drupal and some awesome UI improvements. We have long offered the ability to pull site content into campaigns, but you had to come up with the exact token for the content on your own: not the simplest task, especially if you have a non-developer creating your campaigns.</p>
+
+<p>Now? A simple drop-down interface generates the token for you. Create a view mode for your entity types specifically for use in campaigns, or re-use an existing view mode. Just select your content type, the view mode, and search by title, and the module generates the token. Pop it into your campaign anywhere you want.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/site_content_embed_ui.png" alt="site_content_embed_ui.png" /></p>
+
+<p>We also added a handy mergefield key selector patterned after the Token UI.
+<img src="http://thinkshout.com/assets/images/blog/merge_vars_ui.png" alt="merge_vars_ui.png" /></p>
+
+<h2 id="other-evolutions">Other Evolutions</h2>
+
+<p>We didn’t stop with fancy configuration options. Heck, we didn’t <em>start</em> with fancy configuration options. The goofs at MailChimp HQ released the 2.0 version of their API, and we wouldn’t want you using that Late Pleistocene 1.x nonsense, so we re-wrote the entire core of the MailChimp Module to leverage the new API. While we were at it, we re-wrote the asyncronous functionality to make it much simpler and less error-prone. It may not be easy enough for a chimp to understand quite yet, but it’s certainly more tolerant of a little monkeying.</p>
+
+<h2 id="climb-aboard">Climb Aboard!</h2>
+
+<p>You can download the <a href="https://drupal.org/project/mailchimp">MailChimp Module 7.x-3.0 beta</a> now. We’re already using it on a few sites and it’s working great. So give it a try and let us know what you think!</p>
+]]>
+  </description>
+  <pubDate>Tue, 27 May 2014 09:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/05/chimpfestation/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/05/chimpfestation/</guid>
+</item>
+
+    
+      <item>
+  <title>Don't fear the monkey! Introducing a friendlier MailChimp module.</title>
+  <description>
+    <![CDATA[<p>A couple months ago one of my coworkers asked me how to change some text on a block generated by our <a href="https://drupal.org/project/mailchimp">MailChimp module</a>. I had to tell him the bad news: that text was hard-coded and he’d have to work pretty hard to change it. He also wanted to change the text on the Submit button… which wasn’t much easier.</p>
+
+<p>Now, the MailChimp module is pretty mature, with over 9000 installs just on the 7.x branch… but we have run into a couple consistent complaints in the issue queue:</p>
+
+<ul>
+  <li>Unpredictable subscription behavior under some specific configuration option combinations.</li>
+  <li>Confusing or limited configuration options, especially regarding the subscription blocks.</li>
+</ul>
+
+<p>The first of those is a big problem. As we had grown the feature set of the module, the logic tree for when and how to subscribe or unsubscribe users based on user preference, list configuration, role assignments, cron options, and the phase of the moon had become quite tangled. In an attempt to permanently resolve these issues, which kept shifting every time we released a patch, we attacked from two angles:</p>
+
+<ol>
+  <li>We refactored the entire logic tree, separating out the “what to do” logic from the “how to do it” logic. To make this cleaner, we expanded the collection of functions that could be delegated to cron to cover everything, where previously only certain Subscribe &amp; Unsubscribe functions could be run.</li>
+  <li>We wrote automated tests using Simpletest.</li>
+</ol>
+
+<p>We are big believers in automated testing at ThinkShout, and given how many little subscription logic issues we had encountered with MailChimp, this seemed like the perfect place to leverage the power of automated tests. Since the Mailchimp module integrates with the Mailchimp service using an API, the first thing we had to do was create a dummy API to bounce our logic off of. Once that was in place, we wrote a bunch of automated tests and ran them against both the latest stable release (7.x-2.10) and our development releases. Then we had to figure out if all the failed tests were poorly written or actually indicated issues in our code. Needless to say, it was a little bit of both, and we now have a lot more confidence in our subscription logic handling.</p>
+
+<p>If you’re thinking about automated testing for any project, I highly recommend it.</p>
+
+<p>But let’s get back to those problems we were trying to address before. The other one is a little more exciting for all you site builders and administrators: configuration options!</p>
+
+<p>We dove pretty deep here, too. The list settings have been completely restructured for clarity and usability, and the best way to understand what this means is probably to install the module, so I’ll just run through some of the highlights of MailChimp 7.x-2.12:</p>
+
+<ul>
+  <li>There are no more “list types”: whether a list is Required for your users or is available for Anonymous subscription is now controlled by two checkboxes.</li>
+  <li>You can now have a single list allow both authenticated and anonymous users to control their subscriptions without just treating the authenticated users like they are anonymous.</li>
+  <li>Users can now configure Interest Groups on Required lists if you want to let them.</li>
+  <li>You can alter the Interest Groups label on a list-by-list basis.</li>
+  <li>You can easily alter the text on the Subscribe button on each individual subscription block.</li>
+  <li>You can select which merge fields you want to display on the anonymous sign-up form block.</li>
+  <li>You can no longer set options that will cause the form to fail on save due to some unseen restriction: the correct options are intuited or you are blocked from setting them in the first place.</li>
+</ul>
+
+<p>So what are you waiting for? Go download the new version! It won’t bite.</p>
+]]>
+  </description>
+  <pubDate>Fri, 26 Jul 2013 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2013/07/gabe/dont-fear-monkey-introducing-friendlier-mailchimp-module/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/07/gabe/dont-fear-monkey-introducing-friendlier-mailchimp-module/</guid>
+</item>
+
+    
+      <item>
+  <title>MailChimp adds Mandrill Integration &amp; Campaign Creation</title>
+  <description>
+    <![CDATA[<p>We’ve previously written about a <a href="http://thinkshout.com/blog/2011/06/lev/mailchimp-20-anatomy-drupal-module-rewrite">complete rewrite of the MailChimp module</a>, and while our most recent changes aren’t quite as big, they’re significant enough that we want to share the details with the community.</p>
+
+<h2 id="mandrill">Mandrill</h2>
+<p><img src="http://blog.mandrill.com/images/mandrill-shield.gif" style="float: right; margin: 0px 0px 10px 10px" /></p>
+
+<p><a href="http://www.mandrill.com/">Mandrill</a> is MailChimp’s new transactional email offering, intended to replace the <a href="http://blog.mailchimp.com/mailchimp-launches-transactional-email-service-on-top-of-amazon-ses">MailChimp STS</a> service. Rather than being based on top of <a href="http://aws.amazon.com/ses/">Amazons SES</a>, Mandrill is built on MailChimp’s own infrastructure:</p>
+
+<blockquote>
+  <p>Mandrill runs on the delivery infrastructure that powers MailChimp, the world’s best email service provider.</p>
+</blockquote>
+
+<p>The <a href="http://blog.mandrill.com/public-beta-of-mandrill-smtp-email-service.html">release announcement</a> contains list of current Mandrill features, and there are many more exciting things coming down the pipe.</p>
+
+<blockquote>
+  <ul>
+    <li>Uses MailChimp’s awesome email delivery engine</li>
+    <li>Has a <a href="http://mandrillapp.com/api/docs/">simple and powerful API</a></li>
+    <li>Allows simple sending directly using SMTP</li>
+    <li>Tracks opens and clicks</li>
+    <li>Automatically adds Google Analytics tracking data to your URLs</li>
+    <li>Has pretty, visual reports of your email results</li>
+    <li>Allows you to tag your messages and see your stats filtered by tag</li>
+    <li>Integrates with MailChimp’s templating system, letting you export your MailChimp templates to Mandrill and use them in your transactional emails</li>
+  </ul>
+</blockquote>
+
+<p>The initial <a href="http://drupal.org/node/1600788">beta release</a> of the <a href="http://drupal.org/project/mandrill">Mandrill module</a> is modeled closely on the STS version, but provides additional options like tracking clicks and improved graphical reports powered by Google Charts out of the box. Our roadmap includes:</p>
+
+<ul>
+  <li>Improved reports with filter and display settings.</li>
+  <li>The ability to target which types of emails to use Mandrill for, E.g., use Mandrill for the contact form but not password reminders.</li>
+  <li>Integration with MailChimp templates.</li>
+</ul>
+
+<p>The <a href="http://drupal.org/project/mailchimp_sts">STS module</a> has been removed from the core MailChimp package and is available as a standalone project for existing users. It will not be actively maintained. New or adventurous users should definitely go with Mandrill and only use STS if you have a project that’s already running it.</p>
+
+<h2 id="campaigns">Campaigns</h2>
+<p>There’s long been a demand to add the ability to create campaigns containing Drupal content from within Drupal and it’s finally been added with the new <a href="http://drupalcode.org/project/mailchimp.git/tree/refs/heads/7.x-2.x:/modules/mailchimp_campaign">7.x-2.5 release</a>, along with a very long list of improvements and features. The new <a href="http://drupalcode.org/project/mailchimp.git/tree/refs/heads/7.x-2.x:/modules/mailchimp_campaign">MailChimp Campaign submodule</a>, contained in the core MailChimp package, allows users to:</p>
+
+<ol>
+  <li>Create a campaign.</li>
+  <li>Send campaigns.</li>
+  <li>View statistics.</li>
+</ol>
+
+<p>The module adds an input filter, which is applied to every section in a selected template, which converts a macro in the following format into rendered Drupal content.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[mailchimp_campaign|entity_type=node|entity_id=1|view_mode=teaser]
+</code></pre></div></div>
+
+<p>We sought an approach that combined flexiblity with ease of use, sacraficing a bit of the former for the latter. But this lets users inject <em>any</em> Drupal entity, using any view mode, into a template section mixed with additional non-Drupal content. Users can also choose to create a campaign that doesn’t contain Drupal content at all using this tool. It can also be combined with additional input filters to provide other formatting assistance.</p>
+
+<p>When saved, the rendered content, along with the MailChimp list and other campaign data is sent to MailChimp and <em>hung</em> on a custom campaign entity within Drupal. New campaigns are saved as drafts and can be edited so long as they have not been sent.</p>
+
+<p><img src="http://thinkshout.com/sites/default/files/MailChimp_|_Site-Install-20120525-121341.jpg" /></p>
+
+<p>Sent campaigns have statisics available, including graphical charts powered by Google Charts, similar to those used in Mandrill.</p>
+
+<p><img src="http://thinkshout.com/sites/default/files/Test_campaign_title_|_Site-Install-20120525-122237.png" /></p>
+
+<h2 id="summary">Summary</h2>
+<p>Aside from adding Mandrill and Campaign creation, and removing STS, there’s a long list of improvements and new features, including improved Rules integration from @fago. We welcome any feedback, either here or in the queue. Thanks and enjoy the new features!
+<!--break--></p>
+]]>
+  </description>
+  <pubDate>Fri, 25 May 2012 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2012/05/lev/mailchimp-adds-mandrill-integration-campaign-creation/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/05/lev/mailchimp-adds-mandrill-integration-campaign-creation/</guid>
+</item>
+
+    
+      <item>
+  <title>MailChimp 2.0: Anatomy of a Drupal module rewrite</title>
+  <description>
+    <![CDATA[<p><a href="http://mailchimp.com"><img src="http://thinkshout.com/sites/default/files/freddie.png" alt="Freddie" height="177" width="150" style="float:right; margin: 0 0 20px 0" /></a>I first wrote the <a href="http://drupal.org/project/mailchimp">MailChimp module</a> for a side project I was working on (MomHub) towards the end of 2007. It was my first standalone module, and the first one I posted on <a href="http://drupal.org">drupal.org</a>. That module, and every update since, has basically offered the ability to synchronize a site’s users with more one or more MailChimp lists based on role, in addition to standalone subscription forms. Over the years, the module has grown in popularity along with the MailChimp service itself, and there are now nearly <a href="http://drupal.org/project/usage/mailchimp">4000 reported installs</a>. Still modest, but a sizable base which needs to be taken into consideration when releasing updates.</p>
+
+<p>I quickly faced a challenge many contributors encounter as their modules grow in terms of usage and complexity. These challenges include finding the time to maintain and support the module and adding new features when there is no support from a client or employer. In this case, <a href="http://mailchimp.com">MailChimp</a> came to the rescue and partnered with ThinkShout in late 2010 to sponsor the module. We agreed to maintain and support the current Drupal 6 version and rewrite the module for Drupal 7, for which we have just completed a <a href="http://drupal.org/node/1204522">release candidate</a>.
+<!-- break --></p>
+<h1 id="why-a-rewrite">Why a rewrite</h1>
+<ul>
+  <li>Nearly 4 years of technical debt, time to start clean.</li>
+  <li>Initial architectural decisions could have been better. It was my first module!</li>
+  <li>Take full advantage of changes in the MailChimp API.</li>
+  <li>New features and API changes in Drupal 7, which we’ve used whenever possible:
+    <ol>
+      <li>Entities</li>
+      <li>Tokens</li>
+      <li>Form states</li>
+      <li>Queue system for batch processing during cron</li>
+      <li>Mail interface</li>
+      <li>Custom cache bins</li>
+    </ol>
+  </li>
+</ul>
+
+<h1 id="whats-new">What’s new</h1>
+<h2 id="modular-architecture">Modular architecture</h2>
+<p>The origin module had all of the features crammed into a single module, with a focus on meeting the needs of a very specific feature set. The result was features that were difficult to extend / alter, and almost no API interfaces for developers to interact with the MailChimp API outside of the fairly narrow use case the module handled. For 2.0, we split out the module into a fairly minimalist API module, with a submodule for each primary use case. In addition to providing much needed flexibility, this makes the module much more lightweight as submodules can be enabled/disabled as needed, or just the API module can be used for custom development. The module is currently bundled with the following:</p>
+
+<ol>
+  <li>mailchimp.module: Core API integration and general settings.</li>
+  <li>mailchimp_lists.module: This contains much of the functionality of the original module, namely synchronizing Drupal users with MailChimp lists and enabling subscriptions, albeit with many improvements.</li>
+  <li>mailchimp_sts.module: Allows all site emails to be sent through the MailChimp STS API by exposing it as a Drupal mail interface.</li>
+</ol>
+
+<p>As significant new features are added, the additions will be as new submodules, or standalone projects dependent on just mailchimp.module.</p>
+<h2 id="lists-as-first-class-citizens-err-entities">Lists as first class citizens, err, entities</h2>
+<p>In MailChimp 2.0, lists are entities, enabling all the entity goodness that Drupal 7 provides. The previous version simply saved each MailChimp list and its corresponding settings into a single serialized variable. There are several reasons this approach could be improved upon, not the least of which it forced a 1 to 1 correlation between MailChimp lists and their use on the site. Now, you can essentially create more than one <em>instance</em> of a MailChimp list, assigning it unique meta data, exposing it as block, etc.</p>
+
+<p>Since lists are entities, they are also field-able, allowing for customizations during enrollment, <a href="http://drupal.org/project/views">Views</a> and <a href="http://drupal.org/project/rules">Rules</a> integration, you name it! After much deliberation, we decided to base the entity structure on the <a href="http://drupal.org/project/entity">EntityAPI</a>, primarily to gain the Views and Rules integration essentially for <em>free</em>. Hat tip to everyone involved with that project.</p>
+<h2 id="revamped-user-interface">Revamped user interface</h2>
+<p>One of the major problems the module faced was a cluttered interface, especially when an organization had more than a few MailChimp lists. First off, all of the settings for the module and for each individual list were smashed into a single page, with nested collapsible fieldset hell. It seemed like a good and easy solution when first conceived, but fell apart as the number of settings grew, and completely failed to account for an organization having many lists. The approach we took was to first break out the list settings into their own tab / local task. The list landing page simply has a table of existing lists with summary information and links to edit the list and directly access the associated MailChimp list. There’s also a local action for adding a new list. The list add/edit form itself lives on its own and is complex in its own right, especially with all the new features and settings. It still has a few of those fieldsets, but they are used to categorize the sections of settings. We’re also taking advantage of form states to toggle the available settings based on the type of list selected. There’s an ajax callback that occurs to get the available merge fields for the selected MailChimp list so they can be mapped to available user tokens. Below are some before and after screenshots for comparison.</p>
+
+<p><strong>Before</strong>
+<a href="http://thinkshout.com/sites/default/files/mailchimp_6_settings.png"><img src="http://thinkshout.com/sites/default/files/mailchimp_6_settings.png" width="700" /></a></p>
+
+<p><strong>After</strong>
+<a href="http://thinkshout.com/sites/default/files/mailchimp_2_0_lists_0.png"><img src="http://thinkshout.com/sites/default/files/mailchimp_2_0_lists_0.png" width="700" /></a>
+<a href="http://thinkshout.com/sites/default/files/mailchimp_2_0_addlist.png"><img src="http://thinkshout.com/sites/default/files/mailchimp_2_0_addlist.png" width="700" /></a></p>
+<h2 id="performance-caching-and-webhooks">Performance, caching, and webhooks</h2>
+<p>The other single largest problem was performance. The module made way too many requests to the MailChimp API, and on the rare occasion, when the API was slow to respond or down, the corresponding Drupal site would also be affected. The two main situations the module was communicating with the API was to get a fully loaded list object and to get a users information for a given list. E.g, when subscription block was rendered, it would reach out to the API to get the list details and to determine if a user was subscribed to that list. Further, it would make a separate call to get the interest groups for the list. Caching to the rescue!</p>
+
+<p>The main method to get information about a list, mailchimp_get_lists($list_ids = array(), $reset = FALSE), will now store list objects received from MailChimp in the default cache bin with a CACHE_TEMPORARY lifetime. That cache is flushed on request, when the $reset parameter is set to TRUE, or when the site-wide cache is cleared.</p>
+
+<p>More importantly, the module adds a custom cache bin for mailchimp_users which stores the memberinfo object for each email address / MailChimp list combination. This is filled upon the first request, E.g., the first time a subscription form is shown for a given user / list, and is only cleared in the following situations:</p>
+
+<ol>
+  <li>A user updates their subscription through the Drupal site.</li>
+  <li>A user updates their subscription outside of the Drupal site and a <a href="http://apidocs.mailchimp.com/webhooks/">MailChimp webhook</a> fires refreshing the cache. This is an optional setting available with each list.</li>
+  <li>A developer forces the cache reset.</li>
+</ol>
+
+<p>With this architecture, requests to the MailChimp API are kept to a minimum while maintaining a fresh cache of all essential information on both MailChimp lists and user information.</p>
+<h2 id="mailchimp-sts">MailChimp STS</h2>
+<p>Aside from the mentioned improvements, the major new feature included with this release is integration with the <a href="http://apidocs.mailchimp.com/sts/1.0/">MailChimp STS API</a>. STS is essentially a wrapper around Amazon’s SES with, according to <a href="http://blog.mailchimp.com/mailchimp-launches-transactional-email-service-on-top-of-amazon-ses/">MailChimp’s launch announcement</a>, these additional features:</p>
+
+<ul>
+  <li>Slightly simpler API</li>
+  <li>Opens and click tracking</li>
+  <li>Visual reports (all pretty and stuff) dashboard to see stats</li>
+  <li>Keep more than 2 weeks of history, showing hourly stats for at least 6 months.</li>
+  <li>You can tag your transactional messages with custom labels (up to 100), and see your stats filtered by tag (say, one for receipts and one for confirmation messages)</li>
+  <li>Automate some of the SES limitations – if you exceed your daily or hourly quota by a small amount, we’ll queue the message for you and try to send it later.  If you send from an address you haven’t verified, we’ll again queue the message and automatically send the verification request</li>
+</ul>
+
+<p>Drupal 7 has an elegant mechanism allowing sites to alter how emails are sent by implementing an instance of the <a href="http://api.drupal.org/api/drupal/includes--mail.inc/interface/MailSystemInterface/7">MailSystemInterface</a> and setting a global variable indicating that it should be used. The module does this, passing the mail key as a tag to the STS send method so that site owners can view detailed reports for each type of email sent on their site. Report segments are hourly and include tag, number sent, bounces, rejects, complaints, opens, and clicks.</p>
+
+<p><a href="http://thinkshout.com/sites/default/files/mailchimp_sts_reports.png"><img src="http://thinkshout.com/sites/default/files/mailchimp_sts_reports.png" width="700" /></a></p>
+<h1 id="roadmap">Roadmap</h1>
+<p>While this is a major milestone for integration between MailChimp and Drupal, we have lots of exciting additional features planned, in addition to what I’m sure will be plenty of refinement and issue resolution as usage of the new version grows. Pending feedback from the community, we’re going to work on:</p>
+
+<ol>
+  <li>Campaign creation from within Drupal.</li>
+  <li>E-commerce 360 integration</li>
+  <li>Analytics 360 integration</li>
+  <li>Importing user level campaign data</li>
+  <li>Dynamic list creation based on select criteria</li>
+  <li>More granular control over when to use STS</li>
+</ol>
+
+<p>We’d love to hear from you, both your feedback on the new module and thoughts on the roadmap.</p>
+]]>
+  </description>
+  <pubDate>Thu, 30 Jun 2011 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2011/06/lev/mailchimp-20-anatomy-drupal-module-rewrite/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2011/06/lev/mailchimp-20-anatomy-drupal-module-rewrite/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

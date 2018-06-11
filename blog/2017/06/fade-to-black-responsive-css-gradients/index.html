@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Fade To Black - Responsive CSS Gradients | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="Smoothly transitioning from an image to a solid color can be tough. Let's make it easier.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/fade-to-black-header.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/fade-to-black-header.jpg">
+  
+
+  
+  <meta name="keywords" content="CSS, Drupal, Drupal Planet, Front-end">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">06.06.2017</span>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+        <a class="topic" href="/blog/topic/technology">Technology and Innovation</a>
+      
+    
+  
+  </p>
+
+  <h1 class="post-title">Fade To Black - Responsive CSS Gradients</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/joe.jpg">
+    
+      <a class="team-name" href="/team/joe/">Joe Komenda</a>
+    <br>
+      Software Engineer
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+<div class="blog-header-image">
+  <img src="/assets/images/blog/fade-to-black-header.jpg" alt="Fade to Black">
+</div>
+
+
+
+
+<section class="body">
+  <p><img src="/assets/images/blog/fade-to-black-1.jpg" alt="fade-to-black-1.jpg" class="left forty" /> <a href="//alistapart.com/article/responsive-web-design">Responsive design</a> brings a fascinating array of challenges to both designers and developers. Using background images in a call to action or blockquote element is a great way to add visual appeal to a design, as you can see in the image to the left.</p>
+
+<p><br clear="all" /><br /></p>
+
+<p><img src="/assets/images/blog/fade-to-black-2.jpg" alt="fade-to-black-2.jpg" class="right thirty" /> However, at mobile sizes, you’re faced with some tough decisions. Do you try and stretch the image to fit the height of the container? If so, at very tall/narrow widths, you’re forced to load a giant image, and it likely won’t be recognizable.</p>
+
+<p>In addition, forcing mobile users to load a large image is bad for performance. Creating custom responsive image sets would work, but that sets up a maintenance problem, something most clients will <em>not</em> appreciate.</p>
+
+<p>Luckily, there’s a solution that allows us to keep the image aspect ratio, set up standard <a href="//css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/">responsive images</a>, and it looks great on mobile as well. The fade-out!</p>
+
+<p>I’ll be using screenshots and code here, but I’ve also made <a href="//codepen.io/collection/XeBvKo/">all 6 steps available on CodePen</a> if you want to play with the code and try out different colors, images, etc…</p>
+
+<p><br clear="all" /><br /></p>
+
+<p>Let’s start with that first blockquote:</p>
+
+<p><img src="/assets/images/blog/fade-to-black-1.jpg" alt="fade-to-black-1.jpg" class="left forty" /> <a href="//codepen.io/komejo/pen/GERJwy">(pen)</a> This is set up for desktop - the image aspect ratio is determining the height of the container using the <a href="//stackoverflow.com/questions/1495407/maintain-the-aspect-ratio-of-a-div-with-css">padding ratio trick</a>. Everything in the container is using absolute positioning and <a href="http://www.sketchingwithcss.com/samplechapter/cheatsheet.html">flexbox</a> for centering. We have a simple <code class="highlighter-rouge">rgba()</code> background set using the <code class="highlighter-rouge">:before</code> pseudo-property in the .parent-container:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nd">:before</span> <span class="p">{</span>
+    <span class="nl">content</span><span class="p">:</span> <span class="s1">""</span><span class="p">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.4</span><span class="p">);</span>
+    <span class="nl">z-index</span><span class="p">:</span> <span class="m">10</span><span class="p">;</span>
+    <span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p><br clear="all" /><br /></p>
+
+<p><img src="/assets/images/blog/fade-to-black-3.jpg" alt="fade-to-black-3.jpg" class="right forty" /> <a href="//codepen.io/komejo/pen/QgWyLN">(pen)</a> The issues arise once we get a quote of reasonable length, and/or the page width gets too small. As you can see, it overflows and breaks quite badly.</p>
+
+<p><br clear="all" /><br /></p>
+
+<p><img src="/assets/images/blog/fade-to-black-4.jpg" alt="fade-to-black-4.jpg" class="left forty" /> <a href="//codepen.io/komejo/pen/XgWXWz">(pen)</a> We can fix this by setting some changes to take place at a certain breakpoint, depending on the max length of the field and the size of the image used.</p>
+
+<p>Specifically, we remove the padding from the parent element, and make the .content-wrapper <code class="highlighter-rouge">position: static</code>. (I like to set a min-height as well just in case the content is very small)</p>
+
+<p><br clear="all" /><br /></p>
+
+<p><img src="/assets/images/blog/fade-to-black-5.jpg" alt="fade-to-black-5.jpg" class="right forty" /> <a href="//codepen.io/komejo/pen/JJjGXB">(pen)</a> Now we can add the fader code - <code class="highlighter-rouge">background-image: linear-gradient</code>, which can be used <a href="http://caniuse.com/#search=linear-gradient">unprefixed</a>. This is inserted into the .image-wrapper using another <code class="highlighter-rouge">:before</code> pseudo-element:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nd">:before</span> <span class="p">{</span>
+    <span class="nl">content</span><span class="p">:</span> <span class="s1">""</span><span class="p">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="n">inline-block</span><span class="p">;</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="nl">background-image</span><span class="p">:</span> <span class="n">linear-gradient</span><span class="p">(</span>
+      <span class="p">//</span> <span class="n">Fade</span> <span class="n">over</span> <span class="n">the</span> <span class="n">entire</span> <span class="n">image</span> <span class="n">-</span> <span class="n">not</span> <span class="n">great</span><span class="p">.</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">)</span> <span class="m">0%</span><span class="p">,</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)</span> <span class="m">100%</span>
+    <span class="p">);</span>
+  <span class="p">}</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p><br clear="all" /><br /></p>
+
+<p><img src="/assets/images/blog/fade-to-black-6.jpg" alt="fade-to-black-6.jpg" class="left forty" /> <a href="//codepen.io/komejo/pen/XgWXNZ">(pen)</a> The issue now is that the gradient covers the entire image, but we can fix that easily by adding additional <code class="highlighter-rouge">rgba()</code> values, in effect ‘stretching’ the part of the gradient that’s transparent:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nd">:before</span> <span class="p">{</span>
+    <span class="nl">background-image</span><span class="p">:</span> <span class="n">linear-gradient</span><span class="p">(</span>
+      <span class="p">//</span> <span class="n">Transparent</span> <span class="n">at</span> <span class="n">the</span> <span class="nb">top</span><span class="p">.</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">)</span> <span class="m">0%</span><span class="p">,</span>
+      <span class="p">//</span> <span class="n">Still</span> <span class="nb">transparent</span> <span class="n">through</span> <span class="m">70%</span> <span class="n">of</span> <span class="n">the</span> <span class="n">image</span><span class="p">.</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">)</span> <span class="m">70%</span><span class="p">,</span>
+      <span class="p">//</span> <span class="n">Now</span> <span class="n">fade</span> <span class="n">to</span> <span class="nb">solid</span> <span class="n">to</span> <span class="n">match</span> <span class="n">the</span> <span class="n">background</span><span class="p">.</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)</span> <span class="m">100%</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p><br clear="all" /><br /></p>
+
+<p><img src="/assets/images/blog/fade-to-black-7.jpg" alt="fade-to-black-7.jpg" class="right forty" /> <a href="//codepen.io/komejo/pen/RgwrZb">(pen)</a> Finally, we can fine-tune the gradient by adding even more <code class="highlighter-rouge">rgba()</code> values and setting the percentages and opacity as appropriate.</p>
+
+<p>Once we’re satisfied that the gradient matches the design, all that’s left is to make the gradient RGBA match the .parent-container background color (not the overlay - this tripped me up for a while!), which in our case is supposed to be <code class="highlighter-rouge">#000</code>:</p>
+
+<p><br clear="all" /></p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nd">:before</span> <span class="p">{</span>
+    <span class="nl">background-image</span><span class="p">:</span> <span class="n">linear-gradient</span><span class="p">(</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">)</span> <span class="m">0%</span><span class="p">,</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">)</span> <span class="m">70%</span><span class="p">,</span>
+      <span class="p">//</span> <span class="n">These</span> <span class="n">three</span> <span class="s2">'smooth'</span> <span class="n">out</span> <span class="n">the</span> <span class="n">fade</span><span class="p">.</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.2</span><span class="p">)</span> <span class="m">80%</span><span class="p">,</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.7</span><span class="p">)</span> <span class="m">90%</span><span class="p">,</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.9</span><span class="p">)</span> <span class="m">95%</span><span class="p">,</span>
+      <span class="p">//</span> <span class="n">Solid</span> <span class="n">to</span> <span class="n">match</span> <span class="n">the</span> <span class="n">background</span><span class="p">.</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)</span> <span class="m">100%</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p>We’ll be rolling out sites in a few weeks with these techniques in live code, and with several slight variations to the implementation (mostly adding responsive images and making allowances for Drupal’s markup), but this is the core idea used.</p>
+
+<p>Feel free to <a href="//codepen.io/collection/XeBvKo/">play with the code</a> yourself, and change the <code class="highlighter-rouge">rgba()</code> values so that you can see what each is doing.</p>
+
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged CSS.' href='/blog/category/css/'>CSS</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal.' href='/blog/category/drupal/'>Drupal</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged Front-end.' href='/blog/category/front-end/'>Front-end</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2017/06/fade-to-black-responsive-css-gradients/';
+    this.page.identifier = '/blog/2017/06/fade-to-black-responsive-css-gradients';
+    this.page.title = 'Fade To Black - Responsive CSS Gradients'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2017/05/skipping-a-version-migrating-from-drupal-6-to-drupal-8-with-drupal-migrate/"><span class="fa fa-caret-left"></span> <span>Skipping a Version - Migrating from Drupal 6 to Drupal 8 with Drupal Migrate</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2017/06/thinkshout-project-management-tool-selection-process/"><span>The ThinkShout Project Management Tool Selection Process</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+  <div class="team-member-blog">
+    <div class="container">
+      <h4>Related Blog Posts</h4>
+      <div class="row posts">
+        
+        
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/05/Space-for-Empathy/">
+    <p class="post-date">05.24.2018</p>
+    <h3 class="post-title">Space for Empathy</h3>
+    <p class="post-short">How do we make space for empathy in our work and in our community? Jules takes us on a deep dive into what she learned at this year's DrupalCon</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/jules.jpg">
+      <span class="byline-text">
+        <strong>Jules Dickey</strong><br>
+        <span class="position">Software Engineer</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/05/Making-GDPR-Preparations/">
+    <p class="post-date">05.13.2018</p>
+    <h3 class="post-title">Preparing for the GDPR</h3>
+    <p class="post-short">The European Union’s General Data Protection Regulations go into effect May 25th. Here's how you need to prepare.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/tauno.jpg">
+      <span class="byline-text">
+        <strong>Tauno Hogue</strong><br>
+        <span class="position">Chief Technology Officer</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/01/Great-hoodie-mystery/">
+    <p class="post-date">01.06.2018</p>
+    <h3 class="post-title">The Great Hoodie Mystery</h3>
+    <p class="post-short">Gabe takes what would otherwise be an inane office exchange and ties it back to data structures.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/gabe.jpg">
+      <span class="byline-text">
+        <strong>Gabe Carleton-Barnes</strong><br>
+        <span class="position">Director of Engineering</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+            
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

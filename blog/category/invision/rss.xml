@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/invision/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>How to Deal with a Small Design Budget</title>
+  <description>
+    <![CDATA[<p><em>Originally Published by <a href="http://blog.invisionapp.com/small-design-budget/">InVision</a> on July 2, 2015</em></p>
+
+<p>“I want my website to look like Apple.”</p>
+
+<p>Ever heard a client say something like that during the early phase of a project?</p>
+
+<p>What most people don’t realize is that companies like Apple employ huge design teams that work with nearly unlimited resources.</p>
+
+<p>I spent several years working on these kinds of teams, never having to worry too much about budget. Now I work solely with progressive non-profit organizations that need to stick to a strict budget.</p>
+
+<p>But that doesn’t mean the design has to suffer. Here are 5 things to keep in mind when you’re designing on a budget.</p>
+
+<p><strong>1.  Focus on what you can do instead of what you can’t</strong></p>
+
+<p>Even if you don’t have a team of 100 designers like Facebook, or the resources to create your own custom design framework like <a href="http://foundation.zurb.com/">Zurb</a>, you can still have amazing, creative ideas.</p>
+
+<p>When time or budget is limited, I start out by clearly defining my limitations. And then I think critically about how I can creatively work around those limitations. Most of the time I’m able to create a solution that’s more innovative and useful than if I’d been given free reign.</p>
+
+<p>No matter your budget, focus on these things:</p>
+
+<ul>
+  <li>
+    <p>User needs</p>
+  </li>
+  <li>
+    <p>Good typography and color palettes</p>
+  </li>
+</ul>
+
+<p>And you’ll design a good product.</p>
+
+<p><strong>2. Don’t underestimate the implementation of your design work</strong></p>
+
+<p>As designers, we need to know how our work impacts the entire development process—not just the budget we’ve set aside for design. I used to think that a minimal visual design equalled a simple design implementation by developers. As I got more experience, I realized that was wrong.</p>
+
+<p>A few weeks ago, I wanted to add an expanding search box into the header of a responsive Drupal site we were creating at ThinkShout. It took me 2 minutes to design in Sketch, and maybe another 4 to find the code for the exact same interaction I wanted on <a href="http://codepen.io/912lab/pen/LsplC">codepen</a>.</p>
+
+<p>So if it took me 6 minutes to design and find code, it must be easy for our front-end team to implement, right?</p>
+
+<p>It took 1 of our front-end engineers 3 hours to theme in Drupal, largely because the expanding search interaction I wanted was so different than Drupal’s default search module.</p>
+
+<p>Aside from spending years becoming an expert programmer, the best thing you can do to understand how your work impacts the rest of the development process is to be in constant communication with developers.</p>
+
+<p>If I’m not sure about an idea or concept, I’ll ask a developer something like this: “On a scale of 1 to 10, how hard will it be to build this?”</p>
+
+<p>Any higher than 5, and I change my idea.</p>
+
+<p><strong>3. Be consistent</strong></p>
+
+<p>When you’re building an app or website, inconsistency in design wastes time. Eliminate unnecessary, confusing, back-and-forth communication by making sure text headings, button styles, and image aspect ratios are all consistent throughout your design system.</p>
+
+<p>For example, using several different image aspect ratios, like square for avatars, 16:9 for news stories, and maybe a 2.35:1 for very cinematic hero images might look awesome. But if your website is being built on a CMS like Drupal, someone will need to set up all those parameters in the back end—and that takes time to configure.</p>
+
+<p>By simply deciding on a standard image aspect ratio of 16:9, you’ve cut the image configuration time by 2/3. And the overall design aesthetic won’t suffer a bit.</p>
+
+<p><img src="/assets/images/blog/ballin_0.png" alt="ballin_0" /></p>
+
+<p><em>The wireframe on the left has 3 different aspect ratios for news images, and the wireframe on the right has 1 standard aspect ratio.</em></p>
+
+<p>The best way that I’ve found to keep my work consistent: with a <a href="http://bradfrost.com/blog/post/atomic-web-design/">component-based design approach</a>, and using <a href="http://www.bohemiancoding.com/sketch/support/documentation/05-text/3-text-styles.html">Text Styles</a> and <a href="http://bohemiancoding.com/sketch/support/documentation/07-symbols/">Symbols</a> when designing in Sketch.</p>
+
+<p><strong>4. Focus on objectives, not deliverables or tools</strong></p>
+
+<p>Design deliverables have to make both clients and developers happy. This isn’t easy—it’s a balancing act between creating enough work to properly inform the client, while also giving developers everything they need to do their jobs. Clients would love to see every possible page and interaction mocked up in high-fidelity at every break point with multiple variations. But most developers want you to give them an HTML and Sass component style guide and call it a day.</p>
+
+<p>The reality: when you’re working with a limited design budget, you have to find a way to meet them both in the middle.</p>
+
+<p>For me, having a solid design process is more effective than working through a checklist of specific deliverables. While the deliverables I work on and the tools I use vary greatly depending on the client—static or HTML wireframes, design in the browser, design in Sketch, style tiles, style guides, etc.—I actually have a pretty simple process. I always start broad before working down to the details. Style tiles before high-fidelity mockups. Sketching before coding up prototypes. Horse before the cart, and plenty of feedback in between.</p>
+
+<p>With this kind of design process, independent from tools or deliverables, I can quickly and effectively adapt to any budget. How we think is more important than the tools we use to create.</p>
+
+<p><strong>5. Communicate early and often</strong></p>
+
+<p>Bad communication can be like a wrecking ball to your budget. On every project I’ve worked on, communication has been the deciding factor of success or failure.</p>
+
+<p>It’s also been the main reason why a project comes in under or over budget.</p>
+
+<p>So why does bad communication cost us?</p>
+
+<p>Simple: assumptions cost money. Some examples of assumptions:</p>
+
+<ul>
+  <li>
+    <p>Something’s technically easy to implement when it’s actually not</p>
+  </li>
+  <li>
+    <p>The client wants 1 thing when they really want something else</p>
+  </li>
+  <li>
+    <p>You can come back later and fix or tweak a feature</p>
+  </li>
+</ul>
+
+<p>Part of a good design process involves removing assumptions. When we assume instead of communicate, problems snowball. A little assumption in the beginning of the project can lead to big delays or hot fixes once we’re knee-deep in development. And as we all know, it’s much easier to change a wireframe than it is to change a feature in a deployed feature on a live website.</p>
+
+<p>A typical web design project usually looks like the graphic below. Strategy, UX and visual design, and development all happen in large blocks of time, 1 after another. And in between these phases exist massive walls over which deliverables are thrown to the next person or group without much of an attempt at collaboration.</p>
+
+<p>Besides being a bad environment for creating a great product, this can be a mega budget killer.</p>
+
+<p><img src="/assets/images/blog/ballin_1.png" alt="ballin_1" /></p>
+
+<p>The biggest problem with this kind of work environment is that it allows no room for us to iterate and solve problems as they arise. When we’re dealing with really complex content-managed websites, getting clarity can take weeks or months.</p>
+
+<p>No matter how thorough we are with our UX and design, there’s always something that comes up in the development phase that needs our attention. Sometimes clients need change. Sometimes we just didn’t consider something, or we were just plain wrong.</p>
+
+<p><img src="/assets/images/blog/ballin_2.png" alt="ballin_2" /></p>
+
+<p>A better process: remove those walls we talked about earlier. If we rearrange our timeline so that design, strategy, and development happen somewhat simultaneously, and everyone communicates with each other along the way, there’s far less room for assumptions and miscommunications to rear their ugly heads.</p>
+
+<p>Maybe you can’t completely change your company’s process, but you can at least start planning to save some of your design hours for the development and implementation phase of the project. Don’t be afraid to ask for clarity. Move your desk to sit next to an engineer if you have to.</p>
+
+<p><em>“Every artist confronts a series of issues that are constraints. Those constraints are then turned by the artist into a positive force…”</em></p>
+
+<p>–Frank Gehry</p>
+
+<p>Working backwards from a budget doesn’t mean your design has to suffer. Use constraints as a challenge to be more creative and focus on delivering the core goals as elegantly as possible.</p>
+]]>
+  </description>
+  <pubDate>Thu, 02 Jul 2015 09:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/07/design-on-a-budget/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/07/design-on-a-budget/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

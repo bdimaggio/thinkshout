@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/front-end/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>The WYSIWYG is a Lie</title>
+  <description>
+    <![CDATA[<p>If you’ve ever implemented a WYSIWYG editor in Drupal, one thing that becomes apparent quickly is that the term (What You See Is What You Get) is a complete lie. None of the default theme styles appear in the editor, because the editor shows up in the admin theme. This obviously diminishes its value, and makes custom element styles useless. The good news is that it’s fairly simple to fix - once you know how.</p>
+
+<p>Drupal 8’s default WYSIWYG is CKEditor, and it’s included as a core module with <a href="https://www.drupal.org/docs/8/api/ckeditor-api/overview">its own API</a>. This is great, because they also added a way to get that default theme front-end code into the admin theme CKEditor. The description of how to manage this leaves a bit to be desired, as all they mention is ‘specifying a <code class="highlighter-rouge">ckeditor_stylesheets</code> key in the <code class="highlighter-rouge">*.info.yml</code> file’.</p>
+
+<p>Let’s start from the beginning. Say you’ve been working on a D8 site and the intro has an H2, some text, and a call to action button:</p>
+
+<p><img src="/assets/images/blog/intro1.png" alt="intro1.png" class="center" /></p>
+
+<p>That’s great! What does CKEditor show us?</p>
+
+<p><img src="/assets/images/blog/intro2.png" alt="intro2.png" class="center" /></p>
+
+<p>Oh. What I see is certainly <em>not</em> what I get. Let’s start by showing the basic styles in CKEditor. Go to your current default theme (ours is in <code class="highlighter-rouge">/web/themes/custom/</code>) and find your <code class="highlighter-rouge">THEMENAME.info.yml</code>. Open it in your favorite editor and you’ll see something like this:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">My Theme Name</span>
+<span class="na">type</span><span class="pi">:</span> <span class="s">theme</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s">A base theme for My Site</span>
+<span class="na">package</span><span class="pi">:</span> <span class="s">Other</span>
+<span class="na">core</span><span class="pi">:</span> <span class="s">8.x</span>
+
+<span class="na">base theme</span><span class="pi">:</span> <span class="s">classy</span>
+
+<span class="s">regions, etc...</span>
+</code></pre></div></div>
+
+<p>Now add the <code class="highlighter-rouge">ckeditor_stylesheets:</code> key and the target file right below the <code class="highlighter-rouge">core: 8.x</code> line, like so:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">...</span>
+<span class="na">package</span><span class="pi">:</span> <span class="s">Other</span>
+<span class="na">core</span><span class="pi">:</span> <span class="s">8.x</span>
+<span class="na">ckeditor_stylesheets</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">css/ckeditor.css</span>
+</code></pre></div></div>
+
+<p>If there’s something already under <code class="highlighter-rouge">core: 8.x</code> just put the CKEditor lines below it.</p>
+
+<p>Next you have to actually add a file there! Go to your theme’s <code class="highlighter-rouge">/css/</code> directory and add an empty <code class="highlighter-rouge">ckeditor.css</code> file next to the site’s <code class="highlighter-rouge">style.css</code>.</p>
+
+<p>Now, you <em>could</em> just tell CKEditor to load all of the site CSS - but that would be overkill for the poor little iframe. It’s better to just find the vanilla CSS styles you need in your <code class="highlighter-rouge">style.css</code> file and copy them over. In our case it’s only about 160 lines of CSS - the default styles for the site, plus some rendered Sass mixins for the button. How does our WYSIWYG look now?</p>
+
+<p><img src="/assets/images/blog/intro3.png" alt="intro3.png" class="center" /></p>
+
+<p>Bazinga! What a difference.</p>
+
+<p>Hmm, but our button is missing its styles because we haven’t configured the CKEditor for that yet.</p>
+
+<p>Go into the Drupal configs to set that up at <code class="highlighter-rouge">/admin/config/content/formats</code> and click ‘configure’ for the CKEditor text format you want (Full HTML, etc).</p>
+
+<p>If you don’t have ‘Styles’ in the ‘Active Toolbar’, add it by dragging it in. It looks good next to ‘Format’, and has a similar behavior:</p>
+
+<p><img src="/assets/images/blog/ckedit1.png" alt="ckedit1.png" class="center" /></p>
+
+<p>Then scroll down to the ‘Styles dropdown’ tab and add the appropriate markup and class for the button.</p>
+
+<p><img src="/assets/images/blog/ckedit2.png" alt="ckedit2.png" class="center" /></p>
+
+<p>In our case we want to turn an anchor link (<code class="highlighter-rouge">a</code>) into a button by adding a <code class="highlighter-rouge">.button</code> class, so we use <code class="highlighter-rouge">a.button</code>. The text after the pipe (<code class="highlighter-rouge">|</code>) is what will appear in the ‘Styles’ dropdown.</p>
+
+<p>Finally, make sure you’ve added that markup to the ‘allowed HTML tags’ section if you’re adding it to a restricted markup configuration:</p>
+
+<p><img src="/assets/images/blog/ckedit6.png" alt="ckedit6.png" class="center" /></p>
+
+<p><em>Important Note:</em> style options won’t show up in the Styles dropdown unless you have clicked/selected an eligible piece of markup - in our case the <code class="highlighter-rouge">a</code> tag - in the CKEditor window. So in our example, we’d have to click on ‘read more’ before we click on the Styles dropdown.</p>
+
+<p><img src="/assets/images/blog/ckedit5.gif" alt="ckedit5.gif" class="center" /></p>
+
+<p>As long as you have <code class="highlighter-rouge">a.button</code> styles in <code class="highlighter-rouge">ckeditor.css</code>, it should work right away. (Well, after a cache clear. It’s Drupal.)</p>
+
+<p>And that’s it! From here you can continue to add styles to <code class="highlighter-rouge">ckeditor.css</code>, and to the Styles dropdown in the Drupal ‘Text formats and editors’ admin.</p>
+
+<p>The WYSIWYG is no longer a lie!</p>
+
+]]>
+  </description>
+  <pubDate>Tue, 29 Aug 2017 04:20:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/08/the-wysiwyg-is-a-lie/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/08/the-wysiwyg-is-a-lie/</guid>
+</item>
+
+    
+      <item>
+  <title>Fade To Black - Responsive CSS Gradients</title>
+  <description>
+    <![CDATA[<p><img src="/assets/images/blog/fade-to-black-1.jpg" alt="fade-to-black-1.jpg" class="left forty" /> <a href="//alistapart.com/article/responsive-web-design">Responsive design</a> brings a fascinating array of challenges to both designers and developers. Using background images in a call to action or blockquote element is a great way to add visual appeal to a design, as you can see in the image to the left.</p>
+
+<p><br clear="all" /><br /></p>
+
+<p><img src="/assets/images/blog/fade-to-black-2.jpg" alt="fade-to-black-2.jpg" class="right thirty" /> However, at mobile sizes, you’re faced with some tough decisions. Do you try and stretch the image to fit the height of the container? If so, at very tall/narrow widths, you’re forced to load a giant image, and it likely won’t be recognizable.</p>
+
+<p>In addition, forcing mobile users to load a large image is bad for performance. Creating custom responsive image sets would work, but that sets up a maintenance problem, something most clients will <em>not</em> appreciate.</p>
+
+<p>Luckily, there’s a solution that allows us to keep the image aspect ratio, set up standard <a href="//css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/">responsive images</a>, and it looks great on mobile as well. The fade-out!</p>
+
+<p>I’ll be using screenshots and code here, but I’ve also made <a href="//codepen.io/collection/XeBvKo/">all 6 steps available on CodePen</a> if you want to play with the code and try out different colors, images, etc…</p>
+
+<p><br clear="all" /><br /></p>
+
+<p>Let’s start with that first blockquote:</p>
+
+<p><img src="/assets/images/blog/fade-to-black-1.jpg" alt="fade-to-black-1.jpg" class="left forty" /> <a href="//codepen.io/komejo/pen/GERJwy">(pen)</a> This is set up for desktop - the image aspect ratio is determining the height of the container using the <a href="//stackoverflow.com/questions/1495407/maintain-the-aspect-ratio-of-a-div-with-css">padding ratio trick</a>. Everything in the container is using absolute positioning and <a href="http://www.sketchingwithcss.com/samplechapter/cheatsheet.html">flexbox</a> for centering. We have a simple <code class="highlighter-rouge">rgba()</code> background set using the <code class="highlighter-rouge">:before</code> pseudo-property in the .parent-container:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nd">:before</span> <span class="p">{</span>
+    <span class="nl">content</span><span class="p">:</span> <span class="s1">""</span><span class="p">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.4</span><span class="p">);</span>
+    <span class="nl">z-index</span><span class="p">:</span> <span class="m">10</span><span class="p">;</span>
+    <span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p><br clear="all" /><br /></p>
+
+<p><img src="/assets/images/blog/fade-to-black-3.jpg" alt="fade-to-black-3.jpg" class="right forty" /> <a href="//codepen.io/komejo/pen/QgWyLN">(pen)</a> The issues arise once we get a quote of reasonable length, and/or the page width gets too small. As you can see, it overflows and breaks quite badly.</p>
+
+<p><br clear="all" /><br /></p>
+
+<p><img src="/assets/images/blog/fade-to-black-4.jpg" alt="fade-to-black-4.jpg" class="left forty" /> <a href="//codepen.io/komejo/pen/XgWXWz">(pen)</a> We can fix this by setting some changes to take place at a certain breakpoint, depending on the max length of the field and the size of the image used.</p>
+
+<p>Specifically, we remove the padding from the parent element, and make the .content-wrapper <code class="highlighter-rouge">position: static</code>. (I like to set a min-height as well just in case the content is very small)</p>
+
+<p><br clear="all" /><br /></p>
+
+<p><img src="/assets/images/blog/fade-to-black-5.jpg" alt="fade-to-black-5.jpg" class="right forty" /> <a href="//codepen.io/komejo/pen/JJjGXB">(pen)</a> Now we can add the fader code - <code class="highlighter-rouge">background-image: linear-gradient</code>, which can be used <a href="http://caniuse.com/#search=linear-gradient">unprefixed</a>. This is inserted into the .image-wrapper using another <code class="highlighter-rouge">:before</code> pseudo-element:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nd">:before</span> <span class="p">{</span>
+    <span class="nl">content</span><span class="p">:</span> <span class="s1">""</span><span class="p">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="n">inline-block</span><span class="p">;</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="nl">background-image</span><span class="p">:</span> <span class="n">linear-gradient</span><span class="p">(</span>
+      <span class="p">//</span> <span class="n">Fade</span> <span class="n">over</span> <span class="n">the</span> <span class="n">entire</span> <span class="n">image</span> <span class="n">-</span> <span class="n">not</span> <span class="n">great</span><span class="p">.</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">)</span> <span class="m">0%</span><span class="p">,</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)</span> <span class="m">100%</span>
+    <span class="p">);</span>
+  <span class="p">}</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p><br clear="all" /><br /></p>
+
+<p><img src="/assets/images/blog/fade-to-black-6.jpg" alt="fade-to-black-6.jpg" class="left forty" /> <a href="//codepen.io/komejo/pen/XgWXNZ">(pen)</a> The issue now is that the gradient covers the entire image, but we can fix that easily by adding additional <code class="highlighter-rouge">rgba()</code> values, in effect ‘stretching’ the part of the gradient that’s transparent:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nd">:before</span> <span class="p">{</span>
+    <span class="nl">background-image</span><span class="p">:</span> <span class="n">linear-gradient</span><span class="p">(</span>
+      <span class="p">//</span> <span class="n">Transparent</span> <span class="n">at</span> <span class="n">the</span> <span class="nb">top</span><span class="p">.</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">)</span> <span class="m">0%</span><span class="p">,</span>
+      <span class="p">//</span> <span class="n">Still</span> <span class="nb">transparent</span> <span class="n">through</span> <span class="m">70%</span> <span class="n">of</span> <span class="n">the</span> <span class="n">image</span><span class="p">.</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">)</span> <span class="m">70%</span><span class="p">,</span>
+      <span class="p">//</span> <span class="n">Now</span> <span class="n">fade</span> <span class="n">to</span> <span class="nb">solid</span> <span class="n">to</span> <span class="n">match</span> <span class="n">the</span> <span class="n">background</span><span class="p">.</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)</span> <span class="m">100%</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p><br clear="all" /><br /></p>
+
+<p><img src="/assets/images/blog/fade-to-black-7.jpg" alt="fade-to-black-7.jpg" class="right forty" /> <a href="//codepen.io/komejo/pen/RgwrZb">(pen)</a> Finally, we can fine-tune the gradient by adding even more <code class="highlighter-rouge">rgba()</code> values and setting the percentages and opacity as appropriate.</p>
+
+<p>Once we’re satisfied that the gradient matches the design, all that’s left is to make the gradient RGBA match the .parent-container background color (not the overlay - this tripped me up for a while!), which in our case is supposed to be <code class="highlighter-rouge">#000</code>:</p>
+
+<p><br clear="all" /></p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nd">:before</span> <span class="p">{</span>
+    <span class="nl">background-image</span><span class="p">:</span> <span class="n">linear-gradient</span><span class="p">(</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">)</span> <span class="m">0%</span><span class="p">,</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">)</span> <span class="m">70%</span><span class="p">,</span>
+      <span class="p">//</span> <span class="n">These</span> <span class="n">three</span> <span class="s2">'smooth'</span> <span class="n">out</span> <span class="n">the</span> <span class="n">fade</span><span class="p">.</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.2</span><span class="p">)</span> <span class="m">80%</span><span class="p">,</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.7</span><span class="p">)</span> <span class="m">90%</span><span class="p">,</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.9</span><span class="p">)</span> <span class="m">95%</span><span class="p">,</span>
+      <span class="p">//</span> <span class="n">Solid</span> <span class="n">to</span> <span class="n">match</span> <span class="n">the</span> <span class="n">background</span><span class="p">.</span>
+      <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)</span> <span class="m">100%</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p>We’ll be rolling out sites in a few weeks with these techniques in live code, and with several slight variations to the implementation (mostly adding responsive images and making allowances for Drupal’s markup), but this is the core idea used.</p>
+
+<p>Feel free to <a href="//codepen.io/collection/XeBvKo/">play with the code</a> yourself, and change the <code class="highlighter-rouge">rgba()</code> values so that you can see what each is doing.</p>
+
+]]>
+  </description>
+  <pubDate>Tue, 06 Jun 2017 08:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/06/fade-to-black-responsive-css-gradients/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/06/fade-to-black-responsive-css-gradients/</guid>
+</item>
+
+    
+      <item>
+  <title>The 2017 ThinkShout Front-End Stack</title>
+  <description>
+    <![CDATA[<p>Front-end development is full of challenges - changing design trends, browser idiosyncrasies, client demands, and ever-evolving web standards to name a few. Over the last few years though, a new challenge has emerged. Which development stack should you choose?</p>
+
+<p>Once upon a time, front end development didn’t really have a “dev stack.” You had markup in files, maybe output from a CMS, a stylesheet, and some jQuery if you felt like getting fancy. Now though, the array of options can be paralysing. Pre-processors, post-processors, task runners, and package managers have made many aspects of development faster, but which ones are best? Where do you start?</p>
+
+<p>Here at ThinkShout, under the watchful eye of <a href="/team/eric/">Eric Paxton</a>, our Senior Front End Engineer, we’ve been trying out the various options whenever we take on a new project, to see how well it fits in our theming process. We’re pretty busy, so this covers a lot of ground quickly. We’ve been careful to <a href="/blog/2016/07/the-hidden-power-of-documentation/">fully document</a> the tools used in the past so that we don’t bedevil the maintenance folks. (We are often the maintenance folks).</p>
+
+<p>The last few builds have seen our dev stack settle down to a flexible tool set that is easy to setup and maintain, while providing us with excellent modern theming tools. Let’s dive in!</p>
+
+<h2 id="getting-started-languages-handlers-and-package-management">Getting Started: Languages, Handlers, and Package Management</h2>
+<p>At the bottom of a development stack are the languages used, the language handlers, and the package managers that allow you to include pre-built tools and libraries in your project. Some of these are interchangeable, but it solves a lot of problems if everyone uses the same fundamental tools.</p>
+
+<p>In our case, we use <a href="https://www.ruby-lang.org/en/">Ruby</a> and <a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> as the base languages, and <a href="https://github.com/rbenv/rbenv">rbenv</a> and <a href="https://nodejs.org/en/">Node</a> as their handlers. By using Ruby and JavaScript, we get access to an extremely wide array of applications, tools, plugins, and more. Once these are installed (Using an OS package manager! In this case, <a href="http://brew.sh/">Homebrew</a> (since we all use Macs), we add package handling for these languages: <a href="http://bundler.io/">Bundler</a> and <a href="https://www.npmjs.com/">NPM</a> respectively. This gives us the following base:</p>
+
+<ul>
+  <li>Ruby via rbenv, managing gems using Bundler</li>
+  <li>JavaScript via Node.js, managing packages using NPM</li>
+</ul>
+
+<p>Now we can specify Ruby Gems and Node packages in a Ruby Make file (<code class="highlighter-rouge">Rakefile</code>), and a complex project setup is as simple as running <code class="highlighter-rouge">rake install</code> once from the theme directory, and starting the task watcher using <code class="highlighter-rouge">rake serve</code>. (To be more precise, we use the Rakefile to install the Ruby Gems as defined in the Gemfile, and the Node modules as specified in the <code class="highlighter-rouge">package.json</code> file).</p>
+
+<p>The complete project setup for a new developer would be the following:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~: brew install rbenv
+~: gem install bundler
+~: brew install node
+~: brew install npm
+~: cd ~/path/to/theme/directory
+~: rake install
+~: rake serve
+</code></pre></div></div>
+
+<p>After that, any new projects would only need the last three lines run.</p>
+
+<p>The key to making this work is to have a <code class="highlighter-rouge">Rakefile</code>, a <code class="highlighter-rouge">Gemfile</code> and a <code class="highlighter-rouge">package.json</code> set up in our project’s theme so that <code class="highlighter-rouge">rake install</code> works properly. In our case we use the Rakefile to first run <code class="highlighter-rouge">bundle install</code>, which installs the appropriate gems and their dependencies:</p>
+
+<p>Rakefile:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">task</span> <span class="ss">:install</span> <span class="k">do</span>
+     <span class="nb">system</span> <span class="s1">'bundle install'</span> <span class="c1"># this runs the Gemfile contents!</span>
+     <span class="nb">system</span> <span class="s1">'npm install -g browser-sync'</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Gemfile:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> <span class="s1">'http://rubygems.org'</span>
+gem <span class="s1">'sass'</span>
+gem <span class="s1">'sass-globbing'</span>
+</code></pre></div></div>
+
+<p>This <a href="http://bundler.io/v1.3/rationale.html">generates</a> a <code class="highlighter-rouge">Gemfile.lock</code> listing all of the installed packages/versions.</p>
+
+<p>The <code class="highlighter-rouge">npm install</code> lines in the Rakefile setup tools that we’ll discuss later. Our next layer in the stack are the SASS tools that Bundler installed.</p>
+
+<h2 id="sass-at-thinkshout-please-pass-the-bourbon">SASS at ThinkShout (please pass the Bourbon)</h2>
+<p>In the middle of our stack is <a href="http://sass-lang.com/">SASS</a>. We use SASS in a fairly simple way at ThinkShout, installing it with <a href="https://rubygems.org/gems/sass-globbing">sass-globbing</a>. This allows us to set up directories that allow any files using the appropriate <code class="highlighter-rouge">_filename.scss</code> syntax to be included in the build. We also tend to keep the directory structure fairly minimal:</p>
+
+<p><code class="highlighter-rouge">style.scss</code>:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@import</span> <span class="s2">'lib/bourbon/bourbon'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">'lib/neat/neat'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">'lib/normalize/normalize'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">'global/*'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">'layout/*'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">'modules/*'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>The first thing we include is the <a href="http://bourbon.io/">Bourbon</a> mixin library. This includes coding shortcuts such as the <a href="http://bourbon.io/docs/#px-to-rem">pixels-to-rems</a> syntax <code class="highlighter-rouge">rem(24)</code>. This allows us to read a design’s pixel spacing and it converts them to the appropriate rem values. The <a href="http://bourbon.io/docs/">Bourbon Docs</a> are excellent and well-maintained as well. Never worry about browser prefixes or fallbacks again.</p>
+
+<p>Next up is the Bourbon-related grid framework, <a href="http://neat.bourbon.io/">Neat</a>. A simple but powerful grid that uses semantic markup and easy-to-read terminology such as <code class="highlighter-rouge">@include span-columns(9)</code>. No extra wrappers, no specific classes to add, and it’s extremely robust. We haven’t run into any cross-browser issues in over two years of using it, which says a lot, and since it’s only applied as you specify, it’s easy to break out of the grid if you need to.</p>
+
+<p>Next up is <a href="https://github.com/necolas/normalize.css">normalize.css</a>, a modern update to the old CSS reset stylesheets. Not really much to add to that except it’s <em>really</em> well commented, so make sure you change it from <code class="highlighter-rouge">normalize.css</code> to <code class="highlighter-rouge">_normalize.scss</code> so that you don’t bloat your final <code class="highlighter-rouge">site.css</code> file.</p>
+
+<p>The <code class="highlighter-rouge">Global</code> directory has the following:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_01.vars.scss
+_02.mixins.scss
+_03.extends.scss
+_04.base.scss
+</code></pre></div></div>
+
+<p>The _01, _02, etc. prefixes take advantage of the sass-globbing’s alphabetical file inclusion. All our site variables (colors, font weights, and so forth) are in <code class="highlighter-rouge">vars</code>, our custom mixins are next, then extends. Base has all of the base markup styles:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="n">rem</span><span class="p">(</span><span class="m">16</span><span class="p">);</span>
+  <span class="nl">font-style</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="err">$</span><span class="n">regular</span><span class="p">;</span>
+  <span class="nl">-webkit-font-smoothing</span><span class="p">:</span> <span class="n">antialiased</span><span class="p">;</span>
+  <span class="nl">-moz-osx-font-smoothing</span><span class="p">:</span> <span class="n">grayscale</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span>
+  <span class="nl">text-rendering</span><span class="p">:</span> <span class="n">optimizeLegibility</span><span class="p">;</span> <span class="err">//</span> <span class="err">Fix</span> <span class="err">the</span> <span class="err">character</span> <span class="err">spacing</span> <span class="err">for</span> <span class="err">headings</span>
+<span class="p">}</span>
+
+<span class="nt">p</span><span class="o">,</span> <span class="nt">a</span><span class="o">,</span> <span class="nt">ul</span><span class="o">,</span> <span class="nt">ol</span><span class="o">,</span> <span class="nt">etc</span><span class="o">...</span>
+</code></pre></div></div>
+
+<p>The layouts directory usually has a <code class="highlighter-rouge">_layouts.scss</code> file, which covers the basics of site layout. Since we use Drupal, we’ll often add a <code class="highlighter-rouge">_regions.scss</code> as well to specify layout for the various Drupal-generated content zones on a site. These files are where we use the Neat framework the most.</p>
+
+<p>Finally, we have the <code class="highlighter-rouge">modules</code> directory - where most of the theming takes place. These are usually named by content type (<code class="highlighter-rouge">_basic-pages.scss</code>, <code class="highlighter-rouge">_articles.scss</code>, etc.), though there are often files such as <code class="highlighter-rouge">_forms.scss</code> and <code class="highlighter-rouge">_homepage.scss</code> as well. Sometimes we don’t even have to use our <a href="http://thesassway.com/intermediate/using-source-maps-with-sass">source maps</a> to know where code is!</p>
+
+<p>One of our good habits is to start with our mobile-first, responsive <code class="highlighter-rouge">_01.template.scss</code> file:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span> <span class="nt">Default</span> <span class="o">/</span> <span class="nt">Mobile</span>
+
+<span class="o">//</span> <span class="nt">Tablet</span> <span class="o">(</span><span class="nt">580px</span><span class="o">)</span>
+<span class="k">@media</span> <span class="n">all</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="err">$</span><span class="n">tablet</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="nt">Large</span> <span class="nt">Tablet</span> <span class="o">(</span><span class="nt">768px</span><span class="o">)</span>
+<span class="k">@media</span> <span class="n">all</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="err">$</span><span class="n">lg-tablet</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="nt">Desktop</span> <span class="o">(</span><span class="nt">1228px</span><span class="o">)</span> <span class="err">$</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">1440px</span>
+<span class="k">@media</span> <span class="n">all</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="err">$</span><span class="n">desktop</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>When you want to add another theming module, you just make a copy of the template and your progressive breakpoints are included! (The <code class="highlighter-rouge">$max-width: 1440px</code> is there in a comment  because it’s handy).</p>
+
+<p>All of this gets handled by a task in our Rakefile, which sets a watcher for changes to any SASS file and compiles them into a single <code class="highlighter-rouge">css/style.css</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">desc</span> <span class="s1">'Watch sass'</span>
+<span class="n">task</span> <span class="ss">:sasswatch</span> <span class="k">do</span>
+<span class="nb">system</span> <span class="s1">'sass -r sass-globbing --watch sass/style.scss:css/style.css'</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="pulling-it-all-together-browsersync">Pulling It All Together: Browsersync!</h2>
+
+<p>Finally, at the top of our stack, we have <a href="https://browsersync.io/">Browsersync</a>. Eric Paxton, our Senior Front End Engineer, wrote an <a href="https://thinkshout.com/blog/2016/04/syncing-up-with-drupal8-and-browsersync/">excellent overview</a> of why we use this amazing tool, what it does, as well as how to install it in detail for Drupal 8.</p>
+
+<p>In our stack it’s as simple as another task in that Rakefile:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">desc</span> <span class="s1">'Running Browsersync'</span>
+<span class="n">task</span> <span class="ss">:browsersync</span> <span class="k">do</span>
+     <span class="nb">system</span> <span class="s1">'browser-sync start --proxy "local.dev" --files "css/*.css" --no-inject-changes'</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>And adding the following (generated by running <code class="highlighter-rouge">browser-sync start</code>) to the site’s <code class="highlighter-rouge">&lt;head&gt;</code> :</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!--</span> <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"__bs_script__"</span><span class="o">&gt;</span>
+  <span class="c1">//&lt;![CDATA[ document.write("&lt;script async src='http://HOST:3000/browser-sync/browser-sync-client.2.12.3.js'&gt;&lt;\/script&gt;".replace("HOST", location.hostname));</span>
+  <span class="c1">//]]&gt;</span>
+<span class="o">&lt;</span><span class="sr">/script&gt; --</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>This also sets a watcher on the CSS, and refreshes every browser you have open to <code class="highlighter-rouge">localhost:3000</code> or the local network IP address it generates upon running <code class="highlighter-rouge">rake serve</code>.</p>
+
+<p>The last part of the Rakefile implements the tasks we set up:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">desc</span> <span class="s1">'Serve'</span>
+<span class="n">task</span> <span class="ss">:serve</span> <span class="k">do</span>
+  <span class="n">threads</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="sx">%w{sasswatch browsersync}</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">task</span><span class="o">|</span>
+    <span class="n">threads</span> <span class="o">&lt;&lt;</span> <span class="no">Thread</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">task</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">devtask</span><span class="o">|</span>
+      <span class="no">Rake</span><span class="o">::</span><span class="no">Task</span><span class="p">[</span><span class="n">devtask</span><span class="p">].</span><span class="nf">invoke</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+  <span class="n">threads</span><span class="p">.</span><span class="nf">each</span> <span class="p">{</span><span class="o">|</span><span class="n">thread</span><span class="o">|</span> <span class="n">thread</span><span class="p">.</span><span class="nf">join</span><span class="p">}</span>
+  <span class="nb">puts</span> <span class="n">threads</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This has the <em>magical</em> effect of opening a new browser window to <code class="highlighter-rouge">localhost:3000</code> when you run <code class="highlighter-rouge">rake serve</code>, and reloading it every time you save any of your SASS files. It also scrolls all open windows together, even when you open up things on your phone using the local network proxy, which it helpfully provides as output:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; Sass is watching for changes. Press Ctrl-C to stop.
+[BS] Proxying: http://site.dev
+[BS] Access URLs:
+ -------------------------------------
+       Local: http://localhost:3000
+    External: http://172.16.5.235:3000
+ -------------------------------------
+          UI: http://localhost:3001
+ UI External: http://172.16.5.235:3001
+ -------------------------------------
+[BS] Watching files...
+[BS] File changed: css/style.css
+      write css/style.css
+      write css/style.css.map
+</code></pre></div></div>
+
+<p>This is really the cherry on top of the dev stack - after using it for a little while, you’ll wonder how you ever got along reloading everything manually.</p>
+
+<h2 id="stack-overview">Stack Overview</h2>
+
+<p>In summary, here’s that front-end stack:</p>
+
+<ul>
+  <li>Ruby via rbenv, managing gems using Bundler</li>
+  <li>JavaScript via Node.js, managing packages using NPM</li>
+  <li>SASS with globbing, set up in a simple directory structure</li>
+  <li>Bourbon Mixin library</li>
+  <li>Neat Grid system</li>
+  <li>Normalize.css as _normalize.scss</li>
+  <li>A simple module template containing responsive breakpoints</li>
+  <li>Browsersync</li>
+</ul>
+
+<p>None of this is carved in stone of course, and it gets slightly tweaked for every new build based on the project requirements, such as internationalization, the base CMS (Drupal, WordPress, or Jekyl in our case), and the desire to try out something new, which is fairly constant. After all, that’s how we got to the stack we have today!</p>
+
+]]>
+  </description>
+  <pubDate>Mon, 06 Feb 2017 08:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2017/02/the-2017-thinkshout-front-end-stack/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/02/the-2017-thinkshout-front-end-stack/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

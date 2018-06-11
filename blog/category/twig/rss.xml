@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/twig/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Meet the ThinkShout Team at DrupalCon Baltimore</title>
+  <description>
+    <![CDATA[<p>We’re packing our bags for Baltimore and polishing up our slide decks for DrupalCon! We’re so excited to join the Drupal community for a full week of Drupal-y things. We’ve got some great content planned for this year’s conference, and we’re very excited to share it with you all - here’s what you need to know:</p>
+
+<h2 id="exhibit-hall">Exhibit Hall</h2>
+
+<p>The ThinkShout Headquarters this year is <strong>booth 432</strong>! We’ll be giving away free t-shirts and raffling off an Amazon Echo. You can enter to win for the low, low price of one business card. If you have any questions about <a href="https://thinkshout.com/work/">our work</a>, current available <a href="https://thinkshout.com/careers/">job opportunities</a>, or what the <a href="https://isitraining.in/Portland">weather’s like in Portland</a> (spoiler: it’s probably raining), stop by - we’d love to chat with you!</p>
+
+<h2 id="thinkshout-sessions">ThinkShout Sessions</h2>
+
+<p>The ThinkShout team has two sessions in the DrupalCon agenda this year. We’re also very excited to be leading a discussion in our first DrupalCon Nonprofit Summit. Take a look at our lineup and mark your calendars</p>
+
+<p>“<a href="https://events.drupal.org/baltimore2017/nonprofit-summit">Rapid Response Campaigns &amp; Digital Tools</a>” - Monday (4/24), 12:30 - 1:15pm, Nonprofit Summit</p>
+
+<p>The news cycle doesn’t stop, and your website must help you respond to emergencies, not act as a barrier. Drupal can help you react quickly, in concert with your other channels, to turn current events into opportunities to spread your message and further your mission. In this breakout session, Brett Meyer and Lev Tsypin will talk about the tools you have at your disposal in Drupal, scenarios that call for rapid response solutions and how to implement them, and strategies that will help you turn these situations into lasting engagement with your constituents.</p>
+
+<p>“<a href="https://events.drupal.org/baltimore2017/sessions/demystifying-rendered-content-drupal-8-twig-files">Demystifying Rendered Content in Drupal 8 Twig Files</a>” - Tuesday (4/25), 3:45 - 4:45pm</p>
+
+<p>Amy Vaillancourt-Sals is going to show you the ins and outs of Twig! <a href="http://twig.sensiolabs.org/">Twig</a> is a robust and elegant template engine for PHP. It’s lightweight, fairly quick to pick up, very readable, and it grants users ultimate control over the markup, including wrapping elements and rendering exactly the output you need. In this session, you’ll learn about the debugging process of sorting through twig variables, using xdebug in PHPStorm, the other helpful debugging tools at your disposal, plus common patterns Amy found helpful for rendering content in twig files.</p>
+
+<p>“<a href="https://events.drupal.org/baltimore2017/sessions/content-strategy-popular-culture-part-deux">Content Strategy in Popular Culture, Part Deux</a>” - Thursday (4/27), 10:45 - 11:45am</p>
+
+<p>Brett Meyer’s got a sequel to <a href="https://www.youtube.com/watch?v=sJxtCPRde4k">his session from DrupalCon New Orleans</a>. Another year, another array of pop culture obsessions to examine and apply to the work we do. By exploring how crucial aspects of content strategy play out in movies, music, comic books, and video games, we’ll continue to expand the palette of language we can use to explain and convince more people about the importance of content strategy online, and ensure they understand that it’s not just vital, but fun as well.</p>
+
+<h2 id="lets-chat">Let’s Chat</h2>
+
+<p>If you’d like to schedule some time to chat with us in advance, drop us a line via our <a href="https://thinkshout.com/contact/">contact form</a>. We’d be happy to meet up with you in Baltimore!</p>
+
+]]>
+  </description>
+  <pubDate>Wed, 19 Apr 2017 12:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/04/meet-thinkshout-at-drupalcon-baltimore/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/04/meet-thinkshout-at-drupalcon-baltimore/</guid>
+</item>
+
+    
+      <item>
+  <title>Demystifying Rendered Content in Drupal 8 Twig Files</title>
+  <description>
+    <![CDATA[<p>Have you ever stared at your computer screen with a deer-in-headlights expression on your face thinking “I have no idea where to even start with this…”? That was me about a month ago when I was asked to help theme a Drupal 8 project for the very first time. Getting started theming in Drupal 8, still being in a fairly new iteration with a programming style differing from Drupal 7, was both an exciting and daunting task. It was exciting in the sense that I heard good things from those who’ve already started theming in D8, and daunting because there’d been a lot of changes between D7 and D8.</p>
+
+<p>One of the differences between Drupal 7 and 8 is template files; PHPTemplate (.tpl.php) files were replaced with Twig (.html.twig) files. <a href="http://twig.sensiolabs.org/">Twig</a> is a robust and elegant template engine for PHP. Once I started working with Twig, I instantly loved it. I found it to be lightweight, fairly quick to pick up, and very readable. Not only that, but I had what felt like ultimate control to the markup, including wrapping elements and rendering exactly the ouput I needed. Often with Drupal 7, wrapping elements in a <code class="highlighter-rouge">&lt;div&gt;</code> requires assistance from a back-end developer.</p>
+
+<p>With this newfound enthusiasm, I set out to write the best twig code ever! In order to find the output I needed, I used the Twig function <a href="http://twig.sensiolabs.org/doc/functions/dump.html">dump()</a>. This function “dumps” a variable’s information right on the screen. This proved highly useful until I realized I needed to dig deeper into the arrays and objects contained within the variable. There was only so much guess work I could do here before getting epically frustrated, seemingly wasting valuable time looking for an image file’s path.</p>
+
+<p>Though there are a handful of debugging methods to choose from, I had the best luck getting what I needed by using <a href="https://dev.acquia.com/blog/debugging-drupal-8/debugging-twig-templates-in-drupal-8-with-phpstorm-and-xdebug/25/08/2016/16586">PHPStorm to debug Twig files</a>. That’s right, front-end friends, PHPStorm isn’t just for back-end PHP-coding devs. It can be a great tool for front-end programmers as well!</p>
+
+<p>After following the steps listed in <a href="https://dev.acquia.com/blog/debugging-drupal-8/debugging-twig-templates-in-drupal-8-with-phpstorm-and-xdebug/25/08/2016/16586">Lubomir Culen’s post about debugging Twig templates</a>, I began to look for templates in the following path <code class="highlighter-rouge">sites/default/files/php</code>. From my understanding, opening a template folder gains access to the current template version the project is using, hence the long hash.</p>
+
+<p><img src="/assets/images/blog/content-rendering-1.png" alt="Content rendering 1" /></p>
+
+<p>If a change is made to the template, an additional hash file is created and a new breakpoint will need to be set. If at any point the hash template files get overwhelming, clearing the cache (running <code class="highlighter-rouge">drush cr all</code>) will reset the PHP folder and the template files, reducing the hash files to one per template folder.</p>
+
+<p>First off, I needed to acclimate myself to translating PHPStorm syntax into Twig. For example, copying a variable name in PHPStorm produces a syntax like this: <code class="highlighter-rouge">$context[‘page’][‘#title’]-&gt;arguments[‘@name’]</code>. That gets translated into the twig file like so: <code class="highlighter-rouge">page[‘#title’].arguments[‘@name’]</code>. Here’s what my PHPStorm screen looked like while working on this solution:</p>
+
+<p><img src="/assets/images/blog/content-rendering-2.png" alt="Content rendering 2" /></p>
+
+<p>Some patterns and tricks I found helpful:</p>
+
+<ul>
+  <li>Ignoring <code class="highlighter-rouge">$context</code> and starting with the main content variable.</li>
+  <li>Strip array syntax, i.e. <code class="highlighter-rouge">[‘page’]</code> = <code class="highlighter-rouge">page</code>.</li>
+  <li>If arrays exist next to each other, separate them with periods. Ex. <code class="highlighter-rouge">[‘page’][‘content’]</code> = <code class="highlighter-rouge">page.content</code>.</li>
+  <li>If an array has a #, @, or other symbol associated, keep its integrity. No period is needed here. Ex. <code class="highlighter-rouge">[‘page’][‘#title’]</code> = <code class="highlighter-rouge">page[‘#title’]</code>, and <code class="highlighter-rouge">arguments[‘@name’]</code> stays the same.</li>
+  <li>If an arrow exists, treat the method (what comes after the -&gt;) in the same manner as arrays. Ex. <code class="highlighter-rouge">[‘#title’]-&gt;arguments</code> = <code class="highlighter-rouge">[‘#title’].arguments</code></li>
+  <li>If you’re having trouble rendering the desired output, try adding <code class="highlighter-rouge">.value</code> to the end of the render code and see if that does the trick.</li>
+  <li>Use <code class="highlighter-rouge">dump()</code> simultaneously with PHPStorm’s suggested variable path.</li>
+  <li>Refer to the <a href="http://twig.sensiolabs.org/documentation">Twig documentation</a> for other handy built-in features.</li>
+</ul>
+
+<p>Up until the moment I got PHPStorm doing the heavy lifting, my team and I were relying soley on the <code class="highlighter-rouge">dump()</code> Twig function. We were halfway through the project when I discovered a value was no longer present. The disappearance was due to a template’s reliance on a value being rendered via an array placement, i.e. <code class="highlighter-rouge">content.tile.3['#markup']</code>, the ‘3’ referring to the 4th placement in the ‘tile’ array. To alleviate potential confusion, ‘tile’ happened to be the custom field group where the <code class="highlighter-rouge">field_to_render</code> existed, and the <code class="highlighter-rouge">field_to_render</code> was the 4th field in the list of fields. When a field was moved within the ‘tile’ field group, the code broke. Once I had access to the phpstorm debugger, I was able to see a better way to render this element, i.e. <code class="highlighter-rouge">content.field_to_render</code>. It suddenly dawned on me that our project needed some tidying, so I rolled up my sleeves and got to work.</p>
+
+<p>These are the strategies I established during my clean-up process:</p>
+
+<ul>
+  <li>Create the shortest render code possible with the closest placement to the main content variable. This will be the most stable. My array placement example mentioned previously is a good example of this. The same value can be present and rendered in numerous ways.</li>
+  <li>If rendering a field, use this pattern: <code class="highlighter-rouge">content.field_to_render</code>. This will render the field object, inheriting any backend logic that’s been applied to that field existing in the view_mode you are theming.</li>
+  <li>If you prefer having just the markup or integer value, try adding a <code class="highlighter-rouge">.value</code> to the end. Examples: <code class="highlighter-rouge">content[‘#node’].nid.value</code> will provide just the node id, and <code class="highlighter-rouge">content.node_title</code> will render the title object whereas <code class="highlighter-rouge">content[‘#node’].title.value</code> will render the title as a string.</li>
+  <li>The first element in an array might be the most stable. For example, we often use the media module which can add complexity to a media item’s data structure. In order use a node’s image as a background for a <code class="highlighter-rouge">&lt;div&gt;</code>, this is the best approach we found: <code class="highlighter-rouge">&lt;div class=”banner-image” style="background-image: url({{file_url(content.field_banner_image.0['#item'].entity.uri.value)}})"&gt;</code>.</li>
+</ul>
+
+<p>Any change can be tough to navigate, but it’s often well worth the effort. My experience theming in Drupal 8 thus far has been lovely, and fairly intuitive. I find it offers front-end developers more authority over the markup than its predecessor, and makes me excited for the future of theming in Drupal 8. If you were at all daunted by the thought of theming in Drupal 8, I hope this post helps you in your future twig debugging endeavors!</p>
+
+<p><em>Note:</em> <a href="https://www.drupal.org/project/devel">Devel</a> and <a href="http://raveren.github.io/kint/">Kint</a> are a couple additional tools available for debugging Twig variables, and I mention those in case others find them useful. More information on how to set those tools up for debugging Twig files (and more!) can be found in this <a href="https://sqndr.github.io/d8-theming-guide/twig/twig-debug.html">Drupal 8 Theming Guide</a> and on Amber Matz’s <a href="https://drupalize.me/blog/201405/lets-debug-twig-drupal-8">Let’s Debug in Drupal 8!</a> post.</p>
+
+<p>If you’re new to Drupal 8 theming, I would start with the resources Amber specifies in her “Editor’s notes”, and <a href="https://sqndr.github.io/d8-theming-guide/">sqndr’s D8 theming docs</a>. Debugging twig files is an intermediate topic.</p>
+
+<p>If you have any personal experience with Drupal 8 theming, or insight you’d like to share, I’d love to hear about it in the comments section!</p>
+]]>
+  </description>
+  <pubDate>Wed, 09 Nov 2016 09:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2016/11/demystifying-content-rendering-in-drupal-8-twig-files/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/11/demystifying-content-rendering-in-drupal-8-twig-files/</guid>
+</item>
+
+    
+      <item>
+  <title>Up and Theming with Drupal 8</title>
+  <description>
+    <![CDATA[<p>Drupal 8 is <a href="https://www.drupal.org/8">finally here</a>! We’ve been digging into the code and learning how to install D8 in a way that allow us to sync sites and use it for production work. A lot of things have changed, which we covered in our previous article, <a href="http://thinkshout.com/blog/2015/11/up-and-running-with-drupal-8/">Up and Running with Drupal 8</a>. The next step is to see what’s changed in the theming layer, installing a basic theme, and working with the new Twig templating system. There’s a good deal to cover, so let’s <a href="http://twig.sensiolabs.org/">jump in</a>!</p>
+
+<h2 id="creating-a-theme">Creating a Theme##</h2>
+
+<p>The steps for setting up a basic site theme are fairly simple: create a <code class="highlighter-rouge">custom/THEMENAME</code> directory in <code class="highlighter-rouge">web/themes</code>, and then add a <code class="highlighter-rouge">THEMENAME.info.yml</code> file with the following:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">THEMENAME Theme</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s1">'</span><span class="s">D8</span><span class="nv"> </span><span class="s">theme</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">THEMENAME</span><span class="nv"> </span><span class="s">site.'</span>
+<span class="na">package</span><span class="pi">:</span> <span class="s">Custom</span>
+<span class="c1"># base theme: classy</span>
+<span class="na">type</span><span class="pi">:</span> <span class="s">theme</span>
+<span class="na">version</span><span class="pi">:</span> <span class="s">1.0</span>
+<span class="na">core</span><span class="pi">:</span> <span class="s">8.x</span>
+<span class="na">regions</span><span class="pi">:</span>
+  <span class="na">header</span><span class="pi">:</span> <span class="s">Header</span>
+  <span class="na">content</span><span class="pi">:</span> <span class="s">Content</span> <span class="c1"># required!</span>
+  <span class="na">sidebar_first</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Sidebar</span><span class="nv"> </span><span class="s">first'</span>
+  <span class="na">footer</span><span class="pi">:</span> <span class="s">Footer</span>
+</code></pre></div></div>
+
+<p>Then you can enable your theme (<code class="highlighter-rouge">administer » themes</code>) in the interface. Note that uncommenting  <code class="highlighter-rouge">base theme: classy</code> will cause you to set Classy as a parent theme. We feel that Classy is great if you want a lot of useful examples, but really clutters up the markup, so use at your own discretion. <a href="https://www.drupal.org/node/2575421">After rc1</a>, the default theme will be ‘stable,’ and you may want to pull all of the core templates into your theme to ensure you’re working from the latest updated template code.</p>
+
+<p>Also, the theme name must not contain hyphens. So <code class="highlighter-rouge">/theme-name/</code> is invalid (it won’t even show up!), but <code class="highlighter-rouge">/theme_name/</code> is fine.</p>
+
+<p>Now we’ll want to start customizing our theme. Let us say we have a content type called ‘blog’ (machine name: <code class="highlighter-rouge">blog</code>), with a field type called ‘Publish Date’ (machine name: <code class="highlighter-rouge">field_publish_date</code>).</p>
+
+<p>Despite setting the label of <code class="highlighter-rouge">field_publish_date</code> to ‘inline,’ it’s wrapping to a new line due to the fact that it’s a simple, unstyled <code class="highlighter-rouge">&lt;div&gt;</code>.</p>
+
+<p>Worse, it has no classes to specifically style it. Let’s set ourselves some goals:</p>
+
+<ol>
+  <li>Add the inline styling class(s).</li>
+  <li>Change the markup for this field, so that we have a class for the label.</li>
+  <li>Add CSS to style the label, but ONLY for the ‘Blog’ content type.</li>
+</ol>
+
+<p>The documentation for this seemingly simple task is obfuscated and evolving right now, but we were able to get it working correctly using the following steps:</p>
+
+<p><strong>Step 1</strong>: Turn on <a href="https://www.drupal.org/node/1906392">twig debug mode</a>. We also found it helpful at this point to make a copy of <code class="highlighter-rouge">web/sites/example.settings.local.php</code> in <code class="highlighter-rouge">web/sites/default/</code> and uncomment the following in <code class="highlighter-rouge">settings.php</code>:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nb">file_exists</span><span class="p">(</span><span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">'/settings.local.php'</span><span class="p">))</span> <span class="p">{</span>
+  <span class="k">include</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">'/settings.local.php'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This will allow you to <a href="https://www.drupal.org/node/2598914">disable caching</a> during development, which is no longer a simple checkbox in the performance section. Note that disabling caching can be tricky; the <code class="highlighter-rouge">drush cr</code> (cache rebuild) command is the most reliable way to ensure the cache is really cleared. You’ll also have to rebuild the cache at least once after turning caching off, so the new cache settings are applied.</p>
+
+<p><strong>Step 2</strong>: Make a custom field template.</p>
+
+<p>In this case, the suggested debug fields are:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- FILE NAME SUGGESTIONS:
+   * field--node--field-publish-date--blog.html.twig
+   * field--node--field-publish-date.html.twig
+   * field--node--blog.html.twig
+   * field--field-publish-date.html.twig
+   * field--datetime.html.twig
+   x field.html.twig
+--&gt;</span>
+<span class="c">&lt;!-- BEGIN OUTPUT from 'core/modules/system/templates/field.html.twig' --&gt;</span>
+</code></pre></div></div>
+
+<p>The highlighted line above shows the template currently being used, suggestions for increased specificity, and the file location (<code class="highlighter-rouge">core/modules/system/templates/</code>).</p>
+
+<p>We want to update <code class="highlighter-rouge">field_publish_date</code> globally, so we’ll create a template called <code class="highlighter-rouge">field--field-publish-date.html.twig</code></p>
+
+<p>To do this, we copy <code class="highlighter-rouge">field.html.twig</code> from the core theme (see the ‘BEGIN OUTPUT’ line above for the path), and rename it in our theme’s folder to <code class="highlighter-rouge">field--field-publish-date.html.twig</code>. Now when we reload, we see the following (if your cache is disabled, of course, otherwise drush cr will clear the cache):</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- FILE NAME SUGGESTIONS:
+   * field--node--field-publish-date--blog.html.twig
+   * field--node--field-publish-date.html.twig
+   * field--node--blog.html.twig
+   x field--field-publish-date.html.twig
+   * field--datetime.html.twig
+   * field.html.twig
+--&gt;</span>
+<span class="c">&lt;!-- BEGIN OUTPUT from 'themes/custom/THEMENAME/templates/field--field-publish-date.html.twig' --&gt;</span>
+</code></pre></div></div>
+
+<p>Now we can begin to update the markup. The relevant code is:</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if label_hidden %}
+  ... (we don’t care about the label_hidden stuff)
+{% else %}
+  <span class="nt">&lt;div</span><span class="err">{{</span> <span class="na">attributes</span> <span class="err">}}</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span><span class="err">{{</span> <span class="na">title_attributes</span> <span class="err">}}</span><span class="nt">&gt;</span>{{ label }}<span class="nt">&lt;/div&gt;</span>
+    ...
+{% endif %}
+</code></pre></div></div>
+<p></p>
+
+<p>To add the inline styling class, we add the following to the top of the template (below the comments):</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{%
+  set classes = [
+    'field--label-' ~ label_display,
+  ]
+%}
+</code></pre></div></div>
+<p></p>
+
+<p>And then update the label’s parent div attributes:</p>
+
+<p>before: <code class="highlighter-rouge">&lt;div&gt;</code>
+after: &lt;div{{ attributes.addClass(classes) }}&gt;</p>
+
+<p>Now the correct class is in place, but we see no change yet - because the <code class="highlighter-rouge">&lt;div&gt;</code> isn’t populating any classes. To fix that, we add the following, again at the top of the template:</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{%
+  set title_classes = [
+    'field__label',
+    'field__publish-date-label',
+    label_display == 'visually_hidden' ? 'visually-hidden',
+  ]
+%}
+</code></pre></div></div>
+<p></p>
+
+<p>And update the div:</p>
+
+<p>before: <code class="highlighter-rouge">&lt;div&gt;&lt;/div&gt;</code>
+after: <code class="highlighter-rouge">&lt;div {{ title_attributes.addClass(title_classes) }}&gt;{{ label }}&lt;/div&gt;</code></p>
+
+<p>Rebuild the cache (drush cr) and… success! well sort of - we still have to add CSS. Note that we also added a custom class of ‘field__publish-date-label’ in case we want to style it directly.</p>
+
+<p><strong>Step 3</strong>: Add a <code class="highlighter-rouge">THEMENAME.libraries.yml</code> file to hold attachment library definitions.</p>
+
+<p>This is pretty simple; it’s a file with the following:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">blog</span><span class="pi">:</span>
+  <span class="na">version</span><span class="pi">:</span> <span class="s">1.x</span>
+  <span class="na">css</span><span class="pi">:</span>
+    <span class="na">theme</span><span class="pi">:</span>
+      <span class="s">css/blog.css</span><span class="pi">:</span> <span class="pi">{}</span>
+  <span class="na">js</span><span class="pi">:</span>
+    <span class="s">js/blog.js</span><span class="pi">:</span> <span class="pi">{}</span>
+  <span class="na">dependencies</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">core/jquery</span>
+</code></pre></div></div>
+
+<p>We then add the directories (<code class="highlighter-rouge">/css</code> and <code class="highlighter-rouge">/js</code>) and files (<code class="highlighter-rouge">blog.css/js</code>). We’ve also added a jQuery dependency, just so you can see how that’s done. If we had something simple that could be done with <a href="http://vanilla-js.com/">Vanilla JS</a> we could leave it off. Note that this won’t actually do anything until we follow step 4 below.</p>
+
+<p><strong>Step 4</strong>: Add a <code class="highlighter-rouge">THEMENAME.theme</code> file to hold theme hooks (this is actually a PHP file, so start it with <code class="highlighter-rouge"><span class="cp">&lt;?php</span></code>).</p>
+
+<p>This is the code that appends the library based on the content type. The trickiest part of this is figuring out the correct format of <code class="highlighter-rouge">hook_preprocess_HOOK()</code>:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="nf">THEMENAME_preprocess_node__blog</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$variables</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nv">$variables</span><span class="p">[</span><span class="s1">'#attached'</span><span class="p">][</span><span class="s1">'library'</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">'THEMENAME/blog'</span><span class="p">;</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<p>The theme hook format for content types is to use <code class="highlighter-rouge">node__MACHINENAME</code> format - two underscores.</p>
+
+<p>After that, rebuild your cache (<code class="highlighter-rouge">drush cr</code>), and your CSS and JS files should be loading on every instance of that content type, regardless of the page. (full or teaser)</p>
+
+<p>And that’s it! Note that we could have changed the markup in any number of ways to suit our designs, or even make the template specific to the content type as well as the field.</p>
+
+<h3 id="disclaimer">Disclaimer###</h3>
+
+<p>The post was written at the end of 2015 while Drupal 8 was still in a Release Candidate stage. While some effort will be made to keep the post up-to-date, if it’s after 2016, you should probably add the current year to your Google search, or better yet, check the docs on <a href="http://drupal.org">Drupal.org</a>.</p>
+]]>
+  </description>
+  <pubDate>Mon, 23 Nov 2015 06:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2015/11/up-and-theming-with-drupal-8/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/11/up-and-theming-with-drupal-8/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

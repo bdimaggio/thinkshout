@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/discovery/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>What to Think About When You're Thinking About a Redesign</title>
+  <description>
+    <![CDATA[<p>Websites, like most things, have a lifespan. At first, they are new and shiny and aligned with both your organization’s goals and current web trends and best practices. As time goes on, however, technology continues to progress, and your organizational goals will probably evolve as well.</p>
+
+<p>If you’ve worked through a full Discovery process to develop an information architecture that supports your organization’s core mission, then all you may need to update is the look and some of the site content. But if you haven’t engaged in an in-depth Discovery process before, you may find that your site is not only technically outdated, but also no longer reflects who you are as an organization.</p>
+
+<p>So it’s time to think about a redesign. The good news is, starting your new project with a full Discovery will help you create a site structure that will serve your needs not just for the new version of the site, but for years to come. Additionally, if you build your new site on a widely-used and well-supported open source CMS platform (like Drupal or Wordpress), you won’t need to switch systems every couple of years. For example, Drupal 8, the latest version of Drupal, is expected to have a lifespan of 8-10 years.</p>
+
+<p>Investing time and energy to develop a strong foundation now will set you up for success in the future. But how can you ensure your website redesign gets off to the right start?</p>
+
+<p>Here at ThinkShout, we believe that technical excellence and award-worthy design should be a given, and that our focus should be on building you a site that helps you connect with your constituents and meet your goals. Through numerous discovery engagements with many different organizations, we’ve uncovered some key questions to ask during the initial requirements gathering phase that will help ensure the solution we create meets your needs and serves your mission.</p>
+
+<p>Here are some things to think about when you’re thinking about a redesign:</p>
+
+<h2 id="what-are-your-organizational-goals">What are Your Organizational Goals?</h2>
+
+<p>Before you dive into the specifics of your website, let’s take a step back and think at a higher level. Defining your organizational goals will help make sure that the solution you and your vendor create not only looks good and functions well, but will also support the fundamental mission of your organization.</p>
+
+<p>So it’s important to take a moment to think about what your organization’s goals are. What issue are you working to address? What does success for your organization look like? The more specific and measurable these goals are, the better. Measuring your progress towards your higher level goals can help you assess the success of your project.</p>
+
+<h2 id="what-are-your-project-goals">What are Your Project Goals?</h2>
+
+<p>Now it’s time to zoom in and focus on this project itself. Project goals should be tangible, attainable, and measurable. They may include a mixture of internal goals (perhaps relating to how you are able to manage the website) and external goals (how your users interact with the website: engagement, donations, tracking, etc.).</p>
+
+<p>It may be helpful when thinking about your project goals to determine how they relate to your organizational goals. Can you map your project goals to the organizational goals they support? If not, perhaps you should consider if that particular goal for the project is even necessary – or if it can be deprioritized.</p>
+
+<p>For example, if your organization is a local animal shelter, one of your organizational goals may be to increase pet adoption. Website project goals that support this higher-level goal might be to post profiles for adoptable pets online, or allow facilitate adoptions through your website.</p>
+
+<p>Identifying and then prioritizing your project goals may also help you define what success will look like for your redesign project. How will you measure progress towards these goals? Which goals need to be met for the project to be successful?</p>
+
+<h2 id="who-are-your-audiences">Who are Your Audiences?</h2>
+
+<p>A website only adds value for your organization if your audiences use it, and mostly people will come to your website looking for information, driven by their own needs and motivations. If you focus primarily on your goals, you may end up with a website that is geared towards your organization’s needs and structures, but that does not allow your users to easily access the information they seek.</p>
+
+<p>Defining who your audiences are will allow you to put your users first when redesigning your website. Once you know who your audiences are, you can determine what content will satisfy their needs, sparking the trust that will allow you to nudge them to take an action beneficial to you.</p>
+
+<p>These questions are just a starting place for your website redesign. A full discovery process will delve more deeply into your programs and departments, your needs and wants, and what makes your organization tick. But asking yourself these three questions before you start will help give you an anchor to help you ensure that your new website engages your users and supports your mission.</p>
+]]>
+  </description>
+  <pubDate>Mon, 15 May 2017 09:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/05/what-to-think-about-when-thinking-about-a-redesign/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/05/what-to-think-about-when-thinking-about-a-redesign/</guid>
+</item>
+
+    
+      <item>
+  <title>User Journeys</title>
+  <description>
+    <![CDATA[<p>There’s some talk out there about this thing called “User Journeys.” A user journey is defined as the experience that a person has when utilizing/interacting with something – typically software or a website’s design.</p>
+
+<p>In more applicable terms, user journeys tell the story of an individual’s relationship with your organization over time, and across channels. Why are we talking about them? Because the process of mapping out a user journey can help you figure out how you fit into the lives of your users and identify gaps that are troublesome or disjointed in the user experience.</p>
+
+<p>Some quick Google sleuthing will point you to various methods for developing a user journey. But the two primary options are:</p>
+
+<ul>
+  <li>Analytical - looking at your site’s analytics to see where users came from, how they move through your site, and where drop-off points exist.</li>
+  <li>Anecdotal - conducting interviews, or running a survey to allow people to share their experiences.</li>
+</ul>
+
+<p>Traditionally, ThinkShout has taken the analytical approach and we let the data guide much of our audience work. It’s safe to say that the majority of the time, this is sufficient for the needs of most organizations. However, some projects require additional research. There are instances in which you need to determine not only how people are interacting with your website as it stands today, but you might want to know how you could better serve your audiences and what new content you need to curate. You might need users to answer questions like: What would be helpful? What do you find frustrating? What were you looking for when you needed help? How could we improve to be the resource you turn to when you need it most?</p>
+
+<p>As much as it pains me to say this (being the data-geek that I am), the answers to these question are not solely in the analytics. Most recently, we sought the answers to questions like this by conducting a series of phone interviews with site users.</p>
+
+<h2 id="the-interview-process">The Interview Process</h2>
+
+<p>While interviewing may come naturally to the likes of <a href="http://www.npr.org/people/2100593/terry-gross">Terry Gross</a>, for many of us, it’s an activity that requires a learned, delicate approach. Your phrasing and timing are hugely important, and it helps to be a natural listener. Sometimes, leaving space or an awkward silence for the interviewee to continue talking is the right thing to do.</p>
+
+<p>ThinkShout spoke with an expert who gave us some pointers on how to phrase questions and assemble a matrix to guide the interview process itself. Using a guide is essential, as you’ll want to aim for consistency in your delivery/phrasing in each interview. But while consistency is important, you need to be open to taking the conversation in the direction the respondent takes you as well.</p>
+
+<p>Your Matrix should be divided by:</p>
+
+<ul>
+  <li>Research Objective - this is a combination of what your organization wants, but is also driven by what is important for your organization to learn</li>
+  <li>Research Question - the question we want to know</li>
+  <li>Survey 	Question - Open-ended, broad. This is the question you actually ask.</li>
+</ul>
+
+<p>For example, a research objective might be “unmet needs/opportunities.” A research question might be, “Does the respondent feel there is something missing in terms of resources or support on the site?” To make this a survey question (the one you actually ask the respondent), we’d phrase it as, “What would have been helpful to have early in your experience that was not available to you?”</p>
+
+<p>You’ll want to interview several people from your target audiences to ensure there is sufficient representation. Generally, a small sample size is at about 8 interviews; a large sample would be 16.</p>
+
+<p>After about 4-5 interviews, consistencies and common needs from your audience should start to surface, and you’ll develop a complete view of what their experience has been as well as what they’d like it to be.</p>
+
+<h2 id="developing-the-journeys">Developing the Journeys</h2>
+
+<p>User journeys weave together the actions visitors to your site take and shows the levels of engagement they have; in some cases (if you’re getting real fancy) they also include empathy maps and how they are feeling at each stage.</p>
+
+<p>In one of our most recent projects, we wanted to show the multitude of ways in which a user engages with an organization, and their needs at each stage of the lifecycle with said organization. This also helped to develop the user personas, which are fictional representations of a type of user likely to visit the site.</p>
+
+<p class="center"><img src="/assets/images/blog/userjourneys1.jpg" alt="userjourneys1.jpg" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>The first of several drafts of a Journey Map</span></p>
+
+<p>Never has the non-linear path of an online user been more apparent than when we went through this exercise. In reality, there are countless ways someone could interact with your organization. We chose to focus our energies on the most common ones that surfaced in our interviews.</p>
+
+<p>Then, we polished it up and incorporated the colors, fonts, and style tiles from the creative direction we had for the project.</p>
+
+<p>Style tiles are like looking at swatches of paint for your house – it gives you and your stakeholders a good idea of what might go well together, but until you try it on your walls, might be hard to make a definitive choice.</p>
+
+<p>By incorporating these colors into the user journey map, it helped solidify the creative direction for the site. We used certain colors for specific actions/stages in the journeys, and showed potential pathways with dotted lines, or a circle to connect various stages together. As a bonus, the designs of the journey maps hinted at what infographics might looks like if we were to take that path and design those for the organization as well.</p>
+
+<p><img src="/assets/images/blog/userjourneys2.png" alt="userjourneys2.png" class="center" /><span class="caption"><i class="fa fa-caret-up"></i>Final version of Journey Map</span></p>
+
+<h2 id="key-takeaways">Key Takeaways</h2>
+
+<p>Through the interview and journey mapping process, we learned about resources outside of the website in question that were of use to our target audience. We were directed to other sites users found helpful or features that were valuable to them, which subsequently gave us ideas for how we could improve the site. We learned about their frustrations, but also gleaned specific information they felt would be helpful- details that don’t always come through in the analytics – especially when that content doesn’t exist yet on a site.</p>
+
+<p>If you do decide to go this route and conduct interviews, a few items of note:</p>
+<ul>
+  <li>Start with an intro script to let the respondent know what they’re getting into and put the them at ease.</li>
+  <li>Promise them confidentiality; or at least that you’ll contact them if you wish to utilize their responses and name publicly in any way. And hold true to that promise!</li>
+</ul>
+
+<p>As you search for resources and info on user journeys, check out some blogs and podcasts with <a href="http://www.inuse.se/blogg/kim-godwins-what-your-user-journey-probably-missing/">Kim Goodwin</a> - she knows her stuff! And if you have questions about how we can help you develop your user journey, contact us - we want to set you up for success and give you the tools you need to do so. Let us know how we can make it happen for you!</p>
+]]>
+  </description>
+  <pubDate>Fri, 14 Apr 2017 11:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/04/user-journeys/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/04/user-journeys/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

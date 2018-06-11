@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Up and Running with Drupal 8 | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="Get going with Drupal 8 with the help of our two-part guides.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="http://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="http://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Development, Drupal 8, Drupal Planet, Drush, Github">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">11.18.2015</span>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+        <a class="topic" href="/blog/topic/technology">Technology and Innovation</a>
+      
+    
+  
+  </p>
+
+  <h1 class="post-title">Up and Running with Drupal 8</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/joe.jpg">
+    
+      <a class="team-name" href="/team/joe/">Joe Komenda</a>
+    <br>
+      Software Engineer
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <p>It’s November 2015, and Drupal.org is rolling out <a href="https://www.drupal.org/project/drupal">Drupal 8 release candidates</a>! Heck, Drupal 8 is coming out <em>this week</em>. For many devs, that means we need to figure out how to install, sync, and set up a site theme. Here at ThinkShout, learning is part of the job - we have dedicated time every week to learn new things and share them, be it in a blog post, at our weekly engineering meetings, or at our weekly team lunch.</p>
+
+<p>For the last few months, we’ve made learning Drupal 8 our singular focus. The ‘D8 Bookclub’ has been getting assignments, doing their homework, and sharing their findings internally. We’ve now spent enough time with Drupal 8 that we can share what we’ve learned, the little gotchas and hard-to-find code snippets, as well as the general change in philosophy that has occurred in the shift from D7 to D8.</p>
+
+<p>We generally agree that one of the things keeping people from digging into Drupal 8 is the difficulty of getting it installed and running in a deployable way, which is a must-have if you want to have a team working on a project. This article will walk you through Drupal 8 installation and configuration sync. The follow-up article (<em>Up and Theming with Drupal 8</em>) will cover theme setup and configuration, so that you can finally get going with theming in D8.</p>
+
+<h2 id="installing-drupal-8">Installing Drupal 8</h2>
+
+<p>The <a href="https://github.com/drupal-composer/drupal-project">composer install</a> method is being widely proposed as the replacement for <code class="highlighter-rouge">drush make</code>. The <code class="highlighter-rouge">composer.json</code> file is to <code class="highlighter-rouge">composer install</code> what a <a href="http://www.drush.org/en/master/make/">drush make</a> file is to <code class="highlighter-rouge">drush make</code>. The drupal-composer github repo has a composer template called <a href="https://github.com/drupal-composer/drupal-project">drupal-project</a> that will get us up and running with just the basics necessary to have a working site.</p>
+
+<p>For command-line manipulation, you’ll need to be using <a href="https://www.lullabot.com/articles/switching-drush-versions">Drush 8</a>. Like most dev shops, we use version control (<a href="http://xkcd.com/1597/">Git</a>) as well as a <code class="highlighter-rouge">local-&gt;dev-&gt;test-&gt;live</code> server setup. There are a few gotchas here:</p>
+
+<p>The composer template mentioned above works great for a basic D8 install, but if you want it customized (additional packages, post-install commands, etc), you will have to:</p>
+
+<ul>
+  <li><a href="https://github.com/drupal-composer/drupal-project/archive/8.x.zip">download</a> the full composer profile</li>
+  <li>unzip the files</li>
+  <li>update the <code class="highlighter-rouge">composer.json</code> and <code class="highlighter-rouge">scripts/composer/post-install.sh</code> files</li>
+  <li>run <code class="highlighter-rouge">composer install</code> locally.</li>
+</ul>
+
+<p>This is the method we’ll be using for the rest of this post.</p>
+
+<p>First, <a href="https://getcomposer.org/doc/00-intro.md">install composer</a>. We’re using OSX with <a href="http://brew.sh/">Homebrew</a>, so this is fairly simple - <code class="highlighter-rouge">brew install composer</code>. Note: after implementing this, add this to your <code class="highlighter-rouge">.bashrc</code> (or similar):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.composer/vendor/bin:</span><span class="nv">$PATH</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>Next, ensure you have <a href="https://www.lullabot.com/articles/switching-drush-versions">Drush 8</a> installed. We prefer the <a href="http://docs.drush.org/en/master/install-alternative/#install-a-global-drush-via-composer">Composer global install</a> approach to make updating Drush as simple as running <code class="highlighter-rouge">composer global update</code>.</p>
+
+<p>Next, <a href="https://github.com/drupal-composer/drupal-project/archive/8.x.zip">download</a> the full composer profile, and unzip it into an appropriate local directory (We use a <code class="highlighter-rouge">~/Sites/</code> directory to hold all of our projects).</p>
+
+<p>Note: the Drupal Composer project updates regularly. If you run into any errors, re-download it. You could alternately create an <a href="https://www.drupal.org/node/2210443">installation profile</a> in the <code class="highlighter-rouge">web/profiles</code> folder, but that seems to be a tad under-documented and still not fully baked.</p>
+
+<p>Now that we have a default site scaffold in place, we can get back to the post-install method. If you want to run the site installer after composer installs Drupal, in the <code class="highlighter-rouge">post-install.sh</code> file, you would add:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>web<span class="p">;</span>drush si <span class="nt">--site-name</span><span class="o">=</span><span class="s2">"SITENAME"</span> <span class="nt">--db-url</span><span class="o">=</span>mysql://root:PASSWORD@HOSTNAME/DBNAME <span class="nt">-y</span><span class="p">;</span><span class="nb">cd</span> ../
+</code></pre></div></div>
+
+<p>For the above, replace <code class="highlighter-rouge">SITENAME, PASSWORD, HOSTNAME</code>(we use localhost) and <code class="highlighter-rouge">DBNAME</code>.</p>
+
+<p>One of the D8 Bookclub challenges was completing the installation without any warnings appearing on the Status Reports page at <code class="highlighter-rouge">/admin/reports/status</code>. We also want to specify the configuration sync directory, so that it’s not site-unique.</p>
+
+<p>The trick here is to use a series of permission and site config tweaks. After the site install code above, add the following to your <code class="highlighter-rouge">post-install.sh</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod </span>777 web/sites/default/s<span class="k">*</span><span class="p">;</span>
+
+<span class="c">#Prepare the custom sync directory, which will sit outside of the web root</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="o">!</span> <span class="nt">-d</span> configs <span class="o">]</span>
+<span class="k">then </span><span class="nb">mkdir</span> <span class="nt">-m777</span> configs
+<span class="k">fi
+
+</span><span class="nb">echo</span> <span class="s2">"</span><span class="se">\$</span><span class="s2">config_directories['sync'] = '../configs';"</span> <span class="o">&gt;&gt;</span> web/sites/default/settings.php
+
+<span class="nb">echo</span> <span class="s2">"</span><span class="se">\$</span><span class="s2">settings['trusted_host_patterns'] = array('SITENAME</span><span class="se">\.</span><span class="s2">dev</span><span class="nv">$'</span><span class="s2">,);"</span> <span class="o">&gt;&gt;</span> web/sites/default/settings.php
+
+<span class="nb">chmod </span>444 web/sites/default/s<span class="k">*</span>
+
+<span class="nb">chmod</span> <span class="nt">-R</span> 777 web/sites/default/files
+</code></pre></div></div>
+
+<p>This will make the <code class="highlighter-rouge">settings.php</code> file editable, create a sync directory below the web root (bonus security!), add the sync directory path, add the <a href="https://api.drupal.org/api/drupal/core!lib!Drupal!Core!DrupalKernel.php/function/DrupalKernel%3A%3AsetupTrustedHosts/8">trusted host pattern</a> (a new D8 requirement), secure the file, and make the <code class="highlighter-rouge">web/sites/default/files</code> folder globally writable.</p>
+
+<p>Now you’re ready to run the installation! From the base directory, run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer <span class="nb">install</span>
+</code></pre></div></div>
+
+<p>This will take a while, since it’s downloading Drupal and all the modules.
+After initial installation, perform a full export and an immediate import/sync of your site configuration profile. This can be done two ways:</p>
+
+<ol>
+  <li>
+    <p>Via the gui: <code class="highlighter-rouge">/admin/config/development/configuration/full/export</code></p>
+
+    <p>Save this export file! Any subsequent sites will need this as a starting point so that entity mismatches don’t occur.</p>
+  </li>
+  <li>
+    <p>Via Drush (run from the <code class="highlighter-rouge">/web</code> directory):</p>
+  </li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>drush config-export
+drush config-import <span class="nb">sync</span>
+</code></pre></div></div>
+
+<p>This will export and then sync all of your config files in the configuration directory we specified in the post-install script.</p>
+
+<p>You would then check in this version of the site - a commit message such as ‘Base Site profile’ would be helpful. Here’s a quick set of command-line git repo creation commands, starting with an installation of hub, the <a href="https://hub.github.com/">command-line wrapper</a> for GitHub (this will allow you to use GitHub’s 2-factor authentication):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>hub
+git init
+hub create
+git add <span class="nb">.</span>
+git commit <span class="nt">-m</span> <span class="s1">'Base Site profile'</span>
+git push <span class="nt">--set-upstream</span> origin master
+</code></pre></div></div>
+
+<p>After that, you can check out additional sites by creating a directory, cd into that directory, and running a git clone command inside it, such as:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@github.com:USER/REPOSITORY.git <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>Now you can run `composer install to build your clone.</p>
+
+<p>Optional: edit the <code class="highlighter-rouge">post-install.sh prior to running </code>composer install` if you’d like your clone to have a different hostname, db, etc.</p>
+
+<h2 id="syncing-sites">Syncing Sites##</h2>
+
+<p>Site configurations are only exportable to sites that have the same UUID and have synced using the shared base configuration profile. To find your site’s UUID, cd to the web folder of the base site, then run <code class="highlighter-rouge">drush config-get system.site</code>. After that, any new site can be synced using these steps immediately after a fresh install (either via download or Git clone):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>drush config-edit system.site <span class="o">(</span>Update the UUID to match the base site<span class="o">)</span>
+</code></pre></div></div>
+
+<p>If you manually saved the files, upload the base site config profile, but do not sync it</p>
+
+<p>-OR-</p>
+
+<p>If you cloned the repo, the files should be in place. If the git repo has moved beyond the base install, check out the repo at the ‘Base Site Profile’ stage mentioned above using <code class="highlighter-rouge">git reset --hard $SHA1</code> (where $SHA1 is the SHA of the Base Site Profile)</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>drush config-import <span class="nt">--partial</span>
+</code></pre></div></div>
+
+<p>Important Note: Every new instance MUST start with the same base configuration profile, otherwise you may have entity mismatch issues, even with the partial import. After the initial sync is complete, you can pull in config files via Git and sync will work as expected, even over multiple configuration changes.</p>
+
+<h2 id="creating-a-theme">Creating a Theme##</h2>
+
+<p>This will be covered in our next post: “Up and Theming with Drupal 8.”</p>
+
+<h2 id="disclaimer">Disclaimer##</h2>
+
+<p>The post was written at the end of 2015 while Drupal 8 was still in a Release Candidate stage. While some effort will be made to keep the post up-to-date, if it’s after 2016, you should probably be adding the year you are currently in to your Google search, or better yet, check the docs on <a href="https://www.drupal.org/drupal-8.0">Drupal.org</a>.</p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Development.' href='/blog/category/development/'>Development</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal 8.' href='/blog/category/drupal-8/'>Drupal 8</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged Drush.' href='/blog/category/drush/'>Drush</a> <a class='tag' rel='tag category' title='View all posts tagged Github.' href='/blog/category/github/'>Github</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2015/11/up-and-running-with-drupal-8/';
+    this.page.identifier = '/blog/2015/11/up-and-running-with-drupal-8';
+    this.page.title = 'Up and Running with Drupal 8'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2015/11/the-evolution-of-a-logo/"><span class="fa fa-caret-left"></span> <span>The Evolution of a Logo</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2015/11/up-and-theming-with-drupal-8/"><span>Up and Theming with Drupal 8</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+  <div class="team-member-blog">
+    <div class="container">
+      <h4>Related Blog Posts</h4>
+      <div class="row posts">
+        
+        
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/05/Space-for-Empathy/">
+    <p class="post-date">05.24.2018</p>
+    <h3 class="post-title">Space for Empathy</h3>
+    <p class="post-short">How do we make space for empathy in our work and in our community? Jules takes us on a deep dive into what she learned at this year's DrupalCon</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/jules.jpg">
+      <span class="byline-text">
+        <strong>Jules Dickey</strong><br>
+        <span class="position">Software Engineer</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/05/Making-GDPR-Preparations/">
+    <p class="post-date">05.13.2018</p>
+    <h3 class="post-title">Preparing for the GDPR</h3>
+    <p class="post-short">The European Union’s General Data Protection Regulations go into effect May 25th. Here's how you need to prepare.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/tauno.jpg">
+      <span class="byline-text">
+        <strong>Tauno Hogue</strong><br>
+        <span class="position">Chief Technology Officer</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/01/Great-hoodie-mystery/">
+    <p class="post-date">01.06.2018</p>
+    <h3 class="post-title">The Great Hoodie Mystery</h3>
+    <p class="post-short">Gabe takes what would otherwise be an inane office exchange and ties it back to data structures.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/gabe.jpg">
+      <span class="byline-text">
+        <strong>Gabe Carleton-Barnes</strong><br>
+        <span class="position">Director of Engineering</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+            
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

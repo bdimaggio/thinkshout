@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Getting Started with SASS for Drupal and Zen, Part II | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="Dig deeper into SASS with part two of this series.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal, Drupal Planet, SASS, Theming">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">07.18.2014</span>
+  
+  </p>
+
+  <h1 class="post-title">Getting Started with SASS for Drupal and Zen, Part II</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/eric2.jpg">
+    
+      <a class="team-name" href="/team/eric/">Eric Paxton</a>
+    <br>
+      Engineering Manager
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <p>In <a href="http://thinkshout.com/blog/2013/10/candice/getting-started-sass-drupal-and-zen/">part one of “Getting Started with SASS for Drupal and Zen,”</a> we went over getting your environment set up to work with SASS.</p>
+
+<p>If you followed the instructions in part one, you should have SASS/Compass, Zen, and your sub-theme installed. Your theme will be installed in <code class="highlighter-rouge">sites/all/YOUR THEME NAME</code>.</p>
+
+<h2 id="test-the-install">Test the Install</h2>
+
+<p>Let’s test to see if SASS is installed and compiling. Use your toolkit to compile your SASS directory or run <code class="highlighter-rouge">compass watch</code> from the command line in your theme directory. You should see the following output.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; Compass is watching for changes. Press Ctrl-C to Stop
+</code></pre></div></div>
+
+<p>To see more Compass commands, you can run <code class="highlighter-rouge">Compass -h</code>.</p>
+
+<p>Open your Drupal site in your browser. Now that we are polling for changes with Compass, let’s add the following to <code class="highlighter-rouge">style.scss</code> to see our changes being applied. After you save your change, refresh your page and you should see the difference.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="m">#000</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Compass will also output the overwritten files in your console if you are using command line to run it. It’s okay to delete the CSS you added, so things will appear like the default Zen theme.</p>
+
+<h2 id="sass-primer">SASS Primer</h2>
+<p>If you haven’t used SASS, prepare to be hooked on it. Some advantages of SASS include DRY (Don’t Repeat Yourself), CSS, function (mixins) for repetitive and lengthy blocks of CSS, and the ability to extend common styles.</p>
+
+<h3 id="variables">Variables</h3>
+<p>Variables in SASS start with a ‘$’. Use variables to define values you will use throughout your stylesheets. For example, let’s define our color palette in <code class="highlighter-rouge">_init.scss</code>. There is a commented section for colors. You can drop them in there. I’m going to grab this <a href="http://www.colourlovers.com/palette/56833/zen.">zen 2</a> palette from Kuler.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$sand</span><span class="p">:</span>      <span class="mh">#b0ae9e</span><span class="p">;</span>
+<span class="nv">$brown</span><span class="p">:</span>     <span class="mh">#424345</span><span class="p">;</span>
+<span class="nv">$white</span><span class="p">:</span>     <span class="mh">#fafeff</span><span class="p">;</span>
+<span class="nv">$seagreen</span><span class="p">:</span>  <span class="mh">#9dbec7</span><span class="p">;</span>
+<span class="nv">$wetsand</span><span class="p">:</span>   <span class="mh">#b0a092</span><span class="p">;</span>
+<span class="nv">$red</span><span class="p">:</span>       <span class="mh">#ff0000</span><span class="p">;</span>
+<span class="nv">$gray</span><span class="p">:</span>      <span class="mh">#a1a1a1</span><span class="p">;</span>
+</code></pre></div></div>
+<p>Now these colors can be used everywhere in our stylesheets without having to write the hex value each time.</p>
+
+<h3 id="nesting">Nesting</h3>
+<p>In typical CSS fashion, we would write a style like this:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">a</span> <span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span> <span class="m">#9dbec7</span><span class="p">;</span>
+	<span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">a</span><span class="nd">:hover</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#424345</span><span class="p">;</span>
+  <span class="nl">-webkit-transition</span><span class="p">:</span>   <span class="n">color</span> <span class="m">0.5</span> <span class="n">ease-out</span> <span class="m">0.5s</span><span class="p">;</span>
+  <span class="nl">-moz-transition</span><span class="p">:</span>      <span class="n">color</span> <span class="m">0.5</span> <span class="n">ease-out</span> <span class="m">0.5s</span><span class="p">;</span>
+  <span class="nl">-o-transition</span><span class="p">:</span>        <span class="n">color</span> <span class="m">0.5</span> <span class="n">ease-out</span> <span class="m">0.5</span><span class="p">;</span>
+  <span class="nl">transition</span><span class="p">:</span>           <span class="n">color</span> <span class="m">0.5</span> <span class="n">ease-out</span> <span class="m">0.5s</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>With SASS, we can nest the style like this:</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">a</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="nv">$seagreen</span><span class="p">;</span>
+  <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+
+  <span class="k">&amp;</span><span class="nd">:hover</span> <span class="p">{</span>
+  	<span class="nl">color</span><span class="p">:</span> <span class="nv">$brown</span><span class="p">;</span>
+  	<span class="na">-webkit-transition</span><span class="p">:</span> <span class="n">color</span> <span class="m">0</span><span class="mi">.5s</span> <span class="n">ease-out</span> <span class="m">0</span><span class="mi">.5s</span><span class="p">;</span>
+  	<span class="na">-moz-transition</span><span class="p">:</span>    <span class="n">color</span> <span class="m">0</span><span class="mi">.5s</span> <span class="n">ease-out</span> <span class="m">0</span><span class="mi">.5s</span><span class="p">;</span>
+  	<span class="na">-o-transition</span><span class="p">:</span>      <span class="n">color</span> <span class="m">0</span><span class="mi">.5s</span> <span class="n">ease-out</span> <span class="m">0</span><span class="mi">.5</span><span class="p">;</span>
+  	<span class="nl">transition</span><span class="p">:</span>         <span class="n">color</span> <span class="m">0</span><span class="mi">.5s</span> <span class="n">ease-out</span> <span class="m">0</span><span class="mi">.5s</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The ampersand represents the outer anchor selector. Also, notice how we are relying on the variables we defined for the colors instead of using hex values.</p>
+
+<h3 id="mixins-and-extends">Mixins and Extends</h3>
+
+<h4 id="mixins">Mixins</h4>
+<p>Let’s clean up that transition by writing a mixin for it.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">transition</span><span class="p">(</span><span class="nv">$property</span><span class="o">,</span> <span class="nv">$duration</span><span class="o">,</span> <span class="nv">$easing</span><span class="p">)</span> <span class="p">{</span>
+  <span class="na">-webkit-transition</span><span class="p">:</span>	<span class="nv">$color</span> <span class="nv">$duration</span> <span class="nv">$easing</span><span class="p">;</span>
+     <span class="na">-moz-transition</span><span class="p">:</span>	<span class="nv">$color</span> <span class="nv">$duration</span> <span class="nv">$easing</span><span class="p">;</span>
+       <span class="na">-o-transition</span><span class="p">:</span>	<span class="nv">$color</span> <span class="nv">$duration</span> <span class="nv">$easing</span><span class="p">;</span>
+          <span class="nl">transition</span><span class="p">:</span>	<span class="nv">$color</span> <span class="nv">$duration</span> <span class="nv">$easing</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now we can rewrite the anchor style and include the transition mixin.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">a</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="nv">$seagreen</span><span class="p">;</span>
+  <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+
+  <span class="k">&amp;</span><span class="nd">:hover</span> <span class="p">{</span>
+  	<span class="nl">color</span><span class="p">:</span> <span class="nv">$brown</span><span class="p">;</span>
+  	<span class="k">@include</span> <span class="nd">transition</span><span class="p">(</span><span class="n">color</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5s</span><span class="o">,</span> <span class="n">ease-out</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5s</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Keep in mind that Compass already provides some great <a href="http://compass-style.org/reference/compass/css3/">cross-browser mixins</a> for CSS3. Style transition is one of them.</p>
+
+<h4 id="extends">Extends</h4>
+<p>SASS lets you inherit common styles. A practical example is styling buttons. Buttons might have common styling, but differ in color or size.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// This is a SASS comment</span>
+<span class="cm">/* This is also a comment */</span>
+
+<span class="c1">// Our default button</span>
+<span class="nc">.button</span> <span class="p">{</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nv">$seagreen</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">1em</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="nv">$seagreen</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.primary</span> <span class="p">{</span>
+  <span class="k">@extend</span> <span class="nc">.button</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">1</span><span class="mi">.5em</span> <span class="m">2em</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.warn</span> <span class="p">{</span>
+  <span class="k">@extend</span> <span class="nc">.button</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nv">$red</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.disabled</span> <span class="p">{</span>
+  <span class="k">@extend</span> <span class="nc">.button</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nv">$gray</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>So why didn’t we just use nesting? Extending keeps you from having to write multiple class names on html elements instead of writing it like the following:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button primary"</span> <span class="na">href=</span><span class="s">"http://thinkshout.com"</span><span class="nt">&gt;</span>ThinkShout<span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+<p>We can use one class because ‘primary’ will include all the same styles as ‘button.’</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"primary"</span> <span class="na">href=</span><span class="s">"http://thinkshout.com"</span><span class="nt">&gt;</span>ThinkShout<span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+<h2 id="using-sass-in-your-theme">Using SASS in Your Theme</h2>
+<p>The stylesheets in your Zen sub-theme are organized according to the principles of <a href="http://smacss.com">SMACSS</a>. You’ll notice the <code class="highlighter-rouge">style.scss</code> file doesn’t actually contain any styles, but only imports. The <code class="highlighter-rouge">_init.scss</code> file contains additional imports such as Zen Grids and Compass utilities, mixins and helpers. If you look in <code class="highlighter-rouge">layouts/responsive.scss</code>, you’ll see the Zen theme includes a mobile-first responsive layout by default.</p>
+
+<p>Let’s add some sass of our own. Add a file called <code class="highlighter-rouge">_main-nav.scss</code> to the <code class="highlighter-rouge">components</code> directory. In that file, add the following SASS. It’s similar to the style we used in our SASS primer.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">#navigation</span> <span class="p">{</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nv">$sand</span><span class="p">;</span>
+
+  <span class="nc">.links</span>  <span class="p">{</span>
+    <span class="nt">a</span><span class="o">,</span> <span class="nt">a</span><span class="nd">:visited</span> <span class="p">{</span>
+      <span class="nl">color</span><span class="p">:</span> <span class="nv">$white</span><span class="p">;</span>
+      <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+
+      <span class="k">&amp;</span><span class="nd">:hover</span> <span class="p">{</span>
+        <span class="nl">color</span><span class="p">:</span> <span class="nv">$brown</span><span class="p">;</span>
+        <span class="k">@include</span> <span class="nd">transition</span><span class="p">(</span><span class="n">color</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5s</span><span class="o">,</span> <span class="n">ease-out</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5s</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In order to get this change to take effect, you need to import it into your <code class="highlighter-rouge">style.scss</code>. Add an import statement for <code class="highlighter-rouge">_main-nav.scss</code> in the components section.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Component (SMACSS module) rules */</span>
+<span class="k">@import</span> <span class="s2">"components/misc"</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">"components/main-nav"</span><span class="p">;</span> <span class="c1">// Add this import statement</span>
+</code></pre></div></div>
+
+<p>You may be wondering why you don’t need the underscore in front of the file when importing. The underscore tells SASS that the file is a partial. The partial won’t be compiled into its own file. It will be included in the <code class="highlighter-rouge">style.css</code> when compiled. If you don’t have Compass running, go ahead and run <code class="highlighter-rouge">compass watch</code> in your theme directory or use your toolkit to compile. You should see your navigation style applied to your Drupal site when you refresh.</p>
+
+<p>As you progress in your SASS development, I encourage you to use the <a href="https://github.com/chriseppstein/sass-globbing">SASS Globbing</a> gem. It makes importing a breeze.</p>
+
+<p>Now that you have used SASS in your theme and have the basics down, be sure to check out the <a href="http://sass-lang.com/documentation">SASS</a> and <a href="http://zengrids.com">Zen Grids</a> documentation to be even more productive in your theme development. Get the code for this article on <a href="https://github.com/thinkshout/Drupal-Sass-Zen-Blog">Github</a>.</p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal.' href='/blog/category/drupal/'>Drupal</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged SASS.' href='/blog/category/sass/'>SASS</a> <a class='tag' rel='tag category' title='View all posts tagged Theming.' href='/blog/category/theming/'>Theming</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2014/07/getting-started-with-sass-for-drupal-and-zen-part-ii/';
+    this.page.identifier = '/blog/2014/07/getting-started-with-sass-for-drupal-and-zen-part-ii';
+    this.page.title = 'Getting Started with SASS for Drupal and Zen, Part II'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2014/07/nodesquirrel-for-nonprofits/"><span class="fa fa-caret-left"></span> <span>Safeguard Your Nonprofit's Website with NodeSquirrel</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2014/07/responsive-images-in-drupal-with-the-picture-module/"><span>Responsive Images in Drupal with the Picture Module</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

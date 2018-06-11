@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/drupal-user-profile/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Customize Menu Items in Drupal User Profile</title>
+  <description>
+    <![CDATA[<p>We were recently asked by a client to edit the user profile view page on their site. This client needed us to move the link to the user’s contact form out of the tab area at the top of the profile and replace it with a link that appears further down in the content of the user’s profile. While this is not something you can do through the admin interface in Drupal 7, it is easy to do with just a few lines of code in a custom module, which I will show you how to do here.</p>
+
+<p>Prior to adding our custom code, the link to the contact form appears as a tab.</p>
+
+<p><img src="/assets/images/blog/custom-menu-1.png" alt="Customize Menu 1" /></p>
+
+<p>The “Contact” menu item starts out as a tab because the Drupal contact module originally creates the menu item and assigns it the type MENU_LOCAL_TASK. (See <a href="https://api.drupal.org/api/drupal/includes!menu.inc/group/menu_item_types/7">Menu item types</a> for a list of the possible menu types and their uses in Drupal.) In order for us to change the type, we can use Drupal’s <a href="https://api.drupal.org/api/drupal/modules%21system%21system.api.php/function/hook_menu_alter/7">hook_menu_alter()</a> function to change the item to the MENU_CALLBACK type, which will remove it from the display, but keep it available as a valid path.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sd">/**
+ * Implements hook_menu_alter().
+ */</span>
+<span class="k">function</span> <span class="nf">mymodule_menu_alter</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$items</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Remove the 'contact' tab.</span>
+  <span class="nv">$items</span><span class="p">[</span><span class="s1">'user/%user/contact'</span><span class="p">][</span><span class="s1">'type'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">MENU_CALLBACK</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now it is no longer a tab, but we still need make use of Drupal’s <a href="https://api.drupal.org/api/drupal/modules%21user%21user.api.php/function/hook_user_view_alter/7">hook_user_view_alter()</a> to insert it into the content of the profile before it is rendered on the page.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sd">/**
+ * Implements hook_user_view_alter().
+ */</span>
+<span class="k">function</span> <span class="nf">mymodule_user_view_alter</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$build</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Check to see if this user has allowed others to contact him/her.</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nv">$build</span><span class="p">[</span><span class="s1">'#account'</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">[</span><span class="s1">'contact'</span><span class="p">])</span> <span class="p">{</span>
+    <span class="c1">// Create the text for the link using the account info to get the user’s first name.</span>
+    <span class="nv">$link_text</span> <span class="o">=</span> <span class="nv">$build</span><span class="p">[</span><span class="s1">'#account'</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">field_first_name</span><span class="p">[</span><span class="s1">'und'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'safe_value'</span><span class="p">]</span> <span class="o">?</span> <span class="s2">"email "</span>
+      <span class="o">.</span> <span class="nv">$build</span><span class="p">[</span><span class="s1">'#account'</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">field_first_name</span><span class="p">[</span><span class="s1">'und'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'safe_value'</span><span class="p">]</span> <span class="o">:</span> <span class="s2">"email"</span><span class="p">;</span>
+    <span class="c1">// Use the l() function to create the link.</span>
+    <span class="nv">$contact_link</span> <span class="o">=</span> <span class="nx">l</span><span class="p">(</span><span class="nv">$link_text</span><span class="p">,</span><span class="s1">'user/'</span> <span class="o">.</span> <span class="nv">$build</span><span class="p">[</span><span class="s1">'#account'</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">uid</span> <span class="o">.</span> <span class="s1">'/contact'</span><span class="p">);</span>
+    <span class="c1">// Insert it into the $build array.</span>
+    <span class="nv">$build</span><span class="p">[</span><span class="s1">'contact_link'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'#markup'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"&lt;div class=</span><span class="se">\"</span><span class="s2">field</span><span class="se">\"</span><span class="s2">&gt;&lt;div class=</span><span class="se">\"</span><span class="s2">field-label</span><span class="se">\"</span><span class="s2">&gt;"</span> 
+    <span class="o">.</span> <span class="nx">t</span><span class="p">(</span><span class="s1">'Contact'</span><span class="p">)</span> <span class="o">.</span> <span class="s2">":&amp;nbsp;&lt;/div&gt;&lt;div class=</span><span class="se">\"</span><span class="s2">field-items</span><span class="se">\"</span><span class="s2">&gt;&lt;div class=</span><span class="se">\"</span><span class="s2">field-item even</span><span class="se">\"</span><span class="s2">&gt;"</span>
+    <span class="o">.</span> <span class="nv">$contact_link</span> <span class="o">.</span> <span class="s2">"&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;"</span><span class="p">;</span>
+    <span class="c1">// Insert into the user details that group we created in the display mode in admin interface.</span>
+    <span class="nv">$build</span><span class="p">[</span><span class="s1">'#group_children'</span><span class="p">][</span><span class="s1">'contact_link'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'group_user_details'</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>After the custom code and a quick cache clear, the tab is gone and there is a link to the form within the body of the profile.</p>
+
+<p><img src="/assets/images/blog/custom-menu-2.png" alt="Customize Menu 2" /></p>
+
+<p>I won’t go into creating a custom module; that’s a bit beyond the scope of this post, but there is a tutorial for <a href="https://www.drupal.org/node/1074360">creating a custom module</a> on drupal.org.</p>
+
+<p>Shout out to Greg Boggs for his assistance!</p>
+
+]]>
+  </description>
+  <pubDate>Tue, 19 Apr 2016 09:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2016/04/customizing-menu-items-in-drupal-user-profile/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/04/customizing-menu-items-in-drupal-user-profile/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

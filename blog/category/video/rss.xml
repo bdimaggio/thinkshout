@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/video/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Video Tutorial - &quot;Introduction to RedHen CRM&quot;</title>
+  <description>
+    <![CDATA[<p>We recently teamed up with Drupalize.me to produce a brand new (free!) video tutorial: “<a href="https://drupalize.me/videos/introduction-redhen-crm">Introduction to RedHen CRM</a>.”</p>
+
+<p>In this introductory video, you’ll tour RedHen CRM’s central features, get a detailed walkthrough of the setup process, and learn a few of RedHen’s cool tricks, like duplicate management (a pet feature of mine). This is a great resource for anyone who is looking for a step-by-step guide to setting up and configuring RedHen, or just wants to learn more about it!</p>
+
+<iframe width="700" height="545" src="//www.youtube.com/embed/-R3iXjvIWeo" frameborder="0" allowfullscreen=""></iframe>
+
+]]>
+  </description>
+  <pubDate>Mon, 31 Aug 2015 11:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/08/intro-to-redhen-video/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/08/intro-to-redhen-video/</guid>
+</item>
+
+    
+      <item>
+  <title>Zen and the Art of Farmyard Maintenance</title>
+  <description>
+    <![CDATA[<p>Like many developers, we get pretty psyched about building stuff. Sometimes it takes us a little longer to get excited about describing the stuff we built… but <a href="http://redhencrm.com/">RedHen</a> has been getting enough attention that it was time to do some communicating, especially considering we recently released <a href="(http://drupal.org/project/redhen">version 7.x-1.2</a> of the module.</p>
+
+<p>Today we published a significant, if not quite complete, chunk of RedHen documentation to Drupal.org <a href="http://drupal.org/node/1989564">here</a>. That documentation can now grow with RedHen!</p>
+
+<p>But I know what you’re thinking: “Documentation? Am I having some horrible 2005 fever dream? Where’s the video??”</p>
+
+<p>So, ok: I made a little instructional video about getting started with RedHen. It’s my first one, so critique gently: it’s surprisingly difficult to converse with an imaginary audience.</p>
+
+<p>This video covers installing RedHen and configuring a Contact Type, and a few other introductory RedHen tricks. Note that the video gives instructions for creating a RedHen link in the Admin toolbar, but you can also just move the pre-built RedHen menu that lives under Structure into the Toolbar to get the full drop-down fun.</p>
+
+<iframe width="700" height="525" src="//www.youtube.com/embed/hivg0CsxG7c" frameborder="0" allowfullscreen=""></iframe>
+
+<p>Setting up RedHen: Creating your first Contact Type&lt;/a&gt; from <a href="http://thinkshout.com/team/gabe/">Gabe Carleton-Barnes</a> on <a href="http://YouTube.com">YouTube</a>.&lt;/p&gt;</p>
+]]>
+  </description>
+  <pubDate>Thu, 09 May 2013 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2013/05/gabe/zen-and-art-farmyard-maintenance/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/05/gabe/zen-and-art-farmyard-maintenance/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

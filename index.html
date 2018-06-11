@@ -1,16 +1,94 @@
----
-layout: default
-title: Welcome
-description: "Open source designed for a better world."
-keywords:
-  - digital agency
-  - drupal
-  - open source
-  - web development
-  - user experience
-  - responsive design
----
-<div class="front">
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Welcome | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="Open source designed for a better world.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="digital agency, drupal, open source, web development, user experience, responsive design">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="front">
   <div class="who-we-are">
     <div class="container">
       <div class="who-we-are-text valign-wrap">
@@ -18,115 +96,433 @@ keywords:
           <h1 id="inspiring">Engage&nbsp;and</h1>
           <h1 id="change">Inspire</h1>
           <p>We use technology and strategy to elevate organizations creating positive change in the world.</p>
+          <a href="/blog/2018/04/vote-for-Webby-nominated-Teaching-Tolerance/" class="uppercase-link">Tolerance.org is nominated for a webby!<i class="fa fa-caret-right"></i></a>
         </div>
       </div>
     </div>
   </div>
 
-{% include work-with-us.html %}
+<section class="work-with-us">
+  <div class="container">
+    <h2>Let's collaborate on your next project.</h2>
+    <a href="/contact/" class="uppercase-link">Reach out to us<i class="fa fa-caret-right"></i></a>
+  </div>
+</section>
 
-  {% assign featured_work = site.case_studies | where: "homepage", "true" | sort: "order" | first %}
+
+  
   <div class="container">
     <div class="featured-intro">
-      <a href="{{ site.baseurl }}/work/"><h1>Featured Work</h1></a>
-      <a href="{{ site.baseurl }}/work/" class="uppercase-link">More work<i class="fa fa-caret-right"></i></a>
+      <a href="/work/"><h1>Featured Work</h1></a>
+      <a href="/work/" class="uppercase-link">More work<i class="fa fa-caret-right"></i></a>
     </div>
 
     <div class="featured-case-study">
       <style>
-        .front .featured-case-study { background-image: url('{{ site.baseurl }}{{ featured_work.cs-preview.image }}'); }
+        .front .featured-case-study { background-image: url('/assets/images/work/travel-oregon/bandon-beach-header.jpg'); }
       </style>
       <div class="container">
         <div class="featured-case-study-text">
-          <h4>{{ featured_work.featured_text | upcase }}</h4>
-          <h1><a href="{{ site.baseurl }}{{ featured_work.url }}">{{ featured_work.cs-preview.client }}</a></h1>
+          <h4></h4>
+          <h1><a href="/work/travel-oregon/">Travel Oregon</a></h1>
         </div>
       </div>
     </div>
 
     <div class="two-case-studies">
-      {% assign case-studies = site.case_studies | where: "homepage", "true" | sort: "order" %}
-      {% for case in case-studies limit:3 %}
-      {% if case.order > 1 %}
-        <a href="{{ site.baseurl }}{{ case.url }}">
-          <div class="case-study" id="case-study{{ case.order }}">
+      
+      
+      
+      
+      
+        <a href="/work/uchi/">
+          <div class="case-study" id="case-study2">
           <style>
-            #case-study{{ case.order }} { background: url('{{ site.baseurl }}{{ case.cs-preview.image }}') center center no-repeat; }
+            #case-study2 { background: url('/assets/images/work/uchi/UCHI-header.png') center center no-repeat; }
           </style>
             <div class="case-study-text">
-              <h2>{{ case.cs-preview.client }}</h2>
+              <h2>University of Chicago Graham School</h2>
             </div>
           </div>
         </a>
-        {% endif %}
-      {% endfor %}
+        
+      
+      
+        <a href="/work/splc/">
+          <div class="case-study" id="case-study3">
+          <style>
+            #case-study3 { background: url('/assets/images/ts_redesign/case-studies/splc-main/header1.jpg') center center no-repeat; }
+          </style>
+            <div class="case-study-text">
+              <h2>The Southern Poverty Law Center</h2>
+            </div>
+          </div>
+        </a>
+        
+      
     </div>
   </div>
 
-  {% include our-services.html %}
+  <div class="our-services">
+  <div class="container">
+    <div class="our-services-intro">
+      <a href="services/"><h1>Our Services</h1></a>
+      
+        <a href="/services/" class="uppercase-link">Services<i class="fa fa-caret-right"></i></a>
+      
+    </div>
+    
+      <div class="our-services-block">
+        
+          <a href="/services/design/"><h2>Website Design & User Experience</h2></a>
+        
+        <p>We approach design collaboratively, beginning with an iterative discovery process centered on adaptive, mobile-first content.
+</p>
+      </div>
+    
+      <div class="our-services-block">
+        
+          <a href="/services/development/"><h2>Web Development</h2></a>
+        
+        <p>We are nationally recognized leaders in web application development for nonprofits. Geeks at heart, we love playing on the bleeding edge of web technology.
+</p>
+      </div>
+    
+      <div class="our-services-block">
+        
+          <a href="/services/digital-ecosystem/"><h2>Digital Ecosystem</h2></a>
+        
+        <p>Users experience nonprofits across channels, not departments. Every interaction is an opportunity to increase their engagement.
+</p>
+      </div>
+    
+      <div class="our-services-block">
+        
+          <a href="/services/digital-strategy/"><h2>Digital Strategy</h2></a>
+        
+        <p>A well-cultivated, strong base doesn’t happen by accident. It takes careful planning and intentional messaging that resonates with your wide array of audiences.
+</p>
+      </div>
+    
+  </div>
+</div>
+
 
   <div class="blog-teaser">
-    {% for post in site.categories.blog%}
-    {% if post.homepage == true %}
-      {% if post.header-image %}
-        <div class="featured-blog-post" style="background-image: url('{{ site.baseurl }}{{ post.header-image }}');">
+    
+    
+      
+    
+      
+        <div class="featured-blog-post" style="background-image: url('/assets/images/blog/neon-heart.jpg');">
         <div class="gradient">&nbsp;</div>
-      {% else %}
-        <div class="featured-blog-post">
-      {% endif %}
+      
         <div class="container">
           <div class="blog-subject">
             <div class="header-down-caret">
               <h4>Featured blog post</h4>
               <i class="fa fa-caret-down"></i>
             </div>
-            <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
-            {% if post.short %}
-            <p class="short">{{ post.short }}</p>
-            {% endif %}
+            <h2><a href="/blog/2018/05/Space-for-Empathy/">Space for Empathy</a></h2>
+            
+            <p class="short">How do we make space for empathy in our work and in our community? Jules takes us on a deep dive into what she learned at this year's DrupalCon</p>
+            
           </div>
 
           <div class="blog-author byline">
-            {% for person in site.team %}
-            {% if post.author == person.name %}
-            <img src="{{ site.baseurl }}/assets/images/{{ person.team-image.small }}" alt="{{ person.first_name }}" />
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <img src="/assets/images/team/small/jules.jpg" alt="Jules" />
             <div class="author-info">
-              {% if person.current-employee %}
-                <a class="team-name" href="{{ site.baseurl }}{{ person.url }}"><h4>{{ person.first_name }} {{ person.last_name }}</h4></a>
-              {% else %}
-                <h4>{{ person.first_name }} {{ person.last_name }}</h4>
-              {% endif %}
+              
+                <a class="team-name" href="/team/jules/"><h4>Jules Dickey</h4></a>
+              
               <p>
-                {{ person.position }}
+                Software Engineer
               </p>
             </div>
-            {% endif %}
-            {% endfor %}
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
           </div>
         </div>
       </div>
-      {% break %}
-      {% endif %}
-      {% endfor %}
+      
       <div class="blog-menu bene-cta">
         <div class="container">
-          <img class="bene-logo" src="{{ site.baseurl }}/assets/images/bene/bene-logo-white.svg" alt="Logo: Bene" />
+          <img class="bene-logo" src="/assets/images/bene/bene-logo-white.svg" alt="Logo: Bene" />
           <div class="text-wrapper">
             <h2>Introducing Bene:<br>
             Our affordable, out-of-the box website solution for growing nonprofits. </h2>
-            <a href="{{ site.baseurl }}/bene" class="button">Meet Bene</a>
+            <a href="/bene" class="button">Meet Bene</a>
           </div>
           <!-- <div class="header-down-caret">
             <h4>Read more about</h4>
             <i class="fa fa-caret-down"></i>
           </div>
           <ul>
-            {% assign topics = site.topic | sort: "order" %}
-            {% for topic in topics %}
-              <li><a href="{{ site.baseurl }}{{ topic.url }}">{{ topic.title }}<i class="fa fa-caret-right"></i></a></li>
-            {% endfor %}
+            
+            
+              <li><a href="/blog/topic/technology/">Technology and Innovation<i class="fa fa-caret-right"></i></a></li>
+            
+              <li><a href="/blog/topic/strategy/">Strategy and Design<i class="fa fa-caret-right"></i></a></li>
+            
+              <li><a href="/blog/topic/process/">Project Management and Process<i class="fa fa-caret-right"></i></a></li>
+            
+              <li><a href="/blog/topic/culture/">Culture, Community, and Business<i class="fa fa-caret-right"></i></a></li>
+            
           </ul>
         </div> -->
       </div>
   </div>
 </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/badcamp/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>My First BADCamp</title>
+  <description>
+    <![CDATA[<p>We’re fresh off of <a href="https://2017.badcamp.net/">BADCamp</a> (Bay Area Drupal Camp), and we’re eager to share our experience with you! If you’ve ever thought about going to one of the local Drupal Camps in your area, or attending BADCamp yourself, we hope our takeaways persuade you to seek this out as a professional development opportunity.</p>
+
+<p>BADCamp is essentially three days of intense workshops and sessions for Drupal users to hone their skills, meet other open source contributors, and make valuable connections in the community. Amongst the ThinkShout team, two had never attended BADCamp before. We were eager to hear their perspective on the conference and their key takeaways.</p>
+
+<p>Sessions they attended ranged from learning about component-based theming tools, object oriented php, module development, debugging JavaScript; to Drupal 9 and backward compatibility and the importance of upgrading to D8 now.</p>
+
+<p>Let’s hear from Mario and Lui–I mean Amy and Jules, on what their first BADCamp experience was like!</p>
+
+<p class="center"><img src="/assets/images/blog/marioluigi.jpg" alt="Amy and Jules" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Amy and Jules on Halloween. Costumes are not required at BADCamp.</span></p>
+
+<h3 id="what-did-you-learn-at-badcamp">What did you learn at BADCamp?</h3>
+<p><em>Amy</em>: Component-based theming is a hot topic these days for those building sites due to a number of reasons. Here are a couple of them:</p>
+
+<ul>
+  <li>It encourages a DRY (Don’t Repeat Yourself) and more organized theming code base.</li>
+  <li>It decouples site building in such a way that backend and frontend developers can work on the site at the same time, rather than the backend code needing to be built first before the frontend developer can do their work.</li>
+  <li>It provides clients with an interactive experience of their site (including responsiveness) before the database and backend elements are hooked up to it. This allows the client more time to provide feedback in case they want to change behaviors before they’re completely built.</li>
+</ul>
+
+<p>I also attended a session called: React, GraphQL, and Drupal. This talk was largely about an opportunity to create multiple suites using the same API. The team used “headless Drupal” (to serve as the API), React.js to build the sites, and GraphQL to explore data coming from the API in a much more direct and clear way. It seemed like a great solution for a tricky problem, in addition to giving this team the opportunity to learn and use cutting edge technologies - so much fun!</p>
+
+<p><em>Jules</em>: I learned a lot about the Drupal Community. This was my first BADCamp, and also my first Drupal conference. I was excited about how generous the community is with knowledge and tools, working together so we can succeed together.</p>
+
+<p>I learned about some of the changes to Drupal releases from <a href="https://twitter.com/webchick?lang=en">@Webchick’s</a> talk (Drupal 9 and Backward Compatibility: Why Now is the Time to Upgrade to Drupal 8). If I keep up with the incremental point releases (ie: 8.x), upgrading to 9 should be pretty painless, which is a relief. Knowing the incremental releases will be coming out with a regular six month-ish cadence will make planning easier. I’m also excited about the new features in the works; including Layouts, Work Spaces, a better out of the box experience on first install, a better UI admin experience (possibly with React?).</p>
+
+<h3 id="what-would-you-tell-someone-who-is-planing-to-attend-badcamp-next-year">What would you tell someone who is planing to attend BADCamp next year?</h3>
+<p><em>Amy</em>: Definitely invest in attending the full-day sessions if they interest you. The information I took away from my Pattern Lab day was priceless, and I came back to ThinkShout excited and empowered to figure out a way to make component based theming part of our usual practice.</p>
+
+<p><em>Jules</em>: The full day sessions were a great way to dive into deeper concepts. It’s hard to fully cover a subject in a shorter session. It also helps to show up with an open mind. It’s impossible to know everything about Drupal, and there are so many tools available. It was valuable just meeting people and talking to them about their workflows, challenges, and favorite new tools.</p>
+
+<h3 id="do-you-consider-badcamp-to-be-better-for-networking-professional-development-or-both">Do you consider BADCamp to be better for networking, professional development, or both?</h3>
+<p><em>Amy</em>: My big focus was on professional development. There were so many good training days and sessions happening that those filled my schedule almost entirely. Of course, attending sessions (and being a session speaker!) is a great way to network with like-minded people too.</p>
+
+<p><em>Jules</em>: My goal was to immerse myself in the Drupal community. Since I’m new to Drupal, the sessions were really valuable for me. Returning with more experience, that might not be the case. It was valuable to see new ideas being presented, challenged, discussed, and explored with mutual respect and support. We’re all in this together. Some talks were stronger than others, but every speaker had a nugget of gold I could take with me. It was encouraging to meet peers and to see all of the great work people are doing out in the world. It also served as a reminder that great strides can come from many small steps (or pushes)!</p>
+
+<h3 id="make-time-to-learn">Make time to learn</h3>
+
+<p>It can be difficult to take time away from project work and dedicate yourself to two or three days of conferencing. But when you disconnect and dive into several days of leaning, it makes your contributions back at the office invaluable. As Jules commented to me after her first day of sessions, “it was like php church!”</p>
+
+<p>Getting out of your usual environment and talking to other people opens your mind up to other ways of problem solving, and helps you arrive at solutions you otherwise wouldn’t get through sitting in your cubicle. We hope you’re inspired to go to a local Drupal Meetup or Camp – or even better, meet us at DrupalCon or NTC’s <a href="http://ntcdrupalday.org/">Drupal Day</a>!</p>
+]]>
+  </description>
+  <pubDate>Mon, 06 Nov 2017 07:30:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2017/11/my-first-badcamp/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/11/my-first-badcamp/</guid>
+</item>
+
+    
+      <item>
+  <title>Meet the ThinkShout Team at BADCamp!</title>
+  <description>
+    <![CDATA[<p>It’s another big week for us here at ThinkShout. We’re getting ready for a jam-packed weekend of Drupal at BADCamp in Berkeley, California. As we previously mentioned, we’re leading <a href="http://thinkshout.com/blog/2015/09/badcamp-trainings-redhen-salesforce/">two half-day trainings</a> on Friday, October 23rd. We’re thrilled that this training is completely sold out, and we’re looking forward to sharing our Salesforce and RedHen CRM curriculum!</p>
+
+<p>Once again, we’re a sponsor and co-organizer of the <a href="https://2015.badcamp.net/event/summit/non-profit-summit">Nonprofit Summit</a>, which takes place on Thursday, October 22nd. This summit is also free to attend, and we encourage anyone in the nonprofit tech world in the Bay Area to come out for a day full of nonprofit-led lightning talks, and intimate discussion groups focused on Drupal topics that matter to you. The schedule is now live, so be sure to check it out and register if you’re interested in attending! Our own Brett Meyer will be leading a breakout session at the summit on fundraising with Drupal that you won’t want to miss!</p>
+
+<p>We’re also Contrib Sponsors to BADCamp this year, which means we’ll have a table in the Pauley Ballroom West. We’d love to see your shining faces and chat about all things Drupal, tech, nonprofits, and even cats. This is an especially great time for job seekers to get to know us and our mission a little bit better. We’re still looking for a few good <a href="http://thinkshout.com/careers/">senior engineers</a> to join our team, so if you think you might fit the bill, definitely drop by our table!</p>
+
+<p>We’re looking forward to seeing you all in Berkeley!</p>
+]]>
+  </description>
+  <pubDate>Tue, 20 Oct 2015 09:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/10/badcamp-2015/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/10/badcamp-2015/</guid>
+</item>
+
+    
+      <item>
+  <title>Free Salesforce and RedHen Trainings at BADCamp</title>
+  <description>
+    <![CDATA[<p>This year marks a particularly exciting BADCamp for us. On Friday, October 23, we’ll be leading two official half-day trainings on Salesforce and RedHen CRM!</p>
+
+<p>We talk a lot about Salesforce and RedHen on our blog, which is inevitable given how much time we spend working with both. Given that the <a href="https://www.drupal.org/project/salesforce">Drupal Salesforce Suite</a> we wrote and maintain powers over 1,200 sites, we decided we should talk about it more! Lev Tsypin, Tauno Hogue, Greg Boggs and I will be your trainers for the day.</p>
+
+<h2 id="redhen-crm-exploring-crm-solutions-that-extend-drupal">RedHen CRM: Exploring CRM Solutions That Extend Drupal##</h2>
+
+<p>This half-day workshop will begin with a detailed review of the modules that make up the “RedHen CRM ecosystem.” We’ll then show you how to leverage RedHen for building advanced CRM-driven solutions. A hands-on training, we will help you configure and customize your own RedHen instance, and we will teach you best practices for building solutions on top of this module suite. We’ll cover tools in the RedHen ecosystem, including memberships, donations, campaigns, engagements, deduping contacts, and integrating RedHen with other Drupal standard bearers such as Views, Rules, Context, etc.</p>
+
+<h2 id="integrating-drupal-and-salesforce-the-worlds-most-flexible-cms-meets-the-most-powerful-crm">Integrating Drupal and Salesforce: The World’s Most Flexible CMS Meets the Most Powerful CRM##</h2>
+
+<p>After lunch, the latter half of our workshop block will start with the basics of configuring mappings between Drupal entities and Salesforce objects and leveraging typical Drupal development workflows. Then we’ll dive deeper into complex scenarios including managing large datasets, customizing behaviors as objects are synced, and managing errors.</p>
+
+<p>If you’ve ever wanted to talk to us in person about our work, or how to better leverage these CRMs to meet yours or your client’s needs, now’s your chance. These trainings are FREE (it’s $20 to reserve a seat, but that $20 will be refunded) and space is limited, so <a href="https://2015.badcamp.net/training/drupal-redhen-salesforce">register early</a>!</p>
+]]>
+  </description>
+  <pubDate>Tue, 29 Sep 2015 12:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/09/badcamp-trainings-redhen-salesforce/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/09/badcamp-trainings-redhen-salesforce/</guid>
+</item>
+
+    
+      <item>
+  <title>The Power of a Collaborative Community</title>
+  <description>
+    <![CDATA[<p><em>Originally published on <a href="http://www.nten.org/articles/2014/my-year-in-drupal-the-power-of-a-collaborative-community">NTEN.org</a> on December 10th, 2014.</em></p>
+
+<p><strong>My Year in Drupal</strong></p>
+
+<p>I’ve been fortunate to attend some of the biggest Drupal events in the U.S., and I always walk away from them with plenty of food for thought. Months ago, NTEN afforded me the space here to sing the Drupal community’s praises and I haven’t stopped since. I’m constantly reminded of how much I value its existence. More recently, I flew down to San Francisco to take part in the Nonprofit Summit at BADCamp that I’d co-coordinated, where I got to hear from the Bay Area folks about Drupal and nonprofits in their neck of the woods.</p>
+
+<p><strong>Once Again, The Drupal Community is Awesome</strong></p>
+
+<p>Events like BADCamp remind of the value of discussion and the exchange of ideas. Struggling to find a solution? Look to your community. One of the reasons I so appreciate the Drupal community specifically is how wonderfully they collaborate. Out of resources? Speak up in your discussion group or start a thread on a forum and watch the outpouring of support and ideas. The next thing you know, you’re looking at a list of new modules and tools that you’ve never heard of, and they might be exactly what your site needs.</p>
+
+<p>There’s something wonderfully exciting about being in a room full of people with the same idea: <em>let’s create and use technology to help people</em>. This kind of collaborative atmosphere can make even the tallest of technological hurdles seem surmountable. If you enjoy events like BADCamp for networking and learning about nonprofit tech, then there are a couple of other events you’ll want to put on your calendar.</p>
+
+<p><strong>NYC Camp</strong></p>
+
+<p>If you are a fan of BADCamp, then <a href="http://nyccamp.org/">NYC Camp</a> is just your speed. It’s a free, week-long Drupal conference in New York City from March 16-22, 2015. There’s also a nonprofit summit on the Friday of that week, which you definitely won’t want to miss.</p>
+
+<p><strong>Drupal Day at NTC</strong></p>
+
+<p>For the last three years, we’ve been coordinating <a href="http://myntc.nten.org/eventdetails/precon/drupal">Drupal Day</a> at NTEN’s Nonprofit Technology Conference, so I may be a little biased when I say this is an excellent opportunity to learn more about Drupal for nonprofits. You’ll hear from Drupal experts as well as nonprofit technologists sharing their Drupal stories and successes. This is a chance to learn about what exactly goes into building a Drupal site and how you can leverage it to further your organization’s mission with case study-style presentations throughout the day. But it’s not just about code - it’s about everything else that goes into making a successful website: content strategy, user experience, responsive design, infrastructure, the whole nine yards. If you’re curious about taking that first step toward Drupal, this event is a great place to start - and get ready for a whole lot of excellent information.</p>
+
+<p><em>This year, join us on March 3rd, the day before NTC, in Austin, Texas. Registration for Drupal Day is free when you purchase a ticket to NTC. If you’ve already registered for the NTC, but didn’t sign up for Drupal Day, never fear - just contact NTEN event staff and ask to be put on the registration list.</em></p>
+
+<p><strong>Never Stop Learning</strong></p>
+
+<p>I never cease to be amazed at how much I still have left to learn. I know I’ll never truly be done learning, as is the nature of technology. It’s always in motion, always evolving with us and our ideas. I’m constantly surprised by even the simplest of tools. For instance, if you’re organizing a meetup or hosting a summit of your own, it’s a great idea to provide attendees with a site for collective notes, like and etherpad. This is especially helpful if you have multiple sessions happening concurrently. That way, even if your attendees can’t attend every session, they can read their peers’ notes. One of the most rewarding parts of the BADCamp Nonprofit Summit for me was opening up our once-blank etherpad after the summit and finding pages and pages of notes, tools, and URLs from discussions throughout the day. In a matter of hours, we created an amazing nonprofit tech resource.</p>
+
+<p>I really hope you’ll take the time to immerse yourself in a Drupal Camp or Drupal-themed event and really immerse yourself in this community. These camps are often highly affordable (or free, in the case of BADCamp and NYC Camp), so it’s just a matter of finding one near you. Need help with that part? <a href="http://buildamodule.com/drupal-camps-calendar">Build-a-Module’s</a> got you covered. Yes, that same site I mentioned months ago offers online Drupal training as well as a calendar of Drupal events all over the world.</p>
+
+<p>I also hope those of you who are NTC-bound will consider adding Drupal Day to your schedule - it’s a wonderful introduction to the Drupal Community. Even if you can’t make it to NTC or Drupal Day, take a chance on a Drupal Summit. Meet new peers, exchange ideas and concerns, and join in on this ongoing conversation. When you speak up, you become part of the change we all need to make this community, and Drupal, even better.</p>
+]]>
+  </description>
+  <pubDate>Mon, 05 Jan 2015 11:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2015/01/collaborative-community/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/01/collaborative-community/</guid>
+</item>
+
+    
+      <item>
+  <title>It's a Good Time to Go to BADCamp</title>
+  <description>
+    <![CDATA[<p>It’s that time of year again! And boy, are we excited. BADCamp is around the corner and we’ve already got our bags packed for San Francisco. BADCamp  is one of our favorite Drupal Camps out there because it’s close to home, attendance is free, and it offers a handful of great Drupal trainings for all skill levels. And, of course, there’s the <a href="https://2014.badcamp.net/event/non-profit-summit">Nonprofit Summit</a> that takes place on Thursday, November 6.</p>
+
+<p>We’ve been hard at work helping coordinate this summit and we’re thrilled with the day that’s come together.</p>
+
+<p>We’ve lined up speakers from the Sierra Club, Kiva, and the Electronic Frontier Foundation, who will share their experience and insights into leveraging Drupal to further their mission. You’ll also be able to join a variety of discussion-style breakout sessions, led by Drupal experts and nonprofit tech leaders. Looking for a topic that’s not on the schedule? Lead a discussion of your own during the open breakout sessions!</p>
+
+<p>We’ve got a jampacked schedule in addition to the Nonprofit Summit day. On Saturday and Sunday, you can find ThinkShout at <strong>booth #4</strong> - stop by and say hi - we’d love to chat with our fellow BADCampers. Several members of our team will be speaking -  check out the schedule below for a full breakdown of our presentations.</p>
+
+<p><strong>Saturday, Nov. 8</strong></p>
+
+<p><strong><a href="https://2014.badcamp.net/session/maps-made-easy">“Maps Made Easy”</a> - Gabe Carleton-Barnes (@uncle_gcb)</strong></p>
+
+<p>Room: Rainbow Road</p>
+
+<p>Time: 10:00am-11:00am</p>
+
+<p>Maps are all over the web these days, and they can be extremely effective tools for finding and sharing information. Embedding a simple Google Map is easy, but what about building something that is more integrated with your content? It turns out you can build awesome integrated maps in Drupal almost entirely with point-and-click tools: all you need is the Open Source <a href="http://leafletjs.com/">Leaflet</a> library, Views, and a few other Contrib Modules. In this session we’ll show you how by interactively building a site with a map from a bare Drupal 7 install.</p>
+
+<p>Participants will choose what type of mappable content to create, and will be asked to add content using their own devices to build a rich demonstration of the map’s capabilities.</p>
+
+<p>As we assemble the required modules and configure our site, we will discuss the roles played by each module without a bunch of geospatial techno-babble. By the end of the session, we will have an interactive map displaying content that is easy for any site user to input using address data. If there is sufficient time, we will discuss how to customize the map’s “tiles”, add plugins, use proximity filtration, and other potential features for your map!</p>
+
+<p><strong><a href="https://2014.badcamp.net/session/responding-responsive-designers-guide-adapting">“Responding to Responsive - A Designer’s Guide to Adapting”</a> - Josh Riggs (@joshriggs)</strong></p>
+
+<p>Room: Warp Zone</p>
+
+<p>Time: 10:00am-10:30am</p>
+
+<p>There’s no denying that a designer’s role is changing. Responsive Design has made the whole process much more complex. Designers are now expected to be equal parts artist and coder, and to use HTML, CSS &amp; Javascript as their palette. I’ve met that challenge, and I‘ve spent the last few years working on several large, responsive Drupal sites. This talk will include a candid, real-world look at my personal evolving design process, as well as lessons from my own personal journey as a designer.</p>
+
+<p>Topics include:</p>
+
+<ul>
+  <li>
+    <p>A thorough walkthrough of responsive design deliverables: Content Strategy, HTMLWireframes, Style Tiles, &amp; Style Mocks. Examples will be shown.</p>
+  </li>
+  <li>
+    <p>Managing the expectations of Clients, Users and Developers</p>
+  </li>
+  <li>
+    <p>Keeping the focus on User Experience</p>
+  </li>
+  <li>
+    <p>Real world successes and failures</p>
+  </li>
+  <li>
+    <p>A fight to the death between Photoshop &amp; In-Browser design</p>
+  </li>
+  <li>
+    <p>Creating a better iterative process</p>
+  </li>
+  <li>
+    <p>Bridging the gap between design and front-end development</p>
+  </li>
+  <li>
+    <p>Embracing the concept of Kaizen (continuous improvement) as a designer</p>
+  </li>
+</ul>
+
+<p><strong><a href="https://2014.badcamp.net/session/responsive-image-loading-picture-module">“Responsive Image Loading with the Picture Module”</a>- Cooper Stimson (@cooperstimson)</strong></p>
+
+<p>Room: Warp Zone</p>
+
+<p>Time: 5:30pm-6:00pm</p>
+
+<p>Responsive Web Design (RWD) is increasingly vital in the contemporary web landscape, where your content can be displayed on a phone, a laptop, an 84-inch 4k monitor, a refrigerator, or even a watch. In this session you will learn how to leverage the Picture module (and its dependency, the Breakpoints module) to achieve responsive image loading in Drupal 7.</p>
+
+<p><strong>The Picture Module</strong></p>
+
+<p>There is no RWD solution for images in Drupal 7 core. Luckily, a responsive image handling module called Picture will be included in Drupal 8 core, and has already been backported to Drupal 7. Picture uses the new HTML5 <a href="http://www.w3.org/html/wg/drafts/html/master/embedded-content.html#the-picture-element">picture element</a>.</p>
+
+<p>This session will cover:</p>
+
+<ul>
+  <li>
+    <p>Installation and configuration of the Picture, Media, Chaos Tools Suite, and Breakpoint modules</p>
+  </li>
+  <li>
+    <p>Creating breakpoints and breakpoint groups</p>
+  </li>
+  <li>
+    <p>Configuring picture mappings</p>
+  </li>
+  <li>
+    <p>Setting up file type display settings</p>
+  </li>
+  <li>
+    <p>Applying these options to an example content type</p>
+  </li>
+  <li>
+    <p>Basic introduction to the picture element and media queries</p>
+  </li>
+</ul>
+
+<p>Image loading is particularly important for RWD; loading an image size inappropriate to screen resolution is problematic whether you’re stretching a 100x100 thumbnail over a massive screen, or sending a ten megapixel background to a QVGA phone. In the former case you’re making a pixelated mess, and in the latter case you’re eating up both your own bandwidth and your user’s data plan on a resolution they can’t use - nobody wins.</p>
+
+<p><strong>Benefits for Your Site</strong></p>
+
+<p>There are many reasons to responsively load images on your site. A few highlights are:</p>
+
+<ul>
+  <li>
+    <p>Consistent user experience across platforms</p>
+  </li>
+  <li>
+    <p>Single URL per page</p>
+
+    <ul>
+      <li>
+        <p>No need to code up a separate mobile version</p>
+      </li>
+      <li>
+        <p>SEO optimization – Don’t split your pageview count between multiple URLs</p>
+      </li>
+      <li>
+        <p>Improved shareability</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Massive pageload benefits on mobile</p>
+  </li>
+</ul>
+
+<p><strong>Target Audience</strong></p>
+
+<p>This session is aimed at beginning level Drupalers who haven’t used the Picture module before.</p>
+
+<p>It’s completely <a href="https://2014.badcamp.net/event/non-profit-summit">free to register</a>, just sign up on the <a href="https://2014.badcamp.net/">BADCamp website</a>.</p>
+
+<p>See you in San Francisco!</p>
+
+]]>
+  </description>
+  <pubDate>Fri, 31 Oct 2014 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/10/badcamp-2014/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/10/badcamp-2014/</guid>
+</item>
+
+    
+      <item>
+  <title>Building Community, Building Drupal at the BADCamp Nonprofit Summit!</title>
+  <description>
+    <![CDATA[<p>If you’ve never been to the <a href="http://2013.badcamp.net">Bay Area Drupal Camp</a>, we strongly recommend you consider attending this year. It’s become our team’s most anticipated pilgrimage. In many ways, it embodies <em>exactly</em> what we love about the Drupal community. Of course, we focus on the nonprofit sector, and the now 3rd-annual <a href="http://2013.badcamp.net/events/drupal-non-profit-summit">BADCamp Nonprofit Summit</a> is one of our favorite days of the year.</p>
+
+<p>Planning for this event is well underway. We’ve already lined up some great speakers and experts from the nonprofit community who are excited to share their experience leveraging Drupal to promote nonprofit causes. Suki O’Kane from the <a href="http://www.haassr.org/">Elise Haas Fund</a> will be presenting on collaborative practices in nonprofit technology development. Erik Mathy of <a href="http://techsoup.com">TechSoup</a> will be discussing the challenges in building and gaining adoption of nonprofit web portals.</p>
+
+<p>While a handful of Drupal service providers will be on hand to share their expertise, this event truly is a great opportunity for nonprofit leaders and technologists to get together to discuss their successes and challenges in adopting Drupal-based tools. We’ll be diving into data visualization, responsive design, fundraising strategy and the latest in CRM integrations! If you are a nonprofit technologist interested in sharing your experience with Drupal, please <a href="http://thinkshout.com/contact">get in touch</a>! We’d love to have you present and/or lead a breakout session. Or, if you’re interested in discussing specific topics in nonprofit tech, <a href="http://thinkshout.com/contact">let us know</a> and we can make sure to include these discussions in the event’s program.</p>
+
+<p>Four of the five sponsorship slots have already been filled by ThinkShout and our friends at <a href="http://forumone.com/">Forum One</a>, <a href="http://www.phase2technology.com/">Phase 2</a>, <a href="http://www.chapterthree.com/">Chapter 3</a>, and <a href="http://www.civicactions.com/">CivicActions</a>. (If your organization would like to sponsor the event, get your <a href="http://2013.badcamp.net/sponsorship-packages">sponsorship request</a> in ASAP.)</p>
+
+<p>Can’t wait to see you all in Berkeley, CA!</p>
+]]>
+  </description>
+  <pubDate>Sat, 28 Sep 2013 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2013/09/betsy/building-community-building-drupal-badcamp-nonprofit-summit/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/09/betsy/building-community-building-drupal-badcamp-nonprofit-summit/</guid>
+</item>
+
+    
+      <item>
+  <title>RedHen in the spotlight at BADCamp</title>
+  <description>
+    <![CDATA[<p>I just got back from a fabulous weekend at <a href="http://2012.badcamp.net/">BADCamp</a> where we had the chance to discuss <a href="http://drupal.org/project/redhen">RedHen CRM</a> at the <a href="http://2012.badcamp.net/program/non-profit-summit">nonprofit</a> and <a href="http://2012.badcamp.net/program/product-summit">product summits</a>. These videos were generously filmed by <a href="http://niccolox.com">Nicholas Roberts</a>. The first is an in-depth discussion of RedHen CRM, covering why we built a native Drupal CRM in the first place, the technology that makes it possible, and  applicable business cases. The second is cage match, err, make that panel ;), pitting RedHen against <a href="http://www.trellon.com">Trellon</a>’s <a href="http://drupal.org/project/crm_core">CRM Core</a>, <a href="http://jacksonriver.com">Jackson River</a>’s <a href="http://www.jacksonriver.com/springboard">Springboard</a>, and <a href="http://civicrm.org">CiviCRM</a>. It was an honor and a pleasure to compare and contrast RedHen with those other amazing CRM offerings. RedHen CRM is already in use in over <a href="http://drupal.org/project/usage/redhen">200 projects</a>, including our own <a href="http://thinkshout.com/portfolio/mission-investors-exchange">Mission Investors Exchange</a> and will soon launch as a core component of a private distribution for the <a href="http://www.givingforum.org/s_forum/index.asp">Forum of Regional Association of Grant Makers</a>.
+<!--break--></p>
+<iframe src="http://player.vimeo.com/video/52655156?badge=0" width="500" height="375" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+
+<iframe src="http://player.vimeo.com/video/52675110?badge=0" width="500" height="281" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+]]>
+  </description>
+  <pubDate>Mon, 05 Nov 2012 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2012/11/lev/redhen-spotlight-badcamp/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/11/lev/redhen-spotlight-badcamp/</guid>
+</item>
+
+    
+      <item>
+  <title>It's that time of year again, BADCamp</title>
+  <description>
+    <![CDATA[<p><img src="http://2012.badcamp.net/sites/all/themes/baddercamp/logo.png" alt="BADCamp" /></p>
+
+<p>With a reputation for the largest non-DrupalCon Drupal event in the country, the organizers do not disappoint with a line up that will suit the interests of pretty much every community member in attendance.</p>
+
+<p>In addition to catching up with friends, my favorite part of BADCamp is the <a href="http://2012.badcamp.net/program/non-profit-summit">Non-Profit Summit</a>.  This year there will be <a href="http://2012.badcamp.net/program/summits">eight summit</a> offerings over the course of 2 days ranging from the Drupal Mobile Summit to the Drupal Business Owners Summit.  I’m definitely going to be splitting my time between the Non-Profit Summit and the UX/UI Summit on Thursday, while Friday will like be a split between Higher Education and Mobile.</p>
+
+<p>ThinkShout is proud to be sponsoring the Non-Profit Summit!  This year, we will be talking about CRMs, including our native Drupal CRM <a href="http://redhencrm.com/">RedHen</a>, and we’ll be facilitating a couple of BoFs that are designed to answer questions and start a discussion surrounding Non-Profit usage of CRMs in Drupal.  If you’re not planning on attending the Non-Profit Summit, but interested in learning more about RedHen, then stop by the <a href="http://2012.badcamp.net/program/product-summit">Drupal Product Summit</a> on Friday where Lev &amp; Sean will be presenting.</p>
+
+<p>I may be running across the Berkeley campus to make this, but I’m really looking forward to the live series of Drupal usability tests at the UX/UI summit.  At ThinkShout we hear time and time again how important user experience is to non-profit organizations.  If you’re user can’t figure out what’s going on, then they definitely are not going be engaged in what your organization is doing.  We had some awesome engagements in recent months, in which we deeply explored the user roles and developed personas for their audience, so I’m looking forward to hearing what some of the Drupal experts have to say about the future of D8.</p>
+
+<p>And in case you haven’t heard, ThinkShout is <a href="http://thinkshout.com/blog/2012/09/betsy/thinkshout-hiring-senior-engineer">hiring</a>, so if you’re interested in moving to Portland, you should stop by and say “Hi!” at the <a href="http://2012.badcamp.net/program/drupal-job-fair">job fair</a> on Saturday!</p>
+
+<p>Last, but not least - be sure to stop by the <a href="http://drupal.org/project/cod">COD</a> code sprint. You’re bound to run into some members of our team there now that we are working on integrating our module Entity Registration  as a core component of COD.  Looking forward to seeing you in the East Bay next week!</p>
+]]>
+  </description>
+  <pubDate>Tue, 30 Oct 2012 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2012/10/betsy/badcamp/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/10/betsy/badcamp/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>MailChimp adds Mandrill Integration & Campaign Creation | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="A long list of improvements and new features">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal, Drupal Give, Drupal Planet, MailChimp, modules">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">05.25.2012</span>
+  
+  </p>
+
+  <h1 class="post-title">MailChimp adds Mandrill Integration & Campaign Creation</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/lev.jpg">
+    
+      <a class="team-name" href="/team/lev/">Lev Tsypin</a>
+    <br>
+      Founder, CEO
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <p>We’ve previously written about a <a href="http://thinkshout.com/blog/2011/06/lev/mailchimp-20-anatomy-drupal-module-rewrite">complete rewrite of the MailChimp module</a>, and while our most recent changes aren’t quite as big, they’re significant enough that we want to share the details with the community.</p>
+
+<h2 id="mandrill">Mandrill</h2>
+<p><img src="http://blog.mandrill.com/images/mandrill-shield.gif" style="float: right; margin: 0px 0px 10px 10px" /></p>
+
+<p><a href="http://www.mandrill.com/">Mandrill</a> is MailChimp’s new transactional email offering, intended to replace the <a href="http://blog.mailchimp.com/mailchimp-launches-transactional-email-service-on-top-of-amazon-ses">MailChimp STS</a> service. Rather than being based on top of <a href="http://aws.amazon.com/ses/">Amazons SES</a>, Mandrill is built on MailChimp’s own infrastructure:</p>
+
+<blockquote>
+  <p>Mandrill runs on the delivery infrastructure that powers MailChimp, the world’s best email service provider.</p>
+</blockquote>
+
+<p>The <a href="http://blog.mandrill.com/public-beta-of-mandrill-smtp-email-service.html">release announcement</a> contains list of current Mandrill features, and there are many more exciting things coming down the pipe.</p>
+
+<blockquote>
+  <ul>
+    <li>Uses MailChimp’s awesome email delivery engine</li>
+    <li>Has a <a href="http://mandrillapp.com/api/docs/">simple and powerful API</a></li>
+    <li>Allows simple sending directly using SMTP</li>
+    <li>Tracks opens and clicks</li>
+    <li>Automatically adds Google Analytics tracking data to your URLs</li>
+    <li>Has pretty, visual reports of your email results</li>
+    <li>Allows you to tag your messages and see your stats filtered by tag</li>
+    <li>Integrates with MailChimp’s templating system, letting you export your MailChimp templates to Mandrill and use them in your transactional emails</li>
+  </ul>
+</blockquote>
+
+<p>The initial <a href="http://drupal.org/node/1600788">beta release</a> of the <a href="http://drupal.org/project/mandrill">Mandrill module</a> is modeled closely on the STS version, but provides additional options like tracking clicks and improved graphical reports powered by Google Charts out of the box. Our roadmap includes:</p>
+
+<ul>
+  <li>Improved reports with filter and display settings.</li>
+  <li>The ability to target which types of emails to use Mandrill for, E.g., use Mandrill for the contact form but not password reminders.</li>
+  <li>Integration with MailChimp templates.</li>
+</ul>
+
+<p>The <a href="http://drupal.org/project/mailchimp_sts">STS module</a> has been removed from the core MailChimp package and is available as a standalone project for existing users. It will not be actively maintained. New or adventurous users should definitely go with Mandrill and only use STS if you have a project that’s already running it.</p>
+
+<h2 id="campaigns">Campaigns</h2>
+<p>There’s long been a demand to add the ability to create campaigns containing Drupal content from within Drupal and it’s finally been added with the new <a href="http://drupalcode.org/project/mailchimp.git/tree/refs/heads/7.x-2.x:/modules/mailchimp_campaign">7.x-2.5 release</a>, along with a very long list of improvements and features. The new <a href="http://drupalcode.org/project/mailchimp.git/tree/refs/heads/7.x-2.x:/modules/mailchimp_campaign">MailChimp Campaign submodule</a>, contained in the core MailChimp package, allows users to:</p>
+
+<ol>
+  <li>Create a campaign.</li>
+  <li>Send campaigns.</li>
+  <li>View statistics.</li>
+</ol>
+
+<p>The module adds an input filter, which is applied to every section in a selected template, which converts a macro in the following format into rendered Drupal content.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[mailchimp_campaign|entity_type=node|entity_id=1|view_mode=teaser]
+</code></pre></div></div>
+
+<p>We sought an approach that combined flexiblity with ease of use, sacraficing a bit of the former for the latter. But this lets users inject <em>any</em> Drupal entity, using any view mode, into a template section mixed with additional non-Drupal content. Users can also choose to create a campaign that doesn’t contain Drupal content at all using this tool. It can also be combined with additional input filters to provide other formatting assistance.</p>
+
+<p>When saved, the rendered content, along with the MailChimp list and other campaign data is sent to MailChimp and <em>hung</em> on a custom campaign entity within Drupal. New campaigns are saved as drafts and can be edited so long as they have not been sent.</p>
+
+<p><img src="http://thinkshout.com/sites/default/files/MailChimp_|_Site-Install-20120525-121341.jpg" /></p>
+
+<p>Sent campaigns have statisics available, including graphical charts powered by Google Charts, similar to those used in Mandrill.</p>
+
+<p><img src="http://thinkshout.com/sites/default/files/Test_campaign_title_|_Site-Install-20120525-122237.png" /></p>
+
+<h2 id="summary">Summary</h2>
+<p>Aside from adding Mandrill and Campaign creation, and removing STS, there’s a long list of improvements and new features, including improved Rules integration from @fago. We welcome any feedback, either here or in the queue. Thanks and enjoy the new features!
+<!--break--></p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal.' href='/blog/category/drupal/'>Drupal</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Give.' href='/blog/category/drupal-give/'>Drupal Give</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged MailChimp.' href='/blog/category/mailchimp/'>MailChimp</a> <a class='tag' rel='tag category' title='View all posts tagged modules.' href='/blog/category/modules/'>modules</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2012/05/lev/mailchimp-adds-mandrill-integration-campaign-creation/';
+    this.page.identifier = '/blog/2012/05/lev/mailchimp-adds-mandrill-integration-and-campaign-creation';
+    this.page.title = 'MailChimp adds Mandrill Integration & Campaign Creation'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2012/03/sean/welcoming-drupalcon-pdx-splash/"><span class="fa fa-caret-left"></span> <span>Welcoming DrupalCon to PDX with a Splash</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2012/06/kyle/add-to-cal/"><span>An Adventure in iCal, my First Module</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

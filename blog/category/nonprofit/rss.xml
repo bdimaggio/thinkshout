@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/nonprofit/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Creating Dynamic Menus in Jekyll</title>
+  <description>
+    <![CDATA[<p>When thinking about the “pros” of using a CMS, the robust menu system that is provided “out of the box” is usually at the top of the list. That said, when we decided to use Jekyll to build a production quality site for <a href="http://www.feedingtexas.org/">Feeding Texas</a> we knew creating a content manager-friendly menu system was a must.</p>
+
+<p>There were many challenges in building a production-ready site in Jekyll, which I covered in my last blog post, <a href="http://thinkshout.com/blog/2014/10/success-building-cmsless-production-sites-with-jekyll">Success Building CMS-less Production Sites with Jekyll</a>, but the generation of a menu system that would make content management simple for end users was surprisingly vexing – mostly because this is taken for granted when using a CMS like Drupal.</p>
+
+<p>As I embarked upon this task, my initial Googling surfaced several approaches for generating a structured menu in Jekyll, but none of them satisfied both of the criteria I had defined as necessary to make the menu system ready for a non-technical client to use easily:</p>
+
+<ul>
+  <li><strong>Recursive</strong> – I want my primary (header) and secondary (navigation) menu structure and the associated styling (e.g. active page underlined) to hold true regardless of where I am in the menu tree. This is useful when a landing page that is linked from the primary menu has several siblings you’d like to be able to page between via a secondary navigation menu. To visualize this, check out <a href="http://www.feedingtexas.org/about/">the Feeding Texas “About” page</a>.</li>
+  <li><strong>Dynamic</strong> – when I add a page, I want the menu to be updated… automatically. This is helpful because all content managers need to do is create a new Markdown file and, voila! – a new menu item.</li>
+</ul>
+
+<h2 id="popular-approaches-and-why-they-fall-short">Popular Approaches and Why They Fall Short</h2>
+<p>For both of the above criteria to be true, we cannot use either of the most popular Jekyll menu solutions I found on the web.</p>
+
+<h3 id="data-driven-approach">Data-Driven Approach</h3>
+<p>The data-driven approach I found to be popular [<a href="http://christianspecht.de/2014/06/18/building-a-pseudo-dynamic-tree-menu-with-jekyll/">1</a>,<a href="http://www.tournemille.com/blog/How-to-create-data-driven-navigation-in-Jekyll/">2</a>,<a href="https://github.com/Painted-Fox/jekyll-site-menus">3</a>] falls short because using a YML data file (e.g. <code class="highlighter-rouge">_data/menu.yml</code>) to scaffold the menu tree is not dynamic. At worst, the data file needs updating each time we add a page [<a href="http://www.tournemille.com/blog/How-to-create-data-driven-navigation-in-Jekyll/">2</a>] or, at best, when we add a new menu level [<a href="http://christianspecht.de/2014/06/18/building-a-pseudo-dynamic-tree-menu-with-jekyll/">1</a>].</p>
+
+<h3 id="frontmatter-driven-approach">Frontmatter-Driven Approach</h3>
+<p>Jekyll helpfully stores a <code class="highlighter-rouge">site.pages</code> variable that can be looped over in the following way to generate a list of all pages in the site.</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;ul&gt;</span>
+      {% for p in site.pages %}
+        <span class="nt">&lt;li&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"{{ p.url }}"</span><span class="nt">&gt;</span>{{ p.title }}<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+      {% endfor %}
+    <span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+<p></p>
+
+<p>This technique is powerful, but limited. We certainly don’t get all we need without some more Liquid work.</p>
+
+<p>For example if we wanted to style the active menu item, we could change the line outputting the link from the above snippet to…</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;a</span> <span class="err">{%</span> <span class="na">if</span> <span class="na">p</span><span class="err">.</span><span class="na">url =</span><span class="s">=</span> <span class="na">page</span><span class="err">.</span><span class="na">url</span> <span class="err">%}</span><span class="na">class=</span><span class="s">"active"</span><span class="err">{%</span> <span class="na">endif</span> <span class="err">%}</span> <span class="na">href=</span><span class="s">"{{ p.url }}"</span><span class="nt">&gt;</span>{{ p.title }}<span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+<p></p>
+
+<p>Here we make use of the <code class="highlighter-rouge">page.url</code> variable, which refers to the URL of the current page, to add special styling to the active menu item.</p>
+
+<p>We could also add arbitrary frontmatter variables to all pages to achieve a number of different goals. For example, if we wanted to order the output of <code class="highlighter-rouge">site.pages</code> in some arbitrary way, we could add a <code class="highlighter-rouge">weight</code> frontmatter variable to each page and sort by said property before we start our loop.</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    {% assign pages = site.pages | sort:"weight"  %}
+    {% for p in pages %}
+      do something
+    {% endfor %}
+</code></pre></div></div>
+<p></p>
+
+<p>We could also group pages we wanted to appear in the same subnav (think back to Feeding Texas’ <a href="http://www.feedingtexas.org/about/">about</a> page linked above).</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    {% for p in site.pages %}
+      {% if group == "group1" %}
+        do something
+      {% endif %}
+    {% endfor %}
+</code></pre></div></div>
+<p></p>
+
+<p>While powerful, these solutions require the maintenance of frontmatter variables among all pages on the site – something a content manager would like to avoid.</p>
+
+<h2 id="the-solution-use-urls">The Solution: USE URLs!</h2>
+<p>The fact that my initial Googling did not turn up any examples of folks leveraging URLs to generate menus shocked me. URLs are, after all, a machine readable representation of a menu tree!</p>
+
+<p>Using the powerful <code class="highlighter-rouge">site.pages</code> variable and some fancy Liquid, I was able to achieve a no-maintenance solution for generating multi-level menus:</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign url_parts = page.url | split: '/' %}
+{% assign url_parts_size = url_parts | size %}
+{% assign rm = url_parts | last %}
+{% assign base_url = page.url | replace: rm %}
+
+<span class="nt">&lt;ul&gt;</span>
+{% for node in site.pages %}
+  {% if node.url contains base_url %}
+    {% assign node_url_parts = node.url | split: '/' %}
+    {% assign node_url_parts_size = node_url_parts | size %}
+    {% assign filename = node_url_parts | last %}
+    {% if url_parts_size == node_url_parts_size and filename != 'index.html' %}
+      <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">'{{node.url}}'</span><span class="nt">&gt;</span>{{node.title}}<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    {% endif %}
+  {% endif %}
+{% endfor %}
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+<p></p>
+
+<p>The code above is set up to be used as <a href="http://jekyllrb.com/docs/templates/#includes">an include</a>. Let’s walk through the file to get a better sense of what it’s doing…</p>
+
+<p>First we need to get the URL of the current page so we know where we’re currently at in the menu tree.</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    {% assign url_parts = page.url | split: '/' %}
+</code></pre></div></div>
+<p></p>
+
+<p>Here we are also splitting the URL into an array so we can ask additional questions like, “how many levels deep are we?”</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    {% assign url_parts_size = url_parts | size %}
+</code></pre></div></div>
+<p></p>
+
+<p>Knowing the size of the array gives us our depth in the menu tree, which is helpful to render items at the same level of depth (again Feeding Texas’ <a href="http://www.feedingtexas.org/about/">about</a> page).</p>
+
+<p>However, knowing our menu depth does not give us all we need to generate an appropriate subnav, as we likely do not want <em>all</em> pages the same depth, but rather pages at the same depth that share the same parent menu item.</p>
+
+<p>For example, if we’re on the page generated by <code class="highlighter-rouge">hunger-atlas.md</code> we want our subnav to contain it and its <code class="highlighter-rouge">snapshot-texas.md</code> sibling.</p>
+
+<p>Temp image: <img src="https://cloud.githubusercontent.com/assets/3582018/4709107/03dd7960-589d-11e4-8ecc-74d444e3a2f5.png" alt="menu-depth" /></p>
+
+<p>This currently broken image will be used for the live post:<img src="http://thinkshout.com/assets/images/feeding-texas-menu-depth.png" alt="menu-depth" /></p>
+
+<p>We don’t want <code class="highlighter-rouge">/news/blog/foo/index.html</code> although it’s at the same menu level as <code class="highlighter-rouge">/learn/communities/hunger-atlas/index.html</code>.</p>
+
+<p>To accomplish this, we’ll generate a <code class="highlighter-rouge">base_url</code> to give us a relative sense of where we are in the menu tree.</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    {% assign rm = url_parts | last %}
+    {% assign base_url = page.url | replace: rm %}
+</code></pre></div></div>
+<p></p>
+
+<p>Note we’re removing the implicit <code class="highlighter-rouge">index.html</code> from the URL. This assumes we have not set a <a href="http://jekyllrb.com/docs/permalinks/">permalink</a> for the relevant pages.</p>
+
+<p>Now we’re ready to start our loop through <code class="highlighter-rouge">site.pages</code>:</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;ul&gt;</span>
+    {% for node in site.pages %}
+      {% if node.url contains base_url %}
+        {% assign node_url_parts = node.url | split: '/' %}
+        {% assign node_url_parts_size = node_url_parts | size %}
+        {% assign filename = node_url_parts | last %}
+        {% if url_parts_size == node_url_parts_size and filename != 'index.html' %}
+          <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">'{{node.url}}'</span><span class="nt">&gt;</span>{{node.title}}<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    <span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+<p></p>
+
+<p>In this loop we ask 3 things – all of which must be true to add a page to the subnav menu:</p>
+
+<ol>
+  <li>Does this page’s URL contain the <code class="highlighter-rouge">base_url</code>? This eliminates pages at the same menu depth, but with different parent items</li>
+  <li>Is the page at the same menu depth as the page currently being viewed? This eliminates items below the current menu depth</li>
+  <li>Is page’s filename <code class="highlighter-rouge">index.html</code>? This eliminates pages that should exist one level higher in the menu tree</li>
+</ol>
+
+<p>The last point requires a little explanation…</p>
+
+<p>There are two ways of creating pages in Jekyll:</p>
+
+<ul>
+  <li><a href="http://jekyllrb.com/docs/pages/#named-html-files">Named HTML files</a></li>
+  <li><a href="http://jekyllrb.com/docs/pages/#named-folders-containing-index-html-files">Named folders containing index HTML files</a></li>
+</ul>
+
+<p>If you’re using the former method, you don’t need to do check #3. I assumed the latter because it’s the more difficult menu generation scenario and many will opt for the clean URLs it produces.</p>
+
+<p>In addition to clean URLs, using the “Named folders” method to create pages allows for implicit parent page detection. Adding a parent page link to the subnav improves the user experience by allowing users to descend and ascend the menu tree. Without a parent page link, if the user clicked a link that took them deeper down the menu tree, they would be presented with a different subnav than the previous page (remember, we only see subnav items at the current level of the menu tree) and have no way of getting back other than to use their browser’s “back” button.</p>
+
+<p>Generating the parent page link is straightforward since you already have the <code class="highlighter-rouge">base_url</code> and know the name of the file will be <code class="highlighter-rouge">index.html</code>, so I’ll spare you the walkthrough.</p>
+
+<h2 id="roundup">Roundup</h2>
+<p>Although Jekyll is a static site generator, you have all you need when the site is being built to achieve dynamically generated menus without writing a custom plugin. Although it requires some legwork up front, this solution creates a CMS-like user experience for content managers without the performace overhead of the CMS.</p>
+
+<p>That said, after building a dynamic menu system for a platform that does not include one, I’ll never take the ease and value of Drupal’s menu system for granted again.</p>
+
+]]>
+  </description>
+  <pubDate>Tue, 02 Dec 2014 07:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2014/12/creating-dynamic-menus-in-jekyll/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/12/creating-dynamic-menus-in-jekyll/</guid>
+</item>
+
+    
+      <item>
+  <title>Success Building CMS-less Production Sites with Jekyll</title>
+  <description>
+    <![CDATA[<p>As an organization that works primarily with nonprofits, ThinkShout is no stranger to the “small organization, big impact” problem. The problem is that small organizations have budgets commensurate with their size and goals, for which the sky is the limit.</p>
+
+<p>Resolving this problem requires acute awareness of how to build what is necessary to allow an organization to meet their goals. In other words, “how can we build everything this organization needs and nothing more?”</p>
+
+<p>When <a href="http://www.feedingtexas.org/">Feeding Texas</a> approached us to redesign their site, it became clear we could leverage both their small size <em>and</em> their large ambitions as “pros” for using <a href="http://jekyllrb.com/">Jekyll</a>. Feeding Texas works to provide food security to all Texans by coordinating a statewide network of food banks, initiating scalable public action that empowers Texans to solve their hunger problems collaboratively, and guiding the public conversation surrounding hunger in Texas. The site is designed to advance this work by first engaging visitors at a local level before leading them to connect with Feeding Texas in their state-wide effort to end hunger. By generating interest about hunger next door, Feeding Texas is able to motivate its constituents to do their part in resolving the larger issue at the heart of its mission.</p>
+
+<h3 id="why-jekyll-works-for-small-organizations-that-need-to-make-a-big-impact">Why Jekyll Works for Small Organizations That Need to Make a Big Impact</h3>
+<p>Feeding Texas has two characteristics shared by many small organizations:</p>
+
+<ol>
+  <li>Limited capacity to generate and update content</li>
+  <li>Need to appear as big as a BIG organization</li>
+</ol>
+
+<p>Jekyll is the glass slipper for this dilemma for two reasons:</p>
+
+<ol>
+  <li><strong>Large budget savings by not implementing an in-site CMS</strong> – a small content management team means relatively simple content management needs. There’s no reason to use a full-blown CMS like Wordpress or Drupal.</li>
+  <li><strong>Rapid development and excellent DOM control</strong> allowed the funds saved to be reinvested in the site’s visual presentation with maximum returns</li>
+</ol>
+
+<p>However, this left us with one big engineering question…</p>
+
+<h3 id="jekyll-has-no-cms-how-do-we-allow-non-technical-end-users-to-manage-content">Jekyll Has No CMS. How Do We Allow Non-Technical End Users to Manage Content!?</h3>
+
+<p>Our solution to this problem is multi-faceted…</p>
+
+<h4 id="github-for-content-management">GitHub for Content Management</h4>
+
+<p>Since all content for a Jekyll site is stored in text files (markdown, csv, HTML, etc.) all content can be managed from the GitHub interface. Alternatively, there are tools like <a href="http://prose.io">Prose</a> that are well-integrated with Jekyll and allow for a more robust content editing experience.</p>
+
+<h5 id="complex-content-management-with-simple-csv-inputs">Complex Content Management with Simple CSV Inputs</h5>
+<p>Tools like Github allow for simple updates like changing text on a page, but can also allow for complex content management as is the case with Feeding Texas’ <a href="http://www.feedingtexas.org/zip/78056/">zip-code detail pages</a>. These pages are generated from a CSV input that holds data for each zip code in Texas. The CSV file is processed when the site is built by a <a href="https://github.com/thinkshout/feeding-texas/blob/master/_plugins/csv_to_page.rb">custom Ruby plugin</a> that creates a page for each zip code. From a content management standpoint, this means Feeding Texas can update hundreds of pages in three simple steps:</p>
+
+<ol>
+  <li>Edit the CSV file with the preferred tool (Excel, etc.)</li>
+  <li>Copy and paste the contents of the file into the GitHub interface</li>
+  <li>Commit the updated file</li>
+</ol>
+
+<p>This commit then triggers a re-build of the site wherein each zip code detail page will contain the updated CSV data.</p>
+
+<h5 id="reusable-content-blocks">Reusable Content Blocks</h5>
+
+<p>Another popular content management concept that was difficult to implement in Jekyll until the 2.0.0 release was blocks of content that could be stored in a single place and used in multiple places around the site. <a href="http://jekyllrb.com/docs/collections/">Collections</a> made this much easier. On the Feeding Texas site, we created collections for several things ranging from <a href="http://www.feedingtexas.org/learn/communities/hunger-atlas/">calls to action (scroll to page bottom)</a> to <a href="http://www.feedingtexas.org/about/staff/">staff profiles</a> that can be placed anywhere on the site by specifying their index (where the index could be any YAML frontmatter variable). So, for example, if a Feeding Texas content manager wanted to create and use a new call to action block, they would do two things:</p>
+
+<ol>
+  <li>Create a markdown file for the block and include a frontmatter variable like this: <code class="highlighter-rouge">index: 1</code>.</li>
+  <li>Then to apply the new block to a page, they’d specify the block’s index as a frontmatter variable in the page’s markdown file like this:</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>calls_to_action:
+  - 1
+  - 2
+</code></pre></div></div>
+<p>…and our templates do the rest.</p>
+
+<h5 id="challenges-of-using-github-as-a-content-management-tool">Challenges of Using GitHub as a Content Management Tool</h5>
+<p>One difficulty of using GitHub for content management is there is no way to add image or video files through the GitHub interface. This is problematic because it is something content managers expect to be able to do, and we cannot simply add the files to the (compiled) live site directory (via FTP for example) because each commit triggers a wipe and a rebuild of said directory. To work around this problem, we created an Amazon S3 bucket dedicated to storing assets (images, videos, etc.) and reference the assets statically anywhere they need to be used on the site.</p>
+
+<p>As a side note, the site is also hosted on an S3 bucket and we did consider putting both S3 buckets behind a CDN, but ultimately decided this was not necessary. That said, it’d be a trivial way to increase site performance if we ever wanted a boost.</p>
+
+<p>Since assets are stored on a server that will persist, management of them becomes very straightforward. Feeding Texas uses S3’s built in file management UI (pictured below), but you could just as easily use <a href="http://panic.com/transmit/">Transmit</a> or any other FTP client.
+<img src="http://thinkshout.com/assets/images/blog/amazon-s3-file-mgmt-ui.png" alt="S3 file management UI" /></p>
+
+<h4 id="travis-ci-for-deployment">Travis CI for Deployment</h4>
+<p><a href="https://travis-ci.com">Travis</a> is a continuous integration platform that is tightly integrated with GitHub. With a <a href="https://github.com/thinkshout/feeding-texas/blob/master/.travis.yml">single configuration file</a>, we were able to set up a fully functional deployment workflow that includes a staging and a production site. A commit to a particular branch in GitHub triggers Travis to build and deploy the site automatically to a specified endpoint. So, for example, editing and committing a file in the <code class="highlighter-rouge">staging</code> branch triggers a deployment to the staging site whereas a commit to the <code class="highlighter-rouge">live</code> branch triggers a deployment to the live site. For a more in depth look at how to configure a deployment workflow like this, check out <a href="http://thinkshout.com/blog/2014/08/deployment-workflow-travis-jekyll-travis-s3/">Lev’s post on how we’re doing it for the ThinkShout site</a>.</p>
+
+<p>As an added bonus, we can leverage GitHub’s pull request feature as a content management tool. For example, a staff writer could create several pieces of content in the <code class="highlighter-rouge">staging</code> branch, and then bundle those commits into a pull request for their editor to approve and merge into the <code class="highlighter-rouge">live</code> branch.</p>
+
+<p>Our Travis configuration file also specifies tests to run before deploying a new build of the site, which prevents a bad commit from generating a broken site. Travis has several testing frameworks <a href="http://docs.travis-ci.com/user/gui-and-headless-browsers/">baked in</a>, but if those aren’t enough, you can also install tools via your Travis configuration file. We, for example, <a href="https://github.com/thinkshout/feeding-texas/blob/master/.travis.yml#L7">install CasperJS</a> for our tests.</p>
+
+<h3 id="we-did-it-a-cms-less-site-ready-for-production-use">We Did it! A CMS-Less Site Ready for Production Use!</h3>
+<p>Having thought our way around using a full-blown CMS, like Wordpress or Drupal provide, we got two big wins:</p>
+
+<ol>
+  <li><strong>A lightning-fast site</strong> – because Jekyll sites are static, all of the “heavy lifting” is done when the site is being generated; no database calls or logic layer to slow things down. Also, no in-site CMS!</li>
+  <li><strong>More time to spend making the site look like a million dollar project</strong> – because we spared ourselves the time it would have taken to configure a CMS, we were able to spend it integrating neat JavaScript like the maps and charts you see on <a href="http://www.feedingtexas.org/zip/78056/">zip code detail pages</a>.</li>
+</ol>
+
+<p>I’m looking forward to building more Jekyll sites and am personally thrilled we devised a way to leverage its strengths to work in cooperation with the needs of our nonprofit client base.</p>
+]]>
+  </description>
+  <pubDate>Tue, 14 Oct 2014 12:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/10/success-building-cmsless-production-sites-with-jekyll/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/10/success-building-cmsless-production-sites-with-jekyll/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/p:ear/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Coding for Good</title>
+  <description>
+    <![CDATA[<p>Ever since I started coding, I’ve wanted to create a product that would make a difference. I wanted to contribute something good to society that would make someone else’s future better.</p>
+
+<p>This summer, I got to do that.</p>
+
+<p>My journey started with the <a href="http://emergingleadersinternship.org/about">Emerging Leaders Internship Program</a> (ELI). ELI helps match interns from underrepresented communities with companies in Portland. I was selected as a finalist in the program, and that is how I ended up at ThinkShout!</p>
+
+<p class="center"><img src="/assets/images/blog/pear-Summer-Mission.png" alt="pear-Summer-Mission.png" /></p>
+
+<p>I joined the ThinkShout team as a back-end development intern, my primary responsibility would be to build a website for their <a href="http://give.thinkshout.com/">summer campaign</a> alongside two other interns that worked on front-end development and design. Walking into a tech company can be intimidating; everyone looks and sounds so smart and talented. I was confident in my skills, but as an intern I worried I would not be able to deliver if I had to learn new languages or frameworks for the project. As I became immersed in the work however, that fear quickly vanished, and looking back I probably learned at least 15 new things every day, maybe even every hour.</p>
+
+<p>The goal of the summer campaign site we were building was to raise money through t-shirt sales for a local nonprofit called <a href="http://pearmentor.org/">p:ear</a>. P:ear is an organization that creatively mentors homeless youth through education, art, recreation and job training. Their students designed one of the new shirts exclusively for this campaign, and our design intern, <a href="https://thinkshout.com/blog/2017/08/designing-for-a-cause/">Alejandro</a>, designed the other new shirt!</p>
+
+<p>For back-end development, the team decided to use Jekyll (an open source framework), a Shopify Storefront API plugin for the store, and an Amazon Web Services S3 to host the website. Jekyll was a simple solution for the project, since we were creating a one-page static website. Learning Jekyll was a little confusing since I had never worked with Ruby Gems or Liquid before, but their instructions are well documented so the initial site setup went smoothly.</p>
+
+<p>My major roadblock in this project was working with the Shopify Storefront API. It is still in beta, so the problems I ran into were not well documented which led me to a lot of dead ends. Finally, I was able to get the products embedded by using Shopify’s “buy” button, which uses an access key to query in and display all products within a selected collection, and then automatically generates code, which can then be placed into a Javascript file.</p>
+
+<p class="center"><img src="/assets/images/blog/shopify-cart.png" alt="shopify-cart.png" /></p>
+
+<p>Amazon Web Services provides a simple way to host a static site using an S3 Bucket. Essentially all you have to do is drop the files into the bucket and do some small configuration modifications to get the site hosted.</p>
+
+<p>All the hoops I had to jump through to create the site ended up being great learning experiences. I had never worked with APIs before this project, and now I’m much more comfortable with them. I also got the chance to write a few Javascript functions, work with Github tickets, and gain experience working with an open source framework.</p>
+
+<p>The experience of partnering with a nonprofit was also extremely valuable. Working with the students from p:ear really changed my perception of homelessness too. It taught me to look beyond what’s on the surface, and inspired me to pursue a project I had been thinking about for some time.</p>
+
+<p>I had been wanting to create a website where black women could come together and discuss hair, hair products, and recommendations around both. But I also wanted it to be a space where we could figure out how to get unused/gently-used products to women who were homeless or from low-income households who could otherwise not afford them.</p>
+
+<p class="center"><img src="/assets/images/blog/Project_C.png" alt="Project_C.png" /></p>
+
+<p>While doing back-end work for the <a href="http://give.thinkshout.com/">p:ear campaign website</a>, I was simultaneously <a href="http://project-curls.org/">creating my own website</a> using open source software, Drupal. I had never used or even heard of Drupal before this summer and now I have completely developed a website using it, created a module, and have contributed a website to society that I believe will help with the distribution of hair care products for black women.</p>
+
+<p>During my initial interview with ThinkShout, I was asked what I wanted to get out of this internship and I responded with, “experience.” It sounds broad, but having just completed my freshman year of college, I really didn’t know what area of technology would be best for me. Interning at ThinkShout has been a phenomenal experience, and as I continue to pursue a BS degree in Information and Computing Sciences, I hope to apply the professional and technical expertise I gained here to my studies and my next opportunity.</p>
+]]>
+  </description>
+  <pubDate>Tue, 22 Aug 2017 08:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/08/coding-for-good/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/08/coding-for-good/</guid>
+</item>
+
+    
+      <item>
+  <title>Designing for a Cause</title>
+  <description>
+    <![CDATA[<p>In college, I was told time after time that we should always first try working for a small company. Allegedly, this is because you experience all of the aspects that make up a company; in other words, you are not confined to your sole area of work.</p>
+
+<p>For me, this turned out to be true. Now that it’s two months into my internship, I can confirm that I learned something about everything from web design, to coding, to public speaking while working on <a href="http://give.thinkshout.com/">ThinkShout Cares</a>. This internship has been an amazing experience. I am not exaggerating when I say that what I learned in two and a half months is equivalent to a whole year of school… assuming that everything I learned in school would actually be useful (I’m looking at you, Geology 101).</p>
+
+<p>As the web designer for <a href="https://thinkshout.com/blog/2017/08/thinkshout-cares-and-so-can-you/">ThinkShout Cares</a>, I was responsible for desinging a t-shirt and website that would fit nicely with <a href="http://pearmentor.org/">p:ear’s</a> message. You know, the shirt you <a href="http://give.thinkshout.com/#shop">probably ordered by now</a>… right?  I really enjoy the design process. It is a world of its own where you’re always learning. I think it is one of those professions where you have to reinvent yourself or you might not stick with it. I love the challenge it provides, as it energizes me to continually venture out of my comfort zone. For this project, I was challenged to create a shirt that people would like enough to want to buy.</p>
+
+<p class="full"><img src="/assets/images/blog/ts_cares_1.png" alt="ts_cares_1.png" /></p>
+
+<p>When looking at the past ThinkShout shirts (I’ve heard they are pretty popular at conferences), I was amazed at the beautiful typography and messaging in each of them. <a href="https://thinkshout.com/team/jessica/">Jessica Tate</a> (my manager) is an avid typologist who, beyond being an amazing UX designer, makes reading delightful and easy by perfectly matching fonts. Knowing this, I knew that I should probably stay in my lane and do what I do best: illustration.</p>
+
+<p>The designer has the same job as the writer: to communicate something. However, the beauty of design is that you have the power to communicate widely and personally. I completely understand that today, the web is a behemoth. Intended or not, the surplus of media we consume is enough to make us slam the laptop closed and walk away.</p>
+
+<p>I had to split my time between designing a shirt and the website where we’d sell it. To achieve harmony, I was careful not to let them differ too much visually. The shirt and the website are authentic on their own; they are related, but they aren’t siblings. They’re more like cousins.</p>
+
+<p><img src="/assets/images/blog/ts_cares_2.png" alt="ts_cares_2.png" /></p>
+
+<p>My goal was to create a serendipitous experience, something you did not expect, but you’re glad it happened. There are a few visual surprises throughout, connected by a theme. I chose the Universe as a theme because it is as beautiful as it is scary. I integrated hand drawn illustrations because there is an undoubtedly charismatic aspect about them. The more I drew, the more I discovered a sequence in my drawings. The top of the page marks the beginning of the sky. As you scroll down, you progress through the sky all the way down to the Portland skyline.</p>
+
+<p>Sometimes, we need to slow down to appreciate web imagery; images often tells stories all on their own. When I was creating the t-shirt’s tropical pattern, I was unaware of how personal it was for me. In it, I was representing my home, a tropical town in Mexico on the coast of the Pacific Ocean where you see whales jump in the winter and you can find shells in the sand. For me, the beach is this place where you leave all of your worries behind and gorge yourself on the sun. It is one of the very few places where you actually stop and absorb the present. I am pretty content about how my design turned out. For me, the only thing missing there is a Ceviche. Too bad Ceviche isn’t aesthetically pleasing as the jumping whales.</p>
+
+<p>I hope you enjoy the design as much as I do; it was such a fun process, and I’m especially happy that I was able to turn it into something that helps such an awesome organization like p:ear.</p>
+
+]]>
+  </description>
+  <pubDate>Fri, 11 Aug 2017 08:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/08/designing-for-a-cause/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/08/designing-for-a-cause/</guid>
+</item>
+
+    
+      <item>
+  <title>ThinkShout Cares (and So Can You)</title>
+  <description>
+    <![CDATA[<p>We’ve kept a pretty tight lid on this project all summer, but it’s finally time to unveil the focus of our 2017 Summer Internship program. Who better to tell you about it then the talented interns who built it?</p>
+
+<p>You <a href="http://thinkshout.com/blog/2017/06/the-2017-thinkshout-interns/">met Engineering intern Katrina Hirsch</a> last month on our blog. Now it’s her turn to tell you in her own words what we’ve been working on.</p>
+
+<p><strong>Katrina Hirsch:</strong></p>
+
+<p><img src="/assets/images/blog/katrina.jpg" alt="katrina.jpg" class="left thirty" />It’s clear to me that ThinkShout is a company that cares deeply.</p>
+
+<p>There is evidence of this not only in ThinkShout’s work, but also in the way that staff collectively interacts with our community. Staff want to be involved in creating positive change in the world, they want to give to organizations making a difference. Not because it’s an expectation, but because ThinkShout believes it’s the right thing to do. And so it was in the spirit of this sentiment that the idea for ThinkShout Cares was born.</p>
+
+<p>After weeks of work, we are excited to announce the the idea is now reality. Say hello to <a href="http://give.thinkshout.com/">ThinkShout Cares</a>, a website designed, developed, and maintained by interns to raise funds for <a href="http://pearmentor.org/">p:ear</a>, a local non-profit whose mission is to mentor Portland’s homeless youth, by selling t-shirts designed by us and the students at p:ear.  And with 100% of the proceeds benefiting p:ear directly, it’s a win for everyone.</p>
+
+<p><a href="http://give.thinkshout.com/">ThinkShout Cares</a> was a project bestowed upon us summer interns as an opportunity to hone our skills (which are many and varied, including but not limited to writing, design, and coding) while also engage with the community. The idea was a simple one, really. We would design a t-shirt and then build a website where we’d sell it. All proceeds from our work would be donated to p:ear.</p>
+
+<p>We began by taking a walk over to the p:ear headquarters, which is a mere three minutes from the ThinkShout office. None of us knew what to expect. What would this place look like? Who were these youth? What would we would learn in a single visit?</p>
+
+<p>What we discovered was a vibrant space filled with intelligent, creative individuals. In many ways, they were just like us - uncertain of the future, eager to contribute, full of ambition and hope. We spent two hours talking and collaborating, which ultimately resulted in two very different, but equally awesome t-shirt designs.</p>
+
+<p><a href="http://give.thinkshout.com/"><img src="/assets/images/blog/pear-summer.png" alt="pear-summer.png" class="center" /></a></p>
+
+<p>Both designs are now for sale on <a href="http://give.thinkshout.com/">the e-commerce site that we built for this project.</a> Buy one, or maybe even a few. Proceeds from shirt sales will go towards funding mentorships at p:ear such as their barista program, bike repair shop, or outdoor recreation program. The hope being that in giving students a safe space to explore and learn about an area where they can apply themselves and contribute back to society. <a href="http://give.thinkshout.com/">Help us support p:ear</a> and keep the hope alive!</p>
+]]>
+  </description>
+  <pubDate>Mon, 07 Aug 2017 04:20:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/08/thinkshout-cares-and-so-can-you/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/08/thinkshout-cares-and-so-can-you/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

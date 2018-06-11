@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/documentation/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>The Hidden Power of Documentation</title>
+  <description>
+    <![CDATA[<p>Anyone who works on team-based projects knows how handy good project documentation is, and how frustrating it can be when that documentation is out of date, incomplete, or just not there. But there are other benefits to good documentation aside from convenience, and a solid system for writing and maintaining documentation is the key.</p>
+
+<h2 id="defining-documentation">Defining Documentation</h2>
+
+<p>Before we begin, we should be clear about what we mean when we say ‘Project Documentation’ (Docs for short). We’re referring to the information for team members (developers, designers, project managers, and engineers) who join a project at some point after initial development has begun, or even long after a project is complete, such as a maintenance team. This is different than User/Tech docs (how things work on a site), and Code docs (Comments, README files, etc.).</p>
+
+<p>Good docs allow these team members to get up to speed on a project with a minimum of questions for existing or previous team members. In an ideal world, docs alone would suffice in getting someone set up and working on new features, bugfixes, or other project tasks.</p>
+
+<h2 id="additional-benefits">Additional Benefits</h2>
+
+<p>The convenience of good docs is apparent to anyone who joins a project after it has begun, but consider some of the other benefits:</p>
+
+<ul>
+  <li>Junior developers will be able to reference docs, instilling confidence.</li>
+  <li>A team member leaving your company will not cause as much of a ‘knowledge drain’.</li>
+  <li><em>Consistent</em> docs allow any team member to quickly jump in and out of projects as needed, providing project managers with additional flexibility in resource allocation.</li>
+  <li>Long-dormant projects can be resurrected quickly, even if none of the original team members are available.</li>
+  <li>Figuring out where a project’s code is, how to install it locally, how to make/commit changes to production, and tracking down the original wireframes, designs, and planning docs can take days if the original team members are not available. Good docs can cut this time to under an hour, or even minutes in some cases.</li>
+  <li>Docs that accompany open-source projects are especially useful in saving the end-user AND the maintainer’s time.</li>
+</ul>
+
+<h2 id="location-location-location">Location, Location, Location</h2>
+
+<p>Having your docs in one place, or in the same place on every project is the first step in making them easy to find - after all, what good are the docs if nobody can find them? ThinkShout uses GitHub for all of its projects, so we take advantage of the fact that every project on GitHub has a free Wiki. A link in the README.md to the wiki means everyone can find the docs in seconds.</p>
+
+<h2 id="a-solid-foundation">A Solid Foundation</h2>
+
+<p>The keys to good docs are <em>consistency</em>, <em>accuracy</em>, and <em>completeness</em>:</p>
+
+<h3 id="consistency">Consistency</h3>
+
+<p>For our Wiki, we have a template we use for every project’s docs, so we don’t have to search for the information among 40 different documentation styles. Your project’s needs may differ, but this should be a good starting point (this is in Markdown):</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Current Status</span>
+
+(Site Type / Status. Drupal, WordPress, under development, maintenance, etc...)
+
+<span class="gu">## Site Build Info</span>
+<span class="p">
+*</span> <span class="p">[</span><span class="nv">Wireframes</span><span class="p">](</span><span class="sx">URL</span><span class="p">)</span>
+<span class="p">*</span> <span class="p">[</span><span class="nv">Budget</span><span class="p">](</span><span class="sx">URL</span><span class="p">)</span>
+<span class="p">*</span> <span class="p">[</span><span class="nv">Implementation overview</span><span class="p">](</span><span class="sx">URL</span><span class="p">)</span>
+<span class="p">*</span> <span class="p">[</span><span class="nv">Migration Spreadsheet</span><span class="p">](</span><span class="sx">URL</span><span class="p">)</span>
+<span class="p">*</span> <span class="p">[</span><span class="nv">Style Guide</span><span class="p">](</span><span class="sx">URL</span><span class="p">)</span>
+
+<span class="gu">## Build Team</span>
+<span class="p">
+*</span> Name (Team Lead)
+<span class="p">*</span> Name (Back-end)
+<span class="p">*</span> Name (Front-end)
+<span class="p">*</span> Name (PM)
+<span class="p">*</span> Name (Design/UX)
+
+<span class="gu">## Hosting</span>
+<span class="p">
+*</span> <span class="p">[</span><span class="nv">Dev</span><span class="p">](</span><span class="sx">URL</span><span class="p">)</span>
+<span class="p">*</span> <span class="p">[</span><span class="nv">Test</span><span class="p">](</span><span class="sx">URL</span><span class="p">)</span>
+<span class="p">*</span> <span class="p">[</span><span class="nv">Live</span><span class="p">](</span><span class="sx">URL</span><span class="p">)</span>
+
+<span class="gu">## Issue Tracking</span>
+
+<span class="p">[</span><span class="nv">Redbooth Tasks</span><span class="p">](</span><span class="sx">URL</span><span class="p">)</span>
+
+<span class="gu">## Deploying Code  </span>
+Note: it is a good practice to run backups before deploying.<span class="sb">
+
+    `cd ~/projects/PROJECTAME;git pull;./scripts/deploy.sh`  
+
+</span><span class="gu">## Installation Notes</span>
+
+Clone into <span class="sb">`projects`</span> folder, install to <span class="sb">`~/Sites/`</span>:<span class="sb">
+
+    cd ~/projects
+    git clone git@github.com:thinkshout/PROJECTNAME.git
+    cd PROJECTNAME
+    composer update
+    ./scripts/build.sh ~/Sites/PROJECTNAME root root PROJECTNAME
+
+</span>Download db and files from <span class="p">[</span><span class="nv">production</span><span class="p">](</span><span class="sx">production</span> backup URL)
+
+Install the db by opening Sequel Pro, deleting the PROJECTNAME db,  
+adding a new PROJECTNAME db, and importing the live db, then truncating  
+all of the cache_<span class="err">*</span> tables. 
+
+Install the files by unzipping the file download and copying them  
+to <span class="sb">`~/Sites/PROJECTNAME/sites/default/files`</span>, then run:  <span class="sb">
+
+    chmod -R 777 ~/Sites/PROJECTNAME/sites/default/files
+    drush cc all
+    drush fra -y
+
+</span>Log in: drush uli
+
+Disable cache and JS/CSS file aggregation   
+at http://PROJECTNAME.dev/admin/config/development/performance<span class="sb">
+
+
+</span><span class="gu">## Front-end Setup  </span>
+Theme directory is at:  
+<span class="sb">`~/Sites/PROJECTNAME/profiles/PROJECTNAME/themes/custom/PROJECTNAME`</span>
+
+To get Sass running, <span class="sb">`cd`</span> to that directory and run <span class="sb">`bundle`</span>  
+Thereafter, you only need to run <span class="sb">`rake serve`</span> from the theme directory.
+
+</code></pre></div></div>
+
+<h3 id="accuracy">Accuracy</h3>
+
+<p>The nice thing about having your docs in a wiki is that everyone in your organization can edit them if they discover they are out of date. When a new team member is added to a project, encourage them to work from the docs and see how far they can get without asking for clarification or dealing with an unexpected error. And make sure they update the docs to reflect their experience - the only time docs are ‘done’ is when <em>anyone</em> can use them reliably <em>every</em> time. If you have to ask what something means, it’s likely that the next person will need to know that too - so update the docs!</p>
+
+<h3 id="completeness">Completeness</h3>
+
+<p>Every project has its quirks and exceptions to the standard procedures - usually for good reason. Good docs will not only note exceptions to standard procedures, but also explain why. In addition, sometimes a ‘Phase 2’ project will require additional information. Make note of these major updates with details such as planning info, principals, dates, and an overview of what was accomplished.</p>
+
+<p>Sometimes a developer will run across coding environment issues that hold them up - this is quite common for the complex front-end setups needed to compile SASS into CSS. Front-end developers sometimes take these setups for granted, but documenting that install process can mean that your back-end developer can handle small CSS changes without assistance:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>To get Sass running, <span class="sb">`cd`</span> to that directory and run <span class="sb">`bundle`</span>  
+Thereafter, you only need to run <span class="sb">`rake serve`</span> from the theme directory.
+
+NOTE: If you get a 'not found' error after running <span class="sb">`bundle`</span>,  
+run <span class="sb">`gem install bundler`</span>, then <span class="sb">`bundle install`</span>.
+</code></pre></div></div>
+
+<h2 id="part-of-your-process">Part of Your Process</h2>
+
+<p>Finally, it’s not enough to have all of these wonderful docs in place and forgotten - they have to be a part of your project setup and launch checklist, and it needs to a part of every project, big or small.</p>
+
+<p>Consistent, accurate, and complete project documentation will save time, make your code easier to maintain, improve team confidence, and do a great service to every developer who comes to your project after it’s finished. Docs Rocks!</p>
+
+]]>
+  </description>
+  <pubDate>Tue, 12 Jul 2016 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2016/07/the-hidden-power-of-documentation/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/07/the-hidden-power-of-documentation/</guid>
+</item>
+
+    
+      <item>
+  <title>Zen and the Art of Farmyard Maintenance</title>
+  <description>
+    <![CDATA[<p>Like many developers, we get pretty psyched about building stuff. Sometimes it takes us a little longer to get excited about describing the stuff we built… but <a href="http://redhencrm.com/">RedHen</a> has been getting enough attention that it was time to do some communicating, especially considering we recently released <a href="(http://drupal.org/project/redhen">version 7.x-1.2</a> of the module.</p>
+
+<p>Today we published a significant, if not quite complete, chunk of RedHen documentation to Drupal.org <a href="http://drupal.org/node/1989564">here</a>. That documentation can now grow with RedHen!</p>
+
+<p>But I know what you’re thinking: “Documentation? Am I having some horrible 2005 fever dream? Where’s the video??”</p>
+
+<p>So, ok: I made a little instructional video about getting started with RedHen. It’s my first one, so critique gently: it’s surprisingly difficult to converse with an imaginary audience.</p>
+
+<p>This video covers installing RedHen and configuring a Contact Type, and a few other introductory RedHen tricks. Note that the video gives instructions for creating a RedHen link in the Admin toolbar, but you can also just move the pre-built RedHen menu that lives under Structure into the Toolbar to get the full drop-down fun.</p>
+
+<iframe width="700" height="525" src="//www.youtube.com/embed/hivg0CsxG7c" frameborder="0" allowfullscreen=""></iframe>
+
+<p>Setting up RedHen: Creating your first Contact Type&lt;/a&gt; from <a href="http://thinkshout.com/team/gabe/">Gabe Carleton-Barnes</a> on <a href="http://YouTube.com">YouTube</a>.&lt;/p&gt;</p>
+]]>
+  </description>
+  <pubDate>Thu, 09 May 2013 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2013/05/gabe/zen-and-art-farmyard-maintenance/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/05/gabe/zen-and-art-farmyard-maintenance/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

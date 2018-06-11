@@ -1,0 +1,989 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/redhen/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Porting ThinkShout to Drupal 8</title>
+  <description>
+    <![CDATA[<p>A fundamental part of ThinkShout’s philosophy and business is to not only use great open source tools, but to <a href="http://thinkshout.com/blog/2015/03/the-how-and-why-of-open-source/">actively give back</a> to the open source community. The most recognizable part of that contribution is in the form of Drupal modules: over 60,000 Drupal sites run on ThinkShout technology! This strategy has been a huge <a href="http://thinkshout.com/blog/2014/09/small-business-of-nonprofits/">win for our clients</a>, who get features, bugfixes, and security updates from the community because they are sharing code. We benefit from this work as well, as it enhances our profile in the community and helps us generate leads for new projects. Of course, the vast majority of these sites are built on Drupal 7, which <a href="https://www.drupal.org/drupal-7-released">released</a> in the same month that <a href="http://thinkshout.com/blog/2016/01/five-years/">ThinkShout was founded</a>.</p>
+
+<p>The exciting and much-anticipated release of Drupal 8 has given us a lot to think about. Internally, we’ve been running a Drupal 8 “book club” to give our development team a chance to dive in and figure out what’s going on with D8. While we’ve bathed in the glories of Composer, Twig, and YAML files galore, we’ve also had a chance to start upgrading a few of our favorite modules to Drupal 8!</p>
+
+<p>With support from the incredible folks over at <a href="http://mailchimp.com/">MailChimp</a>, we’ve already got a working release of the <a href="https://www.drupal.org/project/mailchimp">MailChimp integration module</a> for Drupal 8, and are hard at work on the <a href="https://www.drupal.org/project/mandrill">integration with Mandrill</a>, MailChimp’s awesome transactional email service, which may have a Drupal 8 release before this blog post goes live.</p>
+
+<p>This is a great start, but it’s really only the tip of the iceberg: ThinkShout has about 50 modules released for Drupal 7! As much as we’d love to dive in and update all of them for Drupal 8 today, that’s not particularly practical. To better focus our work, I analyzed some of these modules so we can prioritize them and look for opportunities to work with our partners and clients to get the most useful, popular, and important modules upgraded to Drupal 8 first.</p>
+
+<p>Of our 50 modules, we started by de-prioritizing anything that was:</p>
+
+<ul>
+  <li>
+    <p>Extremely narrow in purpose (<a href="https://www.drupal.org/project/er_plus">Entity Reference Plus Data</a>)</p>
+  </li>
+  <li>
+    <p>Blocked by another module’s Drupal 8 development (<a href="https://www.drupal.org/project/apachesolr_geo">Apache Solr Geo</a>, lots of others)</p>
+  </li>
+  <li>
+    <p>Offers modest functionality replaceable by custom code (<a href="https://www.drupal.org/project/footer_message">Footer Message</a>) or</p>
+  </li>
+  <li>
+    <p>Just not seeing much usage (<a href="https://www.drupal.org/project/instagram">Instagram Realtime</a>)</p>
+  </li>
+</ul>
+
+<p>That left us with around 10 projects, among them MailChimp and Mandrill, which we were already working on. We wanted to pick a manageable number of these remaining modules to get started on.</p>
+
+<p>Based on community usage, the priorities of our clients, and perceived usefulness, it was clear that the <a href="https://www.drupal.org/project/registration">Registration module</a> belonged on this list. The story of Registration’s development is connected to the story of ThinkShout’s fledgling years and open source philosophy, so it’s an added bonus that Registration will be part of our early push into Drupal 8.</p>
+
+<p>ThinkShout has also carved out a reputation as experts in the CRM world, with <a href="https://www.drupal.org/project/redhen">RedHen</a>, our leading Drupal-integrated CRM, and the <a href="https://www.drupal.org/project/salesforce">Salesforce Suite</a>, a fabulous tool for integrating Drupal sites with Salesforce. Though these modules don’t have the 5-digit usage numbers that Registration or MailChimp have, they still have lots of users who are very engaged, and are central to the needs of our clients. We added them to the top of the list for Drupal 8 consideration.</p>
+
+<p>In thinking about the rest of our modules and the nature of our work, it became clear that these three projects really stand out from the rest: they are our “Big 3”, and we set about creating a roadmap for developing them on Drupal 8.</p>
+
+<p>You can already see the beginnings of this work! At our team sprint on February 11, we put together an outline for bringing RedHen to Drupal 8, and pushed the first commits to Drupal.org.</p>
+
+<p><img src="/assets/images/blog/porting-thinkshout.jpg" alt="porting-thinkshout.jpg" />
+<em>These are our sprint faces!</em></p>
+
+<p>As of February 11, all of the Big 3 have nominal Drupal 8 branches.</p>
+
+<p>As we kick off four Drupal 8 sites in the first part of this year, we will be working with our clients to bring Registration, RedHen CRM, and Salesforce Suite to Drupal 8. All three should update beautifully, as they are built on top of Entity API, which is part of Core in D8.</p>
+
+<p>We will also be focusing our internal open source contribution hours on these three projects to kickstart their jump into the Drupal 8 sea. If you’re looking for awesome CRM or registration systems for your Drupal 8 site, fear not! They are on their way.</p>
+
+<p>We have two Drupal 8 sites utilizing ThinkShout core technologies scheduled for launch this summer, so look for a release of RedHen in the spring!</p>
+
+<p>Our next round of prioritization will depend significantly on the progress of Commerce solutions in Drupal 8: once that landscape settles, we have some projects that will jump up that priority list, including:</p>
+
+<ul>
+  <li>
+    <p><a href="https://www.drupal.org/project/registration_commerce">Registration Commerce</a>, our favorite paid registration solution</p>
+  </li>
+  <li>
+    <p><a href="https://www.drupal.org/project/redhen_donation">RedHen Donation</a>, our CRM-integrated, single-page donation tool</p>
+  </li>
+  <li>
+    <p><a href="https://www.drupal.org/project/commerce_iats">Commerce IATS</a>, the payment integration module for our favorite nonprofit-focused payment processing partner, <a href="http://home.iatspayments.com/">iATS Payments</a></p>
+  </li>
+</ul>
+
+<p>So if you’re a fan of our Commerce integrations, or <a href="https://www.drupal.org/project/addtocal">Add to Cal</a>, or even little <a href="https://www.drupal.org/project/bean_entity_view">Bean Entity View</a> (I know I am): stay tuned! We love these tools, we love that you’re using them, and we look forward to bringing you even more awesome stuff for Drupal 8 than we have for Drupal 7!</p>
+
+]]>
+  </description>
+  <pubDate>Tue, 23 Feb 2016 10:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2016/02/porting-thinkshout-to-drupal-8/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/02/porting-thinkshout-to-drupal-8/</guid>
+</item>
+
+    
+      <item>
+  <title>RedHen Raiser in Action</title>
+  <description>
+    <![CDATA[<p>This past summer, <a href="http://thinkshout.com/blog/2015/08/peer-to-peer-with-drupal/">Sean shed some light on one of our most exciting Drupal contributions</a> to date: <a href="https://www.drupal.org/project/redhen_raiser">RedHen Raiser</a>, our open source peer-to-peer fundraising solution, the first of its kind to be built entirely with Drupal. Thanks to the <a href="https://www.capitalareafoodbank.org/">Capital Area Food Bank of Washington, D.C.</a>, we finally had the opportunity to build a platform that would provide fundraisers a highly-customizable, Drupal alternative to SAAS applications like Causevox and Crowdrise.</p>
+
+<p>After a year of leveraging Raiser as their vehicle for crowdfunding, we’re thrilled to see that the Capital Area Food Bank of Washington, D.C. brought in over $324,000, representing tens of thousands of pounds of food, through 17 different campaigns to help fight hunger in their community.</p>
+
+<p>The Food Bank recently shared an infographic with its constituents that breaks down the donations they received through their RedHen Raiser campaigns over this past year.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/cafb_info2.jpg" alt="cafb_info2.jpg" /></p>
+
+<p>It’s really exciting for us to think of what other organizations will accomplish with RedHen Raiser. Raiser’s features allow fundraisers to tailor their campaigns to fit a variety of causes. The Food Bank utilized the Teams feature to give local law firms their own fundraising pages during the “<a href="https://www.capitalareafoodbank.org/food-from-the-bar/">Food from the Bar</a>” campaign. There are so many other possible applications: walk-a-thons, food drives, even parties - <a href="https://give.capitalareafoodbank.org/campaigns/party-against-hunger">as the Food Bank has shown us</a> - have the potential to be great fundraising opportunities for your organization, and they can all be easily managed with RedHen Raiser.</p>
+
+<p>We can’t thank the Food Bank enough for working with us to release RedHen Raiser as an open source platform so other members of the Drupal nonprofit community can benefit from it, too – and, of course, make it even better.</p>
+
+<p>Is your organization using RedHen Raiser to crowdfundraise? Get in touch with us. We’d love to hear about your experience and share your story.</p>
+]]>
+  </description>
+  <pubDate>Mon, 18 Jan 2016 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2016/01/redhen-raiser-in-action/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/01/redhen-raiser-in-action/</guid>
+</item>
+
+    
+      <item>
+  <title>Supporting Young Inventors with RedHen</title>
+  <description>
+    <![CDATA[<p>We always talk about <a href="https://www.drupal.org/project/redhen">RedHen</a> as a Customer Relationship Management framework. When you install RedHen in your Drupal site, you get the basic building blocks of a CRM. Your job is to get to work defining fields, connecting entities, and building out everything you might imagine you’d like a website-integrated CRM to do. We recently partnered with the the <a href="http://lemelson.mit.edu/">Lemelson-MIT</a> Program at the Massachusetts Institute of Technology, who needed all of these building blocks. The Lemelson-MIT Program celebrates outstanding inventors and inspires young people to pursue creative lives and careers through invention. They had a vision to create an integrated experience within their Drupal site specifically for educators and students associated with their InvenTeam program. This was a perfect fit for the RedHen framework.</p>
+
+<p>Through the <a href="http://lemelson.mit.edu/inventeams">InvenTeams</a> initiative, the Lemelson-MIT Program awards annual grants of up to $10,000 each to teams of high-school students, teachers and mentors to invent technological solutions to real world problems. They needed a system for managing years of CRM data for all of their programs, including all of their InvenTeam grant winners. Because Lemelson-MIT already had a fresh Drupal 7 site, this wasn’t a typical site build. We integrated a brand new RedHen application for managing InvenTeams into their existing website. We linked InvenTeams to contacts using RedHen Relation, and defined standard Drupal fields for contacts, teams, and relationships. We also linked educator and student profiles to schools, which was a great fit for RedHen Organization.</p>
+
+<p><img src="/assets/images/blog/lemelson-mit-roster.png" alt="lemelson_mit_1.png" /></p>
+
+<p>Participants who log in are presented with a dashboard customized for the team that they are associated with. Team members can view a team roster, and educator administrators can manage their roster by adding new members or changing member roles. Team members’ most recent blog posts are featured on the dashboard, and blog posts are linked to individual RedHen contacts. This gives InvenTeam participants a chance to share out about the experience that they have had with the program, and post progress updates about their invention.</p>
+
+<p><img src="/assets/images/blog/lemelson-mit-finances.png" alt="lemelson_mit_2.png" /></p>
+
+<p>Since InvenTeams are working against a set amount of grant money for their project, they need a way to track that financial information associated with their team. We built a general ledger within the RedHen application, which updates a display showing the remaining funds left to spend against the grant total. Educators and students who are in charge of tracking finances can log transactions with a receipt or request pre-approval for purchases. Financials are flagged for a Lemelson-MIT administrator in an administrative back-end, and they can approve purchases or write notes attached to individual transactions.</p>
+
+<p>We also built a document management system for Lemelson-MIT to gather forms and progress updates from the teams within the application. Lemelson-MIT is able to broadcast important documents, as well as share documents back and forth with individual teams. Leaning on Drupal’s powerful admin features, we built an administrative backend for Lemelson-MIT to manage those documents, as well as financial transactions and the teams themselves. RedHen made this easy thanks to its own native administrative interface unified with the rest of the admin tools that we created specifically for this site.</p>
+
+<p><img src="/assets/images/blog/lemelson-mit-documents.png" alt="lemelson_mit_3.png" /></p>
+
+<p>A big challenge for any organization getting started with a CRM is how they’re going to set up a sustainable process for getting data into the CRM. Often this is a manual data entry process, which we all know can be painful. RedHen can help ease the pain with its integration directly into your Drupal website. It’s able to attach itself to user accounts, email list sign up, event registrations, and so on. Lemelson-MIT had a unique challenge because a large portion of its CRM data is housed in SlideRoom, which is an external application - not integrated with their website.</p>
+
+<p>Lemelson-MIT uses <a href="http://www.slideroom.com/">SlideRoom</a> for managing its InvenTeam grant application process. We didn’t want to recreate SlideRoom in Drupal, but we also didn’t want to require a bunch of manual data entry if we could help it. So we built a <a href="https://www.drupal.org/project/slideroom">SlideRoom Drupal module</a> and a <a href="https://github.com/thinkshout/slideroom-api-php">SlideRoom API Wrapper for PHP</a>, which connect Drupal to the SlideRoom API. You can use these today! Paste in an API key and implement a couple of Drupal hooks, and your SlideRoom data is all available to you directly in your Drupal site. For Lemelson-MIT, we wrote a little bit of code to periodically scoop up that valuable CRM data and create contact entities attached to schools. This bridges a data silo to Lemelson-MIT’s Drupal site, and has become an important part of their workflow from accepting InvenTeam applications, to eventually forming a team of young inventors. All that’s left is to let that creativity loose, and get started inventing!</p>
+
+<p>Using RedHen as a Customer Relationship Management framework, we were able to capture the unique requirements for the Lemelson-MIT Program. We tied CRM data tightly into their Drupal website, and linked records directly to applications in SlideRoom. Building on top of the RedHen framework enabled us to provide immediate value for educators and students in the InvenTeam program, as well as Lemelson-MIT staff. We are inspired by these young people who are crafting inventions that aim to solve real world problems, and we’re proud to have built an application that supports their work.</p>
+]]>
+  </description>
+  <pubDate>Wed, 09 Dec 2015 18:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2015/12/supporting-young-inventors-with-redhen/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/12/supporting-young-inventors-with-redhen/</guid>
+</item>
+
+    
+      <item>
+  <title>Meet the ThinkShout Team at BADCamp!</title>
+  <description>
+    <![CDATA[<p>It’s another big week for us here at ThinkShout. We’re getting ready for a jam-packed weekend of Drupal at BADCamp in Berkeley, California. As we previously mentioned, we’re leading <a href="http://thinkshout.com/blog/2015/09/badcamp-trainings-redhen-salesforce/">two half-day trainings</a> on Friday, October 23rd. We’re thrilled that this training is completely sold out, and we’re looking forward to sharing our Salesforce and RedHen CRM curriculum!</p>
+
+<p>Once again, we’re a sponsor and co-organizer of the <a href="https://2015.badcamp.net/event/summit/non-profit-summit">Nonprofit Summit</a>, which takes place on Thursday, October 22nd. This summit is also free to attend, and we encourage anyone in the nonprofit tech world in the Bay Area to come out for a day full of nonprofit-led lightning talks, and intimate discussion groups focused on Drupal topics that matter to you. The schedule is now live, so be sure to check it out and register if you’re interested in attending! Our own Brett Meyer will be leading a breakout session at the summit on fundraising with Drupal that you won’t want to miss!</p>
+
+<p>We’re also Contrib Sponsors to BADCamp this year, which means we’ll have a table in the Pauley Ballroom West. We’d love to see your shining faces and chat about all things Drupal, tech, nonprofits, and even cats. This is an especially great time for job seekers to get to know us and our mission a little bit better. We’re still looking for a few good <a href="http://thinkshout.com/careers/">senior engineers</a> to join our team, so if you think you might fit the bill, definitely drop by our table!</p>
+
+<p>We’re looking forward to seeing you all in Berkeley!</p>
+]]>
+  </description>
+  <pubDate>Tue, 20 Oct 2015 09:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/10/badcamp-2015/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/10/badcamp-2015/</guid>
+</item>
+
+    
+      <item>
+  <title>Free Salesforce and RedHen Trainings at BADCamp</title>
+  <description>
+    <![CDATA[<p>This year marks a particularly exciting BADCamp for us. On Friday, October 23, we’ll be leading two official half-day trainings on Salesforce and RedHen CRM!</p>
+
+<p>We talk a lot about Salesforce and RedHen on our blog, which is inevitable given how much time we spend working with both. Given that the <a href="https://www.drupal.org/project/salesforce">Drupal Salesforce Suite</a> we wrote and maintain powers over 1,200 sites, we decided we should talk about it more! Lev Tsypin, Tauno Hogue, Greg Boggs and I will be your trainers for the day.</p>
+
+<h2 id="redhen-crm-exploring-crm-solutions-that-extend-drupal">RedHen CRM: Exploring CRM Solutions That Extend Drupal##</h2>
+
+<p>This half-day workshop will begin with a detailed review of the modules that make up the “RedHen CRM ecosystem.” We’ll then show you how to leverage RedHen for building advanced CRM-driven solutions. A hands-on training, we will help you configure and customize your own RedHen instance, and we will teach you best practices for building solutions on top of this module suite. We’ll cover tools in the RedHen ecosystem, including memberships, donations, campaigns, engagements, deduping contacts, and integrating RedHen with other Drupal standard bearers such as Views, Rules, Context, etc.</p>
+
+<h2 id="integrating-drupal-and-salesforce-the-worlds-most-flexible-cms-meets-the-most-powerful-crm">Integrating Drupal and Salesforce: The World’s Most Flexible CMS Meets the Most Powerful CRM##</h2>
+
+<p>After lunch, the latter half of our workshop block will start with the basics of configuring mappings between Drupal entities and Salesforce objects and leveraging typical Drupal development workflows. Then we’ll dive deeper into complex scenarios including managing large datasets, customizing behaviors as objects are synced, and managing errors.</p>
+
+<p>If you’ve ever wanted to talk to us in person about our work, or how to better leverage these CRMs to meet yours or your client’s needs, now’s your chance. These trainings are FREE (it’s $20 to reserve a seat, but that $20 will be refunded) and space is limited, so <a href="https://2015.badcamp.net/training/drupal-redhen-salesforce">register early</a>!</p>
+]]>
+  </description>
+  <pubDate>Tue, 29 Sep 2015 12:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/09/badcamp-trainings-redhen-salesforce/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/09/badcamp-trainings-redhen-salesforce/</guid>
+</item>
+
+    
+      <item>
+  <title>Video Tutorial - &quot;Introduction to RedHen CRM&quot;</title>
+  <description>
+    <![CDATA[<p>We recently teamed up with Drupalize.me to produce a brand new (free!) video tutorial: “<a href="https://drupalize.me/videos/introduction-redhen-crm">Introduction to RedHen CRM</a>.”</p>
+
+<p>In this introductory video, you’ll tour RedHen CRM’s central features, get a detailed walkthrough of the setup process, and learn a few of RedHen’s cool tricks, like duplicate management (a pet feature of mine). This is a great resource for anyone who is looking for a step-by-step guide to setting up and configuring RedHen, or just wants to learn more about it!</p>
+
+<iframe width="700" height="545" src="//www.youtube.com/embed/-R3iXjvIWeo" frameborder="0" allowfullscreen=""></iframe>
+
+]]>
+  </description>
+  <pubDate>Mon, 31 Aug 2015 11:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/08/intro-to-redhen-video/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/08/intro-to-redhen-video/</guid>
+</item>
+
+    
+      <item>
+  <title>Peer-To-Peer Fundraising With Drupal - RedHen Raiser</title>
+  <description>
+    <![CDATA[<h3 id="the-origin-of-redhen-raiser">The Origin of RedHen Raiser</h3>
+
+<p>Last summer, the <a href="http://www.capitalareafoodbank.org/">Capital Area Food Bank of Washington, DC</a> came to us with a great idea: The Food Bank wanted to increase its investment in team fundraising initiatives, but they didn’t necessarily want to continue to invest in a “pay as you go” service like StayClassy, TeamRaiser, or Razoo. Rather, they wanted to explore whether or not they could invest in the development of an open source alternative that would eliminate licensing costs, that they could customize more easily, and that they could then give back to the broader nonprofit community.</p>
+
+<p>We’ve spoken a lot in the community regarding various strategies for <a href="http://thinkshout.com/blog/2015/03/the-how-and-why-of-open-source/">how nonprofits can contribute to the development of open source tools</a>. Most of the time, we recommend that nonprofits start off by solving their own organizational problems first, and then abstracting components of the resulting solutions at the end of the project.</p>
+
+<p>However, in the case of the Capital Area Food Bank’s team fundraising needs, a competitive analysis of existing solutions provided us with a well-defined roadmap for how to meet the Food Bank’s goals, while simultaneously working on a suite of contributed tools that could be given back to the broader community. So, in coming up with their solution, we started out by developing RedHen Raiser as a stand-alone Drupal Distribution, and then implemented a customized instance of the Distribution to meet the Food Bank’s more specific design needs.</p>
+
+<h3 id="architectural-planning-for-the-redhen-raiser-drupal-distribution">Architectural Planning for the RedHen Raiser Drupal Distribution</h3>
+
+<p>As mentioned above, we began our feature design process for this peer-to-peer fundraising platform by doing a <strong>competitive analysis of existing tools</strong>. The table below shows our recommended feature set (“Our MVP”) compared to the functionality available as of June 2014 on eight of the leading platforms:</p>
+
+<p><img src="/assets/images/blog/image_0.png" alt="image alt text" /></p>
+
+<p><em>As a quick aside, it’s interesting in comparing these products that there is a lack of consensus in the industry regarding how to refer to these sorts of fundraising tools. We often hear the terms “peer-to-peer fundraising,” “team fundraising,” “viral fundraising,” and even “crowd fundraising” used interchangeably. With crowd fundraising being all the rage in the for-profit world of Kickstarter and the like, we feel that that descriptor could be a little misleading, but the other three terms all speak to different highlights and features of these tools.</em></p>
+
+<p>With a target feature set identified, we began <strong>wireframing our proposed solution</strong>. Again, peer-to-peer fundraising has become somewhat of a well-trodden space. While we came up with a few small enhancements to the user experiences we’ve seen in the marketplace, we recognized that donors are beginning to anticipate certain design patterns when visiting these fundraising sites:</p>
+
+<p><img src="/assets/images/blog/image_1.png" alt="image alt text" /></p>
+
+<p>With the wireframes in place, we turned to <strong>technical architecture</strong>. Given the need to collect a broad range of constituent data, not just user account information, it was clear to us that this Drupal distribution should be built on top of a CRM platform native to Drupal. For obvious reasons, we chose to go with <a href="https://www.drupal.org/project/redhen">RedHen CRM</a>.</p>
+
+<p>We also saw many advantages to leveraging <a href="https://www.drupal.org/project/redhen_donation">RedHen Donation</a>, a flexible tool for building single-page donation forms. With RedHen Donation, a “Donation field” can be attached to an entity, and in so doing, it attaches a form to that entity for processing donations. The <em>RedHen-specific</em> piece to this module is that it is configurable, so that incoming donation data is used to “upsert” (create or update) RedHen contacts. RedHen Donation also integrates with Drupal Commerce to handle order processing and payment handling. Integrating with the <a href="https://www.drupal.org/project/commerce_cardonfile">Commerce Card on File</a> and <a href="https://www.drupal.org/project/commerce_recurring">Commerce Recurring</a> modules, RedHen Donation can be configured to support recurring gifts as well.</p>
+
+<p>Missing from the underlying set of building blocks needed for building a peer-to-peer fundraising platform with Drupal was a tool for managing and tracking fundraising against campaign targets and goals. In the case of peer-to-peer fundraising, each team fundraising page needs to be connected to a larger campaign. To address this requirement, we released a module called <a href="https://www.drupal.org/project/redhen_campaign">RedHen Campaign</a>. This module, coupled with with RedHen Donation, are at the core of RedHen Raiser, allowing us to create a hierarchy between fundraising campaigns, teams, and individual donors.</p>
+
+<p>If you are interested in giving RedHen Raiser a spin, you can <a href="https://www.drupal.org/project/redhen_raiser">install the distribution</a> using your own Drupal Make workflow, you can checkout our own <a href="https://github.com/thinkshout/charlotte">RedHen Raiser development workflow</a>, or you can just click a button to spin up a <a href="https://dashboard.pantheon.io/products/redhen_raiser/spinup">free instance</a> on Pantheon’s hosting platform. (If you’re not a Drupal developer, this last approach is incredibly quick and easy. The distribution even ships with an example fundraising campaign to help you get started.)</p>
+
+<h3 id="customizing-redhen-raiser-to-meet-the-food-banks-needs">Customizing RedHen Raiser to Meet the Food Bank’s Needs</h3>
+
+<p>With a strong base in place, customizing RedHen Raiser to meet the Capital Area Food Bank’s requirements was straightforward and comparably inexpensive. It was largely a matter of adding Drupal Commerce configuration to work with their payment gateway, developing a custom theme that matched the Food Bank’s overall brand, and then training their team to start building out their first peer-to-peer fundraising campaign:</p>
+
+<p><img src="/assets/images/blog/image_2.png" alt="image_2.png" /></p>
+
+<h3 id="the-success-of-the-food-banks-first-peer-to-peer-fundraising-campaign">The Success of the Food Bank’s First Peer-to-Peer Fundraising Campaign</h3>
+
+<p>The Capital Area Food Bank launched this tool around its May 2015 <a href="http://www.capitalareafoodbank.org/food-from-the-bar/">“Food From The Bar” campaign</a>, targeting law firms in the D.C. Metro area. <strong><em>In just 30 days, the Food Bank raised close to <a href="https://give.capitalareafoodbank.org/campaigns/food-bar-2015">$150,000 on RedHen Raiser</a>.</em></strong></p>
+
+<p>The Food Bank’s Chief Digital Officer, Chris von Spiegelfield, had this to say about the project:</p>
+
+<p><em>“The Capital Area Food Bank has been no stranger to peer-to-peer fundraising tools. For years, it has relied on third-party sites such as Causes.com, Razoo, Crowdrise, among others. However, these tools often came with considerable branding and messaging limitations as well as pretty stiff transactional fees. Users got confused about where their money was going and complained after learning a considerable portion of their donation didn’t make its way to the Food Bank. We wanted to provide greater unity of purpose beyond a donation form without all the hassle, which is how we decided to invest in our own crowdfunding platform.</em></p>
+
+<p><em>After kicking the tires at a few SaaS options, we decided the best way forward was to build a customized website.  Out of all the different frameworks proposed, the open-source Drupal and RedHen Raiser combo impressed us the most. We wouldn’t  just be buying a website. We would be leveraging a vast network of programmers and community-minded architects who could start us off in a very good place, not to mention help our platform be secure and grow for the foreseeable future.</em></p>
+
+<p><em>We launched the website this year and couldn’t be happier with what ThinkShout built for us. We’re already seeing it pay dividends across several campaigns. We continue to add new features and hope our site might be a benchmark that other nonprofits could benefit from and contribute to as well.”</em></p>
+
+<h3 id="whats-next-for-redhen-raiser">What’s Next for RedHen Raiser?</h3>
+
+<p>The obvious answer to this question is <em>a port to Drupal 8</em>. But that will take a little time, as many complex pieces, such as Drupal Commerce and RedHen CRM will need to be ported before we can migrate over these higher-level fundraising features. But a RedHen CRM port is on our short(er) term horizon. And frankly, the idea of being able to use RedHen as a “headless CRM” is incredibly exciting.</p>
+
+<p>In the meantime, we are looking forward to collaborating with the community to make RedHen Raiser an even stronger open source competitor to the pay-as-you-go alternatives that are currently out there. So, please, give RedHen Raiser a test drive and send us your feedback!</p>
+]]>
+  </description>
+  <pubDate>Thu, 13 Aug 2015 11:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/08/peer-to-peer-with-drupal/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/08/peer-to-peer-with-drupal/</guid>
+</item>
+
+    
+      <item>
+  <title>Join ThinkShout for Drupal Day and the NTC</title>
+  <description>
+    <![CDATA[<p><a href="http://www.nten.org/">NTEN’s</a> <a href="http://myntc.nten.org/home">Nonprofit Technology Conference</a> is nearly upon us! We’re gearing up to ship out to Austin, and we’re putting the finishing touches on <a href="http://myntc.nten.org/eventdetails/precon/drupal">Drupal Day</a>. This is one of our favorite events of the year, as it’s when we get to meet up with many of our nonprofit partners, learn about new organizations and their causes, and share our expertise with the folks that need it to further their missions. We’re especially excited about the Drupal Day we’ve been coordinating for the last several months.</p>
+
+<p>What’s Drupal Day? Well, the name pretty much gives it away, but specifically, it’s a full-day, pre-conference event that we’ve been organizing for the past few years. It’s full of Drupal trainings, discussions, and nonprofit technology staff sharing their successes with their community. Breakout session topics vary from content strategy, accessibility, fundraising, CRMs, design, and more, all led by Drupal experts. The day concludes with our keynote presentation on the future of Drupal and Drupal 8 by <a href="https://pantheon.io/team/zack-rosen">Zack Rosen</a>, CEO of Pantheon. All Drupal Day attendees and speakers are invited to join us for a sponsored Happy Hour at the Brass House that evening. Want to stay in the loop on Twitter? Look for the hashtag #15NTCDrupal. Of course, Drupal Day wouldn’t be possible without the help of its co-sponsors, <a href="http://atendesigngroup.com/">Aten Design</a>, <a href="http://forumone.com/">Forum One</a>, <a href="http://www.gortonstudios.com/">Gorton Studios</a>, <a href="https://messageagency.com/">Message Agency</a>, and <a href="https://www.zivtech.com/">Zivtech</a>.</p>
+
+<p>That’s not all we’re up to, though. This year, you can find the ThinkShout team at <strong>booth #301</strong> in the Science Fair on Wednesday and Thursday. Our friends at <a href="http://mailchimp.com/?pid=GAW&amp;source=website&amp;gclid=CIOxieHf-8MCFVFhfgodvBAA_Q">MailChimp</a> couldn’t attend the NTC this year, but they made sure you wouldn’t go home empty handed. Stop by our booth for your NTC MailChimp swag, and come talk to us about <a href="http://thinkshout.com/blog/category/mailchimp/">how we’re integrating Drupal with MailChimp</a>. We’ve also got a few ThinkShout goodies we’ll be handing out, so be sure to stop by. We’re happy to discuss just about anything under the sun.</p>
+
+<p>This has been a big year so far for ThinkShout’s open source contributions. We’re particularly thrilled about our recent release of <a href="http://thinkshout.com/blog/2015/01/reimagined-sprints-redhen-raiser/">RedHen Raiser</a>, the first peer-to-peer fundraising tool built on Drupal and RedHen. This is something we’re very excited to share with the nonprofit world, and we’d love to talk to you more about it at our booth.</p>
+
+<p>You’ll also be able to see some of the ThinkShout team in action as part of the NTC programming. On Thursday, March 5th, catch Lev Tsypin on the panel <a href="http://sched.co/1z4A">“Sync All the Things! How Progressive Nerds are Changing the Future of Political Data and Integration”</a> at 3:30 p.m. On Friday, March 6th at 10:30 a.m., Brett Meyer will be co-leading the session <a href="http://sched.co/1z4N">“Content Strategy 101”</a> with Katie Carrus from the Humane Society Legislative Fund. Brett will also be co-leading the session <a href="http://sched.co/2ECm">“Managing a Tech Project (Or Two or Three)” </a>with Lisa Goddard from the Capital Area Food Bank of Texas, Melissa Barber and Brian Pickett from North Peak Solutions on March 5th at 1:30 p.m.</p>
+
+<p>Don’t forget to follow us on Twitter @ThinkShout for our real time updates. Feel free to tweet us questions, or just say hi! (You can totally do that in person, too.) We’ll see you in Austin!</p>
+]]>
+  </description>
+  <pubDate>Wed, 25 Feb 2015 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2015/02/thinksout-ntc-2015/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/02/thinksout-ntc-2015/</guid>
+</item>
+
+    
+      <item>
+  <title>Reimagined Sprints and Introducing RedHen Raiser</title>
+  <description>
+    <![CDATA[<p><img src="/assets/images/blog/raiser_0.jpg" alt="raiser_0.jpg" /></p>
+
+<p>We’ve been experimenting with monthly team sprints at ThinkShout over the last year with varied levels of structure and outcomes. This month, we decided to take a step back, reevaluate our goals, and reimagine our sprint process. And, we moved it to a Thursday. <a href="https://twitter.com/thinkshout/status/558334360416305152">A bow-tie Thursday</a>.</p>
+
+<p>Previously, these sprints were loosely structured around a topic or technology, such as <a href="https://www.drupal.org/theme-guide/8/twig">Twig in Drupal 8</a>. Suffice it to say, they were a lot of fun and very exploratory, but they weren’t the most engaging for everyone on the team. This time around, we decided to collaborate on a single initiative - in this instance, a product - that would benefit from the skills and perspectives of everyone in the company. Consequently, we decided to rally around <a href="http://drupal.org/project/redhen_raiser">RedHen Raiser</a>, our new peer-to-peer fundraising distribution for Drupal.</p>
+
+<h3 id="introducing-redhen-raiser">Introducing RedHen Raiser</h3>
+
+<p><img src="http://thinkshout.com/assets/images/blog/raiser_1.jpg" alt="raiser_1.jpg" /></p>
+
+<p>RedHen Raiser is designed for building peer-to-peer fundraising websites, like the sites you see for marathons and walks, where a fundraising campaign is made up of myriad individual and team pages, and can be customized by the participants for fundraising amongst their respective communities, while remaining connected to the larger campaign.</p>
+
+<p>As the name suggests, RedHen Raiser is built on top of <a href="https://www.drupal.org/project/redhen">RedHen CRM</a>, including the <a href="http://drupal.org/project/redhen_donation">RedHen Donation</a> and <a href="http://drupal.org/project/redhen_campaign">RedHen Campaign</a> modules, and it’s chock full of awesome:</p>
+
+<ul>
+  <li>
+    <p>Easy Campaign creation so site visitors can join right away by creating their own Team or Individual fundraisers.</p>
+  </li>
+  <li>
+    <p>A beautiful, consistent fundraising experience that is based on inherited display values from the larger Campaign.</p>
+  </li>
+  <li>
+    <p>Goal progress widgets including thermometers, leaderboards, etc.</p>
+  </li>
+  <li>
+    <p>Mini-blogs for Campaigns and Fundraisers via Update content type.</p>
+  </li>
+  <li>
+    <p>Ability to create and maintain different pages for different fundraisers with a single account.</p>
+  </li>
+  <li>
+    <p>Automated start and end dates.</p>
+  </li>
+  <li>
+    <p>Commerce-readiness - just add your payment method and go!</p>
+  </li>
+  <li>
+    <p>Single-page donation forms via RedHen Donation.</p>
+  </li>
+  <li>
+    <p>Built using established modules with simple UI (Views, RedHen, Context, etc) for easy customization.</p>
+  </li>
+</ul>
+
+<p>It’s ThinkShout’s latest offering in a suite of nonprofit engagement building blocks that we’ve been developing, and was initially developed for the <a href="http://www.capitalareafoodbank.org/">Capital Area Food Bank of Washington, DC</a>. RedHen Raiser competes feature for feature with top <em>software as a service (SaaS)</em> peer-to-peer fundraising platforms, such as TeamRaiser, CauseVox and Razoo.</p>
+
+<p>As a result of our work with this client, we were able to release a very rudimentary version of RedHen Raiser on Drupal.org that would provide a basic starting point to other developers interested in building a peer-to-peer fundraising tool. The product is also a huge win for CAFB of DC, simply because they were able to reap a huge dividend on their initial investment by getting these improvements for free.</p>
+
+<h3 id="involving-the-full-team-in-one-sprint">Involving the Full Team in One Sprint</h3>
+
+<p><img src="http://thinkshout.com/assets/images/blog/raiser_2.jpg" alt="raiser_2.jpg" /></p>
+
+<p>As an open source <em>product</em>, RedHen Raiser presented us with some interesting opportunities to engage more than just our engineers in the sprint process, and it certainly needed a lot of love on a lot of fronts. Leveraging the different interests and expertise of our 18-person company, we split into five teams:</p>
+
+<ul>
+  <li>
+    <p><strong>Dev Ops</strong> - this team focused on deployment infrastructure, build processes, and automated testing;</p>
+  </li>
+  <li>
+    <p><strong>Bug Fix &amp; Feature Dev</strong> - team members spent the sprint day working on the development backlog;</p>
+  </li>
+  <li>
+    <p><strong>UX</strong> - the User Experience team worked ahead of the feature development team to identify and sketch out new features and enhancements;</p>
+  </li>
+  <li>
+    <p><strong>QA</strong> - the Quality Assurance team was made up of our project managers acting as “product owners;”</p>
+  </li>
+  <li>
+    <p><strong>Community Engagemen</strong>t - this team, consisting of our sales, marketing, and operations staff, was tasked with documenting the sprint and sharing our contributions with the wider Drupal and nonprofit technology communities.</p>
+  </li>
+</ul>
+
+<p>It’s worth noting that the quality assurance team and the community engagement team came together for the first half of the sprint for an in-depth training on the Drupal contributed modules and components underlying RedHen Raiser. Ironically, we often get so busy building these sorts of tools for our clients that we don’t stop to educate our own “non-developer” team members on how stuff works. By taking this time to dive into the nitty gritty with our project managers, marketing and operations folks, we create better advocates for these solutions and help ensure that everyone in the company feels like contributor to our success.</p>
+
+<h3 id="planning-for-the-sprint">Planning for the Sprint</h3>
+
+<p><img src="http://thinkshout.com/assets/images/blog/raiser_3.jpg" alt="raiser_3.jpg" /></p>
+
+<p>As ThinkShout has grown, the need for sprint planning has grown with it. Back when we first started these sprints, we could fit our entire team around a single table (covered in pizza boxes and beer) and call out development tickets we each needed help with.</p>
+
+<p>Now, with a team of 18 working together from 11am to 5pm, these sprints take a bit more planning - to say nothing of balancing the opportunity cost of investing a collective 108 hours of non-client work into a single week. To keep things running smoothly, we’ve taken a more project-planning-esque approach to our sprint days:</p>
+
+<ul>
+  <li>
+    <p><strong>Scheduling in advance</strong>: The date and time of the sprint is scheduled a month in advance. We used to just stick with the last Friday of the month, but found that this sometimes excluded certain team members on deadlines or vacation. Now, we coordinate a bit more tightly to help ensure participation of as many team members as possible.</p>
+  </li>
+  <li>
+    <p><strong>Laser focus</strong>: the focus of the sprint is announced to the team three weeks in advance. This gives the team time to think about stuff they want to work on, and add to the feature backlog in the weeks coming up to the sprint.</p>
+  </li>
+  <li>
+    <p><strong>Pre-sprint planning meetings</strong>: The department leads meet a week before the sprint to form teams and structure the sprint agenda, and prioritize the development/feature backlog two days in advance of the sprint.</p>
+  </li>
+  <li>
+    <p><strong>Pre-sprint presentations</strong>: The week before the sprint, we do a short, company-wide presentation on the sprint topic at our weekly staff lunch. This helps energize the team and sparks knowledge sharing in the lead up to the sprint day.</p>
+  </li>
+  <li>
+    <p><strong>Formally “opening” and “closing” the sprint day</strong>: As our sprint commences, we kick things off with a quick, all-staff scrum. More importantly, we pull the team back together at the end of the day for each sprint team to present (and celebrate!) what they’ve completed.</p>
+  </li>
+</ul>
+
+<h3 id="outcomes-of-our-redhen-raiser-sprint">Outcomes of Our RedHen Raiser Sprint</h3>
+
+<p><img src="http://thinkshout.com/assets/images/blog/raiser_4.png" alt="raiser_4.png" /></p>
+
+<p>So what does it all mean? This new approach to our team sprints resulted in just shy of 100 commits on RedHen Raiser and the underlying modules that power the distribution. We published a <a href="https://www.drupal.org/node/2414581">new release</a> of RedHen Raiser, <a href="https://www.drupal.org/node/2413307">RedHen Donation</a> and the <a href="https://www.drupal.org/node/2414563">RedHen Campaign</a> modules - as well as a release of our base <a href="https://www.drupal.org/node/2414559">RedHen CRM</a><a href="https://www.drupal.org/node/2414559"> suite</a>.</p>
+
+<p>One of the biggest wins to come out of the sprint are <a href="https://github.com/thinkshout/redhen_raiser/tree/7.x-1.x/tests">automated tests</a> powered by <a href="http://docs.behat.org/en/v2.5/">Behat</a>. Tests are triggered with every commit to GitHub and run on <a href="https://travis-ci.org/thinkshout/redhen_raiser">Travis CI</a>. At this point, test coverage is a bit limited, but the foundation has been laid for complete test coverage for RedHen Raiser, a critical factor when organizations are evaluating which software to use.</p>
+
+<p>To top it off, we cleaned up a few RedHen project pages on Drupal.org and began working on a RedHen-specfic QA testing plan. We also reached out to the RedHen open source community to let them know what we were up to and how folks can continue to get involved. Most of all, we are proud to say that this effort is a huge contribution to the nonprofit tech community, in that it provides major improvements to a powerful tool that can be leveraged for free - and has the documentation to support it!</p>
+
+<p>All in all, the ThinkShout team came together in a big way, and accomplished much more than we could have if we had remained siloed in our approach. We had a lot of fun, drank some beer, ate some good food, and got to collaborate as a whole team on something really cool. We’re really looking forward to the next one!</p>
+]]>
+  </description>
+  <pubDate>Wed, 28 Jan 2015 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2015/01/reimagined-sprints-redhen-raiser/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/01/reimagined-sprints-redhen-raiser/</guid>
+</item>
+
+    
+      <item>
+  <title>Online Fundraising with RedHen Donation</title>
+  <description>
+    <![CDATA[<p>I’ve spent many a late night in the office shouting at my computer screen - all in the name of philanthropy. Technology woes just go with the small nonprofit territory, and the organization I worked for before joining ThinkShout was no exception. Some of those woes, however, I just couldn’t tolerate. Not when they were getting in the way of our mission, and preventing us from raising funds to support our work.</p>
+
+<p>My first foray into online fundraising happened while I was working in the development department of this small nonprofit. We focused primarily on assisting low-income families with safety net services and emergency housing. Over the last few years, we’d seen a huge increase in the percentage of online donations. Times were changing and we’d begun to rely heavily on that online donation page as we saw more and more donors taking the digital route - many of whom were donating to us for the first time. But as our needs evolved, we needed the donation form to evolve with us. We needed more options, more fields, new content as the campaigns changed. Unfortunately, we didn’t realize what a monumental task that would be, given the online donation solution we were using. The problems didn’t end there.</p>
+
+<p>This set-in-stone donation solution probably wasn’t a big concern back when the development team was first evaluating CRMs. Perhaps they didn’t know what they were getting into. Perhaps they didn’t realize they’d be charged almost $200 every time they needed to edit an online donation form. Perhaps they didn’t think we’d use the form that much. The form itself wasn’t very nice to look at. It didn’t match our website’s theme. It got close, but something was always off. There was absolutely nothing convenient about dealing with it.</p>
+
+<p>Those days are a ways behind me, but they’re still on my mind. Since my transition to ThinkShout, I’ve had the opportunity to view these issues from a different perspective and I tend to hear the same complaints from the nonprofits we serve:</p>
+
+<ul>
+  <li>Multi-step checkout</li>
+  <li>Clunky check-out systems</li>
+  <li>No control over form content</li>
+  <li>No support for multiple campaigns</li>
+  <li>Forms are expensive to edit</li>
+  <li>Can’t fix issues without ticketing your CRM’s support team</li>
+  <li>Form theme doesn’t match your website</li>
+  <li>Payment methods are limited</li>
+</ul>
+
+<p>Wow. Look at this awesomely long list of annoying things that plague such an integral part of nonprofit fundraising. My blood <em>still</em> boils when I think about how difficult a decision it was to simply submit a ticket to change a single line of text in our donation form - how much <em>effort</em> went into making a case for the cost. This had to change. There had to be <em>something</em> better.</p>
+
+<p>We began working on the <a href="https://www.drupal.org/project/redhen_donation">RedHen</a><a href="https://www.drupal.org/project/redhen_donation">Donation</a> module with intent to create a better online donation solution. We wanted to create a donation tool that allowed nonprofits to keep everything under one roof. The end result accomplishes this. What we came up with is unique in the sense that it offers nonprofits several features that aren’t quite so commonplace. RedHen Donation is inside their website, connected to their CRM. It allows for both one-time and recurring donations, multiple donation pages, and easy-to-edit donation forms.</p>
+
+<p>I chatted with <a href="http://thinkshout.com/team/brandon/">Brandon Lee</a>, the architect behind RedHen Donation, to get a better understanding of RedHen Donation’s capabilities.</p>
+
+<p><strong>Stephanie: So what’s the big deal with RedHen Donation?</strong></p>
+
+<p><strong>Brandon</strong>: It’s an integration between <a href="http://redhencrm.com/">RedHen CRM</a> contacts and Drupal Commerce that allows for single page donations with both one time and recurring donations options. The recurring donations feature is a pretty big part of it, since that’s not an option you frequently see offered in other donation form tools.</p>
+
+<p><strong>Stephanie: How does it work with RedHen CRM?</strong></p>
+
+<p><strong>Brandon</strong>: RedHen Donation allows you to create a single page donation form that can create or update RedHen contacts. It’s tightly-integrated with RedHen, so if you’re already using RedHen CRM, it will be very simple to get up and running.</p>
+
+<p><strong>Stephanie: How does it compare to other donation form modules out there?</strong></p>
+
+<p><strong>Brandon</strong>: It’s a standalone module that’s used with the RedHen suite. CRM Core has a similar donation module, but it doesn’t allow for recurring donations. RedHen Donation does. The ability to give donors the option of setting up a recurring donation within the same form is something we’re thrilled to offer nonprofits.</p>
+
+<p>The donation space, in a lot of ways, is what sets it apart from similar modules. If you’re dealing with Commerce specifically, it wants to lock you into the Commerce workflow. With RedHen Donation, you don’t have to go through three different steps to make one donation to an organization. You fill out one page and you’re done. It’s quick and user-friendly. No more filling out a form, then passing through a portal, then onto a confirmation page, then back to your site.</p>
+
+<p><img src="/assets/images/blog/redhendonation1.png" alt="redhendonation1.png" /></p>
+
+<p><strong>Stephanie: What if I want create a new form?</strong></p>
+
+<p><strong>Brandon</strong>: With the assumption that you already have RedHen set up, it’s relatively simple. You enable the module, then create a donation type, which is a Drupal entity, and during the configuration, you select what kind of product you’re working with - at least with one-time donations. This is  a fieldable methodology that we’ve used with MailChimp and other projects in the past. If you understand Drupal concepts of entities, fields, and commerce, then it’s simple. You do need a working knowledge of those three things to build a form. But once it’s complete, it’s incredibly simple for donors to use. That’s the whole point of the single page donation form. You can offer multiple recurring options. Every month for forever, every month for a year, all of those options on the same page.</p>
+
+<p><strong>Stephanie: It sounds like you’ve got a lot of payment options to choose from as an end-user - and the recurring donation option is huge win for fundraisers - but how customizable is this form? And how difficult is it to make changes?</strong></p>
+
+<p><strong>Brandon</strong>: It allows for different payment gateways, like <a href="http://home.iatspayments.com/">iATS</a> - basically, anything supported by Drupal Commerce. Create a contact, indicate which fields you want created, pick a payment gateway, and you’re set. It can be as simple as name, credit card number, and donation amount. It can be as complex as name, credit card, honoree, honoree address, honoree’s favorite color, etc. Payment options allow for text fields, a drop-down menu, or other. Recurring payments open up another myriad of options.</p>
+
+<p><strong>Stephanie: So long as I know Drupal, I can make this form into whatever I need?</strong></p>
+
+<p><strong>Brandon</strong>: Exactly.</p>
+
+<p><strong>Stephanie: Say I have multiple campaigns I’m running and I need a different form for each campaign. Can I do that?</strong></p>
+
+<p><strong>Brandon</strong>: Absolutely. Let’s say you have multiple different contact types in RedHen because of the campaign. And say I want to send out this particular form because I’m currently soliciting for one particular campaign. You can have as many donation forms as you have entities that are fieldable. You can create a different form on the same content type.</p>
+
+<p><img src="/assets/images/blog/redhendonation2.png" alt="redhendonation2.png" /></p>
+
+<p><strong>Stephanie: Anything else we should know about it?</strong></p>
+
+<p><strong>Brandon</strong>: The availability of RedHen Donation within RedHen CRM is a big deal. You don’t have to worry about third-party integration. You don’t have to send people off to another site to collect the donation. You don’t have to wait on a third-party to send that much-needed information back. With RedHen Donation, it just works. It’s all self-contained. If I’m a nonprofit site admin, this is a great option, and a great reason to consider using RedHen CRM because everything needed to collect donations is all in one place.</p>
+
+<p><strong>Our Conclusion:</strong></p>
+
+<p>RedHen Donation is a fantastic asset for nonprofits looking for a flexible, customizable, and affordable online donation tool. Its single-page functionality and recurring donation options make it a must-have for organizations that need these features to work seamlessly with their Drupal website. For organizations currently shopping around for a CRM, RedHen Donation is a huge plus for RedHen CRM and a compelling reason to select it as your constituent database.</p>
+
+<p>We’re incredibly excited about RedHen Donation and what it offers nonprofits. We do understand that seeing is often believing, so we highly recommend that you install the latest release of <a href="https://www.drupal.org/node/2199903">RedHen CRM</a>, RedHen Donation, and see what we’re talking about. Not sure how to get started? Do you have more questions than what we covered? Leave us a comment - we’d love to talk RedHen with you.</p>
+
+]]>
+  </description>
+  <pubDate>Fri, 01 Aug 2014 09:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/08/online-fundraising-with-redhen-donation/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/08/online-fundraising-with-redhen-donation/</guid>
+</item>
+
+    
+      <item>
+  <title>&quot;Big Data&quot; Challenges with Salesforce for Facing History and Ourselves
+</title>
+  <description>
+    <![CDATA[<h2 id="the-introduction">The Introduction</h2>
+<p><a href="http://facinghistory.org">Facing History and Ourselves</a> is an international educational and professional development organization whose mission is to engage students of diverse backgrounds in an examination of racism, prejudice, and antisemitism in order to promote the development of a more humane and informed citizenry. As part of their recent <a href="http://thinkshout.com/work/facing-history/">site launch</a>, ThinkShout was tasked with synching their new Salesforce instance, built by our partner on the project, <a href="http://www.kellpartners.com/">Kell Partners</a>, with Drupal. This is a use case tailor made for the Salesforce Suite, and one that we have lots of experience with including recent projects for the <a href="http://thinkshout.com/work/la-conservancy">Los Angeles Conservancy</a> and the <a href="https://www.getpantheon.com/blog/how-teams-are-launching-17-drupal-websites-single-distribution">Forum of Regional Association of Grant Makers</a>, however there was one small difference. Actually, a big one. For Facing History, we had to sync 300,000+ plus records in near real time as opposed to tens of thousands. How this was accomplished was an exercise in troubleshooting, scripting, and patience.</p>
+
+<p>The Drupal <a href="https://drupal.org/project/salesforce">Salesforce Suite</a> allows any <a href="http://thinkshout.com/blog/2012/11/lev/salesforce-rest-oauth/">Drupal entity to be synchronized with any Salesforce object</a>, with field level granularity and directionality. Data can be pushed from Drupal in real time or it can be batched. Data from Salesforce is pulled into a queue at regular intervals and then a configurable amount of queued records are processed during those intervals. During processing, contacts and orgs in <a href="https://drupal.org/project/redhen">RedHen CRM</a> are created or updated, keeping the user experience of managing contact data within the Drupal site. In future phases, we will add engagement scoring to the mix by scoring user engagements on the website and pushing that data back to Salesforce.</p>
+
+<h2 id="the-challenge">The Challenge</h2>
+<p>Getting 300,000+ records into the queue was a relatively quick operation that took less than 4 hours. Processing those records was much more time consuming as only a few hundred records were processed during a single cron run. Since the site is hosted on Pantheon, the standard cron run is hourly, which would mean the processing would take weeks. Even manually triggering the process would take days. We needed a better solution.</p>
+
+<h2 id="the-solution">The Solution</h2>
+
+<h3 id="queue-processing">Queue processing</h3>
+
+<p>One of the ways to improve this process was to allow more records to be processed during the cron run. The default worker timeout was set to 180 seconds (3 minutes).  Meaning that every hour, records from the queue were processed for 3 minutes and then nothing would happen until the next cron run. So that timeout was altered using <code class="highlighter-rouge">hook_cron_queue_info_alter()</code> to 3600 seconds (1 hour). We also wanted to limit other processes from running during this time. Just firing off cron processes <em>all</em> cron tasks from all modules. Running <code class="highlighter-rouge">drush queue-run</code> we could just process the queue worker identified. But it would still require someone manually running that command every hour. That command also allows queue processing in parallel, which theoretically would process the records even faster.</p>
+
+<p>We created a bash script which would process the queue every hour running multiple parallel threads:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+<span class="nv">NUM_RUNS</span><span class="o">=</span><span class="nv">$1</span>
+<span class="nv">NUM_PROCESSES</span><span class="o">=</span><span class="nv">$2</span>
+
+<span class="nv">r</span><span class="o">=</span>0
+
+<span class="nv">START</span><span class="o">=</span><span class="sb">`</span><span class="nb">date</span> +%s<span class="sb">`</span>
+<span class="k">while</span> <span class="o">[</span> <span class="nv">$r</span> <span class="nt">-lt</span> <span class="nv">$NUM_RUNS</span> <span class="o">]</span><span class="p">;</span> <span class="k">do
+  </span><span class="nv">p</span><span class="o">=</span>0
+  <span class="nv">run</span><span class="o">=</span><span class="k">$((</span><span class="nv">$r</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
+  <span class="nb">echo</span> <span class="s2">"Run: </span><span class="nv">$run</span><span class="s2">"</span><span class="p">;</span>
+  <span class="k">while</span> <span class="o">[</span> <span class="nv">$p</span> <span class="nt">-lt</span> <span class="nv">$NUM_PROCESSES</span> <span class="o">]</span><span class="p">;</span> <span class="k">do
+    </span><span class="nv">proc</span><span class="o">=</span><span class="k">$((</span><span class="nv">$p</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
+    <span class="nb">echo</span> <span class="s2">"Process: </span><span class="nv">$proc</span><span class="s2">"</span><span class="p">;</span>
+    <span class="c">#create file with header and time stamp</span>
+    <span class="nb">printf</span> <span class="s2">"Run: </span><span class="nv">$run</span><span class="s2"> Process: </span><span class="nv">$proc</span><span class="s2"> Log</span><span class="se">\n</span><span class="s2">"</span> <span class="o">&gt;</span> sync.R<span class="nv">$run</span>.P<span class="nv">$proc</span>.log
+    drush @pantheon.facing-history.live queue-run salesforce_pull <span class="nt">--strict</span><span class="o">=</span>0 <span class="o">&gt;&gt;</span> sync.R<span class="nv">$run</span>.P<span class="nv">$proc</span>.log &amp;
+    <span class="nv">p</span><span class="o">=</span><span class="nv">$proc</span>
+  <span class="k">done
+  </span><span class="nv">r</span><span class="o">=</span><span class="nv">$run</span>
+  <span class="c"># Should match worker timeout</span>
+  <span class="nb">sleep </span>3600
+<span class="k">done</span>
+</code></pre></div></div>
+<p>During our testing, however, we quickly realized that running parallel Drupal processes caused MySQL deadlocks. It appeared that this was caused by a lack of database transactions being created when doing field level operations. We spent some time researching ways to prevent this, but in the end decided that it would be better to improve the way that records were imported into the SalesForce module in the first place.</p>
+
+<h3 id="identify-and-remove-inefficient-code">Identify and remove inefficient code</h3>
+
+<p>While troubleshooting an unrelated issue, it was found that when pulling mapped <a href="https://drupal.org">Relations</a> from Salesforce the entity ID was needed, but since the entity was not saved at the time of processing those mappings, the ID was not available yet. This was temporarily resolved to prevent errors by saving the entity before the mapping took place. Then the mappings were completed and the entity was saved again. This meant that whether a Relation was used or not, the entity was saved twice. To prevent this double save from causing a decrease in performance, a check was made to see if the pulled entity was mapped with a Relation. If so, the entity was saved to provide the entity ID. If not, the entity was only saved after the field mappings were completed.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">salesforce_mapping_related_entity_fieldmap_pull_value</span><span class="p">(</span><span class="nv">$entity_wrapper</span><span class="p">,</span> <span class="o">...</span>
+<span class="c1">// Handle relations.</span>
+<span class="k">elseif</span> <span class="p">(</span><span class="nx">module_exists</span><span class="p">(</span><span class="s1">'relation'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$info</span><span class="p">[</span><span class="s1">'relation_type'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="c1">// We cannot create relationships between new items. We are saving them here</span>
+<span class="c1">// to avoid performing a duplicate save for all entities in</span>
+<span class="c1">// salesforce_pull_process_records().</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$info</span><span class="p">[</span><span class="s1">'parent'</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">getIdentifier</span><span class="p">())</span> <span class="p">{</span>
+	<span class="nv">$info</span><span class="p">[</span><span class="s1">'parent'</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Another performance improvement came from changing the way field mappings were handled if an error was thrown. Previously, if an error was thrown while updating a mapping, the mapping object (the entity that links Drupal entities to Salesforce objects) was not created or, if it existed, was removed. Instead, now if a valid entity ID is present the mapping is still saved. This cause less errors and allows for better data syncing.</p>
+
+<p>The function salesforce_pull_process_records in salesforce_pull.module was updated</p>
+
+<p>from</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$mapping_object</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nv">$sf_mapping</span><span class="o">-&gt;</span><span class="na">sync_triggers</span> <span class="o">&amp;</span> <span class="nx">SALESFORCE_MAPPING_SYNC_SF_UPDATE</span><span class="p">))</span>
+</code></pre></div></div>
+<p>to</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$mapping_object</span> <span class="o">=</span> <span class="nx">salesforce_mapping_object_load_by_sfid</span><span class="p">(</span><span class="nv">$sf_object</span><span class="p">[</span><span class="s1">'Id'</span><span class="p">]);</span>
+<span class="nv">$exists</span> <span class="o">=</span> <span class="nv">$mapping_object</span> <span class="o">?</span> <span class="k">TRUE</span> <span class="o">:</span> <span class="k">FALSE</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$exists</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nv">$sf_mapping</span><span class="o">-&gt;</span><span class="na">sync_triggers</span> <span class="o">&amp;</span> <span class="nx">SALESFORCE_MAPPING_SYNC_SF_UPDATE</span><span class="p">))</span> <span class="p">{</span>
+</code></pre></div></div>
+<p>The code checks for existence of an entity referenced by a mapping to ensure it exists, and behaves intelligently if it doesn’t. Previously this would cause an unrecoverable sync state for objects.</p>
+
+<h3 id="query-optimization">Query optimization</h3>
+
+<p>By analyzing queries using <a href="http://newrelic.com/">New Relic</a> during Salesforce data pulls we were able to track down a troublesome frequently run query in the <a href="https://drupal.org/project/relation">Relation</a> module that was used in the <a href="http://drupalcode.org/project/salesforce.git/tree/refs/heads/7.x-3.x:/modules/salesforce_mapping">Salesforce Mapping</a> module to map related entities. Researching this led to a known issue <a href="https://drupal.org/node/1649398">when dealing with a high volume of relations</a> caused by  <a href="https://drupal.org/node/1859084">conditions on multi-column fields in Entity Field Query</a>. In short, EFQ caused additional unneeded joins when creating the SQL query. Without the time to patch core, we created a custom Database API query duplicating the results of the EFQ without the extra joins. This resulted in a <em>700 times increase in performance</em> in execution of that query.</p>
+
+<p>Additionally, we found that EFQ always checks for node grants by joining on the node_grants table even when we are not dealing with nodes, in our case contacts. Elimination this join also resulted in improved query performance, although not as great an impact as the issue described above.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>After we completed a test run of the import in Pantheon’s test environment, we were ready to import data into the production instance of the new site. We decided to set cron to “never run” to again limit the amount of processes running at the time of the import. We also did not want to recreate the parallel issues we discovered during the our tests with our scripted solution.  After our first production test run of a few thousand records over 3 hours, we noticed that we were still getting deadlocks. Upon investigation, we discovered that Pantheon runs cron against their production instances using drush, which does not respect the “never run” configuration. Pantheon had documentation about this which lead us to <a href="https://drupal.org/project/elysia_cron">Elysia Cron</a>. This module does prevent cron from running by setting the “Globally Disable” flag. This module gives itself the highest system weight so that its <code class="highlighter-rouge">hook_cron</code> is the first to run. And if that flag is set, Elysia Cron stops the process.</p>
+
+<p>At the end of the day, 300,000+ records were successfully imported into Drupal from Salesforce. Many lessons were learned and significant improvements were made to the Salesforce Suite. Facing History and Ourselves provided us with an opportunity to go further than we ever had before in understanding and improving upon this process.</p>
+]]>
+  </description>
+  <pubDate>Mon, 28 Apr 2014 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/04/salesforce-big-data/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/04/salesforce-big-data/</guid>
+</item>
+
+    
+      <item>
+  <title>Thank you, RedHen DrupalCon sprinters!</title>
+  <description>
+    <![CDATA[<p>Bolstered by Dries’s nod to <a href="http://drupal.org/project/redhen">RedHen CRM</a> in his <a href="https://portland2013.drupal.org/keynote/dries-buytaert">keynote address</a>, our RedHen code sprint at DrupalCon last Friday was a great success. This being our first community sprint, the ThinkShout team was happy to collaborate with an awesome group of development partners, including <a href="https://drupal.org/user/77805">Stein Setvik</a> from <a href="http://forumone.com">Forum One</a>, <a href="https://drupal.org/user/941916">Alan Sherry</a> from <a href="http://www.freeflowdigital.com/">Freeflow Digital</a>, <a href="https://drupal.org/user/1017982">Chris Ward</a> from <a href="http://www.moatmedia.com.au/">MoatMedia</a> (in Australia), and <a href="https://drupal.org/user/328914">Jesse Longacre</a>. Together we made progress on three fronts:</p>
+
+<ul>
+  <li>First, we came up with a development roadmap, user interface, and <a href="http://drupalcode.org/project/redhen.git/shortlog/refs/heads/dedupe">stubbed out code base</a> for a RedHen contact dedupping and merge feature;</li>
+  <li>Second, we began work on a <a href="https://drupal.org/sandbox/bleedev/2003442">CiviCRM-to-RedHen migration tool</a>;</li>
+  <li>And finally, we completed an initial release of a <a href="https://drupal.org/project/redhen_feeds">RedHen Feeds module</a> for creating RedHen contacts and organizations.</li>
+</ul>
+
+<p>We look to keep this community momentum going into June with the help of these (and many other) partners and friends. In particular, we are focused this next month on completing the dedupping and merge feature and the CiviCRM-to-RedHen migration tool, a as well as continuing to sprint on RedHen community documentation.</p>
+
+<p>Thank you to all those in the community supporting the RedHen initiative!</p>
+]]>
+  </description>
+  <pubDate>Wed, 29 May 2013 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2013/05/sean/thank-you-redhen-drupalcon-sprinters/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/05/sean/thank-you-redhen-drupalcon-sprinters/</guid>
+</item>
+
+    
+      <item>
+  <title>RedHen at DrupalCon</title>
+  <description>
+    <![CDATA[<p>&lt;a href=http://redhencrm.com””&gt;<img src="https://raw.github.com/thinkshout/redhen/gh-pages/images/barnyard.png" style="height: 300px; float:  left; margin: 0 10px 0px 0;" />&lt;/a&gt;</p>
+
+<p><em>UPDATE: We have a RedHen sprint scheduled for Wednesday May 22nd at 1pm in room A107.</em></p>
+
+<p>The big week is finally here with <a href="http://portland2013.drupal.org/">DrupalCon Portland</a> kicking off in our own backyard. For those of you not familiar with Portland, we’re really big into <a href="http://www.putabirdonit.com/">birds</a> (yes, I’m aware that’s very 2010), and <a href="http://www.today.com/id/32594370/ns/today-today_home_and_garden/t/portland-ore-urban-chickens-rule-roost/#.UZpiVGRASaN">chickens</a> in particular. I’m working real hard here to make a clever connection to <a href="http://drupal.org/project/redhen">RedHen</a>, the leading native Drupal CRM, and the only one named after a <a href="http://en.wikipedia.org/wiki/The_Little_Red_Hen">bird</a>!</p>
+
+<p>Just in time for the conference, RedHen has a new <a href="http://drupal.org/node/1997676">release</a> with plenty of performance improvements and bug fixes. We have a production site about to launch with over 100k contacts, and our test/development environments are running with over a 100k contacts with thousands of engagements each. We still have lots of work to do, but we’re confident in RedHen’s ability to scale to “enterprise” levels.</p>
+
+<p>Understandably, one of the most requested features since we launched RedHen as been the ability to import contacts. Our initial pass at meeting that critical need also launched last week in the form <a href="http://drupal.org/project/redhen_feeds">RedHen Feeds</a>, a <a href="http://drupal.org/project/feeds">Feeds</a> processor for RedHen contacts. So get those contacts out of that spreadsheet and into RedHen! Support for organizational affiliations isn’t there yet, but is in the works.</p>
+
+<p>ThinkShout will be helping lead a <a href="http://portland2013.drupal.org/program/sprints">RedHen sprint</a> on Friday, May 24th, DrupalCon Portland’s official sprint day. So if you’re at all native CRM curious, come join our team as we hack away on RedHen and related tools. Learn about large datasets, <a href="http://drupal.org/project/salesforce">Salesforce integration</a>, managing <a href="http://drupal.org/project/redhen_membership">memberships</a>, <a href="http://drupal.org/project/mailchimp">email integration</a>, <a href="http://drupal.org/project/registration">event registrations</a>, and common use cases. Site builders, documentarians, UX specialists, and developers are all welcome.</p>
+
+<p>PS - ThinkShout is co-hosting the <a href="http://pdxdrupaldogooders.eventbrite.com/">Drupal DoGooders Happy Hour</a>, a fundraiser for <a href="http://aaronwinborn.com/blogs/aaron/special-needs-trust">Aaron Winborn</a>, today, Monday May 20th. So please joint us and start your week off right by giving back to someone who has given so much to the Drupal community!</p>
+]]>
+  </description>
+  <pubDate>Mon, 20 May 2013 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2013/05/lev/redhen-drupalcon/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/05/lev/redhen-drupalcon/</guid>
+</item>
+
+    
+      <item>
+  <title>Zen and the Art of Farmyard Maintenance</title>
+  <description>
+    <![CDATA[<p>Like many developers, we get pretty psyched about building stuff. Sometimes it takes us a little longer to get excited about describing the stuff we built… but <a href="http://redhencrm.com/">RedHen</a> has been getting enough attention that it was time to do some communicating, especially considering we recently released <a href="(http://drupal.org/project/redhen">version 7.x-1.2</a> of the module.</p>
+
+<p>Today we published a significant, if not quite complete, chunk of RedHen documentation to Drupal.org <a href="http://drupal.org/node/1989564">here</a>. That documentation can now grow with RedHen!</p>
+
+<p>But I know what you’re thinking: “Documentation? Am I having some horrible 2005 fever dream? Where’s the video??”</p>
+
+<p>So, ok: I made a little instructional video about getting started with RedHen. It’s my first one, so critique gently: it’s surprisingly difficult to converse with an imaginary audience.</p>
+
+<p>This video covers installing RedHen and configuring a Contact Type, and a few other introductory RedHen tricks. Note that the video gives instructions for creating a RedHen link in the Admin toolbar, but you can also just move the pre-built RedHen menu that lives under Structure into the Toolbar to get the full drop-down fun.</p>
+
+<iframe width="700" height="525" src="//www.youtube.com/embed/hivg0CsxG7c" frameborder="0" allowfullscreen=""></iframe>
+
+<p>Setting up RedHen: Creating your first Contact Type&lt;/a&gt; from <a href="http://thinkshout.com/team/gabe/">Gabe Carleton-Barnes</a> on <a href="http://YouTube.com">YouTube</a>.&lt;/p&gt;</p>
+]]>
+  </description>
+  <pubDate>Thu, 09 May 2013 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2013/05/gabe/zen-and-art-farmyard-maintenance/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/05/gabe/zen-and-art-farmyard-maintenance/</guid>
+</item>
+
+    
+      <item>
+  <title>Magic, CRM and Shiny Objects Galore!  </title>
+  <description>
+    <![CDATA[<p><img src="http://portland2013.drupal.org/sites/default/files/drupalcon_pdx_icon_2.png" alt="DrupalCon Portland" title="DrupalCon Portland" height="200" width="163" img="" style="float:right" />
+With the session submission deadline drawing to a close for <a href="http://portland2013.drupal.org">DrupalCon Portland 2013</a>, <a href="http://thinkshout.com">ThinkShout</a> (along with many other fine Drupal community members) participated in the mad rush to get all of our awesome session ideas in on time!  The DrupalCon session committee has a busy couple of weeks coming their way, and in the meantime, we’d love to hear your comments and feedback on our presentation ideas.</p>
+
+<p>Our team has a broad range of topics we can’t wait to share with the community, from CRM and Salesforce to Magic: The Gathering!</p>
+
+<p>Check them out in more detail below, we can’t wait to hear what you think:</p>
+
+<ul>
+  <li><a href="http://portland2013.drupal.org/session/register-pay-and-attend-making-advanced-event-management-easy-drupal">Register, Pay and Attend:  Making advanced event management easy with Drupal</a> In this session <a href="http://thinkshout.com/blog/Tauno">Tauno</a> will be focusing on the recipes for contributed modules that can be combined to enable functionality such as: paid event registrations, early bird pricing, tracking attendance and even integrating with Salesforce.</li>
+  <li><a href="http://thinkshout.com/blog/sean">Sean</a> and <a href="http://thinkshout.com/blog/lev">Lev</a> joined forces to propose <a href="http://portland2013.drupal.org/session/association-management-redhen-crm">Association Management with RedHen</a>, which will teach participants how to leverage RedHen CRM in building vibrant online communities and portals.</li>
+  <li><a href="http://portland2013.drupal.org/session/need-drupal-website-wait-have-you-gone-through-discovery-process">Need a Drupal Website? Wait! Have you gone through a a discovery process?</a> is based on ThinkShout’s resident UX expert, <a href="http://thinkshout.com/blog/brett">Brett Heckman</a>, and <a href="http://thinkshout.com/blog/sean">Sean</a>’s experience in guiding clients through an effective approach to beginning a website redesign project.</li>
+  <li><a href="http://portland2013.drupal.org/session/micro-site-development-workflows-drush-make-and-git">Micro-Site Development Workflows with Drush Make and Git</a> in this proposed session, ThinkShout will be walking through the real world challenges and successes with Val Rozansky from the <a href="http://givingforum.org/s_forum/index.asp">Forum of Regional Associations of Grantmakers</a> as a case study for best practices around managing micro-sites with Drush Make build process and a Git-based deployment workflow.</li>
+  <li>In <a href="http://portland2013.drupal.org/session/crm-drupal-way">CRM the Drupal Way</a>, Lev and Tauno hope to take the stage to explore the ins and outs of building a CRM offering with Drupal.</li>
+  <li>Looking to dig into <a href="http://portland2013.drupal.org/session/integrating-drupal-salesforce">Integrating Drupal with Salesforce</a>? Lev’s proposed session will cover the technical aspects of integrating Drupal and Salesforce and then explore how to leverage this tool in your projects.</li>
+  <li>Pro-Magic aficionado <a href="http://thinkshout.com/blog/gabe">Gabe Carleton-Barnes</a> hopes to engage audiences with the intertwine of the strategy game and open source technology in <a href="http://portland2013.drupal.org/session/magic-gathering-and-freelibreopen-source">MAGIC: The Gathering and Free/Libre/Open Source</a>.</li>
+  <li><a href="http://portland2013.drupal.org/session/distributions-site-building-distros-arent-just-products-and-quick-starts">Distributions for Site Building: Distor’s aren’t just for products and quick starts</a> and in this session <a href="http://thinkshout.com/blog/brandon">Brandon</a> and Gabe hope to demonstrate how installation profiles and Drush make files are powerful tools for distribution building, and can also smooth collaborative development for one-off projects.</li>
+  <li><a href="http://portland2013.drupal.org/session/now-time-sprockets-when-we-make-money-how-run-profitable-small-digital-agency">Now is the time on Sprockets when we make money:  How to run a profitable small digital agency</a>.  In this session, I’ll (fingers crossed) be joining forces with Director of Strategy, Nate Parsons at Phase2 Technology, to share best practices for improving profitability for small digital agencies.</li>
+  <li><a href="http://portland2013.drupal.org/session/shiny-object-developing-cohesive-pmo-toolset-doesn%E2%80%99t-overwhelm-your-team">Shiny Object:  Developing a cohesive PMO toolset that doesn’t overwhelm your team</a>.  Nate and I will be tackling the shiny object syndrome in tool adoption to help guide attendees to develop a PMO toolset that fits for their team.</li>
+</ul>
+]]>
+  </description>
+  <pubDate>Wed, 20 Feb 2013 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2013/02/betsy/drupalcon-2013-sessions/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/02/betsy/drupalcon-2013-sessions/</guid>
+</item>
+
+    
+      <item>
+  <title>Free Range RedHen: Code Sprint at the ThinkShout Office</title>
+  <description>
+    <![CDATA[<p><img src="https://dl.dropbox.com/s/3vsjjgva9gimabh/redhen_logo.png" style="float: right; margin: -10px 0px 10px 15px" />With 2013 well underway, we thought it was time to circle up in the office and bust out an open source sprint.  Our focus this time was on <a href="http://drupal.org/project/redhen">RedHen</a>, our <a href="http://thinkshout.com/blog/2012/06/sean/redhen-crm-part-1">native Drupal CRM</a>, which is fully open sourced and lives on Drupal.org.  In one afternoon, with our team of 8, we were able to give the issue queue some lovin’ and also roll the release of RedHen 1.0!</p>
+
+<p>So kudos and applause to <a href="http://thinkshout.com/team#Lev">Lev</a>, <a href="http://thinkshout.com/team#Sean">Sean</a>, <a href="http://thinkshout.com/team#Tauno">Tauno</a>, <a href="http://thinkshout.com/team#Brandon">Brandon</a>, <a href="http://thinkshout.com/team#Brett">Brett</a>, <a href="http://thinkshout.com/team#Gabe">Gabe</a> and <a href="http://thinkshout.com/team#David">David</a>, ThinkShout’s newest team member who was in Portland for the first time, for coding up a storm.  Here’s a quick update on the most recent 1.0 releases we’ve been able to get out the door:</p>
+
+<ul>
+  <li><a href="http://drupal.org/node/1910206">RedHen core</a>, ‘nough said.</li>
+  <li><a href="http://drupal.org/project/redhen_membership">RedHen membership</a>, a separate module to manage association memberships.</li>
+  <li><a href="http://drupal.org/project/registration">Entity registrations</a>, ThinkShout’s Drupal 7 answer to Signup which is becoming the defacto Drupal event registration solution.</li>
+  <li><a href="http://drupal.org/project/poultry">Poultry</a>, the responsive theme that can be used to power RedHen’s interface.</li>
+  <li><a href="http://drupal.org/project/poultry">RedHen Demo</a>, an installation profile that packages all of RedHen’s features into a fictional pet shelter.</li>
+</ul>
+
+<p>As I said, RedHen is fully open sourced and its success is possible due to the support we receive from the community.  So I also want to give a shout out to all of the <a href="http://drupal.org/node/1068848/committers">contributors</a> who submitted patches.</p>
+
+<p>Sometimes the message is at least as important as the code behind it. As such, our wordsmith Gabe Carleton-Barnes made the <a href="http://drupal.org/project/redhen">RedHen project page</a> decipherable and, dare I say, fun?</p>
+]]>
+  </description>
+  <pubDate>Wed, 13 Feb 2013 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2013/02/betsy/free-range-redhen-code-sprint-thinkshout-office/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/02/betsy/free-range-redhen-code-sprint-thinkshout-office/</guid>
+</item>
+
+    
+      <item>
+  <title>RedHen in the spotlight at BADCamp</title>
+  <description>
+    <![CDATA[<p>I just got back from a fabulous weekend at <a href="http://2012.badcamp.net/">BADCamp</a> where we had the chance to discuss <a href="http://drupal.org/project/redhen">RedHen CRM</a> at the <a href="http://2012.badcamp.net/program/non-profit-summit">nonprofit</a> and <a href="http://2012.badcamp.net/program/product-summit">product summits</a>. These videos were generously filmed by <a href="http://niccolox.com">Nicholas Roberts</a>. The first is an in-depth discussion of RedHen CRM, covering why we built a native Drupal CRM in the first place, the technology that makes it possible, and  applicable business cases. The second is cage match, err, make that panel ;), pitting RedHen against <a href="http://www.trellon.com">Trellon</a>’s <a href="http://drupal.org/project/crm_core">CRM Core</a>, <a href="http://jacksonriver.com">Jackson River</a>’s <a href="http://www.jacksonriver.com/springboard">Springboard</a>, and <a href="http://civicrm.org">CiviCRM</a>. It was an honor and a pleasure to compare and contrast RedHen with those other amazing CRM offerings. RedHen CRM is already in use in over <a href="http://drupal.org/project/usage/redhen">200 projects</a>, including our own <a href="http://thinkshout.com/portfolio/mission-investors-exchange">Mission Investors Exchange</a> and will soon launch as a core component of a private distribution for the <a href="http://www.givingforum.org/s_forum/index.asp">Forum of Regional Association of Grant Makers</a>.
+<!--break--></p>
+<iframe src="http://player.vimeo.com/video/52655156?badge=0" width="500" height="375" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+
+<iframe src="http://player.vimeo.com/video/52675110?badge=0" width="500" height="281" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+]]>
+  </description>
+  <pubDate>Mon, 05 Nov 2012 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2012/11/lev/redhen-spotlight-badcamp/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/11/lev/redhen-spotlight-badcamp/</guid>
+</item>
+
+    
+      <item>
+  <title>It's that time of year again, BADCamp</title>
+  <description>
+    <![CDATA[<p><img src="http://2012.badcamp.net/sites/all/themes/baddercamp/logo.png" alt="BADCamp" /></p>
+
+<p>With a reputation for the largest non-DrupalCon Drupal event in the country, the organizers do not disappoint with a line up that will suit the interests of pretty much every community member in attendance.</p>
+
+<p>In addition to catching up with friends, my favorite part of BADCamp is the <a href="http://2012.badcamp.net/program/non-profit-summit">Non-Profit Summit</a>.  This year there will be <a href="http://2012.badcamp.net/program/summits">eight summit</a> offerings over the course of 2 days ranging from the Drupal Mobile Summit to the Drupal Business Owners Summit.  I’m definitely going to be splitting my time between the Non-Profit Summit and the UX/UI Summit on Thursday, while Friday will like be a split between Higher Education and Mobile.</p>
+
+<p>ThinkShout is proud to be sponsoring the Non-Profit Summit!  This year, we will be talking about CRMs, including our native Drupal CRM <a href="http://redhencrm.com/">RedHen</a>, and we’ll be facilitating a couple of BoFs that are designed to answer questions and start a discussion surrounding Non-Profit usage of CRMs in Drupal.  If you’re not planning on attending the Non-Profit Summit, but interested in learning more about RedHen, then stop by the <a href="http://2012.badcamp.net/program/product-summit">Drupal Product Summit</a> on Friday where Lev &amp; Sean will be presenting.</p>
+
+<p>I may be running across the Berkeley campus to make this, but I’m really looking forward to the live series of Drupal usability tests at the UX/UI summit.  At ThinkShout we hear time and time again how important user experience is to non-profit organizations.  If you’re user can’t figure out what’s going on, then they definitely are not going be engaged in what your organization is doing.  We had some awesome engagements in recent months, in which we deeply explored the user roles and developed personas for their audience, so I’m looking forward to hearing what some of the Drupal experts have to say about the future of D8.</p>
+
+<p>And in case you haven’t heard, ThinkShout is <a href="http://thinkshout.com/blog/2012/09/betsy/thinkshout-hiring-senior-engineer">hiring</a>, so if you’re interested in moving to Portland, you should stop by and say “Hi!” at the <a href="http://2012.badcamp.net/program/drupal-job-fair">job fair</a> on Saturday!</p>
+
+<p>Last, but not least - be sure to stop by the <a href="http://drupal.org/project/cod">COD</a> code sprint. You’re bound to run into some members of our team there now that we are working on integrating our module Entity Registration  as a core component of COD.  Looking forward to seeing you in the East Bay next week!</p>
+]]>
+  </description>
+  <pubDate>Tue, 30 Oct 2012 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2012/10/betsy/badcamp/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/10/betsy/badcamp/</guid>
+</item>
+
+    
+      <item>
+  <title>Under the Hood of RedHen CRM</title>
+  <description>
+    <![CDATA[<p><em>RedHen CRM is one of many great stories featured in the <a href="http://www.linuxjournal.com/content/drupal-special-edition">Linux Journal’s recent Drupal special addition</a>. RedHen just laid a <a href="http://drupal.org/node/1816026">beta3 release</a> and the ThinkShout team will be at the <a href="http://2012.pnwdrupalsummit.org/">Pacific Northwest Drupal Summit</a> if anyone wants to connect.</em></p>
+
+<p>This is the 5th in a <a href="http://thinkshout.com/blog/category/redhen">series of articles exploring RedHen</a>, ThinkShout’s native Drupal 7 CRM platform. ThinkShout initially designed <a href="http://drupal.org/project/redhen">RedHen CRM</a> around the complex <a href="http://en.wikipedia.org/wiki/Association_management_system">association management</a> (AMS) needs of nonprofits and trade associations. These association management requirements go well beyond the standard needs of most CRM/CMS solutions. However, in building an abstract tool with these needs at the forefront, our goal has been to future proof RedHen CRM as much as possible to ensure that its architecture can accommodate a wide variety of use cases.</p>
+
+<p>RedHen CRM is similar to <a href="http://drupal.org/project/commerce">Drupal Commerce</a> in its modular structure. As with Drupal Commerce, the core RedHen modules that can be downloaded on the Drupal.org project page won’t provide you with a working CRM right out of the box. RedHen is intended to provide developers and site builders with the building blocks for quickly creating their own CRM data models that map to their particular business requirements and workflow. Consequently, setting up a new RedHen CRM instance does require configuration.</p>
+
+<p>In the future, ThinkShout is likely to release RedHen “Features” or “Apps” that provide prepackaged CRM solutions for different use cases. At the time of the publication of this article, we know of more than 70 RedHen CRM solutions built by other Drupal developers and site builders.</p>
+
+<p>In addition to its association management uses, we see RedHen CRM as an ideal starting point for building custom sales pipeline management tools and project management applications, as well as Drupal integration points with 3rd-party ERP (enterprise resource planning) tools and financial accounting packages.
+<!--break--></p>
+<h2 id="project-structure">Project Structure</h2>
+
+<p>RedHen CRM consists of a core module containing shared APIs and interfaces and a collection of feature specific sub-modules, including:</p>
+
+<ul>
+  <li>Contact (redhen_contact): Contact entities and APIs, along with integration with Drupal users.</li>
+  <li>Fields (redhen_fields): Custom field types used by RedHen entities. Currently includes a unique email field, which assigns attributes to emails, such primary, bulk, and custom labels (home, work, etc).</li>
+  <li>Organization (redhen_org): Organization entities and APIs.</li>
+  <li>Organization Group (redhen_group): Lightweight group feature which turns organizations into containers for private content with a broadcast system.</li>
+  <li>Relations (redhen_relation): The Relation module allows connections between contacts and organizations.</li>
+  <li>Note (redhen_note): Notes on contacts and organizations.</li>
+  <li>Engagement (redhen_engagement): Engagement scoring system and APIs. RedHen Note integration is included, as well as Rules integration for popular modules such as Comment, Registration, and Webform.</li>
+  <li>Registration (redhen_registration): Integration with the Entity Registration module.</li>
+  <li>Activity (redhen_activity): Activity logging based on the <a href="http://drupal.org/project/message">Message</a> module.</li>
+</ul>
+
+<p>We maintain other functionality that is not needed for all uses cases in separate projects in order to keep the core RedHen code base as lean as possible. The <a href="http://drupal.org/project/redhen_membership">RedHen Membership</a> system is our most widely used RedHen component with its own project name space. It handles individual and organizational membership subscriptions. As with Drupal Commerce, key sub-modules will continue to be included with the main module code base. However, we anticipate that as the RedHen CRM developer community grows, we will see more and more contributed modules that extend RedHen’s core feature set.</p>
+
+<p>The overall architecture of RedHen CRM consists of a set of minimalistic building blocks that developers and site builders can use to develop solutions tailored to specific use cases. Like Drupal Commerce, RedHen relies on Drupal distributions and installation profiles for the heavy lifting of fleshing out polished applications that serve specific needs. <a href="http://drupal.org/user/4481">Nedjo Rogers</a> of <a href="http://chocolatelilyweb.ca/">Chocolate Lily</a> has incorporated RedHen into <a href="http://openoutreach.org/">Open Outreach</a>,</p>
+<blockquote>
+  <p>a Drupal distribution for nonprofit &amp; grassroots groups</p>
+</blockquote>
+
+<p>and ThinkShout has released it’s own demonstration of RedHen in the form of a <a href="http://drupal.org/project/redhen_demo">distribution to server the needs of a fictional pet shelter association</a>.</p>
+
+<h2 id="module-dependences">Module Dependences</h2>
+
+<p>RedHen has minimal dependencies on other Drupal contributed modules, striving for a balance between relying on its own code base and leveraging other code where it makes the most sense. Beyond Drupal core, RedHen CRM currently depends only on Entity API, discussed in detail below, and the <a href="http://drupal.org/project/relation">Relation</a> module for managing connections. Additionally, RedHen Activity is based on the <a href="http://drupal.org/project/message">Message module</a> which, by the way, does a great job of balancing a lean extendable base while still remaining accessible to site builders. RedHen CRM <em>supports</em> integration with popular contributed tools, like Views and Rules, but these modules are not <em>required</em>. This makes RedHen a lean and stable application platform, as it relies less on a shifting foundation of other contributed modules over which we have little to no control.</p>
+
+<p>This centrist approach helps assure other Drupal developers that their customizations and extensions of RedHen won’t break due to fragile module interdependencies. At the same time, it provides less-technical site builders with a known approach to extending RedHen CRM with standard Drupal tools, such as Views, Rules, and the Fields API.</p>
+
+<h2 id="custom-entities">Custom Entities</h2>
+
+<p>RedHen CRM relies on custom Drupal entity types and bundles. It leans heavily on <a href="http://drupal.org/project/entity">Entity API</a>, a wrapper around Drupal’s core entity system that eases developing entities in several ways. The Entity API module:</p>
+
+<ul>
+  <li>Provides classes and controllers to streamline entity creation and management. RedHen extends these base classes as needed.</li>
+  <li>Eases integration with key contributed modules, namely <a href="http://drupal.org/project/views">Views</a> and <a href="http://drupal.org/project/rules">Rules</a>.</li>
+  <li>Exposes standardized API hooks during CRUD operations providing a consistent interface for other modules to interface with your custom entities.</li>
+  <li>Provides hooks and data structures allowing for entities to be exported, for example, using Features or CTools. RedHen leverages this feature to make entity bundle definitions, E.g., types of contacts and organizations, exportable.</li>
+</ul>
+
+<p>On a site note, Entity API has 133,647 reported installs all on Drupal 7 and is among the top 20 modules on Drupal.org. As Drupal dependencies go, it is highly stable and reliable.</p>
+
+<p>RedHen ships with the following entity types, each of which come bundled with core properties and can be extended with additional user-defined fields.</p>
+
+<ul>
+  <li>Contacts</li>
+  <li>Organizations</li>
+  <li>Notes</li>
+  <li>Memberships (part of RedHen Membership)</li>
+  <li>Engagements</li>
+</ul>
+
+<h2 id="connections">Connections</h2>
+<p>A key feature of any CRM is managing connections between organizations and contacts. RedHen features a very flexible connection system built on top of the Relation module, which allows for bidirectional connections between arbitrary types of entities. These relationships themselves can have additional user-defined <em>fields</em>. RedHen ships with two types of relationships: [ital]Affiliations[ital], which are connections between an organization and a contact, and <em>Personal Connections</em>, which are connections between contacts. These relationships come bundled with status and role properties, but fields can be added that are applicable to a given relationship.</p>
+
+<p>For example, imagine that you want to define a relationship between a contact of the type “Staff” and an organization of the type “Company.” Suppose you want to include information about the position that contact has at that organization. This field value only has meaning within the context of relationship, and therefore this data is stored with the relationship rather than on the contact record or the organization record itself.</p>
+
+<p><img src="/assets/images/blog/redhen-connections.png" alt="Connections" />
+Listing of a contact’s connections</p>
+
+<h2 id="playing-well-in-the-drupal-sandbox">Playing well in the Drupal sandbox</h2>
+<p>RedHen’s default listings of contacts are a good start, but the fun really starts if you want to create your own custom views. The venerable Views module, a powerful graphical query builder, is the gold standard in Drupal for creating custom “lists of stuff,” including RedHen entities. Much of the heavy lifting involved in Views integration is handled by Entity API, but any module implementing the Entity API interfaces still needs to clarify the data types of all entity properties and provide Views handlers for any non-standard data. For example, organization entities have a primary contact associated with them and it’s up to RedHen to explain to Views that the related contact id within an organization record is actually a RedHen contact. Let’s create a new View adding additional fields and relationships to our standard list of contacts:</p>
+
+<ol>
+  <li>Create a new view at /admin/structure/views/add of Contacts.</li>
+  <li>Add relationships to Memberships and Organization affiliation.</li>
+  <li>Add the following fields: Contact first and last name, contact email (change the formatter to primary email), membership name, and organization name.</li>
+</ol>
+
+<p>You now have a View of all contacts that includes their membership and organization. If you set the path of the View to /redhen/contact, it will simply override the default contacts listing, or you can move it elsewhere to maintain both interfaces.</p>
+
+<p><img src="/assets/images/blog/redhen-views.png" alt="Custom RedHen View" />
+Custom contact view with an address and exposed filters.</p>
+
+<p>Similarly, business rules can be extended using the Rules module, which provides an interface for defining logic based upon a trigger-&gt;action model. RedHen again leans on Entity API to expose RedHen entities into this model so that you can, for example, send an email to a contact when a related membership entity is updated.</p>
+
+<p><img src="/assets/images/blog/redhen-rules.png" alt="screenshot" />
+Custom Rule that demonstrates sending an email to new contacts.</p>
+
+<h2 id="extending-core-functionality">Extending core functionality</h2>
+<p>RedHen can also be extended and customized the old fashioned way – by writing custom code. All of RedHen’s entity types feature APIs with standard CRUD operations and wrappers around many common tasks, such as getting all related entities. In addition, RedHen can be manipulated using Drupal’s hook system. Each entity can be altered using a hook implementation when it’s loaded, created, updated, and deleted. Most of hooks are exposed through Entity API’s inherited controller classes, but RedHen features some of its own unique hooks as explained in redhen.api.php. For example, a module can dictate whether or not a contact entity can be deleted by implementing hook_redhen_contact_can_delete():</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="nf">mymodule_redhen_contact_can_delete</span><span class="p">(</span><span class="nx">RedhenContact</span> <span class="nv">$contact</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// prevent the deletion of active contacts</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">redhen_state</span> <span class="o">==</span> <span class="nx">REDHEN_STATE_ACTIVE</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In addition, all of RedHen’s main interfaces are wrapped in theme functions so they can be overridden at the theme level. For example, to alter the default list of contacts, implement <code class="highlighter-rouge">theme_redhen_contact_list()</code>:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="nf">mytheme_redhen_contact_list</span><span class="p">(</span><span class="nv">$variables</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nv">$contacts</span> <span class="o">=</span> <span class="nv">$variables</span><span class="p">[</span><span class="s1">'contacts'</span><span class="p">];</span>
+  <span class="nv">$header</span> <span class="o">=</span> <span class="nv">$variables</span><span class="p">[</span><span class="s1">'header'</span><span class="p">];</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$contacts</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nv">$rows</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$contacts</span> <span class="k">as</span> <span class="nv">$contact</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nv">$uri</span> <span class="o">=</span> <span class="nx">entity_uri</span><span class="p">(</span><span class="s1">'redhen_contact'</span><span class="p">,</span> <span class="nv">$contact</span><span class="p">);</span>
+      <span class="nv">$actions</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="nx">l</span><span class="p">(</span><span class="nx">t</span><span class="p">(</span><span class="s1">'edit'</span><span class="p">),</span> <span class="nv">$uri</span><span class="p">[</span><span class="s1">'path'</span><span class="p">]</span> <span class="o">.</span> <span class="s1">'/view/edit'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">'query'</span> <span class="o">=&gt;</span> <span class="nx">drupal_get_destination</span><span class="p">())),</span>
+        <span class="nx">l</span><span class="p">(</span><span class="nx">t</span><span class="p">(</span><span class="s1">'delete'</span><span class="p">),</span> <span class="nv">$uri</span><span class="p">[</span><span class="s1">'path'</span><span class="p">]</span> <span class="o">.</span> <span class="s1">'/view/delete'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">'query'</span> <span class="o">=&gt;</span> <span class="nx">drupal_get_destination</span><span class="p">())),</span>
+      <span class="p">);</span>
+
+      <span class="nv">$redhen_contact_type</span> <span class="o">=</span> <span class="nx">redhen_contact_type_load</span><span class="p">(</span><span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">type</span><span class="p">);</span>
+      <span class="nv">$rows</span><span class="p">[]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+          <span class="nv">$redhen_contact_type</span><span class="o">-&gt;</span><span class="na">label</span><span class="p">,</span>
+          <span class="nx">l</span><span class="p">(</span><span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">first_name</span><span class="p">,</span> <span class="nv">$uri</span><span class="p">[</span><span class="s1">'path'</span><span class="p">]),</span>
+          <span class="nx">l</span><span class="p">(</span><span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">last_name</span><span class="p">,</span> <span class="nv">$uri</span><span class="p">[</span><span class="s1">'path'</span><span class="p">]),</span>
+          <span class="nx">l</span><span class="p">(</span><span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">,</span> <span class="s1">'mailto:'</span> <span class="o">.</span> <span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">),</span>
+          <span class="nx">format_date</span><span class="p">(</span><span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">updated</span><span class="p">,</span> <span class="s1">'short'</span><span class="p">),</span>
+          <span class="nb">implode</span><span class="p">(</span><span class="s1">' | '</span><span class="p">,</span> <span class="nv">$actions</span><span class="p">)</span>
+        <span class="p">)</span>
+      <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nv">$render</span><span class="p">[</span><span class="s1">'table'</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'#theme'</span> <span class="o">=&gt;</span> <span class="s1">'table'</span><span class="p">,</span>
+      <span class="s1">'#header'</span> <span class="o">=&gt;</span> <span class="nv">$header</span><span class="p">,</span>
+      <span class="s1">'#rows'</span> <span class="o">=&gt;</span> <span class="nv">$rows</span>
+    <span class="p">);</span>
+    <span class="nv">$render</span><span class="p">[</span><span class="s1">'pager'</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'#theme'</span> <span class="o">=&gt;</span> <span class="s1">'pager'</span><span class="p">,</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// no results, set a message</span>
+    <span class="nv">$render</span><span class="p">[</span><span class="s1">'no-result'</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'#type'</span> <span class="o">=&gt;</span> <span class="s1">'markup'</span><span class="p">,</span>
+      <span class="s1">'#markup'</span> <span class="o">=&gt;</span> <span class="nx">t</span><span class="p">(</span><span class="s1">'Sorry, there are no contacts that match your criteria.'</span><span class="p">),</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">render</span><span class="p">(</span><span class="nv">$render</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In short, using RedHen’s comprehensive APIs, hooks, and theme wrappers, a developer can build a complex, elegant solution to meet nearly any use case requiring CRM functionality.</p>
+]]>
+  </description>
+  <pubDate>Thu, 18 Oct 2012 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2012/10/lev/under-hood-redhen-crm/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/10/lev/under-hood-redhen-crm/</guid>
+</item>
+
+    
+      <item>
+  <title>RedHen in the Wild: Mission Investors Exchange</title>
+  <description>
+    <![CDATA[<p>When Seattle based PRI Makers Network and Harvard based More for Mission decided to merge and rebrand as <a href="http://www.missioninvestors.org">Mission Investors Exchange</a>, ThinkShout was engaged to re-invent their combined website on Drupal 7 and deploy a tightly integrated constituent relationship management (CRM) system.</p>
+
+<h3 id="background">Background</h3>
+
+<p>With a growing roster of over 260 of the most influential foundations and non-profits in the U.S. and Canada, Mission Investors Exchange and ThinkShout worked closely to create a feature set that enables philanthropic innovators to exchange ideas, tools, and experiences to increase the impact of their capital. Critical features of the site include: responsive design for mobile users, an extensive resource library and investment database utilizing Apache Solr faceted search including attachment indexing and customized result displays, javascript glossary for defining terms within content, <a href="http://www.redhencrm.com/">RedHen CRM</a> for membership management, and tight integration between CRM data and site content.</p>
+
+<h3 id="responsive-design">Responsive design</h3>
+
+<p>The responsive theme was developed using <a href="http://drupal.org/project/omega">Omega</a> and <a href="http://lesscss.org">LESS</a>.</p>
+
+<p><img src="https://dl.dropbox.com/s/6djwng0wihxha1d/mie_mobile_desktop.png?dl=1" alt="Desktop and mobile layouts" /></p>
+
+<h3 id="sprucing-up-apache-solr-search">Sprucing up Apache Solr search</h3>
+
+<p>One of the greatest online assets of Mission Investors Exchange is their repository of articles, reports, templates, and investment records. Apache Solr was selected as the search server to allow high performance faceted searching and attachment indexing. To better customize the search experience, three search interfaces were built: sitewide search, tool/resource search, and investment search. The default Drupal/Apache Solr search experience leaves a bit to be desired when it comes to user experience, so several customizations were made across all three search interfaces.</p>
+
+<ul>
+  <li>Render teasers instead of only showing the solr result snippet. When a keyword search is done we replace the body extract with the solr snippet that includes the highlighted keywords while maintaining all the other teaser fields.</li>
+</ul>
+
+<p><img src="https://dl.dropbox.com/s/ulq2alurfgz3n06/MIE-search-teasers.png?dl=1" alt="Improved Solr search teasers" /></p>
+
+<ul>
+  <li>Duplicate results for attached files and the content item they are associated with is confusing to users. Indexing attachments with the content item they are associated with is possible via <a href="http://drupal.org/node/561862#comment-6246408">a patch</a> to the <a href="http://drupal.org/project/apachesolr_attachments">Apache Solr Attachments</a> module.</li>
+  <li><a href="http://wiki.apache.org/solr/StatsComponent">Solr’s StatsComponent</a> is utilized to provide a lightweight sum of investment amounts.</li>
+</ul>
+
+<p><img src="https://www.dropbox.com/s/dfh12gecnu15mlq/MIE-investments.png?dl=1" alt="Summary statistics with Solr" /></p>
+
+<ul>
+  <li>Investments from a search can be exported by feeding the selected facet and keyword values to a <a href="http://drupal.org/project/views_data_export">Views Data Export</a> View.</li>
+</ul>
+
+<h3 id="defining-the-lingo-in-context">Defining the lingo in context</h3>
+
+<p>Educating the public and member foundations about the field of mission investing is made more challenging by the prevalance of technical terms and concepts. To address this, an inline glossary feature was developed that allows users to click a button to highlight defined terms within a page then click on those terms to read a definition of the term. Site content editors are able to easily add and update glossary terms as needed.</p>
+
+<p><img src="https://www.dropbox.com/s/j1l7gag1c9vrw0j/MIE-glossary-active.png?dl=1" alt="Glossary feature" /></p>
+
+<h3 id="redhen-crm---integration-not-needed">RedHen CRM - Integration not needed</h3>
+
+<p>With a plethora of CRM solutions on the market, selecting the best solution for a given use case can be daunting. For Mission Investors Exchange, tight integration with their Drupal site, simple membership management, and room for growth were some of the key criteria used to evaluate potential solutions. Because RedHen is a native Drupal 7 CRM, no integration is necessary to connect it to a Drupal powered site.</p>
+
+<ul>
+  <li>Customized RedHen interface using Views, Views Data Export, and Views Bulk Operations to quickly tailor the management screens to staff needs.</li>
+</ul>
+
+<p><img src="https://www.dropbox.com/s/yo7kwt3njyjpv91/MIE-orgs-manage.png?dl=1" alt="Staff management of Organizations" /></p>
+
+<ul>
+  <li>Site content can be related to RedHen organization records allowing for a rich display of tools, news, events, and investments associated with a given member.</li>
+  <li>Multiple member levels can be tracked along with data about payment amounts and dates for each organization. Organizations with active memberships are automatically included in the membership directory.</li>
+</ul>
+
+<p><img src="https://www.dropbox.com/s/2wtg3w5s4nyadtv/MIE-directory.png?dl=1" alt="Member directory from RedHen data" /></p>
+
+<ul>
+  <li>Permissions based on an organization’s membership automatically flow down to contacts and their user accounts that have active associations with the member organization. Instant access control.</li>
+  <li>Migrating member data from a Drupal 6 based site with a flat data structure to RedHen’s highly flexible structure required the development of several custom migration classes to handle relations and RedHen entities.</li>
+</ul>
+
+<h3 id="coming-soon">Coming soon…</h3>
+
+<p>One of the great strengths of using a native Drupal CRM solution is being able to base site business logic on CRM data. To this end, paid event registration using <a href="http://drupal.org/project/registration">Registration</a> and <a href="http://drupal.org/project/commerce_registration">Commerce Registration</a> with support for pricing based on membership levels is currently in development. Other planned enhancements focus on improving the content discovery process for Mission Investors Exchange members.</p>
+]]>
+  </description>
+  <pubDate>Tue, 18 Sep 2012 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2012/09/tauno/redhen-wild-mission-investors-exchange/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/09/tauno/redhen-wild-mission-investors-exchange/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

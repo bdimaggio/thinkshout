@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Redmine and Gitosis, project management nirvana? | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="Tools to manage features, bugs, tasks, and communicate with your clients">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal Planet, project management, tools">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">03.23.2011</span>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+        <a class="topic" href="/blog/topic/technology">Technology and Innovation</a>
+      
+    
+  
+  </p>
+
+  <h1 class="post-title">Redmine and Gitosis, project management nirvana?</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/lev.jpg">
+    
+      <a class="team-name" href="/team/lev/">Lev Tsypin</a>
+    <br>
+      Founder, CEO
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <p>If, like us, you find yourself running several development projects, you likely use some sort of a ticketing system to manage features, bugs, tasks, etc. and communicate with your clients. There are many, many options, ranging from proprietary commercial offerings like <a href="http://www.fogcreek.com/fogbugz">FogBugz</a>  and <a href="http://www.atlassian.com/software/jira">Jira</a>, SaSS offerings like <a href="http://unfuddle.com">Unfuddle</a> and <a href="http://lighthouseapp.com">Lighthouse</a>, and open source tools such as <a href="http://track.org">Track</a>, <a href="http://www.bugzilla.org">Bugzilla</a>, <a href="http://redmine.org">Redmine</a>, and Drupal&#8217;s own <a href="http://drupal.org/project/project">project module</a>. Wikipedia has a great <a href="http://en.wikipedia.org/wiki/Comparison_of_issue-tracking_systems">comparison of issue tracking systems</a>. After much careful consideration, ThinkShout settled on <a href="http:;//redmine.org">Redmine</a> due to it&#8217;s excellent interface, multi-project support, repository integration, rich feature set, and large install base.</p>
+<!--break-->
+<h2>Redmine with GitHub</h2>
+<p>But this post isn&#8217;t focused on Redmine, so I won&#8217;t go into too much detail about it. I will add that I&#8217;ve been using Redmine as my primary project management and communications tool for both clients and developers for about 2 years and am very happy with it. It doesn&#8217;t do everything perfectly, but makes it for by placing all the tools you need under one roof. Also worth watching is <a href="http://chiliproject.org">Chili Project</a>, a recent fork of Redmine by some very prominent members of that community.</p>
+<p>Redmine also does a great job associating commits with tickets. Using keywords in your commit message, you can close, resolve, or simply associate the commit with a ticket.<br />
+<img src="http://thinkshout.com/sites/default/files/redmine_blog_revs.jpg" alt="" /></p>
+<p>Enough said on that front. We also obviously need to host remote source control repositories, in our case git. GitHub is amazing in so many ways, and <a href="https://github.com/organizations/thinkshout">ThinkShout takes full advantage of it</a>, but aside from the $100 monthly cost, which is not a huge deal, the workflow for setting up a project between Redmine and GitHub is less than ideal.</p>
+<ol>
+	<li>Create the project in Redmine and add members to their respective roles.</li>
+	<li>Create the remote repository on GitHub and again assign members to their respective roles. Note that all stakeholders need to have accounts on <em>both</em> Redmine and GitHub.</li>
+	<li>Assuming you already have the Redmine GitHub hook plugin installed, in your repository settings, add a post commit hook to ping your Redmine instance.</li>
+	<li><span class="caps">SSH</span> into your Redmine server and clone your GitHub repository. Note that the user running Redmine, E.g., www-data will need read/write access to the repository directory.</li>
+	<li>Under your project settings in Redmine, enable the repository module and enter the path to the repository you cloned above.</li>
+</ol>
+<p>See what I mean, quite a <span class="caps">PITA</span>! Now imagine the team working on the project changes; you have to reassign roles on both Redmine and Github.</p>
+<h2>Redmine with Gitosis on the same server</h2>
+<p>Wouldn&#8217;t it be great if we could simply create a project on Redmine, assign users to the developer role, and have the system automatically create the repository and manage access control? I thought so, and spent several days banging my head against the wall back in January when first setting up some of ThinkShout&#8217;s new infrastructure. It seemed simple enough. There are two key components. The first is <a href="http://en.wikibooks.org/wiki/Git/Gitosis">Gitosis</a>, which is essentially an access control layer written in Python that sits on top of git. On it&#8217;s own, it lets designated users manage access to git repositories through a master admin repository. That admin repository contains a conifguration file with projects, users, and their public keys. The other is the <a href="http://www.redmine.org/plugins/redmine_gitosis">Gitosis Redmine plugin</a> which manages the gitosis admin repository based on a projects users and roles. It also provides an interface in Redmine where users can upload their public keys, similar to GitHub.</p>
+<p>Granted my Ruby and SysAdmin chops are <em>very</em> weak, so I&#8217;m not even sure what the exact problems were, but I do know I wasn't alone in my troubles getting this setup working properly. Also,</p>
+<ul>
+	<li>The version of Gitosis Redmine plugin listed on the plugins page was woefully out of date and the network graph on GitHub wasn&#8217;t clear which path to follow.</li>
+	<li>The gist of the complication revolves around permissions. You have the Gitosis user which owns the repository directory, the user used to initialize Gitosis and has access to the Gitosis admin repository, and the Redmine user which runs the entire process.</li>
+</ul>
+<p>Call me a sissy, but I gave up and we stuck with good old GitHub.</p>
+<h2>Solution at last!</h2>
+<p>A combination of things spurred me to give this another shot. There was an intriguing thread on Twitter about Gitosis/Redmine being the best solution for remote repository hosting, I came across an <a href="http://github.com/xdissent/redmine_gitosis">updated version of the Gitosis Redmine plugin</a>, and, most importantly, I found an <a href="http://dev.remarkablewit.com/redmine/projects/dev-server/wiki">excellent guide which walks you through the process</a> (thanks Greg Thornton). I used this guide just for the Gitosis / Redmine integration, as we already had Redmine running. There are lots of walk throughs dedicated to <a href="http://www.redmine.org/projects/redmine/wiki/HowTos">installing Redmine</a> on its own. Turns out the key is using access control lists to determine which user has access to all the key files and directories, rather than trying to manage file and directory ownership without ACLs. Probably also fair to mention we were one public repository away from the $100/month plan on GitHub.</p>
+<p>All said and done, we&#8217;re thrilled with our current setup which has greatly simplified our project workflow, condensing the 5 steps mentioned above into just one. Couldn&#8217;t recommend it more.</p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged project management.' href='/blog/category/project-management/'>project management</a> <a class='tag' rel='tag category' title='View all posts tagged tools.' href='/blog/category/tools/'>tools</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2011/03/lev/redmine-and-gitosis-project-management-nirvana/';
+    this.page.identifier = '/blog/2011/03/lev/redmine-and-gitosis-project-management-nirvana';
+    this.page.title = 'Redmine and Gitosis, project management nirvana?'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2011/03/sean/thinkshout-hiring/"><span class="fa fa-caret-left"></span> <span>ThinkShout is hiring!</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2011/05/sean/thinkshout-hires-andrea-burton-user-experience-engineer/"><span>ThinkShout hires Andrea Burton, User Experience Engineer</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+  <div class="team-member-blog">
+    <div class="container">
+      <h4>Related Blog Posts</h4>
+      <div class="row posts">
+        
+        
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/05/Space-for-Empathy/">
+    <p class="post-date">05.24.2018</p>
+    <h3 class="post-title">Space for Empathy</h3>
+    <p class="post-short">How do we make space for empathy in our work and in our community? Jules takes us on a deep dive into what she learned at this year's DrupalCon</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/jules.jpg">
+      <span class="byline-text">
+        <strong>Jules Dickey</strong><br>
+        <span class="position">Software Engineer</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/05/Making-GDPR-Preparations/">
+    <p class="post-date">05.13.2018</p>
+    <h3 class="post-title">Preparing for the GDPR</h3>
+    <p class="post-short">The European Union’s General Data Protection Regulations go into effect May 25th. Here's how you need to prepare.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/tauno.jpg">
+      <span class="byline-text">
+        <strong>Tauno Hogue</strong><br>
+        <span class="position">Chief Technology Officer</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <div class="post">
+  <a href="/blog/2018/01/Great-hoodie-mystery/">
+    <p class="post-date">01.06.2018</p>
+    <h3 class="post-title">The Great Hoodie Mystery</h3>
+    <p class="post-short">Gabe takes what would otherwise be an inane office exchange and ties it back to data structures.</p>
+    <p class="byline">
+      
+      <img class="team-photo" src="/assets/images/team/small/gabe.jpg">
+      <span class="byline-text">
+        <strong>Gabe Carleton-Barnes</strong><br>
+        <span class="position">Director of Engineering</span>
+      </span>
+    </p>
+  </a>
+</div>
+
+          
+          
+            
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/drupal-give/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Chimpfestation, A Closer Look at the New MailChimp Module</title>
+  <description>
+    <![CDATA[<h2 id="your-basic-monkey">Your Basic Monkey</h2>
+
+<p>A few weeks ago, we released <a href="https://drupal.org/node/2260305">the initial beta of the 3.x version of the MailChimp Module</a> on Drupal.org. The third major revision of the MailChimp Module for Drupal 7 is actually the fifth major revision of the module, including two versions for Drupal 6. ThinkShout Partner <a href="http://thinkshout.com/team/lev/">Lev Tsypin</a> rolled the first release in January of 2008, and the first version of the project page included a little information about his goals for the module:</p>
+<blockquote>
+  <p>Right now, I am focusing on 3 types of integration:</p>
+</blockquote>
+
+<blockquote>
+  <ol>
+    <li>Using hook_user to maintain a members list in MailChimp.</li>
+    <li>Having an opt in field in the user profile which uses one of the MC merge fields to allow for segmenting the members into those who want to receive communications.</li>
+    <li>Having an anonymous sign up form to enroll users in a general newsletter.</li>
+  </ol>
+</blockquote>
+
+<p>The module (and the project page!) have both come a long way since then, but the functionality described in that initial post has remained the core of the module through each version: <em>anonymous signup forms</em> and <em>authenticated subscription control</em> describe the core use cases that have resulted in over 15,000 installs. Sure, there’s campaign integration, activity reporting, and all sorts of bells and whistles around list and subscription management, but anonymous signup forms and user-based subscription control have always been the bread and butter.</p>
+
+<h2 id="identity-crisis">Identity Crisis</h2>
+
+<p>Building on the success of the MailChimp module, ThinkShout has made the contribution of robust, useful Drupal modules a core part of our business. In building <a href="https://drupal.org/project/registration">Entity Registration</a>, <a href="https://drupal.org/project/redhen">RedHen</a>, <a href="https://drupal.org/project/salesforce">Salesforce v3</a>, <a href="https://drupal.org/project/leaflet">Leaflet</a>, and a bunch of other great modules, we’ve often leveraged Drupal 7’s Entity and Field systems to make our tools as versatile and abstract as possible, allowing for any imaginable use-case.</p>
+
+<p>We had a bit of a wake-up call when one of our favorite clients, <a href="http://www.salmonlove.com/">The Salmon Project</a>, asked us to integrate their fancy new RedHen CRM directly with MailChimp. Integrating RedHen Contact Entities doesn’t actually match up with either of these: <em>anonymous signup forms</em> and <em>authenticated subscription control</em>.</p>
+
+<p>It was time to bring ThinkShout’s signature versatility and abstraction to ThinkShout’s signature module.</p>
+
+<h2 id="monkeys-everywhere">Monkeys Everywhere!</h2>
+
+<p>The first thing we did was de-couple the configuration of anonymous signup forms and authenticated subscription control. The MailChimp Lists configuration UI had grown into a bit of a monster: it included 16 separate options, not counting merge field sync settings, ranging from the <strong>submit button label</strong> (on the signup form) to the <strong>roles allowed</strong> (to access the list on user configuration pages). For version 3, rather than framing everything around each list, we broke things out by their Drupal-side functionality:</p>
+
+<ol>
+  <li>The Signup Module was created for generating anonymous list signup forms.</li>
+  <li>The List Module now provides a field type: “MailChimp Subscription”, which, modeled on Entity Registration’s successful architecture, leverages Drupal’s Field API to allow any entity to become an independently-controlled MailChimp list subscriber.</li>
+</ol>
+
+<p>What does this mean? If all you need to do is generate some anonymous subscription blocks or pages, the MailChimp Signup module has you covered. Just enable it, go to the “Signup Forms” tab in the MailChimp Admin UI, and create a signup! The UI lets you generate blocks or pages easily, include one or more lists on each form, pick which merge fields to include, and voila!</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/signup_ui.png" alt="signup_ui.png" /></p>
+
+<p>If, however, you want to subscribe some type of entity to a MailChimp List (like a user, say, or a RedHen contact), you can now do that lickity-split using Field UI:</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/field_type.png" alt="field_type.png" /></p>
+
+<p>This handy MailChimp Signup field will insist on being tied to one of your MailChimp lists. Once that’s done, you can configure instances of this field like you would any other Drupal field. It will automatically pull in the available Merge Fields and let you select which properties or fields from the entity you want to push into these fields:
+<img src="http://thinkshout.com/assets/images/blog/field_instance_config.png" alt="field_instance_config.png" />
+Want to default your entity to be subscribed to the list? Use field UI’s built-in configuration options. Use field display options to hide the field if you want to, or display it as a form right on the entity.</p>
+
+<p>Do you want to get the old role-based subscription behavior? Easily done with a field on your user bundle and a simple rule or two! We’ve included the <a href="http://cgit.drupalcode.org/mailchimp/tree/modules/mailchimp_lists/mailchimp_lists.rules.inc?h=7.x-3.x">custom rules actions</a> you need, and there’s even an example rule in the <a href="http://cgit.drupalcode.org/mailchimp/tree/modules/mailchimp_lists/README.txt?h=7.x-3.x#n36">README</a> file in the MailChimp Lists submodule.</p>
+
+<p>What this all boils down to is do what you want! You can MailChimp-ify any entity on your site with an email address in under 5 minutes. So go ape!</p>
+
+<h2 id="peeling-away-campaign-complexity">Peeling Away Campaign Complexity</h2>
+
+<p>ThinkShouter <a href="http://thinkshout.com/team/dan/">Dan Ruscoe</a> brought huge improvement to the Campaign module, including the ability to send to list segments from directly within Drupal and some awesome UI improvements. We have long offered the ability to pull site content into campaigns, but you had to come up with the exact token for the content on your own: not the simplest task, especially if you have a non-developer creating your campaigns.</p>
+
+<p>Now? A simple drop-down interface generates the token for you. Create a view mode for your entity types specifically for use in campaigns, or re-use an existing view mode. Just select your content type, the view mode, and search by title, and the module generates the token. Pop it into your campaign anywhere you want.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/site_content_embed_ui.png" alt="site_content_embed_ui.png" /></p>
+
+<p>We also added a handy mergefield key selector patterned after the Token UI.
+<img src="http://thinkshout.com/assets/images/blog/merge_vars_ui.png" alt="merge_vars_ui.png" /></p>
+
+<h2 id="other-evolutions">Other Evolutions</h2>
+
+<p>We didn’t stop with fancy configuration options. Heck, we didn’t <em>start</em> with fancy configuration options. The goofs at MailChimp HQ released the 2.0 version of their API, and we wouldn’t want you using that Late Pleistocene 1.x nonsense, so we re-wrote the entire core of the MailChimp Module to leverage the new API. While we were at it, we re-wrote the asyncronous functionality to make it much simpler and less error-prone. It may not be easy enough for a chimp to understand quite yet, but it’s certainly more tolerant of a little monkeying.</p>
+
+<h2 id="climb-aboard">Climb Aboard!</h2>
+
+<p>You can download the <a href="https://drupal.org/project/mailchimp">MailChimp Module 7.x-3.0 beta</a> now. We’re already using it on a few sites and it’s working great. So give it a try and let us know what you think!</p>
+]]>
+  </description>
+  <pubDate>Tue, 27 May 2014 09:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/05/chimpfestation/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/05/chimpfestation/</guid>
+</item>
+
+    
+      <item>
+  <title>Commerce iATS 2.0</title>
+  <description>
+    <![CDATA[<p>Last month, we released the 2.0-beta release of the Commerce iATS module, a Drupal module that leverages <a href="https://drupal.org/project/commerce">Drupal Commerce</a> and the <a href="http://thinkshout.com/blog/2014/03/announcing-iats-php-wrapper/">iATS Payments PHP Wrapper</a> to add support for payment processing via <a href="http://home.iatspayments.com/">iATS Payments</a>.</p>
+
+<p>We also <a href="http://thinkshout.com/blog/2014/04/refactoring-the-iats-drupal-module/">promised to deliver</a> ACH/EFT and Direct Debit payment functionality before DrupalCon Austin. It took a few long days, but we’re proud to announce the release of <a href="https://drupal.org/project/commerce_iats">Commerce iATS 2.0</a>.</p>
+
+<p>Commerce iATS 2.0 is packed with new features that allow you to fully take advantage of the services offered by iATS Payments.</p>
+
+<h2 id="new-payment-methods">New Payment Methods</h2>
+
+<p>In addition to supporting <strong>credit card payments</strong>, Commerce iATS now supports <strong>ACH/EFT</strong>, meaning your users can now make payments directly from their bank account.</p>
+
+<p>Because iATS Payments supports international payments, we made sure that you can too. Commerce iATS 2.0 fully supports <strong><a href="http://en.wikipedia.org/wiki/Direct_debit">Direct Debit</a></strong> for the UK.</p>
+
+<p><img src="/assets/images/blog/commerce-iats-direct-debit-declaration.png" alt="Direct Debit screenshot" title="Setting up a Direct Debit" /></p>
+
+<p>If you’re familiar with Direct Debit, you’ll know that any website offering the service is required to implement a very specific checkout process.</p>
+
+<p>With assistance from iATS Payments, we’ve done all the work for you. Commerce iATS now provides a set of <a href="https://drupal.org/node/2268891">custom checkout panes</a> for the complete Direct Debit checkout process. You don’t even have to worry about the 12-day lead time on initial payments; the module figures it out and gives your users a choice of start dates.</p>
+
+<p><img src="/assets/images/blog/commerce-iats-direct-debit-schedule.png" alt="Direct Debit schedule screenshot" title="Setting up a Direct Debit schedule" /></p>
+
+<h2 id="more-options-for-recurring-payments">More Options for Recurring Payments</h2>
+
+<p>Recurring payments are great for donations, which fits in with iATS Payments’ goal of supporting the needs of nonprofit organizations.</p>
+
+<p>With Drupal Commerce, you always had the option of recurring payments using the <a href="https://drupal.org/project/commerce_cardonfile">Commerce Card on File</a> module, but iATS Payments handles that for you. With Commerce iATS 2.0, you can opt to have iATS Payments bill your customers on a recurring schedule rather than have your Drupal site do all the work.</p>
+
+<p>The Drupal Commerce order stays updated with recurring transactions thanks to iATS Payment’s <a href="http://home.iatspayments.com/sites/default/files/iats_webservices_reportlink_version_4.0.pdf">ReportLink service</a>. Commerce iATS implements a cron task to pull in daily transaction reports from iATS, updating your orders in the process.</p>
+
+<p>In addition to the new features, we took time to make the module more robust. Some of our improvements are:</p>
+
+<ul>
+  <li>The Payment Methods Admin Page now warns of any unconfigured payment methods</li>
+  <li>Error handling in the checkout process is much more user-friendly</li>
+  <li>Payment method settings are clearer and easier to understand</li>
+</ul>
+
+<h2 id="see-you-at-drupalcon">See you at DrupalCon</h2>
+
+<p>ThinkShout and iATS Payments will be attending DrupalCon Austin. Don’t miss the chance to talk nonprofit payment processing with iATS at booth 508. We’ll be spending time at the iATS booth to talk about Commerce iATS. <a href="https://twitter.com/thinkshout">Follow us on Twitter</a> for updates on when we’ll be around.</p>
+
+<p>Get Commerce iATS from our <a href="https://drupal.org/project/commerce_iats">Drupal.org project page</a>.</p>
+]]>
+  </description>
+  <pubDate>Fri, 16 May 2014 11:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/05/commerce-iats-2-0/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/05/commerce-iats-2-0/</guid>
+</item>
+
+    
+      <item>
+  <title>Refactoring The iATS Drupal Commerce Module</title>
+  <description>
+    <![CDATA[<p>Last month, we wrapped up a project for nonprofit-oriented payment processor, <a href="http://home.iatspayments.com/">iATS Payments</a>. iATS Payments wanted to invest in gaining wider adoption of their services and enlisted ThinkShout’s help in building a <a href="http://thinkshout.com/blog/2014/03/announcing-iats-php-wrapper/">PHP wrapper</a> for their existing <a href="http://home.iatspayments.com/sites/default/files/iats_webservices_overview_version_4.0_0.pdf">SOAP API</a>.</p>
+
+<p>Being a bunch of software engineers who have implemented our fair share of APIs (both good and bad), we knew we had to achieve certain goals if we were going to ease the adoption of iATS Payments within PHP applications:</p>
+
+<ul>
+  <li><strong>Comprehensive:</strong> The wrapper handles all communication with the iATS Payments SOAP API, validation of API calls, and error handling.</li>
+  <li><strong>Well documented:</strong> We made use of phpDocumentor to generate <a href="http://iatspayments.github.io/PHP/namespaces/iATS.html">easily browsable documentation</a> from our code comments.</li>
+  <li><strong>Reliable:</strong> Via a comprehensive test suite covering every API call written in <a href="http://phpunit.de/">PHPUnit</a>.</li>
+</ul>
+
+<p>With the new PHP wrapper finished and unit tests passing, our attention shifted to the project we felt would most benefit from the work we’d done: the <a href="https://drupal.org/project/commerce_iats">Commerce iATS Drupal module</a>. This module leverages <a href="http://drupal.org/project/commerce">Drupal Commerce</a> to facilitate payment processing via iATS Payments on any Drupal website.</p>
+
+<p>We had already integrated Commerce iATS into some of our clients’ websites, so we knew it was a great module, but it was written before there was a standard iATS Payments PHP wrapper and contained some unwieldy code that could be eliminated by using the new PHP wrapper. With support from the community and sponsorship from iATS, we rewrote the module, drastically reducing complexity, which any engineer can appreciate, and improved stability, which site owners love even more. We’re excited to replicate the success of our partnership with MailChimp, which created a win for the community, the vendor, and, yes, ThinkShout.</p>
+
+<h2 id="refactoring-commerce-iats">Refactoring Commerce iATS</h2>
+
+<p>In refactoring Commerce iATS, we didn’t just plug in the PHP wrapper and call it a day. While Commerce iATS was originally written with support for only credit card payments, our PHP wrapper supports all payment methods provided by iATS Payments and we wanted to make sure Commerce iATS had room to grow and take advantage of those payment methods.</p>
+
+<h3 id="some-of-the-problems">Some of the problems</h3>
+
+<p>Looking through the code of the existing Commerce iATS module, we realized the current design would not scale well as we added additional payment methods.</p>
+
+<p>As an example, take a look at the <a href="http://drupalcode.org/project/commerce_iats.git/blob/dea433a:/commerce_iats.module#l305">2.x-dev release of Commerce iATS</a>.</p>
+
+<p>Here the function <code class="highlighter-rouge">commerce_iats_soap_process_submit_form_submit()</code> is being used to handle a lot more logic than a form submit handler ideally would. Breaking it down:</p>
+
+<ul>
+  <li>There’s some <a href="http://drupalcode.org/project/commerce_iats.git/blob/dea433a:/commerce_iats.module#l317">tight integration with the Commerce Card on File module</a>. This could be broken out into a different payment method type, avoiding the call to <code class="highlighter-rouge">module_exists()</code>.</li>
+  <li>A lot of conditions are used to <a href="http://drupalcode.org/project/commerce_iats.git/blob/dea433a:/commerce_iats.module#l332">build the API request</a>, depending on which payment method triggered the form submit handler. This won’t scale well when more payment methods are added.</li>
+  <li>A <a href="http://drupalcode.org/project/commerce_iats.git/blob/dea433a:/commerce_iats.module#l367">new transaction is created</a> based on the response from the iATS Payments API.</li>
+  <li>More tight integration with <a href="http://drupalcode.org/project/commerce_iats.git/blob/dea433a:/commerce_iats.module#l415">Commerce Card on File</a>.</li>
+</ul>
+
+<p>A lot of code in <code class="highlighter-rouge">commerce_iats_soap_process_submit_form_submit()</code> is <a href="http://drupalcode.org/project/commerce_iats.git/blob/dea433a:/commerce_iats.module#l521">later duplicated</a> when <code class="highlighter-rouge">commerce_iats_customer_code_charge_submit_form_submit()</code> is called.</p>
+
+<h3 id="the-refactor">The refactor</h3>
+
+<p>We set out to redesign the module’s architecture and rebuild it with modularity and expansion in mind. Here’s what we did.</p>
+
+<h4 id="created-a-new-standard-payment-processing-function">Created a new <a href="http://drupalcode.org/project/commerce_iats.git/blob/HEAD:/commerce_iats.module#l210">standard payment processing function</a></h4>
+
+<ul>
+  <li>This function handles the API call, response handling, transaction creation and logging.</li>
+  <li>To handle multiple payment methods, the function accepts a callback function as a parameter. This callback function is the function that makes the API call via the PHP Wrapper and returns the response.</li>
+</ul>
+
+<p>The first lines of <code class="highlighter-rouge">commerce_iats_process_payment()</code> demonstrate how the callback function is used:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">commerce_iats_process_payment</span><span class="p">(</span><span class="nv">$payment_method</span><span class="p">,</span> <span class="nv">$payment_data</span><span class="p">,</span> <span class="nv">$order</span><span class="p">,</span> <span class="nv">$charge</span><span class="p">,</span> <span class="nv">$payment_callback</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Process the payment using the defined callback method.</span>
+  <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$payment_callback</span><span class="p">(</span><span class="nv">$payment_method</span><span class="p">,</span> <span class="nv">$payment_data</span><span class="p">,</span> <span class="nv">$order</span><span class="p">,</span> <span class="nv">$charge</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="broke-payment-methods-out-into-their-own-include-files">Broke payment methods out into their own include files</h4>
+
+<p>As an example, here’s the <a href="http://drupalcode.org/project/commerce_iats.git/blob/HEAD:/includes/commerce_iats.credit_card.inc">credit card payment method</a>. Each payment method file contains these standard Commerce functions (where <code class="highlighter-rouge">credit_card</code> is the payment method:)</p>
+
+<ul>
+  <li><code class="highlighter-rouge">commerce_iats_credit_card_settings_form()</code></li>
+  <li><code class="highlighter-rouge">commerce_iats_credit_card_submit_form()</code></li>
+  <li><code class="highlighter-rouge">commerce_iats_credit_card_submit_form_validate()</code></li>
+  <li><code class="highlighter-rouge">commerce_iats_credit_card_submit_form_submit()</code></li>
+</ul>
+
+<p>Then we added our own callback function, <code class="highlighter-rouge">commerce_iats_process_credit_card_payment()</code>.</p>
+
+<p>The callback function handles building the API request and getting a response from the API. To show how this works, here’s a line from <code class="highlighter-rouge">commerce_iats_credit_card_submit_form_submit()</code>:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">return</span> <span class="nx">commerce_iats_process_payment</span><span class="p">(</span><span class="nv">$payment_method</span><span class="p">,</span> <span class="nv">$payment_data</span><span class="p">,</span> <span class="nv">$order</span><span class="p">,</span> <span class="nv">$charge</span><span class="p">,</span> <span class="s1">'commerce_iats_process_credit_card_payment'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>As you can see, all the payment information from the form submit handler is being passed into <code class="highlighter-rouge">commerce_iats_process_payment()</code>. That function then calls the callback function <code class="highlighter-rouge">commerce_iats_process_credit_card_payment()</code> to <a href="http://drupalcode.org/project/commerce_iats.git/blob/HEAD:/includes/commerce_iats.credit_card.inc#l84">make the API call and get the response</a>.</p>
+
+<p>This design is very easy to extend and allows us to add as many additional payment methods as we need in a very clean way. We were able to use this design to implement <a href="http://drupalcode.org/project/commerce_iats.git/tree/HEAD:/modules/commerce_iats_cardonfile">Commerce Card on File as a submodule of Commerce iATS</a>, eliminating that dependency from the base module.</p>
+
+<h2 id="roadmap-and-next-steps">Roadmap and next steps</h2>
+
+<p>All our work on Commerce iATS is currently available in the <a href="https://drupal.org/node/2227713">2.0-beta1 release</a>. Please take a look and let us know if you have any feedback.</p>
+
+<p>We’re already hard at work along with our partners at iATS Payments to integrate more of their payment processing facilities into the Commerce iATS module. While the module currently only supports credit card payments, ACH/EFT and Direct Debit payments will arrive before DrupalCon Austin. Speaking of, both ThinkShout and iATS Payments will be attending and spending some time at the iATS booth, number 508. Come find us to say hello and talk some e-commerce.</p>
+
+<p>Keep an eye on the <a href="https://drupal.org/project/commerce_iats">Commerce iATS project page</a> and this blog for more updates.</p>
+]]>
+  </description>
+  <pubDate>Tue, 15 Apr 2014 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/04/refactoring-the-iats-drupal-module/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/04/refactoring-the-iats-drupal-module/</guid>
+</item>
+
+    
+      <item>
+  <title>Thank you, RedHen DrupalCon sprinters!</title>
+  <description>
+    <![CDATA[<p>Bolstered by Dries’s nod to <a href="http://drupal.org/project/redhen">RedHen CRM</a> in his <a href="https://portland2013.drupal.org/keynote/dries-buytaert">keynote address</a>, our RedHen code sprint at DrupalCon last Friday was a great success. This being our first community sprint, the ThinkShout team was happy to collaborate with an awesome group of development partners, including <a href="https://drupal.org/user/77805">Stein Setvik</a> from <a href="http://forumone.com">Forum One</a>, <a href="https://drupal.org/user/941916">Alan Sherry</a> from <a href="http://www.freeflowdigital.com/">Freeflow Digital</a>, <a href="https://drupal.org/user/1017982">Chris Ward</a> from <a href="http://www.moatmedia.com.au/">MoatMedia</a> (in Australia), and <a href="https://drupal.org/user/328914">Jesse Longacre</a>. Together we made progress on three fronts:</p>
+
+<ul>
+  <li>First, we came up with a development roadmap, user interface, and <a href="http://drupalcode.org/project/redhen.git/shortlog/refs/heads/dedupe">stubbed out code base</a> for a RedHen contact dedupping and merge feature;</li>
+  <li>Second, we began work on a <a href="https://drupal.org/sandbox/bleedev/2003442">CiviCRM-to-RedHen migration tool</a>;</li>
+  <li>And finally, we completed an initial release of a <a href="https://drupal.org/project/redhen_feeds">RedHen Feeds module</a> for creating RedHen contacts and organizations.</li>
+</ul>
+
+<p>We look to keep this community momentum going into June with the help of these (and many other) partners and friends. In particular, we are focused this next month on completing the dedupping and merge feature and the CiviCRM-to-RedHen migration tool, a as well as continuing to sprint on RedHen community documentation.</p>
+
+<p>Thank you to all those in the community supporting the RedHen initiative!</p>
+]]>
+  </description>
+  <pubDate>Wed, 29 May 2013 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2013/05/sean/thank-you-redhen-drupalcon-sprinters/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/05/sean/thank-you-redhen-drupalcon-sprinters/</guid>
+</item>
+
+    
+      <item>
+  <title>Drink beer. Support a great family.</title>
+  <description>
+    <![CDATA[<p>You are all invited on Monday, May 20th, the first day of <a href="http://portland2013.drupal.org/">DrupalCon Portland</a>, to honor Aaron Winborn’s ongoing contributions to the Drupal community and to celebrate Drupal’s power to make the world a better place.</p>
+
+<p>I have to admit that I don’t exactly know how to write about this event. I don’t know Aaron personally. But like most of us, I’ve been working with his <a href="http://drupal.org/user/33420">contributed code</a> and following his <a href="http://www.packtpub.com/create-multimedia-website-with-drupal/book">writings</a> on Drupal for several years. If you follow Aaron’s <a href="http://aaronwinborn.com/">blog</a>, you know that he and his family are struggling with his ALS. You may have seen Aaron’s <a href="http://groups.drupal.org/node/295728">G.D.O. post</a> two weeks back looking for volunteers to help him continue to code in spite of the progression of his illness.</p>
+
+<p>Two things are sure: Aaron loves Drupal, and Aaron loves our community.</p>
+
+<p>One might argue, however, that Aaron’s situation points to a challenge in open source software development: Aaron continues to simply give away his code, and in so doing he and his family won’t benefit long-term from royalties or productization. In this situation, we have a responsibility, or at least a great opportunity, to show that we in open source take care of our own.</p>
+
+<p>But I’m being melancholy. And based on my correspondence with Aaron about this event, he wouldn’t want that. Aaron wishes that he could be at DrupalCon this year. He is excited for us to gather, of course to raise money for his family, but also just to get together and laugh and geek out together.</p>
+
+<p>So on Monday night, the first night of DrupalCon, rather than go pay for beer at some bar, please consider making your way to the <a href="https://maps.google.com/maps?q=ecotrust&amp;hl=en&amp;ll=45.528358,-122.680614&amp;spn=0.009546,0.022724&amp;sll=45.543408,-122.654422&amp;sspn=0.305373,0.727158&amp;hq=ecotrust&amp;t=m&amp;z=16&amp;iwloc=A">EcoTrust building</a> (it’s right on the streetcar) for this celebration, and donate that night’s beer money to Aaron and his family.</p>
+
+<p>We joke that <em>“open source is free as in beer”</em> - that we have an obligation to give back. Now it’s time to prove it:</p>
+
+<ul>
+  <li>Please register for the event at: <a href="http://pdxdrupaldogooders.eventbrite.com">http://pdxdrupaldogooders.eventbrite.com</a>.</li>
+  <li>If you cannot attend, please consider making a donation directly to Aaron’s <a href="http://aaronwinborn.com/blogs/aaron/special-needs-trust">special needs trust</a>.</li>
+  <li>And Drupal firms, consider <a href="http://thinkshout.com/contact">sponsoring the event</a>.</li>
+</ul>
+
+<p>So far, the generous sponsors of this event have raised over $4,000 for Aaron and his family. Let’s keep the momentum going and hit the goal of raising $10,000 on this special night.</p>
+]]>
+  </description>
+  <pubDate>Fri, 10 May 2013 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2013/05/sean/drupalcon-fundraiser-happy-hour-aaron-winborn/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/05/sean/drupalcon-fundraiser-happy-hour-aaron-winborn/</guid>
+</item>
+
+    
+      <item>
+  <title>10 hot topics in nonprofit Drupal tech</title>
+  <description>
+    <![CDATA[<p>At ThinkShout, we spend as much time as possible dreaming up and implementing new ways to leverage Drupal to meet the web technology needs of the nonprofit organizations we serve.</p>
+
+<p>As the technology conference season ramps up, these 10 topics and tools are foremost on our radar:</p>
+
+<h3 id="1-upcoming-nonprofit-drupal-events-and-gatherings">1. Upcoming nonprofit Drupal events and gatherings</h3>
+<p>On April 11th, ThinkShout, <a href="http://zivtech.com">ZivTech</a>, <a href="http://forumone.com/">Forum One</a>, <a href="http://promet.com">Promet</a> and <a href="http://www.trellon.com/">Trellon</a> will host the second-annual <strong>“<a href="http://www.nten.org/ntc/precon/drupal">NTC Drupal Day for Nonprofit Professionals</a>“</strong> at this year’s Nonprofit Technology Conference (NTC) in Minneapolis. This full-day event is geared toward IT decision-makers who either currently manage, or are considering, the Drupal content management system. If you’re a Drupal professional service provider specializing in the nonprofit sector, an in-house nonprofit software developer, a Drupal power-user, or an executive nonprofit staffer responsible for managing website and web application procurement and maintenance, you should join us. Tickets are limited for this <em>free</em> pre-conference event, so if you’re interested in attending, <a href="http://nten.org/ntc">book your spot</a> today!</p>
+
+<p><strong><a href="http://portland2013.drupal.org/node">DrupalCon PDX</a></strong> is also right around the corner. While admittedly few of the selected sessions have been designed for nonprofits, the nonprofit turnout for DrupalCon is incredibly strong and there are likely to be many “birds of a feather” sessions aimed at the needs of nonprofits.</p>
+
+<p>On the first day of DrupalCon, May 20th, ThinkShout and our partners will also be hosting a free, <a href="http://pdxdrupalnpo-es2005.eventbrite.com/?rank=1">full-day event</a>  specifically for nonprofits that leverage Drupal. In addition to great content, this event will close with a happy hour. <em>(Can you say free beer for nonprofits?)</em></p>
+
+<h3 id="2-nonprofit-specific-drupal-distributions">2. Nonprofit-specific Drupal Distributions</h3>
+<p><a href="http://www.slideshare.net/loubabe/drupal-distributions-an-open-source-product-model">Distributions</a> are all the rage in the Drupal developer community. We’re still a bit on the fence regarding their place as a starting point in meeting the needs of our nonprofit clients – but a number of our colleagues and partners in nonprofit tech are developing nonprofit Druapl Distributions that show considerable promise.</p>
+
+<p>Of all the nonprofit Drupal Distros we’ve seen, <strong><a href="http://openoutreach.org/">OpenOutreach</a></strong> continues to impress us most, striking a good balance between prescriptive, out-of-the-box features and a robust core. We’re also excited to see that our friends at <a href="http://jacksonriver.com">Jackson River</a> are close to a public Drupal 7 release of <a href="http://www.jacksonriver.com/blog/springboard-drupal-distro">Springboard</a>, their open source Drupal-Salesforce solution.</p>
+
+<h3 id="3-native-crm-implementations">3. Native CRM implementations</h3>
+<p><strong><a href="http://drupal.org/project/redhen">RedHen CRM</a></strong> and <strong><a href="http://drupal.org/project/crm_core">CRM Core</a></strong> are continuing to progress <em>in co-opetition</em> as robust and mature Constituent Relationship Management (CRM) solutions built natively in Drupal 7. Of course, as the lead developers on RedHen CRM, we’re obviously more than a little bit biased towards our own toolset. But we’re excited to see that the overall adoption of these native CRM solutions has grown by over 700% in the last year.</p>
+
+<p>Within the CRM/CMS space, <strong><a href="http://thinkshout.com/blog/2012/07/sean/engagement-scoring">engagement scoring</a></strong> (often refered to as “<a href="http://en.wikipedia.org/wiki/Marketing_automation">marketing automation</a>” or “marketing intelligence” in the business world) is will play a key role in helping nonprofits both improve online fundraising efforts and create more meaningful engagement opportunities with their constituents.</p>
+
+<h3 id="4-moving-from-plonesalesforce-to-drupalsalesforce">4. Moving from Plone/Salesforce to Drupal/Salesforce</h3>
+<p>Earlier this month, the nonprofit technology industry was saddened to hear the announcement that one of its long-standing leaders, <a href="http://groundwireconsulting.com/">Groundwire</a>, would be closing its doors.</p>
+
+<p>Groundwire was a pioneer in offering nonprofits integrated CRM/CMS solutions built on top of Plone and Salesforce. With Plone’s usage statics dropping off substantially over the last few years, and without the support of Groundwire, we anticipate that many of the hundreds of nonprofits still using this suite of tools will soon be looking to the Drupal community for alternatives.</p>
+
+<p>Similarly, with Convio’s <a href="http://www.convio.com/our-products/common-ground.html">announcement</a> earlier this year that it will be deprecating the Common Ground platform, we see an ever-growing need for Drupal solutions that integrate tightly with enterprise CRM offerings such as Salesforce.</p>
+
+<p>Fortunately, ThinkShout (with contributions from Jackson River, Message Agency, DesignHammer, PINGV Creative, and many other talented developers) recently released a complete <a href="http://thinkshout.com/blog/2012/11/lev/salesforce-rest-oauth">rewrite</a> of the Salesforce integration suite for Drupal. Leveraging <a href="http://drupal.org/project/redhen">RedHen CRM</a>, <a href="http://drupal.org/project/commerce">Drupal Commerce</a>, <a href="http://drupal.org/project/mailchimp">MailChimp</a>, the <a href="http://drupal.org/project/registration">Entity Registration</a> module and the <a href="http://drupal.org/project/salesforce">Salesforce Suite</a>, we’re focused on building out a robust set of nonprofit fundraising and enagement tools to fill the technology gap that will soon be left by Plone/Salesforce and Common Ground.</p>
+
+<h3 id="5-recurring-payments-with-drupal-commerce">5. Recurring payments with Drupal Commerce</h3>
+<p>Recurring payments, such as monthly pledges or automatic membership renewals, are tricky to implement in Drupal, particularly when integrating with Drupal Commerce. The <a href="http://drupal.org/project/commerce_cardonfile">Commerce Card on File</a> module shows a lot of promise, as does the <a href="http://drupal.org/project/recurly">Recurly</a> module. But the needs of most nonprofits engaged in online fundraising and membership campaigns go beyond what’s currently possible in the Drupal contrib space.</p>
+
+<p>Stay on the lookout for some contrib work we’re plotting for a recurring payments solution built on top of Drupal Commerce and the <a href="http://home.iatspayments.com/">IATS</a> payment processing solution. We’re implementing a customized IATS solution for one of our clients now, with the hope that we’ll be able to abstract this work in the near future for the rest of the nonprofit Drupal community.</p>
+
+<h3 id="6-event-management-solutions-built-with-drupal">6. Event management solutions built with Drupal</h3>
+<p>Last year, ThinkShout released the <a href="http://drupal.org/project/registration">Entity Registrations</a> module, which provides a robust and flexible suite of tools for managing event registrations. The ER module currently powers over 2,300 Drupal websites and was recently added to Acquia’s <a href="http://commons.acquia.com/">Drupal Commons</a> distribution.</p>
+
+<p>Last year, our colleague <a href="http://drupal.org/user/1014606">Joseph Pontani</a> also released a Drupal Commerce integration for the ER module called <a href="http://drupal.org/project/commerce_registration">Commerce Registration</a>. With Commerce Registration, website visitors can purchase a ticket to an event and then enter information about each person they are signing up for the event. This module provides a similar sign-up and checkout process as the UC Sign-up module for Drupal 6.</p>
+
+<p>While we leverage Commerce Registration on many of our client projects, we’ve found that there are many instances in which our clients need to capture registration information <em>before</em> going through the Drupal Commerce checkout process. To that end, we are currently working on a a contributed module called “Registration Commerce” that reverses the workflow of the Commerce Registration module.</p>
+
+<p>Suffice it to say, the tools for managing paid event registrations with Drupal are under rapid development and we’re excited to see the Drupal community rally to provide nonprofits with more flexible and lower-cost alternatives to SaaS event management solutions.</p>
+
+<h3 id="7-transactional-email-with-mandrill-integration">7. Transactional email with Mandrill integration</h3>
+<p>I’ve been building Drupal websites for nonprofits for over 7 years and I’ve gotta say, my #1 heachache when launching a new website has always been dealing with outgoing Drupal website emails. I’m sure you can relate. How many times have you had a client tell you that they aren’t receiving password reset emails? Or that the contact form isn’t sending them emails?</p>
+
+<p>Enter the <a href="http://drupal.org/project/mandrill">Mandrill module</a>. <a href="http://www.mandrill.com/">Mandrill</a> is a transactional email service provided by the good folks over at <a href="http://mailchimp.com/">MailChimp</a>. Leveraging Mandrill, we can ensure high email delivery rates, as well as pull email click-through analytics into Drupal.</p>
+
+<p>Leveraging the Mandrill module, RedHen CRM, and Views Bulk Operations, we’re able to build low-cost, easy-to-use bulk mailing tools natively in Drupal. You can learn how to set one up yourself with these <a href="http://thinkshout.com/blog/2012/07/tauno/redhen-and-mandrill-10-minute-setup-bulk-mail-tool">instructions</a>.</p>
+
+<h3 id="8-mapbox-integration">8. MapBox integration</h3>
+<p>The Drupal community has long benefited from great mapping integrations that leverage JavaScript libraries such as <a href="http://drupal.org/project/openlayers">OpenLayers</a> and <a href="http://drupal.org/project/leaflet">Leaflet</a>. These solutions face challenges when it comes to mapping very large datasets, however, or when the design requirements of a website require customizing the look and feel of the underlying base map tiles.</p>
+
+<p>Fortunately, our friends at <a href="http://mapbox.com">MapBox</a> have recently released a new <a href="http://mapbox.com/mapbox.js">javascript mapping library</a> for managing collections of custom MapBox map tile sets.</p>
+
+<p>We’re currently working on a contributed module wrapping this new javascript library. The <a href="http://drupal.org/project/mapboxjs">MapBox.js module</a> provides a new exportable entity type for managing MapBox map “presets”. These presets allow a website administrator to mix and match MapBox tile sets and embed these maps on any node or other Drupal entity.</p>
+
+<h3 id="9-foundation-prototyping-and-the-zen-theme">9. Foundation prototyping and the Zen theme</h3>
+<p>About six months ago, our front-end development team took the plunge and started building all of our website prototypes with Zurb’s <a href="http://foundation.zurb.com/">Foundation framework</a>. With Foundation, we can build <em>clickable</em>, responsive wireframes hosted as GitHub Pages.</p>
+
+<p>While Foundation has increased the speed with which we can prototype Drupal websites, and in turn reduce wireframing costs, the production task of translating these prototypes into a Drupal theme remains.</p>
+
+<p>Fortunately, our friends over at <a href="http://funnymonkey.com/">FunnyMonkey</a> are actively working on a new Zen-based theme called <a href="http://drupal.org/project/zoundation">Zoundation</a> that replicates Foundation-specific markup, so that your Foundation <a href="http://foundation.zurb.com/docs/sass.html">SASS</a> can be reused as part of your Drupal theme.</p>
+
+<h3 id="10-drupal-2-drupal-data-migrations">10. Drupal-2-Drupal data migrations</h3>
+<p>Data migrations are fun! <em>(Or at least our nerdy developers think so.)</em> That said, upgrading Drupal websites to D7 is often expensive and complex. These complexities have been greatly reduced by Acquia’s release of the <a href="http://drupal.org/project/migrate_d2d">Drupal-2-Drupal migration module</a>. Admittedly, the module lacks a user interface, but as a developer tool, it’s allowed us to dramatically reduce migration costs for our clients.</p>
+
+<h2 id="summing-up">Summing up</h2>
+<p>While Drupal can’t wash your car or make you toast, it continues to be a great web application development platform for solving the technology needs of our favorite progressive causes and nonprofit clients. We look forward to discussing these tools and opportunities further at the <strong><a href="http://www.nten.org/ntc/precon/drupal">Drupal Day for Nonprofits</a></strong> at the NTC as well as the <strong><a href="http://pdxdrupalnpo-es2005.eventbrite.com/?rank=1">Nonprofit Drupal Day</a></strong> at DrupalCon. We hope you’ll be able to join us for these conversations!</p>
+]]>
+  </description>
+  <pubDate>Thu, 28 Mar 2013 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2013/03/sean/10-hot-topics-nonprofit-drupal-tech/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/03/sean/10-hot-topics-nonprofit-drupal-tech/</guid>
+</item>
+
+    
+      <item>
+  <title>Under the Hood of RedHen CRM</title>
+  <description>
+    <![CDATA[<p><em>RedHen CRM is one of many great stories featured in the <a href="http://www.linuxjournal.com/content/drupal-special-edition">Linux Journal’s recent Drupal special addition</a>. RedHen just laid a <a href="http://drupal.org/node/1816026">beta3 release</a> and the ThinkShout team will be at the <a href="http://2012.pnwdrupalsummit.org/">Pacific Northwest Drupal Summit</a> if anyone wants to connect.</em></p>
+
+<p>This is the 5th in a <a href="http://thinkshout.com/blog/category/redhen">series of articles exploring RedHen</a>, ThinkShout’s native Drupal 7 CRM platform. ThinkShout initially designed <a href="http://drupal.org/project/redhen">RedHen CRM</a> around the complex <a href="http://en.wikipedia.org/wiki/Association_management_system">association management</a> (AMS) needs of nonprofits and trade associations. These association management requirements go well beyond the standard needs of most CRM/CMS solutions. However, in building an abstract tool with these needs at the forefront, our goal has been to future proof RedHen CRM as much as possible to ensure that its architecture can accommodate a wide variety of use cases.</p>
+
+<p>RedHen CRM is similar to <a href="http://drupal.org/project/commerce">Drupal Commerce</a> in its modular structure. As with Drupal Commerce, the core RedHen modules that can be downloaded on the Drupal.org project page won’t provide you with a working CRM right out of the box. RedHen is intended to provide developers and site builders with the building blocks for quickly creating their own CRM data models that map to their particular business requirements and workflow. Consequently, setting up a new RedHen CRM instance does require configuration.</p>
+
+<p>In the future, ThinkShout is likely to release RedHen “Features” or “Apps” that provide prepackaged CRM solutions for different use cases. At the time of the publication of this article, we know of more than 70 RedHen CRM solutions built by other Drupal developers and site builders.</p>
+
+<p>In addition to its association management uses, we see RedHen CRM as an ideal starting point for building custom sales pipeline management tools and project management applications, as well as Drupal integration points with 3rd-party ERP (enterprise resource planning) tools and financial accounting packages.
+<!--break--></p>
+<h2 id="project-structure">Project Structure</h2>
+
+<p>RedHen CRM consists of a core module containing shared APIs and interfaces and a collection of feature specific sub-modules, including:</p>
+
+<ul>
+  <li>Contact (redhen_contact): Contact entities and APIs, along with integration with Drupal users.</li>
+  <li>Fields (redhen_fields): Custom field types used by RedHen entities. Currently includes a unique email field, which assigns attributes to emails, such primary, bulk, and custom labels (home, work, etc).</li>
+  <li>Organization (redhen_org): Organization entities and APIs.</li>
+  <li>Organization Group (redhen_group): Lightweight group feature which turns organizations into containers for private content with a broadcast system.</li>
+  <li>Relations (redhen_relation): The Relation module allows connections between contacts and organizations.</li>
+  <li>Note (redhen_note): Notes on contacts and organizations.</li>
+  <li>Engagement (redhen_engagement): Engagement scoring system and APIs. RedHen Note integration is included, as well as Rules integration for popular modules such as Comment, Registration, and Webform.</li>
+  <li>Registration (redhen_registration): Integration with the Entity Registration module.</li>
+  <li>Activity (redhen_activity): Activity logging based on the <a href="http://drupal.org/project/message">Message</a> module.</li>
+</ul>
+
+<p>We maintain other functionality that is not needed for all uses cases in separate projects in order to keep the core RedHen code base as lean as possible. The <a href="http://drupal.org/project/redhen_membership">RedHen Membership</a> system is our most widely used RedHen component with its own project name space. It handles individual and organizational membership subscriptions. As with Drupal Commerce, key sub-modules will continue to be included with the main module code base. However, we anticipate that as the RedHen CRM developer community grows, we will see more and more contributed modules that extend RedHen’s core feature set.</p>
+
+<p>The overall architecture of RedHen CRM consists of a set of minimalistic building blocks that developers and site builders can use to develop solutions tailored to specific use cases. Like Drupal Commerce, RedHen relies on Drupal distributions and installation profiles for the heavy lifting of fleshing out polished applications that serve specific needs. <a href="http://drupal.org/user/4481">Nedjo Rogers</a> of <a href="http://chocolatelilyweb.ca/">Chocolate Lily</a> has incorporated RedHen into <a href="http://openoutreach.org/">Open Outreach</a>,</p>
+<blockquote>
+  <p>a Drupal distribution for nonprofit &amp; grassroots groups</p>
+</blockquote>
+
+<p>and ThinkShout has released it’s own demonstration of RedHen in the form of a <a href="http://drupal.org/project/redhen_demo">distribution to server the needs of a fictional pet shelter association</a>.</p>
+
+<h2 id="module-dependences">Module Dependences</h2>
+
+<p>RedHen has minimal dependencies on other Drupal contributed modules, striving for a balance between relying on its own code base and leveraging other code where it makes the most sense. Beyond Drupal core, RedHen CRM currently depends only on Entity API, discussed in detail below, and the <a href="http://drupal.org/project/relation">Relation</a> module for managing connections. Additionally, RedHen Activity is based on the <a href="http://drupal.org/project/message">Message module</a> which, by the way, does a great job of balancing a lean extendable base while still remaining accessible to site builders. RedHen CRM <em>supports</em> integration with popular contributed tools, like Views and Rules, but these modules are not <em>required</em>. This makes RedHen a lean and stable application platform, as it relies less on a shifting foundation of other contributed modules over which we have little to no control.</p>
+
+<p>This centrist approach helps assure other Drupal developers that their customizations and extensions of RedHen won’t break due to fragile module interdependencies. At the same time, it provides less-technical site builders with a known approach to extending RedHen CRM with standard Drupal tools, such as Views, Rules, and the Fields API.</p>
+
+<h2 id="custom-entities">Custom Entities</h2>
+
+<p>RedHen CRM relies on custom Drupal entity types and bundles. It leans heavily on <a href="http://drupal.org/project/entity">Entity API</a>, a wrapper around Drupal’s core entity system that eases developing entities in several ways. The Entity API module:</p>
+
+<ul>
+  <li>Provides classes and controllers to streamline entity creation and management. RedHen extends these base classes as needed.</li>
+  <li>Eases integration with key contributed modules, namely <a href="http://drupal.org/project/views">Views</a> and <a href="http://drupal.org/project/rules">Rules</a>.</li>
+  <li>Exposes standardized API hooks during CRUD operations providing a consistent interface for other modules to interface with your custom entities.</li>
+  <li>Provides hooks and data structures allowing for entities to be exported, for example, using Features or CTools. RedHen leverages this feature to make entity bundle definitions, E.g., types of contacts and organizations, exportable.</li>
+</ul>
+
+<p>On a site note, Entity API has 133,647 reported installs all on Drupal 7 and is among the top 20 modules on Drupal.org. As Drupal dependencies go, it is highly stable and reliable.</p>
+
+<p>RedHen ships with the following entity types, each of which come bundled with core properties and can be extended with additional user-defined fields.</p>
+
+<ul>
+  <li>Contacts</li>
+  <li>Organizations</li>
+  <li>Notes</li>
+  <li>Memberships (part of RedHen Membership)</li>
+  <li>Engagements</li>
+</ul>
+
+<h2 id="connections">Connections</h2>
+<p>A key feature of any CRM is managing connections between organizations and contacts. RedHen features a very flexible connection system built on top of the Relation module, which allows for bidirectional connections between arbitrary types of entities. These relationships themselves can have additional user-defined <em>fields</em>. RedHen ships with two types of relationships: [ital]Affiliations[ital], which are connections between an organization and a contact, and <em>Personal Connections</em>, which are connections between contacts. These relationships come bundled with status and role properties, but fields can be added that are applicable to a given relationship.</p>
+
+<p>For example, imagine that you want to define a relationship between a contact of the type “Staff” and an organization of the type “Company.” Suppose you want to include information about the position that contact has at that organization. This field value only has meaning within the context of relationship, and therefore this data is stored with the relationship rather than on the contact record or the organization record itself.</p>
+
+<p><img src="/assets/images/blog/redhen-connections.png" alt="Connections" />
+Listing of a contact’s connections</p>
+
+<h2 id="playing-well-in-the-drupal-sandbox">Playing well in the Drupal sandbox</h2>
+<p>RedHen’s default listings of contacts are a good start, but the fun really starts if you want to create your own custom views. The venerable Views module, a powerful graphical query builder, is the gold standard in Drupal for creating custom “lists of stuff,” including RedHen entities. Much of the heavy lifting involved in Views integration is handled by Entity API, but any module implementing the Entity API interfaces still needs to clarify the data types of all entity properties and provide Views handlers for any non-standard data. For example, organization entities have a primary contact associated with them and it’s up to RedHen to explain to Views that the related contact id within an organization record is actually a RedHen contact. Let’s create a new View adding additional fields and relationships to our standard list of contacts:</p>
+
+<ol>
+  <li>Create a new view at /admin/structure/views/add of Contacts.</li>
+  <li>Add relationships to Memberships and Organization affiliation.</li>
+  <li>Add the following fields: Contact first and last name, contact email (change the formatter to primary email), membership name, and organization name.</li>
+</ol>
+
+<p>You now have a View of all contacts that includes their membership and organization. If you set the path of the View to /redhen/contact, it will simply override the default contacts listing, or you can move it elsewhere to maintain both interfaces.</p>
+
+<p><img src="/assets/images/blog/redhen-views.png" alt="Custom RedHen View" />
+Custom contact view with an address and exposed filters.</p>
+
+<p>Similarly, business rules can be extended using the Rules module, which provides an interface for defining logic based upon a trigger-&gt;action model. RedHen again leans on Entity API to expose RedHen entities into this model so that you can, for example, send an email to a contact when a related membership entity is updated.</p>
+
+<p><img src="/assets/images/blog/redhen-rules.png" alt="screenshot" />
+Custom Rule that demonstrates sending an email to new contacts.</p>
+
+<h2 id="extending-core-functionality">Extending core functionality</h2>
+<p>RedHen can also be extended and customized the old fashioned way – by writing custom code. All of RedHen’s entity types feature APIs with standard CRUD operations and wrappers around many common tasks, such as getting all related entities. In addition, RedHen can be manipulated using Drupal’s hook system. Each entity can be altered using a hook implementation when it’s loaded, created, updated, and deleted. Most of hooks are exposed through Entity API’s inherited controller classes, but RedHen features some of its own unique hooks as explained in redhen.api.php. For example, a module can dictate whether or not a contact entity can be deleted by implementing hook_redhen_contact_can_delete():</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="nf">mymodule_redhen_contact_can_delete</span><span class="p">(</span><span class="nx">RedhenContact</span> <span class="nv">$contact</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// prevent the deletion of active contacts</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">redhen_state</span> <span class="o">==</span> <span class="nx">REDHEN_STATE_ACTIVE</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In addition, all of RedHen’s main interfaces are wrapped in theme functions so they can be overridden at the theme level. For example, to alter the default list of contacts, implement <code class="highlighter-rouge">theme_redhen_contact_list()</code>:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="nf">mytheme_redhen_contact_list</span><span class="p">(</span><span class="nv">$variables</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nv">$contacts</span> <span class="o">=</span> <span class="nv">$variables</span><span class="p">[</span><span class="s1">'contacts'</span><span class="p">];</span>
+  <span class="nv">$header</span> <span class="o">=</span> <span class="nv">$variables</span><span class="p">[</span><span class="s1">'header'</span><span class="p">];</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$contacts</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nv">$rows</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$contacts</span> <span class="k">as</span> <span class="nv">$contact</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nv">$uri</span> <span class="o">=</span> <span class="nx">entity_uri</span><span class="p">(</span><span class="s1">'redhen_contact'</span><span class="p">,</span> <span class="nv">$contact</span><span class="p">);</span>
+      <span class="nv">$actions</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="nx">l</span><span class="p">(</span><span class="nx">t</span><span class="p">(</span><span class="s1">'edit'</span><span class="p">),</span> <span class="nv">$uri</span><span class="p">[</span><span class="s1">'path'</span><span class="p">]</span> <span class="o">.</span> <span class="s1">'/view/edit'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">'query'</span> <span class="o">=&gt;</span> <span class="nx">drupal_get_destination</span><span class="p">())),</span>
+        <span class="nx">l</span><span class="p">(</span><span class="nx">t</span><span class="p">(</span><span class="s1">'delete'</span><span class="p">),</span> <span class="nv">$uri</span><span class="p">[</span><span class="s1">'path'</span><span class="p">]</span> <span class="o">.</span> <span class="s1">'/view/delete'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">'query'</span> <span class="o">=&gt;</span> <span class="nx">drupal_get_destination</span><span class="p">())),</span>
+      <span class="p">);</span>
+
+      <span class="nv">$redhen_contact_type</span> <span class="o">=</span> <span class="nx">redhen_contact_type_load</span><span class="p">(</span><span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">type</span><span class="p">);</span>
+      <span class="nv">$rows</span><span class="p">[]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+          <span class="nv">$redhen_contact_type</span><span class="o">-&gt;</span><span class="na">label</span><span class="p">,</span>
+          <span class="nx">l</span><span class="p">(</span><span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">first_name</span><span class="p">,</span> <span class="nv">$uri</span><span class="p">[</span><span class="s1">'path'</span><span class="p">]),</span>
+          <span class="nx">l</span><span class="p">(</span><span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">last_name</span><span class="p">,</span> <span class="nv">$uri</span><span class="p">[</span><span class="s1">'path'</span><span class="p">]),</span>
+          <span class="nx">l</span><span class="p">(</span><span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">,</span> <span class="s1">'mailto:'</span> <span class="o">.</span> <span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">),</span>
+          <span class="nx">format_date</span><span class="p">(</span><span class="nv">$contact</span><span class="o">-&gt;</span><span class="na">updated</span><span class="p">,</span> <span class="s1">'short'</span><span class="p">),</span>
+          <span class="nb">implode</span><span class="p">(</span><span class="s1">' | '</span><span class="p">,</span> <span class="nv">$actions</span><span class="p">)</span>
+        <span class="p">)</span>
+      <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nv">$render</span><span class="p">[</span><span class="s1">'table'</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'#theme'</span> <span class="o">=&gt;</span> <span class="s1">'table'</span><span class="p">,</span>
+      <span class="s1">'#header'</span> <span class="o">=&gt;</span> <span class="nv">$header</span><span class="p">,</span>
+      <span class="s1">'#rows'</span> <span class="o">=&gt;</span> <span class="nv">$rows</span>
+    <span class="p">);</span>
+    <span class="nv">$render</span><span class="p">[</span><span class="s1">'pager'</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'#theme'</span> <span class="o">=&gt;</span> <span class="s1">'pager'</span><span class="p">,</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// no results, set a message</span>
+    <span class="nv">$render</span><span class="p">[</span><span class="s1">'no-result'</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'#type'</span> <span class="o">=&gt;</span> <span class="s1">'markup'</span><span class="p">,</span>
+      <span class="s1">'#markup'</span> <span class="o">=&gt;</span> <span class="nx">t</span><span class="p">(</span><span class="s1">'Sorry, there are no contacts that match your criteria.'</span><span class="p">),</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">render</span><span class="p">(</span><span class="nv">$render</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In short, using RedHen’s comprehensive APIs, hooks, and theme wrappers, a developer can build a complex, elegant solution to meet nearly any use case requiring CRM functionality.</p>
+]]>
+  </description>
+  <pubDate>Thu, 18 Oct 2012 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2012/10/lev/under-hood-redhen-crm/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/10/lev/under-hood-redhen-crm/</guid>
+</item>
+
+    
+      <item>
+  <title>RedHen and Mandrill - 10-minute Setup for a Bulk Mail Tool</title>
+  <description>
+    <![CDATA[<h3 id="introduction">Introduction</h3>
+
+<p>RedHen CRM is a native CRM solution for Drupal 7. If you haven’t heard about it, check out our recent <a href="http://thinkshout.com/blog/category/redhen">blog announcements</a>. <a href="http://mandrill.com">Mandrill</a> is a pay-as-you-go transactional email service provided by <a href="http://mailchimp.com">MailChimp</a>. This spring, ThinkShout was fortunate to have the opportunity to release a <a href="http://thinkshout.com/blog/2012/05/lev/mailchimp-adds-mandrill-integration-campaign-creation">Mandrill integration module</a> for Drupal.</p>
+
+<p>In this brief tutorial, I’ll show you how to quickly set up a bulk mailing tool in Drupal leveraging <a href="http://drupal.org/project/redhen">RedHen CRM</a>, <a href="http://drupal.org/project/views_bulk_operations">Views Bulk Operations</a> (VBO), and <a href="http://drupal.org/project/mandrill">Mandrill</a>.</p>
+
+<h3 id="getting-started">Getting Started</h3>
+
+<p>This tutorial assumes that you have a RedHen CRM instance up and running. If you haven’t played around with RedHen yet, you can get started with our <a href="http://drupal.org/project/redhen_demo">demo installation profile</a>.</p>
+
+<p>Once you have RedHen running, you simply need to download and enable <a href="http://drupal.org/project/views_bulk_operations">VBO</a> and the <a href="http://drupal.org/project/mandrill">Mandrill</a> module.</p>
+
+<h3 id="configuring-the-mandrill-module">Configuring the Mandrill Module</h3>
+
+<p>Your next step is to <a href="http://www.mandrill.com/signup/">set up a Mandrill account</a> and configure your API keys. <em>(Don’t worry, Mandrill has a very generous freemium plan - so you can test things out without needing to pay.)</em> Below is a screenshot of Mandrill’s API credentials interface:</p>
+
+<p><img src="https://dl.dropbox.com/s/n2zfahekulj64u2/mandrill_api.png" alt="" /></p>
+
+<p>Next, you’ll need to set your API key and configure the Mandrill module:</p>
+
+<p><img src="https://dl.dropbox.com/s/47845cezqc7tx6t/mandrill_config.png" alt="" /></p>
+
+<p>That’s it! Now we’re ready to create our bulk mailing interface with VBO.</p>
+
+<h3 id="building-your-bulk-mailer-in-vbo">Building Your Bulk Mailer in VBO</h3>
+
+<p>RedHen CRM ships with a custom VBO action for sending email to RedHen contacts:</p>
+
+<p><img src="https://dl.dropbox.com/s/jazmh8udkow11zp/bulk_mailer_vbo_setting.png" alt="" /></p>
+
+<p>When used on a RedHen Organization, this same action will send an email to the primary contact of each selected organization. In this simple example, we will create a VBO view that allows us to filter contact records based upon their RedHen membership status:</p>
+
+<p><img src="https://dl.dropbox.com/s/8quf5p937gvvl2j/bulk_mailer.png" alt="" /></p>
+
+<p>Of course, this is just one example of how you can build your own VBO-enabled Views of RedHen data. For a quick start, consider creating some active memberships on contacts and importing this <a href="https://gist.github.com/3114504">Views export</a> into your copy of the RedHen Demo install profile.</p>
+
+<h3 id="now-send-some-mail">Now Send Some Mail!</h3>
+
+<p>That’s all it takes. Using the example bulk mailer interface above you can quickly select one or more contacts to email and then click “Send RedHen Email”. From there, you can write a rich-text message including trackable URL links:</p>
+
+<p><img src="https://dl.dropbox.com/s/uuevsjdx5j3o2mv/bulk_mailer_2.png" alt="" /></p>
+
+<p>Upon sending, Mandrill will provide you with email statistics within your Drupal site:</p>
+
+<p><img src="https://dl.dropbox.com/s/7nwpqzljb9aqicr/mandrill_data.png" alt="" /></p>
+
+<h3 id="in-conclusion">In Conclusion</h3>
+
+<p>Obviously this is a pretty simple example of a bulk mailing tool. You can do considerably more advanced things mixing and matching RedHen, VBO and Mandrill. You could also trigger automated mass mailings leveraging RedHen, Mandrill, and <a href="http://drupal.org/project/rules">Rules</a>.</p>
+
+<p>Our purpose here is to highlight the flexibility and unlimited possibilities of RedHen CRM and associated modules. We look forward to you sharing your own RedHen recipes with us in the future!</p>
+]]>
+  </description>
+  <pubDate>Thu, 19 Jul 2012 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2012/07/tauno/redhen-and-mandrill-10-minute-setup-bulk-mail-tool/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/07/tauno/redhen-and-mandrill-10-minute-setup-bulk-mail-tool/</guid>
+</item>
+
+    
+      <item>
+  <title>Engagement Scoring - A Case for Native Drupal CRM</title>
+  <description>
+    <![CDATA[<p><strong>Engagement scoring</strong> - often referred to as “engagement analytics” or “engagement metrics” - is a relatively new concept in measuring the interactions between site visitors and your website. Web analytics packages such as Google Analytics generally focus on measuring <em>quantitative</em> analytics - or the number of page visits and clicks. Engagement scoring focuses on measuring the <em>quality</em> of these interactions by weighting the value of different types of interactions. For example, sharing an article from your website to a social network might be worth <em>5 engagement points</em>, whereas commenting on a blog post might be worth <em>10 engagement points</em>.</p>
+
+<p>For almost half a decade, the Drupal <a href="http://drupal.org/project/userpoints">User Points</a> module has provided a framework for measuring website engagement of <em>logged-in</em> site visitors.</p>
+
+<blockquote>
+  <p><strong>But what about tracking the engagement of anonymous site visitors?</strong></p>
+</blockquote>
+
+<p>The majority of Drupal websites that we build allow anonymous users to leave comments on blog posts, fill out surveys via Webform, make e-commerce transactions and/or sign up for events. Often such transactions require the visitor to provide an email address. What if all of these engagements could be tracked over time by an anonymous visitor’s email address? And what if the data that we collect on these individuals could be easily funneled into a CRM solution?</p>
+
+<h2 id="enter-redhen-crm-engagement-scoring">Enter RedHen CRM Engagement Scoring</h2>
+
+<p><a href="http://drupal.org/project/redhen">RedHen CRM</a> is a native CRM solution built in Drupal 7. I won’t go into the larger, general RedHen description here, as you can <a href="http://thinkshout.com/blog/tag/redhen">read more about RedHen on our blog</a>. The focus of this post is on the RedHen Engagement system. The RedHen Engagements sub-module provides an API and framework for tracking and <strong>measuring</strong> engagement, through a configurable scoring system, for both authenticated users and anonymous visitors. Anonymous visitors are currently tracked by a given email address, but we have future plans to add session and IP address tracking as well.</p>
+
+<p>The module integrates out of the box with the “RedHen Notes” module, so that offline interactions with RedHen contacts - such as phone calls or in-person meetings - can be tracked and scored. The module also integrates with <a href="http://drupal.org/project/rules">Rules</a>, so that you can programmatically score different types of engagement.</p>
+
+<p><img src="https://dl.dropbox.com/s/ap2wwzeez9kf0q8/engagement_scores.png" alt="Anne's engagement" /></p>
+
+<p>The screenshot above provides a look at the engagement scoring report for an individual contact in RedHen CRM. (A contact’s total engagement score is also included on the summary tab.) The first score referenced in this list refers to engagement points assigned manually based upon the creation of a RedHen note capturing an offline conversation:</p>
+
+<p><img src="https://dl.dropbox.com/s/ost2yevtihg7uk5/engagement_scoring_note.png" alt="Offline note" /></p>
+
+<p>The value of each type of engagement score can be configured through RedHen’s admin interface. Likewise, new types of engagement scores can be created:</p>
+
+<p><img src="https://dl.dropbox.com/s/6o8diqt0d49xgum/manage_engagement_scores.png" alt="Manage engagement scores" /></p>
+
+<h2 id="rules-integration">Rules Integration</h2>
+
+<p>The RedHen Engagements module’s integration with Rules is where things get really interesting:</p>
+
+<p><img src="https://dl.dropbox.com/s/x1fkmnkj5ezpegj/rules.png" alt="Rules" /></p>
+
+<p>Admittedly, our team hasn’t completely fleshed out all the possible Rules that could trigger engagement scores. <em>(We’re hoping some of you will help us out with that…)</em></p>
+
+<p>At this time, the RedHen Engagements module can automatically score three different types of engagement:</p>
+
+<ul>
+  <li>Event registrations created via the <a href="http://drupal.org/project/registration">Entity Registrations</a> module.</li>
+  <li>Blog comments left by authenticated users or anonymous blog comments when anonymous commenting is configured to require an email address.</li>
+  <li><a href="http://drupal.org/project/webform">Webform</a> submissions from authenticated site users. (Note: since webform doesn’t require an email address for anonymous users, scoring anonymous submissions requires a bit more work and the inclusion of an email field in the webform components.)</li>
+</ul>
+
+<p>In the future, we hope to support more interactions, such as user logins, user account creation, and e-commerce transactions.</p>
+
+<p>For an example of how Rules are configured, check out how a Rule is created for scoring blog comments:</p>
+
+<p>The first step is to create a new Rule that fires after saving a new comment:</p>
+
+<p><img src="https://dl.dropbox.com/s/fwllhiefei9nf6j/rules_comment_event.png" alt="Comment event" /></p>
+
+<p>Once the Rule has been created, we configure the Rule to trigger our new “Engagement - Score comment engagement” action:</p>
+
+<p><img src="https://dl.dropbox.com/s/c7bh6gntmohcqfm/engagement_action.png" alt="Comment action" /></p>
+
+<p>Here we can choose which scores will be provided when a comment is created:</p>
+
+<p><img src="https://dl.dropbox.com/s/ipcijem4l963uqp/engagement_action_comments.png" alt="Comment action settings" /></p>
+
+<p>Notice that using “Rules Conditions” we can get even more granular in scoring different types of comments with different engagement score values. Hypothetically, you could choose to score comments left on “blog” nodes differently from comments left on “page” nodes. You could also score anonymous comments differently than comments from authenticated users.</p>
+
+<h2 id="whats-next">What’s Next?</h2>
+
+<p>Now that we have a basic framework in place for engagement scoring in RedHen CRM, we are excited to start developing a more robust engagement score reporting interface, similar to the <a href="http://drupal.org/project/google_analytics_reports">Google Analytics Reports</a> interface. A quick and dirty wireframe of this interface is shown below:</p>
+
+<p><img src="https://dl.dropbox.com/s/fwapawaenk4a9ce/Engagement_report.png" alt="engagement dashboard" /></p>
+
+<h2 id="get-involved">Get Involved!</h2>
+
+<p>While ThinkShout is largely focused on developing RedHen CRM features that support our nonprofit and “association management” clients, we see great opportunities for this module across a wide variety of verticals. We encourage you to download the tools and start playing around on the RedHen farm!</p>
+]]>
+  </description>
+  <pubDate>Thu, 05 Jul 2012 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2012/07/sean/engagement-scoring/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/07/sean/engagement-scoring/</guid>
+</item>
+
+    
+      <item>
+  <title>RedHen CRM Part 2: Welcome To The Hen House</title>
+  <description>
+    <![CDATA[<h4 id="note-for-a-more-current-review-of-redhen-features-this-video-tutorial-is-available">Note: for a more current review of RedHen features, this <a href="https://thinkshout.com/blog/2015/08/intro-to-redhen-video/">Video Tutorial</a> is available.</h4>
+
+<p>In <a href="/blog/2012/06/sean/redhen-crm-part-1">Part 1</a> of this article we explored the major benefits and broad concepts of <a href="http://drupal.org/project/redhen">RedHen CRM</a>. In this article, we will take a detailed look at RedHen’s current feature set - as demonstrated in our <a href="http://drupal.org/project/redhen_demo">sample RedHen installation profile</a>.</p>
+
+<p>In this RedHen CRM demonstration, we will show how the framework could be leveraged to build an association management system (AMS) supporting a fictional organization: <em>The National Association of Pet Shelters</em>.</p>
+
+<p>In this example, we have created two different types (or in Drupal speak “entity bundles”) of individual contact records - one for shelter staff and another for volunteers, each with its own unique set of fields. Similarly, we have created two different types of organization records - one for the shelters themselves and another for foundations that support the work of these organizations. We can then leverage RedHen to show the connections between these contact and organization records, as well as to manage both individual and organizational memberships within our fictional association.</p>
+
+<h2 id="working-with-contacts">Working with Contacts</h2>
+
+<h4 id="configuring-contact-entity-bundles">Configuring Contact Entity Bundles</h4>
+
+<p>RedHen CRM defines a custom entity type for “Contacts.” As mentioned above, RedHen CRM allows site administrators to create their own “contact bundles” - each with its own unique sets of fields.</p>
+
+<p>The “RedHen Contact Email” field is a new field type defined by RedHen CRM to provide additional options for managing the unique email communication preferences of your RedHen contacts. The “Availability” field provides an example of how we can extend contact records to include additional, customized field data about our contacts.</p>
+
+<h4 id="filtering-contacts">Filtering Contacts</h4>
+
+<p>Once we’ve configured our content entity bundles, we can view and search our contacts across various fields and properties:.</p>
+
+<p>When we change our “contact type” filter (or, in Drupal speak, when we filter on “contact entity bundle”), RedHen CRM’s contact listing automatically pulls in the fields available as filter options for the selected bundle.</p>
+
+<h4 id="connecting-content-entities-with-drupal-user-accounts">Connecting Content Entities with Drupal User Accounts</h4>
+
+<p>Optionally, you can choose to associate contact entities with Drupal user accounts on your site. You can either choose to connect the contact entity with an existing user account, or, you can create a new Drupal user account for the contact entity from within the RedHen interface.</p>
+
+<p>Within the next month, we will be extending this feature to allow Drupal users to edit their own content information via this linkage. But for now, this feature is primarily leveraged for managing access control and Drupal user roles via our <strong>membership management tools</strong>, which we describe shortly.</p>
+
+<h2 id="working-with-organizations">Working with Organizations</h2>
+
+<p>Organizations work similarly to Contacts. RedHen defines an entity type for organizations - which can be extended by a site administrator as custom organization entity bundles.</p>
+
+<h2 id="connecting-contacts-and-organizations">Connecting Contacts and Organizations</h2>
+
+<p>RedHen CRM leverages the <a href="http://drupal.org/project/relation">Relation module</a> to allow for different types of relationships (or <em>connections</em> in RedHen CRM speak) between contacts - as well as between contacts and organizations.</p>
+
+<p>As with all the other entity types/bundles that are part of RedHen CRM, these relationships are <em>fieldable</em>. This means that you can add fields to your relationships to track metadata about the connections between RedHen entities.</p>
+
+<h4 id="managing-primary-contacts-for-your-organizations">Managing Primary Contacts for Your Organizations</h4>
+
+<p>When managing connections between contacts and organizations, site administrators can also determine the primary contact for an organization entity. <em>See the “Primary Contact” link on the right-hand side of the screen.</em></p>
+
+<p>The primary contact is a <em>dynamic property</em> for organization entities, and has been exposed to Views and Rules.</p>
+
+<h2 id="managing-memberships">Managing Memberships</h2>
+
+<p>Our clients’ reoccurring need for a flexible and customizable membership management solution was one of our primary motivations in developing RedHen. Selling Drupal user roles with Drupal Commerce, or managing the expirations of Drupal user roles with contributed modules such as <a href="http://drupal.org/project/role_expire">Role Expire</a> is simply not a robust enough solution for large membership organizations with complex business rules around membership-based services.</p>
+
+<h4 id="individual-vs-organizational-memberships">Individual vs. Organizational Memberships</h4>
+
+<p>With this in mind, RedHen CRM allows you to create different types of memberships, which can be applied to both content entities organization entities. These membership types are, of course, entity bundles, so again - they are fieldable.</p>
+
+<h4 id="assigning-drupal-user-roles-via-memberships">Assigning Drupal User Roles Via Memberships</h4>
+
+<p>As mentioned above, Drupal user accounts can be associated with RedHen contacts. Once these connections are made, the assignment of an active membership can be leveraged to provide a user account with a Drupal user role.</p>
+
+<p>When a RedHen membership that is associated with a Drupal user role is assigned to a RedHen Organization - this role is applied to all Drupal user accounts associated with contacts related to that RedHen organization.</p>
+
+<p>Let me repeat this point, because it is truly one of the most unique features of RedHen CRM:</p>
+
+<blockquote>
+  <p>With RedHen CRM, you can manage Drupal user roles via organizational memberships.</p>
+</blockquote>
+
+<h4 id="role-based-membership-benefits">Role-based Membership Benefits</h4>
+
+<p>It goes without saying that Drupal’s role-based permission and access control system is one of its great strengths. Combining the Drupal user role framework with CRM functionality represents on of the most important value propositions of RedHen CRM and, more generally speaking, native Drupal CRM tools.</p>
+
+<p>Leveraging RedHen CRM with Drupal Commerce, you could use these membership management tools to provide discounts on e-commerce transactions. Leveraging a wide variety of contributed access control modules, could you could also build premium content libraries. The “Association Management Solution” (AMS) opportunities are endless.</p>
+
+<h2 id="capturing-notes-on-contacts-and-organizations">Capturing Notes on Contacts and Organizations</h2>
+
+<p>Notes can be added to both contact and organization entities. As an entity bundle, notes can be extended with fields.</p>
+
+<p>In the case of our RedHen Demo CRM, we have extended the notes bundle with a taxonomy reference field for the “type” of note that is being recorded. When viewing note history, these notes can then be filtered by this type taxonomy.</p>
+
+<h2 id="engagement-scoring">Engagement Scoring</h2>
+
+<p>In the notes screen, you’ll also notice a dropdown option for <strong><em>Engagement Score</em></strong>.</p>
+
+<p><em>Engagement scoring</em> (often referred to as “engagement analytics” or “engagement metrics”) is a relatively new concept in measuring the interactions of web site visitors. Web analytics packages such as Google Analytics generally focus on measuring <em>quantitative</em> analytics - or the number of page visits and clicks. Engagement scoring focuses on measuring the <em>quality</em> of these interactions by weighting the value of different types of interactions between site visitors and your website. For example, sharing an article from your website to a social network might be worth “5 engagement points”, commenting on a blog post might be worth “10 points.”</p>
+
+<p>The RedHen Engagement module provides an API and framework for tracking this type of engagement. The module also integrates with the “RedHen Notes” module, so that offline interactions with RedHen Contacts can also be tracked and scored. To learn more about engagement scoring in RedHen, check out this <a href="http://thinkshout.com/blog/2012/07/sean/engagement-scoring">blog post</a>.</p>
+
+<h2 id="tracking-event-registrations">Tracking Event Registrations</h2>
+
+<p>RedHen CRM integrates closely with the <a href="http://drupal.org/project/registration">Entity Registrations</a> module - which our ThinkShout geeks also maintain. The Entity Registrations module allows you to manage event registrations as entities.</p>
+
+<p>When enabled, the RedHen Registration module adds an additional tab to the contact entity screen called “Registrations.” There, both authenticated and anonymous event registrations will be listed for each contact, based upon a matching email address.</p>
+
+<p><em>Note: In the future, we plan to extend this module such that new registrations associated with email addresses <strong>not</strong> found in RedHen CRM will trigger the creation of new contact entities.</em></p>
+
+<h2 id="redhen-organizations-as-groups">RedHen Organizations as “Groups”</h2>
+
+<p>The RedHen Organization Groups module allows you to <em>groupify</em> organization entity bundles.</p>
+
+<p>This module provides functionality similar to <a href="http://drupal.org/project/og">Organic Groups</a>. A groupified organization can have node content associated with it. Optionally, this content can be made private, and therefore only viewable to Drupal user accounts associated with RedHen contact entities which are in turn associated with a specific RedHen organization entity.</p>
+
+<p>A node can be added to a groupified RedHen organization, then, when looking at a RedHen organization entity, you can see all associated group content.</p>
+
+<h4 id="so-why-not-just-use-organic-groups">So, why not just use Organic Groups?</h4>
+
+<p>The description above begs the question: Why not just use OG? In developing this feature, we considered leveraging Organic Groups. However, the relationships between Drupal user records, contacts and organizations were too complex to cleanly build this feature on top of both RedHen and Organic Groups. That said, much of the architecture of this module is based upon design patterns from Organic Groups.</p>
+
+<h2 id="whats-next">What’s Next?</h2>
+
+<p>ThinkShout will be launching our first client sites on RedHen CRM this summer. We are currently working towards a stable 1.0 release of RedHen - while simultaneously exploring new features and tools.</p>
+
+<p>We are very interested in continuing to explore:</p>
+
+<ul>
+  <li>Deeper integration with Drupal Commerce.</li>
+  <li>CRM data visualization - most notably geolocation and mapping of constituent data, as well as Google Charts visualization of engagement scoring data.</li>
+  <li>Bulk import tools, as well as Migrate 2.x integration.</li>
+  <li>Apache Solr integration.</li>
+  <li>The development of better HTML5 and responsive themes for RedHen CRM interfaces.</li>
+</ul>
+
+<p>We hope that the community will continue to work with us to make RedHen CRM a leading association management solution. We’ll see you in the issue queues and at a Drupal Camp near you!</p>
+]]>
+  </description>
+  <pubDate>Fri, 29 Jun 2012 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2012/06/sean/redhen-crm-part-2/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/06/sean/redhen-crm-part-2/</guid>
+</item>
+
+    
+      <item>
+  <title>RedHen CRM Part 1, Keeping all your eggs in one Drupal basket</title>
+  <description>
+    <![CDATA[<h2 id="introducing-redhen-crm">Introducing RedHen CRM</h2>
+<p><img src="https://dl.dropbox.com/s/3vsjjgva9gimabh/redhen_logo.png" style="float: right; margin: -10px 0px 10px 15px" /></p>
+
+<p>The Drupal community has long aspired for native CRM functionality for many years. Unfortunately, solutions to this problem in older releases of Drupal were less than perfect - usually relying on the node system to manage contact data. Of course, the node system was designed for managing <em>content</em>, so these node-based CRM solutions required lots of extra code and duct tape to keep content and <em>contacts</em> separated.</p>
+
+<p>Fortunately, the arrival of the entity framework in Drupal 7.x core has opened the door to the development of more robust CRM solutions built natively in Drupal. So, after a year of scheming and over 700 hours of very intense development, ThinkShout is proud to announce the Alpha release of <a href="http://drupal.org/project/redhen">RedHen CRM</a>.</p>
+
+<h2 id="why-does-native-crm-matter">Why Does Native CRM Matter?</h2>
+
+<p><em><a href="http://civicrm.org">CiviCRM</a> is a mature open source CRM solution that integrates with Drupal, so why not just use that? Drupal also integrates well with many 3rd-party SaaS solutions, such as Salesforce, why reinvent the wheel?</em></p>
+
+<p>There are many benefits to integrating your Drupal site with a 3rd-party CRM solution. But there are many missed opportunities and drawbacks to these integrations as well. The most obvious benefits to native CRM in Drupal include:</p>
+
+<ul>
+  <li>A more seamless user experience for site visitors registering for events, making donations/payments, or engaging in other website transactions.</li>
+  <li>The opportunity to leverage Drupal’s growing suite of mobile and responsive tools and themes for CRM interfaces.</li>
+  <li>The ability to expose CRM data as content, and/or the ability to display aggregate CRM data on your site.</li>
+  <li>Increased opportunities to integrate CRM data with Drupal contributed tools - such as data visualization tools, geo-mapping tools, and more.</li>
+  <li>Decreased staff training costs - because staff doesn’t need to get trained on multiple platforms.</li>
+  <li>Potential reductions in technical risk - because all your tools rely on a single, Drupal framework.</li>
+  <li>Potential reductions in hosting and IT costs.</li>
+  <li>The ability to do complex <em>engagement scoring</em> or <em>engagement analytics</em> (more on this later).</li>
+  <li><strong>And probably most important - the ability to fully customize your CRM solution.</strong></li>
+</ul>
+
+<h2 id="native-crm-and-not-versus-enterprise-crm">Native CRM And <em>(Not Versus)</em> Enterprise CRM</h2>
+
+<p>One last point before diving into the guts of RedHen CRM:</p>
+
+<p>While we think that it’s possible to build very robust, large-scale CRM solutions natively in Drupal, our goal in releasing RedHen is not to compete with the enterprise CRM market. Platforms like Salesforce will inevitably out scale what we can build with Drupal.</p>
+
+<p>That said, enterprise CRM solutions are often overkill for small to mid-sized organizations. Moreover, even if your organization does need an enterprise CRM solution, we see RedHen as a natural integration point between your website and such a system.</p>
+
+<p>With the right Drupal development partner, tools such as RedHen open the door to the creation of highly innovative “front end” CRM tools. We anticipate that collecting and displaying data in RedHen (and Drupal) will often be much more affordable and nimble than trying to develop comparable features upon larger, more cumbersome enterprise packages.</p>
+
+<h2 id="what-can-you-do-with-redhen-crm">What Can You Do With RedHen CRM?</h2>
+
+<p>RedHen CRM has been largely designed around the <strong><a href="http://en.wikipedia.org/wiki/Association_management_system">association management</a></strong> (AMS) needs of membership organizations. That said, the RedHen framework is flexible and can be leveraged to develop a wide range of CRM solutions. For example, RedHen could be used as a light weight sales pipeline management tool for small to mid-size businesses.</p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>RedHen CRM is similar to <a href="http://drupal.org/project/commerce">Drupal Commerce</a> in its modular structure. As with Drupal Commerce, the core RedHen modules that can be downloaded on the <a href="http://drupal.org/project/redhen">Drupal.org project page</a> won’t provide you with a working CRM right out of the box. They require configuration. In the future, ThinkShout is likely to release RedHen “Features” or “Apps” that provide prepackaged CRM solutions for different use cases.</p>
+
+<p>In the short term, if you would like to explore RedHen CRM, we would encourage you to check out our <a href="http://drupal.org/project/redhen_demo">demonstration RedHen CRM installation profile</a>. This install profile will build out a simple example of how RedHen could be leveraged to support the CRM needs of a fictional “pet shelter” organization.</p>
+
+<h2 id="project-structure">Project Structure</h2>
+
+<p>RedHen CRM relies heavily on custom Drupal entity types and bundles. The <a href="http://drupal.org/project/entity">Entity API</a> module is leveraged to do most of the heavy lifting for these custom entities. The <a href="http://drupal.org/project/relation">Relation</a> module is leveraged to manage connections between these custom entity bundles. The core RedHen module provides shared APIs, although the majority of RedHen features are broken out into separate sub-modules that ship with the main module. As with Drupal Commerce, we will continue to include key sub-modules with the main module code base. However, we anticipate that an ecosystem of plug-in modules will soon be available to extend the core feature set.</p>
+
+<h2 id="basic-concepts-and-features">Basic Concepts and Features</h2>
+
+<ul>
+  <li>
+    <p>RedHen CRM defines two main entity types: Contacts and Organizations. Site administrators can then create different entity bundles for each of these types. Each bundle can then be <em>fielded.</em></p>
+  </li>
+  <li>
+    <p><strong>Connections</strong> can then be made between contacts, as well as between contacts and organizations. <strong>Connections</strong> are managed as custom entity bundles as well, based upon the relation entity type defined by the Relation module. As such, these connections can be fielded as well. In other words, you can create a relationship, or connection, between contacts and organizations that include field data about the relationship. Potential connection fields might include “job title” or “job start date.”</p>
+  </li>
+  <li>
+    <p><strong>Memberships</strong> are another custom entity type defined by the “RedHen Membership” module. Both contacts and organizations can be associated with memberships. RedHen’s membership management features are very flexible and feature rich. Memberships can be associated with the management of Drupal user roles to provide website access based upon individual and organizational membership status.</p>
+  </li>
+  <li>
+    <p>Optionally, contact entities can be associated with Drupal user accounts. Currently, these connections are managed from the contact entity edit screen. Contacts can be associated with existing Drupal user accounts, or a new Drupal user account can be created from the contact entity edit form.</p>
+  </li>
+  <li>
+    <p><strong>Notes</strong> is another custom entity type and bundle provided by the “RedHen Notes” sub-module. Notes provide a site administrator a simple tool for capturing tagged notes about contacts and organizations. As a custom entity bundle, notes are fieldable as well.</p>
+  </li>
+  <li>
+    <p>The Notes module also integrates with the “RedHen engagement scoring” sub-module. Engagement scores allow a site administrator to track and score various types of interactions with contact entities.</p>
+  </li>
+  <li>
+    <p>Finally, RedHen CRM ships with a “RedHen groups” sub-module that allows you to <em>groupify</em> RedHen organizations. Groupified organizations function similarly to <a href="http://drupal.org/project/og">Organic Groups</a>, in that they provide a simple container for managing private node content associated with each organization.</p>
+  </li>
+</ul>
+
+<h2 id="extending-redhen-crm-with-views-and-rules-integration">Extending RedHen CRM with Views and Rules Integration</h2>
+
+<p>The RedHen CRM framework does not require <a href="http://drupal.org/project/views">Views</a>. However, because RedHen is built upon Entity API, you can easily extend RedHen to work with Views and Rules. With Views, you can customize your instance of RedHen CRM to create personalized reports of contact, organization, membership and/or engagement scoring data. With Views plugins such as <a href="http://drupal.org/project/views_bulk_operations">Views Bulk Operations</a> and <a href="http://drupal.org/project/views_data_export">Views Data Export</a>, you can further extend RedHen with bulk editing and export tools.</p>
+
+<h2 id="for-more-information">For More Information</h2>
+
+<p>Complete RedHen site administration docs will be coming soon. You can also check out the README files contained with each RedHen module. For technical issues, please use the <a href="http://drupal.org/project/issues/redhen">D.O. issue queue</a>. For community support and to learn about RedHen usage, please consider joining the <a href="http://groups.drupal.org/redhen-crm">RedHen Drupal group</a> and follow us on Twitter <a href="http://twitter.com/redhen_crm">@RedHen_CRM</a>.</p>
+
+<h2 id="next-up-a-redhen-crm-feature-deep-dive">Next Up: A RedHen CRM Feature Deep-Dive</h2>
+
+<p>For a detailed look at RedHen CRM, check out <a href="/blog/2012/06/sean/redhen-crm-part-2">Part 2</a> of this article.</p>
+]]>
+  </description>
+  <pubDate>Fri, 29 Jun 2012 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2012/06/sean/redhen-crm-part-1/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/06/sean/redhen-crm-part-1/</guid>
+</item>
+
+    
+      <item>
+  <title>Introducing the Relevant Content Bean</title>
+  <description>
+    <![CDATA[<p>Have you ever wished that there was a simpler solution for allowing site adminstrators to create their own dynamically-filtered listings of node content in a block? Of course, you can very quickly create such listings with Views, but the Views approach presents certain tradeoffs that aren’t always idea for sites managed by non-developers. In our experience, the tradeoffs of site administers using Views often include the following:</p>
+
+<ul>
+  <li>Views can present a steep learning curve to site administrators.</li>
+  <li>Managing small variations in the block displays of a View (such as blocks with different item counts or different block titles) can lead to very large Views definitions.</li>
+  <li>Providing a site administrator with Views access can sometimes lead to deep, unintended changes in your site’s presentation layer.</li>
+  <li>Accounting for all of the possible variations in the Views display layout, particularly with Views that leverage “fields” rather than “view modes”, can lead to a lot of extra theming.</li>
+  <li>When managing Views definitions in code with Features, dealing with Views that keep getting overridden in the GUI can be a challenge.</li>
+</ul>
+
+<p><em>What if there was a simple solution for allowing site administrators to create their own dynamically-filtered listings of node content without the tradeoffs of opening up the Views UI?</em></p>
+
+<h2 id="enter-relevant-content-bean">Enter “Relevant Content Bean”</h2>
+
+<p>The <a href="http://drupal.org/project/bean_relevant">Relevant Content Bean</a> module is a plugin for the awesome <a href="http://drupal.org/project/bean">Bean</a> module. If you’ve unfamiliar Bean, it basically provides a way to treat blocks as fieldable entities. (“Bean” is an acronym for <strong>B</strong>lock <strong>E</strong>ntities <strong>A</strong>ren’t <strong>N</strong>odes.) The Bean module also provides an API for creating new <em>types</em> of blocks, which can have their own properties and fields.</p>
+
+<p>The Relevent Content Bean essentially provides your site administrators with a light-weight query builder (build on top of EntityFieldQuery) for creating blocks that contain dynamically-filtered listings of nodes. Like Views, Relevant Content Bean allows you to select the number of node results to display, apply filters to the list of returned nodes, change the display options for these nodes, and manage the sort order of your results.</p>
+
+<h2 id="how-it-works">How It Works</h2>
+
+<p>A screenshot of the default Relevant Content Bean configuration screen is shown below:</p>
+
+<p><img src="https://dl.dropbox.com/u/17914943/relevant_bean_screenshots/bean_empty.png" alt="full screenshot" /></p>
+
+<h3 id="view-modes-and-fields">View Modes and Fields</h3>
+
+<p>First, the Relevant Cotent Bean itself can leverage “view modes.”</p>
+
+<p><img src="https://dl.dropbox.com/u/17914943/relevant_bean_screenshots/view_mode.png" alt="view modes" /></p>
+
+<p>For developers, this means that you can write your own view modes to create different display options for the overall listing of nodes.</p>
+
+<p>Since Relevent Content Beans themselves are fieldable, you can even extend these Beans to include options, such as custom “Read More” links (using the <a href="http://drupal.org/project/link">Link</a> module) or content areas above and below the node listing returned by the Bean itself.</p>
+
+<h3 id="display-options">Display Options</h3>
+
+<p>Second, you can manage the “display options” for the individual nodes returned by the Bean.</p>
+
+<p><img src="https://dl.dropbox.com/u/17914943/relevant_bean_screenshots/node_display.png" alt="display options" /></p>
+
+<p>The returned list of nodes can be presented as “teasers” or any other view mode defined for your content types. In addition to selecting among view modes, Relevant Content Bean provides an option for simply displaying a list of “linked node titles.”</p>
+
+<h3 id="sort-options">Sort Options</h3>
+
+<p>Here’s where Relevant Content Bean gets really interesting… As with Views, you can sort the returned list of nodes by creation date or the date that each node was last updated. Similarly, you can sort on the “sticky” property.</p>
+
+<p><img src="https://dl.dropbox.com/u/17914943/relevant_bean_screenshots/order_on.png" alt="order nodes" /></p>
+
+<p>But check this out:</p>
+
+<p><img src="https://dl.dropbox.com/u/17914943/relevant_bean_screenshots/order_on_any_date.png" alt="date filter" /></p>
+
+<p>You can actually sort the returned nodes on <em>any</em> date property or field available to each content type. In the example above, we have two content types:</p>
+
+<ul>
+  <li>A “publication” content type with a “publication date” field that accepts a month and year.</li>
+  <li>An “event” contenty type with an “event date” field that accepts a month, date, year, and time.</li>
+</ul>
+
+<p>In this example, you can use the Relevant Content Bean to create a listing of publication and events nodes - sorting this <em>single</em> listing of nodes by different date fields.</p>
+
+<h3 id="filter-options">Filter Options</h3>
+
+<p>Relevant Content Bean also allows you to filter your listing of nodes by content type, taxonomy, and/or various date range options. When filtering by content type or taxonomy, you have the option of specifying which content types or taxonomy terms to return.</p>
+
+<p><img src="https://dl.dropbox.com/u/17914943/relevant_bean_screenshots/filter_content_type_not_same.png" alt="" /></p>
+
+<p><img src="https://dl.dropbox.com/u/17914943/relevant_bean_screenshots/taxonomy_filter.png" alt="" /></p>
+
+<p>Or, you can configure your bean to <strong>contextually</strong> filter nodes based upon the type and terms associated with a full-page node upon which your bean has been placed. (Think “argument handling” with block displays in Views.)</p>
+
+<p><img src="https://dl.dropbox.com/u/17914943/relevant_bean_screenshots/filter_content_type_same.png" alt="" /></p>
+
+<p>Similar to our sort options, you can also filter the returned listing of nodes based upon a date relative to any date property or field found on each content type.</p>
+
+<p><img src="https://dl.dropbox.com/u/17914943/relevant_bean_screenshots/date_filter.png" alt="" /></p>
+
+<h2 id="other-coolness">Other Coolness</h2>
+
+<p>The Relevant Content Bean module has quickly become a staple on all of our custom Drupal builds - as we continually find more and more interesting use cases for it. For example:</p>
+
+<ul>
+  <li>We’ve had clients create placeholder nodes and then drop a Relevant Content Bean into the page to minic full-page Views displays.</li>
+  <li>Writing our own custom Bean view modes, we can return a list of nodes as a javascript slideshow.</li>
+</ul>
+
+<p>And because Relevant Content Bean returns nodes using view modes, on sites that also use Views for returning node listings, we can use the same theme styles across node listings - regardless of whether those listings are generated by Relevant Content Beans or Views.</p>
+
+<h2 id="in-conclusion">In Conclusion</h2>
+
+<p>We’d encourage you to give the Relevant Content Bean module a try. We’d love to get your feedback and talk more about how we can make it even easier on site administrators to customize block content.</p>
+
+<p>And special thanks for ThinkShout developer, <a href="http://thinkshout.com/blog/Brandon">Brandon Lee</a>, for writing this great module!</p>
+]]>
+  </description>
+  <pubDate>Sat, 16 Jun 2012 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2012/06/sean/introducing-relevant-content-bean/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/06/sean/introducing-relevant-content-bean/</guid>
+</item>
+
+    
+      <item>
+  <title>An Adventure in iCal, my First Module</title>
+  <description>
+    <![CDATA[<p>Recently <a href="http://thinkshout.com">ThinkShout</a> needed to include an “add to calendar” widget on a client’s event pages, but, to my surprise, no Drupal module existed that fit what I needed. Since this seemed like a relatively common feature, I set out to write my own module to release to the Drupal community.</p>
+
+<p>Thus <a href="http://drupal.org/project/addtocal">Add to Cal</a> was born, a module that adds a field formatter for <a href="http://drupal.org/project/date">dates</a> in the form of a button that allows exporting an event to a small variety of popular formats, namely Google, Yahoo, Outlook, and iCal. While PHP is very much a strong point for me, this was the first real module I had created for Drupal, and it proved to be a great adventure and an excellent learning experience.</p>
+
+<p><img src="http://www.thinkshout.com/sites/default/files/Add-to-Cal-Widget-Hello.jpg" alt="image" /></p>
+
+<h2 id="abstracting-the-module-for-all">Abstracting the Module for All</h2>
+<p>One of the challenges for me while writing this module was abstraction. While it’s relatively easy to build and deploy a module like Add to Cal for one or two client projects, it can be a bit formidable for a first-time module developer to abstract the functionality for use on any site. Abstraction means removing all hard-coded values and providing a mechanism for easy integration.</p>
+
+<p>For Add to Cal, the best abstraction method was to make it available as a field formatter. This provides an easy way for the widget to be attached to a date field belonging to any type of entity and, if desired, allows the widget to be individually present on multiple entities.</p>
+
+<h2 id="how-it-works">How it Works</h2>
+<p>The goal was to make Add to Cal fairly simple to install and set up for any site. Once the module is enabled, it can be attached to a display through the “Manage Display” tab. Next to a date field, choose “Add to Cal” for the format. That’s pretty much it!</p>
+
+<p>The field formatter settings provide a way to map a location and description from other fields on the same bundle, and specify whether the widget is shown for past events (which is turned off by default). The standard date field options are also present, so you can still set the date format and display options for the field.</p>
+
+<p>Once enabled, the Add to Cal widget will automatically appear next to the date field that uses it as a format. It comes with some basic styling that can be easily modified through CSS.</p>
+
+<p><img src="http://www.thinkshout.com/sites/default/files/Field-formatter-settings.jpg" alt="image" /></p>
+
+<h2 id="whats-next">What’s Next?</h2>
+<p>The first beta version has been released on drupal.org. But the adventure doesn’t stop here – I plan on implementing several changes in the near future to make the module more robust.</p>
+]]>
+  </description>
+  <pubDate>Tue, 05 Jun 2012 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2012/06/kyle/add-to-cal/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/06/kyle/add-to-cal/</guid>
+</item>
+
+    
+      <item>
+  <title>MailChimp adds Mandrill Integration &amp; Campaign Creation</title>
+  <description>
+    <![CDATA[<p>We’ve previously written about a <a href="http://thinkshout.com/blog/2011/06/lev/mailchimp-20-anatomy-drupal-module-rewrite">complete rewrite of the MailChimp module</a>, and while our most recent changes aren’t quite as big, they’re significant enough that we want to share the details with the community.</p>
+
+<h2 id="mandrill">Mandrill</h2>
+<p><img src="http://blog.mandrill.com/images/mandrill-shield.gif" style="float: right; margin: 0px 0px 10px 10px" /></p>
+
+<p><a href="http://www.mandrill.com/">Mandrill</a> is MailChimp’s new transactional email offering, intended to replace the <a href="http://blog.mailchimp.com/mailchimp-launches-transactional-email-service-on-top-of-amazon-ses">MailChimp STS</a> service. Rather than being based on top of <a href="http://aws.amazon.com/ses/">Amazons SES</a>, Mandrill is built on MailChimp’s own infrastructure:</p>
+
+<blockquote>
+  <p>Mandrill runs on the delivery infrastructure that powers MailChimp, the world’s best email service provider.</p>
+</blockquote>
+
+<p>The <a href="http://blog.mandrill.com/public-beta-of-mandrill-smtp-email-service.html">release announcement</a> contains list of current Mandrill features, and there are many more exciting things coming down the pipe.</p>
+
+<blockquote>
+  <ul>
+    <li>Uses MailChimp’s awesome email delivery engine</li>
+    <li>Has a <a href="http://mandrillapp.com/api/docs/">simple and powerful API</a></li>
+    <li>Allows simple sending directly using SMTP</li>
+    <li>Tracks opens and clicks</li>
+    <li>Automatically adds Google Analytics tracking data to your URLs</li>
+    <li>Has pretty, visual reports of your email results</li>
+    <li>Allows you to tag your messages and see your stats filtered by tag</li>
+    <li>Integrates with MailChimp’s templating system, letting you export your MailChimp templates to Mandrill and use them in your transactional emails</li>
+  </ul>
+</blockquote>
+
+<p>The initial <a href="http://drupal.org/node/1600788">beta release</a> of the <a href="http://drupal.org/project/mandrill">Mandrill module</a> is modeled closely on the STS version, but provides additional options like tracking clicks and improved graphical reports powered by Google Charts out of the box. Our roadmap includes:</p>
+
+<ul>
+  <li>Improved reports with filter and display settings.</li>
+  <li>The ability to target which types of emails to use Mandrill for, E.g., use Mandrill for the contact form but not password reminders.</li>
+  <li>Integration with MailChimp templates.</li>
+</ul>
+
+<p>The <a href="http://drupal.org/project/mailchimp_sts">STS module</a> has been removed from the core MailChimp package and is available as a standalone project for existing users. It will not be actively maintained. New or adventurous users should definitely go with Mandrill and only use STS if you have a project that’s already running it.</p>
+
+<h2 id="campaigns">Campaigns</h2>
+<p>There’s long been a demand to add the ability to create campaigns containing Drupal content from within Drupal and it’s finally been added with the new <a href="http://drupalcode.org/project/mailchimp.git/tree/refs/heads/7.x-2.x:/modules/mailchimp_campaign">7.x-2.5 release</a>, along with a very long list of improvements and features. The new <a href="http://drupalcode.org/project/mailchimp.git/tree/refs/heads/7.x-2.x:/modules/mailchimp_campaign">MailChimp Campaign submodule</a>, contained in the core MailChimp package, allows users to:</p>
+
+<ol>
+  <li>Create a campaign.</li>
+  <li>Send campaigns.</li>
+  <li>View statistics.</li>
+</ol>
+
+<p>The module adds an input filter, which is applied to every section in a selected template, which converts a macro in the following format into rendered Drupal content.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[mailchimp_campaign|entity_type=node|entity_id=1|view_mode=teaser]
+</code></pre></div></div>
+
+<p>We sought an approach that combined flexiblity with ease of use, sacraficing a bit of the former for the latter. But this lets users inject <em>any</em> Drupal entity, using any view mode, into a template section mixed with additional non-Drupal content. Users can also choose to create a campaign that doesn’t contain Drupal content at all using this tool. It can also be combined with additional input filters to provide other formatting assistance.</p>
+
+<p>When saved, the rendered content, along with the MailChimp list and other campaign data is sent to MailChimp and <em>hung</em> on a custom campaign entity within Drupal. New campaigns are saved as drafts and can be edited so long as they have not been sent.</p>
+
+<p><img src="http://thinkshout.com/sites/default/files/MailChimp_|_Site-Install-20120525-121341.jpg" /></p>
+
+<p>Sent campaigns have statisics available, including graphical charts powered by Google Charts, similar to those used in Mandrill.</p>
+
+<p><img src="http://thinkshout.com/sites/default/files/Test_campaign_title_|_Site-Install-20120525-122237.png" /></p>
+
+<h2 id="summary">Summary</h2>
+<p>Aside from adding Mandrill and Campaign creation, and removing STS, there’s a long list of improvements and new features, including improved Rules integration from @fago. We welcome any feedback, either here or in the queue. Thanks and enjoy the new features!
+<!--break--></p>
+]]>
+  </description>
+  <pubDate>Fri, 25 May 2012 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2012/05/lev/mailchimp-adds-mandrill-integration-campaign-creation/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/05/lev/mailchimp-adds-mandrill-integration-campaign-creation/</guid>
+</item>
+
+    
+      <item>
+  <title>Welcoming DrupalCon to PDX with a Splash</title>
+  <description>
+    <![CDATA[<p>Probably this single most important announcement at DrupalCon Denver last week (let’s face it, the single most important announcement in the universe last week) was that the 2013 DrupalCon will be held in our very own Portland, OR. Forget <a href="http://denver2012.drupal.org/program/sessions/drupal-8-meets-symfony2">Symfony in Drupal 8 core</a>. Forget that dude Luke’s <a href="http://denver2012.drupal.org/keynote/luke-wroblewski">keynote</a>. Forget the tall guy with glasses and spiky hair who also did a <a href="http://denver2012.drupal.org/keynote/dries-buytaert">keynote</a>.</p>
+
+<p>It’s time to start growing your mustache. It’s time to learn to ride a fixie. It’s time to start shopping at American Apparel for hoodies and jeggings. <strong>Because the Bridgetown brings Drupal.</strong></p>
+
+<p>ThinkShout (we’re underground, <em>so you probably haven’t hear of us</em>) and <a href="http://www.superstarmedia.com/site/">SuperStar Media</a> (more mainstream - but <em>totally ironic</em>) were proud to help out with the annoucement by putting together the greatest ever DrupalCon splash page at <a href="http://portland2013.drupal.org/">portland2013.drupal.org</a>.</p>
+
+<p>…Seriously though, designing and theming this page was a heck of a lot of fun. We leveraged <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>, <a href="http://leaflet.cloudmade.com/">Leaflet</a>, <a href="http://johnpolacek.github.com/scrollorama/">Scrollorama</a>, <a href="http://www.modernizr.com/">Modernizr</a>, and <a href="http://lesscss.org/">Less.js</a>. We got to play with parallax scrolling with CSS3 and heck of a lot of media queries. We’ll soon post a much more in-depth case study about this responsive design project - but for now, we wanted to invite folks to check out the <a href="https://github.com/thinkshout/2013-drupalcon-pdx">source code</a> on GitHub.</p>
+
+<p>Oh yeah, and there’s an easter egg in the source. I’ll buy a PBR for the first person to find it and post a comment on this blog…</p>
+
+<p>And once again, I’d like to give a special shout out to <a href="https://twitter.com/#!/illepic">Chris Bloom</a> and <a href="https://twitter.com/#!/rasskull">Joey Groh</a> of SuperStar. Those guys are just incredibly talented and we learned a ton sprinting with them in the <em>two weeks</em> we had to concept, design, and implement this fun little project.</p>
+]]>
+  </description>
+  <pubDate>Mon, 26 Mar 2012 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2012/03/sean/welcoming-drupalcon-pdx-splash/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/03/sean/welcoming-drupalcon-pdx-splash/</guid>
+</item>
+
+    
+      <item>
+  <title>2012 Techno-Lounge at the National River Rally in PDX, OR</title>
+  <description>
+    <![CDATA[<p>ThinkShout is proud to announce that we will be helping <a href="http://rivernetwork.org">River Network</a> organize the first ever “Techno-Lounge” event at the <a href="http://rivernetwork.org/rally">2012 National River Rally</a> in Portland, OR. This reception on the evening of Saturday, May 5th, will provide an opportunity for technology leaders in the river protection and conservation community to show-off their wares, their maps, their apps and other web-based tools. By participating in this event, organizations can help their fellow watershed advocates better understand how they can leverage technology to support our shared goals of conserving rivers across the country. Also…participants will have the opportunity to drink great PNW beer, as the Techno-Lounge will be a cornerstone of the Rally reception on Saturday night.</p>
+
+<p>If you are interesting in participating as a presenter at the Techno-Lounge, and you want to come out, show of your work, share your knowledge, network with other river conservation techies, please get in touch with me by Friday, March 23rd. I can be reached at: 760.223.0589 or via our website’s <a href="http://thinkshout.com/contact">contact form</a>.</p>
+
+<p>(Please note that while there is no charge for River Rally participants to be involved with this activity, River Rally is also not able to provide you with a guaranteed presenter discount. However, if you meet eligibility requirements, you will receive priority consideration for River Rally scholarships. If you are not planning on attending River Rally but would like to participate in the Techno-Lounge, let us know - and we can discuss nominal costs for participating this evening.)</p>
+
+<p>River Rally 2012, a joint production of Waterkeeper Alliance and River Network, will take place in Portland, Oregon on May 4-7. The conference will be one of the largest gatherings of clean water advocates ever.  If you have any questions regarding the River Rally 2012, please visit www.riverrally.org.</p>
+]]>
+  </description>
+  <pubDate>Sat, 03 Mar 2012 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2012/03/sean/2012-techno-lounge-national-river-rally-pdx-or/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/03/sean/2012-techno-lounge-national-river-rally-pdx-or/</guid>
+</item>
+
+    
+      <item>
+  <title>NTC Drupal Day for Nonprofit IT Professionals</title>
+  <description>
+    <![CDATA[<p>ThinkShout is proud to announce that we are facilitating the first ever <strong><a href="http://www.nten.org/ntc/precon/drupal">Drupal Day for Nonprofit IT Professionals</a></strong> event at this year’s <a href="http://www.nten.org/ntc">Nonprofit Technology Conference</a> (NTC) April 3rd, 2012, at the Hilton Union Square in San Francisco.</p>
+
+<p>The content of this full-day event will be geared toward IT decision-makers who either currently manage, or are considering, the Drupal content management system. With this focus, this event will be applicable to Drupal professional service providers specializing in the nonprofit sector, in-house nonprofit software developers, Drupal power-users, and executive nonprofit staff responsible for managing website and web application procurement and maintenance.</p>
+
+<p>This event will not a training on “How to build a website with Drupal,” nor will it be a Drupal vendor or product spotlight. Rather, this is a hands-on opportunity for Drupal users in the NTEN community to:</p>
+
+<ul>
+  <li>Increase dialog within the national community of Drupal professionals and IT decision-makers serving the nonprofit sector;</li>
+  <li>Make connections between nonprofit IT professionals interested in different technical and process conversations that are active in the wider Drupal community;</li>
+  <li>Expose the nonprofit IT community to the latest techniques, tools, and trends in Drupal development and site management; and,</li>
+  <li>As one of the opening events at the NTC, start the conference off right!!!</li>
+</ul>
+
+<p>If you happened to have attended the incredible <a href="http://2011.badcamp.net/drupal-non-profit-summit">Drupal Nonprofit Summit at the 2011 BADCamp</a>, the format and structure of the event will be familiar:</p>
+
+<ul>
+  <li>9:30-10:00 am: An optional “Introduction to Drupal Terminology and concepts for IT professionals new to Drupal.”</li>
+  <li>10-10:15 am: Full-group welcome, intros and agenda review.</li>
+  <li>10:15-10:45 am: Full-group “Making Connections” exercise.</li>
+  <li>10:45-11am: Break.</li>
+  <li>11-12 pm: Two 30-minute case studies with break-outs.</li>
+  <li>12-1 pm: Drupal BOF sessions during a working lunch.</li>
+  <li>1-1:05 pm: Quick introduction to the Drupal Association.</li>
+  <li>1:05-2:35 pm: Three 30-minute case studies with break-outs.</li>
+  <li>2:35-3:00 pm: Full-group wrap-up.</li>
+</ul>
+
+<h2 id="get-involved">Get Involved</h2>
+
+<p>Of course, this event would not be possible without our hosts - the <a href="http://nten.org">Nonprofit Technology Network</a>. If you are not familiar with NTEN or the NTC, definitely check them out. Having attended the last 2 conferences, I can say with confidence that the NTC will be one of the best national tech gatherings of the year. We’re also every excited to have the sponsorship and planning support of individuals such as <a href="http://johannabates.com/">Johanna Bates</a> and organizational partners including <a href="https://association.drupal.org/">Drupal Association</a>, <a href="http://civicactions.com/">CivicActions</a>, <a href="http://opensourcery.com">OpenSourcery</a>, and <a href="http://jacksonriver.com/">Jackson River</a>.</p>
+
+<p>If you’re interested in helping out with case studies or other planning/facilitation opportunities as part of the Drupal Day for Nonprofits, give us a shout! We’re hoping that the event will pull together the leading minds in Drupal development for the nonprofit sector from around the country.</p>
+]]>
+  </description>
+  <pubDate>Wed, 08 Feb 2012 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2012/02/sean/ntc-drupal-day-nonprofit-it-professionals/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/02/sean/ntc-drupal-day-nonprofit-it-professionals/</guid>
+</item>
+
+    
+      <item>
+  <title>Sign Up for Entities and Fields</title>
+  <description>
+    <![CDATA[<h2 id="the-challenge">The challenge</h2>
+<p><img src="http://thinkshout.com/sites/default/files/images/inline/ticket-icon.png" style="float: left; margin: 0 10px 10px 0;" />
+Historically, the <a href="http://drupal.org/project/signup">Signup</a> module has been the go-to solution for managing event registrations (i.e., sign-ups) in Drupal. This venerable module has nearly <a href="http://drupal.org/project/usage/signup">8000 reported installs</a>, 14 contributors, and a vibrant ecosystem of additional contrib modules (such as <a href="http://drupal.org/project/uc_signup">Signup Integration for Ubercart</a>). Signup is also a key component of the <a href="http://drupal.org/project/cod">Conference Organizing Distribution</a>.</p>
+
+<p>All this considered, only 500 of Signup’s installs are in Drupal 7, for which the module still does not have a tagged, stable release. And since the module must maintain an upgrade path for all those users, taking full advantage of Drupal 7’s new features, such as the entity system, is very challenging.</p>
+
+<p>Given ThinkShout’s comittment to Drupal innovation, last year we began work on an entity-based alternative to Signup, drawing significant inspiration from the amazing work that was already done there. We were very excited about the benefits offered by an entity-based registration system, namely the ability to add custom fields of any type to a registration, along with hooking into the various entity APIs. We launched an early version of the tool on <a href="http://thinkshout.com/portfolio/manhattan-kayak-company">Manhattan Kayak Company’s</a> new website and started a <a href="http://drupal.org/node/1285384">conversation</a> with the Signup team about possible collaboration. While productive and receptive, things were moving a bit slowly, so we started up a new <a href="http://drupal.org/project/registration">Entity Registrations</a> project on Drupal.org and have recently pushed the code to a point where we want to share and discuss it with the community.
+<!--break--></p>
+<h2 id="entity-registrations-module-architecture">Entity Registrations module architecture</h2>
+<p>The module defines two custom entity types, registrations and registration types - following the pattern defined by <a href="http://drupal.org/project/entity">Entity API</a>, Entity Registration’s only dependency. Registration types are the different bundles of registrations, which can be arbitrarily added, deleted, etc. Each bundle can have unique fields and display settings associated with it. When a site visitor registers for a registration of a given type, all of those fields are then made available, along with the default registration properties. Speaking of, aside from any fields you add to a registration bundle, it includes the following key properties:</p>
+
+<ol>
+  <li>Type or bundle</li>
+  <li>Entity ID that the registration is associated with</li>
+  <li>Entity type that the registration is associated with</li>
+  <li>Email address of the registrant</li>
+  <li>Count, or how many slots this registration should use towards the total capacity for this event</li>
+  <li>Author user id (or an empty value for anonymous registrations)</li>
+</ol>
+
+<p>These properties highlight a couple key features. First, note that registrations require both an entity id <em>and</em> an entity type. That’s because registrations can be associated with <em>any</em> entity type, not just nodes. That’s right, registrations can be associated with a user, taxonomy term, or, say, a product entity. It’s this last case that has us most excited and we plan on releasing <a href="http://drupal.org/commerce">Drupal Commerce</a> integration to support paid registrations in the near future. Second, the count field indicates that a single user can register more than one registrant. We’ve found this to be a common use case, E.g., someone at a company registering all of its employees for, say, DrupalCon, in one registration. You could even attach a <a href="http://drupal.org/project/field_collection">field collection</a> field to a registration allowing you to collect granular information for multiple registrants for a single registration. You might also want to consider <a href="http://drupal.org/project/field_collection_table">field collection table</a> to create tabular lists of registrants.</p>
+
+<h2 id="registration-field">Registration field</h2>
+<p>We struggled with the best way to enable registrations of a given type (or bundle) for individual entities. We wanted to ensure that entity bundles could have default registrations types that could be overridden on a per-entity basis. The options were a) a standalone interface to set default registration types for each type of entity bundle, combined with an override option, or b) to create a new registration field type. We went the latter route and are really excited about early results. Here’s how it works:</p>
+
+<ul>
+  <li>Create one or more registration types.</li>
+  <li>Add a registration field to any entity bundle, E.g., node type, user, taxonomy term, product, etc. The possible values for this field will be all of the available registration types.</li>
+  <li>Select the display formatter for the field. Current options are the name of the registration type, a link to the registration form, or embedding the actual form with all the configured fields.</li>
+  <li>When you add or edit an entity, select the type of registrations you want to enable.</li>
+</ul>
+
+<p>The entity will now have a “manage registrations” local task which exposes all the settings and tools for that entity’s registrations, including:</p>
+
+<ul>
+  <li>Tabular list of registrants</li>
+  <li>Turn registrations on or off</li>
+  <li>Reminder date, settings and email template</li>
+  <li>Capacity</li>
+  <li>Whether or not to allow multiple registrants per registration</li>
+  <li>Broadcast tool to send emails to all registrants</li>
+</ul>
+
+<p>We had to jump through some hoops like forcing a cardinality of 1 on the field and preventing the attachment of more than registration field to an entity bundle. The solution is far from perfect, and we have some work to do in polishing it up, but, in our minds, the flexibility and ease of use outweighed any downsides.</p>
+
+<h2 id="also-worth-noting">Also worth noting</h2>
+<ul>
+  <li><a href="drupal.org/project/views">Views</a> and <a href="drupal.org/project/rules">Rules</a> integration is provided via the Entity API. The default registrants view likely won’t cut it for many use cases.</li>
+  <li>Broadcast emails can be made transaction by using the STS feature of the <a href="http://drupal.org/project/mailchimp">MailChimp module</a>, or other similar services.</li>
+</ul>
+
+<h2 id="next-steps">Next steps</h2>
+<p>Aside from addressing overall polish and bugs, of which we’re sure there are plenty at this point, we’re looking at the following:</p>
+
+<ol>
+  <li>Changing the current reminder date property to an more generic event date and then setting reminder, open, and close dates as relative values to the main event date. We’ve considered using a <a href="http://drupal.org/project/date">date</a> field and, at least for now, have decided not to make that a requirement. Individual implementations can certainly have a date field on an entity and copy that value over to the registration date on node_save().</li>
+  <li>Allowing users to edit their own registrations</li>
+  <li>The aforementioned Commerce integration</li>
+  <li>Perhaps moving the registration settings and/or defaults to the field level rather than entity level</li>
+</ol>
+
+<p>We’d love to get some feedback from the community on these and other features we may have missed, either in this post or over in the <a href="http://drupal.org/project/issues/registration">issue queue</a>. We had discussed <a href="http://usecod.com/news/2012/cod-2012-update-new-co-maintainer-drupal-7-acquia">Entity Registrations making its way into COD for D7</a> and would love to help with that effort. We’re also still very open to possible collaborations with the Signup team. As we mentioned, a potential blocker to merging the projects is the upgrade path for existing Signup users.</p>
+]]>
+  </description>
+  <pubDate>Thu, 19 Jan 2012 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2012/01/lev/entity-registrations/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/01/lev/entity-registrations/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

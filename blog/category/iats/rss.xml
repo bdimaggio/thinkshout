@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/iats/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Adding Encrypted USB Card Reader Support to Commerce iATS</title>
+  <description>
+    <![CDATA[<p>Ever been in a situation where you wished your Drupal Commerce installation could operate more like a Point of Sale system? Especially for nonprofits, taking donations and charging admission to events are prime examples of times when swiping a customer’s credit card would be a great time saver.</p>
+
+<p>As of version 2.5, <a href="https://www.drupal.org/project/commerce_iats">Commerce iATS</a> supports the use of <a href="http://home.iatspayments.com/developers/encrypted-magnetic-stripe-readers">encrypted USB card readers</a> with iATS Payments.</p>
+
+<p>Setting things up is easy:</p>
+
+<ol>
+  <li>Upgrade to <a href="https://www.drupal.org/node/2345737">Commerce iATS 2.5</a></li>
+  <li>Edit the Commerce iATS credit card payment method by selecting <code class="highlighter-rouge">Store</code>, <code class="highlighter-rouge">Configuration</code>, then <code class="highlighter-rouge">Payment methods</code> from your Drupal admin menu</li>
+  <li>Check the “Use encrypted USB card reader” option of the credit card payment method (see screenshot below)</li>
+  <li>Select the name of the USB card reader you’re using</li>
+  <li>Save the changes to the payment method and you’re good to go</li>
+</ol>
+
+<p><img src="http://www.thinkshout.com/assets/images/blog/commerce-iats-card-reader-settings.png" alt="Enable USB card reader functionality" /></p>
+
+<p>The USB card reader option is only available to Drupal admin users, not regular customers, so you’ll need to create an order manually through the Drupal Commerce admin interface before you can process a payment by swiping a credit card.</p>
+
+<p>The next time you add a credit card payment to an order, you’ll see something like this:</p>
+
+<p><img src="http://www.thinkshout.com/assets/images/blog/commerce-iats-card-reader-data.png" alt="Adding a payment with an encrypted USB card reader" /></p>
+
+<p>That code is the encrypted credit card data fed into Drupal by the USB card reader. Or it might be the Matrix, we’re still not entirely sure.</p>
+
+<p>In addition to the convenience of not having to type in credit card details, the USB card readers are fully PCI compliant. All sensitive credit card information is encrypted by the reader before it reaches Drupal, meaning you never need to pass unencrypted card data through your server.</p>
+
+<p>For the developers out there, the USB card readers can hook into three of iATS Payments’ API services:</p>
+
+<ul>
+  <li><strong><a href="https://www.iatspayments.com/NetGate/ProcessLink.asmx?op=ProcessCreditCardV1">ProcessCreditCardV1</a></strong>
+    <ul>
+      <li>Process a credit card transaction without storing any data locally.</li>
+    </ul>
+  </li>
+  <li><strong><a href="https://www.iatspayments.com/NetGate/CustomerLink.asmx?op=CreateCreditCardCustomerCodeV1">CreateCreditCardCustomerCodeV1</a></strong>
+    <ul>
+      <li>Create a customer code without a charge. This is a great way to store a customer’s credit card to bill later. Fully PCI compliant as only the iATS Payments customer code is stored on your server, not the credit card information.</li>
+    </ul>
+  </li>
+  <li><strong><a href="https://www.iatspayments.com/NetGate/ProcessLink.asmx?op=CreateCustomerCodeAndProcessCreditCardV1">CreateCustomerCodeAndProcessCreditCardV1</a></strong>
+    <ul>
+      <li>A combination of the above two services, charge a credit card and create a customer code at the same time.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>You can see some example card data in iATS Payments’ <a href="http://home.iatspayments.com/developers/encrypted-swipe/usb-devices">developer documentation</a>. If you’re ready to start swiping credit cards, the documentation includes links to sites where you can purchase one of the two encrypted USB card readers supported by iATS Payments.</p>
+]]>
+  </description>
+  <pubDate>Tue, 30 Sep 2014 12:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/09/commerce-iats-usb-card-reader/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/09/commerce-iats-usb-card-reader/</guid>
+</item>
+
+    
+      <item>
+  <title>Learn About Commerce iATS at the iATS Payments Webinar</title>
+  <description>
+    <![CDATA[<p>At DrupalCon Austin, I gave a presentation on <a href="https://www.drupal.org/project/commerce_iats">Commerce iATS</a>, the module we developed to integrate payment processing using iATS Payments into Drupal. <a href="http://home.iatspayments.com/">iATS Payments</a> has made a huge investment in Drupal and the open source community by sponsoring development of Commerce iATS since April. They even had a presence at DrupalCon and were on hand to answer developers’ questions.</p>
+
+<p>We’re incredibly proud of the work we’ve done with iATS Payments, our preferred leading nonprofit payment provider. With the addition of our <a href="http://thinkshout.com/blog/2014/05/commerce-iats-2-0/">Commerce iATS module</a> this past year, Drupal users can utilize the stable, well-maintained payment gateway as we continue to improve upon the module and add more payment options for international users.</p>
+
+<p>If you missed us at DrupalCon, iATS Payments has you covered with an upcoming webinar and a new presentation about Commerce iATS, where we’ll go over the great features the module has to offer, as well as our most recent additions to Commerce iATS.</p>
+
+<p>We’ll be breaking things up into three sections:</p>
+
+<ul>
+  <li>An introduction to iATS Payments</li>
+  <li>An overview of the Commerce iATS Module implementation and configuration</li>
+  <li>A look at the code</li>
+</ul>
+
+<p>We’ll be covering all of the standard Commerce iATS capabilities:</p>
+
+<ul>
+  <li>What Commerce iATS is and how it integrates with Drupal</li>
+  <li>Accepting credit card, ACH/EFT and recurring payments</li>
+  <li>Accepting Direct Debit payments from UK customers</li>
+</ul>
+
+<p>We’ll also be covering these recent Commerce iATS additions:</p>
+
+<ul>
+  <li>Using Direct Post to securely send payments directly to iATS Payments</li>
+  <li>Using an encrypted USB card reader to process payments with a physical credit card</li>
+</ul>
+
+<p>The webinar will take place on Wednesday, September 17 from 11:00 a.m. to 11:30 a.m. PDT. The code review will be followed by a session of Q&amp;A. Sign up to get your questions answered. <a href="https://www2.gotomeeting.com/register/433030410">Registration is open now</a>.</p>
+
+<p>If you’d like to get some reading in before the webinar, you can brush up on iATS Payments at their recently launched <a href="http://home.iatspayments.com/developers">Developer Site</a>.</p>
+]]>
+  </description>
+  <pubDate>Mon, 08 Sep 2014 10:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/09/iats-webinar-2014/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/09/iats-webinar-2014/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

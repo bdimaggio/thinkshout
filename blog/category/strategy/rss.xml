@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/strategy/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>How to Run a Landscape Analysis</title>
+  <description>
+    <![CDATA[<p>No organization is an island. While each and every mission-driven organization is unique, many aspects of your work are shared by other organizations. Having similar goals, objectives, and core audiences can make it difficult to know how to stand out. One of the most efficient and cost-saving ways to gain such insight is by understanding and navigating the landscape you operate in.</p>
+
+<h3 id="what-is-a-landscape-analysis">What is a Landscape Analysis?</h3>
+<p>Basically, a landscape analysis allows you to learn about your competitor landscape:</p>
+
+<p>Who else is in your sector and doing what you do or want to do? What are they doing well? Where do they fall short (and subsequently, where can you fulfill a need)? What isn’t being done at all?</p>
+
+<p>All of these questions can be answered by a landscape analysis. The process breaks down into three steps, which we explore in more depth later on:</p>
+<ol>
+  <li><strong>Identification</strong> of key organizations in a field, sector, or location</li>
+  <li><strong>Classification</strong> of those organizations by relevant characteristics (organization type, target audience, mission)</li>
+  <li><strong>Evaluation</strong> of how they’re performing relative to the focus of your review</li>
+</ol>
+
+<h3 id="why-is-it-important">Why is it important?</h3>
+<p>A better understanding of the broader context in which you are operating can help you design your strategy to maximize your impact. Some benefits can be:</p>
+
+<p><strong>Saving Time &amp; Money</strong></p>
+
+<p>Research can often be an under-resourced line item in a mission-driven organization’s budget. But the upfront investment into a landscape analysis can pay dividends over time by helping avoid problems you might otherwise face, and ensure your offerings are the most effective and unique to grab your audience’s attention and achieve your organizational goals.</p>
+
+<p><strong>Innovating and Improving</strong></p>
+
+<p>Seeing how others are providing a similar offering often sparks creative ideas on your team for how to improve and/or innovate the work.</p>
+
+<p><strong>Making Actionable Decisions</strong></p>
+
+<p>Stuck on how best to move forward or improve your offerings? Knowing what others are doing can help dislodge any of that and bring action items more clearly into focus.</p>
+
+<p><strong>Identifying Opportunities</strong></p>
+
+<p>Differentiating your organization from others in the space is key to success, and a landscape review allows you to identify those areas where you can either outperform others or fill a gap that no one is filling yet. You can quickly get up to speed on everything from a new field to a new geographic focus, from new trends to not-yet identified competitors.</p>
+
+<p>This was where one of our most recent projects with <a href="https://anitab.org/">AnitaB.org</a> took us.</p>
+
+<p>AnitaB.org is on a mission to connect, inspire, and guide women in computing and organizations that view technology innovation as a strategic imperative. The organization supports women working in technical fields, as well as the companies that employ them and the academic institutions that educate them. Each year AnitaB.org hosts the <a href="https://ghc.anitab.org/">Grace Hopper Celebration</a>, a three-day event which draws over 18,000 women together, and it serves as one of the most powerful ways AnitaB.org carries out its mission.</p>
+
+<p class="center"><img src="/assets/images/blog/GHC_2018.jpg" alt="GHC 2018" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Natania and Mimi attended GHC as part of ThinkShout’s research and introduction to <a href="https://anitab.org/">AnitaB.org</a>.</span></p>
+
+<p>They approached ThinkShout with the goal to provide the same kind of powerful experience and support to women in technology a full 365 days a year, and not just the three days of the Grace Hopper Celebration. Our assignment was to research whether any organization was already providing this kind of support and a sense of community to women in tech, and to also identify online platforms that deliver similar support to their users in unique and innovative ways.</p>
+
+<h3 id="how-do-you-do-a-landscape-analysis">How do you do a landscape analysis?</h3>
+
+<p><strong>1. Understand You, Your Goals, and Everyone You Want to Engage</strong></p>
+
+<p>The first step is to be clear about your organizational goals, your target audiences, and what those audiences are looking for. This will ensure that you ask the right questions in your analysis and end up with accurate insights. If you haven’t done so before, conducting user research may help uncover what your audiences really need that they are not currently getting, and can also be great preliminary research into the organizations to include in your landscape analysis (keep an eye out for a future blog post about that!).</p>
+
+<p class="center"><img src="/assets/images/blog/Mimi_Chelsea_Posts.jpg" alt="Evaluating features" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Mimi and Chelsea sorted through features to determine how they related to the client/project goals.</span></p>
+
+<p>For AnitaB.org, we actually started out organizing our thinking around the kind of concrete features that would comprise an online engagement platform — a user’s profile, private messaging and groups, and event functionality, for example. But we stepped back and re-oriented our goal to something that was bigger picture and much more specific to our client’s particular needs: how do we connect women meaningfully and help them advance in their career and as advocates for women in tech via an online platform?</p>
+
+<p><strong>2. Set Parameters</strong></p>
+
+<p>Once you have your goals in hand, you want to determine the parameters, or the criteria, of your analysis: who do you include? Who do you not? You may want to consider:</p>
+<ul>
+  <li>Whether organization type matters</li>
+  <li>Where there is issue area or mission overlap</li>
+  <li>Whether to set a narrow set of parameters within a broad context, or a broad set of parameters within a narrow context</li>
+</ul>
+
+<p>For AnitaB.org, we set a narrow set of parameters within a broad context. We chose to seek out organizations who were meeting their own goals well — these were by and large not the same goals as our client’s — but who did so using similar strategies to AnitaB.org: facilitating connections between people who may otherwise not meet, and providing opportunities for mentorship, professional development, and career advancement.</p>
+
+<p class="center"><img src="/assets/images/blog/WOC_tech_chat.jpg" alt="Women in Tech" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Photo credit: #WOCinTech Chat on <a href="https://www.flickr.com/people/wocintechchat/">Flickr</a></span></p>
+
+<p><em>Quick Tip: It may be tempting to skip the first two steps and jump right into step 3, but how can you find what you’re looking for if you don’t know what you’re trying to find? A bit more time upfront will result in more efficient research results and outcomes from your analysis.</em></p>
+
+<p><strong>3. Brainstorm &amp; Vet Potential Organizations</strong></p>
+
+<p>Now that you know what you are looking for, go out and think about every organization that might fit your criteria here! This isn’t the editing stage — that comes next — so be as creative as you can while brainstorming which organizations might fit your criteria. Then, spend a brief time reviewing each one against your parameters, and see how they stack up against each other.</p>
+
+<p>ThinkShout created a list of over 20 organizations that fit our client’s parameters, and it was a diverse list: no two organizations were delivering the same product, but they all had common aspects to their work that mapped back to our goals for our client. We spent about an hour exploring each one and ranking how well it performed against our criteria. Those that ranked highest moved forward in our analysis.</p>
+
+<p><em>Quick Tip: If you are improving or evolving current offerings, be sure to include your own organization in the next step!</em></p>
+
+<p><strong>4. Examine Strengths, Weaknesses, and Opportunities of Select Organizations</strong></p>
+
+<p>Time and budget typically don’t allow for a full in-depth analysis of more than a handful of organizations. But you can still get a lot of value of doing a deep dive into those select few. Spend a while longer getting to know your top-ranked organizations, and really uncover those areas where they’re performing well and not so well. An analysis across your select organizations may reveal those opportunities where no one is currently providing any offerings.</p>
+
+<p class="center"><img src="/assets/images/blog/anita-b-landscape-analysis.jpg" alt="landscape analysis" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Some platforms we included were Italki, NTEN, and Doximity.</span></p>
+
+<p>At this stage of our client project, we had six platforms that we each spent an additional three hours of time on; getting to know how they facilitated new connections between their users, connected mentors with mentees, delivered professional development content, and promoted career opportunities. In doing so, we came away with many valuable insights that informed the development of the final phase of our project, creating a recommended set of core features for a new online platform. Those insights included:</p>
+<ul>
+  <li>Unique and specific features AnitaB.org could take inspiration from to build their own platform,</li>
+  <li>Offerings that were so strongly provided by other organizations that it didn’t make sense for our client to invest resources in developing and trying to compete against, and</li>
+  <li>A confirmation of market opportunity.</li>
+</ul>
+
+<h3 id="what-could-a-landscape-analysis-do-for-you">What Could a Landscape Analysis Do For You?</h3>
+<p>Whether it’s a new website, program, or offering that you’re considering, you don’t want to invest resources in something that someone else is already doing so well that you have no chance to compete with them. On the flip side, if you want to venture into an area that many have struggled with, you want to know what they’ve tried so you can learn their lessons and avoid their same mistakes. After all, your mission, at the end of the day, is at stake. You want to maximize your impact while minimizing cost. A little research in the short-term will go far in ensuring the long-term success of your efforts.</p>
+
+<p class="center"><img src="/assets/images/blog/high_five.gif" alt="SUCCESS" /></p>
+
+<h3 id="thinkshout-is-here-to-help">ThinkShout is Here to Help</h3>
+<p>Are you considering a landscape analysis for your organization but not sure if you have the bandwidth to take on the work? We’d love to help you! Our team is comprised of former nonprofit staff and agency veterans who have decades of experience working with nonprofits that vary in size, budgets, and goals, so we know what it’s like to be in your shoes. We are here to help you achieve your goals and be your strategic partner. To get started, <a href="https://thinkshout.com/contact/">let us know a little more about your needs.</a></p>
+]]>
+  </description>
+  <pubDate>Wed, 02 May 2018 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2018/05/Landscape-Analysis/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/05/Landscape-Analysis/</guid>
+</item>
+
+    
+      <item>
+  <title>What the proposed changes in the tax code mean for your organization</title>
+  <description>
+    <![CDATA[<p>The end of the year is approaching and along with that, the traditional wave of last minute, tax-deductible gifts from supporters.</p>
+
+<p>Or is it?</p>
+
+<p>This uncertainty around tax-deductible gifts isn’t a commentary on the ever-fluctuating state of affairs at your organization or in our country, rather it’s about <a href="http://www.thenonprofittimes.com/news-articles/nonprofits-hammered-federal-budget-proposal/">proposed changes to the tax code</a>. These changes, should they come to pass, could alter the long-held tradition of donors looking to get that extra tax break with their year-end gift – and not to your advantage.</p>
+
+<p>The proposal currently being considered by Congress aims to reduce or eliminate key tax breaks for giving, and that rightfully has many organizations concerned. There has been speculation that the tax plan could reduce giving between <a href="http://money.cnn.com/2017/08/06/news/economy/tax-reform-charitable-giving/index.html">$5 - $13 billion per year (or 4.6%)</a>. It won’t kill all charitable giving, about 5% of people will continue to itemize, specifically those in a higher income bracket.</p>
+
+<p>This poses a shift in incentives, as the purpose of the charitable tax deductions was to inspire a sense of altruism among people in varying stages of wealth – but particularly the middle class. As it’s being proposed, the new plan only incentivizes giving for the richest among us. The one-percenters. And while those major donors are highly valued at your organization, I’m willing to bet the bulk of your file is not made up of 4, 5, and 6-figure one-time gifts.</p>
+
+<p>So why are we talking about this? For one, in the various conversations I’ve had with nonprofits since this news broke earlier in the year, it seems many organizations are either unaware of the impact the tax plan has on them, or feel their energy is better spent on things they can control.</p>
+
+<p class="center"><img src="/assets/images/blog/tim-gunn.gif" alt="TimGunn" /></p>
+
+<h2 id="lets-talk-about-that">Let’s talk about that.</h2>
+
+<p>While the new tax plan has yet to become law, the uncertainty donors are facing about many of the points in the tax plan may already be influencing their gift-giving behavior. How you planning to pivot your messaging to reflect the fact that you can’t confidently close your messages with the tagline, “You’ll be happy you gave come April 15th!”</p>
+
+<p>We’re not suggesting people will stop giving altogether, because we know that <a href="https://www.psychologytoday.com/blog/out-the-darkness/201501/happiness-comes-giving-not-buying-and-having">giving makes people feel good</a> – it increases serotonin levels and has been proven to be good for your health (hey, <a href="http://www.huffingtonpost.com/brady-josephson/want-to-be-happier-give-m_b_6175358.html">science says so!</a>).</p>
+
+<p class="center"><img src="/assets/images/blog/passion.jpg" alt="Passion" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Photo by Ian Schneider on Unsplash</span></p>
+
+<p>However, what this does tell us is that we need to think critically and strategically about how we’re going to move beyond this antiquated, deadline driven approach so that your constituents feel inspired to support you; not just when it may be of convenience to them, but year-round. In fact, making the claim that a donation is tax-deductible has zero exclusivity – it’s something all nonprofits have leaned on for decades, and it’s time to step it up and talk about what you actually accomplish day in and day out.</p>
+
+<h2 id="impact-driven-approach">Impact-driven approach</h2>
+
+<p>Motivating your constituents is all about making your case. The list of reputable organizations to support continues to grow each year. There is palpable competition in the inbox to grab the attention of your supporters. How can you stand out in the sea of appeals? We recommend focusing on an impact-driven approach.</p>
+
+<p>What this boils down to is <strong>good storytelling</strong>. Sharing content that shows how you’re saving lives, improving your community, enriching the world we live in…<em>all</em> the positive contributions that would not be possible without your organization.</p>
+
+<p>This goes beyond saying “we provided 5,000 people with [enter a valuable service here].” <a href="http://clairification.com/2012/05/06/one-incredibly-dramatic-way-to-create-winning-content/">It’s about telling the story of one</a>. Or, at least telling a compelling story of how you affect change. Donors empathize more with these stories, and their likelihood to make a gift increases if they have a tangible, real example of an individual or specific scenario that was the result of the important work you do. Large numbers tell a story in broad strokes, but the details and impact of one life or one specific outcome is ultimately more meaningful and more likely to be remembered.</p>
+
+<h2 id="how-do-i-go-about-doing-this">How do I go about doing this?</h2>
+
+<p>If you’re thinking this approach sounds time consuming, you’re right. It is. Content curation is one of those things that is either incredibly easy or seemingly impossible depending on the resources available to you.</p>
+
+<p>If you’re at an organization facing the latter situation, don’t fret, just start <em>somewhere</em>.</p>
+
+<p class="center"><img src="/assets/images/blog/begin.jpg" alt="Begin" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Photo by Danielle MacInnes on Unsplash</span></p>
+
+<p>Talk to volunteers or people in the field about what they experience and see. Ask them about the people they interact with and what their stories are. Talk to the people in the community you serve; or collect user-generated content and story submissions directly on your site, through facebook, or email. If you take this last approach, be clear about how you plan to use their story; and ask for permission to use their photo, name, or other identifiable information if you plan to include it.</p>
+
+<p>As time-consuming as this approach is, I can say from experience that it works. The more personal stories are the ones that will build relationships with your supporters and turn them into multi-channel, multi-year supporters. They won’t remember the big numbers you share, but they’ll remember the story of that one individual; a child, an animal that was rescued, a family that now has a home… stories touch the heart in ways numbers simply can’t.</p>
+
+<h2 id="this-wont-work-for-me-the-people-i-serve-need-to-remain-anonymous">This won’t work for me, the people I serve need to remain anonymous</h2>
+
+<p>This is a common issue: how do we create a sense of empathy and human connection when people don’t want us to tell their personal stories or use their real information? Answer: You develop a composite scenario.</p>
+
+<p>I worked for and with food banks for many years. Initially I started as nonprofit staff in the development department and years later, on the agency side as a consultant. A composite story was necessity. Without it, all we had to go on was that $1 = 6 meals. And knowing you provided 6 meals is great, but knowing one of those meals went to a child in an after school program, that they’d be sent home with food they most certainly would not be getting otherwise…this paints a very different picture. This, among other composite stories, was very common among the people we served. <strong>A composite story preserves the dignity and privacy of your subjects while telling a story that rings true to your mission.</strong></p>
+
+<p class="center"><img src="/assets/images/blog/child-cereal.jpg" alt="Child with cereal" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Photo by Providence Doucet on Unsplash</span></p>
+
+<p>You also don’t have to include a photo of the subject in question. I’m not suggesting you omit photo usage altogether; your imagery can be something mission-related but not specific to the subject in question. Focus on the hands of volunteers, or a group of people at an event, for example.</p>
+
+<p>This is very common practice for nonprofits. Luckily, there are <a href="https://www.thebalance.com/fundraising-stories-when-confidentiality-is-important-2501840">resources</a> out there to guide you when it comes to maintaining transparency in your messaging while successfully sharing the impact of your work. In the age of Instagramming every moment, imagery and photography is central to effective storytelling.</p>
+
+<h2 id="parting-thoughts">Parting Thoughts</h2>
+
+<p>We’re keeping a close eye on the tax plan as it develops, as much of it has the potential to impact not only our work but our personal lives. Whether the plan goes through or not, my hope is that we see people giving not because of the potential for a kickback, but because being altruistic and helping each other and our planet is just better for everyone.</p>
+
+<p>The work of a nonprofit is never done, almost sisyphean in nature. Once you think the hardest task is complete, you have to roll the boulder up another mountain. It’s easy to become jaded and feel that you’ll never make progress. I promise you, that is not true.</p>
+
+<p>Look around you, collect those stories. Read them. Share them. I hope you and your donors are inspired by the work you do. I know that at ThinkShout, we are inspired every day by the work of our clients and feel fortunate to have a hand in making it possible for them to share their stories with the world. Whatever the end of 2017 brings, my hope is that you are fearless in trying new things and that you are not easily dissuaded.</p>
+]]>
+  </description>
+  <pubDate>Sat, 02 Dec 2017 07:30:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2017/12/changes-in-tax-code/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/12/changes-in-tax-code/</guid>
+</item>
+
+    
+      <item>
+  <title>What to Think About When You're Thinking About a Redesign</title>
+  <description>
+    <![CDATA[<p>Websites, like most things, have a lifespan. At first, they are new and shiny and aligned with both your organization’s goals and current web trends and best practices. As time goes on, however, technology continues to progress, and your organizational goals will probably evolve as well.</p>
+
+<p>If you’ve worked through a full Discovery process to develop an information architecture that supports your organization’s core mission, then all you may need to update is the look and some of the site content. But if you haven’t engaged in an in-depth Discovery process before, you may find that your site is not only technically outdated, but also no longer reflects who you are as an organization.</p>
+
+<p>So it’s time to think about a redesign. The good news is, starting your new project with a full Discovery will help you create a site structure that will serve your needs not just for the new version of the site, but for years to come. Additionally, if you build your new site on a widely-used and well-supported open source CMS platform (like Drupal or Wordpress), you won’t need to switch systems every couple of years. For example, Drupal 8, the latest version of Drupal, is expected to have a lifespan of 8-10 years.</p>
+
+<p>Investing time and energy to develop a strong foundation now will set you up for success in the future. But how can you ensure your website redesign gets off to the right start?</p>
+
+<p>Here at ThinkShout, we believe that technical excellence and award-worthy design should be a given, and that our focus should be on building you a site that helps you connect with your constituents and meet your goals. Through numerous discovery engagements with many different organizations, we’ve uncovered some key questions to ask during the initial requirements gathering phase that will help ensure the solution we create meets your needs and serves your mission.</p>
+
+<p>Here are some things to think about when you’re thinking about a redesign:</p>
+
+<h2 id="what-are-your-organizational-goals">What are Your Organizational Goals?</h2>
+
+<p>Before you dive into the specifics of your website, let’s take a step back and think at a higher level. Defining your organizational goals will help make sure that the solution you and your vendor create not only looks good and functions well, but will also support the fundamental mission of your organization.</p>
+
+<p>So it’s important to take a moment to think about what your organization’s goals are. What issue are you working to address? What does success for your organization look like? The more specific and measurable these goals are, the better. Measuring your progress towards your higher level goals can help you assess the success of your project.</p>
+
+<h2 id="what-are-your-project-goals">What are Your Project Goals?</h2>
+
+<p>Now it’s time to zoom in and focus on this project itself. Project goals should be tangible, attainable, and measurable. They may include a mixture of internal goals (perhaps relating to how you are able to manage the website) and external goals (how your users interact with the website: engagement, donations, tracking, etc.).</p>
+
+<p>It may be helpful when thinking about your project goals to determine how they relate to your organizational goals. Can you map your project goals to the organizational goals they support? If not, perhaps you should consider if that particular goal for the project is even necessary – or if it can be deprioritized.</p>
+
+<p>For example, if your organization is a local animal shelter, one of your organizational goals may be to increase pet adoption. Website project goals that support this higher-level goal might be to post profiles for adoptable pets online, or allow facilitate adoptions through your website.</p>
+
+<p>Identifying and then prioritizing your project goals may also help you define what success will look like for your redesign project. How will you measure progress towards these goals? Which goals need to be met for the project to be successful?</p>
+
+<h2 id="who-are-your-audiences">Who are Your Audiences?</h2>
+
+<p>A website only adds value for your organization if your audiences use it, and mostly people will come to your website looking for information, driven by their own needs and motivations. If you focus primarily on your goals, you may end up with a website that is geared towards your organization’s needs and structures, but that does not allow your users to easily access the information they seek.</p>
+
+<p>Defining who your audiences are will allow you to put your users first when redesigning your website. Once you know who your audiences are, you can determine what content will satisfy their needs, sparking the trust that will allow you to nudge them to take an action beneficial to you.</p>
+
+<p>These questions are just a starting place for your website redesign. A full discovery process will delve more deeply into your programs and departments, your needs and wants, and what makes your organization tick. But asking yourself these three questions before you start will help give you an anchor to help you ensure that your new website engages your users and supports your mission.</p>
+]]>
+  </description>
+  <pubDate>Mon, 15 May 2017 09:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/05/what-to-think-about-when-thinking-about-a-redesign/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/05/what-to-think-about-when-thinking-about-a-redesign/</guid>
+</item>
+
+    
+      <item>
+  <title>User Journeys</title>
+  <description>
+    <![CDATA[<p>There’s some talk out there about this thing called “User Journeys.” A user journey is defined as the experience that a person has when utilizing/interacting with something – typically software or a website’s design.</p>
+
+<p>In more applicable terms, user journeys tell the story of an individual’s relationship with your organization over time, and across channels. Why are we talking about them? Because the process of mapping out a user journey can help you figure out how you fit into the lives of your users and identify gaps that are troublesome or disjointed in the user experience.</p>
+
+<p>Some quick Google sleuthing will point you to various methods for developing a user journey. But the two primary options are:</p>
+
+<ul>
+  <li>Analytical - looking at your site’s analytics to see where users came from, how they move through your site, and where drop-off points exist.</li>
+  <li>Anecdotal - conducting interviews, or running a survey to allow people to share their experiences.</li>
+</ul>
+
+<p>Traditionally, ThinkShout has taken the analytical approach and we let the data guide much of our audience work. It’s safe to say that the majority of the time, this is sufficient for the needs of most organizations. However, some projects require additional research. There are instances in which you need to determine not only how people are interacting with your website as it stands today, but you might want to know how you could better serve your audiences and what new content you need to curate. You might need users to answer questions like: What would be helpful? What do you find frustrating? What were you looking for when you needed help? How could we improve to be the resource you turn to when you need it most?</p>
+
+<p>As much as it pains me to say this (being the data-geek that I am), the answers to these question are not solely in the analytics. Most recently, we sought the answers to questions like this by conducting a series of phone interviews with site users.</p>
+
+<h2 id="the-interview-process">The Interview Process</h2>
+
+<p>While interviewing may come naturally to the likes of <a href="http://www.npr.org/people/2100593/terry-gross">Terry Gross</a>, for many of us, it’s an activity that requires a learned, delicate approach. Your phrasing and timing are hugely important, and it helps to be a natural listener. Sometimes, leaving space or an awkward silence for the interviewee to continue talking is the right thing to do.</p>
+
+<p>ThinkShout spoke with an expert who gave us some pointers on how to phrase questions and assemble a matrix to guide the interview process itself. Using a guide is essential, as you’ll want to aim for consistency in your delivery/phrasing in each interview. But while consistency is important, you need to be open to taking the conversation in the direction the respondent takes you as well.</p>
+
+<p>Your Matrix should be divided by:</p>
+
+<ul>
+  <li>Research Objective - this is a combination of what your organization wants, but is also driven by what is important for your organization to learn</li>
+  <li>Research Question - the question we want to know</li>
+  <li>Survey 	Question - Open-ended, broad. This is the question you actually ask.</li>
+</ul>
+
+<p>For example, a research objective might be “unmet needs/opportunities.” A research question might be, “Does the respondent feel there is something missing in terms of resources or support on the site?” To make this a survey question (the one you actually ask the respondent), we’d phrase it as, “What would have been helpful to have early in your experience that was not available to you?”</p>
+
+<p>You’ll want to interview several people from your target audiences to ensure there is sufficient representation. Generally, a small sample size is at about 8 interviews; a large sample would be 16.</p>
+
+<p>After about 4-5 interviews, consistencies and common needs from your audience should start to surface, and you’ll develop a complete view of what their experience has been as well as what they’d like it to be.</p>
+
+<h2 id="developing-the-journeys">Developing the Journeys</h2>
+
+<p>User journeys weave together the actions visitors to your site take and shows the levels of engagement they have; in some cases (if you’re getting real fancy) they also include empathy maps and how they are feeling at each stage.</p>
+
+<p>In one of our most recent projects, we wanted to show the multitude of ways in which a user engages with an organization, and their needs at each stage of the lifecycle with said organization. This also helped to develop the user personas, which are fictional representations of a type of user likely to visit the site.</p>
+
+<p class="center"><img src="/assets/images/blog/userjourneys1.jpg" alt="userjourneys1.jpg" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>The first of several drafts of a Journey Map</span></p>
+
+<p>Never has the non-linear path of an online user been more apparent than when we went through this exercise. In reality, there are countless ways someone could interact with your organization. We chose to focus our energies on the most common ones that surfaced in our interviews.</p>
+
+<p>Then, we polished it up and incorporated the colors, fonts, and style tiles from the creative direction we had for the project.</p>
+
+<p>Style tiles are like looking at swatches of paint for your house – it gives you and your stakeholders a good idea of what might go well together, but until you try it on your walls, might be hard to make a definitive choice.</p>
+
+<p>By incorporating these colors into the user journey map, it helped solidify the creative direction for the site. We used certain colors for specific actions/stages in the journeys, and showed potential pathways with dotted lines, or a circle to connect various stages together. As a bonus, the designs of the journey maps hinted at what infographics might looks like if we were to take that path and design those for the organization as well.</p>
+
+<p><img src="/assets/images/blog/userjourneys2.png" alt="userjourneys2.png" class="center" /><span class="caption"><i class="fa fa-caret-up"></i>Final version of Journey Map</span></p>
+
+<h2 id="key-takeaways">Key Takeaways</h2>
+
+<p>Through the interview and journey mapping process, we learned about resources outside of the website in question that were of use to our target audience. We were directed to other sites users found helpful or features that were valuable to them, which subsequently gave us ideas for how we could improve the site. We learned about their frustrations, but also gleaned specific information they felt would be helpful- details that don’t always come through in the analytics – especially when that content doesn’t exist yet on a site.</p>
+
+<p>If you do decide to go this route and conduct interviews, a few items of note:</p>
+<ul>
+  <li>Start with an intro script to let the respondent know what they’re getting into and put the them at ease.</li>
+  <li>Promise them confidentiality; or at least that you’ll contact them if you wish to utilize their responses and name publicly in any way. And hold true to that promise!</li>
+</ul>
+
+<p>As you search for resources and info on user journeys, check out some blogs and podcasts with <a href="http://www.inuse.se/blogg/kim-godwins-what-your-user-journey-probably-missing/">Kim Goodwin</a> - she knows her stuff! And if you have questions about how we can help you develop your user journey, contact us - we want to set you up for success and give you the tools you need to do so. Let us know how we can make it happen for you!</p>
+]]>
+  </description>
+  <pubDate>Fri, 14 Apr 2017 11:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/04/user-journeys/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/04/user-journeys/</guid>
+</item>
+
+    
+      <item>
+  <title>Is November 2016 an Outlier or the New Normal?</title>
+  <description>
+    <![CDATA[<p>For many, this election cycle and the subsequent aftermath has been a rather unsettling, tumultuous experience. I’m still processing and mapping out what’s next and where to focus my personal resources – but in the nonprofit space, there has already been much conjecture about what this new administration will mean for the industry.</p>
+
+<p>David Callahan wrote up some thoughts for <a href="http://www.insidephilanthropy.com/home/2016/11/9/philanthropy-in-the-age-of-trump-five-predictions">Inside Philanthropy</a>, and among his predictions he listed philanthropy influencing society more and centrist donors rallying to save what they value in society. He states, “we’ll see a wave of funder-backed initiatives aimed at bringing more civility and unity to public life.”</p>
+
+<p>It’s only been a couple weeks, but some of those predictions are coming to fruition.</p>
+
+<p>There has been an immediate urge from half of the country to do something to counter the results. And many spoke with their wallets for causes they want to preserve in a world of unknowns.</p>
+
+<p>In the days following November 8th, <a href="http://www.theatlantic.com/business/archive/2016/11/donald-trump-donations/507668/">individuals came out in droves</a> to fiscally support organizations that serve society’s vulnerable and disenfranchised citizens. <a href="http://www.nytimes.com/2016/11/18/us/politics/nonprofit-donations-trump.html?_r=0">Environmental groups saw a spike as well</a>, since our president-elect <a href="http://www.cbsnews.com/pictures/wild-donald-trump-quotes/13/">has said things</a> that indicate he does not view climate change as an issue that warrants action.</p>
+
+<p>For several organizations, the spikes in website traffic and donations in the days following the election exceeded totals from December 31st. If you’re up on your fundraising trivia, you know that’s practically unheard of, save for the instance in which giving swells after a natural disaster.</p>
+
+<p>In fact, this recent surge in philanthropic giving looks similar to that of disaster giving. It’s a clarion call. People felt - and continue to feel - a need to take action and harness control in a world that presents them with so many uncertainties.</p>
+
+<p>Personally, I signed up as a monthly donor to two organizations post-election, and already their autoresponders reflect timely messaging, including what their needs will be moving forward. This immediacy to respond in a way that lines up with my motivations wasn’t just good planning and foresight, it is the new norm and the expectation many users have when they invest money in a cause.</p>
+
+<p>The question is, will this surge in giving follow the model of disaster relief and begin to peter out, or has it become the new normal for a least the next few years? How this new wave of supporters gets treated - how you thank them for their support and engage with them moving forward - could impact their commitment for years to come. How can you keep that charitable fire alive in your hundreds of brand new donors and incite them to action in the future?</p>
+
+<p>Here’s what we’d suggest as a start:</p>
+
+<p><strong>On-boarding</strong>. These new donors deserve more than an autoresponder before getting folded into your normal communication stream. Use a welcome series to let them know that you will not let them down, share the ways you will put their dollars to work, and highlight additional ways they can get involved in your mission. Offer opportunities for volunteering, or ways they can get involved at the local v. national level. Provide tangible ways they can take action to feel they are active participants and not just a checkbook to you.</p>
+
+<p><strong>Communicate with them.</strong> Just like in any relationship, communication is key. Now more than ever, in part due to the degradation of truth during the election, people are fact-checking and they want to know that you are using funds efficiently. So tell them. Include links to your <a href="http://www.charitynavigator.org/">Charity Navigator</a> profile for full transparency. Send updates where the sole purpose is to report back on what has been accomplished. Nothing makes the donor experience more unsatisfactory than giving to an organization that never closes the loop with you. If you meet a goal, let your new supporters know. If you pass a major milestone for an advocacy effort, let them know. People want to be part of a story, and lack of communication is a leading cause for disengagement. Assume that everyone who donates in the early stages of your campaign wants to know the impact of their gift, regardless of whether that happens months, or even years later. You have more to lose by not sharing this news with them, regardless of how long it takes for your campaign to come full circle.</p>
+
+<p><strong>Don’t be afraid to ask.</strong> Monthly donors are the holy grail of supporters for nonprofits. This type of giving makes it easier for organizations to budget when unexpected expenses arise or funding gets cut. So make a strong case for ongoing support and share the long-term impact that it has on your organization and the communities you serve. <a href="https://www.nrdc.org/">Some organizations</a> are making monthly giving the focus of their call to action on their site and deploying lightboxes/pop-ups to promote it. This is the exact situation where a lightbox makes sense: it’s timely and relevant to something happening in our lives. People feel motivated to help <em>right now</em> and monthly giving is the most effective way to support missions that matter to them.</p>
+
+<p><strong>Thank them.</strong> While telling supporters all the wonderful ways you are working towards making a positive impact is great, it’s ultimately all possible because of them, and they need to know that. This extends beyond personalizing that autoresponder – emails get deleted in a swipe – but consider supplementing that autoresponder with a mailed thank-you note (or test it on a small subset of your file, anyway). Some <a href="http://www.thenonprofittimes.com/management-tips/channels-equal-revenue/">data suggests</a> that contacting donors through more than one media channel increases giving levels. It can go a long way.</p>
+
+<p>There is no silver bullet for <a href="https://thinkshout.com/blog/2016/05/roadmap-to-retention/">donor retention</a>, but one way to avoid losing these first time/renewed supporters is to engage with them and make them part of the conversation. Offer ways for everyone to participate, either virtually or on the ground. Individuals are looking for what’s next, what can they do to help, and how they can be a part of the solution. Everyone is listening. How are you going to show up for them?</p>
+
+<p>It’s hard to say at this point what we will make of November 2016, whether it will be a statistical anomaly that we exclude in future budget planning, or whether it will be the new norm. Election aside, I hope that you take these principles and reexamine what you have planned for year-end. Tweak the messaging to reflect the new landscape as needed. Determine if your social strategy needs to be revised. Take steps to make your supporters feel more included and part of the narrative. I don’t have any concrete answers. I don’t think any of us will for a while. What I do have is a strong desire to see us all succeed.</p>
+
+<p>At ThinkShout, we are fortunate to be able to help many causes doing important, valuable work on behalf of those in our society that need it the most. My hope is that you can take some of the recommendations I’ve shared and put them to use to help elevate your engagements with your audiences and take your messages even further, for the betterment of the world we all share.</p>
+]]>
+  </description>
+  <pubDate>Thu, 01 Dec 2016 09:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2016/12/is-november-2016-and-outlier-or-the-new-normal/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/12/is-november-2016-and-outlier-or-the-new-normal/</guid>
+</item>
+
+    
+      <item>
+  <title>Content Modeling in Drupal 8</title>
+  <description>
+    <![CDATA[<p><em>Originally published Sept. 25, 2016 on <a href="http://www.gregboggs.com/drupal-8-content-modeling/">GregBoggs.com.</a></em></p>
+
+<p>In many modern frameworks, data modeling is done by building out database tables. In Drupal, we use a web-based interface to build our models. This interface makes building the database accessible for people with no database experience. However, this easy access can lead to overly complex content models because it’s so easy to build out advanced structures with a few hours of clicking. It’s surprising how often Drupal developers are expected to be content modeling experts. Rachel Lovinger wrote this great <a href="http://alistapart.com/article/content-modelling-a-master-skill">overview of content modeling</a> for the rest of us who aren’t experts yet.</p>
+
+<h2 id="data-modeling-goal">Data Modeling Goal</h2>
+<p>Our goal when modeling content in Drupal is to build out the structure that will become our editor interface and HTML output. We also need to create a model that supports the functionality needed in the website. While accomplishing this, we want to reduce the complexity of our models as much as possible.</p>
+
+<h2 id="getting-started">Getting Started</h2>
+<p>One of the first things to do when building a Drupal site is build content types. So, before you start a site build, start with either a content model or a detail page wireframe. This <a href="https://docs.google.com/spreadsheets/d/15htLLWLguhwiuTLg_nndQNpgWVdUMy6UaR_d1q-v6iw/edit#gid=0">spreadsheet from Palantir</a> will help you. The home page design may look amazing, but it’s unhelpful for building out content types. Get the detail pages before you start building.</p>
+
+<h2 id="why-reduce-complexity">Why Reduce Complexity?</h2>
+<p>The more content types you create, the more effort it will take to produce a site. Furthermore, the more types you have, the more time it will take to maintain the site in the future. If you have 15 content types and need to make a site-wide change, you need to edit 15 different pages.</p>
+
+<p>The more pages you need to edit, the more mistakes you will make in choosing labels, settings, and formatters. Lastly, content can’t easily be copied from one type to another, which makes moving content around your site harder when there are many content types. So, the first thing you’ll want to do with your content model is collapse your types into as few types as feasible. How many is that?</p>
+
+<h2 id="5-content-types-is-enough">5 Content Types is Enough</h2>
+<p>Drupal has many built in entities like files, taxonomy, users, nodes, comments, and config. So, the vast majority of sites don’t need any more than 5 content types. Instead of adding a new content type for every design, look for ways to reuse existing types by adding fields and applying layouts to those fields.</p>
+
+<h2 id="break-up-the-edit-form">Break Up the Edit Form</h2>
+<p>Drupal 8 allows you to have different form displays for a single content type. With either <a href="https://www.drupal.org/project/form_mode_control">Form Mode Control</a> or <a href="https://www.drupal.org/project/form_mode_manager">Form Mode Manager</a>, you can create different edit experiences for the same content type without overloading the admin interface.</p>
+
+<p>By reducing the complexity of the content model, we decrease maintenance cost, improve the consistency of the website, and simplify the editing experience. Now that you’ve got some content modeling basics, look for opportunities to reduce and reuse content types in your Drupal projects. Content editors will thank you.</p>
+]]>
+  </description>
+  <pubDate>Fri, 14 Oct 2016 11:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2016/10/content-modeling-in-drupal-8/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/10/content-modeling-in-drupal-8/</guid>
+</item>
+
+    
+      <item>
+  <title>Your Year-End Plan - It's Never Too Early to Start</title>
+  <description>
+    <![CDATA[<p>If you’re putting off planning your year-end campaign in October, get ready to put in a lot of overtime.</p>
+
+<p>You should ideally start thinking about your year-end campaign in the summer. This means considering campaign themes, stories, mapping out capacity, channel integration options, segmentation and tracking — not to mention how all of this will coincide (or not) with your plans for #GivingTuesday. Yes, it cannot be ignored - #GivingTuesday is a must for your year-end strategy.</p>
+
+<p>So much rides on the last month (or in some cases, the last week) of the year for just about all   nonprofit organizations. It’s when people are the most generous and want to get their last tax-deductible gift in. But with all the other worthy causes out there looking to get in front of these ready and willing donors, how do you rise above the noise and get people to pay attention to you and your cause?</p>
+
+<h2 id="set-the-stage">Set the Stage</h2>
+
+<p>Before you make the knee-jerk decision to use Twitter, SnapChat or Facebook Live, you should know the story you want to tell. It also helps if you know who your audience is and where they are. Your time is precious, so you should focus it where you can leverage the best audience.</p>
+
+<p>When we go about planning a campaign for our partners at ThinkShout, we typically start by looking at the analytics. It helps to have numbers that back up your decisions. With solid data to tell you the type of content on your site that draws in visitors, you can then brainstorm with your team to help determine what your story should be, and in which channels it is most likely to thrive.</p>
+
+<p>It also helps to create a communications calendar; one that not only includes emails and direct mail drop dates, but also what your home page hero image will be from one month/week to the next, and when to plan some social posts versus leaving some breathing room for more organic, timely information. If applicable, you may even want to include when and where you plan to run digital/print ads.</p>
+
+<p>Really think outside the box to reach people at any stage of their relationship with you.</p>
+
+<h2 id="the-strategy">The Strategy</h2>
+
+<p>The emails you send to your supporters carry as much importance as the effort you put into them. If you send emails just for the sake of sending them, that’s not a good reason to reach out to someone who has entrusted you with their contact information. <a href="http://mrbenchmarks.com/">Email open rates are already on the decline industry-wide</a>. Sending something that lacks value to your supporters will only make that trend catch on.</p>
+
+<p>By utilizing the most compelling way to let your story unfold, and carrying that narrative into multiple channels in an effective way, you will inspire people to want to share it and spread the word – and ultimately – give.</p>
+
+<h2 id="extras">Extras</h2>
+
+<p>Lightboxes and homepage takeovers - you think they’re tacky, but there’s a reason why more and more nonprofits are utilizing these tactics at year-end and intermittently throughout the year: because <a href="http://npengage.com/nonprofit-marketing/why-pop-ups-should-be-part-of-your-online-fundraising/">they work</a>.</p>
+
+<p><img src="/assets/images/blog/your-year-end-plan-1.png" alt="Email acquisition lightbox as seen on Travel Oregon website" /><span class="caption"><i class="fa fa-caret-up"></i>Email acquisition lightbox on Travel Oregon website - <a href="http://www.traveloregon.com">www.traveloregon.com</a> </span></p>
+
+<p>I know what you’re thinking, ‘lightboxes and popups are aggressive and I hate them!’ …but lightboxes are not an all-or-none part of your strategy. They can be programmed to appear on a user’s first visit and then never again, or whatever you are comfortable starting with. As you grow to understand your audience more, that will dictate the behavior you set for your lightbox overlay.</p>
+
+<h2 id="dont-forget-to-measure">Don’t Forget to Measure</h2>
+
+<p>After putting all this effort into planning, segmenting, and designing, how will you know the strategy worked? How will you know if the lightbox brought in an extra 40% of funds or if it was the URL in the banner ads you had running? Spend some of this time early on setting up unique tracking links, separate donation forms, or other methods to ensure you can identify sources of donation traffic.</p>
+
+<p>It’s worth noting that the channel of action does not always indicate the source of inspiration for the gift. What I mean is, someone can be exposed to your social media posts, your emails, some online banner ads – but after receiving your winter newsletter, they decide to go online and make a gift. Hard to tell, right? There will always be some degree of ‘guessing’ (for now, anyway). Mapping results as much as you are able is what proves the value of your investment to your leadership team and Board.</p>
+
+<h2 id="giving-tuesday">Giving Tuesday</h2>
+
+<p>The strategies outlined above for your year-end campaign should ideally also be applied to the 24-hour whirlwind that is #GivingTuesday. Yes, it may seem a waste of resources to put so much effort and work into a single day of giving, but in the four years that it’s been running, studies have found that #GivingTuesday does not cannibalize gifts, in fact it adds to your bottom line.</p>
+
+<p>If you do it right, that whirlwind could be your next windfall. Here are some things you should consider:</p>
+
+<ul>
+  <li>Swap out the creative/offer on your lightbox, your hero image, and all social channels to match the creative theme of the day</li>
+  <li>Create a unique donation form/URL for tracking purposes</li>
+  <li>Create 2-5 emails to promote: Teaser message dropping the day before; Day-of email (sent in the morning); Mid-day update; Last chance message later in the day; Stewardship/recap email the day after.</li>
+  <li>Draft updates for social channels - have these ready to go but be flexible in case something awesome happens that you need to react to in the moment. Social needs to be organic. Canned messages are ok, but allow yourself the freedom to change gears in case you get a large gift or a match offer, etc.</li>
+</ul>
+
+<p>This might seem like a lot of work. That’s because it is! But with some careful planning, you can set yourself up for success. And if this still seems like a lot to work out, let us know. We’d love to hear how we can help you achieve your year-end goals.</p>
+]]>
+  </description>
+  <pubDate>Wed, 24 Aug 2016 08:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2016/08/your-year-end-plan/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/08/your-year-end-plan/</guid>
+</item>
+
+    
+      <item>
+  <title>Roadmap to Retention</title>
+  <description>
+    <![CDATA[<p>We’ve talked about <a href="https://thinkshout.com/blog/2016/03/rethinking-strategies-for-online-donor-acquisition/">ways to attract and on-board new supporters</a>. Maybe you’ve started testing some of those strategies and set up a lightbox. That was a lot of hard work! Let’s take a break…</p>
+
+<p>… and talk about how to cultivate those newbies so they don’t abandon ship. It’s called the <a href="http://www.pamelagrow.com/7256/are-you-taking-advantage-of-the-honeymoon-phase-in-your-nonprofit-marketing/">honeymoon phase</a>, and you need to take advantage of it while those contacts are feeling warm and fuzzy about supporting you.</p>
+
+<p>Let’s back up a few steps. Think about the people in your life. You have tertiary contacts - people that are friends of friends, or vague acquaintances that you might see at a party and never again. Then, there are closer contacts – maybe they’re coworkers or people from class. You know them on the surface; some of their hobbies, general interests. You might even connect with them on LinkedIn, maybe Facebook. Then there are our closer friends; these are individuals you have a phone number and personal email for. They aren’t blocked from any of your social media accounts and you text each other frequently. You know each other on a deeper level and rarely find cause for disagreement.</p>
+
+<p>This isn’t an exact parallel to the donor-relationship, but you get the idea. You want that donor to be happy to hear from you and for there to be a mutual appreciation. How can you create that type of relationship and feeling in this new contact?</p>
+
+<p>Spoiler alert: there’s no ultimate, magic solution. You have to test and see what works for your audience. This won’t be the last time you hear me say this, either. The only way to determine what works is to fail early and often… until you don’t. The only way to do that is to test.</p>
+
+<p>What we can do however is provide some basic guidance and make recommendations based on what we in the fundraising community have seen work for us.</p>
+
+<ul>
+  <li>
+    <p>Content: Keep it fresh and up to date on your website - give people a reason to keep coming back to you. This isn’t just of benefit to donors, by the way – refreshing content is good for Google crawlers. They’re responsible for presenting the best content in search results to end users. If your site or home page hasn’t been refreshed in some time, Google may not give you top billing in the search results. There’s a lot more that goes into SEO, but that’s a topic for another time. Bottom line is, don’t let things get stale.</p>
+  </li>
+  <li>
+    <p>It’s like the theme from the Golden Girls, “Thank you for being a friend” er, donor: Set up a stewardship series to be sure you thank your supporters for being awesome. You can’t do the vital work for your cause without them, so show your appreciation! All this money you’ve been asking people for is presumably going towards something good and valuable, share those successes – and make your donors the star.</p>
+  </li>
+  <li>
+    <p>Know your audience: Give them every opportunity to engage with you in the way(s) they want on the platforms they choose. You know your audience best (if not, we need to have a talk about that). If your file is comprised of an older demographic, you may want to hold off on a major investment in a social media push. Alternatively, if you have a younger audience of advocates, they might be more interested in events and ways they can actively participate with your cause online. Again: Know your audience.</p>
+  </li>
+  <li>Track your results: look for patterns (or direct feedback from contacts) in communication preferences. Monitor what gets the best responses as well as what doesn’t so you know what to repeat (or avoid) in the future, and build off those successes.</li>
+  <li>Basically, maintain contact in valuable, meaningful ways. The major reason why people stop supporting an organization, outside of death or changes to one’s financial situation, is due to poor communication. <a href="https://i0.wp.com/fundraisingcoach.com/blog/wp-content/uploads/2013/04/GuestPost-Jay-Love-Why-Donors-Stop-Their-Support.png">This infographic</a> from Bloomerang is a couple years old, but still highly relevant:</li>
+</ul>
+
+<p class="center"><img src="/assets/images/blog/retention-info.png" alt="retention-info.png" /></p>
+
+<p>Here are the top reasons why you’re really losing donors:</p>
+
+<ol>
+  <li>Thought the charity did not need them - 5%</li>
+  <li>No information on how monies were used - 8%</li>
+  <li>No memory of supporting - 9%</li>
+  <li>Never thanked for donating - 13%</li>
+  <li>Poor service or communication - 18%</li>
+</ol>
+
+<p>The good news? It’s totally within your control to make sure you don’t succumb to these pitfalls. Unsure of where to start with your content curation or how to create an editorial calendar everyone in your organization can use? The Lightbox Collaborative has put together a <a href="https://docs.google.com/spreadsheets/d/15jQdv2ITgbUjUZ7U9i2ZEH30aiNiBk95RzX4arE4rAw/edit#gid=0">workbook</a> that’s a great starting point. Still not sure what to make of all of this? We can help – contact us to learn more about our strategic offerings and how we can put you on the roadmap to retention.</p>
+]]>
+  </description>
+  <pubDate>Tue, 31 May 2016 10:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2016/05/roadmap-to-retention/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/05/roadmap-to-retention/</guid>
+</item>
+
+    
+      <item>
+  <title>Rethinking Strategies for Online Donor Acquisition</title>
+  <description>
+    <![CDATA[<p>File attrition is (unfortunately) a completely normal part of nonprofit life, and list churn – aka attrition or loss of subscribers/donors – happens to even the most seasoned cultivation programs. On average, organizations see a monthly churn rate of <a href="http://www.mrbenchmarks.com/" target="_blank">1.7%</a>. That’s why you must create additional opportunities to grow your file and bring more supporters on board.</p>
+
+<p>Some online approaches have been around for a while, some are relatively new, and lastly (but certainly not least) there are some you’d be better off without.</p>
+
+<p>Before we get to the good stuff, it’s important to note that if you want to grow your file, you need to have systems in place to properly welcome these new contacts. You wouldn’t welcome a guest to your home and neglect to show them where the restroom is or where you keep your coffee cups, right? The same goes for new email addresses: you wouldn’t drop them into the communication stream with your next newsletter or fundraising appeal… and it isn’t the way online audiences expect you to interact with them today.</p>
+
+<p>At minimum, prepare an autoresponder message to confirm the user’s registration.</p>
+
+<p>Want to take it a step further? Set up a <a href="http://www.slideshare.net/NonprofitWebinars/the-power-of-the-welcome-series" target="_blank">Welcome Series</a> and go into greater detail about what the user can expect to learn and receive from your organization.</p>
+
+<p>Now, onto the nitty gritty:</p>
+
+<h3 id="google-adwords">Google AdWords</h3>
+
+<p>If you don’t have a <a href="https://www.google.com/intl/ALL/grants" target="_blank">Google Grant</a>, apply for one today (seriously, right after you finish reading this article). Through Google for Nonprofits, you can apply for an Ad Grant that is essentially $10k in in-kind dollars you can use towards advertising on Google.</p>
+
+<p>There are limitations to this advertising method: Ads are text-based, and because of the cap on the cost per click (CPC) there will be some keywords you may not be able to utilize. But overall, it’s an incredible resource available to your organization <a href="https://support.google.com/nonprofits/answer/3215869?hl=en-CA&amp;ref_topic=3247288" target="_blank">if it’s a qualifying 501(c)(3)</a>.</p>
+
+<p>If closely monitored and executed, your organization will gain prime positioning in the search results when people type in a keyword related to your organization. It’s free advertising dollars available to you each month, and well worth the time.</p>
+
+<h3 id="banner-ads">Banner Ads</h3>
+
+<p>The utilization of banner ads and remarketing is growing in popularity (and necessity). In fact, the <a href="http://www.mrbenchmarks.com/" target="_blank"> 2015 Benchmarks Report </a> found that 50% of the organizations surveyed invested in some form of retargeting, while 66% invested in text/display ads. There is definitely stiff competition for visibility and getting your cause in front of the eyes of potential supporters.</p>
+
+<p>So what is retargeting? Well, you’ve most likely experienced it already.  You’re shopping on Amazon, minding your own business, but you decide not to buy those Marc Jacobs shoes today. Before you know it, you’re killing time on Facebook at lunch and you see an ad for those shoes off to the side with those other, creepily relevant ads. Slowly, those shoes become peppered into your online experience wherever you go. This somewhat annoying but effective tactic is called remarketing.</p>
+
+<p>And nonprofits do it, too, with <a href="http://www.nonprofitpro.com/article/finding-your-direct-mail-fundraising-donors-online/2/" target="_blank"> varying degrees of success</a>.</p>
+
+<p>Just as you want to sync your direct mail and online marketing pieces, display ads and remarketing can help to further saturate your potential supporters and convince them to join your cause. Besides, the majority of first time visitors to your site won’t make a gift. Retargeting gives them the opportunity to come back and remedy that mistake(!) –and also helps boost brand recognition.</p>
+
+<h3 id="social-advertising">Social Advertising</h3>
+
+<p>You can also extend retargeting into social channels.</p>
+
+<p>Personally, I think the verdict is still out on fundraising through social media. It is, at best, a reinforcement channel and an opportunity for additional engagement. As an acquisition channel, however, people who follow your cause on social outlets are, typically, warm prospects (if they aren’t already diligent supporters). Those relationships are important to maintain.</p>
+
+<p>Providing quality content that an end user will want to engage with is of utmost importance – but giving them a reason to leave Facebook and go to your website is tantamount to the holy grail.</p>
+
+<p>If you can determine what your audience identifies as high-value content, and only make said content available behind the wall of an email address exchange, you may be able to grow that file in no time.</p>
+
+<p>Another common approach is a pledge call-to-action. I don’t mean pledge in the monetary sense; rather “sign our pledge to end hunger” or “sign our pledge to find a cure for X.” (Ideally, this action would also be tied to social sharing opportunities so that your new supporter can recruit on your behalf). The supporter “signs” the pledge by entering their email address.</p>
+
+<p>There are also benefits to tossing some advertising dollars toward promoted posts on Facebook. Check out how <a href="http://www.networkforgood.com/nonprofitblog/heres-the-best-way-to-fundraise-on-facebook/?utm_source=feedblitz&amp;utm_medium=FeedBlitzRss&amp;utm_campaign=katyasnon-profitmarketingblog" target="_blank"> Healing Waters</a> improved their results for #GivingTuesday with minimum fuss.</p>
+
+<p>If you get the timing right, and know the type of content your audience is likely to engage with, you can increase your brand awareness while growing your file.</p>
+
+<h3 id="lightboxslide-in-aka-a-popup">Lightbox/Slide-In (AKA a popup)</h3>
+
+<p>The general reaction I get when I suggest implementing a lightbox/popup as a means to collect names or donations is for everyone in the room to recoil in horror. But if deployed strategically and when it makes sense, site visitors won’t have an adverse reaction to it. In fact, they’ll be glad you made it easier for them to find what they’re looking for.</p>
+
+<p>You can deploy a lightbox with email signup fields on your homepage. Or, with some minimal sleuthing of your analytics data, you can identify the high-engagement pages on your site and launch a slide-in. Maybe you have a number of informative articles on disease prevention or early detection (for example). While someone is reading said article, a slide-in appears in the lower right corner: “Want to receive more vital information and updates like what you’re reading now? Sign up today.”</p>
+
+<p>It’s all in how you position it. If you’re making their life easier, they won’t mind. But if you constantly interrupt their experience on every page, you’re more likely to receive a negative reaction. (So, don’t do that!)</p>
+
+<p>All of the above recommendations should be paired with a Welcome Series or autoresponder once the submission form has processed. These methods all take some time to plan and deploy.</p>
+
+<p>So, where should you not focus your energy?</p>
+
+<h3 id="buyingrenting-email-lists">Buying/Renting Email Lists</h3>
+
+<p>This often functions through a third party vendor, who will email (on your behalf) a file of hundreds (sometimes thousands) of emails they have identified as having an affinity to your cause. Your organization only gets the names if someone makes a gift or opts in through the vendor’s system.</p>
+
+<p>This method is not only rather expensive, but it rarely (if ever) yields a return worth the investment. That’s not surprising: imagine how you would react to an email in your inbox that you know you didn’t sign up for… from an organization you have never heard of or been involved with. That’s an immediate swipe/delete.</p>
+
+<p>Hubspot did a write-up on <a href="http://blog.hubspot.com/blog/tabid/6307/bid/32892/Why-Purchasing-Email-Lists-Is-Always-a-Bad-Idea.aspx" target="_blank"> why buying a list is a bad idea</a> should you need to bolster your argument to anyone who isn’t convinced.</p>
+
+<p>So, focus on setting up the infrastructure to properly introduce new contacts into your organization, make them feel like they’re a part of something special with a welcome series. Then test, tweak, and re-test some of these methods to see what works best for you.</p>
+
+<p>Have you tried any of these approaches to acquiring email addresses? Share with us what’s worked for you!</p>
+]]>
+  </description>
+  <pubDate>Thu, 03 Mar 2016 08:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2016/03/rethinking-strategies-for-online-donor-acquisition/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/03/rethinking-strategies-for-online-donor-acquisition/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/jekyll/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>A Tale of Two Devsigners</title>
+  <description>
+    <![CDATA[<p>It’s June, which means <a href="http://www.devsignercon.com/">Devsigner</a> is just around the corner so, naturally, we’ve got design on the brain. What’s Devsigner? Well, I’m glad you asked. Devsigner is a conference held here in the Pacific Northwest geared towards front end developers and development-minded designers. Sessions focus on the relationship between design and web development, bridging the gap that separates the design from the code. The math looks like this: developer + designer = devsigner.</p>
+
+<p>ThinkShout’s own devsigners <a href="http://thinkshout.com/team/josh/">Josh Riggs</a> (User Experience Lead) and <a href="http://thinkshout.com/team/eric/">Eric Paxton</a> (Front End Engineer), will be speaking at this conference at the end of the month. I sat down with Josh and Eric to learn a little bit more about their design process, and how we work with our nonprofit clients to ensure that their sites don’t just work, but that they also deliver a fantastic user experience.</p>
+
+<p><strong><em>You two make up the dynamic design duo here at ThinkShout. What do your respective roles entail? How do you leverage your different skill sets?</em></strong></p>
+
+<p><strong>Josh</strong>: My role as the UX lead right now is handling all aspects of user experience and visual design. I’m responsible for interpreting site maps and requirements, plus things like client/user needs and creating a user interface out of that. That starts with wireframing and ends with a visual design layer.</p>
+
+<p><strong>Eric</strong>: My role as Front End Engineer is very much in the implementation phase. Though I do advise in the discovery and budgeting phase, just so we can be sure that we can actually implement what the client wants. It’s nice because in the past, before joining the ThinkShout team, I’d done the whole gamut. From the requirements gathering phase to wireframing, and then the implementation. Here at ThinkShout, I’ve found my sweet spot. I do occasional wireframing, but I get to focus on lots of implementation. I also implement Josh’s designs. I write a lot of Javascript and <a href="http://thinkshout.com/blog/2014/07/getting-started-with-sass-for-drupal-and-zen-part-ii/">Sass</a>, basically.</p>
+
+<p><strong>Josh</strong>: Eric is like the alchemist. He takes the metals - the designs from me - and turns them into websites. There is actually a large spectrum in between where my responsibilities stop and Eric’s begin. We still talk about things like, how do we go from an idea being on a screen, to that idea being a functioning website? We’re constantly thinking about how to best utilize our respective skillsets, always reevaluating our process to improve upon it.</p>
+
+<p><strong><em>What’s a recent project that you’ve really enjoyed working on?</em></strong></p>
+
+<p><strong>Eric</strong>: <a href="http://selma.splcenter.org/">The SPLC (Southern Poverty Law Center) microsite</a>. I thought that was very well done. Josh did a lot of the front end work on that and I came in and did the site optimization, which is what I’ll be talking about at Devsigner. I thought that went really smoothly because at that time, all the work he’d done in the browser went directly to implementation. We were able to take exactly what he’d designed and <a href="http://thinkshout.com/blog/2015/03/media-optimization-with-splc/">just build off of </a><a href="http://thinkshout.com/blog/2015/03/media-optimization-with-splc/">it</a>.</p>
+
+<p><img src="/assets/images/blog/devsigner_0.png" alt="devsigner_0" /></p>
+
+<p><strong><em>Can you talk a little bit about what the design process for the SPLC microsite was like, Josh?</em></strong></p>
+
+<p><strong>Josh</strong>: We happened to be working on that right around the same time as I was doing wireframes for the upcoming <a href="http://www.splcenter.org/">SPLC</a> main site that we’re redesigning. We were already doing a lot of thinking about their content and what their needs were. Because the <a href="http://thinkshout.com/work/splc/selma/">Selma: Bridge to the Ballot</a> movie was coming out on the anniversary of the Selma March, we wanted to have this ready to go in time for that day. There was no way we were going to launch the whole SPLC site along with it - we were too early in development for that - so we decided to split that project up and give them a campaign microsite that would be easy to build while we continued to work on their main site.</p>
+
+<p>A lot of that meant working with their team to define their content needs. I began with basic wireframes in <a href="http://bohemiancoding.com/sketch/">Sketch</a>, and uploaded them into <a href="http://www.invisionapp.com">Invision</a> to give them interactivity. As SPLC came up with more fidelity to what their needs were, we solidified the visual designs. Luckily, they already had a lot of assets that their really great internal design team had created for the movie, so I was able to go off of that style. I took their visual style and applied it to the wireframes and at that point, I went to Eric for a consultation and said, “Ok, if we’re going to build this in <a href="http://thinkshout.com/blog/2014/10/success-building-cmsless-production-sites-with-jekyll/">Jekyll</a>, what’s the best way to do this as far as the architecture goes?” Eric was a huge help in regards to file structure. He wrote a great rake script to automate all the Jekyll, Sass, and Javascript components. That’s when I jumped in and rebuilt what I’d done in Sketch, and added more fidelity with HTML and Sass. I then passed it onto to Eric so he could do his unicorn magic.</p>
+
+<p><img src="/assets/images/blog/devsigner_1.png" alt="devsigner_1" /></p>
+
+<p><strong>Eric</strong>: And that’s a nice part about where our skills overlap: we can get closer to what we want. He’s a better designer than I am. My strengths lie in the code. I’ve designed when I had to, but it’s not my forte, so it’s nice to have Josh’s expertise. So these skill sets compliment each other. I feel comfortable handing over my implementation to design and saying, “Hey, can you polish the nav? Or the design?” Things like that.</p>
+
+<p><strong><em>What design trends do you want to see more of? Or less of?</em></strong></p>
+
+<p><strong>Eric</strong>: I think <a href="https://en.wikipedia.org/wiki/Flat_design">flat design</a> is getting boring. I’m starting to see a little bit more texture in the things we’ve done. Like patterns, not just flat design for the sake of flat design. There’s texture strategically used to make things look better. For instance, in the <a href="https://www.austinfoodbank.org/">Capital Area Food Bank of Texas</a> site, there’s a bit of a pattern in the footer. It’s not just a flat blue background with text. I really like patterns that are used to call out different sections of a design. It adds to it and brings something out of the page. It used to just be that admin interfaces were this flat. But now everything reflects that. Lots of rectangles. I personally like shapes and textures and patterns.</p>
+
+<p><img src="/assets/images/blog/devsigner_2.png" alt="devsigner_2" /></p>
+
+<p><strong>Josh</strong>:  It’s tricky to know when to add life to what’s a very flat trend right now. I come from the old school world of web design, which was about how cool can you make your shadows look in Photoshop, how three-dimensional can you make things appear. Now that’s kind of like wearing skinny jeans in the late nineties, when you wouldn’t be caught dead wearing them. Or neon colors. So I think what’s happening is that it’s not <em>just</em> that flat design is popular. If you look at other design mediums, like automotive or architecture, there’s a phase with extreme ornate elements. You know, crazy fins, details, lights, every car had a custom badge. All that stuff. And then you have the modern era after that where everything gets streamlined and simplified. It’s more about the function over the form, and the function drives the form. You see the opposite in the Victorian era. Go walk along the St. Johns bridge and look up at a lamp. You’ll see these ornate, twisted little embellishments along the lamps. But the purpose of a lamp is to provide light. Those embellishments do nothing to support the function. They’re just there to make it look pretty.</p>
+
+<p>I think we’re seeing a lot of that in digital design as it matures. We’re getting rid of the stuff that doesn’t support the function and focusing more on the <em>intent</em> of the users. While we’re taking that ornate-ness out of it, we’re also adding a lot more micro-interactions and animations. Things that actually help you do what you’re there to do. At first, I was kind of against that. But now that I think about it as post-modern design for the web, it makes more sense to me.</p>
+
+<p><strong><em>How do you advise nonprofits on this? Do these same trends benefit nonprofits as much as they do for-profits?</em></strong></p>
+
+<p><strong>Eric</strong>: I think knowing your end user is what determines your path. A lot of nonprofits have similar goals as for-profits when it comes to their websites - they’re trying to tell a story and engage their users. But the main thing is, do the organizational goals reflect what the user is coming there for? For instance, we work with the <a href="http://thinkshout.com/work/la-conservancy/">LA Conservancy</a>. They work to preserve historical buildings in LA. We didn’t just look at them, and then try to make their website look like a pretty building. But we also had this discussion in LA about form versus function. But I wonder, where does that meet in the middle? That’s what I struggle with. Because I do think there’s value in ornate elements like that. They set a mood. So I think that’s part of function - that ornateness sets the mood you want to present to your users to help them feel the connection to the organization’s cause.</p>
+
+<p><strong>Josh</strong>: Nearly every major design phase, whether it be automotive, architecture, art, whatever, there’s always a backlash to those current trends. So there will be backlash to flat web design. It may be a subculture, it may take over. But whenever something gets to be ubiquitous, there’s always someone who wants to do something totally different. It’ll be interesting to see what that is.</p>
+
+<p><strong><em>I feel like that’s the nature of creativity… We see something, we make it part of our process, plus a spark of something new.</em></strong></p>
+
+<p><strong>Eric</strong>: We all have things we’re influenced by. To me, Google stands out. They’ve really led in the trends that people are using. There’s a level of depth to their designs that make me feel like I can reach out and grab it. It’s flat in some ways, but yeah, there’s definitely some depth.</p>
+
+<p><strong>Josh</strong>: Yeah, I think Google’s done a really great job. And you can see this happening in the app world. The current trend is also getting ubiquitous.</p>
+
+<p><strong><em>Devsigner is at the end of the month and you both are leading your own sessions. Can you tell us a bit about them?</em></strong></p>
+
+<p><strong>Eric</strong>: My session is called “Optimization is User Experience.” I think this is something everybody can use, which is why it’s listed as a beginner talk. We learn web design, we learn app design, we release these things to the world where we don’t have control over devices and users’ bandwidth, so it’s important to know that this beautiful thing you’ve created can be experienced correctly regardless of what device it’s viewed on.</p>
+
+<p><strong>Josh:</strong> So my session is based on something I’ve noticed. I worked on a lot of projects where there’s limited time, budget, or resources. Maybe there isn’t any resource for stock photography, or there’s just a really small team working on it. I’ve always had to find ways to be creative with what I have and with a small budget. I signed up to speak at <a href="http://rfrshpdx.org/">Refresh Portland</a> and I figured this might be a shared struggle and that other people could learn from my experience: how to stay under budget and still come up with a great, workable design. It’s called “Ballin’ on a Budget.”</p>
+
+<p><em>Want to dig deeper into design with Josh and Eric and pick their brains? Come to <a href="http://www.devsignercon.com/">Devsigner</a>, which takes place during June 27-28 at the Pacific Northwest College of Art in Portland, Oregon. Check out the full session schedule on the Devsigner site. You can also follow Josh and Eric on Twitter at @joshriggs and @epxtn.</em></p>
+]]>
+  </description>
+  <pubDate>Tue, 16 Jun 2015 11:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/06/tale-of-two-devsigners/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/06/tale-of-two-devsigners/</guid>
+</item>
+
+    
+      <item>
+  <title>Media Optimization for Selma, Bridge to the Ballot</title>
+  <description>
+    <![CDATA[<p>Imagine for a moment: you’ve just finished making the most gorgeous website you’ve ever made. It’s got the works — the newest, wiz-bang plugins. Heck, you don’t even have to support IE 6-8. You’ve achieved what I like to call “made in the shade.” These creations work well until you release them from their controlled environment. Out in the wild, websites, mobile applications, and other connected devices have to contend with lots of requests, network latency, bandwidth and other things. They get slow in the wild. This fabulous creation has no control over network congestion and user device capabilities. You do have control over how many requests your page makes to the serve and the size of those requests. Remember these two things:</p>
+
+<ul>
+  <li>
+    <p>Speed is a feature</p>
+  </li>
+  <li>
+    <p>Make the first request count</p>
+  </li>
+</ul>
+
+<p>ThinkShout worked with the Southern Poverty Law Center to launch <a href="http://selma.splcenter.org/">Selma — Bridge to the Ballot</a>. It’s a single-page site that includes a background video, a video trailer, photo gallery and a nice, clickable timeline. I had the opportunity to make front end optimizations on this site.</p>
+
+<p>To make your site load fast, you should spend time reducing the size of your assets where possible. Also we should do what we can to get the HTML and CSS down to the user as soon as possible. This is called optimizing for the<a href="https://docs.google.com/presentation/d/1IRHyU7_crIiCjl0Gvue0WY3eY_eYvFQvSfwQouW9368/present?slide=id.gc57996a9_046"> critical rendering path</a>. This is the approach we took on the Selma website.</p>
+
+<p>Most of the work happened on 4 types of assets — video, images, CSS/JS and Fonts.</p>
+
+<h2 id="benchmarking">Benchmarking</h2>
+
+<p>Chrome developer tools for measuring the load times, file sizes and network requests. There is also a featured called<a href="https://developer.chrome.com/devtools/docs/device-mode"> device mode</a>. You can emulate a variety of mobile devices and simulate network speeds with device mode.</p>
+
+<p><img src="/assets/images/blog/selma-media-image_1.png" alt="selma-media-image_1.png" /></p>
+
+<p>After we initially built this site, with no optimization, it weighed in at about 20MB. On Selma, we simulated a normal 3G connection. We measured 76 web requests. On this connection, it took close to 10 seconds before there was any paint on the page. Yes, that’s a huge number, but keep in mind this is just a starting point.</p>
+
+<h2 id="video">Video</h2>
+
+<p>The intro to the site begins with an HTML video as the background. Videos are large, even small ones. We used <a href="http://www.webmproject.org/">WebM</a> format, supported across most modern browsers and an MP4 as a fallback. WebM files are much smaller. Along with the size consideration, we did not want the background video to load on mobile phones. Additionally, on larger screens, the background video needed to pause when a user clicked the “play trailer” button, then play again when the user finished viewing the trailer.</p>
+
+<p>If you put the video tag in the document body, it will load even if you set it to display: you don’t need to put it in your css. A trick we used was to avoid this when writing out the video to only write out the video to the page only when loading on a large screen. We use a loadVideo() function to write out our video. And we only load it when the screen is larger than a phone or resized to larger than mobile.</p>
+
+<p>Here is what we do to load the video when we want. Our examples will assume the use of jQuery because that’s what we used.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Function to write the video to the video container</span>
+<span class="kd">function</span> <span class="nx">loadVideo</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">$</span><span class="p">(</span><span class="s1">'.video-container'</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span>
+		<span class="s1">'&lt;video&gt;'</span> <span class="o">+</span>
+			<span class="s1">'&lt;source src="path/to/video.webm"&gt;'</span> <span class="o">+</span>
+			<span class="s1">'&lt;source src="path/to/video.webm"&gt;'</span> <span class="o">+</span>
+		<span class="s1">'&lt;/video&gt;'</span>
+	<span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Initially check the screen size and load the video if we need it</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">width</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">480</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">loadVideo</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// If the window size change and the video isn’t already loaded,</span>
+<span class="c1">// load the video</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">resize</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">width</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">481</span> <span class="o">&amp;&amp;</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.header-video video'</span><span class="p">).</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+ 		<span class="nx">loadVideo</span><span class="p">();</span>
+	<span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Next, we wanted to pause the video when the pause/play background video ‘play trailer’ button is clicked. The HTML video tag contains javascript methods to manipulate it. We take advantage of two aptly-named methods: play() and pause(). We used the Magnific Popup plugin for our image gallery and video trailer. With this plugin, we are able to supply our play and pause methods as callback methods in to fire in the plugin configuration options.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="s1">'.play-button'</span><span class="p">).</span><span class="nx">magnificPopup</span><span class="p">({</span> 
+	<span class="na">callbacks</span><span class="p">:</span> <span class="p">{</span> 
+		<span class="c1">// When the our popup opens pause         </span>
+		<span class="na">open</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> 
+			<span class="nx">$</span><span class="p">(</span><span class="s1">'video'</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">pause</span><span class="p">();</span>   
+		<span class="p">},</span>  
+		<span class="c1">// When our popup closes play                                                                                        </span>
+		<span class="na">close</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+			<span class="nx">$</span><span class="p">(</span><span class="s1">'video'</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">play</span><span class="p">();</span>
+		<span class="p">}</span>
+	<span class="p">}</span>                                                                                                              
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Now when a user plays the trailer, we get what we want with hardly any additional code. The plugin and the HTML5 Javascript API do it for us.</p>
+
+<h2 id="images">Images</h2>
+
+<p>Unoptimized images are assets most responsible for slow load times on the internet. You should compress your images so they render faster. Also, sprite smaller images so they come in as a single request. Wherever possible, use background images. Inline images slow down page rendering. These optimizations are key to doing the most with the first request you make to the server. Remember, we want to get our html and CSS down to our user expeditiously.</p>
+
+<p>A great tool for reducing the size of your images is<a href="https://tinypng.com/"> TinyPNG</a>. You can get<a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization#lossless-vs-lossy-image-compression"> lossy</a> compression and still keep the alpha transparency of your images. There are other tools available as well such as Yahoo’s<a href="http://www.imgopt.com"> Smush.it</a>.</p>
+
+<p>If you have large background images, create mobile versions of those images. When your site loads on mobile, those images will be applied without any additional web requests.</p>
+
+<p>Finally, choose the right image format. If you don’t need transparency, use a jpg. If you need better detail in your images use a PNG. If you need animation, use a GIF. Using a PNG for a large background image will unnecessarily cause your user to download a huge file.</p>
+
+<h2 id="css-and-js">CSS and JS</h2>
+
+<p>The faster you get the HTML and CSS down, happier the site user will be. It’s been shown that a user likes to have content rendering within at least three seconds of requesting the page. A user would rather see progressive rendering of the page than a blank page and then have everything load all at once.</p>
+
+<p>Where we declare our CSS/JS matters. Put stylesheets and scripts used for your above-the-fold content in the head of your document. The CSS/JS we needed for our video and splash image are included in the head of our document.</p>
+
+<p>Do just the opposite for scripts you need last. On the Selma, site we use a plugin called <a href="http://timeline.knightlab.com">TimelineJS</a>. TimelineJS has several requests associated with the plugin, including images from Flickr. We declared that script right before the close of our body tag. Why? We don’t need it until way the user gets to the bottom of our page. If we included it in the head we would be blocking HTML CSS and JS needed to get above the fold content to the user. This is another form of progressive enhancement.</p>
+
+<p>Lastly, aggregate your CSS and JS so you don’t make unnecessary server requests. In our case, we use<a href="https://github.com/ixti/jekyll-assets"> Jekyll Assets</a> for our asset pipeline. This plugin will let us compress our CSS with <a href="http://sass-lang.com/">Sass</a> and JS with<a href="https://github.com/lautis/uglifier"> Uglifier</a>. Fewer CSS and JS requests get painted on to the browser quickly.</p>
+
+<h2 id="fonts">Fonts</h2>
+
+<p>Fonts that are already on your user’s computer don’t cost you any extra. On Selma, we realized we had a font that looked almost identical to Georgia. Using @font-face will make a request for the font files you need. So we got rid of the custom font we were using. There are about four files for each font. So if you have one font, but that font has a regular, bold, and italic typeface, you’ve just made 12 server requests for that font.</p>
+
+<p>In addition, if you are going to use @font-face, use an appropriate fallback font. I say appropriate because when your font finally loads, you don’t want it to be a jarring experience for the user.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>In the end, were able to get our site down to 1.4MB, and painting to the page in less than 1 second on a normal 3G network. We now have 43 requests and our entire DOM is loaded in 2.45 seconds on this connection. There is a lot more fine tuning we can do here. But this shows how snappy you can make your site just by doing basic optimizations around the aforementioned 4 types of assets.</p>
+
+<p>Be mindful of bandwidth and network latency. Reduce image size. Aggregate CSS/JS. Delay blocking JS. These are easy things any front end developer can do to optimize websites and make users happy. I am a fan of <a href="https://www.igvita.com/">Ilya Grigorik</a>, web performance engineer at Google. He is a great resource on the subject. He also has a book you can read called <em>High-Performance Browser Networking</em>. It’s a great resource on web optimization.</p>
+
+<p>The Selma site launched just in time for the 50th anniversary of the Selma-to-Montgomery marches. As users from around the world accessed the site to commemorate the events of Bloody Sunday, even those with low bandwidth connections could learn about this pivotal moment in the Civil Rights Movement for themselves on the web.</p>
+]]>
+  </description>
+  <pubDate>Tue, 31 Mar 2015 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/03/media-optimization-with-splc/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/03/media-optimization-with-splc/</guid>
+</item>
+
+    
+      <item>
+  <title>Creating Dynamic Menus in Jekyll</title>
+  <description>
+    <![CDATA[<p>When thinking about the “pros” of using a CMS, the robust menu system that is provided “out of the box” is usually at the top of the list. That said, when we decided to use Jekyll to build a production quality site for <a href="http://www.feedingtexas.org/">Feeding Texas</a> we knew creating a content manager-friendly menu system was a must.</p>
+
+<p>There were many challenges in building a production-ready site in Jekyll, which I covered in my last blog post, <a href="http://thinkshout.com/blog/2014/10/success-building-cmsless-production-sites-with-jekyll">Success Building CMS-less Production Sites with Jekyll</a>, but the generation of a menu system that would make content management simple for end users was surprisingly vexing – mostly because this is taken for granted when using a CMS like Drupal.</p>
+
+<p>As I embarked upon this task, my initial Googling surfaced several approaches for generating a structured menu in Jekyll, but none of them satisfied both of the criteria I had defined as necessary to make the menu system ready for a non-technical client to use easily:</p>
+
+<ul>
+  <li><strong>Recursive</strong> – I want my primary (header) and secondary (navigation) menu structure and the associated styling (e.g. active page underlined) to hold true regardless of where I am in the menu tree. This is useful when a landing page that is linked from the primary menu has several siblings you’d like to be able to page between via a secondary navigation menu. To visualize this, check out <a href="http://www.feedingtexas.org/about/">the Feeding Texas “About” page</a>.</li>
+  <li><strong>Dynamic</strong> – when I add a page, I want the menu to be updated… automatically. This is helpful because all content managers need to do is create a new Markdown file and, voila! – a new menu item.</li>
+</ul>
+
+<h2 id="popular-approaches-and-why-they-fall-short">Popular Approaches and Why They Fall Short</h2>
+<p>For both of the above criteria to be true, we cannot use either of the most popular Jekyll menu solutions I found on the web.</p>
+
+<h3 id="data-driven-approach">Data-Driven Approach</h3>
+<p>The data-driven approach I found to be popular [<a href="http://christianspecht.de/2014/06/18/building-a-pseudo-dynamic-tree-menu-with-jekyll/">1</a>,<a href="http://www.tournemille.com/blog/How-to-create-data-driven-navigation-in-Jekyll/">2</a>,<a href="https://github.com/Painted-Fox/jekyll-site-menus">3</a>] falls short because using a YML data file (e.g. <code class="highlighter-rouge">_data/menu.yml</code>) to scaffold the menu tree is not dynamic. At worst, the data file needs updating each time we add a page [<a href="http://www.tournemille.com/blog/How-to-create-data-driven-navigation-in-Jekyll/">2</a>] or, at best, when we add a new menu level [<a href="http://christianspecht.de/2014/06/18/building-a-pseudo-dynamic-tree-menu-with-jekyll/">1</a>].</p>
+
+<h3 id="frontmatter-driven-approach">Frontmatter-Driven Approach</h3>
+<p>Jekyll helpfully stores a <code class="highlighter-rouge">site.pages</code> variable that can be looped over in the following way to generate a list of all pages in the site.</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;ul&gt;</span>
+      {% for p in site.pages %}
+        <span class="nt">&lt;li&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"{{ p.url }}"</span><span class="nt">&gt;</span>{{ p.title }}<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+      {% endfor %}
+    <span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+<p></p>
+
+<p>This technique is powerful, but limited. We certainly don’t get all we need without some more Liquid work.</p>
+
+<p>For example if we wanted to style the active menu item, we could change the line outputting the link from the above snippet to…</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;a</span> <span class="err">{%</span> <span class="na">if</span> <span class="na">p</span><span class="err">.</span><span class="na">url =</span><span class="s">=</span> <span class="na">page</span><span class="err">.</span><span class="na">url</span> <span class="err">%}</span><span class="na">class=</span><span class="s">"active"</span><span class="err">{%</span> <span class="na">endif</span> <span class="err">%}</span> <span class="na">href=</span><span class="s">"{{ p.url }}"</span><span class="nt">&gt;</span>{{ p.title }}<span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+<p></p>
+
+<p>Here we make use of the <code class="highlighter-rouge">page.url</code> variable, which refers to the URL of the current page, to add special styling to the active menu item.</p>
+
+<p>We could also add arbitrary frontmatter variables to all pages to achieve a number of different goals. For example, if we wanted to order the output of <code class="highlighter-rouge">site.pages</code> in some arbitrary way, we could add a <code class="highlighter-rouge">weight</code> frontmatter variable to each page and sort by said property before we start our loop.</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    {% assign pages = site.pages | sort:"weight"  %}
+    {% for p in pages %}
+      do something
+    {% endfor %}
+</code></pre></div></div>
+<p></p>
+
+<p>We could also group pages we wanted to appear in the same subnav (think back to Feeding Texas’ <a href="http://www.feedingtexas.org/about/">about</a> page linked above).</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    {% for p in site.pages %}
+      {% if group == "group1" %}
+        do something
+      {% endif %}
+    {% endfor %}
+</code></pre></div></div>
+<p></p>
+
+<p>While powerful, these solutions require the maintenance of frontmatter variables among all pages on the site – something a content manager would like to avoid.</p>
+
+<h2 id="the-solution-use-urls">The Solution: USE URLs!</h2>
+<p>The fact that my initial Googling did not turn up any examples of folks leveraging URLs to generate menus shocked me. URLs are, after all, a machine readable representation of a menu tree!</p>
+
+<p>Using the powerful <code class="highlighter-rouge">site.pages</code> variable and some fancy Liquid, I was able to achieve a no-maintenance solution for generating multi-level menus:</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign url_parts = page.url | split: '/' %}
+{% assign url_parts_size = url_parts | size %}
+{% assign rm = url_parts | last %}
+{% assign base_url = page.url | replace: rm %}
+
+<span class="nt">&lt;ul&gt;</span>
+{% for node in site.pages %}
+  {% if node.url contains base_url %}
+    {% assign node_url_parts = node.url | split: '/' %}
+    {% assign node_url_parts_size = node_url_parts | size %}
+    {% assign filename = node_url_parts | last %}
+    {% if url_parts_size == node_url_parts_size and filename != 'index.html' %}
+      <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">'{{node.url}}'</span><span class="nt">&gt;</span>{{node.title}}<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    {% endif %}
+  {% endif %}
+{% endfor %}
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+<p></p>
+
+<p>The code above is set up to be used as <a href="http://jekyllrb.com/docs/templates/#includes">an include</a>. Let’s walk through the file to get a better sense of what it’s doing…</p>
+
+<p>First we need to get the URL of the current page so we know where we’re currently at in the menu tree.</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    {% assign url_parts = page.url | split: '/' %}
+</code></pre></div></div>
+<p></p>
+
+<p>Here we are also splitting the URL into an array so we can ask additional questions like, “how many levels deep are we?”</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    {% assign url_parts_size = url_parts | size %}
+</code></pre></div></div>
+<p></p>
+
+<p>Knowing the size of the array gives us our depth in the menu tree, which is helpful to render items at the same level of depth (again Feeding Texas’ <a href="http://www.feedingtexas.org/about/">about</a> page).</p>
+
+<p>However, knowing our menu depth does not give us all we need to generate an appropriate subnav, as we likely do not want <em>all</em> pages the same depth, but rather pages at the same depth that share the same parent menu item.</p>
+
+<p>For example, if we’re on the page generated by <code class="highlighter-rouge">hunger-atlas.md</code> we want our subnav to contain it and its <code class="highlighter-rouge">snapshot-texas.md</code> sibling.</p>
+
+<p>Temp image: <img src="https://cloud.githubusercontent.com/assets/3582018/4709107/03dd7960-589d-11e4-8ecc-74d444e3a2f5.png" alt="menu-depth" /></p>
+
+<p>This currently broken image will be used for the live post:<img src="http://thinkshout.com/assets/images/feeding-texas-menu-depth.png" alt="menu-depth" /></p>
+
+<p>We don’t want <code class="highlighter-rouge">/news/blog/foo/index.html</code> although it’s at the same menu level as <code class="highlighter-rouge">/learn/communities/hunger-atlas/index.html</code>.</p>
+
+<p>To accomplish this, we’ll generate a <code class="highlighter-rouge">base_url</code> to give us a relative sense of where we are in the menu tree.</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    {% assign rm = url_parts | last %}
+    {% assign base_url = page.url | replace: rm %}
+</code></pre></div></div>
+<p></p>
+
+<p>Note we’re removing the implicit <code class="highlighter-rouge">index.html</code> from the URL. This assumes we have not set a <a href="http://jekyllrb.com/docs/permalinks/">permalink</a> for the relevant pages.</p>
+
+<p>Now we’re ready to start our loop through <code class="highlighter-rouge">site.pages</code>:</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;ul&gt;</span>
+    {% for node in site.pages %}
+      {% if node.url contains base_url %}
+        {% assign node_url_parts = node.url | split: '/' %}
+        {% assign node_url_parts_size = node_url_parts | size %}
+        {% assign filename = node_url_parts | last %}
+        {% if url_parts_size == node_url_parts_size and filename != 'index.html' %}
+          <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">'{{node.url}}'</span><span class="nt">&gt;</span>{{node.title}}<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    <span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+<p></p>
+
+<p>In this loop we ask 3 things – all of which must be true to add a page to the subnav menu:</p>
+
+<ol>
+  <li>Does this page’s URL contain the <code class="highlighter-rouge">base_url</code>? This eliminates pages at the same menu depth, but with different parent items</li>
+  <li>Is the page at the same menu depth as the page currently being viewed? This eliminates items below the current menu depth</li>
+  <li>Is page’s filename <code class="highlighter-rouge">index.html</code>? This eliminates pages that should exist one level higher in the menu tree</li>
+</ol>
+
+<p>The last point requires a little explanation…</p>
+
+<p>There are two ways of creating pages in Jekyll:</p>
+
+<ul>
+  <li><a href="http://jekyllrb.com/docs/pages/#named-html-files">Named HTML files</a></li>
+  <li><a href="http://jekyllrb.com/docs/pages/#named-folders-containing-index-html-files">Named folders containing index HTML files</a></li>
+</ul>
+
+<p>If you’re using the former method, you don’t need to do check #3. I assumed the latter because it’s the more difficult menu generation scenario and many will opt for the clean URLs it produces.</p>
+
+<p>In addition to clean URLs, using the “Named folders” method to create pages allows for implicit parent page detection. Adding a parent page link to the subnav improves the user experience by allowing users to descend and ascend the menu tree. Without a parent page link, if the user clicked a link that took them deeper down the menu tree, they would be presented with a different subnav than the previous page (remember, we only see subnav items at the current level of the menu tree) and have no way of getting back other than to use their browser’s “back” button.</p>
+
+<p>Generating the parent page link is straightforward since you already have the <code class="highlighter-rouge">base_url</code> and know the name of the file will be <code class="highlighter-rouge">index.html</code>, so I’ll spare you the walkthrough.</p>
+
+<h2 id="roundup">Roundup</h2>
+<p>Although Jekyll is a static site generator, you have all you need when the site is being built to achieve dynamically generated menus without writing a custom plugin. Although it requires some legwork up front, this solution creates a CMS-like user experience for content managers without the performace overhead of the CMS.</p>
+
+<p>That said, after building a dynamic menu system for a platform that does not include one, I’ll never take the ease and value of Drupal’s menu system for granted again.</p>
+
+]]>
+  </description>
+  <pubDate>Tue, 02 Dec 2014 07:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2014/12/creating-dynamic-menus-in-jekyll/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/12/creating-dynamic-menus-in-jekyll/</guid>
+</item>
+
+    
+      <item>
+  <title>Success Building CMS-less Production Sites with Jekyll</title>
+  <description>
+    <![CDATA[<p>As an organization that works primarily with nonprofits, ThinkShout is no stranger to the “small organization, big impact” problem. The problem is that small organizations have budgets commensurate with their size and goals, for which the sky is the limit.</p>
+
+<p>Resolving this problem requires acute awareness of how to build what is necessary to allow an organization to meet their goals. In other words, “how can we build everything this organization needs and nothing more?”</p>
+
+<p>When <a href="http://www.feedingtexas.org/">Feeding Texas</a> approached us to redesign their site, it became clear we could leverage both their small size <em>and</em> their large ambitions as “pros” for using <a href="http://jekyllrb.com/">Jekyll</a>. Feeding Texas works to provide food security to all Texans by coordinating a statewide network of food banks, initiating scalable public action that empowers Texans to solve their hunger problems collaboratively, and guiding the public conversation surrounding hunger in Texas. The site is designed to advance this work by first engaging visitors at a local level before leading them to connect with Feeding Texas in their state-wide effort to end hunger. By generating interest about hunger next door, Feeding Texas is able to motivate its constituents to do their part in resolving the larger issue at the heart of its mission.</p>
+
+<h3 id="why-jekyll-works-for-small-organizations-that-need-to-make-a-big-impact">Why Jekyll Works for Small Organizations That Need to Make a Big Impact</h3>
+<p>Feeding Texas has two characteristics shared by many small organizations:</p>
+
+<ol>
+  <li>Limited capacity to generate and update content</li>
+  <li>Need to appear as big as a BIG organization</li>
+</ol>
+
+<p>Jekyll is the glass slipper for this dilemma for two reasons:</p>
+
+<ol>
+  <li><strong>Large budget savings by not implementing an in-site CMS</strong> – a small content management team means relatively simple content management needs. There’s no reason to use a full-blown CMS like Wordpress or Drupal.</li>
+  <li><strong>Rapid development and excellent DOM control</strong> allowed the funds saved to be reinvested in the site’s visual presentation with maximum returns</li>
+</ol>
+
+<p>However, this left us with one big engineering question…</p>
+
+<h3 id="jekyll-has-no-cms-how-do-we-allow-non-technical-end-users-to-manage-content">Jekyll Has No CMS. How Do We Allow Non-Technical End Users to Manage Content!?</h3>
+
+<p>Our solution to this problem is multi-faceted…</p>
+
+<h4 id="github-for-content-management">GitHub for Content Management</h4>
+
+<p>Since all content for a Jekyll site is stored in text files (markdown, csv, HTML, etc.) all content can be managed from the GitHub interface. Alternatively, there are tools like <a href="http://prose.io">Prose</a> that are well-integrated with Jekyll and allow for a more robust content editing experience.</p>
+
+<h5 id="complex-content-management-with-simple-csv-inputs">Complex Content Management with Simple CSV Inputs</h5>
+<p>Tools like Github allow for simple updates like changing text on a page, but can also allow for complex content management as is the case with Feeding Texas’ <a href="http://www.feedingtexas.org/zip/78056/">zip-code detail pages</a>. These pages are generated from a CSV input that holds data for each zip code in Texas. The CSV file is processed when the site is built by a <a href="https://github.com/thinkshout/feeding-texas/blob/master/_plugins/csv_to_page.rb">custom Ruby plugin</a> that creates a page for each zip code. From a content management standpoint, this means Feeding Texas can update hundreds of pages in three simple steps:</p>
+
+<ol>
+  <li>Edit the CSV file with the preferred tool (Excel, etc.)</li>
+  <li>Copy and paste the contents of the file into the GitHub interface</li>
+  <li>Commit the updated file</li>
+</ol>
+
+<p>This commit then triggers a re-build of the site wherein each zip code detail page will contain the updated CSV data.</p>
+
+<h5 id="reusable-content-blocks">Reusable Content Blocks</h5>
+
+<p>Another popular content management concept that was difficult to implement in Jekyll until the 2.0.0 release was blocks of content that could be stored in a single place and used in multiple places around the site. <a href="http://jekyllrb.com/docs/collections/">Collections</a> made this much easier. On the Feeding Texas site, we created collections for several things ranging from <a href="http://www.feedingtexas.org/learn/communities/hunger-atlas/">calls to action (scroll to page bottom)</a> to <a href="http://www.feedingtexas.org/about/staff/">staff profiles</a> that can be placed anywhere on the site by specifying their index (where the index could be any YAML frontmatter variable). So, for example, if a Feeding Texas content manager wanted to create and use a new call to action block, they would do two things:</p>
+
+<ol>
+  <li>Create a markdown file for the block and include a frontmatter variable like this: <code class="highlighter-rouge">index: 1</code>.</li>
+  <li>Then to apply the new block to a page, they’d specify the block’s index as a frontmatter variable in the page’s markdown file like this:</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>calls_to_action:
+  - 1
+  - 2
+</code></pre></div></div>
+<p>…and our templates do the rest.</p>
+
+<h5 id="challenges-of-using-github-as-a-content-management-tool">Challenges of Using GitHub as a Content Management Tool</h5>
+<p>One difficulty of using GitHub for content management is there is no way to add image or video files through the GitHub interface. This is problematic because it is something content managers expect to be able to do, and we cannot simply add the files to the (compiled) live site directory (via FTP for example) because each commit triggers a wipe and a rebuild of said directory. To work around this problem, we created an Amazon S3 bucket dedicated to storing assets (images, videos, etc.) and reference the assets statically anywhere they need to be used on the site.</p>
+
+<p>As a side note, the site is also hosted on an S3 bucket and we did consider putting both S3 buckets behind a CDN, but ultimately decided this was not necessary. That said, it’d be a trivial way to increase site performance if we ever wanted a boost.</p>
+
+<p>Since assets are stored on a server that will persist, management of them becomes very straightforward. Feeding Texas uses S3’s built in file management UI (pictured below), but you could just as easily use <a href="http://panic.com/transmit/">Transmit</a> or any other FTP client.
+<img src="http://thinkshout.com/assets/images/blog/amazon-s3-file-mgmt-ui.png" alt="S3 file management UI" /></p>
+
+<h4 id="travis-ci-for-deployment">Travis CI for Deployment</h4>
+<p><a href="https://travis-ci.com">Travis</a> is a continuous integration platform that is tightly integrated with GitHub. With a <a href="https://github.com/thinkshout/feeding-texas/blob/master/.travis.yml">single configuration file</a>, we were able to set up a fully functional deployment workflow that includes a staging and a production site. A commit to a particular branch in GitHub triggers Travis to build and deploy the site automatically to a specified endpoint. So, for example, editing and committing a file in the <code class="highlighter-rouge">staging</code> branch triggers a deployment to the staging site whereas a commit to the <code class="highlighter-rouge">live</code> branch triggers a deployment to the live site. For a more in depth look at how to configure a deployment workflow like this, check out <a href="http://thinkshout.com/blog/2014/08/deployment-workflow-travis-jekyll-travis-s3/">Lev’s post on how we’re doing it for the ThinkShout site</a>.</p>
+
+<p>As an added bonus, we can leverage GitHub’s pull request feature as a content management tool. For example, a staff writer could create several pieces of content in the <code class="highlighter-rouge">staging</code> branch, and then bundle those commits into a pull request for their editor to approve and merge into the <code class="highlighter-rouge">live</code> branch.</p>
+
+<p>Our Travis configuration file also specifies tests to run before deploying a new build of the site, which prevents a bad commit from generating a broken site. Travis has several testing frameworks <a href="http://docs.travis-ci.com/user/gui-and-headless-browsers/">baked in</a>, but if those aren’t enough, you can also install tools via your Travis configuration file. We, for example, <a href="https://github.com/thinkshout/feeding-texas/blob/master/.travis.yml#L7">install CasperJS</a> for our tests.</p>
+
+<h3 id="we-did-it-a-cms-less-site-ready-for-production-use">We Did it! A CMS-Less Site Ready for Production Use!</h3>
+<p>Having thought our way around using a full-blown CMS, like Wordpress or Drupal provide, we got two big wins:</p>
+
+<ol>
+  <li><strong>A lightning-fast site</strong> – because Jekyll sites are static, all of the “heavy lifting” is done when the site is being generated; no database calls or logic layer to slow things down. Also, no in-site CMS!</li>
+  <li><strong>More time to spend making the site look like a million dollar project</strong> – because we spared ourselves the time it would have taken to configure a CMS, we were able to spend it integrating neat JavaScript like the maps and charts you see on <a href="http://www.feedingtexas.org/zip/78056/">zip code detail pages</a>.</li>
+</ol>
+
+<p>I’m looking forward to building more Jekyll sites and am personally thrilled we devised a way to leverage its strengths to work in cooperation with the needs of our nonprofit client base.</p>
+]]>
+  </description>
+  <pubDate>Tue, 14 Oct 2014 12:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/10/success-building-cmsless-production-sites-with-jekyll/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/10/success-building-cmsless-production-sites-with-jekyll/</guid>
+</item>
+
+    
+      <item>
+  <title>Deploying a Jekyll Site on GitHub, Travis CI, and Amazon S3</title>
+  <description>
+    <![CDATA[<p>When we <a href="http://thinkshout.com/blog/2014/03/technology-behind-thinkshout/">launched the new version of ThinkShout.com</a> last spring, something glaring was missing. That little something is what companies like <a href="https://getpantheon.com">Pantheon</a> and <a href="https://www.acquia.com/products-services/acquia-cloud">Acquia</a> have worked so hard to solve for more complex Drupal sites: an automated deployment workflow making it simple to push changes to your site and preview them before publishing to the production server. At the time of launch, we had some rudimentary tools in place, namely, a set of Rake tasks to build the site and deploy to separate staging and production environments.</p>
+
+<p>This worked fine for the über-geeks among us who had a full Ruby stack running and were proficient using git and running terminal commands. But for those less technically-inclined, it was not so good. Not to mention the lack of automation left ample room for errors. The talented team at <a href="http://www.developmentseed.org/">Development Seed</a> created <a href="https://github.com/developmentseed/jekyll-hook">Jekyll hook</a>, a node-based app that listens for notifications from GitHub and then builds and deploys the site based on a number of configuration options or customizations to the build script. That seemed like a good solution, and we even started work on our own <a href="https://github.com/thinkshout/jekyll-hook">fork of the project</a>. It was moving along nicely, and we had it running on <a href="http://heroku.com">Heroku</a>, which largely eliminated the need for maintaining a server. Our customizations allowed us to publish to S3 using the powerful <a href="https://github.com/laurilehmijoki/s3_website">s3_website gem</a> and deploy to different buckets depending on the branch being committed to. Still, this solution required a good deal more care and maintenance than we were comfortable with, maintaining a separate build server, and lacked any built-in visual status or notifications.</p>
+
+<p>Around the same time, I received a great tip while attending CapitalCamp: use <a href="http://travis-ci.org">Travis CI</a> to test, build, and deploy the site. This was such a great idea that I literally slapped myself on the head for not thinking of it sooner. Travis is one of the leading continuous integration platforms, has tight GitHub integration, is free for open source projects, and charges a modest monthly fee for private ones. It’s also dead simple to configure, comes with loads of built-in features, and requires little to no ongoing maintenance. While I knew of Travis I didn’t entirely realize how powerful it was. Some highlights include:</p>
+
+<ul>
+  <li>Supports all the major platforms including PHP, Ruby, Node, Python, and Java</li>
+  <li>Lots of major databases and service are available: MySql, PostgreSQL, Redis, Memcache, etc.</li>
+  <li>Has built-in notifications via email, IRC, and other popular services</li>
+  <li>Can run your test suites and report back the status</li>
+  <li>Built-in deployment to a number of platforms such as Heroku and Amazon, in addition to your own server</li>
+</ul>
+
+<p>The secret to all this Travis magic lies in a <code class="highlighter-rouge">.travis.yml</code> file located in the project root. For ThinkShout.com, it looks something like this:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">language</span><span class="pi">:</span> <span class="s">ruby</span>
+<span class="na">rvm</span><span class="pi">:</span> <span class="s">2.0.0</span>
+<span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./_scripts/travis_build.sh"</span>
+<span class="na">branches</span><span class="pi">:</span>
+  <span class="na">only</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">master</span>
+  <span class="pi">-</span> <span class="s">live</span>
+<span class="na">env</span><span class="pi">:</span>
+  <span class="na">global</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">secure</span><span class="pi">:</span> <span class="s">...</span>
+  <span class="pi">-</span> <span class="na">secure</span><span class="pi">:</span> <span class="s">...</span>
+<span class="na">notifications</span><span class="pi">:</span>
+  <span class="na">hipchat</span><span class="pi">:</span>
+    <span class="na">rooms</span><span class="pi">:</span>
+      <span class="na">secure</span><span class="pi">:</span> <span class="s">...</span>
+</code></pre></div></div>
+
+<p>I won’t go through this line by line, <a href="http://docs.travis-ci.com/user/build-configuration/">there’s great documentation for that</a>, but basically this tells Travis:</p>
+
+<ul>
+  <li>We need an environment running Ruby 2.0.0.</li>
+  <li>Execute <code class="highlighter-rouge">./_scripts/travis_build.sh</code> for our build.</li>
+  <li>Only trigger the build on the master and live branches.</li>
+  <li>Trigger a notification in our HipChat project room.</li>
+</ul>
+
+<p>The build script is very simple as well:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$TRAVIS_BRANCH</span> <span class="o">==</span> <span class="s1">'master'</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then
+  </span>bundle <span class="nb">exec </span>rake stage
+<span class="k">elif</span> <span class="o">[[</span> <span class="nv">$TRAVIS_BRANCH</span> <span class="o">==</span> <span class="s1">'live'</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then
+  </span>bundle <span class="nb">exec </span>rake publish
+<span class="k">else
+  </span><span class="nb">echo</span> <span class="s1">'Invalid branch. You can only deploy from master and live.'</span>
+  <span class="nb">exit </span>1
+<span class="k">fi</span>
+</code></pre></div></div>
+
+<p>While we could put script commands directly into <code class="highlighter-rouge">.travis.yml</code>, having a bash script affords us some additional flexibility; in our case, to deploy to different S3 buckets based on the commit branch.</p>
+
+<p>When all is said and done, we have a simple automated deployment workflow that looks like this:</p>
+
+<p><img src="/assets/images/blog/jekyll-travis-s3.png" alt="deployment workflow" /></p>
+
+<p>The explicit version of the workflow goes like this:</p>
+
+<ol>
+  <li>Make a commit to the <code class="highlighter-rouge">master</code> branch. This can be done directly in GitHub, using Prose.io, or the old fashioned way in your own working copy. Note that new features are built in feature branches which do not trigger a build, and are merged into master only when they are ready for review.</li>
+  <li>The changes are automatically pushed to our staging site for review within a couple minutes.</li>
+  <li>When everything looks good, a pull request is opened comparing master to live.</li>
+  <li>After any final discussions are complete, the pull request is merged and the code is pushed to the production S3 bucket.</li>
+</ol>
+
+<p>That’s it, done. No Ruby stack, no Jekyll build or Compass compile, no worrying about S3 access keys. We’re excited to refine this workflow further, including adding automated tests using PhantomJS, and put it to a real test for an upcoming site launch for a client. Stay tuned!</p>
+]]>
+  </description>
+  <pubDate>Mon, 25 Aug 2014 12:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/08/deployment-workflow-travis-jekyll-travis-s3/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/08/deployment-workflow-travis-jekyll-travis-s3/</guid>
+</item>
+
+    
+      <item>
+  <title>The Technology Behind the New ThinkShout.com</title>
+  <description>
+    <![CDATA[<p>Now that we’ve covered the <a href="http://thinkshout.com/blog/2014/02/the-new-thinkshout-website/">goals, strategy and process for our new site</a>, I wanted to dive into the technology choices we made. First, the obvious: unlike most of the sites we’ve launched over the last four years, this one is <em>not</em> built with <a href="http://drupal.org">Drupal</a>. Instead we used <a href="http://jekyllrb.com">Jekyll</a>, one of a fast growing list of <a href="http://staticsitegenerators.net/">static site generators</a> (SSG), along with <a href="http://foundation.zurb.com/">Foundation 5</a>, <a href="http://github.com">GitHub</a>, and <a href="http://aws.amazon.com/s3/">Amazon S3</a> for hosting.</p>
+
+<p><img src="http://jekyllrb.com/img/logo-2x.png" alt="Jekyll logo" /></p>
+
+<h2 id="so-why-not-drupal">So, why not Drupal?</h2>
+
+<p>We love Drupal. We’re committed to it. We actively <a href="https://drupal.org/marketplace/thinkshout">contribute to</a> and <a href="http://myntc.nten.org/eventdetails/precon/drupal">participate in</a> the community. But the reality is that Drupal is not the right fit for <em>every</em> project. Structurally, our website is fairly simple brochureware along with a blog. That does not fit the criteria that we generally tout as Drupal’s strengths, namely complex data structures, custom applications, third party integrations, and numerous features encapsulated into a single website. In addition, we wanted our website to focus on our clients and the ThinkShout team, and we were excited about the flexibility a Jekyll site afforded us in crafting unique user experiences for each section and page without having to do battle with Drupal’s theme layer and developer workflow to achieve them.</p>
+
+<p>Our own website afforded us an opportunity to leverage a new technology and development process at a much lower risk point than doing so for a client. Keeping in mind all the Drupal caveats I’ve already stated, we have always avoided calling ourselves a “Drupal shop”, whatever that actually means. What we don’t waver on is providing value to our forward-thinking clients by crafting elegant user experiences and leveraging open source technology; this often, but not always, means using Drupal. Our new site allowed us to explore the process of building, launching, and maintaining a Jekyll site so we can better evaluate the kind of client engagements it would be a good fit for.</p>
+
+<p>Finally, we wanted to use Jekyll just because <em>we could</em>. We are geeks and technologists at heart, and love trying new things. That can be hard to do sometimes when demand for Drupal is so high and we’re keeping busy with our client engagements. Using a new platform for our own website gave us an opportunity to experiment and learn with a concrete goal (and schedule!) more or less on the clock. Sounds like a win to me.</p>
+
+<h2 id="some-jekyll-benefits">Some Jekyll benefits</h2>
+
+<p>The following list is far from comprehensive, but includes some of the things we were most excited about using Jekyll this first go around.</p>
+
+<h3 id="project-velocity">Project velocity</h3>
+<p>Since we already use Jekyll and Foundation for wireframes and prototyping, we went from early concepts and prototypes to final site build in no time at all. Iterations also went much faster as we weren’t encumbered with Drupal’s configure/export/enable Features based development workflow.</p>
+
+<h3 id="flexibility">Flexibility</h3>
+<p>While we are well aware that Drupal doesn’t inherently limit the design and user experience of a site, it certainly can take considerable effort to bend Drupal’s complex data structures and theme layer to your will. Without those limitations, we were free to push creative boundaries and explore unique user experiences. And iterate on those experiences. And experiment with new layouts for each section and even page. In short, we felt comfortable experimenting with the user experience because the cost of mistakes was fairly low.</p>
+
+<h3 id="performance-and-maintenance">Performance and maintenance</h3>
+<p>The final site as served to end users consists only of static assets: HTML, CSS, Javascript, and images. The speed is limited only by front end optimizations and the latency on your file server. Combine it with a CDN and the site is, as we like to say, stupid fast. Our very unscientific performance benchmark using apache benchmark for 1000 requests with a concurrency level of 100 comparing the Jekyll site staged on GitHub pages to our old site running in production on Pantheon (one of the absolute best Drupal environments out there), showed the following (Pantheon v GH Pages):</p>
+
+<ul>
+  <li>Requests per second: 63 vs 289</li>
+  <li>Time per request: 1566 vs 344</li>
+  <li>Failed requests: 221 vs 0</li>
+  <li>Transfer rate: 1629 vs 177</li>
+  <li>Time to complete 100% of requests: 15667 vs 1480</li>
+</ul>
+
+<p>Oh yeah, and NO SECURITY OR MAINTENANCE UPDATES. EVER.</p>
+
+<h2 id="the-process">The process</h2>
+
+<h3 id="data-migration">Data migration</h3>
+<p>Migration was not a major issue given the nature of our site combined with the fact that we were taking the new site as an opportunity to rework much of the copy, including our portfolio. We, did, however, need to migrate our blog. Jekyll ships with a <a href="https://github.com/jekyll/jekyll-import/blob/v0.1.0.beta4/lib/jekyll-import/importers/drupal7.rb">migration class that supports Drupal</a>, which didn’t quite meet our needs, mostly due to a lack of support for taxonomy terms. We used it as a starting point, though, and with a few minor changes, had our own migration script which converted our Drupal blog history into a set of Markdown files in the new site structure. We decided to use Disqus as the commenting engine on the new site and, while there are some great <a href="http://fuseinteractive.ca/blog/migrating-comments-drupal-7-disqus">examples out there of migrating Drupal comments to Disqus</a>, and we appreciate the value of some of our comment threads, in the end we decided it wasn’t worth migrating them over and are starting with a clean slate for comments.</p>
+
+<h3 id="jekyll-plugins">Jekyll plugins</h3>
+<p>Jekyll plugins are written in Ruby and are processed when the site is built. There are three categories of plugins.</p>
+
+<ul>
+  <li>Generators create content.</li>
+  <li>Converters change text, E.g., from Markdown to HTML.</li>
+  <li>Tags define liquid tags to use in your templates.</li>
+</ul>
+
+<p>There are number of builtin plugins which cover basic blog features and a rich <a href="http://jekyllrb.com/docs/plugins/">ecosystem of contributed plugins</a>, covering things like generating a <a href="https://github.com/kinnetica/jekyll-plugins">sitemap.xml</a> and <a href="https://github.com/agelber/jekyll-rss">RSS feeds</a>. We did find that we needed to create a few of our own as well, which, once we got the hang of it, was very straightforward. For example, we are storing all of our team members in a <a href="http://jekyllrb.com/docs/datafiles/">data file</a> and are generating a team member landing page for each person using a generator plugin. We also wanted to mimic Drupal’s tag landing pages, so we wrote a generator plugin for that plus a filter to output the tag list on blog detail pages.</p>
+
+<h3 id="content-management">Content management</h3>
+<p>While the idea of cloning a repository and editing markdown files in one’s favorite text editor is appealing to some folks, it’s jut not a realistic expectation for many users, especially when you throw git into the mix. Enter <a href="http://prose.io">Prose.io</a>, a content authoring environment from our friends at <a href="http://developmentseed.org/">Development Seed</a> made for managing sites hosted on GitHub. It has special affordances for Jekyll, but can work with any static content. In addition to a nice content editor, you can define metadata for your posts presented as form elements.</p>
+
+<p>This configuration:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">prose</span><span class="pi">:</span>
+  <span class="na">rooturl</span><span class="pi">:</span> <span class="s2">"</span><span class="s">blog/_posts"</span>
+  <span class="na">siteurl</span><span class="pi">:</span> <span class="s2">"</span><span class="s">http://thinkshout.com"</span>
+  <span class="na">media</span><span class="pi">:</span> <span class="s2">"</span><span class="s">assets/images/blog"</span>
+  <span class="na">metadata</span><span class="pi">:</span>
+    <span class="s">blog/_posts</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">layout"</span>
+        <span class="na">field</span><span class="pi">:</span>
+          <span class="na">element</span><span class="pi">:</span> <span class="s2">"</span><span class="s">hidden"</span>
+          <span class="na">value</span><span class="pi">:</span> <span class="s2">"</span><span class="s">post"</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">short"</span>
+        <span class="na">field</span><span class="pi">:</span>
+          <span class="na">element</span><span class="pi">:</span> <span class="s2">"</span><span class="s">textarea"</span>
+          <span class="na">label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Short</span><span class="nv"> </span><span class="s">teaser"</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">author"</span>
+        <span class="na">field</span><span class="pi">:</span>
+          <span class="na">element</span><span class="pi">:</span> <span class="s2">"</span><span class="s">text"</span>
+          <span class="na">label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Author</span><span class="nv"> </span><span class="s">short</span><span class="nv"> </span><span class="s">name"</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">tags"</span>
+        <span class="na">field</span><span class="pi">:</span>
+          <span class="na">element</span><span class="pi">:</span> <span class="s2">"</span><span class="s">multiselect"</span>
+          <span class="na">label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Tags"</span>
+          <span class="na">help</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Enter</span><span class="nv"> </span><span class="s">one</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">more</span><span class="nv"> </span><span class="s">tags</span><span class="nv"> </span><span class="s">..."</span>
+          <span class="na">alterable</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div></div>
+
+<p>Yields this form:</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/prose-metadata.png" alt="prose metadata" /></p>
+
+<p>Aside from Prose.io, content can, of course, be managed the old fashioned way by cloning, adding, and pushing files via git. In addition, content be managed directly on GitHub which recently added file creation and has a nice editor and preview feature for markdown and html files.</p>
+
+<h3 id="hosting">Hosting</h3>
+<p>We initially planned to host the site on GitHub pages because it handles the compilation of Jekyll source code, presents a unified project for development, issue tracking, and hosting, and is free and reliable. However, we found two critical limitations: Jekyll can only run in safe mode which means no third party or custom plugins and no support for redirect rules. After researching a few options, we settled on an Amazon S3 bucket configured for static web hosting.</p>
+
+<ul>
+  <li>It’s super simple to add CDN support via Amazon’s Cloudfront.</li>
+  <li>Rich ecosystem of tools and libraries. <a href="https://github.com/laurilehmijoki/s3_website">s3_website</a> is a fabulous tool that has made it simple to publish the site with a single line command, <code class="highlighter-rouge">s3_website push</code>.</li>
+  <li>We already use S3 for backup/archiving at ThinkShout.</li>
+  <li>Support for complex redirect rules, gzip compression, and any other http headers.</li>
+  <li>Cheap, reliable, and, as mentioned above, <strong>fast</strong>.</li>
+</ul>
+
+<h3 id="deployment-workflow">Deployment workflow</h3>
+<p>Among the many reasons we love working with infrastructure partners like Pantheon and Acquia is the elegant and simple deployment workflow they provide, with automated git based deployment to a dev site and push-button migration to staging and production environments. Without the help of those platforms, we’re on our own for previewing new features, staging content, and deploying code. We’ve settled on the following.</p>
+
+<ul>
+  <li>We created a separate S3 bucket for our staging site.</li>
+  <li>The git repository has 3 main branches, dev, master, and live. Feature branches off of Dev are used for feature development, any content or data is pushed to master which is deployed to the staging site, and content and new features are merged into live before being deployed to produciton.</li>
+  <li>Prose.io, where most content is managed, is mapped to the master branch.</li>
+  <li>We have rake tasks in the project root for deploying to staging and production, as well as building and previewing the site.</li>
+</ul>
+
+<p>The process is far from perfect.</p>
+
+<ul>
+  <li>It relies on process and training, there are no enforced rules and workflow.</li>
+  <li>Deployments themselves are manual.</li>
+  <li>Content editors can only preview content within the site context after it gets pushed to staging if they don’t have a local Jekyll environment.</li>
+</ul>
+
+<p>This is perhaps the biggest gotcha we’ve encountered so far using Jekyll, especially as we consider which client engagements it will be a good fit for. There are promising solutions, including Development Seed’s <a href="http://developmentseed.org/blog/2013/05/01/introducing-jekyll-hook/">Jekyll hook</a> project to automate deployment. We’re excited to learn from our own experiences and those of others to find the best way for clients to manage their Jekyll sites.</p>
+
+<h2 id="miscellaneous-jekyll-gotchas">Miscellaneous Jekyll gotchas</h2>
+<p>A lot of the challenges around using an SSG really depend on where it’s hosted and others are inherent to the approach. The items below encapsulate some of our experiences and are just one data point in deciding when Jekyll or another SSG is a good fit.</p>
+
+<ul>
+  <li>GitHub pages and other pure “file system” based approaches don’t support true 301 redirects. There are javascript based hacks which are less than ideal. Obviously a bigger issue if upgrading an existing site. ThinkShout.com is hosted on S3, which does support .htaccess style redirect rules.</li>
+  <li>Pretty URLs are generally in the form /about/ rather than just /about.</li>
+  <li>Contact and other web forms must rely on a third party system to accept and process submissions. We tried integrating a Google form and then settled on an embedded <a href="https://www.zoho.com/crm/">ZoHo CRM</a> lead capture form after we settled on ZoHo as our CRM.</li>
+  <li>Comments must be handled by a third party provider like <a href="http://disqus.com/">Disqus</a>. Since we were excited to switch to Disqus anyways, this was a nonissue.</li>
+  <li>Site search must rely on a third party indexer or use a Javascript based approach that doesn’t scale or handle non-text assets.</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>It was fun to use a different platform for our new website. We learned a lot. We love the “light weight” nature of Jekyll and the flexibility it afforded us. We view the project as a major win and would do it all over again. It gave us experience and valuable lessons that we can apply to client engagements.</p>
+
+<p>But Jekyll is far from a panacea for all use cases. It presents many challenges that we don’t even have to consider when using Drupal. For projects that require complex data structures, custom application development, site building capabilities for end users, and numerous integrated features, Drupal is an obvious choice. Even more importantly, for projects that need to leverage a rich ecosystem of contributed functionality that relies on a dedicated community, Drupal is an even stronger choice. And we’re honored to be a part of that community and continue to engage and contribute to it.</p>
+
+<p>But we had fun with Jekyll, are happy with the results, and look forward to finding exciting use cases for our clients where it will be a great fit.</p>
+]]>
+  </description>
+  <pubDate>Wed, 05 Mar 2014 10:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2014/03/technology-behind-thinkshout/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/03/technology-behind-thinkshout/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

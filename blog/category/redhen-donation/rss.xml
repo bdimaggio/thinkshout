@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/redhen-donation/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Peer-To-Peer Fundraising With Drupal - RedHen Raiser</title>
+  <description>
+    <![CDATA[<h3 id="the-origin-of-redhen-raiser">The Origin of RedHen Raiser</h3>
+
+<p>Last summer, the <a href="http://www.capitalareafoodbank.org/">Capital Area Food Bank of Washington, DC</a> came to us with a great idea: The Food Bank wanted to increase its investment in team fundraising initiatives, but they didn’t necessarily want to continue to invest in a “pay as you go” service like StayClassy, TeamRaiser, or Razoo. Rather, they wanted to explore whether or not they could invest in the development of an open source alternative that would eliminate licensing costs, that they could customize more easily, and that they could then give back to the broader nonprofit community.</p>
+
+<p>We’ve spoken a lot in the community regarding various strategies for <a href="http://thinkshout.com/blog/2015/03/the-how-and-why-of-open-source/">how nonprofits can contribute to the development of open source tools</a>. Most of the time, we recommend that nonprofits start off by solving their own organizational problems first, and then abstracting components of the resulting solutions at the end of the project.</p>
+
+<p>However, in the case of the Capital Area Food Bank’s team fundraising needs, a competitive analysis of existing solutions provided us with a well-defined roadmap for how to meet the Food Bank’s goals, while simultaneously working on a suite of contributed tools that could be given back to the broader community. So, in coming up with their solution, we started out by developing RedHen Raiser as a stand-alone Drupal Distribution, and then implemented a customized instance of the Distribution to meet the Food Bank’s more specific design needs.</p>
+
+<h3 id="architectural-planning-for-the-redhen-raiser-drupal-distribution">Architectural Planning for the RedHen Raiser Drupal Distribution</h3>
+
+<p>As mentioned above, we began our feature design process for this peer-to-peer fundraising platform by doing a <strong>competitive analysis of existing tools</strong>. The table below shows our recommended feature set (“Our MVP”) compared to the functionality available as of June 2014 on eight of the leading platforms:</p>
+
+<p><img src="/assets/images/blog/image_0.png" alt="image alt text" /></p>
+
+<p><em>As a quick aside, it’s interesting in comparing these products that there is a lack of consensus in the industry regarding how to refer to these sorts of fundraising tools. We often hear the terms “peer-to-peer fundraising,” “team fundraising,” “viral fundraising,” and even “crowd fundraising” used interchangeably. With crowd fundraising being all the rage in the for-profit world of Kickstarter and the like, we feel that that descriptor could be a little misleading, but the other three terms all speak to different highlights and features of these tools.</em></p>
+
+<p>With a target feature set identified, we began <strong>wireframing our proposed solution</strong>. Again, peer-to-peer fundraising has become somewhat of a well-trodden space. While we came up with a few small enhancements to the user experiences we’ve seen in the marketplace, we recognized that donors are beginning to anticipate certain design patterns when visiting these fundraising sites:</p>
+
+<p><img src="/assets/images/blog/image_1.png" alt="image alt text" /></p>
+
+<p>With the wireframes in place, we turned to <strong>technical architecture</strong>. Given the need to collect a broad range of constituent data, not just user account information, it was clear to us that this Drupal distribution should be built on top of a CRM platform native to Drupal. For obvious reasons, we chose to go with <a href="https://www.drupal.org/project/redhen">RedHen CRM</a>.</p>
+
+<p>We also saw many advantages to leveraging <a href="https://www.drupal.org/project/redhen_donation">RedHen Donation</a>, a flexible tool for building single-page donation forms. With RedHen Donation, a “Donation field” can be attached to an entity, and in so doing, it attaches a form to that entity for processing donations. The <em>RedHen-specific</em> piece to this module is that it is configurable, so that incoming donation data is used to “upsert” (create or update) RedHen contacts. RedHen Donation also integrates with Drupal Commerce to handle order processing and payment handling. Integrating with the <a href="https://www.drupal.org/project/commerce_cardonfile">Commerce Card on File</a> and <a href="https://www.drupal.org/project/commerce_recurring">Commerce Recurring</a> modules, RedHen Donation can be configured to support recurring gifts as well.</p>
+
+<p>Missing from the underlying set of building blocks needed for building a peer-to-peer fundraising platform with Drupal was a tool for managing and tracking fundraising against campaign targets and goals. In the case of peer-to-peer fundraising, each team fundraising page needs to be connected to a larger campaign. To address this requirement, we released a module called <a href="https://www.drupal.org/project/redhen_campaign">RedHen Campaign</a>. This module, coupled with with RedHen Donation, are at the core of RedHen Raiser, allowing us to create a hierarchy between fundraising campaigns, teams, and individual donors.</p>
+
+<p>If you are interested in giving RedHen Raiser a spin, you can <a href="https://www.drupal.org/project/redhen_raiser">install the distribution</a> using your own Drupal Make workflow, you can checkout our own <a href="https://github.com/thinkshout/charlotte">RedHen Raiser development workflow</a>, or you can just click a button to spin up a <a href="https://dashboard.pantheon.io/products/redhen_raiser/spinup">free instance</a> on Pantheon’s hosting platform. (If you’re not a Drupal developer, this last approach is incredibly quick and easy. The distribution even ships with an example fundraising campaign to help you get started.)</p>
+
+<h3 id="customizing-redhen-raiser-to-meet-the-food-banks-needs">Customizing RedHen Raiser to Meet the Food Bank’s Needs</h3>
+
+<p>With a strong base in place, customizing RedHen Raiser to meet the Capital Area Food Bank’s requirements was straightforward and comparably inexpensive. It was largely a matter of adding Drupal Commerce configuration to work with their payment gateway, developing a custom theme that matched the Food Bank’s overall brand, and then training their team to start building out their first peer-to-peer fundraising campaign:</p>
+
+<p><img src="/assets/images/blog/image_2.png" alt="image_2.png" /></p>
+
+<h3 id="the-success-of-the-food-banks-first-peer-to-peer-fundraising-campaign">The Success of the Food Bank’s First Peer-to-Peer Fundraising Campaign</h3>
+
+<p>The Capital Area Food Bank launched this tool around its May 2015 <a href="http://www.capitalareafoodbank.org/food-from-the-bar/">“Food From The Bar” campaign</a>, targeting law firms in the D.C. Metro area. <strong><em>In just 30 days, the Food Bank raised close to <a href="https://give.capitalareafoodbank.org/campaigns/food-bar-2015">$150,000 on RedHen Raiser</a>.</em></strong></p>
+
+<p>The Food Bank’s Chief Digital Officer, Chris von Spiegelfield, had this to say about the project:</p>
+
+<p><em>“The Capital Area Food Bank has been no stranger to peer-to-peer fundraising tools. For years, it has relied on third-party sites such as Causes.com, Razoo, Crowdrise, among others. However, these tools often came with considerable branding and messaging limitations as well as pretty stiff transactional fees. Users got confused about where their money was going and complained after learning a considerable portion of their donation didn’t make its way to the Food Bank. We wanted to provide greater unity of purpose beyond a donation form without all the hassle, which is how we decided to invest in our own crowdfunding platform.</em></p>
+
+<p><em>After kicking the tires at a few SaaS options, we decided the best way forward was to build a customized website.  Out of all the different frameworks proposed, the open-source Drupal and RedHen Raiser combo impressed us the most. We wouldn’t  just be buying a website. We would be leveraging a vast network of programmers and community-minded architects who could start us off in a very good place, not to mention help our platform be secure and grow for the foreseeable future.</em></p>
+
+<p><em>We launched the website this year and couldn’t be happier with what ThinkShout built for us. We’re already seeing it pay dividends across several campaigns. We continue to add new features and hope our site might be a benchmark that other nonprofits could benefit from and contribute to as well.”</em></p>
+
+<h3 id="whats-next-for-redhen-raiser">What’s Next for RedHen Raiser?</h3>
+
+<p>The obvious answer to this question is <em>a port to Drupal 8</em>. But that will take a little time, as many complex pieces, such as Drupal Commerce and RedHen CRM will need to be ported before we can migrate over these higher-level fundraising features. But a RedHen CRM port is on our short(er) term horizon. And frankly, the idea of being able to use RedHen as a “headless CRM” is incredibly exciting.</p>
+
+<p>In the meantime, we are looking forward to collaborating with the community to make RedHen Raiser an even stronger open source competitor to the pay-as-you-go alternatives that are currently out there. So, please, give RedHen Raiser a test drive and send us your feedback!</p>
+]]>
+  </description>
+  <pubDate>Thu, 13 Aug 2015 11:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/08/peer-to-peer-with-drupal/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/08/peer-to-peer-with-drupal/</guid>
+</item>
+
+    
+      <item>
+  <title>Reimagined Sprints and Introducing RedHen Raiser</title>
+  <description>
+    <![CDATA[<p><img src="/assets/images/blog/raiser_0.jpg" alt="raiser_0.jpg" /></p>
+
+<p>We’ve been experimenting with monthly team sprints at ThinkShout over the last year with varied levels of structure and outcomes. This month, we decided to take a step back, reevaluate our goals, and reimagine our sprint process. And, we moved it to a Thursday. <a href="https://twitter.com/thinkshout/status/558334360416305152">A bow-tie Thursday</a>.</p>
+
+<p>Previously, these sprints were loosely structured around a topic or technology, such as <a href="https://www.drupal.org/theme-guide/8/twig">Twig in Drupal 8</a>. Suffice it to say, they were a lot of fun and very exploratory, but they weren’t the most engaging for everyone on the team. This time around, we decided to collaborate on a single initiative - in this instance, a product - that would benefit from the skills and perspectives of everyone in the company. Consequently, we decided to rally around <a href="http://drupal.org/project/redhen_raiser">RedHen Raiser</a>, our new peer-to-peer fundraising distribution for Drupal.</p>
+
+<h3 id="introducing-redhen-raiser">Introducing RedHen Raiser</h3>
+
+<p><img src="http://thinkshout.com/assets/images/blog/raiser_1.jpg" alt="raiser_1.jpg" /></p>
+
+<p>RedHen Raiser is designed for building peer-to-peer fundraising websites, like the sites you see for marathons and walks, where a fundraising campaign is made up of myriad individual and team pages, and can be customized by the participants for fundraising amongst their respective communities, while remaining connected to the larger campaign.</p>
+
+<p>As the name suggests, RedHen Raiser is built on top of <a href="https://www.drupal.org/project/redhen">RedHen CRM</a>, including the <a href="http://drupal.org/project/redhen_donation">RedHen Donation</a> and <a href="http://drupal.org/project/redhen_campaign">RedHen Campaign</a> modules, and it’s chock full of awesome:</p>
+
+<ul>
+  <li>
+    <p>Easy Campaign creation so site visitors can join right away by creating their own Team or Individual fundraisers.</p>
+  </li>
+  <li>
+    <p>A beautiful, consistent fundraising experience that is based on inherited display values from the larger Campaign.</p>
+  </li>
+  <li>
+    <p>Goal progress widgets including thermometers, leaderboards, etc.</p>
+  </li>
+  <li>
+    <p>Mini-blogs for Campaigns and Fundraisers via Update content type.</p>
+  </li>
+  <li>
+    <p>Ability to create and maintain different pages for different fundraisers with a single account.</p>
+  </li>
+  <li>
+    <p>Automated start and end dates.</p>
+  </li>
+  <li>
+    <p>Commerce-readiness - just add your payment method and go!</p>
+  </li>
+  <li>
+    <p>Single-page donation forms via RedHen Donation.</p>
+  </li>
+  <li>
+    <p>Built using established modules with simple UI (Views, RedHen, Context, etc) for easy customization.</p>
+  </li>
+</ul>
+
+<p>It’s ThinkShout’s latest offering in a suite of nonprofit engagement building blocks that we’ve been developing, and was initially developed for the <a href="http://www.capitalareafoodbank.org/">Capital Area Food Bank of Washington, DC</a>. RedHen Raiser competes feature for feature with top <em>software as a service (SaaS)</em> peer-to-peer fundraising platforms, such as TeamRaiser, CauseVox and Razoo.</p>
+
+<p>As a result of our work with this client, we were able to release a very rudimentary version of RedHen Raiser on Drupal.org that would provide a basic starting point to other developers interested in building a peer-to-peer fundraising tool. The product is also a huge win for CAFB of DC, simply because they were able to reap a huge dividend on their initial investment by getting these improvements for free.</p>
+
+<h3 id="involving-the-full-team-in-one-sprint">Involving the Full Team in One Sprint</h3>
+
+<p><img src="http://thinkshout.com/assets/images/blog/raiser_2.jpg" alt="raiser_2.jpg" /></p>
+
+<p>As an open source <em>product</em>, RedHen Raiser presented us with some interesting opportunities to engage more than just our engineers in the sprint process, and it certainly needed a lot of love on a lot of fronts. Leveraging the different interests and expertise of our 18-person company, we split into five teams:</p>
+
+<ul>
+  <li>
+    <p><strong>Dev Ops</strong> - this team focused on deployment infrastructure, build processes, and automated testing;</p>
+  </li>
+  <li>
+    <p><strong>Bug Fix &amp; Feature Dev</strong> - team members spent the sprint day working on the development backlog;</p>
+  </li>
+  <li>
+    <p><strong>UX</strong> - the User Experience team worked ahead of the feature development team to identify and sketch out new features and enhancements;</p>
+  </li>
+  <li>
+    <p><strong>QA</strong> - the Quality Assurance team was made up of our project managers acting as “product owners;”</p>
+  </li>
+  <li>
+    <p><strong>Community Engagemen</strong>t - this team, consisting of our sales, marketing, and operations staff, was tasked with documenting the sprint and sharing our contributions with the wider Drupal and nonprofit technology communities.</p>
+  </li>
+</ul>
+
+<p>It’s worth noting that the quality assurance team and the community engagement team came together for the first half of the sprint for an in-depth training on the Drupal contributed modules and components underlying RedHen Raiser. Ironically, we often get so busy building these sorts of tools for our clients that we don’t stop to educate our own “non-developer” team members on how stuff works. By taking this time to dive into the nitty gritty with our project managers, marketing and operations folks, we create better advocates for these solutions and help ensure that everyone in the company feels like contributor to our success.</p>
+
+<h3 id="planning-for-the-sprint">Planning for the Sprint</h3>
+
+<p><img src="http://thinkshout.com/assets/images/blog/raiser_3.jpg" alt="raiser_3.jpg" /></p>
+
+<p>As ThinkShout has grown, the need for sprint planning has grown with it. Back when we first started these sprints, we could fit our entire team around a single table (covered in pizza boxes and beer) and call out development tickets we each needed help with.</p>
+
+<p>Now, with a team of 18 working together from 11am to 5pm, these sprints take a bit more planning - to say nothing of balancing the opportunity cost of investing a collective 108 hours of non-client work into a single week. To keep things running smoothly, we’ve taken a more project-planning-esque approach to our sprint days:</p>
+
+<ul>
+  <li>
+    <p><strong>Scheduling in advance</strong>: The date and time of the sprint is scheduled a month in advance. We used to just stick with the last Friday of the month, but found that this sometimes excluded certain team members on deadlines or vacation. Now, we coordinate a bit more tightly to help ensure participation of as many team members as possible.</p>
+  </li>
+  <li>
+    <p><strong>Laser focus</strong>: the focus of the sprint is announced to the team three weeks in advance. This gives the team time to think about stuff they want to work on, and add to the feature backlog in the weeks coming up to the sprint.</p>
+  </li>
+  <li>
+    <p><strong>Pre-sprint planning meetings</strong>: The department leads meet a week before the sprint to form teams and structure the sprint agenda, and prioritize the development/feature backlog two days in advance of the sprint.</p>
+  </li>
+  <li>
+    <p><strong>Pre-sprint presentations</strong>: The week before the sprint, we do a short, company-wide presentation on the sprint topic at our weekly staff lunch. This helps energize the team and sparks knowledge sharing in the lead up to the sprint day.</p>
+  </li>
+  <li>
+    <p><strong>Formally “opening” and “closing” the sprint day</strong>: As our sprint commences, we kick things off with a quick, all-staff scrum. More importantly, we pull the team back together at the end of the day for each sprint team to present (and celebrate!) what they’ve completed.</p>
+  </li>
+</ul>
+
+<h3 id="outcomes-of-our-redhen-raiser-sprint">Outcomes of Our RedHen Raiser Sprint</h3>
+
+<p><img src="http://thinkshout.com/assets/images/blog/raiser_4.png" alt="raiser_4.png" /></p>
+
+<p>So what does it all mean? This new approach to our team sprints resulted in just shy of 100 commits on RedHen Raiser and the underlying modules that power the distribution. We published a <a href="https://www.drupal.org/node/2414581">new release</a> of RedHen Raiser, <a href="https://www.drupal.org/node/2413307">RedHen Donation</a> and the <a href="https://www.drupal.org/node/2414563">RedHen Campaign</a> modules - as well as a release of our base <a href="https://www.drupal.org/node/2414559">RedHen CRM</a><a href="https://www.drupal.org/node/2414559"> suite</a>.</p>
+
+<p>One of the biggest wins to come out of the sprint are <a href="https://github.com/thinkshout/redhen_raiser/tree/7.x-1.x/tests">automated tests</a> powered by <a href="http://docs.behat.org/en/v2.5/">Behat</a>. Tests are triggered with every commit to GitHub and run on <a href="https://travis-ci.org/thinkshout/redhen_raiser">Travis CI</a>. At this point, test coverage is a bit limited, but the foundation has been laid for complete test coverage for RedHen Raiser, a critical factor when organizations are evaluating which software to use.</p>
+
+<p>To top it off, we cleaned up a few RedHen project pages on Drupal.org and began working on a RedHen-specfic QA testing plan. We also reached out to the RedHen open source community to let them know what we were up to and how folks can continue to get involved. Most of all, we are proud to say that this effort is a huge contribution to the nonprofit tech community, in that it provides major improvements to a powerful tool that can be leveraged for free - and has the documentation to support it!</p>
+
+<p>All in all, the ThinkShout team came together in a big way, and accomplished much more than we could have if we had remained siloed in our approach. We had a lot of fun, drank some beer, ate some good food, and got to collaborate as a whole team on something really cool. We’re really looking forward to the next one!</p>
+]]>
+  </description>
+  <pubDate>Wed, 28 Jan 2015 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2015/01/reimagined-sprints-redhen-raiser/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/01/reimagined-sprints-redhen-raiser/</guid>
+</item>
+
+    
+      <item>
+  <title>Online Fundraising with RedHen Donation</title>
+  <description>
+    <![CDATA[<p>I’ve spent many a late night in the office shouting at my computer screen - all in the name of philanthropy. Technology woes just go with the small nonprofit territory, and the organization I worked for before joining ThinkShout was no exception. Some of those woes, however, I just couldn’t tolerate. Not when they were getting in the way of our mission, and preventing us from raising funds to support our work.</p>
+
+<p>My first foray into online fundraising happened while I was working in the development department of this small nonprofit. We focused primarily on assisting low-income families with safety net services and emergency housing. Over the last few years, we’d seen a huge increase in the percentage of online donations. Times were changing and we’d begun to rely heavily on that online donation page as we saw more and more donors taking the digital route - many of whom were donating to us for the first time. But as our needs evolved, we needed the donation form to evolve with us. We needed more options, more fields, new content as the campaigns changed. Unfortunately, we didn’t realize what a monumental task that would be, given the online donation solution we were using. The problems didn’t end there.</p>
+
+<p>This set-in-stone donation solution probably wasn’t a big concern back when the development team was first evaluating CRMs. Perhaps they didn’t know what they were getting into. Perhaps they didn’t realize they’d be charged almost $200 every time they needed to edit an online donation form. Perhaps they didn’t think we’d use the form that much. The form itself wasn’t very nice to look at. It didn’t match our website’s theme. It got close, but something was always off. There was absolutely nothing convenient about dealing with it.</p>
+
+<p>Those days are a ways behind me, but they’re still on my mind. Since my transition to ThinkShout, I’ve had the opportunity to view these issues from a different perspective and I tend to hear the same complaints from the nonprofits we serve:</p>
+
+<ul>
+  <li>Multi-step checkout</li>
+  <li>Clunky check-out systems</li>
+  <li>No control over form content</li>
+  <li>No support for multiple campaigns</li>
+  <li>Forms are expensive to edit</li>
+  <li>Can’t fix issues without ticketing your CRM’s support team</li>
+  <li>Form theme doesn’t match your website</li>
+  <li>Payment methods are limited</li>
+</ul>
+
+<p>Wow. Look at this awesomely long list of annoying things that plague such an integral part of nonprofit fundraising. My blood <em>still</em> boils when I think about how difficult a decision it was to simply submit a ticket to change a single line of text in our donation form - how much <em>effort</em> went into making a case for the cost. This had to change. There had to be <em>something</em> better.</p>
+
+<p>We began working on the <a href="https://www.drupal.org/project/redhen_donation">RedHen</a><a href="https://www.drupal.org/project/redhen_donation">Donation</a> module with intent to create a better online donation solution. We wanted to create a donation tool that allowed nonprofits to keep everything under one roof. The end result accomplishes this. What we came up with is unique in the sense that it offers nonprofits several features that aren’t quite so commonplace. RedHen Donation is inside their website, connected to their CRM. It allows for both one-time and recurring donations, multiple donation pages, and easy-to-edit donation forms.</p>
+
+<p>I chatted with <a href="http://thinkshout.com/team/brandon/">Brandon Lee</a>, the architect behind RedHen Donation, to get a better understanding of RedHen Donation’s capabilities.</p>
+
+<p><strong>Stephanie: So what’s the big deal with RedHen Donation?</strong></p>
+
+<p><strong>Brandon</strong>: It’s an integration between <a href="http://redhencrm.com/">RedHen CRM</a> contacts and Drupal Commerce that allows for single page donations with both one time and recurring donations options. The recurring donations feature is a pretty big part of it, since that’s not an option you frequently see offered in other donation form tools.</p>
+
+<p><strong>Stephanie: How does it work with RedHen CRM?</strong></p>
+
+<p><strong>Brandon</strong>: RedHen Donation allows you to create a single page donation form that can create or update RedHen contacts. It’s tightly-integrated with RedHen, so if you’re already using RedHen CRM, it will be very simple to get up and running.</p>
+
+<p><strong>Stephanie: How does it compare to other donation form modules out there?</strong></p>
+
+<p><strong>Brandon</strong>: It’s a standalone module that’s used with the RedHen suite. CRM Core has a similar donation module, but it doesn’t allow for recurring donations. RedHen Donation does. The ability to give donors the option of setting up a recurring donation within the same form is something we’re thrilled to offer nonprofits.</p>
+
+<p>The donation space, in a lot of ways, is what sets it apart from similar modules. If you’re dealing with Commerce specifically, it wants to lock you into the Commerce workflow. With RedHen Donation, you don’t have to go through three different steps to make one donation to an organization. You fill out one page and you’re done. It’s quick and user-friendly. No more filling out a form, then passing through a portal, then onto a confirmation page, then back to your site.</p>
+
+<p><img src="/assets/images/blog/redhendonation1.png" alt="redhendonation1.png" /></p>
+
+<p><strong>Stephanie: What if I want create a new form?</strong></p>
+
+<p><strong>Brandon</strong>: With the assumption that you already have RedHen set up, it’s relatively simple. You enable the module, then create a donation type, which is a Drupal entity, and during the configuration, you select what kind of product you’re working with - at least with one-time donations. This is  a fieldable methodology that we’ve used with MailChimp and other projects in the past. If you understand Drupal concepts of entities, fields, and commerce, then it’s simple. You do need a working knowledge of those three things to build a form. But once it’s complete, it’s incredibly simple for donors to use. That’s the whole point of the single page donation form. You can offer multiple recurring options. Every month for forever, every month for a year, all of those options on the same page.</p>
+
+<p><strong>Stephanie: It sounds like you’ve got a lot of payment options to choose from as an end-user - and the recurring donation option is huge win for fundraisers - but how customizable is this form? And how difficult is it to make changes?</strong></p>
+
+<p><strong>Brandon</strong>: It allows for different payment gateways, like <a href="http://home.iatspayments.com/">iATS</a> - basically, anything supported by Drupal Commerce. Create a contact, indicate which fields you want created, pick a payment gateway, and you’re set. It can be as simple as name, credit card number, and donation amount. It can be as complex as name, credit card, honoree, honoree address, honoree’s favorite color, etc. Payment options allow for text fields, a drop-down menu, or other. Recurring payments open up another myriad of options.</p>
+
+<p><strong>Stephanie: So long as I know Drupal, I can make this form into whatever I need?</strong></p>
+
+<p><strong>Brandon</strong>: Exactly.</p>
+
+<p><strong>Stephanie: Say I have multiple campaigns I’m running and I need a different form for each campaign. Can I do that?</strong></p>
+
+<p><strong>Brandon</strong>: Absolutely. Let’s say you have multiple different contact types in RedHen because of the campaign. And say I want to send out this particular form because I’m currently soliciting for one particular campaign. You can have as many donation forms as you have entities that are fieldable. You can create a different form on the same content type.</p>
+
+<p><img src="/assets/images/blog/redhendonation2.png" alt="redhendonation2.png" /></p>
+
+<p><strong>Stephanie: Anything else we should know about it?</strong></p>
+
+<p><strong>Brandon</strong>: The availability of RedHen Donation within RedHen CRM is a big deal. You don’t have to worry about third-party integration. You don’t have to send people off to another site to collect the donation. You don’t have to wait on a third-party to send that much-needed information back. With RedHen Donation, it just works. It’s all self-contained. If I’m a nonprofit site admin, this is a great option, and a great reason to consider using RedHen CRM because everything needed to collect donations is all in one place.</p>
+
+<p><strong>Our Conclusion:</strong></p>
+
+<p>RedHen Donation is a fantastic asset for nonprofits looking for a flexible, customizable, and affordable online donation tool. Its single-page functionality and recurring donation options make it a must-have for organizations that need these features to work seamlessly with their Drupal website. For organizations currently shopping around for a CRM, RedHen Donation is a huge plus for RedHen CRM and a compelling reason to select it as your constituent database.</p>
+
+<p>We’re incredibly excited about RedHen Donation and what it offers nonprofits. We do understand that seeing is often believing, so we highly recommend that you install the latest release of <a href="https://www.drupal.org/node/2199903">RedHen CRM</a>, RedHen Donation, and see what we’re talking about. Not sure how to get started? Do you have more questions than what we covered? Leave us a comment - we’d love to talk RedHen with you.</p>
+
+]]>
+  </description>
+  <pubDate>Fri, 01 Aug 2014 09:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/08/online-fundraising-with-redhen-donation/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/08/online-fundraising-with-redhen-donation/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

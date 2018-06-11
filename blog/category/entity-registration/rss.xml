@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/entity-registration/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Porting ThinkShout to Drupal 8</title>
+  <description>
+    <![CDATA[<p>A fundamental part of ThinkShout’s philosophy and business is to not only use great open source tools, but to <a href="http://thinkshout.com/blog/2015/03/the-how-and-why-of-open-source/">actively give back</a> to the open source community. The most recognizable part of that contribution is in the form of Drupal modules: over 60,000 Drupal sites run on ThinkShout technology! This strategy has been a huge <a href="http://thinkshout.com/blog/2014/09/small-business-of-nonprofits/">win for our clients</a>, who get features, bugfixes, and security updates from the community because they are sharing code. We benefit from this work as well, as it enhances our profile in the community and helps us generate leads for new projects. Of course, the vast majority of these sites are built on Drupal 7, which <a href="https://www.drupal.org/drupal-7-released">released</a> in the same month that <a href="http://thinkshout.com/blog/2016/01/five-years/">ThinkShout was founded</a>.</p>
+
+<p>The exciting and much-anticipated release of Drupal 8 has given us a lot to think about. Internally, we’ve been running a Drupal 8 “book club” to give our development team a chance to dive in and figure out what’s going on with D8. While we’ve bathed in the glories of Composer, Twig, and YAML files galore, we’ve also had a chance to start upgrading a few of our favorite modules to Drupal 8!</p>
+
+<p>With support from the incredible folks over at <a href="http://mailchimp.com/">MailChimp</a>, we’ve already got a working release of the <a href="https://www.drupal.org/project/mailchimp">MailChimp integration module</a> for Drupal 8, and are hard at work on the <a href="https://www.drupal.org/project/mandrill">integration with Mandrill</a>, MailChimp’s awesome transactional email service, which may have a Drupal 8 release before this blog post goes live.</p>
+
+<p>This is a great start, but it’s really only the tip of the iceberg: ThinkShout has about 50 modules released for Drupal 7! As much as we’d love to dive in and update all of them for Drupal 8 today, that’s not particularly practical. To better focus our work, I analyzed some of these modules so we can prioritize them and look for opportunities to work with our partners and clients to get the most useful, popular, and important modules upgraded to Drupal 8 first.</p>
+
+<p>Of our 50 modules, we started by de-prioritizing anything that was:</p>
+
+<ul>
+  <li>
+    <p>Extremely narrow in purpose (<a href="https://www.drupal.org/project/er_plus">Entity Reference Plus Data</a>)</p>
+  </li>
+  <li>
+    <p>Blocked by another module’s Drupal 8 development (<a href="https://www.drupal.org/project/apachesolr_geo">Apache Solr Geo</a>, lots of others)</p>
+  </li>
+  <li>
+    <p>Offers modest functionality replaceable by custom code (<a href="https://www.drupal.org/project/footer_message">Footer Message</a>) or</p>
+  </li>
+  <li>
+    <p>Just not seeing much usage (<a href="https://www.drupal.org/project/instagram">Instagram Realtime</a>)</p>
+  </li>
+</ul>
+
+<p>That left us with around 10 projects, among them MailChimp and Mandrill, which we were already working on. We wanted to pick a manageable number of these remaining modules to get started on.</p>
+
+<p>Based on community usage, the priorities of our clients, and perceived usefulness, it was clear that the <a href="https://www.drupal.org/project/registration">Registration module</a> belonged on this list. The story of Registration’s development is connected to the story of ThinkShout’s fledgling years and open source philosophy, so it’s an added bonus that Registration will be part of our early push into Drupal 8.</p>
+
+<p>ThinkShout has also carved out a reputation as experts in the CRM world, with <a href="https://www.drupal.org/project/redhen">RedHen</a>, our leading Drupal-integrated CRM, and the <a href="https://www.drupal.org/project/salesforce">Salesforce Suite</a>, a fabulous tool for integrating Drupal sites with Salesforce. Though these modules don’t have the 5-digit usage numbers that Registration or MailChimp have, they still have lots of users who are very engaged, and are central to the needs of our clients. We added them to the top of the list for Drupal 8 consideration.</p>
+
+<p>In thinking about the rest of our modules and the nature of our work, it became clear that these three projects really stand out from the rest: they are our “Big 3”, and we set about creating a roadmap for developing them on Drupal 8.</p>
+
+<p>You can already see the beginnings of this work! At our team sprint on February 11, we put together an outline for bringing RedHen to Drupal 8, and pushed the first commits to Drupal.org.</p>
+
+<p><img src="/assets/images/blog/porting-thinkshout.jpg" alt="porting-thinkshout.jpg" />
+<em>These are our sprint faces!</em></p>
+
+<p>As of February 11, all of the Big 3 have nominal Drupal 8 branches.</p>
+
+<p>As we kick off four Drupal 8 sites in the first part of this year, we will be working with our clients to bring Registration, RedHen CRM, and Salesforce Suite to Drupal 8. All three should update beautifully, as they are built on top of Entity API, which is part of Core in D8.</p>
+
+<p>We will also be focusing our internal open source contribution hours on these three projects to kickstart their jump into the Drupal 8 sea. If you’re looking for awesome CRM or registration systems for your Drupal 8 site, fear not! They are on their way.</p>
+
+<p>We have two Drupal 8 sites utilizing ThinkShout core technologies scheduled for launch this summer, so look for a release of RedHen in the spring!</p>
+
+<p>Our next round of prioritization will depend significantly on the progress of Commerce solutions in Drupal 8: once that landscape settles, we have some projects that will jump up that priority list, including:</p>
+
+<ul>
+  <li>
+    <p><a href="https://www.drupal.org/project/registration_commerce">Registration Commerce</a>, our favorite paid registration solution</p>
+  </li>
+  <li>
+    <p><a href="https://www.drupal.org/project/redhen_donation">RedHen Donation</a>, our CRM-integrated, single-page donation tool</p>
+  </li>
+  <li>
+    <p><a href="https://www.drupal.org/project/commerce_iats">Commerce IATS</a>, the payment integration module for our favorite nonprofit-focused payment processing partner, <a href="http://home.iatspayments.com/">iATS Payments</a></p>
+  </li>
+</ul>
+
+<p>So if you’re a fan of our Commerce integrations, or <a href="https://www.drupal.org/project/addtocal">Add to Cal</a>, or even little <a href="https://www.drupal.org/project/bean_entity_view">Bean Entity View</a> (I know I am): stay tuned! We love these tools, we love that you’re using them, and we look forward to bringing you even more awesome stuff for Drupal 8 than we have for Drupal 7!</p>
+
+]]>
+  </description>
+  <pubDate>Tue, 23 Feb 2016 10:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2016/02/porting-thinkshout-to-drupal-8/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/02/porting-thinkshout-to-drupal-8/</guid>
+</item>
+
+    
+      <item>
+  <title>Sprinting on Entity Registration</title>
+  <description>
+    <![CDATA[<p>We started hosting monthly sprints in order to pool our resources and give back to the open source community. We’re committed to maintaining our contributions that Drupal users rely upon - heck, we rely on them, too - and we owe it to this community to keep improving upon them. Not only that, but our own internal community here at ThinkShout grows as a result. There’s a camaraderie that develops when we all rally behind one cause, and it shows after every sprint in the way we collaborate on our projects.</p>
+
+<p>This month, we focused on one of our most widely-adopted Drupal modules: <a href="https://www.drupal.org/project/registration">Entity Registration</a>.</p>
+
+<p>There are nearly 10,000 sites currently using the Entity Registration module to power event signups. The module is supported by an active group of 43 developers who have contributed over 500 commits to the project. If you registered for a DrupalCon prior to this year, you’ve probably used this module. It’s been the canonical registration tool in Drupal because of the balance it strikes between ease of use and flexibility. We’ve built everything from simple signup forms for small, free events, to complex paid event registration workflows with tens of thousands of registrants.</p>
+
+<p>The sprint resulted in a much-needed release of the Entity Registration module: <a href="https://www.drupal.org/node/2544986">7.x-1.5</a>. We knocked out a chunk of issues, added a bunch of nifty new features, and paved the way for some even <em>bigger</em> new features. Additionally, we made our initial <a href="https://www.drupal.org/node/2543160">port of Registration to Drupal 8</a> on a completely different branch.</p>
+
+<p>What’s more, we had our interns on hand to participate in their very first sprint! <a href="http://thinkshout.com/blog/2015/06/meet-the-interns/">Daniel</a> even managed to make eight commits to Entity Registration. It was one of the most exciting Thursdays we’d had in a while. And that’s saying something, since bowtie Thursdays are pretty epic.</p>
+
+<p>For this sprint, we broke into three teams. Team one focused on resolving the highest priority items in the issue queue, team two worked on building out a roadmap for upcoming features in the 2.x release, and team three began working on the D8 port.</p>
+
+<p>Team one resolved over twenty issues in the queue and triaged nearly double that. I sat down with developers Gabe Carleton-Barnes, Jaymz Rhime, and Greg Boggs to discuss this latest sprint in detail.</p>
+
+<p><strong>Gabe, your team was responsible for tackling the issue queue. How did you and your team divide and conquer those tickets?</strong></p>
+
+<p><strong>Gabe</strong>: We started with the most important issues, and items that were prioritized in the issue queue already. We distributed them among our team, reproduced the issues, and came up with solutions. We had a lot of newer ThinkShout folks working on the queue, and our interns were on hand as well to help. It was a great opportunity for them to to get in there and give some feedback to the community. We were able to also get feedback from the community about these issues, evaluated their proposed solutions, and if they made sense, we implemented them as part of the fix.</p>
+
+<p><strong>What were some of those bigger fixes?</strong></p>
+
+<p><strong>Gabe:</strong> One of the more noteworthy had to do with anonymous registrations and permissions. Each time you create an event, you can allow people to register in different  ways. Registration by email address is one way, so anonymous users can provide an email address and not necessarily need to log into the site. But in order to make that work, you had to allow anonymous users with a permission called “allowed to register other people.” It logically worked at the time, but it was a little confusing for people setting up the module for the first time. So we took that out, which also provides a bit of a security buffer so you don’t have a bunch of anonymous users signing up with several different emails.</p>
+
+<p><strong>Let’s shift gears and talk about features. It sounds like there are some exciting changes in the works for the Entity Registration module.</strong></p>
+
+<p><strong>Greg</strong>: We started the process of refactoring entity registration in a big way. I created a <a href="https://www.drupal.org/node/2543164">roadmap</a> for the 2.x release of the module, which is important because there are contributors active in the Drupal community that are contributing to our module. So if we’re going to commit large chunks of new features to the module, it’s important to describe those to the other active developers working on the module so they know what’s coming and can participate in those changes.</p>
+
+<p><strong>Jaymz</strong>: We developed a plan for implementing the biggest new features, and we’ve made some headway in service of those new features. We’re hoping to have these features ready to roll out in a month or so.</p>
+
+<p><strong>Greg</strong>: There are two big features we’re prioritizing right now. The first is making entity registration work with any kind of entity, which is important for Drupal sites that use more than just “users.” This is a massive change that will drastically affect how this form will work. Right now, only users can register for events. With this feature, any entity will be able to register, whether it’s a contact, and email, etcetera, which is going to give both site owners and event registrants more options for both managing and registering for events. The second is the implementation of multiple registrations on a single event registration form.</p>
+
+<p><strong>Jaymz</strong>: Both of these are features that have sort of worked in the past, but needed some fine-tuning. So now we’re adding true support for both of them.</p>
+
+<p><strong>Greg</strong>: So many people use this module, and many of them are new to Drupal, which means this module has a very active issue queue. One of my top priorities is to respond to these issues, which I did during the sprint, ensuring people knew where to go for more support, reviewed proposed solutions, and so on.</p>
+
+<p><strong>Jaymz</strong>: We really appreciate the support from the community, and we owe a lot of this module’s success to their contributions. It takes a village sometimes, or in this case, a team sprint, and Entity Registration is proof of that.</p>
+
+<p><em>There are a lot of exciting things in the works for Registration. We can’t thank the community enough for their support of this module, and we’re looking forward to bringing it to Drupal 8. In the mean time, we hope you’ll give 7.x-1.5 a whirl and let us know what you think! Be on the lookout for updates about our progress and the new features coming in the near future.</em></p>
+
+]]>
+  </description>
+  <pubDate>Wed, 05 Aug 2015 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/08/entity-registration-sprint/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/08/entity-registration-sprint/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

@@ -1,17 +1,1137 @@
----
----
-
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.name | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}</link>
-    <atom:link href="{{ site.url }}/rss.xml" rel="self" type="application/rss+xml"/>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/rss.xml" rel="self" type="application/rss+xml"/>
 
-    {% for post in site.categories.blog limit:20 %}
-      {% include rss-item.xml %}
-    {% endfor %}
+    
+      <item>
+  <title>Your Disaster Response Plan</title>
+  <description>
+    <![CDATA[<p>Hurricane Season is around the corner (the official start is June 1), and while <a href="http://www.heraldtribune.com/news/20180518/experts-hurricane-season-may-be-less-active-than-first-predicted">some experts</a> report that it won’t be as brutal as in recent years, it never hurts to revisit some tried and true practices that could help you and your organization avoid headaches, save a lot of time, and be ready to spring into action when the time comes.</p>
+
+<p>When I was working at nonprofits, I’d often fall into the same trap every year: I’d be so focused on the calendar and the next campaign that we needed to send out, then get blindsided by a sudden onslaught of  calls from donors wondering what we were going to do to help people on the ground of the latest natural disaster. That’s where I’d like to start with all of this: Is your organization perceived as one that should provide services to those in need in emergency situations? If you, your colleagues, or your ED can’t answer that question, you need to figure it out…because you don’t want to be on the receiving end of a call, stammering and unsure of how to respond to a donor who is simply saying “take my money.”</p>
+
+<p class="center"><img src="/assets/images/blog/Fry.jpg" alt="Take My Money" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>The phrase any fundraiser loves to hear.</span></p>
+
+<p>Let’s say you’ve decided you are the type of organization that will be sending a response team or will be funneling dollars to other local agencies where disaster has struck. Set up your unique tracking and fund codes to ensure those dollars don’t mix with your general operating bucket. The reason I say this is because disaster donors are, by and large, the one night stands of fundraising. We love them, but maybe they don’t love us as much to be in a long-term relationship – and that’s ok! Although, I have witnessed some exceptions to that rule (<a href="https://thinkshout.com/blog/2016/12/is-november-2016-and-outlier-or-the-new-normal/">see November 2016, post election behavior</a>), it’s rare to see a ladder of engagement where someone’s first gift was for emergency relief and, low and behold, 3 weeks later they’re a monthly donor.</p>
+
+<p>Blackbaud (whether you love em or love to hate em) has also done some <a href="https://www.huffingtonpost.com/entry/giving-when-disaster-strikes_us_59c0e106e4b0c3e70e742793">research</a> that elaborates on the lack of stickiness with disaster donors. Ultimately, you don’t want that swell in donations to mislead you when you’re planning your budget and setting goals for the following year. Keep it separated.</p>
+
+<h3 id="the-checklist">The checklist:</h3>
+
+<p><strong>Bandwidth</strong></p>
+
+<p>The majority of fundraising tends to happen in the <a href="https://www.networkforgood.com/nonprofitblog/infographic-disaster-strikes-america-gives/">two weeks</a> after an episodic event takes place. Knowing that, how does your organization need to prepare? Do you need to set up a phone bank to handle an increase in calls? Is your website able to handle a spike in traffic of Hulk-like proportions? I’ll be honest, I still have nightmares of websites going down the last week of the year due to the volume of site visitors overloading us. You don’t want that happening at peak fundraising time (or anytime, for that matter). Luckily technology has come a long way in the last 10-ish years and many of us don’t have to worry about this as much. But it’s a good idea to check yourself, before you wreck yourself.</p>
+
+<p class="center"><img src="/assets/images/blog/hulk.jpg" alt="The Hulk" /></p>
+
+<p><strong>Speed</strong></p>
+
+<p>Can your site load in under 2 seconds? Because that’s the expectation users have now.  M+R dedicated an entire section of their <a href="https://mrbenchmarks.com/#!/speed">2018 Benchmarks study</a> to speed, saying that “a one-second delay in page load time can lead to an 11% decrease in traffic, and significantly fewer conversions.” Make sure you’re taking steps now to improve the experience when it will matter most. This isn’t just a disaster response plan, it should be the standard.</p>
+
+<p class="center"><img src="/assets/images/blog/theflash.jpg" alt="The Flash" /></p>
+
+<p><strong>The Messaging</strong></p>
+
+<p>Adjusting the communication plan was always the most jarring for me; because I already had a plan, but I had to pitch it all and start over (I love a roadmap, but despise forced improvisation)! Taking small steps to prepare now will help minimize the stress of having to create a bunch of new pieces overnight to solicit support later.</p>
+
+<p class="center"><img src="/assets/images/blog/messaging.jpg" alt="Coffee cup with inspirational message" /></p>
+
+<ul>
+  <li>
+    <p>Create a template. By that I don’t mean “create a highly designed and polished email” but have a starting point with some copy that you can easily fill in with specific details or edit once you have more information. Standard things to include might be your efficiency rating / how far a dollar goes; maybe adding in some boilerplate language about your organization and its effectiveness.</p>
+  </li>
+  <li>
+    <p>Loosely set the cadence for the messages, but be flexible so you can respond to things in the moment as the situation evolves.</p>
+  </li>
+  <li>
+    <p>Don’t forget about social media. As in, don’t forget to amplify your message there and utilize your connections, fans, and influencers to spread your message. Have a plan for how to reach out to those influencers and talk to them about the work you’re doing.</p>
+  </li>
+  <li>
+    <p>Incorporate texting. I say this with caution because I’ve had bad experiences with text-to-give in the past, and it just depends on the vendor. Be sure to read all the fine print! Don’t end up like me: wondering where all the money is and realizing that the vendor only sends it to you in a lump sum every 6 months (and only if the donor has paid their phone bill). But don’t let my sour attitude get you down – there are a lot of benefits to giving via text; several are outlined in this <a href="https://trust.guidestar.org/text-to-give-software-five-unexpected-and-amazing-benefits">helpful list from Guidestar</a>. If you find a vendor that you love, add your recommendations in the comments below so we can also give em some love! And once you’ve got one lined up, agree upon the logic you’ll use to create your keywords so they’re consistent.</p>
+  </li>
+</ul>
+
+<p>All this is to say, have a checklist of things you need to do when the time comes, so that you’re not scrambling to be 5 different people at once (that may still happen, but at least you’ll be prepared)!</p>
+
+<p><strong>On a serious note</strong></p>
+
+<p>I’ve injected some levity into this post, but natural disasters affect real people and can set a state’s/city’s/country’s infrastructure back exponentially. As we brace for the 2018 hurricane season, we cannot ignore the massive devastation from 2017 and the thousands of people in Puerto Rico affected by Hurricane Maria (which was a mere 8 months ago). The media has moved on, but significant relief work continues, and <a href="https://www.pbs.org/newshour/nation/puerto-ricos-recovery-7-months-after-hurricane-maria">the needs are mounting</a> and continually reassessed. If you want to do something about it, <a href="https://www.charitynavigator.org/index.cfm?bay=content.view&amp;cpid=5356">here are some organizations from Charity Navigator</a> that are providing relief efforts.</p>
+]]>
+  </description>
+  <pubDate>Mon, 28 May 2018 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2018/05/Your-Disaster-Response-Plan/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/05/Your-Disaster-Response-Plan/</guid>
+</item>
+
+    
+      <item>
+  <title>Space for Empathy</title>
+  <description>
+    <![CDATA[<p>Last month I went to my first DrupalCon in Nashville. I met a lot of interesting people, had good conversations, and had a hard time choosing from the record number of sessions. As the week went on, I noticed a theme kept coming up. It showed up in sessions on how to create a better admin and content editing experience, in sessions on accessibility and what it’s like to be a blind or deaf engineer, in conversations about helping first-time users enjoy the experience of using Drupal, and in debates about what Drupal will look like in the future. What if the thing that will give Drupal a competitive advantage and improve the admin experience is the same thing that will attract new users and create sites that are accessible for all?</p>
+
+<p>The idea that kept surfacing during my week at DrupalCon was this: we need empathy. The Drupal community has excelled at solving complex engineering problems, and the next challenge we face is just as critical, though it requires us to think a little differently: how do we make space for empathy in our work and in our community?</p>
+
+<p class="center"><img src="/assets/images/blog/perspective.jpg" alt="Reflection photo" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>It’s time to shift our perspective. Photo Credit: Randy Jacob.</span></p>
+
+<h3 id="our-bias-is-our-blindspot">Our Bias is our Blindspot</h3>
+<p>Sometimes we don’t need more complex solutions, we need thoughtful ones. Building websites is challenging. There’s never enough time or resources. It’s easy to stick with what’s known and what works. But sometimes what I know is limited, and only works for people who look and think like me. It’s easy to become insular and indifferent to the needs of others because it’s hard to make everyone happy, and thinking about the effort required to change can be overwhelming.</p>
+
+<p>If someone told me, “It’s really hard to talk to people with accents, so I just avoid them,” I’d be shocked. But I know I’ve created sites and tools that are difficult—if not impossible—for people with disabilities to use. Arriving in Nashville, I knew enough about accessibility to know that I needed to learn more. So I dove in and attended every session I could.</p>
+
+<p class="center"><img src="/assets/images/blog/DrupalCon-Session.png" alt="DrupalCon Accessibility Session" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>I kicked off my deep dive with Katherine Shaw and Fito Kahn’s awesome all day Drupal Accessibility training. Check out Katherine Shaw’s <a href="https://www.prometsource.com/team/katherine-shaw">great blog posts on accessibility.</a></span></p>
+
+<h3 id="accessible-empathy">Accessible Empathy</h3>
+<p>I learned that excuses like “accessibility is hard,” or “it doesn’t affect me because I’m not working on a government site” won’t get me off the hook. Accessible websites are now a part of the Americans with Disabilities Act. And any site that is not accessible to all users is liable. I met several engineers who are currently resolving warnings or navigating lawsuits for not meeting <a href="https://www.w3.org/TR/WCAG20/">WCAG 2.0 guidelines.</a></p>
+
+<p>But it’s about much more than just changing processes to avoid a lawsuit. Listening to the Core Accessibility panel, I was humbled when it was pointed out that we labor over fixes for Internet Explorer, which can make up 2-3% of users. Meanwhile, <strong>12.6% of people in the US have disabilities (40.7 million people)</strong>, and accessibility can still be considered an edge case. Building a website that works for more users is not difficult, but it takes intention, a willingness to learn and <strong>empathy.</strong></p>
+
+<p>I also learned that having empathy for all types of users doesn’t mean everything has to change immediately. During his talk about accessibility, Everett Zufelt said, “The best place to start? Anywhere. If you fix one button, your site is that much more accessible than it was before.” So I’m challenging myself to build things the right way the first time, drop bad habits and to refine best practices so I can create sites and tools that serve all types of users.</p>
+
+<h3 id="inward-empathy">Inward Empathy</h3>
+<p>For some of you reading this, the challenge might be that you have empathy for everyone in the room, <em>except yourself.</em> You take on multiple roles at work. You handle the backend and the frontend and design and project management. You say yes because you know you can do it and how will you get ahead if you don’t show how valuable you are by doing all of the things all the time? I get it. Now stop it.</p>
+
+<p class="center"><img src="/assets/images/blog/Relax.jpg" alt="RELAX" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>“ ‘No’ might make them angry, but it will make you free.” –Nayyirah Waheed;  Photo credit: Clem Onojeghuo</span></p>
+
+<p>You deserve empathy too, so be kind to yourself. Good boundaries will keep you fresh and sane. A well cared for version of you will help your team more than the stretched and exhausted one that’s running on too little sleep and too much caffeine.</p>
+
+<p>Something that stood out to me in particular in sessions at DrupalCon was how people wouldn’t move over in their seats to make room and allow those in an already crowded session to sit comfortably in chairs instead of on the floor. People would have empty seats on either side, and not move down the row to make it easier others. There are people who don’t have an issue taking up space, taking what they need, and not for an instant feeling bad about it. Let’s find some balance somewhere in the middle. Give yourself the empathy you need to succeed, and–for the love of god–let’s all scoot down so no one is left sitting on the floor.</p>
+
+<h3 id="outward-empathy">Outward Empathy</h3>
+<p>A better admin experience, and faster and more accessible websites are only created when we think about how our work is used by everyone. Take a moment to walk a mile in someone else’s shoes. Now apologize for taking their shoes, sit down and talk to them about how they use your site, what the sticking points are, and how it can be improved. Most importantly, <strong>listen.</strong> Forget what you think you know, and learn about what it means to be someone else using your website. Then you just might have a week like mine where you were reminded: sometimes engineers are blind or deaf, or both. Sometimes keynotes are a she or a he or a they. Sometimes content editors know exactly what is needed to make a better editing experience–if you just ask.</p>
+
+<h3 id="be-human-think-digital">Be Human. Think Digital.</h3>
+<p>Empathy is what makes us human. We all want to be seen and known and understood. And at the end of the day we all want to use tools that help us to accomplish a task, not remind us that we’re not who the engineer had in mind. Technology without empathy is hollow. Empathy without technology is limited. Let’s make space for empathy in our community and in our code, and let’s change the world for good—for everyone.</p>
+
+<p class="center"><img src="/assets/images/blog/Driesnote.png" alt="Driesnote Slide: There is no power for change greater than a community discovering what it cares about" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>One of my favorite slides from the Driesnote at DrupalCon Nashville</span></p>
+
+<p class="center"><img src="/assets/images/blog/WID-event.png" alt="Women in Drupal Event" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>The ThinkShout team hanging out with some awesome folks at the Women in Drupal event.</span></p>
+
+<h3 id="resources">Resources</h3>
+<p>If you’re interested in learning more about the sessions I attended this week, here are links to some of my favorite talks:</p>
+
+<p><a href="https://www.youtube.com/watch?v=elRWQnzlfcw">JavaScript and Accessibility: Don’t blame the language</a></p>
+
+<p><a href="https://youtu.be/-z9bD2wMgqQ">DrupalCon Nashville 2018: Core Accessibility: Building Inclusivity into the Drupal Project</a></p>
+
+<p><a href="https://events.drupal.org/nashville2018/sessions/usability-testing-super-important-and-easier-you-think">Usability testing is super important and easier than you think</a></p>
+
+<p><a href="https://events.drupal.org/nashville2018/sessions/smarter-way-test-accessibility-comparison-top-tools-lighthouse-tenonio-and">A smarter Way to Test Accessibility - a comparison of top tools (Lighthouse, Tenon.io and WAVE API)</a></p>
+
+<p>If you’re overwhelmed by accessibility and don’t know where to start, here’s a great video on how to do <a href="https://youtu.be/cOmehxAU_4s">a very basic accessibility audit</a>.</p>
+
+<p>If you’re interested in refining your accessibility practices, there are some amazing tools and resources available. Here are some of my favorites. If you have tools or processes you love, please share in the comments below!</p>
+
+<p><a href="https://styleguide.enjoycreativity.com/">Style Guide Module</a>: Allows you to run accessibility tests on one page that is automatically populated with all basic layout elements. This is also great as a living style guide for the site.</p>
+
+<p><a href="https://webaim.org/articles/voiceover/">VoiceOver Screen Reader Getting Started Guide</a></p>
+
+<p><a href="https://a11yproject.com/checklist.html#aria-roles">A11y checklist</a>: A11y has a ton of patterns and a useful checklist.</p>
+
+<p><a href="https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh">WAVE Accessibility Plugin</a>: Described in the “A smarter Way to Test Accessibility” talk as the ‘Cadillac of accessibility plugins,” this free tool will catch errors, markup the page with an outline of your headings and make accessibility QA much easier.</p>
+
+<p><a href="https://itunes.apple.com/us/app/sim-daltonism/id693112260?mt=12">Sim Daltonism tool</a>: This overlay tool allows you to preview your site for multiple types of colorblindness.</p>
+
+<p><a href="https://chrome.google.com/webstore/detail/contrast-ratio-checker/kmicfegjejpginnockfnjpdgeffebdcf?hl=en">Color Contrast Ratio Checker</a>:  This chrome plugin will tell you whether the color contrast of fonts on your site passes WCAG 2.0 standards.</p>
+
+<p><a href="https://www.w3.org/TR/WCAG20-TECHS/aria.html">ARIA cheat sheet</a>: This doc outlines all of the different ways you can use ARIA to make your site more accessible</p>
+
+<p><a href="http://squizlabs.github.io/HTML_CodeSniffer/">HTML Codesniffer by Squiz</a>: Allows you to set the accessibility standard you want to meet (WCAG2AA is the new legal requirement), and creates a report identifying errors, warnings and notices.</p>
+]]>
+  </description>
+  <pubDate>Thu, 24 May 2018 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2018/05/Space-for-Empathy/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/05/Space-for-Empathy/</guid>
+</item>
+
+    
+      <item>
+  <title>Preparing for the GDPR</title>
+  <description>
+    <![CDATA[<h3 id="weve-recently-updated-our-privacy-policy"><strong>“We’ve recently updated our privacy policy.”</strong></h3>
+
+<p>If you’ve ever given your email address to an online store, entity, social media platform or done just about anything online, then you’ve probably received the above notice in your inbox from those entities with increasing regularity over the last month or two.</p>
+
+<p>Most of these notices are related to the European Union’s General Data Protection Regulations (GDPR) that are going into effect later this month on <strong>May 25, 2018.</strong></p>
+
+<p>To be clear, <strong>we at ThinkShout are not lawyers</strong> and we strongly encourage our clients and anyone collecting user information in some way, shape, or form to seek legal counsel for your own specific obligations related to the GDPR. Here’s how we’re viewing the regulations and what actions we are taking at ThinkShout.</p>
+
+<h3 id="the-big-picture">The big picture</h3>
+
+<p>The regulations apply specifically to organizations that collect or process data associated with EU citizens. The overall intent is to give EU citizens control over how their own data is collected and used. The stick that’s being wielded to enforce the regulations is the possibility of fines of up to €20 million or 4% of an organization’s global annual revenue (whichever is greater). Charitable organizations are not exempted from these penalties, however it’s likely that the steep fines will be for recurring or significant privacy issues and that the focus will be on fixing any issues that are discovered. There are questions about enforceability (particularly in the USA) that will likely need to be settled in court, but many of the regulations reflect smart privacy practices regardless of the penalties. All the chatter and hand wringing about the GDPR has led to a fast growing industry of businesses offering compliance audits, consulting and technical solutions to the regulations. Some of the vendors offering these services are legitimate, while many are simply designed to sell products or services based on embellished fears.</p>
+
+<p><a href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/principles/">The principles of the GDPR</a> can be broadly summed up as protecting personal data by allowing individuals to choose what data they allow to be collected, how that data is used or processed, and gives them control over that data even after it’s been collected. The UK’s Information Commissioner’s Office provides an easy to read <a href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/">guide to the GDPR</a> that goes into detail on the various provisions while the EU provides a <a href="http://ec.europa.eu/justice/smedataprotect/index_en.htm">more graphical explanation</a>. That last link might be more palatable for the visual learners reading this.</p>
+
+<p class="center"><img src="/assets/images/blog/GDPR-Data.png" alt="EU Graphic Explanation of GDPR" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Portion of the EU’s graphical explanation of GDPR - full explanation can be found <a href="http://ec.europa.eu/justice/smedataprotect/index_en.htm">here</a>.</span></p>
+
+<h3 id="does-the-gdpr-apply-to-you-and-your-users">Does the GDPR apply to you and your users?</h3>
+
+<p>In short, probably. While compliance is technically only needed when handling data for EU citizens, discerning who is and isn’t a EU citizen can be difficult, and compliance in many cases isn’t all that cumbersome.</p>
+
+<h3 id="documentation-and-communication-are-two-of-the-key-areas-of-responsibility">Documentation and communication are two of the key areas of responsibility.</h3>
+
+<p>Start with an audit of the data you collect from users, the data you collect from other sources and what is done with that data. Note that this isn’t just about new data but also any data already in your various systems (website, Salesforce, spreadsheets, etc.). Once you know what user information you have and why you have it, communicate that information to both your staff and your users by updating your privacy notices, and emailing constituents with that now famous subject line, “We’ve recently updated our privacy policy.”</p>
+
+<p>Document how your data handling processes are shared with new staff. It’s also a good idea to revise privacy policies written by lawyers to be “concise, transparent, intelligible and easily accessible” and should further be “written in clear plain language.”</p>
+
+<p><a href="https://ico.org.uk/media/for-organisations/documents/1625136/good-and-bad-examples-of-privacy-notices.pdf">Here’s an example of good privacy notices and requests for consent.</a></p>
+
+<p>Basically, ensure that the general population (who did not attend law school) can easily understand the language.</p>
+
+<h3 id="processing-must-be-allowed-under-a-lawful-basis">Processing must be allowed under a lawful basis.</h3>
+
+<p>Any processing of personal data must be supported by both the need to process that data as well as a lawful basis. Out of the <a href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/lawful-basis-for-processing/">eight lawful bases</a> that the GDPR defines, consent, legal obligation and legitimate interest appear to be the most likely to be cited in the work of our clients. For consent to apply, it must be active (opt-in), current, specific and revocable.</p>
+
+<p>Legal obligation covers data needed for accounting or other legal audit trails. Legitimate interest is less defined, but addresses situations where the usage of the data can be reasonably expected, has minimal privacy impact and there is strong justification for the processing of the data. Using a user’s email address on an account they created to send them a link to reset their password might be an example of legitimate interest as a lawful basis.</p>
+
+<h3 id="individuals-have-defined-rights-to-the-protection-and-usage-of-their-data">Individuals have defined rights to the protection and usage of their data.</h3>
+
+<ol>
+  <li>The right to be informed: privacy notices, accurate opt-in information, etc.</li>
+  <li>The right of access: ability to see any data you have on an individual.</li>
+  <li>The right to rectification: ability to correct any errors in the data you have - allowing users to update their own profiles covers much of this right.</li>
+  <li>The right to erasure: ability to request data be removed. This is not all encompassing, nor does it need to be automated. Data needed for legal or other legitimate needs can be retained.</li>
+  <li>The right to restrict processing: ability to request that their data not be processed but also not deleted.</li>
+  <li>The right to data portability: ability to request a machine readable export of their data.</li>
+  <li>The right to object: ability to opt out of marketing, processing based on legitimate interest or processing for research or statistical purposes. The process for opting out must be clearly explained in the privacy notice and at the point of first communication.</li>
+  <li>Rights in relation to automated decision making and profiling: If you collect data to profile individuals for behavior tracking or marketing purposes then <a href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/rights-related-to-automated-decision-making-including-profiling/">additional regulations apply.</a></li>
+</ol>
+
+<h3 id="what-about-cookies">What about cookies?</h3>
+
+<p>Cookies aren’t specifically called out in the GDPR, however some of the provisions can apply to them. Some experts recommend altering the site behavior to prevent cookies from being created until after the user has provided and the site has recorded consent. <a href="https://www.civicuk.com/cookie-control">Several</a> <a href="https://www.cookiebot.com/en/">services</a> seek to provide paid services that support this approach, although altering the code on your site is generally necessary to use them correctly. A few Drupal modules and WordPress plugins also seek to provide this functionality. It is expected that in 2019 the <a href="https://www.i-scoop.eu/gdpr/eu-eprivacy-regulation/#The_EU_ePrivacy_Regulation_and_cookies">revised e-Privacy Directive</a> will shift some or all of the obligations for managing consent related to cookies to the browser application.</p>
+
+<h3 id="recommendations">Recommendations</h3>
+
+<p>We’re recommending that all our clients take the following steps to ensure compliance:</p>
+
+<ul>
+  <li>Evaluate your organization’s legal needs related to the GDPR. Consulting with your own counsel is recommended.</li>
+  <li>Appoint an internal person to take responsibility for data protection in your organization. While the GDPR includes provisions for <a href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/accountability-and-governance/data-protection-officers/">appointing a Data Protection Officer (DPO)</a>, it’s specifically for public authorities and organizations whose core business is tracking behavior or processing criminal data. Appointing a staff person will help avoid a diffusion of responsibility regarding data security.</li>
+  <li>Audit your data collection and processing <a href="https://docs.google.com/spreadsheets/d/1fEys1ekOpHjup2l9Jto-Q8Ppv8P96jezou2kkOu9PcU/edit#gid=0">(here’s a sample template)</a>:
+    <ul>
+      <li>What is being held already and what is being collected?</li>
+      <li>Is there data being collected or stored that isn’t needed?</li>
+      <li>How is the collected data is used within the organization?</li>
+      <li>Is there a legal basis for the different pieces of personal data being collected?</li>
+      <li>If consent is the legal basis, is the consent active (opt-in), granular and recent?</li>
+    </ul>
+  </li>
+  <li>Review and revise privacy notices and cookie policies to be clearly written and comprehensive. Be sure to include information about third-party data collection (Google Analytics, AddThis, Facebook, etc). <a href="https://ico.org.uk/for-organisations/guide-to-data-protection/privacy-notices-transparency-and-control/your-privacy-notice-checklist/">Here’s a privacy notice checklist to get you started.</a></li>
+  <li>Document processes for handling user requests as well as security breaches. Your organization has a month to respond to an individual’s request for export, access, or deletion of their data. In most cases this will currently be a manual process although there is working happening in both the Drupal and WordPress communities to make these request easier to accommodate. If there is a data breach, the GDPR states that the regulating agency must be notified within 72-hours. A good starting point is the <a href="https://iapp.org/resources/article/security-breach-response-plan-toolkit/">Security Breach Response Plan Toolkit.</a></li>
+  <li>Evaluate if changes to your website (beyond the privacy/cookie notices) are necessary. Consider specifically:
+    <ul>
+      <li>Is Google Analytics configured properly? Ensure IP anonymization is enabled, data retention settings are correct and that no personal information is being tracked (check page urls, titles, etc.).</li>
+      <li>What third-party scripts or pixel trackers are included?</li>
+      <li>How is consent being collected in newsletter signup forms?</li>
+      <li>How is consent being collected in user registration forms?</li>
+      <li>Any other places that user data could be collected?</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="whats-next-for-us">What’s next for us?</h3>
+
+<p>Like most agencies, we’re continuing to learn more about the GDPR and the implications for our clients. We are working in partnership with them to help them understand and implement changes that might be needed on their sites or their internal processes. Internally we’re providing additional training on the principles of <a href="https://www.ryerson.ca/pbdce/certification/seven-foundational-principles-of-privacy-by-design/">privacy by design</a> to our team. In terms of our open source work we’ll be incorporating <a href="http://eepurl.com/dqP8Bb">MailChimp’s GDPR consent forms</a> into the <a href="https://www.drupal.org/project/mailchimp">Drupal MailChimp modules</a> as soon as the functionality is available in their API. We see opportunities for including functionality related to subject access requests (export, deletion, etc) and consent tracking in our RedHen CRM suite of modules as well.</p>
+
+<p>Bottom line is: this is something we all need to be cognizant of; it’s not solely an EU issue. We’ll continue to keep a close eye on this as GDPR gets rolled out – and there are many resources out there at your disposal (and within this blog post). You can be sure to get the latest from us on this and other digital trends by <a href="https://thinkshout.com/contact/">signing up for our newsletter</a> and following us on <a href="https://twitter.com/ThinkShout">twitter</a>. Good luck!</p>
+]]>
+  </description>
+  <pubDate>Sun, 13 May 2018 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2018/05/Making-GDPR-Preparations/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/05/Making-GDPR-Preparations/</guid>
+</item>
+
+    
+      <item>
+  <title>Brett Goes on Sabbatical</title>
+  <description>
+    <![CDATA[<p>More than 20 years ago, before we were married, Melissa and I bought the DeLorme Oregon Atlas and Gazetteer. This was long before iPhones, and the best way to explore the backroads was to trust the topographical maps that were updated every few years. At one point, we experimented with an early Garmin GPS system, but the DeLorme had a better track record of not leading us on to bad tracks. The dotted lines meant something: even a jacked up 93 Explorer may not have enough clearance.</p>
+
+<p class="center"><img src="/assets/images/blog/DeLorme_1.jpg" alt="Oregon Atlas and Gazatteer" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>The aforementioned Atlas and Gazatteer.</span></p>
+
+<p>I’m still a little surprised we never broke an axle. Over the years, we drove through snow storms in the Hart Valley Antelope Refuge to camp at the hot springs. We made it to the bottom of the Owyhee Canyon with no actual plan for how to get back up the switchbacks. On the Fields-Denio Road, in the shadow of Steen’s Mountain, a golden eagle burst out of the brush ten feet in front of us, carrying a rabbit; we camped on the Alvord Desert that night and ran after a herd of wild horses in the morning. We white-knuckled it up the back of the Wallowas, below Dead Horse Ridge and through Imnaha, not quite climbing from the bottom of Hell’s Canyon, but pretty close, as locals casually passed us on the hairpin turns. It was not a faster route to Terminal Gravity Brewing in Enterprise, but it was beautiful.</p>
+
+<p>As we completed each trip, we traced over the roads we’d been on with a highlighter. Looking at the maps now, I can see we missed a few, but the green and yellow and orange trace our travels through much of Oregon. At some point, we had decided we had no choice but to make sure we’d driven on at least one road on every one of the 88 maps.</p>
+
+<p class="center"><img src="/assets/images/blog/map_highlight.jpg" alt="Oregon Atlas and Gazatteer" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Behold, actual highlighting as described above!</span></p>
+
+<p>When I joined ThinkShout in early 2013, we all worked out of a tiny space in the business incubator in the EcoTrust building in Portland. My hire came during an early growth spurt: three hires in three months brought the company up to nine. I joined for the chance to work with a range of great nonprofits: Mobility International USA, Philanthropy Northwest, the Salmon Project, Facing History and Ourselves.</p>
+
+<p class="center"><img src="/assets/images/blog/Brett_welcome_blog.png" alt="Brett's Welcome Blog" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Brett’s welcome blog post from way back in 2013…both he and our website have come a long way since then~!</span></p>
+
+<p>We made a lot of mistakes back then, but what has shown through was how much we all cared about the work. Clients forgave our early missteps because it was obvious we were committed to helping them, to figuring it out, and to doing better.</p>
+
+<p>Five years on, ThinkShout has grown to 36 staff. Or maybe 37? It’s hard to keep track, as change has been pretty consistent. We’ve outgrown our office space, again. Our team has had the honor and the privilege to work with amazing organizations like the Southern Poverty Law Center, the Humane Society of the United States, the Sierra Club, Teaching Tolerance, the National Center for Youth Law, and so many more. We’ve been nominated for a couple of Webby Awards, and even won one. I had to buy a suit because of that.</p>
+
+<p class="center"><img src="/assets/images/blog/Brett_suit.jpg" alt="Brett gets gussied up" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Brett gets gussied up for the Webbys</span></p>
+
+<p>That we care about the work our clients do is still reflected in the work we do – but something else has changed. Over the years, we’ve come to view each other as more than just co-workers.</p>
+
+<p class="center"><img src="/assets/images/blog/bowtie_thursday.jpg" alt="Bowtie Thursday" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Brett and Gabe participating in our bowtie Thursday tradition.</span></p>
+
+<p>ThinkShout is not just a place people come to be able to do work for organizations making a difference in the world. In addition, I think they’ve come more and more to work with great people who want to do great work. All of the policies, processes, systemizations, and professionalization we’ve experienced and led have kept in mind the tenet that people do better work when happy and fulfilled – and that ThinkShout’s mission extends beyond helping our clients to serving our team and our community as best we can.</p>
+
+<p>This is reflected in our hiring process, in the clients we choose to work with, and in the benefits we offer; one recent hire pointed out that our health insurance is better than she’d had at a company more than a hundred times our size. As we’ve grown, we’ve done our best to insure that when we say we value work-life balance, we’re not saying it just because it sounds like something people want to hear.</p>
+
+<p>As part of that commitment, we’ve expanded our benefits package to better assist people at different stages of their life. When you invest 40 or more hours a week into an organization or company, it helps to know they in turn are there for you when you need an assist. Life throws us curve balls from time to time, that’s why we rolled out the following:</p>
+
+<ul>
+  <li>a profit-sharing plan</li>
+  <li>paid leave to take care of yourself or loved ones (young and old)</li>
+  <li>and a sabbatical policy</li>
+</ul>
+
+<p>I selflessly volunteered to beta-test that latest one.</p>
+
+<p class="center"><img src="/assets/images/blog/mark_ruffalo_wink.gif" alt="Bowtie Thursday" /></p>
+
+<p>Importantly, though, sabbaticals aren’t just being offered to those of us who’ve taken on the leadership of the company, but to everybody. Work hard for five years, take up to five months off to recharge, come back refreshed to keep pushing us and our clients forward. From what I’ve seen over the years, it’s pretty rare for a company our size to offer this sort of policy.</p>
+
+<p>But it’s the right thing to do.</p>
+
+<p>I’d be lying if I claimed to be spending a lot of time thinking about what I’ll be doing when I come back to ThinkShout in the Fall. There’s the World Cup coming up in June, and I won’t have to plan to watch games around my work schedule.</p>
+
+<p class="center"><img src="/assets/images/blog/messi_cats.gif" alt="Messi and Cats" /></p>
+
+<p>Melissa and I are throwing a big party for our 20th wedding anniversary in July. We’re planning trips to Asia, Europe, and South America. And we have about 10 maps in that DeLorme atlas left to trace our lives across.</p>
+
+<p>Through it all, though, I know that I’ll be excited to come back: to see what ThinkShout has accomplished, the new organizations we get to help, the new teammates who’ve joined in our group effort to make the world a better place, one fundraising strategy and line of code at a time.</p>
+
+<p>And I’ll be excited to figure out how I can jump back in and contribute.</p>
+]]>
+  </description>
+  <pubDate>Mon, 07 May 2018 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2018/05/Brett-Goes-on-Sabbatical/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/05/Brett-Goes-on-Sabbatical/</guid>
+</item>
+
+    
+      <item>
+  <title>How to Run a Landscape Analysis</title>
+  <description>
+    <![CDATA[<p>No organization is an island. While each and every mission-driven organization is unique, many aspects of your work are shared by other organizations. Having similar goals, objectives, and core audiences can make it difficult to know how to stand out. One of the most efficient and cost-saving ways to gain such insight is by understanding and navigating the landscape you operate in.</p>
+
+<h3 id="what-is-a-landscape-analysis">What is a Landscape Analysis?</h3>
+<p>Basically, a landscape analysis allows you to learn about your competitor landscape:</p>
+
+<p>Who else is in your sector and doing what you do or want to do? What are they doing well? Where do they fall short (and subsequently, where can you fulfill a need)? What isn’t being done at all?</p>
+
+<p>All of these questions can be answered by a landscape analysis. The process breaks down into three steps, which we explore in more depth later on:</p>
+<ol>
+  <li><strong>Identification</strong> of key organizations in a field, sector, or location</li>
+  <li><strong>Classification</strong> of those organizations by relevant characteristics (organization type, target audience, mission)</li>
+  <li><strong>Evaluation</strong> of how they’re performing relative to the focus of your review</li>
+</ol>
+
+<h3 id="why-is-it-important">Why is it important?</h3>
+<p>A better understanding of the broader context in which you are operating can help you design your strategy to maximize your impact. Some benefits can be:</p>
+
+<p><strong>Saving Time &amp; Money</strong></p>
+
+<p>Research can often be an under-resourced line item in a mission-driven organization’s budget. But the upfront investment into a landscape analysis can pay dividends over time by helping avoid problems you might otherwise face, and ensure your offerings are the most effective and unique to grab your audience’s attention and achieve your organizational goals.</p>
+
+<p><strong>Innovating and Improving</strong></p>
+
+<p>Seeing how others are providing a similar offering often sparks creative ideas on your team for how to improve and/or innovate the work.</p>
+
+<p><strong>Making Actionable Decisions</strong></p>
+
+<p>Stuck on how best to move forward or improve your offerings? Knowing what others are doing can help dislodge any of that and bring action items more clearly into focus.</p>
+
+<p><strong>Identifying Opportunities</strong></p>
+
+<p>Differentiating your organization from others in the space is key to success, and a landscape review allows you to identify those areas where you can either outperform others or fill a gap that no one is filling yet. You can quickly get up to speed on everything from a new field to a new geographic focus, from new trends to not-yet identified competitors.</p>
+
+<p>This was where one of our most recent projects with <a href="https://anitab.org/">AnitaB.org</a> took us.</p>
+
+<p>AnitaB.org is on a mission to connect, inspire, and guide women in computing and organizations that view technology innovation as a strategic imperative. The organization supports women working in technical fields, as well as the companies that employ them and the academic institutions that educate them. Each year AnitaB.org hosts the <a href="https://ghc.anitab.org/">Grace Hopper Celebration</a>, a three-day event which draws over 18,000 women together, and it serves as one of the most powerful ways AnitaB.org carries out its mission.</p>
+
+<p class="center"><img src="/assets/images/blog/GHC_2018.jpg" alt="GHC 2018" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Natania and Mimi attended GHC as part of ThinkShout’s research and introduction to <a href="https://anitab.org/">AnitaB.org</a>.</span></p>
+
+<p>They approached ThinkShout with the goal to provide the same kind of powerful experience and support to women in technology a full 365 days a year, and not just the three days of the Grace Hopper Celebration. Our assignment was to research whether any organization was already providing this kind of support and a sense of community to women in tech, and to also identify online platforms that deliver similar support to their users in unique and innovative ways.</p>
+
+<h3 id="how-do-you-do-a-landscape-analysis">How do you do a landscape analysis?</h3>
+
+<p><strong>1. Understand You, Your Goals, and Everyone You Want to Engage</strong></p>
+
+<p>The first step is to be clear about your organizational goals, your target audiences, and what those audiences are looking for. This will ensure that you ask the right questions in your analysis and end up with accurate insights. If you haven’t done so before, conducting user research may help uncover what your audiences really need that they are not currently getting, and can also be great preliminary research into the organizations to include in your landscape analysis (keep an eye out for a future blog post about that!).</p>
+
+<p class="center"><img src="/assets/images/blog/Mimi_Chelsea_Posts.jpg" alt="Evaluating features" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Mimi and Chelsea sorted through features to determine how they related to the client/project goals.</span></p>
+
+<p>For AnitaB.org, we actually started out organizing our thinking around the kind of concrete features that would comprise an online engagement platform — a user’s profile, private messaging and groups, and event functionality, for example. But we stepped back and re-oriented our goal to something that was bigger picture and much more specific to our client’s particular needs: how do we connect women meaningfully and help them advance in their career and as advocates for women in tech via an online platform?</p>
+
+<p><strong>2. Set Parameters</strong></p>
+
+<p>Once you have your goals in hand, you want to determine the parameters, or the criteria, of your analysis: who do you include? Who do you not? You may want to consider:</p>
+<ul>
+  <li>Whether organization type matters</li>
+  <li>Where there is issue area or mission overlap</li>
+  <li>Whether to set a narrow set of parameters within a broad context, or a broad set of parameters within a narrow context</li>
+</ul>
+
+<p>For AnitaB.org, we set a narrow set of parameters within a broad context. We chose to seek out organizations who were meeting their own goals well — these were by and large not the same goals as our client’s — but who did so using similar strategies to AnitaB.org: facilitating connections between people who may otherwise not meet, and providing opportunities for mentorship, professional development, and career advancement.</p>
+
+<p class="center"><img src="/assets/images/blog/WOC_tech_chat.jpg" alt="Women in Tech" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Photo credit: #WOCinTech Chat on <a href="https://www.flickr.com/people/wocintechchat/">Flickr</a></span></p>
+
+<p><em>Quick Tip: It may be tempting to skip the first two steps and jump right into step 3, but how can you find what you’re looking for if you don’t know what you’re trying to find? A bit more time upfront will result in more efficient research results and outcomes from your analysis.</em></p>
+
+<p><strong>3. Brainstorm &amp; Vet Potential Organizations</strong></p>
+
+<p>Now that you know what you are looking for, go out and think about every organization that might fit your criteria here! This isn’t the editing stage — that comes next — so be as creative as you can while brainstorming which organizations might fit your criteria. Then, spend a brief time reviewing each one against your parameters, and see how they stack up against each other.</p>
+
+<p>ThinkShout created a list of over 20 organizations that fit our client’s parameters, and it was a diverse list: no two organizations were delivering the same product, but they all had common aspects to their work that mapped back to our goals for our client. We spent about an hour exploring each one and ranking how well it performed against our criteria. Those that ranked highest moved forward in our analysis.</p>
+
+<p><em>Quick Tip: If you are improving or evolving current offerings, be sure to include your own organization in the next step!</em></p>
+
+<p><strong>4. Examine Strengths, Weaknesses, and Opportunities of Select Organizations</strong></p>
+
+<p>Time and budget typically don’t allow for a full in-depth analysis of more than a handful of organizations. But you can still get a lot of value of doing a deep dive into those select few. Spend a while longer getting to know your top-ranked organizations, and really uncover those areas where they’re performing well and not so well. An analysis across your select organizations may reveal those opportunities where no one is currently providing any offerings.</p>
+
+<p class="center"><img src="/assets/images/blog/anita-b-landscape-analysis.jpg" alt="landscape analysis" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Some platforms we included were Italki, NTEN, and Doximity.</span></p>
+
+<p>At this stage of our client project, we had six platforms that we each spent an additional three hours of time on; getting to know how they facilitated new connections between their users, connected mentors with mentees, delivered professional development content, and promoted career opportunities. In doing so, we came away with many valuable insights that informed the development of the final phase of our project, creating a recommended set of core features for a new online platform. Those insights included:</p>
+<ul>
+  <li>Unique and specific features AnitaB.org could take inspiration from to build their own platform,</li>
+  <li>Offerings that were so strongly provided by other organizations that it didn’t make sense for our client to invest resources in developing and trying to compete against, and</li>
+  <li>A confirmation of market opportunity.</li>
+</ul>
+
+<h3 id="what-could-a-landscape-analysis-do-for-you">What Could a Landscape Analysis Do For You?</h3>
+<p>Whether it’s a new website, program, or offering that you’re considering, you don’t want to invest resources in something that someone else is already doing so well that you have no chance to compete with them. On the flip side, if you want to venture into an area that many have struggled with, you want to know what they’ve tried so you can learn their lessons and avoid their same mistakes. After all, your mission, at the end of the day, is at stake. You want to maximize your impact while minimizing cost. A little research in the short-term will go far in ensuring the long-term success of your efforts.</p>
+
+<p class="center"><img src="/assets/images/blog/high_five.gif" alt="SUCCESS" /></p>
+
+<h3 id="thinkshout-is-here-to-help">ThinkShout is Here to Help</h3>
+<p>Are you considering a landscape analysis for your organization but not sure if you have the bandwidth to take on the work? We’d love to help you! Our team is comprised of former nonprofit staff and agency veterans who have decades of experience working with nonprofits that vary in size, budgets, and goals, so we know what it’s like to be in your shoes. We are here to help you achieve your goals and be your strategic partner. To get started, <a href="https://thinkshout.com/contact/">let us know a little more about your needs.</a></p>
+]]>
+  </description>
+  <pubDate>Wed, 02 May 2018 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2018/05/Landscape-Analysis/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/05/Landscape-Analysis/</guid>
+</item>
+
+    
+      <item>
+  <title>That's a wrap from New Orleans!</title>
+  <description>
+    <![CDATA[<p>It feels like it was just yesterday… probably because we still have visions of beignets dancing in our head. But we had such a blast at 18NTC, and we have you, the nonprofit community to thank for it.</p>
+
+<p class="center"><img src="/assets/images/blog/NTC Beingets.jpg" alt="Booth Beingets" /></p>
+
+<p>Our pre-conference Drupal Day was jam-packed with content from project management to content strategy, to <a href="https://thinkshout.com/bene/">Bene</a>.</p>
+
+<p class="center"><img src="/assets/images/blog/Drupal Day.jpg" alt="Drupal Day booth" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Brett and Mimi take over registration!</span></p>
+
+<p>Here were some highlights:</p>
+
+<p class="center"><img src="/assets/images/blog/Brett - Drupal Day.jpg" alt="Content Strategy" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Brett and Chris Carrol from University of Chicago Graham School definitely schooled us (sorry) on Content Strategy in Drupal.</span></p>
+
+<p class="center"><img src="/assets/images/blog/Lev - Drupal Day.jpg" alt="Bene" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Lev shares a case study on Bene with the crowd. Bene is an open source distribution intended for small to medium-sized nonprofits. We have a whole page dedicated to it <a href="https://thinkshout.com/bene/">here</a>.</span></p>
+
+<p class="center"><img src="/assets/images/blog/Carie and Jess - Drupal Day.jpg" alt="Carie and Jessica talk redesign" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Jessica and Carie Lewis Carlson (formerly from the Humane Society of the United States) shared some wisdom on the challenges often faced in a redesign process.</span></p>
+
+<p>We want to give a special shout out to our collaborators from <a href="https://www.gizra.com/">Gizra</a> and <a href="https://fionta.com/">Fionta</a> - who contributed to the breakout sessions – and to anyone who led a BOF (birds of a feather) breakout and conducted a lightning talk to close. We appreciate you adding your voice to the day.</p>
+
+<p>Next year we’re especially excited about NTC because it’s happening right in our home town of Portland, Oregon! We’re eager to participate and contribute to the rich and vibrant nonprofit community that we deeply care about, and also show you some of what we love best about our hometown.</p>
+
+<p>To stay up to date on everything pre-con / Drupal Day related, (or just to stay in touch!) <a href="https://thinkshout.com/contact/">sign up for our email list</a>. We’ll send a monthly newsletter with the latest trends and case studies to share…and as 19NTC approaches (too soon?) you’ll be first to hear about our plans and how you can join in the fun.</p>
+
+<p>Below is the full agenda from Drupal Day 2018, please <a href="mailto:natania.leclerc@thinkshout.com">reach out</a> if you would like slides from any of the presentations. Thanks and see you all soon!</p>
+
+<p class="center"><img src="/assets/images/blog/Drupal Day 2018 schedule.png" alt="Drupal Day 2018 Schedule" /></p>
+]]>
+  </description>
+  <pubDate>Wed, 02 May 2018 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2018/05/Drupal-Day-Recap/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/05/Drupal-Day-Recap/</guid>
+</item>
+
+    
+      <item>
+  <title>Teaching Tolerance is nominated for a Webby!</title>
+  <description>
+    <![CDATA[<p>We’re thrilled to announce that <a href="https://www.tolerance.org/">Teaching Tolerance</a>, a program of the <a href="https://www.splcenter.org/">Southern Poverty Law Center</a> is up for a <a href="https://vote.webbyawards.com/PublicVoting/#/2018/websites/general/education">Webby</a>! Their mission is to provide educators with the tools to create a kind and inclusive school climate. They do this through a library of articles and resources that they’ve turned into teachable materials via a Learning Plan Builder, and other classroom activities. It’s something that we feel is especially important work, now more than ever.</p>
+
+<p>This is a project that meant so much to everyone that touched it; and it was a true partnership every step of the way for both our teams (Tolerance and ThinkShout). It certainly speaks to the passion that was put into it from all angles, and it’s an honor to be recognized for this work.</p>
+
+<p>Our <a href="https://thinkshout.com/work/tolerance/">Case Study</a> will give you the full scope of work. But for a quick summary: In redesigning their website, ThinkShout set out to turn the wealth of articles and resources Tolerance had into teachable materials, and did so by creating a guided Learning Plan Builder that makes all content classroom-ready. Tolerance grants free access to thousands of resources – from video to essays to proven teaching strategies – and everything within that catalogue is now actionable. We also took on the challenge of migrating their content from two older Drupal 6 and 7 sites into one new Drupal 8 site.</p>
+
+<p>The result? Since launching summer of 2017, Tolerance.org has seen improvements across the board:</p>
+
+<ul>
+  <li>Pages per session up 21%</li>
+  <li>Session duration up 27%</li>
+  <li>Bounce rate decreased by 8%</li>
+  <li>Returning visitors up by 3%</li>
+  <li>Registrations nearly doubled (from 19,000 to 36,000)</li>
+</ul>
+
+<p>Here’s where you come in: our nomination for a <a href="https://vote.webbyawards.com/PublicVoting/#/2018/websites/general/education">Webby</a> means we need the people’s voice (aka <strong>VOTES</strong>) to actually win. Voting ends April 19th!</p>
+
+<p class="center"><a href="https://vote.webbyawards.com/PublicVoting/#/2018/websites/general/education">Vote for Tolerance.org in the Webby’s</a></p>
+
+<p>Personally, we can’t think of anything more critical at this time than the work Tolerance.org is doing to ensure the next generation is primed to participate in our democracy. And winning the Webby will certainly help them gain visibility and advance their mission even further.</p>
+
+<p>P.S. Travel Oregon also made it as an honoree in the Travel category, and they were up against some stiff competition! You can see their <a href="https://thinkshout.com/work/travel-oregon/">case study here.</a></p>
+]]>
+  </description>
+  <pubDate>Fri, 06 Apr 2018 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2018/04/vote-for-Webby-nominated-Teaching-Tolerance/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/04/vote-for-Webby-nominated-Teaching-Tolerance/</guid>
+</item>
+
+    
+      <item>
+  <title>ThinkShout hits all the conferences</title>
+  <description>
+    <![CDATA[<p>It unfolded like a sitcom. You know, the one where someone promises two separate people to be their date to the dance at school. It’s gonna end badly for everyone.</p>
+
+<p>Well, we saw it coming, and like the hero of that sitcom, we concocted an elaborate scheme to be in two places at once. Can we pull it off? Join us at DrupalCon and #18NTC to find out!</p>
+
+<p class="center"><img src="/assets/images/blog/zackmorris.gif" alt="Zack Morris" /></p>
+
+<h3 id="ntc">NTC</h3>
+
+<p>We’re heading to New Orleans for a week of jam-packed nonprofit goodness. The fun kicks off on April 10th with a pre-con event, Drupal Day:</p>
+
+<p class="center"><a href="http://ntcdrupalday.org/">Agenda Here!</a></p>
+
+<p>We’re still  looking for lightning talk speakers so <a href="mailto:natania.leclerc@thinkshout.com">contact us</a> if you have a hot topic you want to share. Lightning talks are traditionally 5 minutes in length, and can cover any topic ranging from Drupal to nonprofit life to lessons learned and funny predicaments involving all of the above!</p>
+
+<p>Brett Meyer and Jessica Tate will also be dropping some knowledge during the conference itself. Mark your calendars so you don’t miss their talks:</p>
+
+<p><a href="https://www.nten.org/ntc/program/sessions/supporting-diversity-with-multicultural-design/?mc_cid=997b26a472&amp;mc_eid=[UNIQID]">Supporting Culture with Multicultural Design</a></p>
+
+<p><a href="https://www.nten.org/ntc/program/sessions/content-strategy-in-popular-culture-2/?mc_cid=997b26a472&amp;mc_eid=[UNIQID]">Content Strategy in Popular Culture</a></p>
+
+<p>And no NTC would be complete without some ThinkShout classic tees! We’ll be handing out these beauties at our booth (number 606). We went with a 70s-inspired design this year, and they’ll give you all the posi-vibes you need.</p>
+
+<p class="center"><img src="/assets/images/blog/TS2018-shirts.jpg" alt="ThinkShout 2018 shirts" /></p>
+
+<h3 id="drupalcon">DrupalCon</h3>
+
+<p>They said it couldn’t be done…so naturally we took on the challenge! A handful of our team will also be in Nashville for DrupalCon to learn about and contribute to the latest innovations in the Drupal ecosystem. As long-time supporters of Drupal, we felt it was important to continue to deepen our involvement and commitment to the open source community.</p>
+
+<p>Join us for the <a href="https://events.drupal.org/nashville2018/nonprofit-summit">Nonprofit Summit</a>, an interactive day of learning and networking with nonprofit leaders and Drupal experts. The summit features breakout sessions on a variety of topics – including a case study presented by Gabe Carleton-Barnes on <a href="https://thinkshout.com/bene/">Bene</a>, the distribution we released this winter. Don’t miss it!</p>
+
+<p>We’re also sponsoring a <a href="https://events.drupal.org/nashville2018/women-drupal">Women in Drupal</a> event on April 10th. All women, transgender individuals, those who identify outside of the gender binary, and allies are welcome. Our goal is to foster inclusivity and embrace the involvement of individuals across the gender spectrum. We’ll be handing out those same tees at both events, so be sure to show up early and grab yours while supplies last!</p>
+
+<p>All joking about conference logistics aside, we truly appreciate every opportunity to connect with the nonprofit tech community. It’s a chance to hear more about the inspiring work being done in the world. If you’d like to sit with us and talk about what we can do for your digital presence, <a href="mailto:hello@thinkshout.com">let us know</a>, we look forward to hearing from you!</p>
+]]>
+  </description>
+  <pubDate>Wed, 28 Mar 2018 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2018/03/ThinkShout-hits-all-the-conferences/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/03/ThinkShout-hits-all-the-conferences/</guid>
+</item>
+
+    
+      <item>
+  <title>The origin of ThinkShout Planks</title>
+  <description>
+    <![CDATA[<p>If you walk into ThinkShout’s office around 2pm on any given day of the week, you’ll be confronted with the following:</p>
+
+<p class="center"><img src="/assets/images/blog/group_plank.jpg" alt="Group Plank" /></p>
+
+<p>Occasionally, dogs get into the mix…</p>
+
+<p class="center"><img src="/assets/images/blog/amy_greg_plank.jpg" alt="Amy Greg and Ducky planking" /></p>
+
+<p>This is what we affectionately refer to as PLANKS; a 100% optional activity aimed at helping us get up, move, stretch, and encourage general office health during those snoozy afternoon hours. The origin story of these afternoon planks is best shared by Amy, one of our front-end developers and the initiator of our afternoon planks. Here’s her take on this unique office tradition.</p>
+
+<h3 id="in-amys-words">In Amy’s words:</h3>
+
+<p>I didn’t exercise at all in my 20’s. I spent much of my time partying with friends, playing video games, watching lots of movies and shows, and eating deep fried foods and sugary delectables - it was a good life! (Who am I kidding, I still do that on occasion.) Unfortunately, doing these things on a constant basis was starting to take its toll: my mood gradually darkened, extreme fatigue was setting in, my self-esteem tanked, etc. But, that wasn’t the worst of it! I felt my body breaking down. It was hard to walk, hard to breathe, and I kept throwing my back out from stupid, mundane, daily tasks.</p>
+
+<p>So when my 30th birthday rolled around, I found myself thinking about the state of my body, how much time left on this earth that I may or may not have, and all the adventurous things I long to do with this time left. Nothin’ like a notable revolution around the sun to make a person think about their life choices and potential implications.That’s when I made the shift towards improved overall health and wellness.</p>
+
+<p>Naturally, these goals were present in my mind while I was looking for a new workplace, a little over three years ago. It was clear to me, besides my strong desire to do meaningful work (like the work we at ThinkShout do for mission driven organizations), my workplace also needed to be one that cares deeply about the health and wellbeing of their employees.</p>
+
+<p>Besides being a <a href="https://www.bcorporation.net/b-the-change">B-Corp</a>, ThinkShout’s benefits are pretty darn tough to beat. Feel free to <a href="https://thinkshout.com/careers/">visit our job postings</a> to see for yourself. In addition, our company offers options for alternating sitting and standing desks. Coworkers even bring their dogs into work occasionally, which is great pet therapy for all of us. This was definitely the place for me!</p>
+
+<p>A year into working at ThinkShout, my back started complaining again. Anyone who’s ever googled “health risks of desk jobs” or some variation would know why, but I’ll spare you the search: non-movement is not good for our bodies. If this is a new concept to anyone reading, I highly encourage you to do your own <a href="https://www.washingtonpost.com/national/health-science/desk-jobs-can-be-killers-literally/2013/07/15/ce61f9e8-e59b-11e2-aef3-339619eab080_story.html?utm_term=.40278eb34940">research on this subject</a>.</p>
+
+<p>New Years Eve was swiftly approaching and I found myself talking with my colleague, Greg, about a resolution to get my body moving more at work. That’s when he mentioned a daily “plank” exercise ritual that he and his former coworkers would do together - every afternoon his team would do planks for a certain amount of time to get some blood flowing and break up the day with some movement. Needless to say, Greg and I made a pact to start planking every workday around 2pm.</p>
+
+<p>Others at ThinkShout quickly began to notice what we were doing and asked if they could join.  They also started pitching ideas like taking walks, running around the block, wall-sits, stretching and even foam rolling. I started a Slack channel called #walk-the-plank for the purpose of coordinating times to exercise and inviting others to join in (this is all optional, of course).</p>
+
+<p>After two full years in existence, I’m proud to say that “planks” at ThinkShout have taken a life of its own. My colleagues will even take up the torch and lead sessions in my absence. Every day we’re grateful to have those few moments to move and care for our bodies. Some even confess that the results are equivalent to drinking a caffeinated beverage, which I’d imagine aids in our productivity levels. And, to my sweet relief, my aches and pains are a thing of the past!</p>
+
+<p>So, if you ever find yourself in the ThinkShout office around 2pm, you might be around to witness these planks in action. Better yet, feel free to join in the fun - the more the merrier!</p>
+]]>
+  </description>
+  <pubDate>Tue, 27 Feb 2018 07:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2018/02/The-Origin-of-Planks/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/02/The-Origin-of-Planks/</guid>
+</item>
+
+    
+      <item>
+  <title>The Great Hoodie Mystery</title>
+  <description>
+    <![CDATA[<p>Last summer, Rose noticed a problem at the ThinkShout offices. What seemed at first to be an innocuous little issue turned into an unsolvable mystery that had been hiding in our office for an unknown period of time. <em>It remains unsolved to this day!</em></p>
+
+<p>What is this mystery? Here’s Rose on the ThinkShout Slack “General” channel, June 30th 2017:</p>
+
+<p class="center"><img src="/assets/images/blog/rose_slack.png" alt="rose_slack" /></p>
+
+<p>Being a data structure enthusiast, I was immediately struck by the strong possibility that this question could not be answered.</p>
+
+<p class="center"><img src="/assets/images/blog/gcb_slack.png" alt="gcb_slack" /></p>
+
+<p>With an organization full of developers, suggestions were quickly provided. Someone suggested using the “Refrigerator leftovers” method: place the hoodies somewhere conspicuous with a sign that says, “If this is yours, claim it by such-and-such date”. Katrina didn’t like it:</p>
+
+<p class="center"><img src="/assets/images/blog/katrina_slack.png" alt="katrina_slack" /></p>
+
+<p>A fine point! Leftovers are naturally somewhat unique. ThinkShout hoodies are, of course, unquestionably unique (and beautifully designed!) in the greater world of hoodies. But in the ThinkShout offices, the “uniqueness” factor is undermined. Moving the hoodies would remove one of the most vital pieces of identifying information in the mind of the only person likely to be able to identify it: the mind of the person who left the hoodie where it currently is!</p>
+
+<p>Nancy had the real solution to this mystery:</p>
+
+<p class="center"><img src="/assets/images/blog/nancy_slack.png" alt="nancy_slack" /></p>
+
+<p>Perfect! Connect the identifying information permanently to the hoodie in a way that anyone, not just the owner, can use to identify it!</p>
+
+<p>So! Problem solved, right Rose?</p>
+
+<p>….</p>
+
+<p>Rose was too polite, of course, to point out that this “solution” was, shall we say, a little less than timely.</p>
+
+<p>However, our data interpretation resources (employees who owned hoodies) did a great job identifying the two hoodies on the back coat rack. As for the one in the front? I recently returned from 3 months away from the office, and saw this:</p>
+
+<p class="center"><img src="/assets/images/blog/hoodie_lives_web.jpg" alt="hoodie_lives" /></p>
+
+<p>The mystery remains! In fact, as far as I can recall, that hoodie has been hanging there for at least three years.</p>
+
+<p>Perhaps you are thinking, “This is no great mystery. Someone who left the organization at some point forgot their hoody, and never came back for it.” That is an excellent explanation! But is it true? There’s no longer any way to know for sure.</p>
+
+<p>Some have advocated for removal of the mystery hoodie, arguing that the owner has long given up their claim to it. I am strongly opposed! Nevermind the owner: the mystery hoodie is an object lesson on the importance of thinking through your data structures carefully at the start. It can be tempting, when building a data system, to get cute and clever and end up in trouble:</p>
+
+<p>“We’ll know whose hoodie it is because they’ll be wearing it!” (This only accounts for data in the active state.)
+“We’ll know whose hoodie it is because when they aren’t wearing it, they will leave it at their desk!” (Optimistic assumption about future usage.)
+“We can use sizing information to help us figure out any lost person-hoodie connections.” (Insufficiently specific identifier.)
+“The owner will know that it’s theirs.” (Impractical data retrieval method; owner may not be an available resource.)</p>
+
+<p>These cute answers can be fun, but let’s call them what they really are: lazy. And let’s take a cue from Nancy: put complete, identifying information in the appropriate place right from the start:</p>
+
+<p class="center"><img src="/assets/images/blog/nancy_slack.png" alt="nancy_slack" /></p>
+
+<p>Now, if you’ll excuse me, I need to track down a magic marker.</p>
+]]>
+  </description>
+  <pubDate>Sat, 06 Jan 2018 07:30:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2018/01/Great-hoodie-mystery/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/01/Great-hoodie-mystery/</guid>
+</item>
+
+    
+      <item>
+  <title>Meet Bene, an affordable, open-source website solution for nonprofits</title>
+  <description>
+    <![CDATA[<p>Bene is based on a simple goal: Smaller nonprofits deserve websites that are designed to increase their impact and grow alongside them. Sounds simple enough, but achieving it has always been a major challenge from both the nonprofit and agency perspective.</p>
+
+<p>Nonprofits have traditionally been forced to choose their digital solutions from two extremes on a spectrum. On the one side, you have low cost do-it-yourself solutions like SquareSpace or Wix. While inexpensive and easy to launch, these solutions serve such a wide array of use cases that they have nothing unique to offer nonprofits in terms of best practices. The content strategy and designs are not intended to tell a nonprofit’s compelling story and drive engagement. In addition, as the needs of a nonprofit grow, out of the box solutions may not flex to meet those needs, forcing an organization to start over with its digital strategy.</p>
+
+<p>On the other end of the spectrum are custom websites conceived through a rigorous discovery process and built on open source platforms like Drupal and WordPress. If done right, this approach yields the best results: a gorgeous responsive website that provides powerful storytelling tools, increases fundraising, advocacy, and other types of engagement, and serves as the hub of an organization’s digital ecosystem. But these projects take time and money, typically 6-9 months and upwards of $200k.</p>
+
+<p class="center"><img src="/assets/images/blog/bene-budget-curve.png" alt="RedHen Engagement Rules" /></p>
+
+<p>As ThinkShout has grown, our business has focused more on those larger projects. But in the process, it’s become harder to work with the thousands of organizations who can’t afford the time and cost involved in building a completely custom website. We wanted to find a way to partner with grassroots organizations, as helping them succeed is core to who we are and what we do.</p>
+
+<p>Bene is our answer to this problem: A low cost website for small nonprofits bundling content management, mission critical features, a tailored user experience, hosting, and strategic support. All built on an <a href="https://github.com/thinkshout/bene">open source Drupal distribution</a> that can grow alongside the organization.</p>
+
+<p>We first conceived of Bene during an open source “sprint for good” event nearly 2 years ago. This month, we’re proud to launch our first website on the platform for <a href="https://www.freegeek.org">Free Geek</a>, with two more on the way over the next few weeks. We do recognize there are other efforts to address this need, from <a href="https://drutopia.org">Drutopia</a> to WordPress.com. We support all of them, as the growing number of organizations working to make our world a better place have a wide range of requirements, and they need all the help they can get!</p>
+
+<p><a href="https://thinkshout.com/bene/">Learn more about Bene</a> and please <a href="https://thinkshout.com/contact/">get in touch</a> if you think it’s a good fit for you, or have some ideas on how to improve it. We realize we’ve only taken the first step.</p>
+]]>
+  </description>
+  <pubDate>Tue, 12 Dec 2017 06:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2017/12/meet-bene/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/12/meet-bene/</guid>
+</item>
+
+    
+      <item>
+  <title>What the proposed changes in the tax code mean for your organization</title>
+  <description>
+    <![CDATA[<p>The end of the year is approaching and along with that, the traditional wave of last minute, tax-deductible gifts from supporters.</p>
+
+<p>Or is it?</p>
+
+<p>This uncertainty around tax-deductible gifts isn’t a commentary on the ever-fluctuating state of affairs at your organization or in our country, rather it’s about <a href="http://www.thenonprofittimes.com/news-articles/nonprofits-hammered-federal-budget-proposal/">proposed changes to the tax code</a>. These changes, should they come to pass, could alter the long-held tradition of donors looking to get that extra tax break with their year-end gift – and not to your advantage.</p>
+
+<p>The proposal currently being considered by Congress aims to reduce or eliminate key tax breaks for giving, and that rightfully has many organizations concerned. There has been speculation that the tax plan could reduce giving between <a href="http://money.cnn.com/2017/08/06/news/economy/tax-reform-charitable-giving/index.html">$5 - $13 billion per year (or 4.6%)</a>. It won’t kill all charitable giving, about 5% of people will continue to itemize, specifically those in a higher income bracket.</p>
+
+<p>This poses a shift in incentives, as the purpose of the charitable tax deductions was to inspire a sense of altruism among people in varying stages of wealth – but particularly the middle class. As it’s being proposed, the new plan only incentivizes giving for the richest among us. The one-percenters. And while those major donors are highly valued at your organization, I’m willing to bet the bulk of your file is not made up of 4, 5, and 6-figure one-time gifts.</p>
+
+<p>So why are we talking about this? For one, in the various conversations I’ve had with nonprofits since this news broke earlier in the year, it seems many organizations are either unaware of the impact the tax plan has on them, or feel their energy is better spent on things they can control.</p>
+
+<p class="center"><img src="/assets/images/blog/tim-gunn.gif" alt="TimGunn" /></p>
+
+<h2 id="lets-talk-about-that">Let’s talk about that.</h2>
+
+<p>While the new tax plan has yet to become law, the uncertainty donors are facing about many of the points in the tax plan may already be influencing their gift-giving behavior. How you planning to pivot your messaging to reflect the fact that you can’t confidently close your messages with the tagline, “You’ll be happy you gave come April 15th!”</p>
+
+<p>We’re not suggesting people will stop giving altogether, because we know that <a href="https://www.psychologytoday.com/blog/out-the-darkness/201501/happiness-comes-giving-not-buying-and-having">giving makes people feel good</a> – it increases serotonin levels and has been proven to be good for your health (hey, <a href="http://www.huffingtonpost.com/brady-josephson/want-to-be-happier-give-m_b_6175358.html">science says so!</a>).</p>
+
+<p class="center"><img src="/assets/images/blog/passion.jpg" alt="Passion" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Photo by Ian Schneider on Unsplash</span></p>
+
+<p>However, what this does tell us is that we need to think critically and strategically about how we’re going to move beyond this antiquated, deadline driven approach so that your constituents feel inspired to support you; not just when it may be of convenience to them, but year-round. In fact, making the claim that a donation is tax-deductible has zero exclusivity – it’s something all nonprofits have leaned on for decades, and it’s time to step it up and talk about what you actually accomplish day in and day out.</p>
+
+<h2 id="impact-driven-approach">Impact-driven approach</h2>
+
+<p>Motivating your constituents is all about making your case. The list of reputable organizations to support continues to grow each year. There is palpable competition in the inbox to grab the attention of your supporters. How can you stand out in the sea of appeals? We recommend focusing on an impact-driven approach.</p>
+
+<p>What this boils down to is <strong>good storytelling</strong>. Sharing content that shows how you’re saving lives, improving your community, enriching the world we live in…<em>all</em> the positive contributions that would not be possible without your organization.</p>
+
+<p>This goes beyond saying “we provided 5,000 people with [enter a valuable service here].” <a href="http://clairification.com/2012/05/06/one-incredibly-dramatic-way-to-create-winning-content/">It’s about telling the story of one</a>. Or, at least telling a compelling story of how you affect change. Donors empathize more with these stories, and their likelihood to make a gift increases if they have a tangible, real example of an individual or specific scenario that was the result of the important work you do. Large numbers tell a story in broad strokes, but the details and impact of one life or one specific outcome is ultimately more meaningful and more likely to be remembered.</p>
+
+<h2 id="how-do-i-go-about-doing-this">How do I go about doing this?</h2>
+
+<p>If you’re thinking this approach sounds time consuming, you’re right. It is. Content curation is one of those things that is either incredibly easy or seemingly impossible depending on the resources available to you.</p>
+
+<p>If you’re at an organization facing the latter situation, don’t fret, just start <em>somewhere</em>.</p>
+
+<p class="center"><img src="/assets/images/blog/begin.jpg" alt="Begin" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Photo by Danielle MacInnes on Unsplash</span></p>
+
+<p>Talk to volunteers or people in the field about what they experience and see. Ask them about the people they interact with and what their stories are. Talk to the people in the community you serve; or collect user-generated content and story submissions directly on your site, through facebook, or email. If you take this last approach, be clear about how you plan to use their story; and ask for permission to use their photo, name, or other identifiable information if you plan to include it.</p>
+
+<p>As time-consuming as this approach is, I can say from experience that it works. The more personal stories are the ones that will build relationships with your supporters and turn them into multi-channel, multi-year supporters. They won’t remember the big numbers you share, but they’ll remember the story of that one individual; a child, an animal that was rescued, a family that now has a home… stories touch the heart in ways numbers simply can’t.</p>
+
+<h2 id="this-wont-work-for-me-the-people-i-serve-need-to-remain-anonymous">This won’t work for me, the people I serve need to remain anonymous</h2>
+
+<p>This is a common issue: how do we create a sense of empathy and human connection when people don’t want us to tell their personal stories or use their real information? Answer: You develop a composite scenario.</p>
+
+<p>I worked for and with food banks for many years. Initially I started as nonprofit staff in the development department and years later, on the agency side as a consultant. A composite story was necessity. Without it, all we had to go on was that $1 = 6 meals. And knowing you provided 6 meals is great, but knowing one of those meals went to a child in an after school program, that they’d be sent home with food they most certainly would not be getting otherwise…this paints a very different picture. This, among other composite stories, was very common among the people we served. <strong>A composite story preserves the dignity and privacy of your subjects while telling a story that rings true to your mission.</strong></p>
+
+<p class="center"><img src="/assets/images/blog/child-cereal.jpg" alt="Child with cereal" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Photo by Providence Doucet on Unsplash</span></p>
+
+<p>You also don’t have to include a photo of the subject in question. I’m not suggesting you omit photo usage altogether; your imagery can be something mission-related but not specific to the subject in question. Focus on the hands of volunteers, or a group of people at an event, for example.</p>
+
+<p>This is very common practice for nonprofits. Luckily, there are <a href="https://www.thebalance.com/fundraising-stories-when-confidentiality-is-important-2501840">resources</a> out there to guide you when it comes to maintaining transparency in your messaging while successfully sharing the impact of your work. In the age of Instagramming every moment, imagery and photography is central to effective storytelling.</p>
+
+<h2 id="parting-thoughts">Parting Thoughts</h2>
+
+<p>We’re keeping a close eye on the tax plan as it develops, as much of it has the potential to impact not only our work but our personal lives. Whether the plan goes through or not, my hope is that we see people giving not because of the potential for a kickback, but because being altruistic and helping each other and our planet is just better for everyone.</p>
+
+<p>The work of a nonprofit is never done, almost sisyphean in nature. Once you think the hardest task is complete, you have to roll the boulder up another mountain. It’s easy to become jaded and feel that you’ll never make progress. I promise you, that is not true.</p>
+
+<p>Look around you, collect those stories. Read them. Share them. I hope you and your donors are inspired by the work you do. I know that at ThinkShout, we are inspired every day by the work of our clients and feel fortunate to have a hand in making it possible for them to share their stories with the world. Whatever the end of 2017 brings, my hope is that you are fearless in trying new things and that you are not easily dissuaded.</p>
+]]>
+  </description>
+  <pubDate>Sat, 02 Dec 2017 07:30:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2017/12/changes-in-tax-code/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/12/changes-in-tax-code/</guid>
+</item>
+
+    
+      <item>
+  <title>My First BADCamp</title>
+  <description>
+    <![CDATA[<p>We’re fresh off of <a href="https://2017.badcamp.net/">BADCamp</a> (Bay Area Drupal Camp), and we’re eager to share our experience with you! If you’ve ever thought about going to one of the local Drupal Camps in your area, or attending BADCamp yourself, we hope our takeaways persuade you to seek this out as a professional development opportunity.</p>
+
+<p>BADCamp is essentially three days of intense workshops and sessions for Drupal users to hone their skills, meet other open source contributors, and make valuable connections in the community. Amongst the ThinkShout team, two had never attended BADCamp before. We were eager to hear their perspective on the conference and their key takeaways.</p>
+
+<p>Sessions they attended ranged from learning about component-based theming tools, object oriented php, module development, debugging JavaScript; to Drupal 9 and backward compatibility and the importance of upgrading to D8 now.</p>
+
+<p>Let’s hear from Mario and Lui–I mean Amy and Jules, on what their first BADCamp experience was like!</p>
+
+<p class="center"><img src="/assets/images/blog/marioluigi.jpg" alt="Amy and Jules" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Amy and Jules on Halloween. Costumes are not required at BADCamp.</span></p>
+
+<h3 id="what-did-you-learn-at-badcamp">What did you learn at BADCamp?</h3>
+<p><em>Amy</em>: Component-based theming is a hot topic these days for those building sites due to a number of reasons. Here are a couple of them:</p>
+
+<ul>
+  <li>It encourages a DRY (Don’t Repeat Yourself) and more organized theming code base.</li>
+  <li>It decouples site building in such a way that backend and frontend developers can work on the site at the same time, rather than the backend code needing to be built first before the frontend developer can do their work.</li>
+  <li>It provides clients with an interactive experience of their site (including responsiveness) before the database and backend elements are hooked up to it. This allows the client more time to provide feedback in case they want to change behaviors before they’re completely built.</li>
+</ul>
+
+<p>I also attended a session called: React, GraphQL, and Drupal. This talk was largely about an opportunity to create multiple suites using the same API. The team used “headless Drupal” (to serve as the API), React.js to build the sites, and GraphQL to explore data coming from the API in a much more direct and clear way. It seemed like a great solution for a tricky problem, in addition to giving this team the opportunity to learn and use cutting edge technologies - so much fun!</p>
+
+<p><em>Jules</em>: I learned a lot about the Drupal Community. This was my first BADCamp, and also my first Drupal conference. I was excited about how generous the community is with knowledge and tools, working together so we can succeed together.</p>
+
+<p>I learned about some of the changes to Drupal releases from <a href="https://twitter.com/webchick?lang=en">@Webchick’s</a> talk (Drupal 9 and Backward Compatibility: Why Now is the Time to Upgrade to Drupal 8). If I keep up with the incremental point releases (ie: 8.x), upgrading to 9 should be pretty painless, which is a relief. Knowing the incremental releases will be coming out with a regular six month-ish cadence will make planning easier. I’m also excited about the new features in the works; including Layouts, Work Spaces, a better out of the box experience on first install, a better UI admin experience (possibly with React?).</p>
+
+<h3 id="what-would-you-tell-someone-who-is-planing-to-attend-badcamp-next-year">What would you tell someone who is planing to attend BADCamp next year?</h3>
+<p><em>Amy</em>: Definitely invest in attending the full-day sessions if they interest you. The information I took away from my Pattern Lab day was priceless, and I came back to ThinkShout excited and empowered to figure out a way to make component based theming part of our usual practice.</p>
+
+<p><em>Jules</em>: The full day sessions were a great way to dive into deeper concepts. It’s hard to fully cover a subject in a shorter session. It also helps to show up with an open mind. It’s impossible to know everything about Drupal, and there are so many tools available. It was valuable just meeting people and talking to them about their workflows, challenges, and favorite new tools.</p>
+
+<h3 id="do-you-consider-badcamp-to-be-better-for-networking-professional-development-or-both">Do you consider BADCamp to be better for networking, professional development, or both?</h3>
+<p><em>Amy</em>: My big focus was on professional development. There were so many good training days and sessions happening that those filled my schedule almost entirely. Of course, attending sessions (and being a session speaker!) is a great way to network with like-minded people too.</p>
+
+<p><em>Jules</em>: My goal was to immerse myself in the Drupal community. Since I’m new to Drupal, the sessions were really valuable for me. Returning with more experience, that might not be the case. It was valuable to see new ideas being presented, challenged, discussed, and explored with mutual respect and support. We’re all in this together. Some talks were stronger than others, but every speaker had a nugget of gold I could take with me. It was encouraging to meet peers and to see all of the great work people are doing out in the world. It also served as a reminder that great strides can come from many small steps (or pushes)!</p>
+
+<h3 id="make-time-to-learn">Make time to learn</h3>
+
+<p>It can be difficult to take time away from project work and dedicate yourself to two or three days of conferencing. But when you disconnect and dive into several days of leaning, it makes your contributions back at the office invaluable. As Jules commented to me after her first day of sessions, “it was like php church!”</p>
+
+<p>Getting out of your usual environment and talking to other people opens your mind up to other ways of problem solving, and helps you arrive at solutions you otherwise wouldn’t get through sitting in your cubicle. We hope you’re inspired to go to a local Drupal Meetup or Camp – or even better, meet us at DrupalCon or NTC’s <a href="http://ntcdrupalday.org/">Drupal Day</a>!</p>
+]]>
+  </description>
+  <pubDate>Mon, 06 Nov 2017 07:30:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2017/11/my-first-badcamp/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/11/my-first-badcamp/</guid>
+</item>
+
+    
+      <item>
+  <title>How to make your Onsite last, and last...and last</title>
+  <description>
+    <![CDATA[<p>Goals. We’ve all got them, and your website should too. That’s why we kick off all of our redesign projects with a series of deep-diving, goal-seeking workshops hat we collectively call “The Onsite.”</p>
+
+<p>The onsite is an opportunity to meet our clients face to face, ask a lot of questions, understand their current systems and infrastructure, identify the goals of the new website and generate excitement around the upcoming redesign. We travel to them, wherever they are, and we spend two full days extracting as much information as we possible can out of the organization. There are a LOT of sticky notes involved.</p>
+
+<p><img src="/assets/images/ts_redesign/case-studies/splc-main/splc-process.jpg" alt="Intense Sticky Notes Working Session" /></p>
+
+<p>This intensive two-day session is meant to lay the foundation for the rest of the project. It’s critical to our success, and we invest a lot of time and energy into this part of our process. To get the most out of the investment, here are some best practices we’ve developed along the way:</p>
+
+<p><strong>1. Bring your Project Manager (PM), or someone else who will be solely responsible for taking kickass, copious notes.</strong>
+Not only should you write everything down, as a fail-safe, we also recommend recording the meetings. This is helpful in that once your PM’s fingers start bleeding from all the amazing notes they’re typing, you can rest assured that all of the information is still being captured and can be reference later. In addition to being a fail-safe for note taking, it allows other team members who weren’t able to attend in person the opportunity to absorb all the same information. To really streamline your resources and documents, try using Google Drive and add links to the audio files in the corresponding section of the notes. Or, try a program like Microsoft OneNote which will automatically sync your notes and audio.</p>
+
+<p><strong>2. Take lots of photos.</strong>
+Be sure to document any whiteboarding or sticky note activities so that you a have a visual reference when you’re digging through the notes and need more context. Also, take photos of the group because they’re working super-duper hard! Clients love to reflect back on evidence of the efforts they’ve put into their new website.</p>
+
+<p><strong>3. Continue the conversation with collaborative worksheets.</strong>
+If you’re not able to get everything during your working sessions (which is often the case), follow up with shared documents or worksheets on Google Drive that accurately reflect what was discussed, and what inforamtion is still needed. The client team can then collaborate and fill in the blanks for you online until documentation is complete.</p>
+
+<p><strong>4. Post Onsite, codify the goals you’ve just gathered in one simple, concise deliverable, and get sign off.</strong>
+We call this the Goals Document, and it is referenced again and again, and again, throughout a given project. Whenever there are questions, concerns, or decisions to be made, this document should be your guidepost and help keep everyone on track. So much can change over the lifecycle of a project, but the original goals for the redesign should not be forgotten. And if they do need to evolve, updating them in writing and getting approval from the client along the way will help keep everyone clear, focused, and anchored.</p>
+
+<p>And there you have it. Four pro tips for how to set your redesign project up for ultimate success, by making the critical information from your precious onsite last, and last…and last.</p>
+]]>
+  </description>
+  <pubDate>Wed, 27 Sep 2017 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/09/make-your-onsite-last/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/09/make-your-onsite-last/</guid>
+</item>
+
+    
+      <item>
+  <title>How to Lead a Retrospective for a More Successful Project</title>
+  <description>
+    <![CDATA[<p>So, what’s a retrospective meeting?</p>
+
+<p>For one thing, a retrospective meeting is <em>not</em> a post-mortem meeting. At the end of a project, the new website is anything but dead. It’s living and breathing. And hopefully neither our team or our client is feeling the need for resuscitation!</p>
+
+<p>On a more serious note, a retrospective meeting is an opportunity to look back at what worked well and what didn’t, with the ultimate goal of taking lessons away that will improve the project in question as well as future projects.</p>
+
+<h3 id="when">When</h3>
+<p>We always hold a retrospective at the end of every project. And for larger, more complex projects, we often hold a retrospective mid-way through. This allows us to address pain points immediately, making the rest of the project more successful and efficient.</p>
+
+<h3 id="who">Who</h3>
+<p>Everyone who touched the project at some point on our internal team should ideally be in the meeting - project manager (PM), account manager, team leaders, developers, designers, etc. But the meeting itself isn’t led by that project’s PM. We want PMs to be able to participate in the discussion without worrying about facilitating or taking notes. So another PM who did not participate in the project leads the retrospective.</p>
+
+<h3 id="what">What</h3>
+<p>We discuss the following topics:</p>
+<ul>
+  <li>Project budget and project timeline</li>
+  <li>What worked well?</li>
+  <li>What did not work well?</li>
+  <li>What problems did we solve during this project?</li>
+  <li>What problems have we not yet solved?</li>
+  <li>In hindsight, what one thing would we each have done differently on this project?</li>
+</ul>
+
+<h3 id="how">How</h3>
+<p>The retrospective has two components: An in-person discussion and and online follow-up.</p>
+
+<p>For the in-person discussion, we have a few ground rules that we review before we start the discussion.</p>
+
+<ul>
+  <li>Be honest: Nothing is meant personally, so it’s ok to speak honestly about what has been challenging.</li>
+  <li>Be positive: Don’t blame other team members for what didn’t work well. This is an opportunity to learn and improve.</li>
+  <li>No laptops or phones: The only person with a computer is the one leading the meeting and taking notes. We all need to be engaged and fully present.</li>
+</ul>
+
+<p>After the meeting, we send out a quick SurveyMonkey link that asks team members to score the project from 1-5 on a client satisfaction, product quality, adherence to budget, timeline, requirements, end user experience, project leadership, and team morale. They can also add more comments that they didn’t convey during the meeting. It’s anonymous, and once responses are in, the retrospective facilitator sends the summary to the project PM.</p>
+
+<h3 id="follow-up">Follow-Up</h3>
+<p>Our attitude with retrospectives is that the next time is NOW. We don’t have to wait until the next project starts to make improvements. The project PM digests all the retrospective notes, and they take the lead on moving forward any changes to the project itself (if it hasn’t fully wrapped), or if we have new projects coming up with the same team or client. They also share major takeaways with the other ThinkShout PMs. But the responsibility ultimately lies with every team member to make changes to how they work based on the outcomes from the meeting.</p>
+
+<h3 id="opportunities-for-improvement">Opportunities for Improvement</h3>
+<p>We can’t help but do a retrospective on our retrospectives! We could do a better job sharing out takeaways from retrospectives to our entire company. And for some projects, it might be useful to have a second retrospective exclusively for the project leads. They may hesitate to discuss certain challenges of a sensitive nature with the client, or other team members for that matter, but would be comfortable speaking about that with a smaller group. We’re continuously iterating and working to make our retrospectives more useful.</p>
+
+<h3 id="why-are-retrospectives-important">Why are retrospectives important?</h3>
+<p>As project managers, it’s our responsibility to not set our processes in stone, but rather to keep improving. A retrospective is an excellent way to make processes better and more efficient for entire project teams. It also helps your team members to feel heard and supported because they see that processes re not coming from on high, but are based on their direct feedback. Finally, retrospectives let you fix pain points before they begin to negatively impact your team or your client.</p>
+
+<p>Do you hold retrospectives at your organization? What has worked well for you? Drop us a line and <a href="https://thinkshout.com/contact/">let us know!</a></p>
+]]>
+  </description>
+  <pubDate>Mon, 25 Sep 2017 08:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/09/leading-a-retrospective/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/09/leading-a-retrospective/</guid>
+</item>
+
+    
+      <item>
+  <title>Wrapping up ThinkShout Cares</title>
+  <description>
+    <![CDATA[<p>It’s September – school is starting up, summer is winding down, and our ThinkShout Cares campaign has come to a close.</p>
+
+<p>But in truth, it’s just the beginning.</p>
+
+<p>Like many good ideas, this one was born over a round of beers at a conference last spring. Our new t-shirt designs, which focused on diversity and inclusion in response to the current political climate, were a huge hit. So, I joked, why not sell them year round? It’s one thing to get free swag at a conference, it’s entirely another to buy something on your own time and dime. Then someone else suggested to have all proceeds benefit a nonprofit, so the incentive for making a purchase goes well beyond just getting a cool shirt. Now this was getting interesting, but we still had a major obstacle: who would design the shirts, build the website, run the campaign, and fulfill the orders?</p>
+
+<p>This last piece of the puzzle fell into place when we brought on our incredible class of interns, two of them from the <a href="http://emergingleadersinternship.org/">Emerging Leaders Internship program</a>. The ThinkShout Cares Campaign gave them experience in all aspects of a project, from designing the shirts to fulfilling orders. We chose <a href="http://pearmentor.org/">p:ear</a>, an incredible organization right in our neighborhood who creatively mentors homeless youth, as our partner and beneficiary.</p>
+
+<p>We like to say that ThinkShout is a platform for good. It’s why we exclusively partner with mission-driven organizations. It’s why we’re a <a href="https://www.bcorporation.net/community/thinkshout-inc">B-Corp</a> and signatories to the <a href="http://techtownportland.com/pledge/">Tech Town Diversity Pledge</a>. It’s a driving force behind our growth. The ThinkShout Cares campaign is one example of how a business can do good that we’re all proud of. Our interns gained valuable experience and p:ear received a modest donation.</p>
+
+<p class="center"><img src="/assets/images/blog/ts-cares-group.jpg" alt="TS Cares Group" /></p>
+
+<p>As for the ThinkShout team? Well, we can say with absolute certainty that this project was a bright spot in a summer that sorely needed one. It’s not a bad story to share, either!</p>
+
+<h2 id="the-interns">The Interns</h2>
+
+<p>ThinkShout hired three interns from the Emerging Leadership Internship program (ELI). This program connects students from underrepresented communities to businesses in Portland. We were thrilled to welcome <a href="https://thinkshout.com/blog/2017/08/coding-for-good/">Myisha</a>, <a href="https://thinkshout.com/blog/2017/08/thinkshout-cares-and-so-can-you/">Katrina</a>, and <a href="https://thinkshout.com/blog/2017/08/designing-for-a-cause/">Alejandro</a> to our team.</p>
+
+<p>These individuals were immediately thrown into work that involved technologies, platforms, and deliverables that had previously never crossed their paths. It was a situation that, for many of us, would cause great stress and anxiety; and they faced it with great aplomb.</p>
+
+<p>While Myisha, Katrina, and Alejandro’s time at ThinkShout was temporary, their impact on our team has been permanent. They injected an energy to our office; and their humor and warmth has been missed since they departed to start school again in their respective locations. But we’ll be following along in their journeys to see all the wonderful things they do – because their time at ThinkShout was just the beginning!</p>
+
+<p class="center"><img src="/assets/images/blog/interns.png" alt="ThinkShout interns" /></p>
+
+<h2 id="about-pear">About p:ear</h2>
+
+<p>ThinkShout has had an ongoing relationship with p:ear for some time now, including a pro bono project to help with their online engagement. We believe in their mission; that in giving an individual a purpose, respect, and a safe space in which to develop skills and talents, they can thrive and contribute back to society in meaningful ways.</p>
+
+<p>At the start of this project, our interns met with p:ear students to brainstorm ideas for a t-shirt design for the campaign. It was a great opportunity to engage and put them in direct contact with the core of what p:ear is about: helping homeless youth thrive and succeed. In the end we created two designs that represented the heart and soul of this campaign.</p>
+
+<p class="center"><img src="/assets/images/blog/pear-summer.png" alt="Summer shirt designs" /></p>
+
+<p><strong>We ended up raising $1,000 for p:ear!</strong> Money that will go towards art supplies, the barista school, and daily meals served at their facility.</p>
+
+<h2 id="the-future-of-thinkshout-cares">The Future of ThinkShout Cares</h2>
+
+<p>We embarked on this journey hoping to provide something of value to everyone involved: our interns would have truly meaningful work and gain valuable experience; p:ear would receive additional funding in the summer months – a time notoriously difficult for fundraising; and the ThinkShout team would learn from, and be inspired by, our partners.</p>
+
+<p>What we ended up with was a living, breathing campaign that we see a future in, and we hope to revive ThinkShout Cares again to benefit another local organization impacting the community in which we work in and live.</p>
+]]>
+  </description>
+  <pubDate>Thu, 07 Sep 2017 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/09/thinkshout-cares-wrap-up/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/09/thinkshout-cares-wrap-up/</guid>
+</item>
+
+    
+      <item>
+  <title>The WYSIWYG is a Lie</title>
+  <description>
+    <![CDATA[<p>If you’ve ever implemented a WYSIWYG editor in Drupal, one thing that becomes apparent quickly is that the term (What You See Is What You Get) is a complete lie. None of the default theme styles appear in the editor, because the editor shows up in the admin theme. This obviously diminishes its value, and makes custom element styles useless. The good news is that it’s fairly simple to fix - once you know how.</p>
+
+<p>Drupal 8’s default WYSIWYG is CKEditor, and it’s included as a core module with <a href="https://www.drupal.org/docs/8/api/ckeditor-api/overview">its own API</a>. This is great, because they also added a way to get that default theme front-end code into the admin theme CKEditor. The description of how to manage this leaves a bit to be desired, as all they mention is ‘specifying a <code class="highlighter-rouge">ckeditor_stylesheets</code> key in the <code class="highlighter-rouge">*.info.yml</code> file’.</p>
+
+<p>Let’s start from the beginning. Say you’ve been working on a D8 site and the intro has an H2, some text, and a call to action button:</p>
+
+<p><img src="/assets/images/blog/intro1.png" alt="intro1.png" class="center" /></p>
+
+<p>That’s great! What does CKEditor show us?</p>
+
+<p><img src="/assets/images/blog/intro2.png" alt="intro2.png" class="center" /></p>
+
+<p>Oh. What I see is certainly <em>not</em> what I get. Let’s start by showing the basic styles in CKEditor. Go to your current default theme (ours is in <code class="highlighter-rouge">/web/themes/custom/</code>) and find your <code class="highlighter-rouge">THEMENAME.info.yml</code>. Open it in your favorite editor and you’ll see something like this:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">My Theme Name</span>
+<span class="na">type</span><span class="pi">:</span> <span class="s">theme</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s">A base theme for My Site</span>
+<span class="na">package</span><span class="pi">:</span> <span class="s">Other</span>
+<span class="na">core</span><span class="pi">:</span> <span class="s">8.x</span>
+
+<span class="na">base theme</span><span class="pi">:</span> <span class="s">classy</span>
+
+<span class="s">regions, etc...</span>
+</code></pre></div></div>
+
+<p>Now add the <code class="highlighter-rouge">ckeditor_stylesheets:</code> key and the target file right below the <code class="highlighter-rouge">core: 8.x</code> line, like so:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">...</span>
+<span class="na">package</span><span class="pi">:</span> <span class="s">Other</span>
+<span class="na">core</span><span class="pi">:</span> <span class="s">8.x</span>
+<span class="na">ckeditor_stylesheets</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">css/ckeditor.css</span>
+</code></pre></div></div>
+
+<p>If there’s something already under <code class="highlighter-rouge">core: 8.x</code> just put the CKEditor lines below it.</p>
+
+<p>Next you have to actually add a file there! Go to your theme’s <code class="highlighter-rouge">/css/</code> directory and add an empty <code class="highlighter-rouge">ckeditor.css</code> file next to the site’s <code class="highlighter-rouge">style.css</code>.</p>
+
+<p>Now, you <em>could</em> just tell CKEditor to load all of the site CSS - but that would be overkill for the poor little iframe. It’s better to just find the vanilla CSS styles you need in your <code class="highlighter-rouge">style.css</code> file and copy them over. In our case it’s only about 160 lines of CSS - the default styles for the site, plus some rendered Sass mixins for the button. How does our WYSIWYG look now?</p>
+
+<p><img src="/assets/images/blog/intro3.png" alt="intro3.png" class="center" /></p>
+
+<p>Bazinga! What a difference.</p>
+
+<p>Hmm, but our button is missing its styles because we haven’t configured the CKEditor for that yet.</p>
+
+<p>Go into the Drupal configs to set that up at <code class="highlighter-rouge">/admin/config/content/formats</code> and click ‘configure’ for the CKEditor text format you want (Full HTML, etc).</p>
+
+<p>If you don’t have ‘Styles’ in the ‘Active Toolbar’, add it by dragging it in. It looks good next to ‘Format’, and has a similar behavior:</p>
+
+<p><img src="/assets/images/blog/ckedit1.png" alt="ckedit1.png" class="center" /></p>
+
+<p>Then scroll down to the ‘Styles dropdown’ tab and add the appropriate markup and class for the button.</p>
+
+<p><img src="/assets/images/blog/ckedit2.png" alt="ckedit2.png" class="center" /></p>
+
+<p>In our case we want to turn an anchor link (<code class="highlighter-rouge">a</code>) into a button by adding a <code class="highlighter-rouge">.button</code> class, so we use <code class="highlighter-rouge">a.button</code>. The text after the pipe (<code class="highlighter-rouge">|</code>) is what will appear in the ‘Styles’ dropdown.</p>
+
+<p>Finally, make sure you’ve added that markup to the ‘allowed HTML tags’ section if you’re adding it to a restricted markup configuration:</p>
+
+<p><img src="/assets/images/blog/ckedit6.png" alt="ckedit6.png" class="center" /></p>
+
+<p><em>Important Note:</em> style options won’t show up in the Styles dropdown unless you have clicked/selected an eligible piece of markup - in our case the <code class="highlighter-rouge">a</code> tag - in the CKEditor window. So in our example, we’d have to click on ‘read more’ before we click on the Styles dropdown.</p>
+
+<p><img src="/assets/images/blog/ckedit5.gif" alt="ckedit5.gif" class="center" /></p>
+
+<p>As long as you have <code class="highlighter-rouge">a.button</code> styles in <code class="highlighter-rouge">ckeditor.css</code>, it should work right away. (Well, after a cache clear. It’s Drupal.)</p>
+
+<p>And that’s it! From here you can continue to add styles to <code class="highlighter-rouge">ckeditor.css</code>, and to the Styles dropdown in the Drupal ‘Text formats and editors’ admin.</p>
+
+<p>The WYSIWYG is no longer a lie!</p>
+
+]]>
+  </description>
+  <pubDate>Tue, 29 Aug 2017 04:20:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/08/the-wysiwyg-is-a-lie/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/08/the-wysiwyg-is-a-lie/</guid>
+</item>
+
+    
+      <item>
+  <title>Coding for Good</title>
+  <description>
+    <![CDATA[<p>Ever since I started coding, I’ve wanted to create a product that would make a difference. I wanted to contribute something good to society that would make someone else’s future better.</p>
+
+<p>This summer, I got to do that.</p>
+
+<p>My journey started with the <a href="http://emergingleadersinternship.org/about">Emerging Leaders Internship Program</a> (ELI). ELI helps match interns from underrepresented communities with companies in Portland. I was selected as a finalist in the program, and that is how I ended up at ThinkShout!</p>
+
+<p class="center"><img src="/assets/images/blog/pear-Summer-Mission.png" alt="pear-Summer-Mission.png" /></p>
+
+<p>I joined the ThinkShout team as a back-end development intern, my primary responsibility would be to build a website for their <a href="http://give.thinkshout.com/">summer campaign</a> alongside two other interns that worked on front-end development and design. Walking into a tech company can be intimidating; everyone looks and sounds so smart and talented. I was confident in my skills, but as an intern I worried I would not be able to deliver if I had to learn new languages or frameworks for the project. As I became immersed in the work however, that fear quickly vanished, and looking back I probably learned at least 15 new things every day, maybe even every hour.</p>
+
+<p>The goal of the summer campaign site we were building was to raise money through t-shirt sales for a local nonprofit called <a href="http://pearmentor.org/">p:ear</a>. P:ear is an organization that creatively mentors homeless youth through education, art, recreation and job training. Their students designed one of the new shirts exclusively for this campaign, and our design intern, <a href="https://thinkshout.com/blog/2017/08/designing-for-a-cause/">Alejandro</a>, designed the other new shirt!</p>
+
+<p>For back-end development, the team decided to use Jekyll (an open source framework), a Shopify Storefront API plugin for the store, and an Amazon Web Services S3 to host the website. Jekyll was a simple solution for the project, since we were creating a one-page static website. Learning Jekyll was a little confusing since I had never worked with Ruby Gems or Liquid before, but their instructions are well documented so the initial site setup went smoothly.</p>
+
+<p>My major roadblock in this project was working with the Shopify Storefront API. It is still in beta, so the problems I ran into were not well documented which led me to a lot of dead ends. Finally, I was able to get the products embedded by using Shopify’s “buy” button, which uses an access key to query in and display all products within a selected collection, and then automatically generates code, which can then be placed into a Javascript file.</p>
+
+<p class="center"><img src="/assets/images/blog/shopify-cart.png" alt="shopify-cart.png" /></p>
+
+<p>Amazon Web Services provides a simple way to host a static site using an S3 Bucket. Essentially all you have to do is drop the files into the bucket and do some small configuration modifications to get the site hosted.</p>
+
+<p>All the hoops I had to jump through to create the site ended up being great learning experiences. I had never worked with APIs before this project, and now I’m much more comfortable with them. I also got the chance to write a few Javascript functions, work with Github tickets, and gain experience working with an open source framework.</p>
+
+<p>The experience of partnering with a nonprofit was also extremely valuable. Working with the students from p:ear really changed my perception of homelessness too. It taught me to look beyond what’s on the surface, and inspired me to pursue a project I had been thinking about for some time.</p>
+
+<p>I had been wanting to create a website where black women could come together and discuss hair, hair products, and recommendations around both. But I also wanted it to be a space where we could figure out how to get unused/gently-used products to women who were homeless or from low-income households who could otherwise not afford them.</p>
+
+<p class="center"><img src="/assets/images/blog/Project_C.png" alt="Project_C.png" /></p>
+
+<p>While doing back-end work for the <a href="http://give.thinkshout.com/">p:ear campaign website</a>, I was simultaneously <a href="http://project-curls.org/">creating my own website</a> using open source software, Drupal. I had never used or even heard of Drupal before this summer and now I have completely developed a website using it, created a module, and have contributed a website to society that I believe will help with the distribution of hair care products for black women.</p>
+
+<p>During my initial interview with ThinkShout, I was asked what I wanted to get out of this internship and I responded with, “experience.” It sounds broad, but having just completed my freshman year of college, I really didn’t know what area of technology would be best for me. Interning at ThinkShout has been a phenomenal experience, and as I continue to pursue a BS degree in Information and Computing Sciences, I hope to apply the professional and technical expertise I gained here to my studies and my next opportunity.</p>
+]]>
+  </description>
+  <pubDate>Tue, 22 Aug 2017 08:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/08/coding-for-good/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/08/coding-for-good/</guid>
+</item>
+
+    
+      <item>
+  <title>Designing for a Cause</title>
+  <description>
+    <![CDATA[<p>In college, I was told time after time that we should always first try working for a small company. Allegedly, this is because you experience all of the aspects that make up a company; in other words, you are not confined to your sole area of work.</p>
+
+<p>For me, this turned out to be true. Now that it’s two months into my internship, I can confirm that I learned something about everything from web design, to coding, to public speaking while working on <a href="http://give.thinkshout.com/">ThinkShout Cares</a>. This internship has been an amazing experience. I am not exaggerating when I say that what I learned in two and a half months is equivalent to a whole year of school… assuming that everything I learned in school would actually be useful (I’m looking at you, Geology 101).</p>
+
+<p>As the web designer for <a href="https://thinkshout.com/blog/2017/08/thinkshout-cares-and-so-can-you/">ThinkShout Cares</a>, I was responsible for desinging a t-shirt and website that would fit nicely with <a href="http://pearmentor.org/">p:ear’s</a> message. You know, the shirt you <a href="http://give.thinkshout.com/#shop">probably ordered by now</a>… right?  I really enjoy the design process. It is a world of its own where you’re always learning. I think it is one of those professions where you have to reinvent yourself or you might not stick with it. I love the challenge it provides, as it energizes me to continually venture out of my comfort zone. For this project, I was challenged to create a shirt that people would like enough to want to buy.</p>
+
+<p class="full"><img src="/assets/images/blog/ts_cares_1.png" alt="ts_cares_1.png" /></p>
+
+<p>When looking at the past ThinkShout shirts (I’ve heard they are pretty popular at conferences), I was amazed at the beautiful typography and messaging in each of them. <a href="https://thinkshout.com/team/jessica/">Jessica Tate</a> (my manager) is an avid typologist who, beyond being an amazing UX designer, makes reading delightful and easy by perfectly matching fonts. Knowing this, I knew that I should probably stay in my lane and do what I do best: illustration.</p>
+
+<p>The designer has the same job as the writer: to communicate something. However, the beauty of design is that you have the power to communicate widely and personally. I completely understand that today, the web is a behemoth. Intended or not, the surplus of media we consume is enough to make us slam the laptop closed and walk away.</p>
+
+<p>I had to split my time between designing a shirt and the website where we’d sell it. To achieve harmony, I was careful not to let them differ too much visually. The shirt and the website are authentic on their own; they are related, but they aren’t siblings. They’re more like cousins.</p>
+
+<p><img src="/assets/images/blog/ts_cares_2.png" alt="ts_cares_2.png" /></p>
+
+<p>My goal was to create a serendipitous experience, something you did not expect, but you’re glad it happened. There are a few visual surprises throughout, connected by a theme. I chose the Universe as a theme because it is as beautiful as it is scary. I integrated hand drawn illustrations because there is an undoubtedly charismatic aspect about them. The more I drew, the more I discovered a sequence in my drawings. The top of the page marks the beginning of the sky. As you scroll down, you progress through the sky all the way down to the Portland skyline.</p>
+
+<p>Sometimes, we need to slow down to appreciate web imagery; images often tells stories all on their own. When I was creating the t-shirt’s tropical pattern, I was unaware of how personal it was for me. In it, I was representing my home, a tropical town in Mexico on the coast of the Pacific Ocean where you see whales jump in the winter and you can find shells in the sand. For me, the beach is this place where you leave all of your worries behind and gorge yourself on the sun. It is one of the very few places where you actually stop and absorb the present. I am pretty content about how my design turned out. For me, the only thing missing there is a Ceviche. Too bad Ceviche isn’t aesthetically pleasing as the jumping whales.</p>
+
+<p>I hope you enjoy the design as much as I do; it was such a fun process, and I’m especially happy that I was able to turn it into something that helps such an awesome organization like p:ear.</p>
+
+]]>
+  </description>
+  <pubDate>Fri, 11 Aug 2017 08:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/08/designing-for-a-cause/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/08/designing-for-a-cause/</guid>
+</item>
+
+    
+      <item>
+  <title>ThinkShout Cares (and So Can You)</title>
+  <description>
+    <![CDATA[<p>We’ve kept a pretty tight lid on this project all summer, but it’s finally time to unveil the focus of our 2017 Summer Internship program. Who better to tell you about it then the talented interns who built it?</p>
+
+<p>You <a href="http://thinkshout.com/blog/2017/06/the-2017-thinkshout-interns/">met Engineering intern Katrina Hirsch</a> last month on our blog. Now it’s her turn to tell you in her own words what we’ve been working on.</p>
+
+<p><strong>Katrina Hirsch:</strong></p>
+
+<p><img src="/assets/images/blog/katrina.jpg" alt="katrina.jpg" class="left thirty" />It’s clear to me that ThinkShout is a company that cares deeply.</p>
+
+<p>There is evidence of this not only in ThinkShout’s work, but also in the way that staff collectively interacts with our community. Staff want to be involved in creating positive change in the world, they want to give to organizations making a difference. Not because it’s an expectation, but because ThinkShout believes it’s the right thing to do. And so it was in the spirit of this sentiment that the idea for ThinkShout Cares was born.</p>
+
+<p>After weeks of work, we are excited to announce the the idea is now reality. Say hello to <a href="http://give.thinkshout.com/">ThinkShout Cares</a>, a website designed, developed, and maintained by interns to raise funds for <a href="http://pearmentor.org/">p:ear</a>, a local non-profit whose mission is to mentor Portland’s homeless youth, by selling t-shirts designed by us and the students at p:ear.  And with 100% of the proceeds benefiting p:ear directly, it’s a win for everyone.</p>
+
+<p><a href="http://give.thinkshout.com/">ThinkShout Cares</a> was a project bestowed upon us summer interns as an opportunity to hone our skills (which are many and varied, including but not limited to writing, design, and coding) while also engage with the community. The idea was a simple one, really. We would design a t-shirt and then build a website where we’d sell it. All proceeds from our work would be donated to p:ear.</p>
+
+<p>We began by taking a walk over to the p:ear headquarters, which is a mere three minutes from the ThinkShout office. None of us knew what to expect. What would this place look like? Who were these youth? What would we would learn in a single visit?</p>
+
+<p>What we discovered was a vibrant space filled with intelligent, creative individuals. In many ways, they were just like us - uncertain of the future, eager to contribute, full of ambition and hope. We spent two hours talking and collaborating, which ultimately resulted in two very different, but equally awesome t-shirt designs.</p>
+
+<p><a href="http://give.thinkshout.com/"><img src="/assets/images/blog/pear-summer.png" alt="pear-summer.png" class="center" /></a></p>
+
+<p>Both designs are now for sale on <a href="http://give.thinkshout.com/">the e-commerce site that we built for this project.</a> Buy one, or maybe even a few. Proceeds from shirt sales will go towards funding mentorships at p:ear such as their barista program, bike repair shop, or outdoor recreation program. The hope being that in giving students a safe space to explore and learn about an area where they can apply themselves and contribute back to society. <a href="http://give.thinkshout.com/">Help us support p:ear</a> and keep the hope alive!</p>
+]]>
+  </description>
+  <pubDate>Mon, 07 Aug 2017 04:20:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/08/thinkshout-cares-and-so-can-you/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/08/thinkshout-cares-and-so-can-you/</guid>
+</item>
+
+    
 
   </channel>
 </rss>

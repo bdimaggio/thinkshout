@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/mandrill/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>The Next Chapter for Mandrill</title>
+  <description>
+    <![CDATA[<p>It’s easy to take for granted all the great tools we use on the web, everything from email, to social media, to git hosting. Many of these services are free or use advertising to support the sometimes significant costs to run them. <a href="https://www.mandrill.com/">Mandrill</a> is one of those great tools and one that we’ve been recommending to our clients on a consistent basis. If you’re unfamiliar with Mandrill, it’s a transactional email service for sending email ranging from password resets to Commerce receipts. Now we realize that your webserver can already send email, so why bother with a service like Mandrill? It offers three major advantages:</p>
+
+<ul>
+  <li>Deliverability</li>
+  <li>Reporting and accountability</li>
+  <li>Templated emails that look great across all email clients</li>
+</ul>
+
+<p>As the team who originally partnered with <a href="http://mailchimp.com/">MailChimp</a> to build the <a href="https://www.drupal.org/project/mandrill">Mandrill module</a>, we might be a bit biased, but we think it’s one of the best transactional email services out there that integrates with Drupal. We have many clients that use both <a href="https://www.drupal.org/project/mailchimp">MailChimp</a> and Mandrill, and many that use Mandrill by itself. In fact, we just completed a <a href="https://www.drupal.org/node/2683599">Mandrill 8.x-1.0-alpha1</a> release with all the great features of Mandrill for Drupal 8.</p>
+
+<p>Change is inevitable though, and MailChimp has decided to refocus the Mandrill service on their core value of delivering customized email to users. This doesn’t mean Mandrill is going away by any means, just that it’s new focus will be on delivery of 1:1 customized emails as opposed to 1:many emails. MailChimp already provides a great way of delivering 1:many emails as a part of your email campaigns, and Mandrill will focus on the customized 1:1 delivery of email. This should reduce the number of users using Mandrill to send 1:many emails, many of which are spammers abusing the system.</p>
+
+<p>You can read more about the announcement on the <a href="http://blog.mandrill.com/important-changes-to-mandrill.html">MailChimp blog</a> along with the <a href="https://mandrill.zendesk.com/hc/en-us/articles/217467117-Mandrill-MailChimp-Transition-FAQs">FAQ</a> they prepared for customers. At the heart of the change is the requirement of having a paid MailChimp account and purchasing Mandrill credits to use the Mandrill service. Your MailChimp and Mandrill accounts can be merged on March 16th and a single monthly subscription will be maintained going forward. According to the MailChimp FAQ, the minimum cost of having both services will be $10 for the basic MailChimp account and $20 for 25,000 Mandrill emails sent in a month.</p>
+
+<p>This does mean Mandrill as a free service is going away and for some people, this means that they’ll need to find an alternative transactional email service. The good news is that there are alternatives out there, and some are even honoring Mandrill’s free level. If you’re looking for one of those free alternatives, try <a href="https://www.sparkpost.com/">Sparkpost</a>, <a href="http://aws.amazon.com/ses/details/">Amazon SES</a>, or <a href="https://sendgrid.com/">SendGrid</a>. Not all of these services have Drupal modules at this point, but many do, and could be worth trying out.</p>
+
+<p>Our recommendation for many of our clients is to stick with Mandrill for a number of reasons. For those that already use MailChimp and Mandrill, the additional monthly cost is not significant enough to switch in many cases, and having a single account to manage can be beneficial. For those clients that only use Mandrill now, adding a new monthly cost can feel a bit more burdensome. The stability of the Mandrill service and Drupal module does outweigh the cost of switching in many situations, but we are sensitive to our clients’ budgets and may look at the alternatives if it makes sense. It’s important to note that all Mandrill accounts must be merged with an existing MailChimp account by April 27th.</p>
+
+<p>What does this mean for the <a href="https://www.drupal.org/project/mandrill">Mandrill module</a> for Drupal and our ongoing support and maintenance of it? MailChimp has assured us they are committed to the Mandrill service for the foreseeable future and will be looking at ways MailChimp and Mandrill can work better together. We also see a lot of ways the two modules can be combined and managed as one, making it easier for users to view activity across the two services in one place. At this point, we will continue our support and development of the module, including the new <a href="https://www.drupal.org/node/2683599">Mandrill D8</a> release. We are excited to see where the Mandrill module goes and the additional value that MailChimp adds to the service going forward. Stay tuned for the next chapter of Mandrill!</p>
+]]>
+  </description>
+  <pubDate>Wed, 09 Mar 2016 10:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2016/03/next-chapter-for-mandrill/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/03/next-chapter-for-mandrill/</guid>
+</item>
+
+    
+      <item>
+  <title>Porting ThinkShout to Drupal 8</title>
+  <description>
+    <![CDATA[<p>A fundamental part of ThinkShout’s philosophy and business is to not only use great open source tools, but to <a href="http://thinkshout.com/blog/2015/03/the-how-and-why-of-open-source/">actively give back</a> to the open source community. The most recognizable part of that contribution is in the form of Drupal modules: over 60,000 Drupal sites run on ThinkShout technology! This strategy has been a huge <a href="http://thinkshout.com/blog/2014/09/small-business-of-nonprofits/">win for our clients</a>, who get features, bugfixes, and security updates from the community because they are sharing code. We benefit from this work as well, as it enhances our profile in the community and helps us generate leads for new projects. Of course, the vast majority of these sites are built on Drupal 7, which <a href="https://www.drupal.org/drupal-7-released">released</a> in the same month that <a href="http://thinkshout.com/blog/2016/01/five-years/">ThinkShout was founded</a>.</p>
+
+<p>The exciting and much-anticipated release of Drupal 8 has given us a lot to think about. Internally, we’ve been running a Drupal 8 “book club” to give our development team a chance to dive in and figure out what’s going on with D8. While we’ve bathed in the glories of Composer, Twig, and YAML files galore, we’ve also had a chance to start upgrading a few of our favorite modules to Drupal 8!</p>
+
+<p>With support from the incredible folks over at <a href="http://mailchimp.com/">MailChimp</a>, we’ve already got a working release of the <a href="https://www.drupal.org/project/mailchimp">MailChimp integration module</a> for Drupal 8, and are hard at work on the <a href="https://www.drupal.org/project/mandrill">integration with Mandrill</a>, MailChimp’s awesome transactional email service, which may have a Drupal 8 release before this blog post goes live.</p>
+
+<p>This is a great start, but it’s really only the tip of the iceberg: ThinkShout has about 50 modules released for Drupal 7! As much as we’d love to dive in and update all of them for Drupal 8 today, that’s not particularly practical. To better focus our work, I analyzed some of these modules so we can prioritize them and look for opportunities to work with our partners and clients to get the most useful, popular, and important modules upgraded to Drupal 8 first.</p>
+
+<p>Of our 50 modules, we started by de-prioritizing anything that was:</p>
+
+<ul>
+  <li>
+    <p>Extremely narrow in purpose (<a href="https://www.drupal.org/project/er_plus">Entity Reference Plus Data</a>)</p>
+  </li>
+  <li>
+    <p>Blocked by another module’s Drupal 8 development (<a href="https://www.drupal.org/project/apachesolr_geo">Apache Solr Geo</a>, lots of others)</p>
+  </li>
+  <li>
+    <p>Offers modest functionality replaceable by custom code (<a href="https://www.drupal.org/project/footer_message">Footer Message</a>) or</p>
+  </li>
+  <li>
+    <p>Just not seeing much usage (<a href="https://www.drupal.org/project/instagram">Instagram Realtime</a>)</p>
+  </li>
+</ul>
+
+<p>That left us with around 10 projects, among them MailChimp and Mandrill, which we were already working on. We wanted to pick a manageable number of these remaining modules to get started on.</p>
+
+<p>Based on community usage, the priorities of our clients, and perceived usefulness, it was clear that the <a href="https://www.drupal.org/project/registration">Registration module</a> belonged on this list. The story of Registration’s development is connected to the story of ThinkShout’s fledgling years and open source philosophy, so it’s an added bonus that Registration will be part of our early push into Drupal 8.</p>
+
+<p>ThinkShout has also carved out a reputation as experts in the CRM world, with <a href="https://www.drupal.org/project/redhen">RedHen</a>, our leading Drupal-integrated CRM, and the <a href="https://www.drupal.org/project/salesforce">Salesforce Suite</a>, a fabulous tool for integrating Drupal sites with Salesforce. Though these modules don’t have the 5-digit usage numbers that Registration or MailChimp have, they still have lots of users who are very engaged, and are central to the needs of our clients. We added them to the top of the list for Drupal 8 consideration.</p>
+
+<p>In thinking about the rest of our modules and the nature of our work, it became clear that these three projects really stand out from the rest: they are our “Big 3”, and we set about creating a roadmap for developing them on Drupal 8.</p>
+
+<p>You can already see the beginnings of this work! At our team sprint on February 11, we put together an outline for bringing RedHen to Drupal 8, and pushed the first commits to Drupal.org.</p>
+
+<p><img src="/assets/images/blog/porting-thinkshout.jpg" alt="porting-thinkshout.jpg" />
+<em>These are our sprint faces!</em></p>
+
+<p>As of February 11, all of the Big 3 have nominal Drupal 8 branches.</p>
+
+<p>As we kick off four Drupal 8 sites in the first part of this year, we will be working with our clients to bring Registration, RedHen CRM, and Salesforce Suite to Drupal 8. All three should update beautifully, as they are built on top of Entity API, which is part of Core in D8.</p>
+
+<p>We will also be focusing our internal open source contribution hours on these three projects to kickstart their jump into the Drupal 8 sea. If you’re looking for awesome CRM or registration systems for your Drupal 8 site, fear not! They are on their way.</p>
+
+<p>We have two Drupal 8 sites utilizing ThinkShout core technologies scheduled for launch this summer, so look for a release of RedHen in the spring!</p>
+
+<p>Our next round of prioritization will depend significantly on the progress of Commerce solutions in Drupal 8: once that landscape settles, we have some projects that will jump up that priority list, including:</p>
+
+<ul>
+  <li>
+    <p><a href="https://www.drupal.org/project/registration_commerce">Registration Commerce</a>, our favorite paid registration solution</p>
+  </li>
+  <li>
+    <p><a href="https://www.drupal.org/project/redhen_donation">RedHen Donation</a>, our CRM-integrated, single-page donation tool</p>
+  </li>
+  <li>
+    <p><a href="https://www.drupal.org/project/commerce_iats">Commerce IATS</a>, the payment integration module for our favorite nonprofit-focused payment processing partner, <a href="http://home.iatspayments.com/">iATS Payments</a></p>
+  </li>
+</ul>
+
+<p>So if you’re a fan of our Commerce integrations, or <a href="https://www.drupal.org/project/addtocal">Add to Cal</a>, or even little <a href="https://www.drupal.org/project/bean_entity_view">Bean Entity View</a> (I know I am): stay tuned! We love these tools, we love that you’re using them, and we look forward to bringing you even more awesome stuff for Drupal 8 than we have for Drupal 7!</p>
+
+]]>
+  </description>
+  <pubDate>Tue, 23 Feb 2016 10:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2016/02/porting-thinkshout-to-drupal-8/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/02/porting-thinkshout-to-drupal-8/</guid>
+</item>
+
+    
+      <item>
+  <title>Mandrill 1.3: playing nice and offering more! (updated: 1.4)</title>
+  <description>
+    <![CDATA[<p><i>Update: Version 7.x-1.3 had a couple of bugs, and some of the changes were a little ambitious. As of March 18, the latest-and-greatest version of Mandrill is 7.x-1.4, which resolves the major issues we encountered at first release, and makes some of this blog entry obsolete. Here’s what 1.4 is doing (more info in the <a href="http://drupal.org/node/1946388">release notes</a>):</i></p>
+
+<ul>
+  <li>Moves the new template functionality into a sub-module</li>
+  <li>Fixes some installation issues</li>
+  <li>Returns to the policy of specifying a sender for Mandrill messages, but with better reply-to behavior</li>
+  <li>Makes Mandrill compatible with email addresses of the form <code>"Name String&lt;email@address.net&gt;"</code></li>
+  <li>Fixed some new issues created by changes in the API, like the Reports page not loading</li>
+  <li>Resolved default template behavior inconsistencies</li>
+  <li>Resolved problems sending HTML content through templates</li>
+  <li>Added a configuration feature to log module/key pairs that send messages through Mandrill, easing Mailsystem &amp; Mandrill configuration</li>
+</ul>
+
+<p>If any of the above issues gave you trouble, our apologies! Give 1.4 a spin. We put it through the extra-enthusiastic testing cycle, and are running it happily on this very website (www.thinkshout.com).&lt;/i&gt;</p>
+
+<p><img src="http://mandrill.com/assets/images/brand/logo-shield-72695847.png" alt="Mandrill Mascot" title="Mandrill Mascot" height="240" width="240" img="" style="float:right" />
+We ThinkShouters have been working away on our <a href="http://drupal.org/project/mandrill">Drupal/Mandrill integration module</a>, and released version 7.x-1.3 today. We think it’s a pretty significant step for the module: I’ll tell you how we got to where we are, what’s in this release, and a little about what’s next for Mandrill.</p>
+
+<p>If you aren’t familiar with <a href="https://mandrill.com/">Mandrill</a>, it’s a transactional email service built around the email delivery system for <a href="http://mailchimp.com/">MailChimp</a>, and it’s deliberately built to be used by custom apps and plugins. If you want your Drupal site’s automated emails to get sophisticated modern analytics and reporting, be spam compliant, scale to bulk levels, and be more reliably delivered, you can route your email through Mandrill.</p>
+
+<p>Version 1.2 of the Mandrill module worked great for simple stuff: you could install it on your site, point it at your Mandrill account, tell it to take over all outgoing email, and: bam! Full data tracking, spam compliance, and all the other Mandrill goodies. However, it was sort of all-or-nothing:</p>
+
+<ol>
+  <li>
+    <p>If you only wanted to track emails from certain modules, and not from others, you were out of luck, because Mandrill’s “on” switch just took over Drupal’s default mailsystem variable.</p>
+  </li>
+  <li>
+    <p>Mandrill module 1.2 sent all emails from the same email address. If you had some app handing off emails to Mandrill with a pre-configured ‘reply-to’ and ‘from’ field, our module just dropped them. The community built a reply-to enabling patch (thanks to @markwk, @tripper54, and @pjcdawkins) to handle some use-cases, highlighting this issue.</p>
+  </li>
+  <li>
+    <p>Although Mandrill provides an interface for building rich templates and API access to use them, there was no way to enable them using the module. Some community users had put together a great patch to enable basic template usage (thanks @basvredeling and @drewish, @persand and @jtbayly!), but it wasn’t terribly user-friendly.</p>
+  </li>
+  <li>
+    <p>Mandrill module 1.2 is very pushy, and it was pointed out that it wasn’t playing nice with other mail system modules, in particular <a href="http://drupal.org/project/mailsystem">mailsystem</a>, which works hard to provide a central configuration point for mail-using modules, and could be mucked up pretty thoroughly by enabling Mandrill.</p>
+  </li>
+  <li>
+    <p>Mandrill module 1.2 handed all emails off for sending immediately: the community has let us know that the ability to queue messages for later processing by cron was desirable.</p>
+  </li>
+</ol>
+
+<p>We think Mandrill 1.3 does a nice job of addressing all of these issues.</p>
+
+<p>We tackled the first and fourth issues in concert: mailsystem 2.x is a requirement for Mandrill, and Mandrill 1.3 uses the mailsystem API for all Drupal-Mail-System-related configuration. This lets us leverage mailsystem’s precise pairing of module/key pairs with different MailSystemInterface implementations that are enabled on your site to configure exactly which emails you want handed off to Mandrill. Of course, we also let mailsystem retain control of the Drupal Mail System rather than fighting over the configuration: much more friendly, and less work for us: win/win!</p>
+
+<p>While we were feeling friendly, we also restructured our email interface’s handling of “reply-to” and “from” addresses. <strike>This wasn't hard, really: if you hand the 1.3 version of MandrillMailSystem an email with a From or Reply-to address configured, we just leave it there. We do check to make sure there is a "from" configured, and if there isn't we drop in the Drupal site's default email address, rather than making you configure a separate address in Mandrill. This all seemed pretty linear and sensible, but it's definitely a significant change in the module's behavior.</strike></p>
+
+<p>With mailsystem handling configuration settings, the on/off switch on our config screen is no longer necessary, and has been removed. The same is true of the “from” fields, so our config page is suddenly a lot cleaner. However, you will see a new tab for Templates!</p>
+
+<p>We also added a simple message queuing option to the bottom of the admin page, allowing you to queue up message sends rather than fire them off immediately, and specify a limit to the number of messages going out in each cron-triggered batch.</p>
+
+<p>We took the foundational template work offered by the community and built something a little more powerful and adaptable based on it. The templates tab lets you create a “Mandrill Template Map” (a custom entity), which currently has 3 settings, other than a label: which Mandrill Template to use (it pulls a list from Mandrill), which content area on the Mandrill Template to put the email body content into, and which module/key pair to use this Template Map for. The module/key list is generated using mailsystem and the existing Mandrill Template Map configurations, and will only let you select a module/key pair that has been assigned to MandrillMailSystem by mailsystem and is not currently selected on another Template Map.</p>
+
+<p>That might sound a little complicated, but it’s pretty simple in practice: create a template using Mandrill’s refined template interface, and it’ll show up automatically on the Mandrill Module’s template’s tab. Create a Template Map, point it at the Template you created, tell it where to drop the email content, and select which emails you want to use this template map. This means you can have a variety of different templates configured for all your different use-cases: one for user registrations, another for receipts, and a third for event reminders, etc.</p>
+
+<p>In the future, we plan to offer some more sophisticated template configuration, like dropping site content into other template content areas, but we think this is a pretty good start. You can now use Mandrill to create a collection of unique, rich html emails for each different type of email getting sent from your Drupal site and use the mandrill and mailsystem modules to assign each email type to its unique template. Rich, custom, purpose-specific emails going out through a reliable, spam-compliant, scaleable email service with sophisticated analytics built right in. I’m gonna send some emails right now!</p>
+]]>
+  </description>
+  <pubDate>Wed, 06 Mar 2013 00:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2013/03/gabe/mandrill-13-playing-nice-and-offering-more/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/03/gabe/mandrill-13-playing-nice-and-offering-more/</guid>
+</item>
+
+    
+      <item>
+  <title>RedHen and Mandrill - 10-minute Setup for a Bulk Mail Tool</title>
+  <description>
+    <![CDATA[<h3 id="introduction">Introduction</h3>
+
+<p>RedHen CRM is a native CRM solution for Drupal 7. If you haven’t heard about it, check out our recent <a href="http://thinkshout.com/blog/category/redhen">blog announcements</a>. <a href="http://mandrill.com">Mandrill</a> is a pay-as-you-go transactional email service provided by <a href="http://mailchimp.com">MailChimp</a>. This spring, ThinkShout was fortunate to have the opportunity to release a <a href="http://thinkshout.com/blog/2012/05/lev/mailchimp-adds-mandrill-integration-campaign-creation">Mandrill integration module</a> for Drupal.</p>
+
+<p>In this brief tutorial, I’ll show you how to quickly set up a bulk mailing tool in Drupal leveraging <a href="http://drupal.org/project/redhen">RedHen CRM</a>, <a href="http://drupal.org/project/views_bulk_operations">Views Bulk Operations</a> (VBO), and <a href="http://drupal.org/project/mandrill">Mandrill</a>.</p>
+
+<h3 id="getting-started">Getting Started</h3>
+
+<p>This tutorial assumes that you have a RedHen CRM instance up and running. If you haven’t played around with RedHen yet, you can get started with our <a href="http://drupal.org/project/redhen_demo">demo installation profile</a>.</p>
+
+<p>Once you have RedHen running, you simply need to download and enable <a href="http://drupal.org/project/views_bulk_operations">VBO</a> and the <a href="http://drupal.org/project/mandrill">Mandrill</a> module.</p>
+
+<h3 id="configuring-the-mandrill-module">Configuring the Mandrill Module</h3>
+
+<p>Your next step is to <a href="http://www.mandrill.com/signup/">set up a Mandrill account</a> and configure your API keys. <em>(Don’t worry, Mandrill has a very generous freemium plan - so you can test things out without needing to pay.)</em> Below is a screenshot of Mandrill’s API credentials interface:</p>
+
+<p><img src="https://dl.dropbox.com/s/n2zfahekulj64u2/mandrill_api.png" alt="" /></p>
+
+<p>Next, you’ll need to set your API key and configure the Mandrill module:</p>
+
+<p><img src="https://dl.dropbox.com/s/47845cezqc7tx6t/mandrill_config.png" alt="" /></p>
+
+<p>That’s it! Now we’re ready to create our bulk mailing interface with VBO.</p>
+
+<h3 id="building-your-bulk-mailer-in-vbo">Building Your Bulk Mailer in VBO</h3>
+
+<p>RedHen CRM ships with a custom VBO action for sending email to RedHen contacts:</p>
+
+<p><img src="https://dl.dropbox.com/s/jazmh8udkow11zp/bulk_mailer_vbo_setting.png" alt="" /></p>
+
+<p>When used on a RedHen Organization, this same action will send an email to the primary contact of each selected organization. In this simple example, we will create a VBO view that allows us to filter contact records based upon their RedHen membership status:</p>
+
+<p><img src="https://dl.dropbox.com/s/8quf5p937gvvl2j/bulk_mailer.png" alt="" /></p>
+
+<p>Of course, this is just one example of how you can build your own VBO-enabled Views of RedHen data. For a quick start, consider creating some active memberships on contacts and importing this <a href="https://gist.github.com/3114504">Views export</a> into your copy of the RedHen Demo install profile.</p>
+
+<h3 id="now-send-some-mail">Now Send Some Mail!</h3>
+
+<p>That’s all it takes. Using the example bulk mailer interface above you can quickly select one or more contacts to email and then click “Send RedHen Email”. From there, you can write a rich-text message including trackable URL links:</p>
+
+<p><img src="https://dl.dropbox.com/s/uuevsjdx5j3o2mv/bulk_mailer_2.png" alt="" /></p>
+
+<p>Upon sending, Mandrill will provide you with email statistics within your Drupal site:</p>
+
+<p><img src="https://dl.dropbox.com/s/7nwpqzljb9aqicr/mandrill_data.png" alt="" /></p>
+
+<h3 id="in-conclusion">In Conclusion</h3>
+
+<p>Obviously this is a pretty simple example of a bulk mailing tool. You can do considerably more advanced things mixing and matching RedHen, VBO and Mandrill. You could also trigger automated mass mailings leveraging RedHen, Mandrill, and <a href="http://drupal.org/project/rules">Rules</a>.</p>
+
+<p>Our purpose here is to highlight the flexibility and unlimited possibilities of RedHen CRM and associated modules. We look forward to you sharing your own RedHen recipes with us in the future!</p>
+]]>
+  </description>
+  <pubDate>Thu, 19 Jul 2012 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2012/07/tauno/redhen-and-mandrill-10-minute-setup-bulk-mail-tool/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2012/07/tauno/redhen-and-mandrill-10-minute-setup-bulk-mail-tool/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

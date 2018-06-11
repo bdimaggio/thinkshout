@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/digital-ecosystem/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>How to Lead a Retrospective for a More Successful Project</title>
+  <description>
+    <![CDATA[<p>So, what’s a retrospective meeting?</p>
+
+<p>For one thing, a retrospective meeting is <em>not</em> a post-mortem meeting. At the end of a project, the new website is anything but dead. It’s living and breathing. And hopefully neither our team or our client is feeling the need for resuscitation!</p>
+
+<p>On a more serious note, a retrospective meeting is an opportunity to look back at what worked well and what didn’t, with the ultimate goal of taking lessons away that will improve the project in question as well as future projects.</p>
+
+<h3 id="when">When</h3>
+<p>We always hold a retrospective at the end of every project. And for larger, more complex projects, we often hold a retrospective mid-way through. This allows us to address pain points immediately, making the rest of the project more successful and efficient.</p>
+
+<h3 id="who">Who</h3>
+<p>Everyone who touched the project at some point on our internal team should ideally be in the meeting - project manager (PM), account manager, team leaders, developers, designers, etc. But the meeting itself isn’t led by that project’s PM. We want PMs to be able to participate in the discussion without worrying about facilitating or taking notes. So another PM who did not participate in the project leads the retrospective.</p>
+
+<h3 id="what">What</h3>
+<p>We discuss the following topics:</p>
+<ul>
+  <li>Project budget and project timeline</li>
+  <li>What worked well?</li>
+  <li>What did not work well?</li>
+  <li>What problems did we solve during this project?</li>
+  <li>What problems have we not yet solved?</li>
+  <li>In hindsight, what one thing would we each have done differently on this project?</li>
+</ul>
+
+<h3 id="how">How</h3>
+<p>The retrospective has two components: An in-person discussion and and online follow-up.</p>
+
+<p>For the in-person discussion, we have a few ground rules that we review before we start the discussion.</p>
+
+<ul>
+  <li>Be honest: Nothing is meant personally, so it’s ok to speak honestly about what has been challenging.</li>
+  <li>Be positive: Don’t blame other team members for what didn’t work well. This is an opportunity to learn and improve.</li>
+  <li>No laptops or phones: The only person with a computer is the one leading the meeting and taking notes. We all need to be engaged and fully present.</li>
+</ul>
+
+<p>After the meeting, we send out a quick SurveyMonkey link that asks team members to score the project from 1-5 on a client satisfaction, product quality, adherence to budget, timeline, requirements, end user experience, project leadership, and team morale. They can also add more comments that they didn’t convey during the meeting. It’s anonymous, and once responses are in, the retrospective facilitator sends the summary to the project PM.</p>
+
+<h3 id="follow-up">Follow-Up</h3>
+<p>Our attitude with retrospectives is that the next time is NOW. We don’t have to wait until the next project starts to make improvements. The project PM digests all the retrospective notes, and they take the lead on moving forward any changes to the project itself (if it hasn’t fully wrapped), or if we have new projects coming up with the same team or client. They also share major takeaways with the other ThinkShout PMs. But the responsibility ultimately lies with every team member to make changes to how they work based on the outcomes from the meeting.</p>
+
+<h3 id="opportunities-for-improvement">Opportunities for Improvement</h3>
+<p>We can’t help but do a retrospective on our retrospectives! We could do a better job sharing out takeaways from retrospectives to our entire company. And for some projects, it might be useful to have a second retrospective exclusively for the project leads. They may hesitate to discuss certain challenges of a sensitive nature with the client, or other team members for that matter, but would be comfortable speaking about that with a smaller group. We’re continuously iterating and working to make our retrospectives more useful.</p>
+
+<h3 id="why-are-retrospectives-important">Why are retrospectives important?</h3>
+<p>As project managers, it’s our responsibility to not set our processes in stone, but rather to keep improving. A retrospective is an excellent way to make processes better and more efficient for entire project teams. It also helps your team members to feel heard and supported because they see that processes re not coming from on high, but are based on their direct feedback. Finally, retrospectives let you fix pain points before they begin to negatively impact your team or your client.</p>
+
+<p>Do you hold retrospectives at your organization? What has worked well for you? Drop us a line and <a href="https://thinkshout.com/contact/">let us know!</a></p>
+]]>
+  </description>
+  <pubDate>Mon, 25 Sep 2017 08:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/09/leading-a-retrospective/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/09/leading-a-retrospective/</guid>
+</item>
+
+    
+      <item>
+  <title>User Journeys</title>
+  <description>
+    <![CDATA[<p>There’s some talk out there about this thing called “User Journeys.” A user journey is defined as the experience that a person has when utilizing/interacting with something – typically software or a website’s design.</p>
+
+<p>In more applicable terms, user journeys tell the story of an individual’s relationship with your organization over time, and across channels. Why are we talking about them? Because the process of mapping out a user journey can help you figure out how you fit into the lives of your users and identify gaps that are troublesome or disjointed in the user experience.</p>
+
+<p>Some quick Google sleuthing will point you to various methods for developing a user journey. But the two primary options are:</p>
+
+<ul>
+  <li>Analytical - looking at your site’s analytics to see where users came from, how they move through your site, and where drop-off points exist.</li>
+  <li>Anecdotal - conducting interviews, or running a survey to allow people to share their experiences.</li>
+</ul>
+
+<p>Traditionally, ThinkShout has taken the analytical approach and we let the data guide much of our audience work. It’s safe to say that the majority of the time, this is sufficient for the needs of most organizations. However, some projects require additional research. There are instances in which you need to determine not only how people are interacting with your website as it stands today, but you might want to know how you could better serve your audiences and what new content you need to curate. You might need users to answer questions like: What would be helpful? What do you find frustrating? What were you looking for when you needed help? How could we improve to be the resource you turn to when you need it most?</p>
+
+<p>As much as it pains me to say this (being the data-geek that I am), the answers to these question are not solely in the analytics. Most recently, we sought the answers to questions like this by conducting a series of phone interviews with site users.</p>
+
+<h2 id="the-interview-process">The Interview Process</h2>
+
+<p>While interviewing may come naturally to the likes of <a href="http://www.npr.org/people/2100593/terry-gross">Terry Gross</a>, for many of us, it’s an activity that requires a learned, delicate approach. Your phrasing and timing are hugely important, and it helps to be a natural listener. Sometimes, leaving space or an awkward silence for the interviewee to continue talking is the right thing to do.</p>
+
+<p>ThinkShout spoke with an expert who gave us some pointers on how to phrase questions and assemble a matrix to guide the interview process itself. Using a guide is essential, as you’ll want to aim for consistency in your delivery/phrasing in each interview. But while consistency is important, you need to be open to taking the conversation in the direction the respondent takes you as well.</p>
+
+<p>Your Matrix should be divided by:</p>
+
+<ul>
+  <li>Research Objective - this is a combination of what your organization wants, but is also driven by what is important for your organization to learn</li>
+  <li>Research Question - the question we want to know</li>
+  <li>Survey 	Question - Open-ended, broad. This is the question you actually ask.</li>
+</ul>
+
+<p>For example, a research objective might be “unmet needs/opportunities.” A research question might be, “Does the respondent feel there is something missing in terms of resources or support on the site?” To make this a survey question (the one you actually ask the respondent), we’d phrase it as, “What would have been helpful to have early in your experience that was not available to you?”</p>
+
+<p>You’ll want to interview several people from your target audiences to ensure there is sufficient representation. Generally, a small sample size is at about 8 interviews; a large sample would be 16.</p>
+
+<p>After about 4-5 interviews, consistencies and common needs from your audience should start to surface, and you’ll develop a complete view of what their experience has been as well as what they’d like it to be.</p>
+
+<h2 id="developing-the-journeys">Developing the Journeys</h2>
+
+<p>User journeys weave together the actions visitors to your site take and shows the levels of engagement they have; in some cases (if you’re getting real fancy) they also include empathy maps and how they are feeling at each stage.</p>
+
+<p>In one of our most recent projects, we wanted to show the multitude of ways in which a user engages with an organization, and their needs at each stage of the lifecycle with said organization. This also helped to develop the user personas, which are fictional representations of a type of user likely to visit the site.</p>
+
+<p class="center"><img src="/assets/images/blog/userjourneys1.jpg" alt="userjourneys1.jpg" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>The first of several drafts of a Journey Map</span></p>
+
+<p>Never has the non-linear path of an online user been more apparent than when we went through this exercise. In reality, there are countless ways someone could interact with your organization. We chose to focus our energies on the most common ones that surfaced in our interviews.</p>
+
+<p>Then, we polished it up and incorporated the colors, fonts, and style tiles from the creative direction we had for the project.</p>
+
+<p>Style tiles are like looking at swatches of paint for your house – it gives you and your stakeholders a good idea of what might go well together, but until you try it on your walls, might be hard to make a definitive choice.</p>
+
+<p>By incorporating these colors into the user journey map, it helped solidify the creative direction for the site. We used certain colors for specific actions/stages in the journeys, and showed potential pathways with dotted lines, or a circle to connect various stages together. As a bonus, the designs of the journey maps hinted at what infographics might looks like if we were to take that path and design those for the organization as well.</p>
+
+<p><img src="/assets/images/blog/userjourneys2.png" alt="userjourneys2.png" class="center" /><span class="caption"><i class="fa fa-caret-up"></i>Final version of Journey Map</span></p>
+
+<h2 id="key-takeaways">Key Takeaways</h2>
+
+<p>Through the interview and journey mapping process, we learned about resources outside of the website in question that were of use to our target audience. We were directed to other sites users found helpful or features that were valuable to them, which subsequently gave us ideas for how we could improve the site. We learned about their frustrations, but also gleaned specific information they felt would be helpful- details that don’t always come through in the analytics – especially when that content doesn’t exist yet on a site.</p>
+
+<p>If you do decide to go this route and conduct interviews, a few items of note:</p>
+<ul>
+  <li>Start with an intro script to let the respondent know what they’re getting into and put the them at ease.</li>
+  <li>Promise them confidentiality; or at least that you’ll contact them if you wish to utilize their responses and name publicly in any way. And hold true to that promise!</li>
+</ul>
+
+<p>As you search for resources and info on user journeys, check out some blogs and podcasts with <a href="http://www.inuse.se/blogg/kim-godwins-what-your-user-journey-probably-missing/">Kim Goodwin</a> - she knows her stuff! And if you have questions about how we can help you develop your user journey, contact us - we want to set you up for success and give you the tools you need to do so. Let us know how we can make it happen for you!</p>
+]]>
+  </description>
+  <pubDate>Fri, 14 Apr 2017 11:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/04/user-journeys/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/04/user-journeys/</guid>
+</item>
+
+    
+      <item>
+  <title>Roadmap to Retention</title>
+  <description>
+    <![CDATA[<p>We’ve talked about <a href="https://thinkshout.com/blog/2016/03/rethinking-strategies-for-online-donor-acquisition/">ways to attract and on-board new supporters</a>. Maybe you’ve started testing some of those strategies and set up a lightbox. That was a lot of hard work! Let’s take a break…</p>
+
+<p>… and talk about how to cultivate those newbies so they don’t abandon ship. It’s called the <a href="http://www.pamelagrow.com/7256/are-you-taking-advantage-of-the-honeymoon-phase-in-your-nonprofit-marketing/">honeymoon phase</a>, and you need to take advantage of it while those contacts are feeling warm and fuzzy about supporting you.</p>
+
+<p>Let’s back up a few steps. Think about the people in your life. You have tertiary contacts - people that are friends of friends, or vague acquaintances that you might see at a party and never again. Then, there are closer contacts – maybe they’re coworkers or people from class. You know them on the surface; some of their hobbies, general interests. You might even connect with them on LinkedIn, maybe Facebook. Then there are our closer friends; these are individuals you have a phone number and personal email for. They aren’t blocked from any of your social media accounts and you text each other frequently. You know each other on a deeper level and rarely find cause for disagreement.</p>
+
+<p>This isn’t an exact parallel to the donor-relationship, but you get the idea. You want that donor to be happy to hear from you and for there to be a mutual appreciation. How can you create that type of relationship and feeling in this new contact?</p>
+
+<p>Spoiler alert: there’s no ultimate, magic solution. You have to test and see what works for your audience. This won’t be the last time you hear me say this, either. The only way to determine what works is to fail early and often… until you don’t. The only way to do that is to test.</p>
+
+<p>What we can do however is provide some basic guidance and make recommendations based on what we in the fundraising community have seen work for us.</p>
+
+<ul>
+  <li>
+    <p>Content: Keep it fresh and up to date on your website - give people a reason to keep coming back to you. This isn’t just of benefit to donors, by the way – refreshing content is good for Google crawlers. They’re responsible for presenting the best content in search results to end users. If your site or home page hasn’t been refreshed in some time, Google may not give you top billing in the search results. There’s a lot more that goes into SEO, but that’s a topic for another time. Bottom line is, don’t let things get stale.</p>
+  </li>
+  <li>
+    <p>It’s like the theme from the Golden Girls, “Thank you for being a friend” er, donor: Set up a stewardship series to be sure you thank your supporters for being awesome. You can’t do the vital work for your cause without them, so show your appreciation! All this money you’ve been asking people for is presumably going towards something good and valuable, share those successes – and make your donors the star.</p>
+  </li>
+  <li>
+    <p>Know your audience: Give them every opportunity to engage with you in the way(s) they want on the platforms they choose. You know your audience best (if not, we need to have a talk about that). If your file is comprised of an older demographic, you may want to hold off on a major investment in a social media push. Alternatively, if you have a younger audience of advocates, they might be more interested in events and ways they can actively participate with your cause online. Again: Know your audience.</p>
+  </li>
+  <li>Track your results: look for patterns (or direct feedback from contacts) in communication preferences. Monitor what gets the best responses as well as what doesn’t so you know what to repeat (or avoid) in the future, and build off those successes.</li>
+  <li>Basically, maintain contact in valuable, meaningful ways. The major reason why people stop supporting an organization, outside of death or changes to one’s financial situation, is due to poor communication. <a href="https://i0.wp.com/fundraisingcoach.com/blog/wp-content/uploads/2013/04/GuestPost-Jay-Love-Why-Donors-Stop-Their-Support.png">This infographic</a> from Bloomerang is a couple years old, but still highly relevant:</li>
+</ul>
+
+<p class="center"><img src="/assets/images/blog/retention-info.png" alt="retention-info.png" /></p>
+
+<p>Here are the top reasons why you’re really losing donors:</p>
+
+<ol>
+  <li>Thought the charity did not need them - 5%</li>
+  <li>No information on how monies were used - 8%</li>
+  <li>No memory of supporting - 9%</li>
+  <li>Never thanked for donating - 13%</li>
+  <li>Poor service or communication - 18%</li>
+</ol>
+
+<p>The good news? It’s totally within your control to make sure you don’t succumb to these pitfalls. Unsure of where to start with your content curation or how to create an editorial calendar everyone in your organization can use? The Lightbox Collaborative has put together a <a href="https://docs.google.com/spreadsheets/d/15jQdv2ITgbUjUZ7U9i2ZEH30aiNiBk95RzX4arE4rAw/edit#gid=0">workbook</a> that’s a great starting point. Still not sure what to make of all of this? We can help – contact us to learn more about our strategic offerings and how we can put you on the roadmap to retention.</p>
+]]>
+  </description>
+  <pubDate>Tue, 31 May 2016 10:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2016/05/roadmap-to-retention/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/05/roadmap-to-retention/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

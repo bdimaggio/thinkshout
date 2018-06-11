@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/typescript/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>A Heroic Introduction to TypeScript</title>
+  <description>
+    <![CDATA[<p><a href="https://www.typescriptlang.org/">TypeScript</a> was released in 2012. When I first encountered it, I didn’t want to learn another version of a language I was already working with. My interest was renewed with the release of Angular 2, which is written in TypeScript.</p>
+
+<p>One of the best features of TypeScript is that it is a superset of JavaScript. TypeScript adds static typing and object oriented features to the language.  Since it is a superset, you can write JavaScript in TypeScript files and it still works. You can also include existing JavaScript code and it still works.</p>
+
+<p>TypeScript is open source and maintained by Microsoft. Anders Hejlsberg, an architect of C#, is a core developer of TypeScript.</p>
+
+<h2 id="installation">Installation</h2>
+<p>Installing TypeScript is effortless with NodeJs and NPM.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">npm</span> <span class="nx">install</span> <span class="o">-</span><span class="nx">g</span> <span class="nx">typescript</span>
+</code></pre></div></div>
+
+<p>Verify your installation with <code class="highlighter-rouge">tsc -v</code>.  This will print the TypeScript version number in your terminal window.</p>
+
+<h2 id="file-names--compiling">File names / Compiling</h2>
+<p>TypeScript files end in <code class="highlighter-rouge">.ts</code>. They are compiled to <code class="highlighter-rouge">.js</code> files.  Let’s try out your installation. Create a folder called <code class="highlighter-rouge">hero_game</code>. Then inside that folder add a file called <code class="highlighter-rouge">hero.ts</code>.  Inside that file, create an add function.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">jump</span><span class="p">(</span><span class="nx">character</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">character</span> <span class="o">+</span> <span class="err">‘</span> <span class="nx">jumped</span> <span class="err">‘</span> <span class="o">+</span> <span class="nx">height</span> <span class="o">+</span> <span class="err">‘</span> <span class="nx">high</span><span class="p">.</span><span class="err">’</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">jump</span><span class="p">(</span><span class="err">‘</span><span class="nx">Mario</span><span class="err">’</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Now use the terminal to compile your file.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>tsc hero.ts
+</code></pre></div></div>
+
+<p>This creates a file called <code class="highlighter-rouge">hero.js</code>.  When you open that file, you should see the same code since we wrote JavaScript without any of the additional TypeScript features.</p>
+
+<p>TypeScript has a <code class="highlighter-rouge">watch</code> command as well. You can use <code class="highlighter-rouge">tsc -w</code> to watch for changes to your files. They will be compiled as you save your changes.</p>
+
+<p>You might want to see some output from your code. Create a basic <code class="highlighter-rouge">index.html</code> file. We’ll include our files and write our output to the body.</p>
+
+<p></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;title&gt;</span>Hero Game<span class="nt">&lt;/title&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">“hero.js”</span><span class="nt">&gt;&lt;/script&gt;</span>
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p></p>
+
+<h2 id="type-annotations">Type Annotations</h2>
+<p>TypeScript adds typing to JavaScript, which is an untyped language.  As it stands, our <code class="highlighter-rouge">jump()</code> function doesn’t care what type of data we pass into it. We could use a number or an array for the character name.  What if we wanted to make sure our character name was a string and the height was a number? TypeScript allows us to use type annotation that it checks at compile time.</p>
+
+<p>Let’s change our function to check for the types we want.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">jump</span><span class="p">(</span><span class="nx">character</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> <span class="nx">height</span><span class="p">:</span> <span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">character</span> <span class="o">+</span> <span class="err">‘</span> <span class="nx">jumped</span> <span class="err">‘</span> <span class="o">+</span> <span class="nx">height</span> <span class="o">+</span> <span class="err">‘</span> <span class="nx">high</span><span class="p">.</span><span class="err">’</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">jump</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">10</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Notice we’ve substituted our character name for an array. When it’s compiling, you should see the following:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>Argument of <span class="nb">type</span> <span class="s1">'number[]'</span> is not assignable to parameter of <span class="nb">type</span> <span class="s1">'string’
+</span></code></pre></div></div>
+
+<p>This is TypeScript giving us some type safety. Now we can ensure our function only accepts the type of parameters we want.</p>
+
+<h2 id="basic-types">Basic types</h2>
+<p>TypeScript has the same basic types as JavaScript. Additionally, it has <code class="highlighter-rouge">enum</code>, <code class="highlighter-rouge">any</code> and <code class="highlighter-rouge">void</code> types. You can view all of the types in the <a href="http://www.typescriptlang.org/docs/handbook/basic-types.html">TypeScript Handbook</a>.</p>
+
+<h2 id="a-heroic-example">A Heroic Example</h2>
+<p>Let’s expand our hero example a bit more. Let’s define a character <em>interface</em> and pass that into our function.  We’ll create a TypeScript interface and update our function signature to take that interface instead of just a string.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Character</span> <span class="p">{</span>
+	<span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+	<span class="nl">title</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">jump</span><span class="p">(</span><span class="nx">character</span><span class="p">:</span> <span class="nx">Character</span><span class="p">,</span> <span class="nx">height</span><span class="p">:</span> <span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="nx">character</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">, the </span><span class="p">${</span><span class="nx">character</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="s2">, jumped </span><span class="p">${</span><span class="nx">height</span><span class="p">}</span><span class="s2"> feet high.`</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">mario</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Mario"</span><span class="p">,</span> <span class="na">title</span><span class="p">:</span> <span class="s2">"plumber"</span> <span class="p">};</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">jump</span><span class="p">(</span><span class="nx">mario</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>In the above example, the <code class="highlighter-rouge">interface Character</code> describes the object we want to receive in our function. We’ve also used string interpolation for the string that returns from our function instead of using <code class="highlighter-rouge">+</code> to concatenate the values.</p>
+
+<h2 id="adding-a-touch-of-class">Adding a Touch of Class</h2>
+<p>JavaScript is functional language, but ES2015 offers an object oriented approach. TypeScript lets us take advantage of those features now.  Let’s get a little classy with our hero. Update your <code class="highlighter-rouge">hero.ts</code> file with the following code:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Hero</span> <span class="p">{</span>
+	<span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+	<span class="nl">title</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  	<span class="kr">protected</span> <span class="nx">description</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+
+	<span class="kd">constructor</span><span class="p">(</span><span class="nx">theName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> <span class="nx">theTitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+    		<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">theName</span><span class="p">;</span>
+    		<span class="k">this</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="nx">theTitle</span><span class="p">;</span>
+    		<span class="k">this</span><span class="p">.</span><span class="nx">description</span> <span class="o">=</span> <span class="s2">`</span><span class="p">${</span><span class="nx">theName</span><span class="p">}</span><span class="s2">, the </span><span class="p">${</span><span class="nx">theTitle</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+  	<span class="p">}</span>
+
+  	<span class="nx">describe</span><span class="p">()</span> <span class="p">{</span>
+    		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">description</span><span class="p">;</span>
+  	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">Character</span> <span class="p">{</span>
+	<span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  	<span class="nl">title</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">jump</span><span class="p">(</span><span class="nx">character</span><span class="p">:</span> <span class="nx">Character</span><span class="p">,</span> <span class="nx">height</span><span class="p">:</span> <span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+ 	<span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="nx">character</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">, the </span><span class="p">${</span><span class="nx">character</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="s2">, jumped </span><span class="p">${</span><span class="nx">height</span><span class="p">}</span><span class="s2"> feet high.`</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">princessPeach</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Hero</span><span class="p">(</span><span class="s1">'Princess Peach'</span><span class="p">,</span> <span class="s1">'royal'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">descriptionOfCharcter</span> <span class="o">=</span> <span class="nx">princessPeach</span><span class="p">.</span><span class="nx">describe</span><span class="p">();</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">descriptionOfCharcter</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Here we’ve created a new character. We’ve given here a description in our constructor. TypeScript also lets you use <code class="highlighter-rouge">public</code>, <code class="highlighter-rouge">private</code> and <code class="highlighter-rouge">protected</code> modifiers. Our <code class="highlighter-rouge">description</code> property is <code class="highlighter-rouge">protected</code> which means it can only be changed within the class or by a class that extends the <code class="highlighter-rouge">Hero</code> class.  All members are public by default.</p>
+
+<h2 id="a-deeper-dive">A Deeper Dive</h2>
+<p>I recommend getting into the <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html">Handbook</a> now that you’ve seen a basic approach to TypeScript. You can find more details on project configuration, modules and using decorators. A basic understanding of TypeScript is helpful when trying to dive into Angular 2.</p>
+]]>
+  </description>
+  <pubDate>Thu, 14 Jul 2016 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2016/07/a-heroic-intro-to-typescript/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/07/a-heroic-intro-to-typescript/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

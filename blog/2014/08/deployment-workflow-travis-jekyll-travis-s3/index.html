@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Deploying a Jekyll Site on GitHub, Travis CI, and Amazon S3 | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="Using Travis CI to deploy a Jekyll based site to Amazon S3.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal Planet, Jekyll">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">08.25.2014</span>
+  
+  </p>
+
+  <h1 class="post-title">Deploying a Jekyll Site on GitHub, Travis CI, and Amazon S3</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/lev.jpg">
+    
+      <a class="team-name" href="/team/lev/">Lev Tsypin</a>
+    <br>
+      Founder, CEO
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <p>When we <a href="http://thinkshout.com/blog/2014/03/technology-behind-thinkshout/">launched the new version of ThinkShout.com</a> last spring, something glaring was missing. That little something is what companies like <a href="https://getpantheon.com">Pantheon</a> and <a href="https://www.acquia.com/products-services/acquia-cloud">Acquia</a> have worked so hard to solve for more complex Drupal sites: an automated deployment workflow making it simple to push changes to your site and preview them before publishing to the production server. At the time of launch, we had some rudimentary tools in place, namely, a set of Rake tasks to build the site and deploy to separate staging and production environments.</p>
+
+<p>This worked fine for the über-geeks among us who had a full Ruby stack running and were proficient using git and running terminal commands. But for those less technically-inclined, it was not so good. Not to mention the lack of automation left ample room for errors. The talented team at <a href="http://www.developmentseed.org/">Development Seed</a> created <a href="https://github.com/developmentseed/jekyll-hook">Jekyll hook</a>, a node-based app that listens for notifications from GitHub and then builds and deploys the site based on a number of configuration options or customizations to the build script. That seemed like a good solution, and we even started work on our own <a href="https://github.com/thinkshout/jekyll-hook">fork of the project</a>. It was moving along nicely, and we had it running on <a href="http://heroku.com">Heroku</a>, which largely eliminated the need for maintaining a server. Our customizations allowed us to publish to S3 using the powerful <a href="https://github.com/laurilehmijoki/s3_website">s3_website gem</a> and deploy to different buckets depending on the branch being committed to. Still, this solution required a good deal more care and maintenance than we were comfortable with, maintaining a separate build server, and lacked any built-in visual status or notifications.</p>
+
+<p>Around the same time, I received a great tip while attending CapitalCamp: use <a href="http://travis-ci.org">Travis CI</a> to test, build, and deploy the site. This was such a great idea that I literally slapped myself on the head for not thinking of it sooner. Travis is one of the leading continuous integration platforms, has tight GitHub integration, is free for open source projects, and charges a modest monthly fee for private ones. It’s also dead simple to configure, comes with loads of built-in features, and requires little to no ongoing maintenance. While I knew of Travis I didn’t entirely realize how powerful it was. Some highlights include:</p>
+
+<ul>
+  <li>Supports all the major platforms including PHP, Ruby, Node, Python, and Java</li>
+  <li>Lots of major databases and service are available: MySql, PostgreSQL, Redis, Memcache, etc.</li>
+  <li>Has built-in notifications via email, IRC, and other popular services</li>
+  <li>Can run your test suites and report back the status</li>
+  <li>Built-in deployment to a number of platforms such as Heroku and Amazon, in addition to your own server</li>
+</ul>
+
+<p>The secret to all this Travis magic lies in a <code class="highlighter-rouge">.travis.yml</code> file located in the project root. For ThinkShout.com, it looks something like this:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">language</span><span class="pi">:</span> <span class="s">ruby</span>
+<span class="na">rvm</span><span class="pi">:</span> <span class="s">2.0.0</span>
+<span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./_scripts/travis_build.sh"</span>
+<span class="na">branches</span><span class="pi">:</span>
+  <span class="na">only</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">master</span>
+  <span class="pi">-</span> <span class="s">live</span>
+<span class="na">env</span><span class="pi">:</span>
+  <span class="na">global</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">secure</span><span class="pi">:</span> <span class="s">...</span>
+  <span class="pi">-</span> <span class="na">secure</span><span class="pi">:</span> <span class="s">...</span>
+<span class="na">notifications</span><span class="pi">:</span>
+  <span class="na">hipchat</span><span class="pi">:</span>
+    <span class="na">rooms</span><span class="pi">:</span>
+      <span class="na">secure</span><span class="pi">:</span> <span class="s">...</span>
+</code></pre></div></div>
+
+<p>I won’t go through this line by line, <a href="http://docs.travis-ci.com/user/build-configuration/">there’s great documentation for that</a>, but basically this tells Travis:</p>
+
+<ul>
+  <li>We need an environment running Ruby 2.0.0.</li>
+  <li>Execute <code class="highlighter-rouge">./_scripts/travis_build.sh</code> for our build.</li>
+  <li>Only trigger the build on the master and live branches.</li>
+  <li>Trigger a notification in our HipChat project room.</li>
+</ul>
+
+<p>The build script is very simple as well:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$TRAVIS_BRANCH</span> <span class="o">==</span> <span class="s1">'master'</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then
+  </span>bundle <span class="nb">exec </span>rake stage
+<span class="k">elif</span> <span class="o">[[</span> <span class="nv">$TRAVIS_BRANCH</span> <span class="o">==</span> <span class="s1">'live'</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then
+  </span>bundle <span class="nb">exec </span>rake publish
+<span class="k">else
+  </span><span class="nb">echo</span> <span class="s1">'Invalid branch. You can only deploy from master and live.'</span>
+  <span class="nb">exit </span>1
+<span class="k">fi</span>
+</code></pre></div></div>
+
+<p>While we could put script commands directly into <code class="highlighter-rouge">.travis.yml</code>, having a bash script affords us some additional flexibility; in our case, to deploy to different S3 buckets based on the commit branch.</p>
+
+<p>When all is said and done, we have a simple automated deployment workflow that looks like this:</p>
+
+<p><img src="/assets/images/blog/jekyll-travis-s3.png" alt="deployment workflow" /></p>
+
+<p>The explicit version of the workflow goes like this:</p>
+
+<ol>
+  <li>Make a commit to the <code class="highlighter-rouge">master</code> branch. This can be done directly in GitHub, using Prose.io, or the old fashioned way in your own working copy. Note that new features are built in feature branches which do not trigger a build, and are merged into master only when they are ready for review.</li>
+  <li>The changes are automatically pushed to our staging site for review within a couple minutes.</li>
+  <li>When everything looks good, a pull request is opened comparing master to live.</li>
+  <li>After any final discussions are complete, the pull request is merged and the code is pushed to the production S3 bucket.</li>
+</ol>
+
+<p>That’s it, done. No Ruby stack, no Jekyll build or Compass compile, no worrying about S3 access keys. We’re excited to refine this workflow further, including adding automated tests using PhantomJS, and put it to a real test for an upcoming site launch for a client. Stay tuned!</p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged Jekyll.' href='/blog/category/jekyll/'>Jekyll</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2014/08/deployment-workflow-travis-jekyll-travis-s3/';
+    this.page.identifier = '/blog/2014/08/deployment-workflow-travis-jekyll-travis-s3';
+    this.page.title = 'Deploying a Jekyll Site on GitHub, Travis CI, and Amazon S3'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2014/08/online-fundraising-with-redhen-donation/"><span class="fa fa-caret-left"></span> <span>Online Fundraising with RedHen Donation</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2014/09/iats-webinar-2014/"><span>Learn About Commerce iATS at the iATS Payments Webinar</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

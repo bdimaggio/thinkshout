@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/php/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Don't let arrays make you loopy!</title>
+  <description>
+    <![CDATA[<p>As a Drupal developer, I spend 90% of my time mucking with PHP arrays. And as much as I love a foreach control structure, PHP provides some nice functions that can get you what you need from an array without having to loop through a huge Drupal Node array.</p>
+
+<p>For example, say I wanted to filter some nodes to see if they were referencing a specific Vocabulary term: The <a href="http://php.net/manual/en/function.array-filter.php">array_filter</a> function can be used to filter out empty values from an array, but it can also be used with a callback function to filter based on whatever specification you want:</p>
+
+<p>Here’s the simple “Filter out empty values” behavior:</p>
+
+<?php
+    $array = array(
+      1 => 'Apple',
+      2 => NULL,
+      3 => 1,
+    );
+    $filtered_array = array_filter($array);
+    print_r($filtered_array);
+    // Returns: Array ( [1] => Apple [3] => 1 )
+?>
+
+<p>But what if we wanted to filter for anything with a specific value?</p>
+
+<?php
+    function apple_callback($item) {
+      if($item == 'Apple') {
+        return TRUE;
+      }
+      return FALSE;
+    }
+    $callback_filtered_array = array_filter($array, 'apple_callback');
+    print_r($callback_filtered_array);
+    // Returns: Array ( [1] => Apple )
+?>
+
+<h3 id="dynamically-filtering-with-a-closure">Dynamically filtering with a closure</h3>
+
+<p>As of <a href="http://www.php.net/manual/en/functions.anonymous.php">PHP 5.3</a>, the callback function can also be a “closure”, or anonymous function. This allows for dynamically setting the value for the filter, which is awesome:</p>
+
+<?php
+    function filter_closure($filter_value) {
+        return function($item) use($filter_value) {
+        return $item == $filter_value;
+      };
+    }
+
+    $dynamic_variable = 'Apple';
+    $anonymous_filter = filter_closure($dynamic_variable);
+    $array_filtered_closure = array_filter($array, $anonymous_filter);
+    print_r($array_filtered_closure);
+    // Returns: Array ( [1] => Apple )
+?>
+]]>
+  </description>
+  <pubDate>Fri, 07 Jun 2013 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2013/06/brandon/dont-let-arrays-make-you-loopy/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/06/brandon/dont-let-arrays-make-you-loopy/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

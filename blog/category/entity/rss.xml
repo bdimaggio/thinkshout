@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/entity/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Navigating Entity URIs: A Practical Example</title>
+  <description>
+    <![CDATA[<p>At ThinkShout, most of our modules are based around the Entity system. After all, like most developers, we are big abstraction nerds. Entities enable some rad abstraction in Drupal land: our <a href="https://www.drupal.org/project/registration">Registration module</a> lets you registration-enable any fieldable entity; the new version of <a href="https://www.drupal.org/project/mailchimp">MailChimp</a> lets you sync any fieldable entity with an email address with your MailChimp lists; and our <a href="https://www.drupal.org/project/salesforce">Salesforce module</a> lets you sync any entity with a Salesforce object.</p>
+
+<p>Did you notice the little restriction I worked into my first two examples there? MailChimp and Registration are only for “fieldable entities”. There are a lot of reasons for this, but one of the conveniences of fieldability is that it gives you a natural place to add your entity-specific stuff, like a registration form or a MailChimp list signup dialogue: display it with field API!</p>
+
+<p>Salesforce is different. It isn’t field-based. Instead, an individual “Salesforce Mapping” entity describes a synchronization relationship between a Drupal Entity Bundle (like a node content type of “Event”) and a Salesforce Object Type (like a “Campaign”): there’s no need for any entity-side configuration – or at least, there didn’t used to be.</p>
+
+<p>Recently, we began implementing a suite of Salesforce sync administration tools to help resolve the inevitable issues that arise with two complex systems trying to pass data back and forth. One of the features of this tool is the ability to change the Salesforce Object that a particular Drupal entity is connected with (change a specific Event to map to a different Campaign). Another is to view the synchronization history for any Drupal entity.</p>
+
+<p>We started out by implementing a central administrative UI to provide access to locate and edit all these Synchronization Object instances.</p>
+
+<p>The UI is handy: searchable, filterable, sortable. Sometimes Drupal makes stuff really easy!</p>
+
+<p><img src="/assets/images/blog/salesforce_sync_ui_admin.png" alt="salesforce_sync_ui_admin.png" /></p>
+
+<p>Can we be real for a second, though? If I have an Event syncing with a Salesforce Campaign, and I want to look at the sync history, does it make sense for me to go to a special part of my site and track down that Event with some weird unique UI?</p>
+
+<p>Hardly. Just put a tab on my Event Node, dude!</p>
+
+<p>Great idea! Shouldn’t be too hard, right? We’ll just do a hook_menu, load up all our of Salesforce Mappings, and add a menu item to their Entity Bundles based on their URI:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="sd">/**
+ * Implements hook_menu().
+ */</span>
+<span class="k">function</span> <span class="nf">salesforce_mapping_menu</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nv">$items</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+  <span class="c1">// Load our Salesforce mappings and loop through:</span>
+  <span class="nv">$mappings</span> <span class="o">=</span> <span class="nx">salesforce_mapping_load</span><span class="p">();</span>
+
+  <span class="k">foreach</span> <span class="p">(</span><span class="nv">$mappings</span> <span class="k">as</span> <span class="nv">$mapping</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Create a dummy entity to load the URI:</span>
+    <span class="nv">$entity</span> <span class="o">=</span> <span class="nx">entity_create</span><span class="p">(</span><span class="nv">$mapping</span><span class="o">-&gt;</span><span class="na">drupal_entity_type</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">'type'</span> <span class="o">=&gt;</span> <span class="nv">$mapping</span><span class="o">-&gt;</span><span class="na">drupal_bundle</span><span class="p">));</span>
+    <span class="nv">$uri</span> <span class="o">=</span> <span class="nv">$entity</span><span class="o">-&gt;</span><span class="na">uri</span><span class="p">();</span> <span class="c1">// Danger Will Robinson!</span>
+    <span class="nv">$path</span> <span class="o">=</span> <span class="nv">$uri</span><span class="p">[</span><span class="s1">'path'</span><span class="p">]</span> <span class="o">.</span> <span class="s1">'%'</span> <span class="o">.</span> <span class="nv">$type</span> <span class="o">.</span> <span class="s1">'/salesforce_activity'</span><span class="p">;</span>
+
+    <span class="c1">// Figure out which argument has our entity ID in it:</span>
+    <span class="nv">$entity_arg</span> <span class="o">=</span> <span class="nb">substr_count</span><span class="p">(</span><span class="nv">$path</span><span class="p">,</span> <span class="s1">'/'</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="c1">// Use the URI and entity arg to generate a nice menu item:</span>
+    <span class="nv">$items</span><span class="p">[</span><span class="nv">$path</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'title'</span> <span class="o">=&gt;</span> <span class="s1">'Salesforce activity'</span><span class="p">,</span>
+      <span class="s1">'description'</span> <span class="o">=&gt;</span> <span class="s1">'View Salesforce activity for this entity.'</span><span class="p">,</span>
+      <span class="s1">'type'</span> <span class="o">=&gt;</span> <span class="nx">MENU_LOCAL_TASK</span><span class="p">,</span>
+      <span class="s1">'page callback'</span> <span class="o">=&gt;</span> <span class="s1">'salesforce_mapping_object_view'</span><span class="p">,</span>
+      <span class="s1">'page arguments'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="nv">$entity_arg</span><span class="p">,</span> <span class="nv">$mapping</span><span class="o">-&gt;</span><span class="na">drupal_entity_type</span><span class="p">),</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nv">$items</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This worked great in development, but as soon as we tested on a production site, it exploded. Why? This line:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$uri</span> <span class="o">=</span> <span class="nv">$entity</span><span class="o">-&gt;</span><span class="na">uri</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>Sadly, this method doesn’t work for every Drupal Entity. Nodes, for example, and Commerce Orders, don’t respond to $entity-&gt;uri(). They like:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$uri</span> <span class="o">=</span> <span class="nx">entity_uri</span><span class="p">(</span><span class="nv">$entity</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Grr. Ok, easy fix right?</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$uri</span> <span class="o">=</span> <span class="nb">method_exists</span><span class="p">(</span><span class="nv">$entity</span><span class="p">,</span> <span class="s1">'uri'</span><span class="p">)</span> <span class="o">?</span> <span class="nv">$entity</span><span class="o">-&gt;</span><span class="na">uri</span><span class="p">()</span> <span class="o">:</span> <span class="nx">entity_uri</span><span class="p">(</span><span class="nv">$type</span><span class="p">,</span> <span class="nv">$entity</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>And yes, this is pretty good. But for some reason, our tab still wasn’t appearing on Commerce Orders. On closer inspection, this is the URI we were getting from our function call on Commerce Orders:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">array</span><span class="p">(</span>
+  <span class="err">‘</span><span class="nx">options</span><span class="err">’</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="err">‘</span><span class="nx">entity_type</span><span class="err">’</span> <span class="o">=&gt;</span> <span class="err">“</span><span class="nx">commerce_order</span><span class="err">”</span><span class="p">,</span>
+    <span class="err">‘</span><span class="nx">entity</span><span class="err">’</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="k">stdClass</span><span class="p">}</span>
+  <span class="p">),</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Notice something missing? Yeah, there’s no ‘path’ index for the next line to use:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$path</span> <span class="o">=</span> <span class="nv">$uri</span><span class="p">[</span><span class="s1">'path'</span><span class="p">]</span> <span class="o">.</span> <span class="s1">'%'</span> <span class="o">.</span> <span class="nv">$type</span> <span class="o">.</span> <span class="s1">'/salesforce_activity'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Thanks for nuthin’, flagship example of how to use the Entity system! I’m sure the Commerce team has a good reason for leaving the ‘path’ piece of URIs empty on raw Entity objects: almost all Commerce Entities behave this way. But it’s not very helpful for us!</p>
+
+<p>We could potentially resolve this by loading a random object and parsing its URI’s ‘path’ to extract an abstract version, or by offering a patch to Commerce. Perhaps the latter option would be ideal, but we decided a work-around would be more expeditious: we really don’t want to break Commerce on a live site.</p>
+
+<p>Instead, we decided to override the entity data for the important entity types in a local module:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="sd">/**
+ * Implements hook_entity_info_alter().
+ */</span>
+<span class="k">function</span> <span class="nf">my_module_entity_info_alter</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$entity_info</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Replace ‘commerce_order_ui_order_uri’</span>
+  <span class="nv">$entity_info</span><span class="p">[</span><span class="s1">'commerce_order'</span><span class="p">][</span><span class="s1">'uri callback'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'my_module_uri_order'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="sd">/**
+ * URI callback wrapper to ensure a proper ‘path’ index for Orders.
+ */</span>
+<span class="k">function</span> <span class="nf">my_module_uri_order</span><span class="p">(</span><span class="nv">$entity</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Call the original uri function and fix only if necessary:</span>
+  <span class="nv">$uri</span> <span class="o">=</span> <span class="nx">commerce_order_ui_order_uri</span><span class="p">(</span><span class="nv">$entity</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">is_null</span><span class="p">(</span><span class="nv">$uri</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nv">$uri</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'path'</span> <span class="o">=&gt;</span> <span class="s1">'admin/commerce/orders/'</span><span class="p">,</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nv">$uri</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This solves the issue for Orders. A similar technique can be used for any Entity Type that fails to offer a proper ‘path’ index for its URI.</p>
+
+<p>The only entities left to deal with are those that don’t offer any URI at all: entities without a direct management interface. Field Collections are a common example. Fortunately, we started out with a Universal Admin UI: it seems reasonable to hang the Salesforce Object administration interface off this Admin page. Here’s the final, complete hook_menu implementation for our Salesforce Mapping UI:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="sd">/**
+ * Implements hook_menu().
+ */</span>
+<span class="k">function</span> <span class="nf">salesforce_mapping_menu</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nv">$items</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+
+  <span class="nv">$items</span><span class="p">[</span><span class="s1">'admin/content/salesforce'</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'title'</span> <span class="o">=&gt;</span> <span class="s1">'Salesforce Mapped Objects'</span><span class="p">,</span>
+    <span class="s1">'description'</span> <span class="o">=&gt;</span> <span class="s1">'Manage mapped Salesforce objects.'</span><span class="p">,</span>
+    <span class="s1">'type'</span> <span class="o">=&gt;</span> <span class="nx">MENU_LOCAL_TASK</span><span class="p">,</span>
+    <span class="s1">'page callback'</span> <span class="o">=&gt;</span> <span class="s1">'salesforce_mapping_object_overview_page'</span><span class="p">,</span>
+    <span class="s1">'file'</span> <span class="o">=&gt;</span> <span class="s1">'includes/salesforce_mapping_object.admin.inc'</span><span class="p">,</span>
+    <span class="s1">'access arguments'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'view salesforce mapping object'</span><span class="p">),</span>
+  <span class="p">);</span>
+
+  <span class="c1">// Define SF activity local tasks for all mapped entities.</span>
+  <span class="nv">$defaults</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'file'</span> <span class="o">=&gt;</span> <span class="s1">'salesforce_mapping_object.admin.inc'</span><span class="p">,</span>
+    <span class="s1">'file path'</span> <span class="o">=&gt;</span> <span class="nx">drupal_get_path</span><span class="p">(</span><span class="s1">'module'</span><span class="p">,</span> <span class="s1">'salesforce_mapping'</span><span class="p">)</span> <span class="o">.</span> <span class="s1">'/includes'</span><span class="p">,</span>
+  <span class="p">);</span>
+
+  <span class="nv">$mappings</span> <span class="o">=</span> <span class="nx">salesforce_mapping_load</span><span class="p">();</span>
+  <span class="nv">$mapped_entities</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+  <span class="k">foreach</span> <span class="p">(</span><span class="nv">$mappings</span> <span class="k">as</span> <span class="nv">$mapping</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// We grab the bundle now because it becomes inaccessible for some entities</span>
+    <span class="c1">// after it is put into the loop below:</span>
+    <span class="nv">$mapped_entities</span><span class="p">[</span><span class="nv">$mapping</span><span class="o">-&gt;</span><span class="na">drupal_entity_type</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$mapping</span><span class="o">-&gt;</span><span class="na">drupal_bundle</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">foreach</span> <span class="p">(</span><span class="nv">$mapped_entities</span> <span class="k">as</span> <span class="nv">$type</span> <span class="o">=&gt;</span> <span class="nv">$bundle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$entity</span> <span class="o">=</span> <span class="nx">entity_create</span><span class="p">(</span><span class="nv">$type</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">'type'</span> <span class="o">=&gt;</span> <span class="nv">$bundle</span><span class="p">));</span>
+    <span class="nv">$uri</span> <span class="o">=</span> <span class="nb">method_exists</span><span class="p">(</span><span class="nv">$entity</span><span class="p">,</span> <span class="s1">'uri'</span><span class="p">)</span> <span class="o">?</span> <span class="nv">$entity</span><span class="o">-&gt;</span><span class="na">uri</span><span class="p">()</span> <span class="o">:</span> <span class="nx">entity_uri</span><span class="p">(</span><span class="nv">$type</span><span class="p">,</span> <span class="nv">$entity</span><span class="p">);</span>
+    <span class="c1">// For entities without their own menu items, we hang the UI off the universal</span>
+    <span class="c1">// Salesforce object admin page:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$uri</span><span class="p">[</span><span class="s1">'path'</span><span class="p">]))</span> <span class="p">{</span>
+      <span class="nv">$path</span> <span class="o">=</span> <span class="s1">'admin/content/salesforce/'</span> <span class="o">.</span> <span class="nv">$type</span> <span class="o">.</span> <span class="s1">'/%'</span> <span class="o">.</span> <span class="nv">$type</span> <span class="o">.</span> <span class="s1">'/salesforce_activity'</span><span class="p">;</span>
+      <span class="nv">$menu_type</span> <span class="o">=</span> <span class="nx">MENU_NORMAL_ITEM</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="nv">$path</span> <span class="o">=</span> <span class="nv">$uri</span><span class="p">[</span><span class="s1">'path'</span><span class="p">]</span> <span class="o">.</span> <span class="s1">'%'</span> <span class="o">.</span> <span class="nv">$type</span> <span class="o">.</span> <span class="s1">'/salesforce_activity'</span><span class="p">;</span>
+      <span class="nv">$menu_type</span> <span class="o">=</span> <span class="nx">MENU_LOCAL_TASK</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nv">$entity_arg</span> <span class="o">=</span> <span class="nb">substr_count</span><span class="p">(</span><span class="nv">$path</span><span class="p">,</span> <span class="s1">'/'</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nv">$items</span><span class="p">[</span><span class="nv">$path</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'title'</span> <span class="o">=&gt;</span> <span class="s1">'Salesforce activity'</span><span class="p">,</span>
+      <span class="s1">'description'</span> <span class="o">=&gt;</span> <span class="s1">'View Salesforce activity for this entity.'</span><span class="p">,</span>
+      <span class="s1">'type'</span> <span class="o">=&gt;</span> <span class="nv">$menu_type</span><span class="p">,</span>
+      <span class="s1">'page callback'</span> <span class="o">=&gt;</span> <span class="s1">'salesforce_mapping_object_view'</span><span class="p">,</span>
+      <span class="s1">'page arguments'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="nv">$entity_arg</span><span class="p">,</span> <span class="nv">$type</span><span class="p">),</span>
+      <span class="s1">'access callback'</span> <span class="o">=&gt;</span> <span class="s1">'salesforce_mapping_entity_mapping_accessible'</span><span class="p">,</span>
+      <span class="s1">'access arguments'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'view'</span><span class="p">,</span> <span class="nv">$entity_arg</span><span class="p">,</span> <span class="nv">$type</span><span class="p">),</span>
+    <span class="p">);</span>
+    <span class="nv">$items</span><span class="p">[</span><span class="nv">$path</span> <span class="o">.</span> <span class="s1">'/view'</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'title'</span> <span class="o">=&gt;</span> <span class="s1">'View'</span><span class="p">,</span>
+      <span class="s1">'type'</span> <span class="o">=&gt;</span> <span class="nx">MENU_DEFAULT_LOCAL_TASK</span><span class="p">,</span>
+      <span class="s1">'weight'</span> <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span>
+    <span class="p">);</span>
+    <span class="nv">$items</span><span class="p">[</span><span class="nv">$path</span> <span class="o">.</span> <span class="s1">'/edit'</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'page callback'</span> <span class="o">=&gt;</span> <span class="s1">'salesforce_mapping_object_edit'</span><span class="p">,</span>
+      <span class="s1">'page arguments'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="nv">$entity_arg</span><span class="p">,</span> <span class="nv">$type</span><span class="p">),</span>
+      <span class="s1">'access arguments'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'edit salesforce mapping object'</span><span class="p">),</span>
+      <span class="s1">'title'</span> <span class="o">=&gt;</span> <span class="s1">'Edit'</span><span class="p">,</span>
+      <span class="s1">'type'</span> <span class="o">=&gt;</span> <span class="nx">MENU_LOCAL_TASK</span><span class="p">,</span>
+      <span class="s1">'context'</span> <span class="o">=&gt;</span> <span class="nx">MENU_CONTEXT_PAGE</span> <span class="o">|</span> <span class="nx">MENU_CONTEXT_INLINE</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">+</span> <span class="nv">$defaults</span><span class="p">;</span>
+    <span class="nv">$items</span><span class="p">[</span><span class="nv">$path</span> <span class="o">.</span> <span class="s1">'/delete'</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'page callback'</span> <span class="o">=&gt;</span> <span class="s1">'drupal_get_form'</span><span class="p">,</span>
+      <span class="s1">'page arguments'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'salesforce_mapping_object_delete_form'</span><span class="p">,</span> <span class="nv">$entity_arg</span><span class="p">,</span> <span class="nv">$type</span><span class="p">),</span>
+      <span class="s1">'access arguments'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'delete salesforce mapping object'</span><span class="p">),</span>
+      <span class="s1">'title'</span> <span class="o">=&gt;</span> <span class="s1">'Delete'</span><span class="p">,</span>
+      <span class="s1">'type'</span> <span class="o">=&gt;</span> <span class="nx">MENU_LOCAL_TASK</span><span class="p">,</span>
+      <span class="s1">'context'</span> <span class="o">=&gt;</span> <span class="nx">MENU_CONTEXT_INLINE</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">+</span> <span class="nv">$defaults</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nv">$items</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now we can find what we need from two natural directions: by thinking about Salesforce Sync Objects or just by thinking about the entity we want to deal with. The inconsistent responsiveness of Drupal Entities to the uri() request is frustrating, but not impossible to work around. Hopefully, you find this article helpful – and if you maintain a module that creates its own entities, please test out the uri() function before your next release!</p>
+]]>
+  </description>
+  <pubDate>Fri, 27 Jun 2014 13:15:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2014/06/navigating-entity-uris/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2014/06/navigating-entity-uris/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

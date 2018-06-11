@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/culture/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>That's a wrap from New Orleans!</title>
+  <description>
+    <![CDATA[<p>It feels like it was just yesterday… probably because we still have visions of beignets dancing in our head. But we had such a blast at 18NTC, and we have you, the nonprofit community to thank for it.</p>
+
+<p class="center"><img src="/assets/images/blog/NTC Beingets.jpg" alt="Booth Beingets" /></p>
+
+<p>Our pre-conference Drupal Day was jam-packed with content from project management to content strategy, to <a href="https://thinkshout.com/bene/">Bene</a>.</p>
+
+<p class="center"><img src="/assets/images/blog/Drupal Day.jpg" alt="Drupal Day booth" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Brett and Mimi take over registration!</span></p>
+
+<p>Here were some highlights:</p>
+
+<p class="center"><img src="/assets/images/blog/Brett - Drupal Day.jpg" alt="Content Strategy" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Brett and Chris Carrol from University of Chicago Graham School definitely schooled us (sorry) on Content Strategy in Drupal.</span></p>
+
+<p class="center"><img src="/assets/images/blog/Lev - Drupal Day.jpg" alt="Bene" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Lev shares a case study on Bene with the crowd. Bene is an open source distribution intended for small to medium-sized nonprofits. We have a whole page dedicated to it <a href="https://thinkshout.com/bene/">here</a>.</span></p>
+
+<p class="center"><img src="/assets/images/blog/Carie and Jess - Drupal Day.jpg" alt="Carie and Jessica talk redesign" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Jessica and Carie Lewis Carlson (formerly from the Humane Society of the United States) shared some wisdom on the challenges often faced in a redesign process.</span></p>
+
+<p>We want to give a special shout out to our collaborators from <a href="https://www.gizra.com/">Gizra</a> and <a href="https://fionta.com/">Fionta</a> - who contributed to the breakout sessions – and to anyone who led a BOF (birds of a feather) breakout and conducted a lightning talk to close. We appreciate you adding your voice to the day.</p>
+
+<p>Next year we’re especially excited about NTC because it’s happening right in our home town of Portland, Oregon! We’re eager to participate and contribute to the rich and vibrant nonprofit community that we deeply care about, and also show you some of what we love best about our hometown.</p>
+
+<p>To stay up to date on everything pre-con / Drupal Day related, (or just to stay in touch!) <a href="https://thinkshout.com/contact/">sign up for our email list</a>. We’ll send a monthly newsletter with the latest trends and case studies to share…and as 19NTC approaches (too soon?) you’ll be first to hear about our plans and how you can join in the fun.</p>
+
+<p>Below is the full agenda from Drupal Day 2018, please <a href="mailto:natania.leclerc@thinkshout.com">reach out</a> if you would like slides from any of the presentations. Thanks and see you all soon!</p>
+
+<p class="center"><img src="/assets/images/blog/Drupal Day 2018 schedule.png" alt="Drupal Day 2018 Schedule" /></p>
+]]>
+  </description>
+  <pubDate>Wed, 02 May 2018 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2018/05/Drupal-Day-Recap/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/05/Drupal-Day-Recap/</guid>
+</item>
+
+    
+      <item>
+  <title>Teaching Tolerance is nominated for a Webby!</title>
+  <description>
+    <![CDATA[<p>We’re thrilled to announce that <a href="https://www.tolerance.org/">Teaching Tolerance</a>, a program of the <a href="https://www.splcenter.org/">Southern Poverty Law Center</a> is up for a <a href="https://vote.webbyawards.com/PublicVoting/#/2018/websites/general/education">Webby</a>! Their mission is to provide educators with the tools to create a kind and inclusive school climate. They do this through a library of articles and resources that they’ve turned into teachable materials via a Learning Plan Builder, and other classroom activities. It’s something that we feel is especially important work, now more than ever.</p>
+
+<p>This is a project that meant so much to everyone that touched it; and it was a true partnership every step of the way for both our teams (Tolerance and ThinkShout). It certainly speaks to the passion that was put into it from all angles, and it’s an honor to be recognized for this work.</p>
+
+<p>Our <a href="https://thinkshout.com/work/tolerance/">Case Study</a> will give you the full scope of work. But for a quick summary: In redesigning their website, ThinkShout set out to turn the wealth of articles and resources Tolerance had into teachable materials, and did so by creating a guided Learning Plan Builder that makes all content classroom-ready. Tolerance grants free access to thousands of resources – from video to essays to proven teaching strategies – and everything within that catalogue is now actionable. We also took on the challenge of migrating their content from two older Drupal 6 and 7 sites into one new Drupal 8 site.</p>
+
+<p>The result? Since launching summer of 2017, Tolerance.org has seen improvements across the board:</p>
+
+<ul>
+  <li>Pages per session up 21%</li>
+  <li>Session duration up 27%</li>
+  <li>Bounce rate decreased by 8%</li>
+  <li>Returning visitors up by 3%</li>
+  <li>Registrations nearly doubled (from 19,000 to 36,000)</li>
+</ul>
+
+<p>Here’s where you come in: our nomination for a <a href="https://vote.webbyawards.com/PublicVoting/#/2018/websites/general/education">Webby</a> means we need the people’s voice (aka <strong>VOTES</strong>) to actually win. Voting ends April 19th!</p>
+
+<p class="center"><a href="https://vote.webbyawards.com/PublicVoting/#/2018/websites/general/education">Vote for Tolerance.org in the Webby’s</a></p>
+
+<p>Personally, we can’t think of anything more critical at this time than the work Tolerance.org is doing to ensure the next generation is primed to participate in our democracy. And winning the Webby will certainly help them gain visibility and advance their mission even further.</p>
+
+<p>P.S. Travel Oregon also made it as an honoree in the Travel category, and they were up against some stiff competition! You can see their <a href="https://thinkshout.com/work/travel-oregon/">case study here.</a></p>
+]]>
+  </description>
+  <pubDate>Fri, 06 Apr 2018 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2018/04/vote-for-Webby-nominated-Teaching-Tolerance/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/04/vote-for-Webby-nominated-Teaching-Tolerance/</guid>
+</item>
+
+    
+      <item>
+  <title>ThinkShout hits all the conferences</title>
+  <description>
+    <![CDATA[<p>It unfolded like a sitcom. You know, the one where someone promises two separate people to be their date to the dance at school. It’s gonna end badly for everyone.</p>
+
+<p>Well, we saw it coming, and like the hero of that sitcom, we concocted an elaborate scheme to be in two places at once. Can we pull it off? Join us at DrupalCon and #18NTC to find out!</p>
+
+<p class="center"><img src="/assets/images/blog/zackmorris.gif" alt="Zack Morris" /></p>
+
+<h3 id="ntc">NTC</h3>
+
+<p>We’re heading to New Orleans for a week of jam-packed nonprofit goodness. The fun kicks off on April 10th with a pre-con event, Drupal Day:</p>
+
+<p class="center"><a href="http://ntcdrupalday.org/">Agenda Here!</a></p>
+
+<p>We’re still  looking for lightning talk speakers so <a href="mailto:natania.leclerc@thinkshout.com">contact us</a> if you have a hot topic you want to share. Lightning talks are traditionally 5 minutes in length, and can cover any topic ranging from Drupal to nonprofit life to lessons learned and funny predicaments involving all of the above!</p>
+
+<p>Brett Meyer and Jessica Tate will also be dropping some knowledge during the conference itself. Mark your calendars so you don’t miss their talks:</p>
+
+<p><a href="https://www.nten.org/ntc/program/sessions/supporting-diversity-with-multicultural-design/?mc_cid=997b26a472&amp;mc_eid=[UNIQID]">Supporting Culture with Multicultural Design</a></p>
+
+<p><a href="https://www.nten.org/ntc/program/sessions/content-strategy-in-popular-culture-2/?mc_cid=997b26a472&amp;mc_eid=[UNIQID]">Content Strategy in Popular Culture</a></p>
+
+<p>And no NTC would be complete without some ThinkShout classic tees! We’ll be handing out these beauties at our booth (number 606). We went with a 70s-inspired design this year, and they’ll give you all the posi-vibes you need.</p>
+
+<p class="center"><img src="/assets/images/blog/TS2018-shirts.jpg" alt="ThinkShout 2018 shirts" /></p>
+
+<h3 id="drupalcon">DrupalCon</h3>
+
+<p>They said it couldn’t be done…so naturally we took on the challenge! A handful of our team will also be in Nashville for DrupalCon to learn about and contribute to the latest innovations in the Drupal ecosystem. As long-time supporters of Drupal, we felt it was important to continue to deepen our involvement and commitment to the open source community.</p>
+
+<p>Join us for the <a href="https://events.drupal.org/nashville2018/nonprofit-summit">Nonprofit Summit</a>, an interactive day of learning and networking with nonprofit leaders and Drupal experts. The summit features breakout sessions on a variety of topics – including a case study presented by Gabe Carleton-Barnes on <a href="https://thinkshout.com/bene/">Bene</a>, the distribution we released this winter. Don’t miss it!</p>
+
+<p>We’re also sponsoring a <a href="https://events.drupal.org/nashville2018/women-drupal">Women in Drupal</a> event on April 10th. All women, transgender individuals, those who identify outside of the gender binary, and allies are welcome. Our goal is to foster inclusivity and embrace the involvement of individuals across the gender spectrum. We’ll be handing out those same tees at both events, so be sure to show up early and grab yours while supplies last!</p>
+
+<p>All joking about conference logistics aside, we truly appreciate every opportunity to connect with the nonprofit tech community. It’s a chance to hear more about the inspiring work being done in the world. If you’d like to sit with us and talk about what we can do for your digital presence, <a href="mailto:hello@thinkshout.com">let us know</a>, we look forward to hearing from you!</p>
+]]>
+  </description>
+  <pubDate>Wed, 28 Mar 2018 08:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2018/03/ThinkShout-hits-all-the-conferences/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/03/ThinkShout-hits-all-the-conferences/</guid>
+</item>
+
+    
+      <item>
+  <title>The origin of ThinkShout Planks</title>
+  <description>
+    <![CDATA[<p>If you walk into ThinkShout’s office around 2pm on any given day of the week, you’ll be confronted with the following:</p>
+
+<p class="center"><img src="/assets/images/blog/group_plank.jpg" alt="Group Plank" /></p>
+
+<p>Occasionally, dogs get into the mix…</p>
+
+<p class="center"><img src="/assets/images/blog/amy_greg_plank.jpg" alt="Amy Greg and Ducky planking" /></p>
+
+<p>This is what we affectionately refer to as PLANKS; a 100% optional activity aimed at helping us get up, move, stretch, and encourage general office health during those snoozy afternoon hours. The origin story of these afternoon planks is best shared by Amy, one of our front-end developers and the initiator of our afternoon planks. Here’s her take on this unique office tradition.</p>
+
+<h3 id="in-amys-words">In Amy’s words:</h3>
+
+<p>I didn’t exercise at all in my 20’s. I spent much of my time partying with friends, playing video games, watching lots of movies and shows, and eating deep fried foods and sugary delectables - it was a good life! (Who am I kidding, I still do that on occasion.) Unfortunately, doing these things on a constant basis was starting to take its toll: my mood gradually darkened, extreme fatigue was setting in, my self-esteem tanked, etc. But, that wasn’t the worst of it! I felt my body breaking down. It was hard to walk, hard to breathe, and I kept throwing my back out from stupid, mundane, daily tasks.</p>
+
+<p>So when my 30th birthday rolled around, I found myself thinking about the state of my body, how much time left on this earth that I may or may not have, and all the adventurous things I long to do with this time left. Nothin’ like a notable revolution around the sun to make a person think about their life choices and potential implications.That’s when I made the shift towards improved overall health and wellness.</p>
+
+<p>Naturally, these goals were present in my mind while I was looking for a new workplace, a little over three years ago. It was clear to me, besides my strong desire to do meaningful work (like the work we at ThinkShout do for mission driven organizations), my workplace also needed to be one that cares deeply about the health and wellbeing of their employees.</p>
+
+<p>Besides being a <a href="https://www.bcorporation.net/b-the-change">B-Corp</a>, ThinkShout’s benefits are pretty darn tough to beat. Feel free to <a href="https://thinkshout.com/careers/">visit our job postings</a> to see for yourself. In addition, our company offers options for alternating sitting and standing desks. Coworkers even bring their dogs into work occasionally, which is great pet therapy for all of us. This was definitely the place for me!</p>
+
+<p>A year into working at ThinkShout, my back started complaining again. Anyone who’s ever googled “health risks of desk jobs” or some variation would know why, but I’ll spare you the search: non-movement is not good for our bodies. If this is a new concept to anyone reading, I highly encourage you to do your own <a href="https://www.washingtonpost.com/national/health-science/desk-jobs-can-be-killers-literally/2013/07/15/ce61f9e8-e59b-11e2-aef3-339619eab080_story.html?utm_term=.40278eb34940">research on this subject</a>.</p>
+
+<p>New Years Eve was swiftly approaching and I found myself talking with my colleague, Greg, about a resolution to get my body moving more at work. That’s when he mentioned a daily “plank” exercise ritual that he and his former coworkers would do together - every afternoon his team would do planks for a certain amount of time to get some blood flowing and break up the day with some movement. Needless to say, Greg and I made a pact to start planking every workday around 2pm.</p>
+
+<p>Others at ThinkShout quickly began to notice what we were doing and asked if they could join.  They also started pitching ideas like taking walks, running around the block, wall-sits, stretching and even foam rolling. I started a Slack channel called #walk-the-plank for the purpose of coordinating times to exercise and inviting others to join in (this is all optional, of course).</p>
+
+<p>After two full years in existence, I’m proud to say that “planks” at ThinkShout have taken a life of its own. My colleagues will even take up the torch and lead sessions in my absence. Every day we’re grateful to have those few moments to move and care for our bodies. Some even confess that the results are equivalent to drinking a caffeinated beverage, which I’d imagine aids in our productivity levels. And, to my sweet relief, my aches and pains are a thing of the past!</p>
+
+<p>So, if you ever find yourself in the ThinkShout office around 2pm, you might be around to witness these planks in action. Better yet, feel free to join in the fun - the more the merrier!</p>
+]]>
+  </description>
+  <pubDate>Tue, 27 Feb 2018 07:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2018/02/The-Origin-of-Planks/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2018/02/The-Origin-of-Planks/</guid>
+</item>
+
+    
+      <item>
+  <title>My First BADCamp</title>
+  <description>
+    <![CDATA[<p>We’re fresh off of <a href="https://2017.badcamp.net/">BADCamp</a> (Bay Area Drupal Camp), and we’re eager to share our experience with you! If you’ve ever thought about going to one of the local Drupal Camps in your area, or attending BADCamp yourself, we hope our takeaways persuade you to seek this out as a professional development opportunity.</p>
+
+<p>BADCamp is essentially three days of intense workshops and sessions for Drupal users to hone their skills, meet other open source contributors, and make valuable connections in the community. Amongst the ThinkShout team, two had never attended BADCamp before. We were eager to hear their perspective on the conference and their key takeaways.</p>
+
+<p>Sessions they attended ranged from learning about component-based theming tools, object oriented php, module development, debugging JavaScript; to Drupal 9 and backward compatibility and the importance of upgrading to D8 now.</p>
+
+<p>Let’s hear from Mario and Lui–I mean Amy and Jules, on what their first BADCamp experience was like!</p>
+
+<p class="center"><img src="/assets/images/blog/marioluigi.jpg" alt="Amy and Jules" /></p>
+<p><span class="caption"><i class="fa fa-caret-up"></i>Amy and Jules on Halloween. Costumes are not required at BADCamp.</span></p>
+
+<h3 id="what-did-you-learn-at-badcamp">What did you learn at BADCamp?</h3>
+<p><em>Amy</em>: Component-based theming is a hot topic these days for those building sites due to a number of reasons. Here are a couple of them:</p>
+
+<ul>
+  <li>It encourages a DRY (Don’t Repeat Yourself) and more organized theming code base.</li>
+  <li>It decouples site building in such a way that backend and frontend developers can work on the site at the same time, rather than the backend code needing to be built first before the frontend developer can do their work.</li>
+  <li>It provides clients with an interactive experience of their site (including responsiveness) before the database and backend elements are hooked up to it. This allows the client more time to provide feedback in case they want to change behaviors before they’re completely built.</li>
+</ul>
+
+<p>I also attended a session called: React, GraphQL, and Drupal. This talk was largely about an opportunity to create multiple suites using the same API. The team used “headless Drupal” (to serve as the API), React.js to build the sites, and GraphQL to explore data coming from the API in a much more direct and clear way. It seemed like a great solution for a tricky problem, in addition to giving this team the opportunity to learn and use cutting edge technologies - so much fun!</p>
+
+<p><em>Jules</em>: I learned a lot about the Drupal Community. This was my first BADCamp, and also my first Drupal conference. I was excited about how generous the community is with knowledge and tools, working together so we can succeed together.</p>
+
+<p>I learned about some of the changes to Drupal releases from <a href="https://twitter.com/webchick?lang=en">@Webchick’s</a> talk (Drupal 9 and Backward Compatibility: Why Now is the Time to Upgrade to Drupal 8). If I keep up with the incremental point releases (ie: 8.x), upgrading to 9 should be pretty painless, which is a relief. Knowing the incremental releases will be coming out with a regular six month-ish cadence will make planning easier. I’m also excited about the new features in the works; including Layouts, Work Spaces, a better out of the box experience on first install, a better UI admin experience (possibly with React?).</p>
+
+<h3 id="what-would-you-tell-someone-who-is-planing-to-attend-badcamp-next-year">What would you tell someone who is planing to attend BADCamp next year?</h3>
+<p><em>Amy</em>: Definitely invest in attending the full-day sessions if they interest you. The information I took away from my Pattern Lab day was priceless, and I came back to ThinkShout excited and empowered to figure out a way to make component based theming part of our usual practice.</p>
+
+<p><em>Jules</em>: The full day sessions were a great way to dive into deeper concepts. It’s hard to fully cover a subject in a shorter session. It also helps to show up with an open mind. It’s impossible to know everything about Drupal, and there are so many tools available. It was valuable just meeting people and talking to them about their workflows, challenges, and favorite new tools.</p>
+
+<h3 id="do-you-consider-badcamp-to-be-better-for-networking-professional-development-or-both">Do you consider BADCamp to be better for networking, professional development, or both?</h3>
+<p><em>Amy</em>: My big focus was on professional development. There were so many good training days and sessions happening that those filled my schedule almost entirely. Of course, attending sessions (and being a session speaker!) is a great way to network with like-minded people too.</p>
+
+<p><em>Jules</em>: My goal was to immerse myself in the Drupal community. Since I’m new to Drupal, the sessions were really valuable for me. Returning with more experience, that might not be the case. It was valuable to see new ideas being presented, challenged, discussed, and explored with mutual respect and support. We’re all in this together. Some talks were stronger than others, but every speaker had a nugget of gold I could take with me. It was encouraging to meet peers and to see all of the great work people are doing out in the world. It also served as a reminder that great strides can come from many small steps (or pushes)!</p>
+
+<h3 id="make-time-to-learn">Make time to learn</h3>
+
+<p>It can be difficult to take time away from project work and dedicate yourself to two or three days of conferencing. But when you disconnect and dive into several days of leaning, it makes your contributions back at the office invaluable. As Jules commented to me after her first day of sessions, “it was like php church!”</p>
+
+<p>Getting out of your usual environment and talking to other people opens your mind up to other ways of problem solving, and helps you arrive at solutions you otherwise wouldn’t get through sitting in your cubicle. We hope you’re inspired to go to a local Drupal Meetup or Camp – or even better, meet us at DrupalCon or NTC’s <a href="http://ntcdrupalday.org/">Drupal Day</a>!</p>
+]]>
+  </description>
+  <pubDate>Mon, 06 Nov 2017 07:30:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2017/11/my-first-badcamp/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/11/my-first-badcamp/</guid>
+</item>
+
+    
+      <item>
+  <title>Wrapping up ThinkShout Cares</title>
+  <description>
+    <![CDATA[<p>It’s September – school is starting up, summer is winding down, and our ThinkShout Cares campaign has come to a close.</p>
+
+<p>But in truth, it’s just the beginning.</p>
+
+<p>Like many good ideas, this one was born over a round of beers at a conference last spring. Our new t-shirt designs, which focused on diversity and inclusion in response to the current political climate, were a huge hit. So, I joked, why not sell them year round? It’s one thing to get free swag at a conference, it’s entirely another to buy something on your own time and dime. Then someone else suggested to have all proceeds benefit a nonprofit, so the incentive for making a purchase goes well beyond just getting a cool shirt. Now this was getting interesting, but we still had a major obstacle: who would design the shirts, build the website, run the campaign, and fulfill the orders?</p>
+
+<p>This last piece of the puzzle fell into place when we brought on our incredible class of interns, two of them from the <a href="http://emergingleadersinternship.org/">Emerging Leaders Internship program</a>. The ThinkShout Cares Campaign gave them experience in all aspects of a project, from designing the shirts to fulfilling orders. We chose <a href="http://pearmentor.org/">p:ear</a>, an incredible organization right in our neighborhood who creatively mentors homeless youth, as our partner and beneficiary.</p>
+
+<p>We like to say that ThinkShout is a platform for good. It’s why we exclusively partner with mission-driven organizations. It’s why we’re a <a href="https://www.bcorporation.net/community/thinkshout-inc">B-Corp</a> and signatories to the <a href="http://techtownportland.com/pledge/">Tech Town Diversity Pledge</a>. It’s a driving force behind our growth. The ThinkShout Cares campaign is one example of how a business can do good that we’re all proud of. Our interns gained valuable experience and p:ear received a modest donation.</p>
+
+<p class="center"><img src="/assets/images/blog/ts-cares-group.jpg" alt="TS Cares Group" /></p>
+
+<p>As for the ThinkShout team? Well, we can say with absolute certainty that this project was a bright spot in a summer that sorely needed one. It’s not a bad story to share, either!</p>
+
+<h2 id="the-interns">The Interns</h2>
+
+<p>ThinkShout hired three interns from the Emerging Leadership Internship program (ELI). This program connects students from underrepresented communities to businesses in Portland. We were thrilled to welcome <a href="https://thinkshout.com/blog/2017/08/coding-for-good/">Myisha</a>, <a href="https://thinkshout.com/blog/2017/08/thinkshout-cares-and-so-can-you/">Katrina</a>, and <a href="https://thinkshout.com/blog/2017/08/designing-for-a-cause/">Alejandro</a> to our team.</p>
+
+<p>These individuals were immediately thrown into work that involved technologies, platforms, and deliverables that had previously never crossed their paths. It was a situation that, for many of us, would cause great stress and anxiety; and they faced it with great aplomb.</p>
+
+<p>While Myisha, Katrina, and Alejandro’s time at ThinkShout was temporary, their impact on our team has been permanent. They injected an energy to our office; and their humor and warmth has been missed since they departed to start school again in their respective locations. But we’ll be following along in their journeys to see all the wonderful things they do – because their time at ThinkShout was just the beginning!</p>
+
+<p class="center"><img src="/assets/images/blog/interns.png" alt="ThinkShout interns" /></p>
+
+<h2 id="about-pear">About p:ear</h2>
+
+<p>ThinkShout has had an ongoing relationship with p:ear for some time now, including a pro bono project to help with their online engagement. We believe in their mission; that in giving an individual a purpose, respect, and a safe space in which to develop skills and talents, they can thrive and contribute back to society in meaningful ways.</p>
+
+<p>At the start of this project, our interns met with p:ear students to brainstorm ideas for a t-shirt design for the campaign. It was a great opportunity to engage and put them in direct contact with the core of what p:ear is about: helping homeless youth thrive and succeed. In the end we created two designs that represented the heart and soul of this campaign.</p>
+
+<p class="center"><img src="/assets/images/blog/pear-summer.png" alt="Summer shirt designs" /></p>
+
+<p><strong>We ended up raising $1,000 for p:ear!</strong> Money that will go towards art supplies, the barista school, and daily meals served at their facility.</p>
+
+<h2 id="the-future-of-thinkshout-cares">The Future of ThinkShout Cares</h2>
+
+<p>We embarked on this journey hoping to provide something of value to everyone involved: our interns would have truly meaningful work and gain valuable experience; p:ear would receive additional funding in the summer months – a time notoriously difficult for fundraising; and the ThinkShout team would learn from, and be inspired by, our partners.</p>
+
+<p>What we ended up with was a living, breathing campaign that we see a future in, and we hope to revive ThinkShout Cares again to benefit another local organization impacting the community in which we work in and live.</p>
+]]>
+  </description>
+  <pubDate>Thu, 07 Sep 2017 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/09/thinkshout-cares-wrap-up/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/09/thinkshout-cares-wrap-up/</guid>
+</item>
+
+    
+      <item>
+  <title>The 2017 ThinkShout Summer Interns</title>
+  <description>
+    <![CDATA[<p>In 2015, in partnership with the Drupal Association, we hosted our <a href="https://thinkshout.com/blog/2015/06/meet-the-interns/">first ever summer internship program</a>. It was an incredible experience, one we hoped to repeat.</p>
+
+<p>We’re thrilled to announce that this year, we are welcoming three interns to the ThinkShout family for the summer.</p>
+
+<p>Two of our interns are joining us from the <a href="http://emergingleadersinternship.org/">Emerging Leaders Internship (ELI) program</a>, an organization committed to matching students from underrepresented communities with paid internships at top Portland companies. We’re thrilled to have this opportunity to provide these students with a chance to further develop their career skills.</p>
+
+<p>This summer, they’ll be working on a campaign to benefit our neighbors at <a href="http://pearmentor.org">p:ear</a>, a Portland nonprofit that provides creative mentorship to homeless youth. They’ll get to use their design and engineering chops to build a brand new site from the ground up. We can’t wait to see what they come up with. We’ll keep you updated on their progress and share more about how <em>you</em> can get involved too, so stay tuned!</p>
+
+<p>Now let’s meet our interns.</p>
+
+<h3 id="alejandro-meillon">Alejandro Meillon</h3>
+
+<p><img src="/assets/images/blog/alejandro.jpg" alt="alejandro.jpg" class="left thirty" /> Alejandro is our very first design intern! He’ll be working closely with our team to hone his web design skills on a variety of projects this summer. He’s fascinated by the power of the web and its many possibilites.</p>
+
+<p><strong>Favorite Planet</strong>: Neptune, since Neptune doesn’t seem quite so deadly to humans as the other planets.</p>
+
+<p><strong>Preferred Superpower</strong>: The ability to stop time, like how Hermione’s time turner works in Harry Potter.</p>
+
+<p><br /><br /></p>
+
+<h3 id="myisha-kinberg-cowan">Myisha Kinberg-Cowan</h3>
+
+<p><img src="/assets/images/blog/myisha2.jpg" alt="myisha2.jpg" class="left thirty" /> Myisha is one of two interns joining our engineering team this summer. Her focus is back end development. She enjoys the challenge that coding provides and is looking forward to learning how to utilize open source technologies.</p>
+
+<p><strong>Dream Trip</strong>: Haiti. I’m half Haitian, but I’m adopted and don’t know anything about the culture, and I’d like to know more about it.</p>
+
+<p><strong>Preferred Superpower</strong>: I’d like to have the ability to remove hate from our society.</p>
+
+<p><br /></p>
+<h3 id="katrina-hirsch">Katrina Hirsch</h3>
+
+<p><img src="/assets/images/blog/katrina.jpg" alt="katrina.jpg" class="left thirty" />Katrina has been coding for over twenty years and only just recently decided to change gears to make it a career. She’ll be focusing on front end engineering, and hopes to continue her journey toward mastering SaSS.</p>
+
+<p><strong>Favorite Planet</strong>: It’s not really a planet anymore, but Pluto. I like that it’s cold and dark, and it’s so small. I actually don’t know why I like those things about it.</p>
+
+<p><strong>Dream Trip</strong>: Japan. I have a lot on my list, but that’s one that’s the most unique. I’d love to take a solo trip to Tokyo.</p>
+
+<p><br /><br /></p>
+
+<p>We’re thrilled to be able to provide these three talented individuals with an opportunity to continue their education. We’ll update you on the cool projects they’ll be working on as the summer progresses — keep an eye out!</p>
+]]>
+  </description>
+  <pubDate>Mon, 26 Jun 2017 14:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2017/06/the-2017-thinkshout-interns/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/06/the-2017-thinkshout-interns/</guid>
+</item>
+
+    
+      <item>
+  <title>Going for Gold in Sustainability</title>
+  <description>
+    <![CDATA[<p>From the day ThinkShout was founded, we’ve strived to <a href="https://thinkshout.com/values/">improve local communities and have a more positive impact on the environment</a>. These values resonate with our team, our clients, and our partners. Historically, much of that positive impact has happened by working with mission-driven clients. It was a natural step to go beyond that and ensure our business practices are also in line with our values. That’s why <a href="https://thinkshout.com/blog/2015/08/our-road-to-bcorp/">we became a B Corp in 2015</a>.</p>
+
+<p>This year, as we began to work on re-certifying as a B Corp, we identified opportunities to improve our sustainability efforts. Not only is it the right thing to do, it can help us use our financial resources more efficiently and build a stable business that our team and clients can depend upon over time. Plus, our whole team was excited and ready to help out.</p>
+
+<h2 id="where-we-were">Where We Were</h2>
+<p>The good news is that thanks to the natural values and efforts of the team to date, we were already pretty sustainable. We learned this when we met with Genevieve Joplin with the City of Portland’s <a href="https://www.portlandoregon.gov/sustainabilityatwork/">Sustainability at Work program</a> (a great resource for any local organization). To begin the process of becoming certified through the Sustainability at Work program, we answered 61 questions about our business practices.</p>
+
+<p>As a digital business that doesn’t manufacture a physical product, we avoided some of the challenges that other businesses face in reducing waste. Specifically, we already:</p>
+
+<ul>
+  <li>Use very little paper</li>
+  <li>Clean with green products</li>
+  <li>Recycle, including light bulbs, batteries, and electronics</li>
+  <li>Bike, and take public transportation</li>
+  <li>Use natural light whenever possible</li>
+  <li>Avoid heavily-packaged food for snacks and catering</li>
+</ul>
+
+<p>Taken altogether, we were off to a great start.</p>
+
+<h2 id="our-goals">Our Goals</h2>
+<p>Pleased to see where we already were, we set ambitious goals:</p>
+
+<ul>
+  <li>Become certified at the Gold level as a sustainable business by the City of Portland.</li>
+  <li>Use the metrics established by the City to raise our environmental impact as measured in the B Corp Assessment.</li>
+</ul>
+
+<h2 id="whats-next">What’s Next</h2>
+<p>From composting to carbon offsets, smart power strips to bike repair kits, we had much to learn about improving our sustainability. Our next blog post will explore our efforts to meet our new goals. In the meantime, happy recycling!</p>
+]]>
+  </description>
+  <pubDate>Thu, 09 Feb 2017 06:00:00 -0500</pubDate>
+  <link>https://thinkshout.com/blog/2017/02/going-for-gold-in-sustainability/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2017/02/going-for-gold-in-sustainability/</guid>
+</item>
+
+    
+      <item>
+  <title>Civic Engagement at ThinkShout</title>
+  <description>
+    <![CDATA[<p>One of the defining characteristics of the ThinkShout team is our desire to use business as a force for good. It’s what inspires the team, drives our <a href="https://www.bcorporation.net/community/thinkshout-inc">B Corp status</a>, and draws clients and partners who share our values.</p>
+
+<p>This fall, there are many events taking place around the world that demand our attention and efforts, from the war in Syria to the drumbeat of concerns about climate change. But none, perhaps, combines the urgency and importance of the upcoming United States election, which will have a major impact on those issues and much, much, more. Luckily, unlike many of those other concerns, this one is easy to get involved in and have a direct impact.</p>
+
+<p>ThinkShout is proud to support our team spending up to a half day on various civic engagement efforts. Some quotes and actions taken by the team:</p>
+
+<ul>
+  <li>
+    <p>“I spent the afternoon with a colleague knocking on doors of registered voters. With the election right around the corner, it felt good to encourage my community to rock the vote - not only for the presidency, but down the ballot as well. It really is the boots-on-the-ground, face-to-face interactions that make all the difference during election seasons.”</p>
+  </li>
+  <li>
+    <p>“I called potential volunteers for Basic Rights Oregon to help elect their endorsed candidates who all support LGBTQ rights. I really appreciated that ThinkShout made this time available for us, because it’s hard to find time to do all the volunteering I’d like to do on the evenings and weekends. This has been one of the most demoralizing elections I’ve seen, and it really helps to take action to do something positive in our local community. For the Democratic Party canvassing, I went in a group with three other ThinkShout team members, which was a great team-building experience. Everyone that I talked to, both canvassing and phone banking, was responsive and supportive. I felt like I made a difference and ThinkShout made it possible.”</p>
+  </li>
+  <li>
+    <p>“I’m launching a project this week called <em>Hold Up, Bruh.</em> that encourages men to talk about and challenge behavior that leads to sexual assault. Seeing what’s become of our politics lately, I think it’s important for men specifically to take a stand on sexual harassment and sexual assault. All proceeds of the projects, which will eventually include t-shirt sales, will go directly to <a href="https://www.rainn.org/">rainn.org</a>.”</p>
+  </li>
+  <li>
+    <p>“My favorite part of knocking on doors to help a political campaign is feeling more connected to my community. People seem to appreciate that you are trying to help and are enthusiastic to show their support. While Portland is full of many like-minded folks, even in more mixed political areas I’ve always found people to be friendly and happy to share their thoughts. It makes you feel proud of our democratic process and the kindness of strangers.”</p>
+  </li>
+</ul>
+
+<p>I am honored to be able to work with a group of individuals so willing to dedicate themselves to making the world a better place. The least that ThinkShout can do is stay true to its values and leverage the business to have a positive impact, however small.</p>
+
+<p>I’ve heard it said that Democracy is a participatory sport. Go get in the game while you can!</p>
+]]>
+  </description>
+  <pubDate>Tue, 01 Nov 2016 05:30:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2016/11/civic-engagement/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2016/11/civic-engagement/</guid>
+</item>
+
+    
+      <item>
+  <title>Our Road to B Corp</title>
+  <description>
+    <![CDATA[<h3 id="what-is-a-b-corp-time-for-homework">What is a B Corp? Time For Homework###</h3>
+
+<p>Before ThinkShout, I’d never heard of a B Corp, but there it was, one of the  first projects I undertook upon my hire: “Get ThinkShout certified as a B Corp.”</p>
+
+<p>Educating myself was step one. I watched the video “<a href="https://www.youtube.com/watch?v=V-VFZUFJwt4&amp;feature=youtu.be">B the Change</a>,” read the book “<a href="https://www.bcorporation.net/handbook">The B Corp Handbook</a>” by Ryan Honeyman, and combed the <a href="www.bcorporation.net">www.bcorporation.net</a> website to get a better and deeper understanding of what this movement was all about. I was blown away!</p>
+
+<p>As stated on the site, “B Corps are certified by the nonprofit B Lab to meet rigorous standards of social and environmental performance, accountability, and transparency.” (We’ll get to the ‘rigorous’ part in a bit.) B Corp companies don’t want to be the best in the world - instead, they strive to be the best <em>for</em> the world. The change of that one word is transformative.</p>
+
+<p>I realized how meaningful the B Corp movement is and how it would transform our company by making it a better place for our employees, a better steward of community and the environment. It’s the trifecta of awesome - there’s something for everyone and it’s all a force for positive change.</p>
+
+<h3 id="getting-certified-capturing-the-data">Getting Certified: Capturing the Data###</h3>
+
+<p>In order to become certified as a B Corp, there’s a rigorous ‘Assessment’ process. Think of it like the final exam in the toughest class you’ve ever taken but you <em>have</em> to pass it in order to land your dream job. On the Assessment, a score of 80 out of a potential perfect 200 is considered passing. Don’t be fooled into thinking, “Only 80?!” A lot goes into the scoring process, and data is pulled from multiple areas: Human Resources, Building Management, Purchasing, Financials, Employee Benefits . . . it’s all gathered, compiled and scored.</p>
+
+<p>This assessment is <em>hard</em>. We’ve been in business for six years. During that time, we’ve experienced a significant amount of growth and change. Like many companies, we have policies, procedures, and values, but there wasn’t a consistent set of written procedures, or a practice of putting philosophies to paper. There was a general cultural ethos, but without it being written and <em>established</em>, we weren’t going to get points for it on the assessment.</p>
+
+<p>The Assessment is organized into 6 parts: Governance, Workers, Community, Environment, Impact Business Models, and a Disclosure Questionnaire. I haven’t counted how many questions there are, but if you print it out, it’s 35 pages. A typical question, “What percent of full time workers have participated in external professional development opportunities or lifelong learning opportunities (paid in advance, reimbursed or subsidized by the company) in the past fiscal year?” 35 pages of questions like this and reaching a score of 80 on our first Assessment starts to feel like more of a substantial accomplishment.</p>
+
+<p>Admittedly, it took the better part of a year to complete the Assessment, and if I had prepared better at the onset, that timeframe would have been much shorter and perhaps less stressful - although no less of an accomplishment!</p>
+
+<h3 id="it-could-have-been-better">It Could Have Been Better###</h3>
+
+<p>Because I was a new employee to ThinkShout, I wasn’t prepared to answer the kinds of questions required by the Assessment. By the time I put into place much of the infrastructure needed to complete the Assessment, I realized that the Assessment had already been started by my predecessor. Not knowing how she calculated some of the information was initially confusing, but it also encouraged me to dive deeper into the data. What ensued was about six months of reports, writing, and entering data into the Assessment until we were within range of the certification.</p>
+
+<p>Now that we’re certified, I can look back and think about how I could have better prepared for this process. Take my advice:</p>
+
+<ul>
+  <li>Study the assessment before actually starting it. Read it so you know what data you’ll need to gather. Use it as the guiding blueprint or playbook.</li>
+  <li>Read the book “<a href="https://www.bcorporation.net/handbook">The B Corp Handbook</a>” by Ryan Honeyman and take the guidance it offers.</li>
+  <li>Make a plan. Identify the ‘pre-work’ that needs to be done. For example, if you have a mission statement <em>that is documented</em>, points are earned. If it exists but isn’t documented, no points.</li>
+  <li>Identify key people. Who has the information you need? Who has the authority to make changes? Are there B Corp evangelists in the company, and are they available to help?
+What does it mean to you, and to employees?</li>
+</ul>
+
+<p>Becoming a B Corp changed my relationship with ThinkShout. It gave everything I do a deeper meaning. Now, for example, when considering employee benefits, our B Corp status is part of the equation. Are we taking the welfare of our employees into consideration when we make changes? When we consider office space, we think about the location and its proximity to public transportation. We think about the energy and water usage. It reminds us of <a href="http://thinkshout.com/blog/2015/08/becoming-a-bcorp/">our own values</a>: when we engage with a potential new client, we think about their own mission and what change <em>they</em> are making in the world.</p>
+
+<p>I’m proud that ThinkShout is a B Corp. When I’m talking with someone who is interested in working here, I can tell them about the B Corp certification and what it means. Almost immediately, we establish whether or not the B Corp message and mission aligns with their values.</p>
+
+<p>Shortly after we certified and announced it to the office, a new employee shared that she’d never worked for a company that made their employees and the community such a high priority. Yeah. That is amazing.</p>
+]]>
+  </description>
+  <pubDate>Fri, 07 Aug 2015 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/08/our-road-to-bcorp/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/08/our-road-to-bcorp/</guid>
+</item>
+
+    
+      <item>
+  <title>Being the Change - Becoming a B Corp</title>
+  <description>
+    <![CDATA[<p><img src="/assets/images/blog/thinkshout-bcorp-blog__2_.jpg" alt="thinkshout-bcorp.jpg" /></p>
+
+<p>When <a href="http://thinkshout.com/blog/2009/07/sean/why-thinkshout-why-now/">Sean</a> and <a href="http://thinkshout.com/blog/2011/01/lev/levs-take-new-thinkshout-inc/">I founded</a> ThinkShout in January of 2011, one of the first things we did was sit down and write the following Mission Statement:</p>
+
+<p><em>ThinkShout helps progressive organizations achieve their goals through web strategy and open source software. We treat our business and nonprofit clients as partners. Our motivation comes from knowing that they make the world a better place.</em></p>
+
+<p>This Mission Statement worked well for the two of us. Our focus was 100% on our clients. We had a tiny environmental footprint, as we were just two guys with laptops and rented desks. We had no staff, so we didn’t yet need to think about organizational culture. Our considerations of the workplace environment didn’t go much further than choosing Spotify channels in our tiny office. The bottom line is that we loved using open source technology to help nonprofits have a positive impact and in our early days, our mission, as well as many other things, just <em>worked</em>.</p>
+
+<p>In the ensuing years, we’ve been very fortunate and, well, haven’t made too much of a mess of things. We’ve connected with wonderful, forward-thinking <a href="http://thinkshout.com/work/">clients</a> who are, indeed, making the world a better place. We have a <a href="http://thinkshout.com/team/">team</a> of 21 talented, dedicated, and passionate individuals. And we’re still <a href="http://thinkshout.com/careers/">growing</a>. We have a clearly defined culture representing our values, and a gorgeous workplace to match. We laid a solid foundation for growth on top of a strong management team and cohesive organizational structure. Of course, apart from surrounding ourselves with great people, Sean and I are personally responsible for very little of all this.</p>
+
+<h3 id="staying-focused-through-growth">Staying Focused Through Growth###</h3>
+
+<p>As I often like to say, I have a completely new job every 6 months or so - which is a good thing. If Sean and I weren’t continually surprised, frustrated, and elated with the experience of building a company, we’d run the risk of losing our edge. New challenges are, after all, a prerequisite for new opportunities.</p>
+
+<p>Growth brings many challenges:</p>
+
+<ul>
+  <li>
+    <p>Larger projects with higher stakes.</p>
+  </li>
+  <li>
+    <p>A diverse team with varying work styles and needs.</p>
+  </li>
+  <li>
+    <p>A more complex organizational structure.</p>
+  </li>
+  <li>
+    <p>Nuanced financial decisions with far reaching implications.</p>
+  </li>
+</ul>
+
+<p>To put it more succinctly, there’s just a lot more going on! Consequently, we realized that we needed to put together a better system to make sure that our growing leadership team and our overall business stays on track with our original values and goals.</p>
+
+<p>So, we’ve made two strong investments this year. First, we embarked on a robust, 3-month strategic planning process culminating in a new missions, vision, and set of values. Second, we took the formal steps to become a “Beneficial Corporation” (or B Corp).</p>
+
+<h3 id="our-new-vision-mission-and-values-statements">Our New Vision, Mission, and Values Statements###</h3>
+
+<p><strong>Our Vision</strong> is to use technology and strategy to elevate organizations creating positive change in the world.</p>
+
+<p><strong>Our Mission</strong> is to craft compelling open source engagement solutions in partnership with forward-thinking clients.</p>
+
+<p>And our Corporate Values are the following:</p>
+
+<p><strong>Innovation:</strong> We embrace flexibility and creativity in the approaches we take to serve our clients and staff. We recognize that our success is supported through refinement of our processes.</p>
+
+<p><strong>Expertness:</strong> We bring proficiency and good judgement to problem solving, both internally and in serving clients. We are dedicated to being among the best at what we do, fostering a culture of continuous education and improvement.</p>
+
+<p><strong>Respect:</strong> We respect our clients as experts in their field and honor their missions and resources. We respect the individuality and diversity of our peers. We treat each other with respect and kindness, honoring the different but equally important contributions that we all make in service to our mission.</p>
+
+<p><strong>Helpfulness:</strong> We support the nonprofit and broader technology community through our open source contributions. We are committed to supporting our peers in their daily work and professional growth. We help organizations make the world a better place.</p>
+
+<p><strong>Sustainability:</strong> We are committed to building a stable business that our team and clients can depend upon over time. Through our business practices, values, and client engagements, we seek to improve local communities and to have a more positive impact on the environment.</p>
+
+<p>Circling back to our original Mission Statement at our founding, you’ll notice that at ThinkShout’s core, we hold the same values. However, our new Vision, Mission, and Values Statements provide us with a more complete framework. Specifically, they provide us with a roadmap for how we want to engage daily with our own team, our clients, and the larger world around us.</p>
+
+<h3 id="becoming-a-certified-b-corp">Becoming a Certified B Corp###</h3>
+
+<p>In addition to fleshing out our vision for the company, we worked hard this year to achieve <a href="https://www.bcorporation.net/community/thinkshout-inc">B Corp certification</a>. <a href="https://www.bcorporation.net/what-are-b-corps/the-non-profit-behind-b-corps">B Corp</a> represents both a framework and certification from the nonprofit B Lab, as well as a legal status in select states, with the goal of holding corporations accountable to society as well as shareholders.</p>
+
+<p>First, we made adjustments to the company’s articles of incorporation to ensure that “benefits to society” can be prioritized over increasing shareholder wealth in making financial decisions for ThinkShout. Technically speaking, without this change, as executives of a corporation, we are legally required to prioritize shareholder value over commitment to community and the environment.</p>
+
+<p>Second, and more importantly, B Corp certification provides us with guidelines, metrics, and a community of practice for all of the business decisions that we make in support of our team, our clients, our local community, and the environment. In other words, we now have a roadmap for continuing to make intentional choices that put people and the planet above profit.</p>
+
+<p>Taken together, our refined mission, vision, and values, and B Corp certification give us a framework to ensure that ThinkShout stays true to its roots, and that it continues to grow. Onward and upward!</p>
+]]>
+  </description>
+  <pubDate>Thu, 06 Aug 2015 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2015/08/becoming-a-bcorp/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2015/08/becoming-a-bcorp/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

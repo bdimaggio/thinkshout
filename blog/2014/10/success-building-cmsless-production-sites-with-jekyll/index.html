@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Success Building CMS-less Production Sites with Jekyll | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="The challenges and solutions of building a CMS-less site that can be managed by the layman.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Github, Jekyll, Ruby, Travis CI, nonprofit, nonprofit tech">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">10.14.2014</span>
+  
+  </p>
+
+  <h1 class="post-title">Success Building CMS-less Production Sites with Jekyll</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <p>As an organization that works primarily with nonprofits, ThinkShout is no stranger to the “small organization, big impact” problem. The problem is that small organizations have budgets commensurate with their size and goals, for which the sky is the limit.</p>
+
+<p>Resolving this problem requires acute awareness of how to build what is necessary to allow an organization to meet their goals. In other words, “how can we build everything this organization needs and nothing more?”</p>
+
+<p>When <a href="http://www.feedingtexas.org/">Feeding Texas</a> approached us to redesign their site, it became clear we could leverage both their small size <em>and</em> their large ambitions as “pros” for using <a href="http://jekyllrb.com/">Jekyll</a>. Feeding Texas works to provide food security to all Texans by coordinating a statewide network of food banks, initiating scalable public action that empowers Texans to solve their hunger problems collaboratively, and guiding the public conversation surrounding hunger in Texas. The site is designed to advance this work by first engaging visitors at a local level before leading them to connect with Feeding Texas in their state-wide effort to end hunger. By generating interest about hunger next door, Feeding Texas is able to motivate its constituents to do their part in resolving the larger issue at the heart of its mission.</p>
+
+<h3 id="why-jekyll-works-for-small-organizations-that-need-to-make-a-big-impact">Why Jekyll Works for Small Organizations That Need to Make a Big Impact</h3>
+<p>Feeding Texas has two characteristics shared by many small organizations:</p>
+
+<ol>
+  <li>Limited capacity to generate and update content</li>
+  <li>Need to appear as big as a BIG organization</li>
+</ol>
+
+<p>Jekyll is the glass slipper for this dilemma for two reasons:</p>
+
+<ol>
+  <li><strong>Large budget savings by not implementing an in-site CMS</strong> – a small content management team means relatively simple content management needs. There’s no reason to use a full-blown CMS like Wordpress or Drupal.</li>
+  <li><strong>Rapid development and excellent DOM control</strong> allowed the funds saved to be reinvested in the site’s visual presentation with maximum returns</li>
+</ol>
+
+<p>However, this left us with one big engineering question…</p>
+
+<h3 id="jekyll-has-no-cms-how-do-we-allow-non-technical-end-users-to-manage-content">Jekyll Has No CMS. How Do We Allow Non-Technical End Users to Manage Content!?</h3>
+
+<p>Our solution to this problem is multi-faceted…</p>
+
+<h4 id="github-for-content-management">GitHub for Content Management</h4>
+
+<p>Since all content for a Jekyll site is stored in text files (markdown, csv, HTML, etc.) all content can be managed from the GitHub interface. Alternatively, there are tools like <a href="http://prose.io">Prose</a> that are well-integrated with Jekyll and allow for a more robust content editing experience.</p>
+
+<h5 id="complex-content-management-with-simple-csv-inputs">Complex Content Management with Simple CSV Inputs</h5>
+<p>Tools like Github allow for simple updates like changing text on a page, but can also allow for complex content management as is the case with Feeding Texas’ <a href="http://www.feedingtexas.org/zip/78056/">zip-code detail pages</a>. These pages are generated from a CSV input that holds data for each zip code in Texas. The CSV file is processed when the site is built by a <a href="https://github.com/thinkshout/feeding-texas/blob/master/_plugins/csv_to_page.rb">custom Ruby plugin</a> that creates a page for each zip code. From a content management standpoint, this means Feeding Texas can update hundreds of pages in three simple steps:</p>
+
+<ol>
+  <li>Edit the CSV file with the preferred tool (Excel, etc.)</li>
+  <li>Copy and paste the contents of the file into the GitHub interface</li>
+  <li>Commit the updated file</li>
+</ol>
+
+<p>This commit then triggers a re-build of the site wherein each zip code detail page will contain the updated CSV data.</p>
+
+<h5 id="reusable-content-blocks">Reusable Content Blocks</h5>
+
+<p>Another popular content management concept that was difficult to implement in Jekyll until the 2.0.0 release was blocks of content that could be stored in a single place and used in multiple places around the site. <a href="http://jekyllrb.com/docs/collections/">Collections</a> made this much easier. On the Feeding Texas site, we created collections for several things ranging from <a href="http://www.feedingtexas.org/learn/communities/hunger-atlas/">calls to action (scroll to page bottom)</a> to <a href="http://www.feedingtexas.org/about/staff/">staff profiles</a> that can be placed anywhere on the site by specifying their index (where the index could be any YAML frontmatter variable). So, for example, if a Feeding Texas content manager wanted to create and use a new call to action block, they would do two things:</p>
+
+<ol>
+  <li>Create a markdown file for the block and include a frontmatter variable like this: <code class="highlighter-rouge">index: 1</code>.</li>
+  <li>Then to apply the new block to a page, they’d specify the block’s index as a frontmatter variable in the page’s markdown file like this:</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>calls_to_action:
+  - 1
+  - 2
+</code></pre></div></div>
+<p>…and our templates do the rest.</p>
+
+<h5 id="challenges-of-using-github-as-a-content-management-tool">Challenges of Using GitHub as a Content Management Tool</h5>
+<p>One difficulty of using GitHub for content management is there is no way to add image or video files through the GitHub interface. This is problematic because it is something content managers expect to be able to do, and we cannot simply add the files to the (compiled) live site directory (via FTP for example) because each commit triggers a wipe and a rebuild of said directory. To work around this problem, we created an Amazon S3 bucket dedicated to storing assets (images, videos, etc.) and reference the assets statically anywhere they need to be used on the site.</p>
+
+<p>As a side note, the site is also hosted on an S3 bucket and we did consider putting both S3 buckets behind a CDN, but ultimately decided this was not necessary. That said, it’d be a trivial way to increase site performance if we ever wanted a boost.</p>
+
+<p>Since assets are stored on a server that will persist, management of them becomes very straightforward. Feeding Texas uses S3’s built in file management UI (pictured below), but you could just as easily use <a href="http://panic.com/transmit/">Transmit</a> or any other FTP client.
+<img src="http://thinkshout.com/assets/images/blog/amazon-s3-file-mgmt-ui.png" alt="S3 file management UI" /></p>
+
+<h4 id="travis-ci-for-deployment">Travis CI for Deployment</h4>
+<p><a href="https://travis-ci.com">Travis</a> is a continuous integration platform that is tightly integrated with GitHub. With a <a href="https://github.com/thinkshout/feeding-texas/blob/master/.travis.yml">single configuration file</a>, we were able to set up a fully functional deployment workflow that includes a staging and a production site. A commit to a particular branch in GitHub triggers Travis to build and deploy the site automatically to a specified endpoint. So, for example, editing and committing a file in the <code class="highlighter-rouge">staging</code> branch triggers a deployment to the staging site whereas a commit to the <code class="highlighter-rouge">live</code> branch triggers a deployment to the live site. For a more in depth look at how to configure a deployment workflow like this, check out <a href="http://thinkshout.com/blog/2014/08/deployment-workflow-travis-jekyll-travis-s3/">Lev’s post on how we’re doing it for the ThinkShout site</a>.</p>
+
+<p>As an added bonus, we can leverage GitHub’s pull request feature as a content management tool. For example, a staff writer could create several pieces of content in the <code class="highlighter-rouge">staging</code> branch, and then bundle those commits into a pull request for their editor to approve and merge into the <code class="highlighter-rouge">live</code> branch.</p>
+
+<p>Our Travis configuration file also specifies tests to run before deploying a new build of the site, which prevents a bad commit from generating a broken site. Travis has several testing frameworks <a href="http://docs.travis-ci.com/user/gui-and-headless-browsers/">baked in</a>, but if those aren’t enough, you can also install tools via your Travis configuration file. We, for example, <a href="https://github.com/thinkshout/feeding-texas/blob/master/.travis.yml#L7">install CasperJS</a> for our tests.</p>
+
+<h3 id="we-did-it-a-cms-less-site-ready-for-production-use">We Did it! A CMS-Less Site Ready for Production Use!</h3>
+<p>Having thought our way around using a full-blown CMS, like Wordpress or Drupal provide, we got two big wins:</p>
+
+<ol>
+  <li><strong>A lightning-fast site</strong> – because Jekyll sites are static, all of the “heavy lifting” is done when the site is being generated; no database calls or logic layer to slow things down. Also, no in-site CMS!</li>
+  <li><strong>More time to spend making the site look like a million dollar project</strong> – because we spared ourselves the time it would have taken to configure a CMS, we were able to spend it integrating neat JavaScript like the maps and charts you see on <a href="http://www.feedingtexas.org/zip/78056/">zip code detail pages</a>.</li>
+</ol>
+
+<p>I’m looking forward to building more Jekyll sites and am personally thrilled we devised a way to leverage its strengths to work in cooperation with the needs of our nonprofit client base.</p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Github.' href='/blog/category/github/'>Github</a> <a class='tag' rel='tag category' title='View all posts tagged Jekyll.' href='/blog/category/jekyll/'>Jekyll</a> <a class='tag' rel='tag category' title='View all posts tagged Ruby.' href='/blog/category/ruby/'>Ruby</a> <a class='tag' rel='tag category' title='View all posts tagged Travis CI.' href='/blog/category/travis-ci/'>Travis CI</a> <a class='tag' rel='tag category' title='View all posts tagged nonprofit.' href='/blog/category/nonprofit/'>nonprofit</a> <a class='tag' rel='tag category' title='View all posts tagged nonprofit tech.' href='/blog/category/nonprofit-tech/'>nonprofit tech</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2014/10/success-building-cmsless-production-sites-with-jekyll/';
+    this.page.identifier = '/blog/2014/10/success-building-cmsless-production-sites-with-jekyll';
+    this.page.title = 'Success Building CMS-less Production Sites with Jekyll'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2014/10/getting-started-with-behat/"><span class="fa fa-caret-left"></span> <span>Getting Started with Behat</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2014/10/badcamp-2014/"><span>It's a Good Time to Go to BADCamp</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>

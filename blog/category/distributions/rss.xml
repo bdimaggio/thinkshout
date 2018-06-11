@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkShout</title>
+    <description>ThinkShout - We provide web strategy and open source technology to forward-thinking organizations.</description>
+    <link>https://thinkshout.com</link>
+    <atom:link href="https://thinkshout.com/blog/category/distributions/rss.xml/rss.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+  <title>Launching 17 Drupal websites on a single distribution, hosted on Pantheon</title>
+  <description>
+    <![CDATA[<h2 id="the-challenge-to-build-a-flexible-integrated-cms--crm-solution-for-repeat-deployment">The challenge: To build a flexible, integrated CMS &amp; CRM solution for repeat deployment</h2>
+
+<p><a href="http://givingforum.org">The Forum of Regional Associations of Grantmakers</a>, a national network that supports and strengthens regional associations in their promotion of effective philanthropy to improve lives in their communities, consists of 34 geographically-based professional associations, each staffed by one to twenty+ people. Seventeen associations share a common technology platform. The Forum wanted to move away from a very custom content management solution and CRM to something more open and flexible. The associations chose Drupal for CMS, Salesforce for CRM, and ThinkShout to build the distribution, including the integration code for syncing Drupal with Salesforce. (Jackson River developed the Salesforce managed package.)</p>
+
+<h2 id="why-we-considered-drupal-multisite--but-advised-against-it">Why we considered Drupal multisite — but advised against it</h2>
+
+<p>Initially, we did consider going with Multisite. Two things kept us from recommending it for this particular client:</p>
+
+<ol>
+  <li>Hard to customize. All 17 websites would be using the same codebase. It’s hard to manage that many customizations, and to pull in customizations across that many websites.</li>
+  <li>Risky to update. Things can become quite fragile with Multisite, even in testing. If you screw up, you can take down 17 websites with just one click.</li>
+</ol>
+
+<p>Ultimately, we recommended the <a href="https://www.getpantheon.com/">Pantheon</a> Zeus platform.</p>
+
+<h2 id="why-pantheon-zeus">Why Pantheon Zeus?</h2>
+
+<p>We recommended Zeus for a few reasons:</p>
+
+<ol>
+  <li>One shared distribution. Pantheon is the only solution that allows a network of nonprofits to roll out a shared Drupal distribution. There are other ways to deploy and manage multiple websites running on a shared distribution — <a href="http://www.aegirproject.org/">Aegir</a>, for example, but Aegir can be difficult to deploy and maintain. Pantheon’s managed distribution tools are unbelievable. Without Zeus, we’d need to do another 100 hours of custom development operations. There’s nothing else on the market like it, period.</li>
+  <li>Ease of updates and spinning up new sites. It’s also easy to merge specific distribution updates with custom work on a given instance.</li>
+  <li>High value. The out-of-the-box performance is really high compared to other offerings. Also, the pricing is significantly more competitive. The total cost of ownership on these sites is lower, too, because of the infrastructure Pantheon provides. I tell my clients they can’t just look at line items when they’re evaluating their options. They have to look at how it reduces development costs and streamlines support over time.</li>
+  <li>Responsive service. Zeus comes with a top-notch service level agreement. Other providers don’t always respond if you’re not on their highest-level plan. I’ve noticed that Pantheon treats their nonprofit clients the exact same way they treat everyone else. They’ve always been accessible and open to our feedback.</li>
+  <li>Easier to customize. As a development shop, our goal is to build really custom, beautiful sites that are unique to each client. Because we have a lower-level feature set, all our clients need customizations, and we need Zeus. Zeus allows us to easily merge new features and custom code in and out. It’s better than anything else out there.</li>
+</ol>
+
+<h2 id="the-solution">The solution</h2>
+
+<ol>
+  <li>AN OUT-OF-THE-BOX DRUPAL DISTRIBUTION. We built a robust Drupal distribution offering significant functionality out of the box to every regional association, significantly reducing customization costs. Now each regional association has a common starting point and feature set, which can be extended to meet any unique needs.</li>
+  <li>SALESFORCE INTEGRATION. Anyone with site-building skills can sync any Salesforce object with any Drupal entity. The distribution has a starting point for mappings, which are easy to change and customize. If an association wants to use the tools in its shared Salesforce template, it can roll out a version of the Salesforce package, spin up the distribution on Pantheon, then work with us or any other vendor to customize the package. ThinkShout also released a completely new version of the Salesforce integration suite for this project.</li>
+  <li>A DISTRIBUTED RESOURCE LIBRARY. Having Pantheon allowed us to build a distributed resource library so each regional association can share resources for grantmakers directly with their colleague associations. The Forum anticipates a resource library of over 4,000 pieces of content that will grow over time. We’re using Apache Solr to index the content.</li>
+</ol>
+
+<p>Most of the sites are in staging right now, while others are slated to launch within the next 3 to 6 months.</p>
+
+<p>This fall, we’ll also roll out a feature that lets associations create their own public and private membership directory landing pages — without having to write new code.</p>
+
+<h2 id="any-hiccups">Any hiccups?</h2>
+
+<p>Our client knew they were early adopters of Zeus, and they were the first non-developers to deploy sites on Zeus. There have been some bumps along the road, but it’s easy to accept that things are new when Pantheon has such a high level of accountability. The team at Pantheon has been very attentive to our feedback, and quick to make reasonable changes to the platform to meet our client’s needs.</p>
+
+<h2 id="the-outcome-innovation-made-simple">The outcome: Innovation made simple</h2>
+
+<p>Pantheon is the only tool that allows our clients to roll out websites one at a time by themselves, without needing to rely on us for feature and site deployments. If an association decides to launch, it has all the tools in hand to do that, without touching any code. That’s pretty unique.</p>
+
+<p>Each regional association can also manage its own customizations or pull in new innovations to give back to its distribution. For example, three regional associations can team up to develop and build a new feature, to be shared with all the other associations.</p>
+
+<p>The Zeus architecture makes it easy for us to take the code that powers new features, and roll it back into our distribution. Once we’re ready to push these changes upstream into the Zeus git repository, regional association website managers can log in, pull down the new functionality we’ve built, test it using Pantheon’s development workflow and tools, then deploy with two clicks. The interfaces for managing the three environments are very intuitive. It was easy to train our clients on how to manage code through the admin console.</p>
+]]>
+  </description>
+  <pubDate>Mon, 12 Aug 2013 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2013/08/distribution-hosting-with-pantheon/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2013/08/distribution-hosting-with-pantheon/</guid>
+</item>
+
+    
+      <item>
+  <title>Watershed Now! released!! (For geeks)</title>
+  <description>
+    <![CDATA[<p>Hey geeks, meet <a href="http://drupal.org/project/watershednow" target="_blank">Watershed Now!</a>, our first Drupal distribution.</p>
+
+<p>You can read our <a href="http://thinkshout.com/blog/2010/09/sean/watershed-now-released-non-geeks">non-geek post</a> to learn more about what Watershed Now! does. <em>What Watershed Now! is</em> is a Drupal 6.x installation profile coupled with a few custom modules, a few custom parent-child themes, and some nifty <a href="http://drupal.org/project/features" target="_blank">features</a>. We literally just tagged our first <a href="http://github.com/thinkshout/watershednow/tree/v0.1" target="_blank">0.1 release</a> of Watershed Now! on GitHub this morning. It’s buggy and incomplete - but it’s just good enough that we are going to use this tag as the starting point for one of our customers - and in doing so we will drop the cost of development for the site by 300%, while increasing our own profitability on the project.</p>
+
+<h2>Building Drupal Distributions</h2>
+
+<p>Our experience using the usual suspects for building Drupal distros (<a href="http://drupal.org/node/159730" target="_blank">installation profiles</a>, <a href="http://drupal.org/project/context" target="_blank">context</a>, <a href="http://drupal.org/project/boxes" target="_blank">boxes</a>, <a href="http://drupal.org/project/ctools" target="_blank">ctools</a>, <a href="http://drupal.org/project/strongarm" target="_blank">strongarm</a>, and <a href="http://drupal.org/project/features" target="_blank">features</a>) has been interesting to say the least. Features in particular has made a lot of codifying config easy, while also resulting in a lot of little headaches working around niggly bits of config that just don’t want to make there way into code (<a href="http://drupal.org/project/wysiwyg_imagefield" target="_blank">WYSIWYG imagefield</a> settings on an imagefield cck field being one of those little bits that just doesn’t want to work for me this morning…). Avoiding circular dependences between features that interact with each other or share/compete for strongarm settings has also been a bit of a challenge. All of this is new and there just doesn’t seem to be a definitive best practice to fall back on when cobbling everything together.</p>
+
+<p>In terms of writing installation profiles, reading through <a href="http://developmentseed.org" target="_blank">Development Seed’s</a> .profile files for <a href="http://github.com/developmentseed/openatrium_dev/blob/master/openatrium.profile" target="_blank">OpenAtrium</a> and <a href="http://managingnews.com/download" target="_blank">Managing News</a> has been tremendously helpful, as has been taking advantage of Boris Mann’s <a href="http://drupal.org/project/install_profile_api" target="_blank">Install Profile API</a> module - which provides a host of API calls for creating/manipulating nodes, user accounts, roles, permissions, menus, taxonomies, etc., on build.</p>
+
+<h2>Continuous Integration - The Next Step</h2>
+
+<p>Our next step in this adventure will be to start using <a href="http://hudson-ci.org/" target="_blank">Hudson</a> for continuous integration of the distro’s build process. (We learned a ton from this <a href="http://www.slideshare.net/smerrill/continuous-integration-and-drupal" target="_blank">screencast</a>.) Hopefully we’ll get to the point soon where we can afford to automate our testing of the distro with <a href="http://drupal.org/project/simpletest" target="_blank">SimpleTest</a>. But for now, we’ll be using Hudson on a testing server to perform scratch builds on a GitHub commit hook - which will save us hours of starting at Drupal install screens locally every time we want to test changes to our installation process.</p>
+
+<p>Admittedly, we’ve got a bit more work to go with Hudson. Setting it up to work with Drush is actually a pretty easy process on Ubuntu (our preferred distro), as Hudson (which runs on a Java server) can be installed via .deb package management. But the process and configuration of all these tools isn’t the best documented yet (we wanta help change that…) and takes research and a lot of trial and error. And as far as we call tell, the best if not only way to run an installation profile via Drush at the command line in D6.x is to install <a href="http://groups.drupal.org/hostmaster2" target="_blank">Aegir</a> and leverage it’s backend, <a href="http://drupal.org/project/provision" target="_blank">Provision</a>. (Drush for D7.x provides a simple “installsite” command that cuts out this step.)</p>
+
+<h2>Our Current Thinking on Service Companies Releasing Open Source "Products"</h2>
+
+<p>We’ve taken a lot of inspiration from Development Seed’s writing on the concept of <em><a href="http://developmentseed.org/blog/2010/mar/12/sxsw-selling-your-milk-when-cow-free" target="_blank">How to sell your milk when the cow is free</a></em>. As a smaller Drupal shop, I don’t know if/when building a targeted Drupal release for a niche nonprofit vertical like watershed conservation will actually make us more profitable financially. This summer we’ve invested well over a hundred unbillable hours abstracting out tools that we’ve been building for river conservation clients. We’ve got at least another 200 hours of polish before Watershed Now is a point-and-click installation even remotely comparable to Managing News. And then we’ve got to consider the marketing hours (like this blog post) and the support time that keeping this project going will take.</p>
+
+<p>There is risk and significant opportunity costs for us in this project. But having done “the consulting thing” for ten years and having built fifty-plus Drupal websites for nonprofits over the last 5 years, I’m personally excited about creating this opportunity to invest in making something on the web consistently better, the opportunity to continually explore what’s possible for my heroes in the conservation movement, and the opportunity to reduce the costs of technology so that ThinkShout can sustainably reach more organizations out there on the front lines of advocacy and community improvement.</p>
+]]>
+  </description>
+  <pubDate>Wed, 01 Sep 2010 00:00:00 -0400</pubDate>
+  <link>https://thinkshout.com/blog/2010/09/sean/watershed-now-released-geeks/</link>
+  <guid isPermaLink="true">https://thinkshout.com/blog/2010/09/sean/watershed-now-released-geeks/</guid>
+</item>
+
+    
+
+  </channel>
+</rss>

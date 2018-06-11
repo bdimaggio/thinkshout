@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <title>Chimpfestation, A Closer Look at the New MailChimp Module | ThinkShout</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=0.5 maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  
+  <meta name="description" content="There are plenty of features to go ape for in our latest beta release of the MailChimp Module.">
+
+  <!-- Social Media Metatags -->
+  
+  <meta property="og:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  <meta name="twitter:image" content="https://thinkshout.com/assets/images/ts_icon.jpg">
+  
+
+  
+  <meta name="keywords" content="Drupal Give, Drupal Planet, MailChimp, email marketing, modules">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6630094/7238952/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/MyFontsWebfontsKit.css" />
+
+  <link rel="shortcut icon" href="/assets/images/assets/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="no title" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=2018-06-11.11.49.44" />
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="ThinkShout Feed" href="/rss.xml" />
+</head>
+<body class="blog-post">
+
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <div class="header-logo">
+      <a href="/">
+        <img src="/assets/images/ts_redesign/ts-logo-full.png" alt="ThinkShout logo" />
+      </a>
+    </div>
+
+    <a class="mobile-menu-icon">
+      <div>
+        <span aria-hidden="false">Menu</span>
+      </div>
+    </a>
+
+		<nav>
+			<ul class="main-menu">
+        
+          
+            <li><a href="/work/">Our Work</a></li>
+          
+        
+          
+            <li><a href="/services/">Services</a></li>
+          
+        
+          
+            <li><a href="/values/">Values</a></li>
+          
+        
+          
+            <li><a href="/team/">Team</a></li>
+          
+        
+          
+            <li><a href="/blog/">Blog</a></li>
+          
+        
+          
+        
+          
+        
+			</ul>
+		</nav>
+	</div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="blog-header">
+  
+
+  <p><span class="date">05.27.2014</span>
+  
+  </p>
+
+  <h1 class="post-title">Chimpfestation, A Closer Look at the New MailChimp Module</h1>
+  <p class="byline">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <img class="team-photo" src="/assets/images/team/small/gabe.jpg">
+    
+      <a class="team-name" href="/team/gabe/">Gabe Carleton-Barnes</a>
+    <br>
+      Director of Engineering
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </p>
+</div>
+
+
+
+
+
+<section class="body">
+  <h2 id="your-basic-monkey">Your Basic Monkey</h2>
+
+<p>A few weeks ago, we released <a href="https://drupal.org/node/2260305">the initial beta of the 3.x version of the MailChimp Module</a> on Drupal.org. The third major revision of the MailChimp Module for Drupal 7 is actually the fifth major revision of the module, including two versions for Drupal 6. ThinkShout Partner <a href="http://thinkshout.com/team/lev/">Lev Tsypin</a> rolled the first release in January of 2008, and the first version of the project page included a little information about his goals for the module:</p>
+<blockquote>
+  <p>Right now, I am focusing on 3 types of integration:</p>
+</blockquote>
+
+<blockquote>
+  <ol>
+    <li>Using hook_user to maintain a members list in MailChimp.</li>
+    <li>Having an opt in field in the user profile which uses one of the MC merge fields to allow for segmenting the members into those who want to receive communications.</li>
+    <li>Having an anonymous sign up form to enroll users in a general newsletter.</li>
+  </ol>
+</blockquote>
+
+<p>The module (and the project page!) have both come a long way since then, but the functionality described in that initial post has remained the core of the module through each version: <em>anonymous signup forms</em> and <em>authenticated subscription control</em> describe the core use cases that have resulted in over 15,000 installs. Sure, there’s campaign integration, activity reporting, and all sorts of bells and whistles around list and subscription management, but anonymous signup forms and user-based subscription control have always been the bread and butter.</p>
+
+<h2 id="identity-crisis">Identity Crisis</h2>
+
+<p>Building on the success of the MailChimp module, ThinkShout has made the contribution of robust, useful Drupal modules a core part of our business. In building <a href="https://drupal.org/project/registration">Entity Registration</a>, <a href="https://drupal.org/project/redhen">RedHen</a>, <a href="https://drupal.org/project/salesforce">Salesforce v3</a>, <a href="https://drupal.org/project/leaflet">Leaflet</a>, and a bunch of other great modules, we’ve often leveraged Drupal 7’s Entity and Field systems to make our tools as versatile and abstract as possible, allowing for any imaginable use-case.</p>
+
+<p>We had a bit of a wake-up call when one of our favorite clients, <a href="http://www.salmonlove.com/">The Salmon Project</a>, asked us to integrate their fancy new RedHen CRM directly with MailChimp. Integrating RedHen Contact Entities doesn’t actually match up with either of these: <em>anonymous signup forms</em> and <em>authenticated subscription control</em>.</p>
+
+<p>It was time to bring ThinkShout’s signature versatility and abstraction to ThinkShout’s signature module.</p>
+
+<h2 id="monkeys-everywhere">Monkeys Everywhere!</h2>
+
+<p>The first thing we did was de-couple the configuration of anonymous signup forms and authenticated subscription control. The MailChimp Lists configuration UI had grown into a bit of a monster: it included 16 separate options, not counting merge field sync settings, ranging from the <strong>submit button label</strong> (on the signup form) to the <strong>roles allowed</strong> (to access the list on user configuration pages). For version 3, rather than framing everything around each list, we broke things out by their Drupal-side functionality:</p>
+
+<ol>
+  <li>The Signup Module was created for generating anonymous list signup forms.</li>
+  <li>The List Module now provides a field type: “MailChimp Subscription”, which, modeled on Entity Registration’s successful architecture, leverages Drupal’s Field API to allow any entity to become an independently-controlled MailChimp list subscriber.</li>
+</ol>
+
+<p>What does this mean? If all you need to do is generate some anonymous subscription blocks or pages, the MailChimp Signup module has you covered. Just enable it, go to the “Signup Forms” tab in the MailChimp Admin UI, and create a signup! The UI lets you generate blocks or pages easily, include one or more lists on each form, pick which merge fields to include, and voila!</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/signup_ui.png" alt="signup_ui.png" /></p>
+
+<p>If, however, you want to subscribe some type of entity to a MailChimp List (like a user, say, or a RedHen contact), you can now do that lickity-split using Field UI:</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/field_type.png" alt="field_type.png" /></p>
+
+<p>This handy MailChimp Signup field will insist on being tied to one of your MailChimp lists. Once that’s done, you can configure instances of this field like you would any other Drupal field. It will automatically pull in the available Merge Fields and let you select which properties or fields from the entity you want to push into these fields:
+<img src="http://thinkshout.com/assets/images/blog/field_instance_config.png" alt="field_instance_config.png" />
+Want to default your entity to be subscribed to the list? Use field UI’s built-in configuration options. Use field display options to hide the field if you want to, or display it as a form right on the entity.</p>
+
+<p>Do you want to get the old role-based subscription behavior? Easily done with a field on your user bundle and a simple rule or two! We’ve included the <a href="http://cgit.drupalcode.org/mailchimp/tree/modules/mailchimp_lists/mailchimp_lists.rules.inc?h=7.x-3.x">custom rules actions</a> you need, and there’s even an example rule in the <a href="http://cgit.drupalcode.org/mailchimp/tree/modules/mailchimp_lists/README.txt?h=7.x-3.x#n36">README</a> file in the MailChimp Lists submodule.</p>
+
+<p>What this all boils down to is do what you want! You can MailChimp-ify any entity on your site with an email address in under 5 minutes. So go ape!</p>
+
+<h2 id="peeling-away-campaign-complexity">Peeling Away Campaign Complexity</h2>
+
+<p>ThinkShouter <a href="http://thinkshout.com/team/dan/">Dan Ruscoe</a> brought huge improvement to the Campaign module, including the ability to send to list segments from directly within Drupal and some awesome UI improvements. We have long offered the ability to pull site content into campaigns, but you had to come up with the exact token for the content on your own: not the simplest task, especially if you have a non-developer creating your campaigns.</p>
+
+<p>Now? A simple drop-down interface generates the token for you. Create a view mode for your entity types specifically for use in campaigns, or re-use an existing view mode. Just select your content type, the view mode, and search by title, and the module generates the token. Pop it into your campaign anywhere you want.</p>
+
+<p><img src="http://thinkshout.com/assets/images/blog/site_content_embed_ui.png" alt="site_content_embed_ui.png" /></p>
+
+<p>We also added a handy mergefield key selector patterned after the Token UI.
+<img src="http://thinkshout.com/assets/images/blog/merge_vars_ui.png" alt="merge_vars_ui.png" /></p>
+
+<h2 id="other-evolutions">Other Evolutions</h2>
+
+<p>We didn’t stop with fancy configuration options. Heck, we didn’t <em>start</em> with fancy configuration options. The goofs at MailChimp HQ released the 2.0 version of their API, and we wouldn’t want you using that Late Pleistocene 1.x nonsense, so we re-wrote the entire core of the MailChimp Module to leverage the new API. While we were at it, we re-wrote the asyncronous functionality to make it much simpler and less error-prone. It may not be easy enough for a chimp to understand quite yet, but it’s certainly more tolerant of a little monkeying.</p>
+
+<h2 id="climb-aboard">Climb Aboard!</h2>
+
+<p>You can download the <a href="https://drupal.org/project/mailchimp">MailChimp Module 7.x-3.0 beta</a> now. We’re already using it on a few sites and it’s working great. So give it a try and let us know what you think!</p>
+
+
+  
+    
+      <div class="blog-cta">
+        <div class="text">
+          <h3>Get In Touch</h3>
+          <p><p>Questions? Comments? We want to know! Drop us a line and let’s start talking.</p>
+</p>
+          <a href="https://thinkshout.com/contact/" class="uppercase-link">Learn More<i class="fa fa-caret-right"></i></a>
+        </div>
+
+        
+        <div class="image">
+          <img src="/assets/images/ts_redesign/cta/portland-waterfront-cta.jpg" alt="Get In Touch">
+        </div>
+        
+      </div>
+      
+
+  
+    <div class="tags">
+      <span class="tag-label">Tags:</span>
+      <a class='tag' rel='tag category' title='View all posts tagged Drupal Give.' href='/blog/category/drupal-give/'>Drupal Give</a> <a class='tag' rel='tag category' title='View all posts tagged Drupal Planet.' href='/blog/category/drupal-planet/'>Drupal Planet</a> <a class='tag' rel='tag category' title='View all posts tagged MailChimp.' href='/blog/category/mailchimp/'>MailChimp</a> <a class='tag' rel='tag category' title='View all posts tagged email marketing.' href='/blog/category/email-marketing/'>email marketing</a> <a class='tag' rel='tag category' title='View all posts tagged modules.' href='/blog/category/modules/'>modules</a>
+    </div>
+  
+
+
+  
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = 'https://thinkshout.com/blog/2014/05/chimpfestation/';
+    this.page.identifier = '/blog/2014/05/chimpfestation';
+    this.page.title = 'Chimpfestation, A Closer Look at the New MailChimp Module'
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+
+  s.src = '//thinkshout.disqus.com/embed.js';
+
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</section>
+
+<div class="pagination">
+  
+    <div class="previous">
+      <a href="/blog/2014/05/commerce-iats-2-0/"><span class="fa fa-caret-left"></span> <span>Commerce iATS 2.0</span></a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/blog/2014/05/drupalcon-2014/"><span>Meet the ThinkShout Team at DrupalCon Austin</span> <span class="fa fa-caret-right"></span></a>
+    </div>
+  
+</div>
+
+
+
+
+
+  </div>
+
+  <!-- Footer -->
+  <div class="newsletter-block">
+  <div class="container">
+    <div class="newsletter-info">
+      <h1>Get Our Email Newsletter</h1>
+      <p>
+        Cutting edge solutions, strategies, and updates from industry
+        thought-leaders, delivered right to your inbox.
+      </p>
+
+      <form id="mc-embedded-subscribe-form" action="//thinkshout.us1.list-manage.com/subscribe/post?u=2ec82d6db8eeef3d5b33b762e&amp;id=e85720354e" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <input type="email" placeholder="your email address" name="EMAIL" id="mce-EMAIL" required>
+        <button type="submit">submit<i class="fa fa-caret-right"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container">
+  	<nav class="footer-menu">
+      <ul class="main-menu-footer">
+        
+        <li>
+          <a href="/work/">Our Work</a>
+          
+        </li>
+        
+        <li>
+          <a href="/services/">Services</a>
+          
+            <ul class="footer-submenu">
+            
+              <li>
+                <a href="/services/digital-strategy/">Digital Strategy</a>
+              </li>
+            
+              <li>
+                <a href="/services/design/">Design & UX</a>
+              </li>
+            
+              <li>
+                <a href="/services/digital-ecosystem/">Digital Ecosystem</a>
+              </li>
+            
+              <li>
+                <a href="/services/development/">Development</a>
+              </li>
+            
+            </ul>
+          
+        </li>
+        
+        <li>
+          <a href="/values/">Values</a>
+          
+        </li>
+        
+        <li>
+          <a href="/team/">Team</a>
+          
+        </li>
+        
+        <li>
+          <a href="/blog/">Blog</a>
+          
+        </li>
+        
+        <li>
+          <a href="/contact/">Connect With Us</a>
+          
+        </li>
+        
+        <li>
+          <a href="/careers/">Careers</a>
+          
+        </li>
+        
+      </ul>
+  	</nav>
+
+    <div class="bcorp-logo">
+      
+      
+        
+          <a href="https://www.bcorporation.net/community/thinkshout-inc" target="_blank">
+            <img src="/assets/images/ts_redesign/bcorp.png" alt="bcorp logo" />
+          </a>
+        
+      
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-media">
+        <ul>
+          
+            <li>
+              <a href="http://www.facebook.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.twitter.com/ThinkShout" target="_blank">
+                <img src="/assets/images/ts_redesign/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="copyright">
+        &copy;2018 ThinkShout, Inc. ThinkShout and the ThinkShout logos are registered trademarks of ThinkShout, Inc.
+        
+        
+          
+            <a href="/privacy/">Privacy Policy</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.matchHeight.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9743130-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</body>
+</html>
